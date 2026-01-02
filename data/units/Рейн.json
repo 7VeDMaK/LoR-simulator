@@ -1,0 +1,118 @@
+{
+    "name": "Рейн",
+    "level": 20,
+    "rank": 8,
+    "avatar": "data/avatars/Рейн.png",
+    "base_intellect": 6,
+    "total_xp": 786432,
+    "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+    },
+    "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+    },
+    "deck": [
+        "обычный_удар_0c4d",
+        "подставить_руку_3337",
+        "удачное_стечение_обстоятельств_412d",
+        "изничтожение_b1d1",
+        "подставить_лицо_bda4",
+        "зиккурат_1bbd",
+        "жатва_2513",
+        "зиккурат_f8b4",
+        "удар_фартуны_9a8b"
+    ],
+    "base_stats": {
+        "current_hp": 148,
+        "current_sp": 0,
+        "current_stagger": 75
+    },
+    "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "hp_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "stagger_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "weapon_id": "cleaver_7"
+    },
+    "card_cooldowns": {
+        "зиккурат_f8b4": 1
+    },
+    "attributes": {
+        "strength": 0,
+        "endurance": 22,
+        "agility": 1,
+        "wisdom": 0,
+        "psych": 21
+    },
+    "skills": {
+        "strike_power": 0,
+        "medicine": 4,
+        "willpower": 2,
+        "luck": 55,
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 0,
+        "speed": 15,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+    },
+    "passives": [],
+    "talents": [
+        "keep_it_together",
+        "center_of_balance"
+    ],
+    "level_rolls": {
+        "3": {
+            "hp": 4,
+            "sp": 1
+        },
+        "6": {
+            "hp": 5,
+            "sp": 3
+        },
+        "9": {
+            "hp": 2,
+            "sp": 2
+        },
+        "12": {
+            "hp": 2,
+            "sp": 2
+        },
+        "15": {
+            "hp": 1,
+            "sp": 2
+        },
+        "18": {
+            "hp": 4,
+            "sp": 2
+        }
+    },
+    "cooldowns": {},
+    "active_buffs": {},
+    "resources": {
+        "luck": 124
+    },
+    "biography": "",
+    "money_log": []
+}
