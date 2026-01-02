@@ -123,3 +123,44 @@ class ClarityStatus(StatusEffect):
     def on_turn_end(self, unit, stack) -> list[str]:
         return [] # Не исчезает сам по себе (duration 99)
 
+
+class EnrageTrackerStatus(StatusEffect):
+    id = "enrage_tracker"
+
+    def on_take_damage(self, unit, amount, dmg_type, log_func=None):
+        if amount > 0:
+            # 1 урона = 1 силы
+            unit.add_status("strength", amount,
+                            duration=2)  # На этот и следующий ход (или duration=1 если только на следующий)
+            if log_func:
+                log_func(f"😡 **Разозлить**: Получено {amount} урона -> +{amount} Силы!")
+
+    def on_turn_end(self, unit, stack) -> list[str]:
+        return []  # Исчезает сам по duration
+
+
+class InvisibilityStatus(StatusEffect):
+    id = "invisibility"
+
+    def on_roll(self, ctx: RollContext, stack: int):
+        # Если Азгик атакует - невидимость спадает
+        # Проверяем, что это не защитный кубик
+        if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
+            ctx.source.remove_status("invisibility", 999)
+            ctx.log.append("👻 **Невидимость**: Раскрыт после атаки!")
+
+    def on_turn_end(self, unit, stack) -> list[str]:
+        return ["👻 Невидимость рассеялась."]
+
+
+class WeaknessStatus(StatusEffect):
+    id = "weakness"
+
+    # Логика увеличения урона должна быть прописана в damage.py
+    # Либо этот статус просто наследует Vulnerability, если движок это позволяет,
+    # но лучше прописать явно в damage.py
+
+    def on_turn_end(self, unit, stack) -> list[str]:
+        # Уменьшаем стаки на 1 в конце хода (или снимаем все, как решите)
+        unit.remove_status("weakness", 1)
+        return ["🔻 Слабость уменьшилась (-1)"]

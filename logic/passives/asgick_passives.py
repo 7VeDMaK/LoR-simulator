@@ -86,7 +86,7 @@ class PassiveWitnessOfGroGoroth(BasePassive):
         # Список распространяемых баффов
         POSITIVE_BUFFS = [
             "strength", "haste", "endurance", "protection",
-            "dmg_up", "power_up", "clash_power_up"
+            "dmg_up", "power_up", "clash_power_up", "invisibility"
         ]
 
         if status_id in POSITIVE_BUFFS:

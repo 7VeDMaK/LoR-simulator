@@ -285,6 +285,38 @@ def eloquence_clash(context: 'RollContext', params: dict):
         # В описании карты сказано "Увеличивает силу... на разницу". Обычно в плюс.
         pass
 
+
+def azgick_enrage_effect(context: 'RollContext', params: dict):
+    """
+    Наносит фиксированный урон и дает Силу.
+    """
+    dmg = params.get("damage", 12)
+    str_amt = params.get("power_attack", 12)
+    target = context.target
+
+    if target:
+        # Наносим чистый урон HP (без резистов, как "true damage" от эффекта)
+        target.current_hp = max(1, target.current_hp - dmg)  # Не убиваем, оставляем 1 HP если что
+
+        # Накладываем силу
+        target.add_status("strength", str_amt, duration=2)
+
+        context.log.append(f"😡 **Разозлить**: {target.name} получает {dmg} урона и +{str_amt} Силы!")
+
+
+def apply_random_fragile(context: 'RollContext', params: dict):
+    """
+    Накладывает случайное количество Fragile.
+    """
+    min_val = params.get("min", 5)
+    max_val = params.get("max", 10)
+    target = context.target
+
+    if target:
+        amount = random.randint(min_val, max_val)
+        target.add_status("fragile", amount, duration=2)
+        context.log.append(f"🫵 **Слабость**: Наложено {amount} Хрупкости.")
+
 SCRIPTS_REGISTRY = {
     "apply_status": apply_status,
     "restore_hp": restore_hp,

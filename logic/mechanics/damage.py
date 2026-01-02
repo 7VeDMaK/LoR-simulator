@@ -118,7 +118,10 @@ def apply_damage(attacker_ctx, defender_ctx, dmg_type="hp",
     dmg_mods = get_modded_value(0, "damage_deal", attacker.modifiers)
 
     # Бонусы защитника
-    inc_mod = defender.get_status("fragile") + defender.get_status("vulnerability") - defender.get_status("protection")
+    inc_mod = defender.get_status("fragile") + \
+              defender.get_status("vulnerability") + \
+              defender.get_status("weakness") - \
+              defender.get_status("protection")
 
     # [FIX] Читаем damage_take через хелпер
     inc_mods_stat = get_modded_value(0, "damage_take", defender.modifiers)

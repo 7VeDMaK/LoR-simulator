@@ -18,13 +18,10 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "deck": [
-        "item_calm_pills",
-        "обезболивающие_793d"
-    ],
+    "deck": [],
     "base_stats": {
         "current_hp": 1674,
-        "current_sp": -40,
+        "current_sp": 20,
         "current_stagger": 10
     },
     "defense": {

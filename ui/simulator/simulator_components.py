@@ -76,6 +76,9 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
         for t_idx, target_unit in enumerate(team_to_show):
             if target_unit.is_dead(): continue
 
+            if target_unit.get_status("invisibility") > 0:
+                continue
+
             # Теперь показываем слоты и для союзников, и для врагов
             for s_i, slot_obj in enumerate(target_unit.active_slots):
                 t_spd = slot_obj['speed']

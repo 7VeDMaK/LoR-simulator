@@ -21,7 +21,10 @@
     "deck": [
         "pat_right_shoulder",
         "pat_left_shoulder",
-        "debate_red_eye"
+        "debate_red_eye",
+        "azgick_enrage",
+        "azgick_smile",
+        "azgick_expose_weakness"
     ],
     "base_stats": {
         "current_hp": 71,

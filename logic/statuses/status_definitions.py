@@ -5,7 +5,7 @@ from logic.statuses.common import (
 )
 from logic.statuses.custom import (
     SelfControlStatus, SmokeStatus, RedLycorisStatus, SinisterAuraStatus,
-    AdaptationStatus, BulletTimeStatus, ClarityStatus
+    AdaptationStatus, BulletTimeStatus, ClarityStatus, WeaknessStatus, InvisibilityStatus, EnrageTrackerStatus
 )
 
 NEGATIVE_STATUSES = [
@@ -32,5 +32,9 @@ STATUS_REGISTRY = {
     "sinister_aura": SinisterAuraStatus(),
     "adaptation": AdaptationStatus(),
     "bullet_time": BulletTimeStatus(),
-    "clarity" :ClarityStatus()
+    "clarity" :ClarityStatus(),
+
+    "enrage_tracker": EnrageTrackerStatus(),
+    "invisibility": InvisibilityStatus(),
+    "weakness": WeaknessStatus(),
 }

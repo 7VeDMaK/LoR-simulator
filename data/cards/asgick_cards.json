@@ -63,6 +63,70 @@
           }
         }
       ]
+    },
+    {
+      "id": "azgick_enrage",
+      "name": "Разозлить",
+      "tier": 2,
+      "type": "On Play",
+      "description": "Наносит союзнику 12 урона, но дает 12 Силы на эту сцену.",
+      "flags": ["friendly"],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "azgick_enrage_effect",
+            "params": {
+              "damage": 12,
+              "strength": 12,
+              "target": "target"
+            }
+          }
+        ]
+      },
+      "dice": []
+    },
+    {
+      "id": "azgick_smile",
+      "name": "Ослепительная гнилозубая улыбка",
+      "tier": 1,
+      "type": "On Play",
+      "description": "[НЕВОЗМОЖНО СТОЛКНУТЬСЯ] Накладывает Невидимость. (Распространяется на союзников через пассивку).",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "invisibility",
+              "stack": 1,
+              "duration": 1,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": []
+    },
+    {
+      "id": "azgick_expose_weakness",
+      "name": "Указать на слабость никчемного",
+      "tier": 2,
+      "type": "On Play",
+      "description": "[НЕВОЗМОЖНО СТОЛКНУТЬСЯ] Накладывает 5-10 Хрупкости (Fragile).",
+      "flags": ["offensive"],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_random_fragile",
+            "params": {
+              "min": 5,
+              "max": 10,
+              "target": "target"
+            }
+          }
+        ]
+      },
+      "dice": []
     }
   ]
 }
