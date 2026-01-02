@@ -1,0 +1,142 @@
+{
+    "name": "Азгик2",
+    "level": 27,
+    "rank": 9,
+    "avatar": "data/avatars/Азгик2.png",
+    "base_intellect": 3,
+    "total_xp": 0,
+    "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+    },
+    "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+    },
+    "deck": [
+        "pat_right_shoulder",
+        "pat_left_shoulder",
+        "debate_red_eye",
+        "azgick_smile",
+        "azgick_rule_1",
+        "azgick_rule_2",
+        "azgick_rule_3",
+        "azgick_expose_weakness",
+        "azgick_enrage"
+    ],
+    "base_stats": {
+        "current_hp": 31,
+        "current_sp": 59,
+        "current_stagger": 7
+    },
+    "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "hp_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "stagger_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "weapon_id": "dual_blades"
+    },
+    "card_cooldowns": {},
+    "attributes": {
+        "strength": 6,
+        "endurance": 3,
+        "agility": 30,
+        "wisdom": 3,
+        "psych": 6
+    },
+    "skills": {
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 0,
+        "speed": 30,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 15,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+    },
+    "passives": [
+        "witness_gro_goroth"
+    ],
+    "talents": [
+        "keep_it_together",
+        "center_of_balance",
+        "tea_master",
+        "mind_power",
+        "peak_sanity",
+        "psychic_strain",
+        "unbearable_presence",
+        "emotional_storm",
+        "controlled_distortion",
+        "athleticism_shadow",
+        "athletic"
+    ],
+    "level_rolls": {
+        "3": {
+            "hp": 1,
+            "sp": 3
+        },
+        "6": {
+            "hp": 2,
+            "sp": 5
+        },
+        "9": {
+            "hp": 4,
+            "sp": 5
+        },
+        "12": {
+            "hp": 5,
+            "sp": 2
+        },
+        "15": {
+            "hp": 4,
+            "sp": 4
+        },
+        "18": {
+            "hp": 2,
+            "sp": 1
+        },
+        "21": {
+            "hp": 1,
+            "sp": 5
+        },
+        "24": {
+            "hp": 3,
+            "sp": 1
+        },
+        "27": {
+            "hp": 1,
+            "sp": 1
+        }
+    },
+    "cooldowns": {},
+    "active_buffs": {},
+    "resources": {},
+    "biography": "",
+    "money_log": [
+        {
+            "amount": 999999,
+            "reason": ""
+        }
+    ]
+}
