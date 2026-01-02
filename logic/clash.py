@@ -48,6 +48,8 @@ class ClashSystem(ClashFlowMixin):
                     if atk_unit.is_dead(): continue
 
                     for s_atk_idx, s_atk in enumerate(atk_unit.active_slots):
+
+                        if s_atk.get('is_ally_target'): continue
                         # Проверяем, бьет ли он в этот слот защитника
                         t_u = s_atk.get('target_unit_idx', -1)
                         t_s = s_atk.get('target_slot_idx', -1)
@@ -158,30 +160,26 @@ class ClashSystem(ClashFlowMixin):
         def collect_actions(source_team, target_team, is_left_side):
             for u_idx, unit in enumerate(source_team):
                 if unit.is_dead(): continue
-
                 for s_idx, slot in enumerate(unit.active_slots):
                     card = slot.get('card')
-                    # Пропускаем слоты без карт или оглушенные
                     if card and not slot.get('stunned'):
-
-                        # 1. Базовый приоритет типа карты
                         base_prio = self.get_action_priority(card)
-
-                        # Правило: При равном приоритете (например, Mass vs Mass),
-                        # игрок (Left) ходит раньше врага.
-                        if base_prio >= 4000 and is_left_side:
-                            base_prio += 500
-
-                        # 2. Итоговая скорость (Приоритет + Скорость кубика + Случайность для разрыва ничьих)
+                        if base_prio >= 4000 and is_left_side: base_prio += 500
                         score = base_prio + slot['speed'] + random.random()
 
-                        # Определяем цель
+                        # === ВЫБОР ЦЕЛИ (ИЗМЕНЕНО) ===
                         t_u_idx = slot.get('target_unit_idx', -1)
                         target_unit = None
-                        if t_u_idx != -1 and t_u_idx < len(target_team):
-                            target_unit = target_team[t_u_idx]
 
-                        # Формируем объект действия
+                        # Если карта дружественная, ищем цель в СВОЕЙ команде
+                        if slot.get('is_ally_target'):
+                            if t_u_idx != -1 and t_u_idx < len(source_team):
+                                target_unit = source_team[t_u_idx]
+                        # Иначе стандартно во вражеской
+                        else:
+                            if t_u_idx != -1 and t_u_idx < len(target_team):
+                                target_unit = target_team[t_u_idx]
+
                         actions.append({
                             'source': unit,
                             'source_idx': s_idx,
@@ -191,14 +189,11 @@ class ClashSystem(ClashFlowMixin):
                             'score': score,
                             'is_left': is_left_side,
                             'card_type': card.card_type.lower(),
-                            'opposing_team': target_team  # Ссылка на команду врага (нужна для Mass Attack)
+                            'opposing_team': target_team
                         })
 
         collect_actions(team_left, team_right, True)
         collect_actions(team_right, team_left, False)
-
-        # --- C. Сортировка ---
-        # Сортируем по score от большего к меньшему
         actions.sort(key=lambda x: x['score'], reverse=True)
 
         return report, actions

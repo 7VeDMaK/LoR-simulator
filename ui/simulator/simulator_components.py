@@ -7,7 +7,7 @@ from ui.components import _format_script_text
 from ui.styles import TYPE_ICONS, TYPE_COLORS
 
 
-def render_slot_strip(unit, opposing_team, slot_idx, key_prefix):
+def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
     """
     Рендерит полоску одного слота действий.
     unit: Текущий юнит (Source)
@@ -58,26 +58,40 @@ def render_slot_strip(unit, opposing_team, slot_idx, key_prefix):
     with st.expander(label, expanded=False):
         c_tgt, c_sel = st.columns([1, 1])
 
-        # === A. ВЫБОР ЦЕЛИ (TARGET TEAM) ===
-        # Формируем список опций: "0:1 | ИмяВрага S2 (Spd 5)"
+        # === ЛОГИКА ВЫБОРА ЦЕЛИ ===
         target_options = ["None"]
 
+        # Проверяем флаг карты на дружественность
+        is_friendly = False
+        if selected_card and "friendly" in selected_card.flags:
+            is_friendly = True
+            # Сохраняем флаг в слоте, чтобы движок знал, где искать цель
+            slot['is_ally_target'] = True
+        else:
+            slot['is_ally_target'] = False
+
+        # Формируем список целей в зависимости от флага
+        team_to_show = my_team if is_friendly else opposing_team
+
         # Проходим по всем врагам в команде
-        for e_idx, enemy in enumerate(opposing_team):
-            if enemy.is_dead(): continue
+        for t_idx, target_unit in enumerate(team_to_show):
+            if target_unit.is_dead(): continue
 
-            for s_i, opp_slot in enumerate(enemy.active_slots):
-                # Иконка показывает, целится ли враг в нас (упрощенно)
-                icon = "🛡️"
-                # (В будущем можно добавить проверку: если opp_slot.target == my_idx -> ⚔️)
+            # Для союзников показываем упрощенно, для врагов - со слотами
+            # Чтобы не усложнять, покажем просто Имя Юнита (для On Play карт обычно слот не важен)
 
-                opp_spd = opp_slot['speed']
-                extra = "😵" if opp_slot.get('stunned') else f"Spd {opp_spd}"
-
-                # Значение для логики : Отображаемое имя
-                # Format: "unit_idx:slot_idx | Text"
-                opt_str = f"{e_idx}:{s_i} | {enemy.name} S{s_i + 1} ({extra})"
+            if is_friendly:
+                # Формат для союзника: "idx:0 | Name (Ally)"
+                # Используем слот 0 как заглушку, так как баффаем юнита целиком
+                opt_str = f"{t_idx}:0 | {target_unit.name} (Ally)"
                 target_options.append(opt_str)
+            else:
+                # Стандартная логика для врагов (по слотам)
+                for s_i, opp_slot in enumerate(target_unit.active_slots):
+                    opp_spd = opp_slot['speed']
+                    extra = "😵" if opp_slot.get('stunned') else f"Spd {opp_spd}"
+                    opt_str = f"{t_idx}:{s_i} | {target_unit.name} S{s_i + 1} ({extra})"
+                    target_options.append(opt_str)
 
         # Определяем текущий выбор
         cur_t_unit = slot.get('target_unit_idx', -1)

@@ -19,10 +19,9 @@
         "imp_stg": 0
     },
     "deck": [
-        "item_calm_pills",
-        "item_antidepressant",
-        "item_regen_pills",
-        "frenzy_0dc2"
+        "pat_right_shoulder",
+        "pat_left_shoulder",
+        "debate_red_eye"
     ],
     "base_stats": {
         "current_hp": 71,

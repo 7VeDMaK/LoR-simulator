@@ -73,30 +73,22 @@ def render_simulator_page():
         st.subheader(f"Left Team ({len(team_left)})")
         for i, unit in enumerate(team_left):
             with st.container(border=True):
-                # ИЗМЕНЕНИЕ: Соотношение [2, 1.2] вместо [2.5, 1]
-                # Это уменьшает место под статы и увеличивает под арт
                 c_stats, c_img = st.columns([2, 1.2])
-
                 with c_stats:
                     render_unit_stats(unit)
-
                 with c_img:
                     img = unit.avatar if unit.avatar else "https://placehold.co/150?text=U"
                     st.image(img, width='stretch')
 
-                # Активные способности
                 render_active_abilities(unit, f"l_abil_{i}")
-
-                # === ВСТАВИТЬ ЗДЕСЬ ===
                 render_inventory(unit, f"l_inv_{i}")
-                # =====================
 
-                # Слоты действий
                 if st.session_state['phase'] == 'planning':
                     st.divider()
                     if unit.active_slots:
                         for s_i in range(len(unit.active_slots)):
-                            render_slot_strip(unit, team_right, s_i, f"l_{i}")
+                            # ПЕРЕДАЕМ team_left как my_team
+                            render_slot_strip(unit, team_right, team_left, s_i, f"l_{i}")
                     else:
                         st.caption("No active slots")
 
@@ -105,28 +97,22 @@ def render_simulator_page():
         st.subheader(f"Right Team ({len(team_right)})")
         for i, unit in enumerate(team_right):
             with st.container(border=True):
-                # ИЗМЕНЕНИЕ: Соотношение [2, 1.2]
                 c_stats, c_img = st.columns([2, 1.2])
-
                 with c_stats:
                     render_unit_stats(unit)
-
                 with c_img:
                     img = unit.avatar if unit.avatar else "https://placehold.co/150?text=E"
                     st.image(img, width='stretch')
 
                 render_active_abilities(unit, f"r_abil_{i}")
-
-                # === ВСТАВИТЬ ЗДЕСЬ ===
                 render_inventory(unit, f"l_inv_{i}")
-                # =====================
 
-                # Слоты действий
                 if st.session_state['phase'] == 'planning':
                     st.divider()
                     if unit.active_slots:
                         for s_i in range(len(unit.active_slots)):
-                            render_slot_strip(unit, team_left, s_i, f"r_{i}")
+                            # ПЕРЕДАЕМ team_right как my_team
+                            render_slot_strip(unit, team_left, team_right, s_i, f"r_{i}")
                     else:
                         st.caption("No active slots")
 

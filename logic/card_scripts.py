@@ -1,6 +1,7 @@
 # logic/card_scripts.py
 import math
 import random
+import streamlit as st  # <--- ВАЖНО: Добавлен импорт Streamlit
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -232,6 +233,58 @@ def add_luck_bonus_roll(context: 'RollContext', params: dict):
         context.log.append(f"🍀 Luck Series: +{total_bonus} ({', '.join(rolls_history)})")
 
 
+# === НОВЫЕ СКРИПТЫ ===
+
+def pat_shoulder(context: 'RollContext', params: dict):
+    mode = params.get("mode", "off")  # def или off
+    amount = params.get("amount", 6)
+    source = context.source
+
+    # Теперь мы ожидаем, что target уже передан через UI
+    target_unit = context.target
+
+    # Фолбек, если цель не передана (например, в тестах или старом коде)
+    if not target_unit:
+        my_team = []
+        if 'team_left' in st.session_state and source in st.session_state['team_left']:
+            my_team = st.session_state['team_left']
+        elif 'team_right' in st.session_state and source in st.session_state['team_right']:
+            my_team = st.session_state['team_right']
+
+        valid_allies = [u for u in my_team if not u.is_dead() and u != source]
+        target_unit = random.choice(valid_allies) if valid_allies else source
+
+    context.log.append(f"🤝 **{source.name}** выбрал **{target_unit.name}**.")
+
+    if mode == "def":
+        target_unit.add_status("endurance", amount, duration=1)
+        target_unit.add_status("protection", 1, duration=1)  # Немного защиты сверху
+        context.log.append(f"🛡️ Бафф: +{amount} к Защитным кубикам (Endurance).")
+
+    elif mode == "off":
+        target_unit.add_status("strength", amount, duration=1)
+        context.log.append(f"⚔️ Бафф: +{amount} к Атакующим кубикам (Strength).")
+
+
+def eloquence_clash(context: 'RollContext', params: dict):
+    """
+    Добавляет к броску разницу в красноречии.
+    """
+    if not context.target: return
+
+    my_elo = context.source.skills.get("eloquence", 0)
+    # Пытаемся получить Elo врага. Если это моб, у него может не быть скиллов, тогда 0.
+    target_elo = getattr(context.target, "skills", {}).get("eloquence", 0)
+
+    diff = my_elo - target_elo
+
+    if diff > 0:
+        context.modify_power(diff, f"Eloquence Diff ({my_elo}-{target_elo})")
+    elif diff < 0:
+        # Опционально: штраф, если у врага язык подвешен лучше?
+        # В описании карты сказано "Увеличивает силу... на разницу". Обычно в плюс.
+        pass
+
 SCRIPTS_REGISTRY = {
     "apply_status": apply_status,
     "restore_hp": restore_hp,
@@ -243,4 +296,6 @@ SCRIPTS_REGISTRY = {
     "self_harm_percent": self_harm_percent,
     "apply_status_by_roll": apply_status_by_roll,
     "add_luck_bonus_roll": add_luck_bonus_roll,
+    "pat_shoulder": pat_shoulder,       # <--- Новое
+    "eloquence_clash": eloquence_clash, # <--- Новое
 }
