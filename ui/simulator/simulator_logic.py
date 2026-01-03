@@ -4,6 +4,7 @@ from contextlib import contextmanager
 from io import StringIO
 
 from core.card import Card
+from core.library import Library
 from logic.clash import ClashSystem
 from logic.passives import PASSIVE_REGISTRY
 from logic.talents import TALENT_REGISTRY
@@ -355,3 +356,30 @@ def use_item_action(unit, card):
         "rolls": "Consumable",
         "details": item_logs
     })
+
+def render_inventory(unit, unit_key):
+    """
+    Рендерит секцию инвентаря с предметами (CardType.ITEM).
+    """
+    # Фильтруем карты в колоде, оставляя только предметы
+    inventory_cards = []
+    if unit.deck:
+        for cid in unit.deck:
+            card = Library.get_card(cid)
+            # Проверяем тип
+            if card and str(card.card_type).lower() == "item":
+                inventory_cards.append(card)
+
+    if not inventory_cards:
+        return
+
+    with st.expander("🎒 Inventory (Consumables)", expanded=False):
+        for card in inventory_cards:
+            btn_key = f"use_item_{unit_key}_{card.id}"
+            desc = card.description if card.description else "No description"
+
+            # Кнопка использования
+            if st.button(f"💊 {card.name}", key=btn_key, help=desc, use_container_width=True):
+                from ui.simulator.simulator_logic import use_item_action
+                use_item_action(unit, card)
+                st.rerun()
