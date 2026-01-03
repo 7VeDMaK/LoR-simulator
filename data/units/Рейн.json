@@ -18,9 +18,19 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "deck": [],
+    "deck": [
+        "shadow_blunt",
+        "shadow_block",
+        "shadow_evade",
+        "shadow_extermination",
+        "shadow_block2",
+        "shadow_ziggurat",
+        "shadow_harvest",
+        "shadow_series_punches",
+        "shadow_fortune_strike"
+    ],
     "base_stats": {
-        "current_hp": 148,
+        "current_hp": 145,
         "current_sp": 157,
         "current_stagger": 75
     },
@@ -68,7 +78,8 @@
     "passives": [
         "new_discovery",
         "s_cells",
-        "red_lycoris"
+        "red_lycoris",
+        "shadow_majesty"
     ],
     "talents": [
         "keep_it_together",

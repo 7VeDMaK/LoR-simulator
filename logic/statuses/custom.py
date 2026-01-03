@@ -259,3 +259,7 @@ class RevengeDmgUpStatus(StatusEffect):
         # Статус сам исчезнет по длительности (duration=2),
         # но на всякий случай можно вернуть пустой список
         return []
+
+
+class TauntStatus(StatusEffect):
+    id = "taunt"

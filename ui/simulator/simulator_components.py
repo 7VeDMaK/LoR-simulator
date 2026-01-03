@@ -73,10 +73,19 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
         # Формируем список целей в зависимости от флага
         team_to_show = my_team if is_friendly else opposing_team
 
+        has_taunt = False
+        if not is_friendly:
+            has_taunt = any(u.get_status("taunt") > 0 for u in team_to_show if not u.is_dead())
+
         for t_idx, target_unit in enumerate(team_to_show):
             if target_unit.is_dead(): continue
 
             if target_unit.get_status("invisibility") > 0:
+                continue
+
+            # === ФИЛЬТР ПРОВОКАЦИИ ===
+            # Если есть провокатор, а текущий юнит БЕЗ провокации — пропускаем его
+            if has_taunt and target_unit.get_status("taunt") <= 0:
                 continue
 
             # Теперь показываем слоты и для союзников, и для врагов

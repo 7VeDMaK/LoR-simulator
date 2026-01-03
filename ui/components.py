@@ -120,7 +120,7 @@ def render_unit_stats(unit: Unit):
             "smoke": "🌫️", "satiety": "🍗", "regen_hp": "➕", "mental_protection": "🧠",
             "fragile": "💔", "vulnerability": "🎯", "weakness": "🔻", "burn": "🔥",
             "bind": "🔗", "slow": "🐌", "tremor": "🫨", "invisibility": "👻",
-            "clarity": "✨", "passive_lock": "🔒"
+            "clarity": "✨", "passive_lock": "🔒", "taunt": "🤬",
         }
 
         # Генерируем HTML для компактного отображения

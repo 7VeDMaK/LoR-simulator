@@ -62,13 +62,19 @@ def roll_phase():
         # Индексы живых врагов
         alive_targets = [i for i, t in enumerate(target_team) if not t.is_dead()]
 
-        if not alive_targets: return  # Некого бить
+        # Ищем провокаторов
+        taunt_targets = [i for i, t in enumerate(target_team) if not t.is_dead() and t.get_status("taunt") > 0]
+
+        # Если есть провокаторы, список целей сужается только до них
+        valid_targets = taunt_targets if taunt_targets else alive_targets
+
+        if not valid_targets: return  # Некого бить
 
         for u in source_team:
             if u.is_dead() or u.is_staggered(): continue
             for slot in u.active_slots:
                 # Простое правило: бьем первого живого врага в первый слот
-                slot['target_unit_idx'] = alive_targets[0]
+                slot['target_unit_idx'] = valid_targets[0]
                 slot['target_slot_idx'] = 0
 
     set_default_targets(l_team, r_team)

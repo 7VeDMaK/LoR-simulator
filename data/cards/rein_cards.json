@@ -1,0 +1,208 @@
+{
+  "cards": [
+    {
+      "id": "shadow_blunt",
+      "name": "Обычный удар",
+      "tier": 1,
+      "type": "Melee",
+      "description": "Простой удар.",
+      "dice": [
+        {
+          "type": "Blunt",
+          "base_min": 2,
+          "base_max": 6
+        }
+      ]
+    },
+    {
+      "id": "shadow_block",
+      "name": "Подставить руку",
+      "tier": 1,
+      "type": "Melee",
+      "description": "Базовая защита.",
+      "dice": [
+        {
+          "type": "Block",
+          "base_min": 2,
+          "base_max": 7
+        }
+      ]
+    },
+    {
+      "id": "shadow_evade",
+      "name": "Удачное стечение обстоятельств",
+      "tier": 1,
+      "type": "Melee",
+      "description": "Попытка уклониться от атаки.",
+      "dice": [
+        {
+          "type": "Evade",
+          "base_min": 1,
+          "base_max": 8
+        }
+      ]
+    },
+    {
+      "id": "shadow_extermination",
+      "name": "Изничтожение",
+      "tier": 2,
+      "type": "Melee",
+      "description": "Жертвует 2.5% своего HP. Наносит доп. урон врагу (5% его HP).",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "self_harm_percent",
+            "params": {
+              "percent": 0.025
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "Pierce",
+          "base_min": 3,
+          "base_max": 4,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "add_hp_damage",
+                "params": {
+                  "percent": 0.05
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Slash",
+          "base_min": 3,
+          "base_max": 4,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "add_hp_damage",
+                "params": {
+                  "percent": 0.05
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "shadow_block2",
+      "name": "Подставить лицо",
+      "tier": 2,
+      "type": "Melee",
+      "description": "Улучшенная защита.",
+      "dice": [
+        {
+          "type": "Block",
+          "base_min": 6,
+          "base_max": 8
+        }
+      ]
+    },
+    {
+      "id": "shadow_ziggurat",
+      "name": "Зиккурат",
+      "tier": 2,
+      "type": "Melee",
+      "description": "Дает Защиту (Protection) равную значению выпавшего Блока.\n1. На цель (союзника).\n2. На себя.",
+      "flags": ["friendly"],
+      "dice": [
+        {
+          "type": "Block",
+          "base_min": 1,
+          "base_max": 4,
+          "scripts": {
+            "on_roll": [
+              {
+                "script_id": "apply_status_by_roll",
+                "params": {
+                  "status": "protection",
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Block",
+          "base_min": 1,
+          "base_max": 3,
+          "scripts": {
+            "on_roll": [
+              {
+                "script_id": "apply_status_by_roll",
+                "params": {
+                  "status": "protection",
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "shadow_harvest",
+      "name": "Жатва",
+      "tier": 3,
+      "type": "Melee",
+      "description": "Провокация: Привлекает внимание врагов (RP эффект).",
+      "dice": [
+        {
+          "type": "Block",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {
+             "on_play": [
+                 { "script_id": "apply_status", "params": { "status": "taunt", "base": 1, "duration": 3, "target": "self" } }
+             ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "shadow_series_punches",
+      "name": "Серия обычных ударов",
+      "tier": 3,
+      "type": "Melee",
+      "description": "Бросок повторяется за каждые 10 Удачи (Лимит 7). Значения складываются.",
+      "dice": [
+        {
+          "type": "Slash",
+          "base_min": 1,
+          "base_max": 3,
+          "scripts": {
+            "on_roll": [
+              { "script_id": "scale_roll_by_luck", "params": { "step": 10, "limit": 7 } }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "shadow_fortune_strike",
+      "name": "Удар фартуны",
+      "tier": 3,
+      "type": "Melee",
+      "description": "Каждые 5 Удачи добавляют +1 к силе броска (Лимит 15).",
+      "dice": [
+        {
+          "type": "Slash",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {
+            "on_roll": [
+              { "script_id": "add_power_by_luck", "params": { "step": 5, "limit": 15 } }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

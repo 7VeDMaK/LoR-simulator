@@ -314,6 +314,103 @@ def remove_all_positive(context: 'RollContext', params: dict):
         if removed_list:
             context.log.append(f"🧹 **Вафли**: Снято {', '.join(removed_list)}")
 
+
+# === НОВЫЕ СКРИПТЫ ДЛЯ КАРТЫ "ИЗНИЧТОЖЕНИЕ" И ДРУГИХ ===
+
+def self_harm_percent(ctx: 'RollContext', params: dict):
+    """Наносит урон самому себе в % от Макс ХП."""
+    if not _check_conditions(ctx.source, params): return
+    percent = float(params.get("percent", 0.0))
+    damage = int(ctx.source.max_hp * percent)
+
+    if damage > 0:
+        ctx.source.current_hp = max(0, ctx.source.current_hp - damage)
+        ctx.log.append(f"🩸 **Self Harm**: -{damage} HP ({percent * 100}%)")
+
+
+def add_hp_damage(ctx: 'RollContext', params: dict):
+    """Наносит дополнительный урон цели в % от её Макс ХП."""
+    if not _check_conditions(ctx.source, params): return
+    target = ctx.target
+    if not target: return
+
+    percent = float(params.get("percent", 0.0))
+    damage = int(target.max_hp * percent)
+
+    if damage > 0:
+        target.current_hp = max(0, target.current_hp - damage)
+        ctx.log.append(f"💔 **Decay**: -{damage} HP ({percent * 100}%)")
+
+
+def apply_status_by_roll(ctx: 'RollContext', params: dict):
+    """Накладывает статус в количестве, равном выпавшему значению кубика."""
+    if not _check_conditions(ctx.source, params): return
+    status = params.get("status")
+    target_mode = params.get("target", "self")
+    amount = ctx.final_value  # Значение броска
+
+    targets = _get_targets(ctx, target_mode)
+    for u in targets:
+        u.add_status(status, amount)
+        ctx.log.append(f"🎲 **Roll Status**: +{amount} {status}")
+
+
+def add_luck_bonus_roll(ctx: 'RollContext', params: dict):
+    """Добавляет бонус к броску на основе Удачи (Luck)."""
+    if not _check_conditions(ctx.source, params): return
+    step = int(params.get("step", 10))
+    limit = int(params.get("limit", 999))
+
+    # Берем удачу из ресурсов (обычно там хранится текущая удача)
+    luck = ctx.source.resources.get("luck", 0)
+
+    if step <= 0: step = 1
+    bonus = luck // step
+    bonus = min(bonus, limit)
+
+    if bonus > 0:
+        ctx.modify_power(bonus, f"Luck ({luck})")
+
+def scale_roll_by_luck(ctx: 'RollContext', params: dict):
+    """
+    Серия ударов: Бросок повторяется за каждые X удачи.
+    Реализация: Увеличивает итоговое значение броска.
+    """
+    step = int(params.get("step", 10))  # Каждые 10 удачи
+    limit = int(params.get("limit", 7))  # Лимит повторов
+
+    # Берем Удачу из ресурсов (второй стат)
+    luck = ctx.source.resources.get("luck", 0)
+
+    if step <= 0: step = 1
+
+    # Считаем множитель (сколько раз добавить значение)
+    # Если 10 удачи -> 1 доп раз. Итого 2x.
+    repeats = luck // step
+    repeats = min(repeats, limit)
+
+    if repeats > 0:
+        base_val = ctx.final_value
+        bonus = base_val * repeats
+        ctx.modify_power(bonus, f"Luck x{repeats}")
+
+def add_power_by_luck(ctx: 'RollContext', params: dict):
+    """
+    Удар фортуны: Каждые X удачи добавляют 1 к силе.
+    """
+    step = int(params.get("step", 5))  # Каждые 5 удачи
+    limit = int(params.get("limit", 15))  # Лимит
+
+    luck = ctx.source.resources.get("luck", 0)
+
+    if step <= 0: step = 1
+
+    bonus = luck // step
+    bonus = min(bonus, limit)
+
+    if bonus > 0:
+        ctx.modify_power(bonus, f"Fortune ({bonus})")
+
 SCRIPTS_REGISTRY = {
     "modify_roll_power": modify_roll_power,
     "deal_effect_damage": deal_effect_damage,
@@ -323,4 +420,12 @@ SCRIPTS_REGISTRY = {
     "multiply_status": multiply_status,
     "remove_status": remove_status_script, # <--- NEW
     "remove_all_positive": remove_all_positive,
+
+    "self_harm_percent": self_harm_percent,
+    "add_hp_damage": add_hp_damage,
+    "apply_status_by_roll": apply_status_by_roll,
+    "add_luck_bonus_roll": add_luck_bonus_roll,
+
+    "scale_roll_by_luck": scale_roll_by_luck,
+    "add_power_by_luck": add_power_by_luck,
 }
