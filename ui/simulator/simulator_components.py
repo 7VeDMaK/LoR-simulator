@@ -293,10 +293,6 @@ def render_active_abilities(unit, unit_key):
     if has_actives: st.caption("Active Abilities")
 
 
-# ... (в конец файла)
-from core.enums import CardType
-
-
 def render_inventory(unit, unit_key):
     """
     Рендерит секцию инвентаря с предметами (CardType.ITEM).

@@ -37,27 +37,41 @@ def render_abilities(unit, u_key):
         return aid
 
     with c_tal:
-        # Talents
+        # --- TALENTS ---
+        # 1. Считаем лимит по правилам игры
         bonus_slots = int(unit.modifiers["talent_slots"]["flat"])
         max_talents = (unit.level // 3) + bonus_slots
+        if max_talents < 0: max_talents = 0
+
         current_talents = [t for t in unit.talents if t in TALENT_REGISTRY]
 
-        safe_limit = max(max_talents, len(current_talents))
+        # 2. Получаем текущее состояние виджета (чтобы не крашилось при перерисовке)
+        talents_key = f"mt_{u_key}"
+        session_selection = st.session_state.get(talents_key, [])
 
-        st.markdown(f"**Таланты ({len(unit.talents)} / {max_talents})**")
+        # 3. Рассчитываем БЕЗОПАСНЫЙ лимит для виджета
+        # Он должен быть не меньше, чем количество уже выбранных элементов,
+        # иначе Streamlit выбросит ошибку StreamlitSelectionCountExceedsMaxError.
+        safe_limit = max(max_talents, len(current_talents), len(session_selection))
 
-        # === FIX: Rerun on talent change to update stats ===
+        st.markdown(f"**Таланты ({len(current_talents)} / {max_talents})**")
+
+        # Визуальное предупреждение о перелимите
+        if len(current_talents) > max_talents:
+            st.warning(f"⚠️ Лимит превышен! Доступно: {max_talents}, Выбрано: {len(current_talents)}")
+
         new_talents = st.multiselect(
             "Список талантов",
             options=sorted(list(TALENT_REGISTRY.keys())),
-            default=[t for t in unit.talents if t in TALENT_REGISTRY],
+            default=current_talents,
             format_func=fmt_name,
-            max_selections=safe_limit,
+            max_selections=safe_limit,  # Используем мягкий лимит
             label_visibility="collapsed",
-            key=f"mt_{u_key}"
+            key=talents_key
         )
-        if new_talents != [t for t in unit.talents if t in TALENT_REGISTRY]:
-            # Preserve logic by keeping unknown talents (if any)
+
+        if new_talents != current_talents:
+            # Сохраняем логику, оставляя неизвестные (кастомные/удаленные) таланты
             old_unknowns = [t for t in unit.talents if t not in TALENT_REGISTRY]
             unit.talents = new_talents + old_unknowns
             unit.recalculate_stats()
