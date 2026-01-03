@@ -30,9 +30,9 @@
         "azgick_enrage"
     ],
     "base_stats": {
-        "current_hp": 31,
+        "current_hp": 20,
         "current_sp": 59,
-        "current_stagger": 7
+        "current_stagger": 4
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -90,6 +90,9 @@
         "controlled_distortion",
         "athleticism_shadow",
         "athletic"
+    ],
+    "augmentations": [
+        "aug_back_speed"
     ],
     "level_rolls": {
         "3": {

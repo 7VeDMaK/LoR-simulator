@@ -1,3 +1,4 @@
+from logic.augmentations import AUGMENTATION_REGISTRY
 from logic.passives import PASSIVE_REGISTRY
 from logic.talents import TALENT_REGISTRY
 
@@ -23,8 +24,9 @@ def recalculate_unit_stats(unit):
     bonuses = init_bonuses(unit)
 
     # 2. Сбор бонусов
-    collect_ability_bonuses(unit, PASSIVE_REGISTRY, "🛡️", mods, bonuses, logs)
-    collect_ability_bonuses(unit, TALENT_REGISTRY, "🌟", mods, bonuses, logs)
+    collect_ability_bonuses(unit, unit.passives, PASSIVE_REGISTRY, "🛡️", mods, bonuses, logs)
+    collect_ability_bonuses(unit, unit.talents, TALENT_REGISTRY, "🌟", mods, bonuses, logs)
+    collect_ability_bonuses(unit, unit.augmentations, AUGMENTATION_REGISTRY, "🧬", mods, bonuses, logs)
     collect_weapon_bonuses(unit, mods, bonuses, logs)
     collect_status_bonuses(unit, mods, bonuses, logs)
 

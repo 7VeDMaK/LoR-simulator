@@ -4,9 +4,7 @@ from logic.statuses.status_manager import STATUS_REGISTRY
 from logic.weapon_definitions import WEAPON_REGISTRY
 
 
-def collect_ability_bonuses(unit, registry, prefix_icon, mods, bonuses, logs):
-    source_list = unit.passives if registry == PASSIVE_REGISTRY else unit.talents
-
+def collect_ability_bonuses(unit, source_list, registry, prefix_icon, mods, bonuses, logs):
     for pid in source_list:
         if pid in registry:
             obj = registry[pid]

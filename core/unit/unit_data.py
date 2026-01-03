@@ -90,6 +90,7 @@ class UnitData:
         "eloquence": 0, "forging": 0, "engineering": 0, "programming": 0
     })
 
+    augmentations: List[str] = field(default_factory=list)
     passives: List[str] = field(default_factory=list)
     talents: List[str] = field(default_factory=list)
     level_rolls: Dict[str, Dict[str, int]] = field(default_factory=dict)
@@ -130,6 +131,7 @@ class UnitData:
             "skills": self.skills,
             "passives": self.passives,
             "talents": self.talents,
+            "augmentations": self.augmentations,
             "level_rolls": self.level_rolls,
             "cooldowns": self.cooldowns,
             "active_buffs": self.active_buffs,
@@ -197,6 +199,7 @@ class UnitData:
 
         u.passives = data.get("passives", [])
         u.talents = data.get("talents", [])
+        u.augmentations = data.get("augmentations", [])
         u.level_rolls = data.get("level_rolls", {})
 
         # Активки
