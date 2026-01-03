@@ -116,3 +116,32 @@ class PassivePovar(BasePassive):
                 unit.talents.append(tid)
 
         return {"talent_slots": len(talents_to_learn)}
+
+
+class PassiveFoodLover(BasePassive):
+    id = "food_lover"
+    name = "Любитель поесть"
+    description = (
+        "😋 **Сытый**: Порог переедания 27 (вместо 20). Нет штрафов к статам от сытости.\n"
+        "😨 **Голодный (0 сытости)**: -5 ко всем проверкам (броскам). -25% Макс. HP и SP."
+    )
+    is_active_ability = False
+
+    def on_calculate_stats(self, unit) -> dict:
+        # Проверяем голод
+        satiety = unit.get_status("satiety")
+
+        if satiety <= 0:
+            # Штраф -25% к макс статам
+            return {
+                "hp_pct": -25,
+                "sp_pct": -25
+            }
+        return {}
+
+    def on_roll(self, ctx):
+        # Штраф к проверкам (броскам)
+        satiety = ctx.source.get_status("satiety")
+
+        if satiety <= 0:
+            ctx.modify_power(-5, "Hunger (Gurgle...)")

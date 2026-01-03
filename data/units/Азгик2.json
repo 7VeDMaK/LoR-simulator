@@ -45,7 +45,7 @@
     ],
     "base_stats": {
         "current_hp": 1,
-        "current_sp": 59,
+        "current_sp": 47,
         "current_stagger": 4
     },
     "defense": {
@@ -91,7 +91,8 @@
     },
     "passives": [
         "witness_gro_goroth",
-        "povar"
+        "povar",
+        "food_lover"
     ],
     "talents": [
         "keep_it_together",
@@ -106,7 +107,8 @@
         "athleticism_shadow",
         "athletic",
         "cheese",
-        "stimulants"
+        "stimulants",
+        "confete"
     ],
     "augmentations": [
         "aug_back_speed"

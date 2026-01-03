@@ -182,6 +182,11 @@ class SatietyStatus(StatusEffect):
         if unit.get_status("ignore_satiety") > 0:
             return {}
 
+        # 2. Проверка на "Любителя поесть" (Азгик)
+        if "food_lover" in unit.passives:
+            # "Минусы по статам не делаются от сытости"
+            return {}
+
         stack = unit.get_status("satiety")
 
         if stack >= 15:
@@ -193,8 +198,9 @@ class SatietyStatus(StatusEffect):
 
     def on_turn_end(self, unit, stack) -> list[str]:
         msgs = []
-        if stack > 20:
-            excess = stack - 20
+        damage_threshold = 27 if "food_lover" in unit.passives else 20
+        if stack > damage_threshold:
+            excess = stack - damage_threshold
             damage = excess * 10
             unit.current_hp = max(0, unit.current_hp - damage)
             msgs.append(f"**Переедание**: {excess} лишних стаков -> -{damage} HP!")
