@@ -164,3 +164,46 @@ class WeaknessStatus(StatusEffect):
         # Уменьшаем стаки на 1 в конце хода (или снимаем все, как решите)
         unit.remove_status("weakness", 1)
         return ["🔻 Слабость уменьшилась (-1)"]
+
+
+class SatietyStatus(StatusEffect):
+    id = "satiety"
+
+    def on_calculate_stats(self, unit) -> dict:
+        """
+        15+ стаков: Штрафы к характеристикам.
+        """
+        stack = unit.get_status("satiety")
+
+        if stack >= 15:
+            return {
+                "initiative": -3,  # 🔵 Синяя стрелка вниз (Скорость)
+                "power_all": -3  # 🔴 Красная стрелка вниз (Сила всех кубиков)
+            }
+        return {}
+
+    def on_turn_end(self, unit, stack) -> list[str]:
+        msgs = []
+
+        # 20+ стаков: Урон за переедание
+        # Формула: (Текущее - 20) * 10 урона
+        if stack > 20:
+            excess = stack - 20
+            damage = excess * 10
+
+            # Наносим урон напрямую
+            unit.current_hp = max(0, unit.current_hp - damage)
+            msgs.append(f"**Переедание**: {excess} лишних стаков -> -{damage} HP!")
+
+            # Снимаем 1 эффект в конце раунда (как в описании)
+            unit.remove_status("satiety", 1)
+            msgs.append("🍗 Сытость немного спала (-1)")
+
+        return msgs
+
+class MentalProtectionStatus(StatusEffect):
+    id = "mental_protection"
+    # Для Эдама: Снижение урона по SP.
+    # Логика снижения должна быть в damage.py или card_scripts.py
+    # Здесь просто заглушка
+    pass

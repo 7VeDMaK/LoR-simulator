@@ -52,30 +52,43 @@ class TalentRemedyGood(BasePassive):
         return True
 
 
-class TalentPills(BasePassive):
-    id = "pills"
-    name = "Таблетки"
+class TalentCheese(BasePassive):
+    id = "cheese"
+    name = "Сыры"
     description = (
-        "4.4 (Хороший) Создание таблеток (вне боя/в бою).\n"
+        "4.4 (Хороший) Вы умеете создавать и применять особые сыры.\n"
+        "В начале боя вы получаете набор сыров в инвентарь.\n"
+        "Сыры накладывают 'Сытость'. При >15 стаках - штрафы. При >20 - урон."
     )
-    is_active_ability = True
+    is_active_ability = False
 
-    def activate(self, unit, log_func, **kwargs):
-        if log_func: log_func("💊 Меню таблеток открыто (Логика крафта).")
-        return True
+    def on_combat_start(self, unit, log_func, **kwargs):
+        cheese_ids = [
+            "cheese_parmesan", "cheese_edam", "cheese_cheddar",
+            "cheese_gouda", "cheese_maasdam", "cheese_emmental"
+        ]
+
+        added = 0
+        for cid in cheese_ids:
+            if cid not in unit.deck:
+                unit.deck.append(cid)
+                added += 1
+
+        if log_func:
+            log_func(f"🧀 **Сыровар**: {added} видов сыра добавлено в инвентарь.")
 
 
 class TalentStimulants(BasePassive):
     id = "stimulants"
-    name = "Стимуляторы"
+    name = "Конфетки"
     description = (
-        "4.5 (Хороший) Инъекции боевых стимуляторов.\n"
+        "4.5 (Хороший) Конфетки!!!\n"
         "Лимит: 5 шт (8 с навыком 4.10)."
     )
     is_active_ability = True
 
     def activate(self, unit, log_func, **kwargs):
-        if log_func: log_func("💉 Меню стимуляторов открыто.")
+        if log_func: log_func("💉 Меню конфеток открыто.")
         return True
 
 

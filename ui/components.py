@@ -108,29 +108,55 @@ def render_unit_stats(unit: Unit):
 
     st.progress(sp_pct, text=f"Sanity: {unit.current_sp}/{unit.max_sp} {mood}")
 
-    # === ОТОБРАЖЕНИЕ СТАТУС-ЭФФЕКТОВ ===
+    # === ОТОБРАЖЕНИЕ СТАТУС-ЭФФЕКТОВ (ПЕРЕРАБОТАНО) ===
     active_statuses = unit.statuses
     if active_statuses:
         st.markdown("---")
-        # Словарь иконок для различных эффектов
+
+        # Словарь иконок
         status_icons = {
-            "self_control": "💨",
-            "strength": "💪",
-            "bleed": "🩸",
-            "paralysis": "⚡",
-            "haste": "👟",
-            "protection": "🛡️",
-            "barrier": "🟡",
-            "endurance": "🧱",
-            "smoke": "🌫️"
+            "self_control": "💨", "strength": "💪", "bleed": "🩸", "paralysis": "⚡",
+            "haste": "👟", "protection": "🛡️", "barrier": "🟡", "endurance": "🧱",
+            "smoke": "🌫️", "satiety": "🍗", "regen_hp": "➕", "mental_protection": "🧠",
+            "fragile": "💔", "vulnerability": "🎯", "weakness": "🔻", "burn": "🔥",
+            "bind": "🔗", "slow": "🐌", "tremor": "🫨", "invisibility": "👻",
+            "clarity": "✨", "passive_lock": "🔒"
         }
 
-        cols = st.columns(max(4, len(active_statuses)))
-        for i, (name, val) in enumerate(active_statuses.items()):
-            with cols[i % 4]:
-                icon = status_icons.get(name, "✨")
-                label = name.replace('_', ' ').capitalize()
-                st.metric(label=f"{icon} {label}", value=val)
+        # Генерируем HTML для компактного отображения
+        html_tags = ""
+        for name, val in active_statuses.items():
+            icon = status_icons.get(name, "✨")
+            label = name.replace('_', ' ').capitalize()
+
+            # Разные цвета для баффов и дебаффов (упрощенно)
+            bg_color = "#2b2d42"  # Темный фон по умолчанию
+            border_color = "#8d99ae"
+
+            # Негативные статусы (примерно)
+            if name in ["bleed", "burn", "paralysis", "fragile", "vulnerability", "weakness", "bind", "slow", "tremor",
+                        "satiety"]:
+                border_color = "#ef233c"  # Красная рамка
+            # Позитивные
+            elif name in ["strength", "endurance", "haste", "protection", "barrier", "regen_hp", "mental_protection",
+                          "clarity"]:
+                border_color = "#2ec4b6"  # Бирюзовая рамка
+
+            html_tags += f"""
+                <div style="
+                    display: inline-block;
+                    background-color: {bg_color};
+                    border: 1px solid {border_color};
+                    border-radius: 5px;
+                    padding: 2px 8px;
+                    margin: 2px;
+                    font-size: 0.9em;
+                    color: white;">
+                    {icon} <b>{val}</b> {label}
+                </div>
+                """
+
+        st.markdown(html_tags, unsafe_allow_html=True)
 
 
 def render_combat_info(unit: Unit):

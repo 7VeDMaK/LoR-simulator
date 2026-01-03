@@ -126,28 +126,6 @@ def modify_roll_power(ctx: 'RollContext', params: dict):
 
     ctx.modify_power(amount, reason)
 
-
-def deal_effect_damage(ctx: 'RollContext', params: dict):
-    if not _check_conditions(ctx.source, params): return
-    dmg_type = params.get("type", "hp")
-    targets = _get_targets(ctx, params.get("target", "target"))
-
-    for u in targets:
-        # Считаем урон индивидуально для каждой цели (если вдруг скейл от цели)
-        amount = _resolve_value(ctx.source, u, params)
-        if amount <= 0: continue
-
-        if dmg_type == "hp":
-            u.current_hp = max(0, u.current_hp - amount)
-            ctx.log.append(f"💔 **{u.name}**: -{amount} HP (Effect)")
-        elif dmg_type == "stagger":
-            u.current_stagger = max(0, u.current_stagger - amount)
-            ctx.log.append(f"😵 **{u.name}**: -{amount} Stagger")
-        elif dmg_type == "sp":
-            u.take_sanity_damage(amount)
-            ctx.log.append(f"🤯 **{u.name}**: -{amount} SP")
-
-
 def restore_resource(ctx: 'RollContext', params: dict):
     if not _check_conditions(ctx.source, params): return
     res_type = params.get("type", "hp")
@@ -261,6 +239,57 @@ def _check_conditions(unit, params) -> bool:
 
     return True
 
+
+def remove_status_script(ctx: 'RollContext', params: dict):
+    """Снимает указанный статус с цели."""
+    if not _check_conditions(ctx.source, params): return
+
+    status_name = params.get("status")
+    target_mode = params.get("target", "target")
+
+    # Считаем количество (можно скейлить)
+    amount = _resolve_value(ctx.source, ctx.target, params)
+
+    targets = _get_targets(ctx, target_mode)
+
+    for u in targets:
+        current = u.get_status(status_name)
+        if current > 0:
+            to_remove = min(current, amount)
+            u.remove_status(status_name, to_remove)
+            ctx.log.append(f"🧹 **{u.name}**: Снято {to_remove} {status_name}")
+
+
+# === Обновляем логику SP урона в deal_effect_damage (для Эдама) ===
+def deal_effect_damage(ctx: 'RollContext', params: dict):
+    if not _check_conditions(ctx.source, params): return
+
+    dmg_type = params.get("type", "hp")
+    targets = _get_targets(ctx, params.get("target", "target"))
+
+    for u in targets:
+        amount = _resolve_value(ctx.source, u, params)
+        if amount <= 0: continue
+
+        if dmg_type == "hp":
+            u.current_hp = max(0, u.current_hp - amount)
+            ctx.log.append(f"💔 **{u.name}**: -{amount} HP (Effect)")
+        elif dmg_type == "stagger":
+            u.current_stagger = max(0, u.current_stagger - amount)
+            ctx.log.append(f"😵 **{u.name}**: -{amount} Stagger")
+        elif dmg_type == "sp":
+            # === ЛОГИКА ЭДАМА (Mental Protection) ===
+            ment_prot = u.get_status("mental_protection")
+            if ment_prot > 0:
+                # 1 стак = 25%, 2 стака = 50% (макс)
+                pct_red = min(0.50, ment_prot * 0.25)
+                reduction = int(amount * pct_red)
+                amount -= reduction
+                ctx.log.append(f"🧀 **Edam**: Blocked {reduction} SP dmg")
+
+            u.take_sanity_damage(amount)
+            ctx.log.append(f"🤯 **{u.name}**: -{amount} SP")
+
 SCRIPTS_REGISTRY = {
     "modify_roll_power": modify_roll_power,
     "deal_effect_damage": deal_effect_damage,
@@ -268,4 +297,5 @@ SCRIPTS_REGISTRY = {
     "apply_status": apply_status,
     "steal_status": steal_status,
     "multiply_status": multiply_status,
+    "remove_status": remove_status_script, # <--- NEW
 }

@@ -27,10 +27,24 @@
         "azgick_rule_2",
         "azgick_rule_3",
         "azgick_expose_weakness",
-        "azgick_enrage"
+        "azgick_enrage",
+        "tea_dark",
+        "tea_green",
+        "tea_fruit",
+        "tea_sakura",
+        "tea_berry",
+        "tea_red",
+        "tea_ginger",
+        "tea_coffee",
+        "cheese_parmesan",
+        "cheese_edam",
+        "cheese_cheddar",
+        "cheese_gouda",
+        "cheese_maasdam",
+        "cheese_emmental"
     ],
     "base_stats": {
-        "current_hp": 20,
+        "current_hp": 1,
         "current_sp": 59,
         "current_stagger": 4
     },
@@ -38,9 +52,9 @@
         "armor_name": "Standard Fixer Suit",
         "armor_type": "Medium",
         "hp_resists": {
-            "slash": 1.0,
+            "slash": 1.4,
             "pierce": 1.0,
-            "blunt": 1.0
+            "blunt": 1.4
         },
         "stagger_resists": {
             "slash": 1.0,
@@ -76,7 +90,8 @@
         "programming": 0
     },
     "passives": [
-        "witness_gro_goroth"
+        "witness_gro_goroth",
+        "povar"
     ],
     "talents": [
         "keep_it_together",
@@ -89,7 +104,9 @@
         "emotional_storm",
         "controlled_distortion",
         "athleticism_shadow",
-        "athletic"
+        "athletic",
+        "cheese",
+        "stimulants"
     ],
     "augmentations": [
         "aug_back_speed"

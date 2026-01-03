@@ -40,6 +40,10 @@ def render_abilities(unit, u_key):
         # Talents
         bonus_slots = int(unit.modifiers["talent_slots"]["flat"])
         max_talents = (unit.level // 3) + bonus_slots
+        current_talents = [t for t in unit.talents if t in TALENT_REGISTRY]
+
+        safe_limit = max(max_talents, len(current_talents))
+
         st.markdown(f"**Таланты ({len(unit.talents)} / {max_talents})**")
 
         # === FIX: Rerun on talent change to update stats ===
@@ -48,7 +52,7 @@ def render_abilities(unit, u_key):
             options=sorted(list(TALENT_REGISTRY.keys())),
             default=[t for t in unit.talents if t in TALENT_REGISTRY],
             format_func=fmt_name,
-            max_selections=max_talents,
+            max_selections=safe_limit,
             label_visibility="collapsed",
             key=f"mt_{u_key}"
         )

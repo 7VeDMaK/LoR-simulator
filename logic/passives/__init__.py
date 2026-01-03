@@ -1,4 +1,4 @@
-from logic.passives.asgick_passives import PassiveWitnessOfGroGoroth
+from logic.passives.asgick_passives import PassiveWitnessOfGroGoroth, PassivePovar
 from logic.passives.equipment_passives import PassiveAnnihilator, PassiveBanganrang, PassiveGanitar, PassiveLimagun
 from logic.passives.lilith_passives import PassiveHedonism, PassiveWagTail, PassiveBackstreetDemon, \
     PassiveDaughterOfBackstreets, PassiveBlessingOfWind, PassiveLiveFastDieYoung
@@ -33,4 +33,5 @@ PASSIVE_REGISTRY = {
 "mech_banganrang": PassiveBanganrang(),
 "mech_ganitar": PassiveGanitar(),
 "mech_limagun": PassiveLimagun(),
+"povar":PassivePovar(),
 }

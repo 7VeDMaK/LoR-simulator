@@ -101,3 +101,18 @@ class PassiveWitnessOfGroGoroth(BasePassive):
                     # ВАЖНО: trigger_events=False предотвращает бесконечный цикл,
                     # если у союзника тоже есть такая пассивка или триггеры
                     ally.add_status(status_id, amount, duration=duration, trigger_events=False)
+
+
+class PassivePovar(BasePassive):
+    id = "povar"
+    name = "Поваренок"
+    description = "Отлично готовишь и вкусно кушаешь! Автоматически получает доступ к талантам 4.4 и 4.5."
+
+    def on_calculate_stats(self, unit) -> dict:
+        talents_to_learn = ["cheese", "stimulants"]
+
+        for tid in talents_to_learn:
+            if tid not in unit.talents:
+                unit.talents.append(tid)
+
+        return {"talent_slots": len(talents_to_learn)}

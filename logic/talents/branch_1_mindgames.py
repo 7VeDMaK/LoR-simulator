@@ -92,12 +92,10 @@ class TalentTeaMaster(BasePassive):
 
         added_count = 0
         for tid in tea_ids:
-            # Можно добавить проверку: если такой карты нет в библиотеке, не добавляем
-            # Но Library.get_card вернет "Unknown", если нет.
 
-            # Добавляем в колоду юнита (это runtime список)
-            unit.deck.append(tid)
-            added_count += 1
+            if tid not in unit.deck:
+                unit.deck.append(tid)
+                added_count += 1
 
         if log_func:
             log_func(f"☕ **Чайный Мастер**: {added_count} видов чая добавлено в инвентарь.")
