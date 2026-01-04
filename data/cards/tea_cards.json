@@ -68,12 +68,12 @@
               "factor": 0.15
             }
           },
-          {
-            "script_id": "apply_status",
-            "params": {
-              "status": "haste",
+          { "script_id": "apply_status",
+            "params":
+            { "status": "haste",
               "base": 2,
-              "duration": 3
+              "duration": 2,
+              "target": "self"
             }
           }
         ]

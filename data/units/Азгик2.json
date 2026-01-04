@@ -1,10 +1,10 @@
 {
     "name": "Азгик2",
-    "level": 27,
+    "level": 28,
     "rank": 9,
     "avatar": "data/avatars/Азгик2.png",
     "base_intellect": 3,
-    "total_xp": 0,
+    "total_xp": 201326592,
     "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -52,9 +52,9 @@
         "armor_name": "Standard Fixer Suit",
         "armor_type": "Medium",
         "hp_resists": {
-            "slash": 1.4,
+            "slash": 1.2,
             "pierce": 1.0,
-            "blunt": 1.4
+            "blunt": 1.2
         },
         "stagger_resists": {
             "slash": 1.0,

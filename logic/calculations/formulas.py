@@ -264,12 +264,12 @@ def calculate_pools(unit, attrs, skills, mods, logs):
 
         # === [ВАЖНО] СБОР ВСЕХ МОДИФИКАТОРОВ В MODS ===
         # Добавляем Flat (база + роллы + статы + ИМПЛАНТЫ)
-        mods["hp"]["flat"] += base_h + rolls_h + hp_flat_attr + unit.implants_hp_flat
+    mods["hp"]["flat"] += base_h + rolls_h + hp_flat_attr + unit.implants_hp_flat
 
-        # Добавляем Percent (статы + импланты + таланты)
-        mods["hp"]["pct"] += hp_pct_attr + unit.implants_hp_pct + unit.talents_hp_pct
+    # Добавляем Percent (статы + импланты + таланты)
+    mods["hp"]["pct"] += hp_pct_attr + unit.implants_hp_pct + unit.talents_hp_pct
 
-        unit.max_hp = get_modded_value(0, "hp", mods)
+    unit.max_hp = get_modded_value(0, "hp", mods)
 
     # --- 2. SP ---
     base_s = unit.base_sp
@@ -297,11 +297,11 @@ def calculate_pools(unit, attrs, skills, mods, logs):
         action = "получает дополнительные" if sp_flat_bonus > 0 else "теряет"
         logs.append(f"Персонаж {action} {abs(sp_flat_bonus)} 🧠 рассудка")
 
-        # Сбор SP
-        mods["sp"]["flat"] += base_s + rolls_s + sp_flat_attr + unit.implants_sp_flat
-        mods["sp"]["pct"] += sp_pct_attr + unit.implants_sp_pct + unit.talents_sp_pct
+    # Сбор SP
+    mods["sp"]["flat"] += base_s + rolls_s + sp_flat_attr + unit.implants_sp_flat
+    mods["sp"]["pct"] += sp_pct_attr + unit.implants_sp_pct + unit.talents_sp_pct
 
-        unit.max_sp = get_modded_value(0, "sp", mods)
+    unit.max_sp = get_modded_value(0, "sp", mods)
 
     # --- 3. STAGGER ---
     adapt_lvl = unit.get_status("adaptation")
@@ -321,11 +321,11 @@ def calculate_pools(unit, attrs, skills, mods, logs):
         word = get_word(stg_pct)
         logs.append(f"{word} 😵 выдержку на {abs(stg_pct)}%")
 
-        # Сбор Stagger
-        mods["stagger"]["flat"] += base_stg + unit.implants_stagger_flat
-        mods["stagger"]["pct"] += stg_pct + unit.implants_stagger_pct
+    # Сбор Stagger
+    mods["stagger"]["flat"] += base_stg + unit.implants_stagger_flat
+    mods["stagger"]["pct"] += stg_pct + unit.implants_stagger_pct
 
-        unit.max_stagger = get_modded_value(0, "stagger", mods)
+    unit.max_stagger = get_modded_value(0, "stagger", mods)
 
 def finalize_state(unit, mods, logs):
     """Финальные проверки."""

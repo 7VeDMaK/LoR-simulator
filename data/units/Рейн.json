@@ -1,10 +1,10 @@
 {
     "name": "Рейн",
-    "level": 20,
-    "rank": 8,
+    "level": 25,
+    "rank": 6,
     "avatar": "data/avatars/Рейн.png",
     "base_intellect": 6,
-    "total_xp": 786432,
+    "total_xp": 17563648,
     "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -30,9 +30,9 @@
         "shadow_fortune_strike"
     ],
     "base_stats": {
-        "current_hp": 145,
+        "current_hp": 172,
         "current_sp": 157,
-        "current_stagger": 75
+        "current_stagger": 49
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -49,7 +49,9 @@
         },
         "weapon_id": "cleaver_7"
     },
-    "card_cooldowns": {},
+    "card_cooldowns": {
+        "shadow_series_punches": 1
+    },
     "attributes": {
         "strength": 0,
         "endurance": 22,
@@ -114,6 +116,14 @@
         "18": {
             "hp": 4,
             "sp": 2
+        },
+        "21": {
+            "hp": 5,
+            "sp": 5
+        },
+        "24": {
+            "hp": 2,
+            "sp": 1
         }
     },
     "cooldowns": {},
