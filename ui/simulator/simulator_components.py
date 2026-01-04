@@ -6,6 +6,17 @@ from logic.weapon_definitions import WEAPON_REGISTRY
 from ui.components import _format_script_text
 from ui.styles import TYPE_ICONS, TYPE_COLORS
 
+CARD_TYPE_ICONS = {
+    "melee": "⚔️",
+    "ranged": "🏹",
+    "on play": "⚡",
+    "on_play": "⚡",
+    "mass summation": "💥",
+    "mass individual": "💥",
+    "defensive": "🛡️",
+    "offensive": "🗡️",
+    "item": "💊"
+}
 
 def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
     """
@@ -26,7 +37,20 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
     # Текущая карта
     selected_card = slot.get('card')
-    card_name = f"🃏 {selected_card.name}" if selected_card else "⛔ Пусто"
+
+    if selected_card:
+        # Определяем иконку типа
+        c_type_lower = str(selected_card.card_type).lower()
+        # Ищем частичное совпадение ключа (например "mass" найдет "mass summation")
+        type_icon = "📄"
+        for k, v in CARD_TYPE_ICONS.items():
+            if k in c_type_lower:
+                type_icon = v
+                break
+
+        card_name = f"[{selected_card.tier}] {type_icon} {selected_card.name}"
+    else:
+        card_name = "⛔ Пусто"
 
     # Скорость и эффекты
     spd_label = f"🎲{speed}"
@@ -149,9 +173,14 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
                         c_idx = idx
                         break
 
+            def format_card_option(x):
+                if not x: return "⛔ Пусто"
+                # Возвращаем: [Rank X] Name (Type)
+                return f"[{x.tier}] {x.name} ({str(x.card_type).capitalize()})"
+
             new_card = c_sel.selectbox(
                 "Page", display_cards,
-                format_func=lambda x: x.name if x else "⛔ Пусто",
+                format_func=format_card_option,
                 index=c_idx,
                 key=f"{key_prefix}_{unit.name}_card_{slot_idx}",
                 label_visibility="collapsed"
@@ -215,6 +244,8 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
         # --- 4. ИНФОРМАЦИЯ О КАРТЕ ---
         if selected_card:
+            type_text = str(selected_card.card_type).capitalize()
+            st.caption(f"**Ранг:** {selected_card.tier} | **Тип:** {type_text}")
             # Кубики
             if selected_card.dice_list:
                 dice_display = []

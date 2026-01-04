@@ -235,6 +235,9 @@ class ClashSystem(ClashFlowMixin):
             executed_slots.add(src_id)
 
             p_label = "Mass Atk" if act['is_left'] else "Enemy Mass"
+
+            if source.current_card.id != "unknown":
+                source.card_cooldowns[source.current_card.id] = source.current_card.tier
             # Вызываем логику из logic.battle_flow.mass_attack
             return process_mass_attack(self, act, act['opposing_team'], p_label)
 
@@ -247,6 +250,9 @@ class ClashSystem(ClashFlowMixin):
             details = [f"⚡ {source.name} used {act['slot_data']['card'].name}{tgt_name}"]
             if self.logs:
                 details.extend(self.logs)  # Добавляем сообщения о баффах
+
+            if source.current_card.id != "unknown":
+                source.card_cooldowns[source.current_card.id] = source.current_card.tier
 
             return [{"round": "On Play", "details": details}]
 
@@ -283,7 +289,7 @@ class ClashSystem(ClashFlowMixin):
 
         # Устанавливаем кулдаун карты (если нужно для UI)
         if source.current_card.id != "unknown":
-            source.card_cooldowns[source.current_card.id] = max(0, source.current_card.tier - 1)
+            source.card_cooldowns[source.current_card.id] = max(0, source.current_card.tier)
 
         battle_logs = []
         spd_src = act['slot_data']['speed']

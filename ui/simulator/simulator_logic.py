@@ -26,6 +26,21 @@ def get_teams():
     """Вспомогательная функция для получения команд из сессии."""
     return st.session_state.get('team_left', []), st.session_state.get('team_right', [])
 
+def set_cooldowns(u):
+    if not u.memory.get("battle_initialized"):
+        u.card_cooldowns = {}
+        u.memory["battle_initialized"] = True
+        if getattr(u, 'deck', None):
+            for card_id in u.deck:
+                card = Library.get_card(card_id)
+                if card:
+                    # Формула:
+                    # Ранг 1 -> КД 0 (Доступна)
+                    # Ранг 2 -> КД 1 (Недоступна 1 ход)
+                    # Ранг 3 -> КД 2 (Недоступна 2 хода)
+                    initial_cd = max(0, card.tier - 1)
+                    if initial_cd > 0:
+                        u.card_cooldowns[card_id] = initial_cd
 
 def roll_phase():
     """
@@ -38,6 +53,7 @@ def roll_phase():
     # 1. Пересчет статов и бросок скорости
     for u in all_units:
         u.recalculate_stats()
+        set_cooldowns(u)
 
         if u.is_staggered():
             # Оглушенный юнит получает 1 слот с 0 скорости
@@ -196,7 +212,7 @@ def reset_game():
         u._status_effects = {}
         u.delayed_queue = []
         u.active_slots = []
-        u.cooldowns = {}
+        set_cooldowns(u)
         u.active_buffs = {}
         u.memory = {}
 
