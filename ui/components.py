@@ -29,10 +29,21 @@ def _format_script_text(script_id: str, params: dict) -> str:
             return f" [{sign}{factor}x {stat}{diff_txt}]"
         return ""
 
+    # === [UPDATE] Вспомогательная функция для Длительности и Задержки ===
+    def get_time_text(p):
+        dur = int(p.get("duration", 0))
+        dly = int(p.get("delay", 0))
+        parts = []
+        if dur > 1: parts.append(f"⏳{dur}")  # Показываем длительность, если она > 1
+        if dly > 0: parts.append(f"⏰{dly}")  # Показываем задержку, если есть
+
+        if parts:
+            return f" ({', '.join(parts)})"
+        return ""
+
     # === ЛЕЧЕНИЕ / РЕСУРСЫ ===
     if script_id in ["restore_hp", "restore_resource"]:
         res_type = params.get("type", "hp").upper()
-        # Если старый restore_hp, там типа нет, но мы знаем что это HP
         if script_id == "restore_hp": res_type = "HP"
 
         val = get_val(params)
@@ -46,14 +57,17 @@ def _format_script_text(script_id: str, params: dict) -> str:
     # === СТАТУСЫ ===
     elif script_id == "apply_status":
         status = params.get("status", "???").capitalize()
-        val = get_val(params)  # Тут оно возьмет base или stack
+        val = get_val(params)
         scale = get_scale_text(params)
+
+        # Добавляем инфо о времени
+        time_info = get_time_text(params)
 
         target = params.get("target", "target")
         tgt_map = {"self": "себя", "target": "цель", "all": "всех", "all_allies": "союзников"}
         tgt_str = f" ({tgt_map.get(target, target)})"
 
-        return f"🧪 {status}: {val}{scale}{tgt_str}"
+        return f"🧪 {status}: {val}{scale}{time_info}{tgt_str}"
 
     # === УРОН / МОЩЬ ===
     elif script_id == "modify_roll_power":
@@ -108,9 +122,42 @@ def render_unit_stats(unit: Unit):
 
     st.progress(sp_pct, text=f"Sanity: {unit.current_sp}/{unit.max_sp} {mood}")
 
-    # === ОТОБРАЖЕНИЕ СТАТУС-ЭФФЕКТОВ (ПЕРЕРАБОТАНО) ===
-    active_statuses = unit.statuses
-    if active_statuses:
+    # === [UPDATE] ОТОБРАЖЕНИЕ СТАТУС-ЭФФЕКТОВ ===
+    # Собираем данные из _status_effects (активные) и delayed_queue (отложенные)
+
+    status_display_list = []
+
+    # 1. Активные статусы (unit._status_effects: Dict[str, List[Dict]])
+    if hasattr(unit, "_status_effects"):
+        for name, instances in unit._status_effects.items():
+            # Группируем по длительности, чтобы не спамить плашками
+            # (например, если есть 3 наложения Кровотечения с одинаковой длительностью, сливаем их)
+            grouped = {}  # duration -> amount
+            for i in instances:
+                d = i.get('duration', 1)
+                grouped[d] = grouped.get(d, 0) + i['amount']
+
+            for d, amt in grouped.items():
+                status_display_list.append({
+                    "name": name,
+                    "amount": amt,
+                    "duration": d,
+                    "delay": 0,
+                    "is_active": True
+                })
+
+    # 2. Отложенные статусы (unit.delayed_queue: List[Dict])
+    if hasattr(unit, "delayed_queue"):
+        for item in unit.delayed_queue:
+            status_display_list.append({
+                "name": item['name'],
+                "amount": item['amount'],
+                "duration": item['duration'],
+                "delay": item['delay'],
+                "is_active": False
+            })
+
+    if status_display_list:
         st.markdown("---")
 
         # Словарь иконок
@@ -120,27 +167,53 @@ def render_unit_stats(unit: Unit):
             "smoke": "🌫️", "satiety": "🍗", "regen_hp": "➕", "mental_protection": "🧠",
             "fragile": "💔", "vulnerability": "🎯", "weakness": "🔻", "burn": "🔥",
             "bind": "🔗", "slow": "🐌", "tremor": "🫨", "invisibility": "👻",
-            "clarity": "✨", "passive_lock": "🔒", "taunt": "🤬",
+            "clarity": "✨", "passive_lock": "🔒", "taunt": "🤬", "bullet_time": "🕰️"
         }
 
-        # Генерируем HTML для компактного отображения
+        # Генерируем HTML
         html_tags = ""
-        for name, val in active_statuses.items():
-            icon = status_icons.get(name, "✨")
-            label = name.replace('_', ' ').capitalize()
+        for s in status_display_list:
+            name = s["name"]
+            amt = s["amount"]
+            dur = s["duration"]
+            dly = s["delay"]
 
-            # Разные цвета для баффов и дебаффов (упрощенно)
-            bg_color = "#2b2d42"  # Темный фон по умолчанию
+            icon = status_icons.get(name, "✨")
+            label_name = name.replace('_', ' ').capitalize()
+
+            # Цвета
+            bg_color = "#2b2d42"
             border_color = "#8d99ae"
 
-            # Негативные статусы (примерно)
+            # Если это "Отложенный" статус, делаем его полупрозрачным или другого цвета
+            if dly > 0:
+                bg_color = "#1a1a2e"  # Темнее
+                border_color = "#6c757d"  # Серый
+
+            # Определяем цвет рамки по типу (Buff/Debuff)
             if name in ["bleed", "burn", "paralysis", "fragile", "vulnerability", "weakness", "bind", "slow", "tremor",
                         "satiety"]:
-                border_color = "#ef233c"  # Красная рамка
-            # Позитивные
+                border_color = "#ef233c"  # Red
             elif name in ["strength", "endurance", "haste", "protection", "barrier", "regen_hp", "mental_protection",
                           "clarity"]:
-                border_color = "#2ec4b6"  # Бирюзовая рамка
+                border_color = "#2ec4b6"  # Teal
+
+            # === ФОРМАТИРОВАНИЕ ТЕКСТА (1 | 2 | 3) ===
+            # Формат: Stack | Duration [| Delay]
+            # Пример: 5 | 3 (5 стаков, 3 хода)
+            # Пример: 5 | 3 | 1 (5 стаков, 3 хода, через 1 ход)
+
+            value_text = f"<b>{amt}</b>"
+
+            # Добавляем Duration (если это не бесконечный статус типа 99)
+            if dur < 50:
+                value_text += f" <span style='opacity:0.7'>| {dur}</span>"
+            else:
+                value_text += f" <span style='opacity:0.7'>| ∞</span>"  # Значок бесконечности для 99
+
+            # Добавляем Delay
+            if dly > 0:
+                value_text += f" <span style='color:#f4d35e'>| ⏳{dly}</span>"
 
             html_tags += f"""
                 <div style="
@@ -148,11 +221,12 @@ def render_unit_stats(unit: Unit):
                     background-color: {bg_color};
                     border: 1px solid {border_color};
                     border-radius: 5px;
-                    padding: 2px 8px;
+                    padding: 2px 6px;
                     margin: 2px;
-                    font-size: 0.9em;
-                    color: white;">
-                    {icon} <b>{val}</b> {label}
+                    font-size: 0.85em;
+                    color: white;
+                    white-space: nowrap;">
+                    {icon} {value_text} <span style='font-size:0.8em; margin-left:3px;'>{label_name}</span>
                 </div>
                 """
 
