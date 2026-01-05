@@ -15,10 +15,9 @@ class TalentNakedDefense(BasePassive):
 
     def on_combat_start(self, unit, log_func, **kwargs):
         if not unit.armor_name or unit.armor_name.lower() in ["none", "нет", "empty", "naked"]:
-            # Сбрасываем резисты в 1.0 (это база для этой ветки)
-            unit.hp_resists.slash = 1.0
-            unit.hp_resists.pierce = 1.0
-            unit.hp_resists.blunt = 1.0
+            unit.hp_resists.slash = min(unit.hp_resists.slash, 1.0)
+            unit.hp_resists.pierce = min(unit.hp_resists.pierce, 1.0)
+            unit.hp_resists.blunt = min(unit.hp_resists.blunt, 1.0)
             if log_func: log_func(f"🛡️ **{self.name}**: Броня снята. Резисты = 1.0")
 
 
@@ -36,15 +35,9 @@ class TalentVengefulPayback(BasePassive):
         chunks = lost_hp // 10
         mem_key = f"{self.id}_chunks"
         previous_chunks = unit.memory.get(mem_key, 0)
-
-        # Если мы потеряли еще ХП с прошлого раза (или это первый раунд и мы уже ранены)
-        # Логика "на следующий раунд" подразумевает, что бонус дается каждый раунд пока ХП низкое?
-        # Текст: "срабатывает 1 раз за каждые 10 едениц". Обычно это "при потере".
-        # Но реализуем как динамический бонус от недостающего здоровья.
-
         bonus = chunks
         if bonus > 0:
-            unit.add_status("strength", bonus, duration=1)
+            unit.add_status("strength", bonus, duration=3)
             if log_func: log_func(f"🩸 **{self.name}**: -{lost_hp} HP -> +{bonus} Силы")
 
 
@@ -83,7 +76,7 @@ class TalentBerserkerRage(BasePassive):
 # ==========================================
 class TalentNakedDefense2(BasePassive):
     id = "naked_defense_2"
-    name = "Встроенная броня 2"
+    name = "Встроенная броня 2  WIP"
     description = (
         "5.3 Опц: Без брони можно понизить 2 резиста на 0.25 (не ниже 0.5).\n"
         "(Реализовано как -0.25 ко всем для простоты, или выберите вручную в профиле)"
