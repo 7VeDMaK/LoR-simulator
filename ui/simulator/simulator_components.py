@@ -4,6 +4,7 @@ from logic.character_changing.passives import PASSIVE_REGISTRY
 from logic.character_changing.talents import TALENT_REGISTRY
 from logic.weapon_definitions import WEAPON_REGISTRY
 from ui.components import _format_script_text
+from ui.icons import get_icon_html
 from ui.styles import TYPE_ICONS, TYPE_COLORS
 
 CARD_TYPE_ICONS = {
@@ -18,11 +19,10 @@ CARD_TYPE_ICONS = {
     "item": "💊"
 }
 
+
 def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
     """
     Рендерит полоску одного слота действий.
-    unit: Текущий юнит (Source)
-    opposing_team: Список юнитов противника (List[Unit])
     """
     slot = unit.active_slots[slot_idx]
 
@@ -41,7 +41,6 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
     if selected_card:
         # Определяем иконку типа
         c_type_lower = str(selected_card.card_type).lower()
-        # Ищем частичное совпадение ключа (например "mass" найдет "mass summation")
         type_icon = "📄"
         for k, v in CARD_TYPE_ICONS.items():
             if k in c_type_lower:
@@ -68,12 +67,12 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
         # Фильтрация по кулдауну (CD)
         for c in raw_cards:
+            # Предметы в слот ставить нельзя
             if str(c.card_type).lower() == "item":
                 continue
 
             cd_left = unit.card_cooldowns.get(c.id, 0)
             if cd_left > 0:
-                # Можно добавлять с пометкой, но пока просто пропускаем для чистоты UI
                 pass
             else:
                 available_cards.append(c)
@@ -92,7 +91,6 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
         is_friendly = False
         if selected_card and "friendly" in selected_card.flags:
             is_friendly = True
-            # Сохраняем флаг в слоте, чтобы движок знал, где искать цель
             slot['is_ally_target'] = True
         else:
             slot['is_ally_target'] = False
@@ -106,24 +104,14 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
         for t_idx, target_unit in enumerate(team_to_show):
             if target_unit.is_dead(): continue
-
-            if target_unit.get_status("invisibility") > 0:
-                continue
-
-            # === ФИЛЬТР ПРОВОКАЦИИ ===
-            # Если есть провокатор, а текущий юнит БЕЗ провокации — пропускаем его
-            if has_taunt and target_unit.get_status("taunt") <= 0:
-                continue
+            if target_unit.get_status("invisibility") > 0: continue
+            if has_taunt and target_unit.get_status("taunt") <= 0: continue
 
             # Теперь показываем слоты и для союзников, и для врагов
             for s_i, slot_obj in enumerate(target_unit.active_slots):
                 t_spd = slot_obj['speed']
                 extra = "😵" if slot_obj.get('stunned') else f"Spd {t_spd}"
-
-                # Метка (Ally) для ясности
                 tag = "(Ally)" if is_friendly else ""
-
-                # Формат: "idx:slot | Name Tag S# (Spd)"
                 opt_str = f"{t_idx}:{s_i} | {target_unit.name} {tag} S{s_i + 1} ({extra})"
                 target_options.append(opt_str)
 
@@ -134,7 +122,6 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
         current_val_str = "None"
         if cur_t_unit != -1 and cur_t_slot != -1:
             prefix = f"{cur_t_unit}:{cur_t_slot}"
-            # Ищем совпадение в опциях
             for opt in target_options:
                 if opt.startswith(prefix):
                     current_val_str = opt
@@ -144,16 +131,14 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
         selected_tgt_str = c_tgt.selectbox(
             "Target", target_options,
             index=target_options.index(current_val_str) if current_val_str in target_options else 0,
-            key=f"{key_prefix}_{unit.name}_tgt_{slot_idx}",  # Уникальный ключ
+            key=f"{key_prefix}_{unit.name}_tgt_{slot_idx}",
             label_visibility="collapsed"
         )
 
-        # Сохранение выбора в слот
         if selected_tgt_str == "None":
             slot['target_unit_idx'] = -1
             slot['target_slot_idx'] = -1
         else:
-            # Парсим строку "0:1 | Name..."
             parts = selected_tgt_str.split('|')[0].strip().split(':')
             slot['target_unit_idx'] = int(parts[0])
             slot['target_slot_idx'] = int(parts[1])
@@ -168,7 +153,6 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
             )
         else:
             display_cards = [None] + available_cards
-            # Находим индекс текущей карты
             c_idx = 0
             if selected_card:
                 for idx, c in enumerate(display_cards):
@@ -178,7 +162,6 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
             def format_card_option(x):
                 if not x: return "⛔ Пусто"
-                # Возвращаем: [Rank X] Name (Type)
                 return f"[{x.tier}] {x.name} ({str(x.card_type).capitalize()})"
 
             new_card = c_sel.selectbox(
@@ -191,49 +174,35 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
             slot['card'] = new_card
 
         # === СТРОКА 2: Опции (Чекбоксы) ===
-
-        # Попытка определить скорость врага для валидации Aggro
         can_redirect = True
         enemy_spd_val = 0
         has_athletic = ("athletic" in unit.talents) or ("athletic" in unit.passives)
 
         if selected_tgt_str != "None":
-            # Парсим строку вида "0:1 | Name S2 (Spd 5)"
             try:
-                # Ищем "Spd " и берем число после него
                 import re
                 match = re.search(r"Spd (\d+)", selected_tgt_str)
                 if match:
                     enemy_spd_val = int(match.group(1))
-
                     if has_athletic:
-                        # С талантом: Можно если >=
-                        if speed < enemy_spd_val:
-                            can_redirect = False
+                        if speed < enemy_spd_val: can_redirect = False
                     else:
-                        # Без таланта: Нужно строго >
-                        if speed <= enemy_spd_val:
-                            can_redirect = False
+                        if speed <= enemy_spd_val: can_redirect = False
             except:
                 pass
 
         _, c_opt1, c_opt2 = st.columns([2.5, 1, 1])
 
-        # ЧЕКБОКС AGGRO
         aggro_val = slot.get('is_aggro', False)
 
         if can_redirect:
-            # Если можем перехватить - показываем рабочий чекбокс
             c_opt1.checkbox("✋", value=aggro_val,
                             key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}",
                             help=f"Aggro (Моя Spd {speed} > Врага {enemy_spd_val})")
         else:
-            # Если не можем - показываем выключенный или просто текст
-            # Чтобы не ломать структуру ключей, рисуем disabled чекбокс, но значение force False
             c_opt1.checkbox("✋", value=False, disabled=True,
                             key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}",
                             help=f"Слишком медленный для перехвата! ({speed} <= {enemy_spd_val})")
-            # Сбрасываем значение в слоте, чтобы логика не сработала
             if aggro_val:
                 slot['is_aggro'] = False
 
@@ -249,44 +218,53 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
         if selected_card:
             type_text = str(selected_card.card_type).capitalize()
             st.caption(f"**Ранг:** {selected_card.tier} | **Тип:** {type_text}")
+
             # Кубики
             if selected_card.dice_list:
                 dice_display = []
                 for d in selected_card.dice_list:
-                    icon = TYPE_ICONS.get(d.dtype, "?")
                     color = TYPE_COLORS.get(d.dtype, "black")
-                    dice_display.append(f":{color}[{icon} {d.min_val}-{d.max_val}]")
-                st.markdown(" ".join(dice_display))
+
+                    # [FIX] Используем get_icon_html для поддержки картинок (включая webp)
+                    dtype_key = d.dtype.name.lower()
+                    icon_html = get_icon_html(dtype_key, width=20)
+
+                    dice_display.append(f"{icon_html} :{color}[**{d.min_val}-{d.max_val}**]")
+
+                # [FIX] Разрешаем HTML в markdown
+                st.markdown(" ".join(dice_display), unsafe_allow_html=True)
 
             # Скрипты (Описание эффектов)
             desc_text = []
             if "on_use" in selected_card.scripts:
                 for s in selected_card.scripts["on_use"]:
-                    desc_text.append(f"On Use: {_format_script_text(s['script_id'], s.get('params', {}))}")
+                    text = _format_script_text(s['script_id'], s.get('params', {}))
+                    desc_text.append(f"On Use: {text}")
 
             for d in selected_card.dice_list:
                 if d.scripts:
                     for trig, effs in d.scripts.items():
                         for e in effs:
                             t_name = trig.replace("_", " ").title()
-                            desc_text.append(f"{t_name}: {_format_script_text(e['script_id'], e.get('params', {}))}")
+                            text = _format_script_text(e['script_id'], e.get('params', {}))
+                            desc_text.append(f"{t_name}: {text}")
 
             if selected_card.description:
                 st.caption(f"📝 {selected_card.description}")
 
             if desc_text:
                 for line in desc_text:
-                    st.caption(f"• {line}")
+                    # [FIX] Разрешаем HTML в caption для картинок эффектов
+                    st.caption(f"• {line}", unsafe_allow_html=True)
+
 
 def render_active_abilities(unit, unit_key):
     abilities = []
     for pid in unit.passives:
         if pid in PASSIVE_REGISTRY: abilities.append((pid, PASSIVE_REGISTRY[pid]))
-        # === ПАССИВКА ОРУЖИЯ (НОВОЕ) ===
     if unit.weapon_id in WEAPON_REGISTRY:
         wep = WEAPON_REGISTRY[unit.weapon_id]
         if wep.passive_id and wep.passive_id in PASSIVE_REGISTRY:
-            # Добавляем в список способностей
             abilities.append((wep.passive_id, PASSIVE_REGISTRY[wep.passive_id]))
     for pid in unit.talents:
         if pid in TALENT_REGISTRY: abilities.append((pid, TALENT_REGISTRY[pid]))
@@ -309,9 +287,11 @@ def render_active_abilities(unit, unit_key):
                 btn_label = "Activate"
                 disabled = False
                 if active_dur > 0:
-                    btn_label = f"Active ({active_dur})"; disabled = True
+                    btn_label = f"Active ({active_dur})";
+                    disabled = True
                 elif cd > 0:
-                    btn_label = f"Cooldown ({cd})"; disabled = True
+                    btn_label = f"Cooldown ({cd})";
+                    disabled = True
 
                 if st.button(f"✨ {btn_label}", key=f"act_{unit_key}_{pid}", disabled=disabled,
                              use_container_width=True):
@@ -328,15 +308,10 @@ def render_active_abilities(unit, unit_key):
 
 
 def render_inventory(unit, unit_key):
-    """
-    Рендерит секцию инвентаря с предметами (CardType.ITEM).
-    """
-    # Фильтруем карты в колоде, оставляя только предметы
     inventory_cards = []
     if unit.deck:
         for cid in unit.deck:
             card = Library.get_card(cid)
-            # Проверяем тип
             if card and str(card.card_type).lower() == "item":
                 inventory_cards.append(card)
 
@@ -348,7 +323,6 @@ def render_inventory(unit, unit_key):
             btn_key = f"use_item_{unit_key}_{card.id}"
             desc = card.description if card.description else "No description"
 
-            # Кнопка использования
             if st.button(f"💊 {card.name}", key=btn_key, help=desc, use_container_width=True):
                 from ui.simulator.simulator_logic import use_item_action
                 use_item_action(unit, card)

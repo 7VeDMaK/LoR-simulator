@@ -5,13 +5,13 @@ from core.enums import DiceType
 from core.library import Library
 from core.unit.unit import Unit
 from ui.styles import TYPE_ICONS, TYPE_COLORS
+from ui.icons import get_icon_html  # Импорт загрузчика иконок
 
 
 # --- ПЕРЕВОДЧИК СКРИПТОВ ---
 def _format_script_text(script_id: str, params: dict) -> str:
     """
-    Форматирует технические ID скриптов в читаемый текст.
-    Поддерживает и старые (amount/stack), и новые (base/stat) параметры.
+    Форматирует технические ID скриптов в читаемый текст с иконками.
     """
 
     # Вспомогательная функция для получения значения (Base или Amount)
@@ -29,13 +29,15 @@ def _format_script_text(script_id: str, params: dict) -> str:
             return f" [{sign}{factor}x {stat}{diff_txt}]"
         return ""
 
-    # === [UPDATE] Вспомогательная функция для Длительности и Задержки ===
+    # Вспомогательная функция для Длительности и Задержки
     def get_time_text(p):
         dur = int(p.get("duration", 0))
         dly = int(p.get("delay", 0))
         parts = []
-        if dur > 1: parts.append(f"⏳{dur}")  # Показываем длительность, если она > 1
-        if dly > 0: parts.append(f"⏰{dly}")  # Показываем задержку, если есть
+        # Показываем длительность, если она > 1 или если это важно
+        if dur > 1: parts.append(f"⏳{dur}")
+        # Показываем задержку, если есть
+        if dly > 0: parts.append(f"⏰{dly}")
 
         if parts:
             return f" ({', '.join(parts)})"
@@ -43,31 +45,38 @@ def _format_script_text(script_id: str, params: dict) -> str:
 
     # === ЛЕЧЕНИЕ / РЕСУРСЫ ===
     if script_id in ["restore_hp", "restore_resource"]:
-        res_type = params.get("type", "hp").upper()
-        if script_id == "restore_hp": res_type = "HP"
+        res_type = params.get("type", "hp").lower()
+        if script_id == "restore_hp": res_type = "hp"
+
+        # Генерируем иконку
+        icon = get_icon_html(res_type)
 
         val = get_val(params)
         scale = get_scale_text(params)
-        return f"💚 {res_type}: {val}{scale}"
+        return f"{icon} {res_type.upper()}: {val}{scale}"
 
     elif script_id in ["restore_sp", "restore_sp_percent"]:
         val = get_val(params)
-        return f"🧠 SP: {val}"
+        icon = get_icon_html("sp")
+        return f"{icon} SP: {val}"
 
     # === СТАТУСЫ ===
     elif script_id == "apply_status":
-        status = params.get("status", "???").capitalize()
+        status_key = params.get("status", "???").lower()
+        status_label = status_key.capitalize()
+
+        # Иконка статуса
+        icon = get_icon_html(status_key)
+
         val = get_val(params)
         scale = get_scale_text(params)
-
-        # Добавляем инфо о времени
         time_info = get_time_text(params)
 
         target = params.get("target", "target")
         tgt_map = {"self": "себя", "target": "цель", "all": "всех", "all_allies": "союзников"}
         tgt_str = f" ({tgt_map.get(target, target)})"
 
-        return f"🧪 {status}: {val}{scale}{time_info}{tgt_str}"
+        return f"{icon} {status_label}: {val}{scale}{time_info}{tgt_str}"
 
     # === УРОН / МОЩЬ ===
     elif script_id == "modify_roll_power":
@@ -76,12 +85,12 @@ def _format_script_text(script_id: str, params: dict) -> str:
         return f"🎲 Power: {val}{scale}"
 
     elif script_id == "deal_effect_damage":
-        dtype = params.get("type", "hp").upper()
+        dtype = params.get("type", "hp").lower()
+        icon = get_icon_html(dtype)
         val = get_val(params)
         scale = get_scale_text(params)
-        return f"💔 Dmg ({dtype}): {val}{scale}"
+        return f"💔 Dmg ({icon}): {val}{scale}"
 
-    # === ПРОЧЕЕ ===
     elif script_id == "steal_status":
         status = params.get("status", "???")
         return f"✋ Украсть {status}"
@@ -122,17 +131,16 @@ def render_unit_stats(unit: Unit):
 
     st.progress(sp_pct, text=f"Sanity: {unit.current_sp}/{unit.max_sp} {mood}")
 
-    # === [UPDATE] ОТОБРАЖЕНИЕ СТАТУС-ЭФФЕКТОВ ===
+    # === ОТОБРАЖЕНИЕ СТАТУС-ЭФФЕКТОВ ===
     # Собираем данные из _status_effects (активные) и delayed_queue (отложенные)
 
     status_display_list = []
 
-    # 1. Активные статусы (unit._status_effects: Dict[str, List[Dict]])
+    # 1. Активные статусы
     if hasattr(unit, "_status_effects"):
         for name, instances in unit._status_effects.items():
-            # Группируем по длительности, чтобы не спамить плашками
-            # (например, если есть 3 наложения Кровотечения с одинаковой длительностью, сливаем их)
-            grouped = {}  # duration -> amount
+            # Группируем по длительности
+            grouped = {}
             for i in instances:
                 d = i.get('duration', 1)
                 grouped[d] = grouped.get(d, 0) + i['amount']
@@ -146,7 +154,7 @@ def render_unit_stats(unit: Unit):
                     "is_active": True
                 })
 
-    # 2. Отложенные статусы (unit.delayed_queue: List[Dict])
+    # 2. Отложенные статусы
     if hasattr(unit, "delayed_queue"):
         for item in unit.delayed_queue:
             status_display_list.append({
@@ -159,59 +167,46 @@ def render_unit_stats(unit: Unit):
 
     if status_display_list:
         st.markdown("---")
-
-        # Словарь иконок
-        status_icons = {
-            "self_control": "💨", "strength": "💪", "bleed": "🩸", "paralysis": "⚡",
-            "haste": "👟", "protection": "🛡️", "barrier": "🟡", "endurance": "🧱",
-            "smoke": "🌫️", "satiety": "🍗", "regen_hp": "➕", "mental_protection": "🧠",
-            "fragile": "💔", "vulnerability": "🎯", "weakness": "🔻", "burn": "🔥",
-            "bind": "🔗", "slow": "🐌", "tremor": "🫨", "invisibility": "👻",
-            "clarity": "✨", "passive_lock": "🔒", "taunt": "🤬", "bullet_time": "🕰️"
-        }
-
-        # Генерируем HTML
         html_tags = ""
+
         for s in status_display_list:
             name = s["name"]
             amt = s["amount"]
             dur = s["duration"]
             dly = s["delay"]
 
-            icon = status_icons.get(name, "✨")
+            # Получаем HTML иконки
+            icon_html = get_icon_html(name, width=18)
+
             label_name = name.replace('_', ' ').capitalize()
 
-            # Цвета
+            # Цвета рамок
             bg_color = "#2b2d42"
             border_color = "#8d99ae"
 
-            # Если это "Отложенный" статус, делаем его полупрозрачным или другого цвета
+            # Если отложенный (Delay > 0)
             if dly > 0:
-                bg_color = "#1a1a2e"  # Темнее
-                border_color = "#6c757d"  # Серый
+                bg_color = "#1a1a2e"
+                border_color = "#6c757d"
 
-            # Определяем цвет рамки по типу (Buff/Debuff)
+            # Цветовая кодировка типов (упрощенная)
             if name in ["bleed", "burn", "paralysis", "fragile", "vulnerability", "weakness", "bind", "slow", "tremor",
                         "satiety"]:
-                border_color = "#ef233c"  # Red
+                border_color = "#ef233c"  # Красный (Дебафф)
             elif name in ["strength", "endurance", "haste", "protection", "barrier", "regen_hp", "mental_protection",
                           "clarity"]:
-                border_color = "#2ec4b6"  # Teal
+                border_color = "#2ec4b6"  # Бирюзовый (Бафф)
 
-            # === ФОРМАТИРОВАНИЕ ТЕКСТА (1 | 2 | 3) ===
-            # Формат: Stack | Duration [| Delay]
-            # Пример: 5 | 3 (5 стаков, 3 хода)
-            # Пример: 5 | 3 | 1 (5 стаков, 3 хода, через 1 ход)
-
+            # Формирование текста значений
             value_text = f"<b>{amt}</b>"
 
-            # Добавляем Duration (если это не бесконечный статус типа 99)
+            # Длительность
             if dur < 50:
                 value_text += f" <span style='opacity:0.7'>| {dur}</span>"
             else:
-                value_text += f" <span style='opacity:0.7'>| ∞</span>"  # Значок бесконечности для 99
+                value_text += f" <span style='opacity:0.7'>| ∞</span>"
 
-            # Добавляем Delay
+            # Задержка
             if dly > 0:
                 value_text += f" <span style='color:#f4d35e'>| ⏳{dly}</span>"
 
@@ -225,8 +220,9 @@ def render_unit_stats(unit: Unit):
                     margin: 2px;
                     font-size: 0.85em;
                     color: white;
-                    white-space: nowrap;">
-                    {icon} {value_text} <span style='font-size:0.8em; margin-left:3px;'>{label_name}</span>
+                    white-space: nowrap;
+                    vertical-align: middle;">
+                    {icon_html} {value_text} <span style='font-size:0.8em; margin-left:3px;'>{label_name}</span>
                 </div>
                 """
 
@@ -244,7 +240,7 @@ def render_combat_info(unit: Unit):
 
         st.divider()
 
-        # Бонусы от характеристик и навыков
+        # Бонусы
         mods = unit.modifiers
         atk_power = mods.get("power_attack", 0) + mods.get("power_medium", 0)
         def_block = mods.get("power_block", 0)
@@ -319,7 +315,8 @@ def render_card_visual(card: Card, is_staggered: bool = False):
                 st.markdown(f"**{trigger_name}:**")
                 for s in scripts:
                     friendly_text = _format_script_text(s['script_id'], s.get('params', {}))
-                    st.caption(f"- {friendly_text}")
+                    # Разрешаем HTML, чтобы картинки отображались
+                    st.caption(f"- {friendly_text}", unsafe_allow_html=True)
 
         st.divider()
 
@@ -328,11 +325,16 @@ def render_card_visual(card: Card, is_staggered: bool = False):
         for i, dice in enumerate(card.dice_list):
             with cols[i]:
                 color = TYPE_COLORS.get(dice.dtype, "black")
-                icon = TYPE_ICONS.get(dice.dtype, "?")
-                st.markdown(f":{color}[{icon} **{dice.min_val}-{dice.max_val}**]")
+
+                # Иконка кубика (Slash/Pierce/Blunt)
+                dtype_key = dice.dtype.name.lower()
+                icon_html = get_icon_html(dtype_key, width=24)
+
+                # Используем markdown с html
+                st.markdown(f"{icon_html} : {color}[**{dice.min_val}-{dice.max_val}**]", unsafe_allow_html=True)
 
                 if dice.scripts:
                     for trig, effs in dice.scripts.items():
                         for e in effs:
                             friendly_text = _format_script_text(e['script_id'], e.get('params', {}))
-                            st.caption(f"*{friendly_text}*")
+                            st.caption(f"*{friendly_text}*", unsafe_allow_html=True)
