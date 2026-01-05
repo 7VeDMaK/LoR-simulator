@@ -42,13 +42,13 @@ ICON_FILES = {
     "strength": "AttackPowerUp.webp",  # Сила (обычно это Power Up)
     "endurance": "Endurance.webp",
     "haste": "Haste.webp",
-    "protection": "Barrier.webp",  # Или Protection, если есть
+    "protection": "Protection.webp",  # Или Protection, если есть
     "barrier": "Barrier.webp",
 
     "bleed": "Bleed.webp",
     "burn": "Burn.webp",
     "smoke": "Smoke.webp",
-    "paralysis": "Weak.webp",  # Паралич часто похож на Weakness или отдельную иконку
+    "paralysis": "Paralize.webp",  # Паралич часто похож на Weakness или отдельную иконку
     "fragile": "Fragile.webp",
     "vulnerability": "Vulnerable.webp",
     "weakness": "AttackPowerDown.webp",  # Weakness = снижение силы атаки
@@ -65,7 +65,7 @@ ICON_FILES = {
     "dmg_down": "DamageDown.webp",
     "power_up": "AttackPowerUp.webp",
     "power_down": "AttackPowerDown.webp",
-    "stealth": "Undetectable.webp",
+    "invisibility": "Undetectable.webp",
     "rhythm": "Rythm.webp",  # Rythm
 
     # --- Типы карт (Ранги) ---

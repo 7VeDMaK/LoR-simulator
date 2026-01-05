@@ -18,7 +18,17 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "deck": [],
+    "deck": [
+        "обычный_удар_726c",
+        "удачное_стечение_img2",
+        "не_беспокойство_img3",
+        "тяжкое_бремя_img4",
+        "изничтожение_img5",
+        "tale_of_twilight_img",
+        "warp_img",
+        "series_normal_strikes_img",
+        "not_the_limit_img"
+    ],
     "base_stats": {
         "current_hp": 172,
         "current_sp": 195,
@@ -48,21 +58,21 @@
         "shadow_fortune_strike": 2
     },
     "attributes": {
-        "strength": 0,
+        "strength": 5,
         "endurance": 22,
-        "agility": 1,
+        "agility": 7,
         "wisdom": 0,
         "psych": 21
     },
     "skills": {
         "strike_power": 0,
-        "medicine": 4,
+        "medicine": 15,
         "willpower": 2,
         "luck": 55,
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,
-        "speed": 15,
+        "speed": 26,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,

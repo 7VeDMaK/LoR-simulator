@@ -1,128 +1,213 @@
 {
   "cards": [
     {
-      "id": "shadow_blunt",
+      "id": "обычный_удар_img1",
       "name": "Обычный удар",
       "tier": 1,
-      "type": "Melee",
-      "description": "Простой удар.",
+      "type": "melee",
+      "description": "",
       "dice": [
         {
-          "type": "Blunt",
-          "base_min": 2,
-          "base_max": 6
+          "type": "slash",
+          "base_min": 6,
+          "base_max": 16,
+          "scripts": {}
         }
       ]
     },
     {
-      "id": "shadow_block",
-      "name": "Подставить руку",
-      "tier": 1,
-      "type": "Melee",
-      "description": "Базовая защита.",
-      "dice": [
-        {
-          "type": "Block",
-          "base_min": 2,
-          "base_max": 7
-        }
-      ]
-    },
-    {
-      "id": "shadow_evade",
+      "id": "удачное_стечение_img2",
       "name": "Удачное стечение обстоятельств",
       "tier": 1,
-      "type": "Melee",
-      "description": "Попытка уклониться от атаки.",
+      "type": "melee",
+      "description": "",
       "dice": [
         {
-          "type": "Evade",
-          "base_min": 1,
-          "base_max": 8
+          "type": "evade",
+          "base_min": 7,
+          "base_max": 15,
+          "scripts": {}
         }
       ]
     },
     {
-      "id": "shadow_extermination",
-      "name": "Изничтожение",
+      "id": "не_беспокойство_img3",
+      "name": "Не Беспокойство",
+      "tier": 1,
+      "type": "melee",
+      "description": "",
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 5,
+          "base_max": 8,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 3,
+          "base_max": 6,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "тяжкое_бремя_img4",
+      "name": "Тяжкое Бремя",
       "tier": 2,
-      "type": "Melee",
-      "description": "Жертвует 2.5% своего HP. Наносит доп. урон врагу (5% его HP).",
+      "type": "melee",
+      "description": "При использовании накладывает 5 Защиты персонажу и 4 Защиты союзникам на 2 сцены.",
       "scripts": {
         "on_use": [
           {
-            "script_id": "self_harm_percent",
+            "script_id": "apply_status",
             "params": {
-              "percent": 0.025
+              "status": "protection",
+              "base": 5,
+              "duration": 2,
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "protection",
+              "base": 4,
+              "duration": 2,
+              "target": "all_allies"
             }
           }
         ]
       },
       "dice": [
         {
-          "type": "Pierce",
-          "base_min": 3,
-          "base_max": 4,
-          "scripts": {
-            "on_hit": [
-              {
-                "script_id": "add_hp_damage",
-                "params": {
-                  "percent": 0.05
-                }
-              }
-            ]
-          }
+          "type": "block",
+          "base_min": 7,
+          "base_max": 13,
+          "scripts": {}
         },
         {
-          "type": "Slash",
-          "base_min": 3,
-          "base_max": 4,
-          "scripts": {
-            "on_hit": [
-              {
-                "script_id": "add_hp_damage",
-                "params": {
-                  "percent": 0.05
-                }
-              }
-            ]
+          "type": "block",
+          "base_min": 7,
+          "base_max": 14,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "изничтожение_img5",
+      "name": "Изничтожение",
+      "tier": 2,
+      "type": "melee",
+      "description": "Пассивное: при использовании отнимается 7 HP, но все кубики получают +3 к мощи.",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "hp",
+              "base": -7,
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "strength",
+              "base": 3,
+              "duration": 1,
+              "target": "self"
+            }
           }
+        ]
+      },
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 9,
+          "base_max": 13,
+          "scripts": {}
+        },
+        {
+          "type": "pierce",
+          "base_min": 3,
+          "base_max": 10,
+          "scripts": {}
+        },
+        {
+          "type": "pierce",
+          "base_min": 3,
+          "base_max": 6,
+          "scripts": {}
         }
       ]
     },
     {
-      "id": "shadow_block2",
-      "name": "Подставить лицо",
+      "id": "tale_of_twilight_img",
+      "name": "Повесть о Сумерках",
       "tier": 2,
-      "type": "Melee",
-      "description": "Улучшенная защита.",
+      "type": "melee",
+      "description": "Пассивное: при использовании, в следующей сцене персонаж получает Невидимость.",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "invisibility",
+              "base": 1,
+              "duration": 1,
+              "delay": 1,
+              "target": "self"
+            }
+          }
+        ]
+      },
       "dice": [
         {
-          "type": "Block",
-          "base_min": 6,
-          "base_max": 8
+          "type": "slash",
+          "base_min": 3,
+          "base_max": 10,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 9,
+          "base_max": 13,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 3,
+          "base_max": 6,
+          "scripts": {}
         }
       ]
     },
     {
-      "id": "shadow_ziggurat",
-      "name": "Зиккурат",
-      "tier": 2,
-      "type": "Melee",
-      "description": "Дает Защиту (Protection) равную значению выпавшего Блока.\n1. На цель (союзника).\n2. На себя.",
-      "flags": ["friendly"],
+      "id": "warp_img",
+      "name": "Варп",
+      "tier": 3,
+      "type": "melee",
+      "description": "",
       "dice": [
         {
-          "type": "Block",
-          "base_min": 1,
-          "base_max": 4,
+          "type": "evade",
+          "base_min": 5,
+          "base_max": 17,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 9,
+          "base_max": 13,
           "scripts": {
-            "on_roll": [
+            "on_clash_win": [
               {
-                "script_id": "apply_status_by_roll",
+                "script_id": "apply_status",
                 "params": {
-                  "status": "protection",
+                  "status": "fragile",
+                  "base": 3,
+                  "duration": 1,
                   "target": "target"
                 }
               }
@@ -130,16 +215,18 @@
           }
         },
         {
-          "type": "Block",
-          "base_min": 1,
-          "base_max": 3,
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 15,
           "scripts": {
-            "on_roll": [
+            "on_hit": [
               {
-                "script_id": "apply_status_by_roll",
+                "script_id": "apply_status",
                 "params": {
-                  "status": "protection",
-                  "target": "self"
+                  "status": "paralysis",
+                  "base": 2,
+                  "duration": 1,
+                  "target": "target"
                 }
               }
             ]
@@ -148,59 +235,42 @@
       ]
     },
     {
-      "id": "shadow_harvest",
-      "name": "Жатва",
-      "tier": 3,
-      "type": "Melee",
-      "description": "Провокация: Привлекает внимание врагов (RP эффект).",
-      "dice": [
-        {
-          "type": "Block",
-          "base_min": 1,
-          "base_max": 1,
-          "scripts": {
-             "on_play": [
-                 { "script_id": "apply_status", "params": { "status": "taunt", "base": 1, "duration": 3, "target": "self" } }
-             ]
-          }
-        }
-      ]
-    },
-    {
-      "id": "shadow_series_punches",
+      "id": "series_normal_strikes_img",
       "name": "Серия обычных ударов",
       "tier": 3,
-      "type": "Melee",
-      "description": "Бросок повторяется за каждые 10 Удачи (Лимит 7). Значения складываются.",
+      "type": "melee",
+      "description": "Бросок повторяется за каждые 10 удачи владельца. Значения складываются к силе броска. Лимит: 10.",
       "dice": [
         {
-          "type": "Slash",
-          "base_min": 1,
-          "base_max": 3,
+          "type": "slash",
+          "base_min": 6,
+          "base_max": 6,
           "scripts": {
             "on_roll": [
-              { "script_id": "scale_roll_by_luck", "params": { "step": 10, "limit": 7 } }
+              {
+                "script_id": "scale_roll_by_luck",
+                "params": {
+                  "step": 10,
+                  "limit": 10
+                }
+              }
             ]
           }
         }
       ]
     },
     {
-      "id": "shadow_fortune_strike",
-      "name": "Удар фартуны",
+      "id": "not_the_limit_img",
+      "name": "Это не предел возможностей",
       "tier": 3,
-      "type": "Melee",
-      "description": "Каждые 5 Удачи добавляют +1 к силе броска (Лимит 15).",
+      "type": "melee",
+      "description": "",
       "dice": [
         {
-          "type": "Slash",
+          "type": "slash",
           "base_min": 1,
-          "base_max": 1,
-          "scripts": {
-            "on_roll": [
-              { "script_id": "add_power_by_luck", "params": { "step": 5, "limit": 15 } }
-            ]
-          }
+          "base_max": 66,
+          "scripts": {}
         }
       ]
     }
