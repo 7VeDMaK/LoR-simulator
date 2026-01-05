@@ -17,8 +17,9 @@ ICON_FILES = {
     "evade": "Evade.webp",
 
     "melee": "Close.webp",  # Обычно Melee это Close range
-    "mixed": "Mixed.webp",
+    "offensive": "Mixed.webp",
     "ranged": "Ranged.webp",
+    "mass summation": "Mass.webp",  # Для Mass Attack
     "mass": "Mass.webp",  # Для Mass Attack
 
     # --- Контр-кубики ---

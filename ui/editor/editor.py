@@ -27,7 +27,8 @@ def render_editor_page():
     all_cards = Library.get_all_cards()
     all_cards.sort(key=lambda x: x.name)
     card_options = {"(Создать новую)": None}
-    for c in all_cards: card_options[f"{c.name} ({c.id[:4]}..)"] = c
+    for c in all_cards:
+        card_options[f"{c.name} ({c.id[:4]}..)"] = c
     c_load_sel, c_load_btn = st.columns([3, 1])
     selected_option = c_load_sel.selectbox("Шаблон", list(card_options.keys()), label_visibility="collapsed")
     if c_load_btn.button("📥 Загрузить", use_container_width=True):

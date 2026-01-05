@@ -7,16 +7,11 @@ from ui.components import _format_script_text
 from ui.icons import get_icon_html
 from ui.styles import TYPE_ICONS, TYPE_COLORS
 
+# Эмодзи для заголовков (так как там HTML не поддерживается)
 CARD_TYPE_ICONS = {
-    "melee": "⚔️",
-    "ranged": "🏹",
-    "on play": "⚡",
-    "on_play": "⚡",
-    "mass summation": "💥",
-    "mass individual": "💥",
-    "defensive": "🛡️",
-    "offensive": "🗡️",
-    "item": "💊"
+    "melee": "⚔️", "ranged": "🏹", "on play": "⚡", "on_play": "⚡",
+    "mass summation": "💥", "mass individual": "💥",
+    "defensive": "🛡️", "offensive": "🗡️", "item": "💊"
 }
 
 
@@ -34,51 +29,40 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
     # --- 2. ЗАГОЛОВОК (HEADER) ---
     speed = slot['speed']
     ui_stat = slot.get('ui_status', {"text": "...", "icon": "", "color": "gray"})
-
-    # Текущая карта
     selected_card = slot.get('card')
 
+    # Формируем заголовок для экспандера (только текст/эмодзи)
     if selected_card:
-        # Определяем иконку типа
         c_type_lower = str(selected_card.card_type).lower()
-        type_icon = "📄"
+        type_emoji = "📄"
         for k, v in CARD_TYPE_ICONS.items():
             if k in c_type_lower:
-                type_icon = v
+                type_emoji = v
                 break
-
-        card_name = f"[{selected_card.tier}] {type_icon} {selected_card.name}"
+        card_name_header = f"[{selected_card.tier}] {type_emoji} {selected_card.name}"
     else:
-        card_name = "⛔ Пусто"
+        card_name_header = "⛔ Пусто"
 
-    # Скорость и эффекты
     spd_label = f"🎲{speed}"
     if slot.get("source_effect"):
         spd_label += f" ({slot.get('source_effect')})"
 
     lock_icon = "🔒 " if slot.get('locked') else ""
+    label = f"{lock_icon}S{slot_idx + 1} ({spd_label}) | {ui_stat['icon']} {ui_stat['text']} | {card_name_header}"
 
     # === ФОРМИРОВАНИЕ СПИСКА КАРТ ===
     available_cards = []
     if not slot.get('locked'):
         deck_ids = getattr(unit, 'deck', [])
-        # Если есть колода - берем из нее, иначе все карты
         raw_cards = [Library.get_card(cid) for cid in deck_ids] if deck_ids else Library.get_all_cards()
 
-        # Фильтрация по кулдауну (CD)
         for c in raw_cards:
-            # Предметы в слот ставить нельзя
-            if str(c.card_type).lower() == "item":
-                continue
-
+            if str(c.card_type).lower() == "item": continue
             cd_left = unit.card_cooldowns.get(c.id, 0)
             if cd_left > 0:
                 pass
             else:
                 available_cards.append(c)
-
-    # Лейбл для экспандера
-    label = f"{lock_icon}S{slot_idx + 1} ({spd_label}) | {ui_stat['icon']} {ui_stat['text']} | {card_name}"
 
     # --- 3. ИНТЕРФЕЙС ВЫБОРА (EXPANDER) ---
     with st.expander(label, expanded=False):
@@ -86,91 +70,69 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
         # === ЛОГИКА ВЫБОРА ЦЕЛИ ===
         target_options = ["None"]
-
-        # Проверяем флаг карты на дружественность
         is_friendly = False
         if selected_card and "friendly" in selected_card.flags:
-            is_friendly = True
+            is_friendly = True;
             slot['is_ally_target'] = True
         else:
             slot['is_ally_target'] = False
 
-        # Формируем список целей в зависимости от флага
         team_to_show = my_team if is_friendly else opposing_team
-
-        has_taunt = False
-        if not is_friendly:
-            has_taunt = any(u.get_status("taunt") > 0 for u in team_to_show if not u.is_dead())
+        has_taunt = any(
+            u.get_status("taunt") > 0 for u in team_to_show if not u.is_dead()) if not is_friendly else False
 
         for t_idx, target_unit in enumerate(team_to_show):
             if target_unit.is_dead(): continue
             if target_unit.get_status("invisibility") > 0: continue
             if has_taunt and target_unit.get_status("taunt") <= 0: continue
 
-            # Теперь показываем слоты и для союзников, и для врагов
             for s_i, slot_obj in enumerate(target_unit.active_slots):
                 t_spd = slot_obj['speed']
                 extra = "😵" if slot_obj.get('stunned') else f"Spd {t_spd}"
                 tag = "(Ally)" if is_friendly else ""
-                opt_str = f"{t_idx}:{s_i} | {target_unit.name} {tag} S{s_i + 1} ({extra})"
-                target_options.append(opt_str)
+                target_options.append(f"{t_idx}:{s_i} | {target_unit.name} {tag} S{s_i + 1} ({extra})")
 
-        # Определяем текущий выбор
         cur_t_unit = slot.get('target_unit_idx', -1)
         cur_t_slot = slot.get('target_slot_idx', -1)
-
         current_val_str = "None"
         if cur_t_unit != -1 and cur_t_slot != -1:
             prefix = f"{cur_t_unit}:{cur_t_slot}"
             for opt in target_options:
-                if opt.startswith(prefix):
-                    current_val_str = opt
-                    break
+                if opt.startswith(prefix): current_val_str = opt; break
 
-        # Виджет Selectbox
-        selected_tgt_str = c_tgt.selectbox(
-            "Target", target_options,
-            index=target_options.index(current_val_str) if current_val_str in target_options else 0,
-            key=f"{key_prefix}_{unit.name}_tgt_{slot_idx}",
-            label_visibility="collapsed"
-        )
+        selected_tgt_str = c_tgt.selectbox("Target", target_options, index=target_options.index(
+            current_val_str) if current_val_str in target_options else 0,
+                                           key=f"{key_prefix}_{unit.name}_tgt_{slot_idx}", label_visibility="collapsed")
 
         if selected_tgt_str == "None":
-            slot['target_unit_idx'] = -1
+            slot['target_unit_idx'] = -1;
             slot['target_slot_idx'] = -1
         else:
             parts = selected_tgt_str.split('|')[0].strip().split(':')
-            slot['target_unit_idx'] = int(parts[0])
+            slot['target_unit_idx'] = int(parts[0]);
             slot['target_slot_idx'] = int(parts[1])
 
-        # === B. ВЫБОР КАРТЫ (PAGE) ===
+        # === ВЫБОР КАРТЫ ===
         if slot.get('locked'):
-            c_sel.text_input(
-                "Page",
-                value=selected_card.name if selected_card else "Locked",
-                disabled=True,
-                label_visibility="collapsed"
-            )
+            c_sel.text_input("Page", value=selected_card.name if selected_card else "Locked", disabled=True,
+                             label_visibility="collapsed")
         else:
             display_cards = [None] + available_cards
             c_idx = 0
             if selected_card:
                 for idx, c in enumerate(display_cards):
-                    if c and (c.id == selected_card.id or c.name == selected_card.name):
-                        c_idx = idx
-                        break
+                    if c and (c.id == selected_card.id or c.name == selected_card.name): c_idx = idx; break
 
             def format_card_option(x):
                 if not x: return "⛔ Пусто"
-                return f"[{x.tier}] {x.name} ({str(x.card_type).capitalize()})"
+                emoji = "📄"
+                ctype = str(x.card_type).lower()
+                for k, v in CARD_TYPE_ICONS.items():
+                    if k in ctype: emoji = v; break
+                return f"{emoji} [{x.tier}] {x.name}"
 
-            new_card = c_sel.selectbox(
-                "Page", display_cards,
-                format_func=format_card_option,
-                index=c_idx,
-                key=f"{key_prefix}_{unit.name}_card_{slot_idx}",
-                label_visibility="collapsed"
-            )
+            new_card = c_sel.selectbox("Page", display_cards, format_func=format_card_option, index=c_idx,
+                                       key=f"{key_prefix}_{unit.name}_card_{slot_idx}", label_visibility="collapsed")
             slot['card'] = new_card
 
         # === СТРОКА 2: Опции (Чекбоксы с Картинками) ===
@@ -193,69 +155,57 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
         _, c_opt1, c_opt2 = st.columns([2.5, 1, 1])
 
-        # --- КНОПКА AGGRO (Перехват) ---
         aggro_val = slot.get('is_aggro', False)
-
         with c_opt1:
-            # Иконка "Слот" или "Перехват"
             icon_aggro = get_icon_html("dice_slot", width=30)
             st.markdown(f"<div style='text-align:center; height:30px;'>{icon_aggro}</div>", unsafe_allow_html=True)
-
             if can_redirect:
-                c_opt1.checkbox("Aggro", value=aggro_val,
-                                key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}",
+                c_opt1.checkbox("Aggro", value=aggro_val, key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}",
                                 help=f"Перехватить (Моя Spd {speed} > Врага {enemy_spd_val})",
-                                label_visibility="collapsed")  # Прячем текст, оставляем только галочку под иконкой
+                                label_visibility="collapsed")
             else:
-                c_opt1.checkbox("Aggro", value=False, disabled=True,
-                                key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}",
+                c_opt1.checkbox("Aggro", value=False, disabled=True, key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}",
                                 help=f"Слишком медленный для перехвата! ({speed} <= {enemy_spd_val})",
                                 label_visibility="collapsed")
-                if aggro_val:
-                    slot['is_aggro'] = False
+                if aggro_val: slot['is_aggro'] = False
 
-        # --- КНОПКА DESTROY (Слом кубика) ---
         slot_destroy = slot.get('destroy_on_speed', True)
-
         with c_opt2:
-            # Иконка "Сломанный кубик"
             icon_broken = get_icon_html("dice_broken", width=30)
             st.markdown(f"<div style='text-align:center; height:30px;'>{icon_broken}</div>", unsafe_allow_html=True)
-
-            new_destroy = st.checkbox("Break", value=slot_destroy,
-                                      key=f"{key_prefix}_{unit.name}_destroy_{slot_idx}",
+            new_destroy = st.checkbox("Break", value=slot_destroy, key=f"{key_prefix}_{unit.name}_destroy_{slot_idx}",
                                       help="Разрушать карту врага при разнице скорости 8+? (Если выключено -> Враг получит Помеху)",
                                       label_visibility="collapsed")
             slot['destroy_on_speed'] = new_destroy
 
         st.divider()
 
-        # --- 4. ИНФОРМАЦИЯ О КАРТЕ ---
+        # === 4. ИНФОРМАЦИЯ О КАРТЕ (С ИКОНКАМИ) ===
         if selected_card:
-            type_text = str(selected_card.card_type).capitalize()
-            st.caption(f"**Ранг:** {selected_card.tier} | **Тип:** {type_text}")
+            # Ранг (картинка)
+            rank_icon = get_icon_html(f"tier_{selected_card.tier}", width=24)
+            # Тип (картинка)
+            c_type_key = str(selected_card.card_type).lower()
+            type_icon = get_icon_html(c_type_key, width=24)
+
+            # Выводим: [ИконкаРанга] Ранг | [ИконкаТипа] Тип
+            st.markdown(
+                f"{rank_icon} **{selected_card.tier}** | {type_icon} **{c_type_key.capitalize()}**",
+                unsafe_allow_html=True
+            )
 
             # Кубики
             if selected_card.dice_list:
                 dice_display = []
                 for d in selected_card.dice_list:
                     color = TYPE_COLORS.get(d.dtype, "black")
-
-                    # [FIX] Иконка типа атаки (Slash/Pierce/Blunt/Block/Evade)
                     dtype_key = d.dtype.name.lower()
-
-                    # Проверяем на контр-кубик
-                    if getattr(d, 'is_counter', False):
-                        dtype_key = f"counter_{dtype_key}"
-
+                    if getattr(d, 'is_counter', False): dtype_key = f"counter_{dtype_key}"
                     icon_html = get_icon_html(dtype_key, width=20)
-
                     dice_display.append(f"{icon_html} :{color}[**{d.min_val}-{d.max_val}**]")
-
-                # [FIX] Разрешаем HTML в markdown
                 st.markdown(" ".join(dice_display), unsafe_allow_html=True)
 
-            # Скрипты (Описание эффектов)
+            # Эффекты
             desc_text = []
             if "on_use" in selected_card.scripts:
                 for s in selected_card.scripts["on_use"]:
@@ -275,12 +225,10 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
             if desc_text:
                 for line in desc_text:
-                    # [FIX] Разрешаем HTML в caption для картинок эффектов
                     st.caption(f"• {line}", unsafe_allow_html=True)
 
 
 def render_active_abilities(unit, unit_key):
-    # ... (Без изменений)
     abilities = []
     for pid in unit.passives:
         if pid in PASSIVE_REGISTRY: abilities.append((pid, PASSIVE_REGISTRY[pid]))
@@ -306,14 +254,12 @@ def render_active_abilities(unit, unit_key):
                     selected_opt = st.selectbox("Effect", options.keys(), key=f"sel_{unit_key}_{pid}",
                                                 label_visibility="collapsed")
 
-                btn_label = "Activate"
+                btn_label = "Activate";
                 disabled = False
                 if active_dur > 0:
-                    btn_label = f"Active ({active_dur})";
-                    disabled = True
+                    btn_label = f"Active ({active_dur})"; disabled = True
                 elif cd > 0:
-                    btn_label = f"Cooldown ({cd})";
-                    disabled = True
+                    btn_label = f"Cooldown ({cd})"; disabled = True
 
                 if st.button(f"✨ {btn_label}", key=f"act_{unit_key}_{pid}", disabled=disabled,
                              use_container_width=True):
@@ -325,12 +271,10 @@ def render_active_abilities(unit, unit_key):
                         if obj.activate(unit, log_f, choice_key=selected_opt): st.rerun()
                     else:
                         if obj.activate(unit, log_f): st.rerun()
-
     if has_actives: st.caption("Active Abilities")
 
 
 def render_inventory(unit, unit_key):
-    # ... (Без изменений)
     inventory_cards = []
     if unit.deck:
         for cid in unit.deck:
@@ -338,14 +282,12 @@ def render_inventory(unit, unit_key):
             if card and str(card.card_type).lower() == "item":
                 inventory_cards.append(card)
 
-    if not inventory_cards:
-        return
+    if not inventory_cards: return
 
     with st.expander("🎒 Inventory (Consumables)", expanded=False):
         for card in inventory_cards:
             btn_key = f"use_item_{unit_key}_{card.id}"
             desc = card.description if card.description else "No description"
-
             if st.button(f"💊 {card.name}", key=btn_key, help=desc, use_container_width=True):
                 from ui.simulator.simulator_logic import use_item_action
                 use_item_action(unit, card)

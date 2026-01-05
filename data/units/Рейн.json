@@ -1,6 +1,6 @@
 {
     "name": "Рейн",
-    "level": 25,
+    "level": 31,
     "rank": 6,
     "avatar": "data/avatars/Рейн.png",
     "base_intellect": 6,
@@ -18,21 +18,11 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "deck": [
-        "shadow_blunt",
-        "shadow_block",
-        "shadow_evade",
-        "shadow_extermination",
-        "shadow_block2",
-        "shadow_ziggurat",
-        "shadow_harvest",
-        "shadow_series_punches",
-        "shadow_fortune_strike"
-    ],
+    "deck": [],
     "base_stats": {
         "current_hp": 172,
-        "current_sp": 157,
-        "current_stagger": 49
+        "current_sp": 195,
+        "current_stagger": 87
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -50,7 +40,12 @@
         "weapon_id": "cleaver_7"
     },
     "card_cooldowns": {
-        "shadow_series_punches": 1
+        "shadow_extermination": 1,
+        "shadow_block2": 1,
+        "shadow_ziggurat": 1,
+        "shadow_harvest": 2,
+        "shadow_series_punches": 2,
+        "shadow_fortune_strike": 2
     },
     "attributes": {
         "strength": 0,
@@ -123,6 +118,14 @@
         },
         "24": {
             "hp": 2,
+            "sp": 1
+        },
+        "27": {
+            "hp": 4,
+            "sp": 1
+        },
+        "30": {
+            "hp": 5,
             "sp": 1
         }
     },
