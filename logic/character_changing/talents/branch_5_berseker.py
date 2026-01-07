@@ -1,3 +1,5 @@
+from core.dice import Dice
+from core.enums import DiceType
 from logic.character_changing.passives.base_passive import BasePassive
 
 
@@ -131,18 +133,25 @@ class TalentFrenzy(BasePassive):
     id = "frenzy"
     name = "Неистовство"
     description = (
-        "5.5 Пассивно: +1 Контр-кость.\n"
-        "Если Самообладание > 10: +1 Дополнительная Контр-кость."
+        "5.5 Пассивно: Добавляет 1 Контр-кость (Slash 5-7) в пул контр-атак.\n"
+        "Если Самообладание > 10: Добавляет еще 1 Контр-кость (Slash 6-8)."
     )
     is_active_ability = False
 
-    # === [NEW] Универсальный хук для бонусных кубиков ===
-    def get_speed_dice_bonus(self, unit) -> int:
-        bonus = 1  # Базовый бонус
-        # Проверяем статус Самообладания
+    def on_round_start(self, unit, log_func, **kwargs):
+        # Добавляем базовый контр-кубик
+        base_die = Dice(5, 7, DiceType.SLASH, is_counter=True)
+        unit.counter_dice.append(base_die)
+        msg = "Frenzy (+1 Counter 5-7)"
+
+        # Проверяем условие для второго
         if unit.get_status("self_control") > 10:
-            bonus += 1
-        return bonus
+            bonus_die = Dice(6, 8, DiceType.SLASH, is_counter=True)
+            unit.counter_dice.append(bonus_die)
+            msg += " & (+1 Counter 6-8)"
+
+        if log_func:
+            log_func(f"😡 **{self.name}**: {msg}")
 
 # ==========================================
 # 5.5 (Опц) Перевести дух

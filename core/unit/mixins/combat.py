@@ -12,6 +12,9 @@ class UnitCombatMixin:
     def roll_speed_dice(self):
         """Генерация активных слотов на раунд."""
         self.active_slots = []
+        # === НОВОЕ: Инициализация списка пассивных контр-кубиков ===
+        self.counter_dice = []
+        # ===========================================================
 
         if self.is_dead():
             return
@@ -24,31 +27,25 @@ class UnitCombatMixin:
                 'speed': val, 'card': None, 'target_slot': None, 'is_aggro': False
             })
 
-        # 2. [GENERIC] Бонусные кубики от Талантов и Пассивок
-        # (Заменяет хардкоды Frenzy, Berserker Rage и т.д.)
+        # 3. [GENERIC] Бонусные СЛОТЫ от Талантов (Frenzy больше здесь не нужен, он дает Counter Die в список)
+        # Оставляем этот блок для других талантов, дающих именно СЛОТЫ скорости
         extra_dice_count = 0
-
-        # Импорт внутри метода во избежание циклов
         from logic.character_changing.talents import TALENT_REGISTRY
         from logic.character_changing.passives import PASSIVE_REGISTRY
 
-        # Проверка Талантов
         for tid in self.talents:
             if tid in TALENT_REGISTRY:
                 obj = TALENT_REGISTRY[tid]
                 if hasattr(obj, "get_speed_dice_bonus"):
                     extra_dice_count += obj.get_speed_dice_bonus(self)
 
-        # Проверка Пассивок
         for pid in self.passives:
             if pid in PASSIVE_REGISTRY:
                 obj = PASSIVE_REGISTRY[pid]
                 if hasattr(obj, "get_speed_dice_bonus"):
                     extra_dice_count += obj.get_speed_dice_bonus(self)
 
-        # Генерация слотов для бонусных кубиков
         if extra_dice_count > 0:
-            # Используем лучший диапазон скорости (как в ярости)
             if self.computed_speed_dice:
                 d_min, d_max = self.computed_speed_dice[0]
             else:
@@ -63,14 +60,14 @@ class UnitCombatMixin:
                     'source_effect': 'Talent 🌟'
                 })
 
-        # 3. СТАТУС: Red Lycoris (Спец. эффект слотов)
+        # 4. СТАТУС: Red Lycoris
         if self.get_status("red_lycoris") > 0:
             for slot in self.active_slots:
                 slot['prevent_redirection'] = True
                 if not slot.get('source_effect'):
                     slot['source_effect'] = "Lycoris 🩸"
 
-        # 4. ТАЛАНТ: МАХНУТЬ ХВОСТИКОМ (Специфичный слот с картой)
+        # 5. ТАЛАНТ: МАХНУТЬ ХВОСТИКОМ (Это отдельная механика карты в слоте)
         if "wag_tail" in self.passives:
             if self.computed_speed_dice:
                 d_min, d_max = self.computed_speed_dice[0]
@@ -91,7 +88,7 @@ class UnitCombatMixin:
                 'source_effect': 'Tail Swipe 🐈', 'locked': True, 'consumed': False
             })
 
-        # 5. ТАЛАНТ: ОБОРОНА (ZAFU)
+        # 6. ТАЛАНТ: ОБОРОНА (ZAFU) - Тоже карта в слоте
         if "defense_zafu" in self.talents:
             zafu_dice_list = []
             zafu_dice_list.append(Dice(5, 7, DiceType.BLOCK, is_counter=False))

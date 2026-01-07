@@ -608,6 +608,40 @@
           "scripts": {}
         }
       ]
+    },
+    {
+      "id": "smokekeke_0705",
+      "name": "smokekeke",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "self_control",
+              "base": 100,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 99,
+              "delay": 0,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
     }
   ]
 }

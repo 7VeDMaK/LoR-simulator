@@ -56,7 +56,7 @@ ICON_FILES = {
     "bind": "Bind.webp",
     "tremor": "Tremor.webp",
     "rupture": "Rapture.webp",  # Внимание на опечатку в файле: Rapture вместо Rupture
-    "poise": "Poise.webp",
+    "self_control": "Poise.webp",
     "poison": "Poison.webp",
     "sinking": "Overdose.webp",  # Или Sinking, если есть. Overdose подходит для негатива.
 

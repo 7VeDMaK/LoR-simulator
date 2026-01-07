@@ -13,28 +13,107 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_def, inte
     on_use_logs = []
     engine._process_card_self_scripts("on_use", source, target, custom_log_list=on_use_logs)
 
+    # === [NEW] ЛОГИКА КОНТР-ДАЙСОВ ИЗ СПИСКА ===
+    # Если слот цели занят (is_redirected) или там нет карты,
+    # цель может попытаться использовать пассивные контр-кубики (Frenzy и т.д.)
+    # По правилам: берем первый из списка. Он живет пока не сломается для ЭТОЙ карты.
+    # На следующую карту он не переносится (это значит, что мы удаляем его из unit.counter_dice при взятии).
+
+    active_counter_die = None
+
+    # Пытаемся взять контр-кубик из пула цели, если это возможно
+    # (обычно контр-кубики работают, когда тебя бьют one-sided)
+    if target.counter_dice:
+        # Берем первый доступный и удаляем из общего пула (он тратится на эту карту)
+        active_counter_die = target.counter_dice.pop(0)
+
     for j, die in enumerate(card.dice_list):
         if source.is_dead() or target.is_dead() or source.is_staggered(): break
 
-        # A. COUNTER DIE
-        # Если слот занят (redirected), контр-кубик не может активироваться против третьей стороны
-        counter_die = None
-        if not is_redirected:
-            _, counter_die = engine._find_counter_die(target)
-            # (Тут можно добавить логику обработки контр-кубика, если она будет реализована)
+        # A. ОБРАБОТКА КОНТР-КУБИКА (ИЗ СПИСКА)
+        # Логика: Если есть активный контр-кубик, мы сталкиваемся с ним.
+        # Если он побеждает -> Атака отбита (урон атакующему?), кубик живет на след. удар этой карты.
+        # Если он проигрывает -> Кубик ломается. Берем СЛЕДУЮЩИЙ из списка, если есть.
 
-        # B. ПАССИВНАЯ ЗАЩИТА (из карты в слоте)
+        counter_clash_ctx = None
+
+        # Цикл проверки контр-кубиков для ОДНОГО атакующего удара
+        # (Пока атака не будет отбита или пока не кончатся контр-кубики)
+        while active_counter_die:
+            # Создаем контексты
+            ctx_atk_c = engine._create_roll_context(source, target, die)
+            ctx_cnt = engine._create_roll_context(target, source, active_counter_die)
+
+            val_atk = ctx_atk_c.final_value
+            val_cnt = ctx_cnt.final_value
+
+            detail_logs_c = []
+
+            if val_cnt >= val_atk:
+                # Контр-кубик ПОБЕДИЛ (или ничья в пользу защиты)
+                outcome = f"⚡ Counter Win ({active_counter_die.min_val}-{active_counter_die.max_val})"
+
+                engine._handle_clash_win(ctx_cnt)
+                engine._handle_clash_lose(ctx_atk_c)
+                engine._resolve_clash_interaction(ctx_cnt, ctx_atk_c, val_cnt - val_atk)
+
+                # Кубик выжил! Он остается active_counter_die для следующего j
+
+                # Логируем столкновение
+                report.append({
+                    "type": "clash",
+                    "round": f"{round_label} (Counter)",
+                    "left": {"unit": source.name, "card": card.name, "dice": die.dtype.name, "val": val_atk,
+                             "range": "-"},
+                    "right": {"unit": target.name, "card": "Passive Counter", "dice": active_counter_die.dtype.name,
+                              "val": val_cnt, "range": f"{active_counter_die.min_val}-{active_counter_die.max_val}"},
+                    "outcome": outcome, "details": ctx_cnt.log + ctx_atk_c.log
+                })
+
+                # Атака остановлена, переходим к следующему кубику карты (break из while)
+                # Флаг, чтобы не наносить урон ниже
+                counter_clash_ctx = "WIN"
+                break
+
+            else:
+                # Контр-кубик ПРОИГРАЛ
+                outcome = f"⚡ Counter Break"
+
+                # Кубик сломан.
+                active_counter_die = None
+
+                # Логируем провал
+                report.append({
+                    "type": "clash",
+                    "round": f"{round_label} (Counter Break)",
+                    "left": {"unit": source.name, "card": card.name, "dice": die.dtype.name, "val": val_atk,
+                             "range": "-"},
+                    "right": {"unit": target.name, "card": "Passive Counter", "dice": "Broken", "val": val_cnt,
+                              "range": "-"},
+                    "outcome": outcome, "details": ["Counter die destroyed!"]
+                })
+
+                # Пробуем взять СЛЕДУЮЩИЙ кубик из запаса на ЭТУ ЖЕ атаку
+                if target.counter_dice:
+                    active_counter_die = target.counter_dice.pop(0)
+                    # Цикл while продолжится с новым кубиком против того же die
+                else:
+                    # Кубики кончились, атака проходит дальше
+                    break
+
+        if counter_clash_ctx == "WIN":
+            continue  # Атака отбита, переходим к следующему дайсу карты
+
+        # ---------------------------------------------------------
+        # B. ПАССИВНАЯ ЗАЩИТА (из карты в слоте, если контр-кубиков нет)
         def_die = None
 
-        # === ВАЖНОЕ ИСПРАВЛЕНИЕ ===
-        # Защищаться можно только если слот НЕ ЗАНЯТ (не redirected)
         if not is_redirected:
             if def_card and j < len(def_card.dice_list) and not target.is_staggered():
                 candidate = def_card.dice_list[j]
                 if candidate.dtype in [DiceType.BLOCK, DiceType.EVADE]:
                     def_die = candidate
 
-        # Разрушение защиты скоростью (применяем, только если защита вообще была возможна)
         if destroy_def and def_die:
             def_die = None
 
@@ -44,7 +123,7 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_def, inte
         detail_logs = []
         if j == 0 and on_use_logs: detail_logs.extend(on_use_logs)
 
-        # Сценарий 1: Встретили защиту (Слот был свободен и там был защитный кубик)
+        # Сценарий 1: Встретили защиту карты
         if def_die:
             ctx_def = engine._create_roll_context(target, source, def_die, is_disadvantage=adv_def)
             val_atk = ctx_atk.final_value
@@ -67,7 +146,6 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_def, inte
             if ctx_atk: detail_logs.extend(ctx_atk.log)
             if ctx_def: detail_logs.extend(ctx_def.log)
 
-            # UI Report (как Clash)
             report.append({
                 "type": "clash",
                 "round": f"{round_label} (Def)",
@@ -81,10 +159,7 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_def, inte
         # Сценарий 2: Чистая атака (Unopposed)
         else:
             outcome = "Unopposed"
-
-            # Если причина отсутствия защиты — редирект, пометим это
-            if is_redirected:
-                outcome += " (Redirected)"
+            if is_redirected: outcome += " (Redirected)"
 
             ATK_TYPES = [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]
             if die.dtype in ATK_TYPES:
@@ -94,20 +169,18 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_def, inte
 
             detail_logs.extend(ctx_atk.log)
 
-            # Определяем, что писать в логе про кубик врага
             r_dice = "None"
             if is_redirected:
-                r_dice = "Busy"  # Слот занят боем
+                r_dice = "Busy"
             elif destroy_def:
-                r_dice = "🚫 Broken"  # Слот был, но сломан скоростью
+                r_dice = "🚫 Broken"
 
             report.append({
                 "type": "onesided",
                 "round": f"{round_label} (D{j + 1})",
                 "left": {"unit": source.name, "card": card.name, "dice": die.dtype.name, "val": ctx_atk.final_value,
                          "range": f"{die.min_val}-{die.max_val}"},
-                "right": {"unit": target.name, "card": "---", "dice": r_dice, "val": 0,
-                          "range": "-"},
+                "right": {"unit": target.name, "card": "---", "dice": r_dice, "val": 0, "range": "-"},
                 "outcome": outcome, "details": detail_logs
             })
 
