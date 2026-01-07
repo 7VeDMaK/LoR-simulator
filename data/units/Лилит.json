@@ -91,7 +91,10 @@
         "hiding_in_smoke",
         "smoke_universality"
     ],
-    "augmentations": [],
+    "augmentations": [
+        "aug_blessing_of_wind",
+        "aug_merchant_hysteria"
+    ],
     "level_rolls": {
         "3": {
             "hp": 2,

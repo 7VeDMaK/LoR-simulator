@@ -1,7 +1,7 @@
 from logic.character_changing.passives.asgick_passives import PassiveWitnessOfGroGoroth, PassivePovar, PassiveFoodLover
 from logic.character_changing.passives.equipment_passives import PassiveAnnihilator, PassiveBanganrang, PassiveGanitar, PassiveLimagun
 from logic.character_changing.passives.lilith_passives import PassiveHedonism, PassiveWagTail, PassiveBackstreetDemon, \
-    PassiveDaughterOfBackstreets, PassiveBlessingOfWind, PassiveLiveFastDieYoung
+    PassiveDaughterOfBackstreets, PassiveLiveFastDieYoung
 from logic.character_changing.passives.lima_passives import PassiveAcceleratedLearning, TalentArtOfSelfDefense, PassiveLuckyStreak, \
     PassiveFourEyes, PassiveHuntersVedas, PassiveMindSuppression
 from logic.character_changing.passives.rein_passives import PassiveSCells, PassiveNewDiscovery, TalentRedLycoris, TalentShadowOfMajesty
@@ -13,7 +13,6 @@ PASSIVE_REGISTRY = {
 "wag_tail": PassiveWagTail(),
 "backstreet_demon": PassiveBackstreetDemon(),
 "daughter_of_backstreets": PassiveDaughterOfBackstreets(),
-"blessing_of_wind": PassiveBlessingOfWind(),
 "live_fast_die_young": PassiveLiveFastDieYoung(),
 "s_cells": PassiveSCells(),
 "new_discovery": PassiveNewDiscovery(),
