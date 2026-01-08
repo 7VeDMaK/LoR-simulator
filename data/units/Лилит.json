@@ -1,10 +1,10 @@
 {
     "name": "Лилит",
-    "level": 21,
+    "level": 25,
     "rank": 7,
     "avatar": "data/avatars/Лилит.png",
     "base_intellect": 3,
-    "total_xp": 0,
+    "total_xp": 17825792,
     "pct_mods": {
         "imp_hp": 6,
         "imp_sp": 0,
@@ -30,9 +30,9 @@
         "smoke_silhouette"
     ],
     "base_stats": {
-        "current_hp": 130,
+        "current_hp": 18,
         "current_sp": 77,
-        "current_stagger": 65
+        "current_stagger": 14
     },
     "defense": {
         "armor_name": "None",
@@ -49,22 +49,25 @@
         },
         "weapon_id": "none"
     },
-    "card_cooldowns": {},
+    "card_cooldowns": {
+        "smoke_silhouette": 1,
+        "inhale_exhale": 1
+    },
     "attributes": {
-        "strength": 15,
+        "strength": 18,
         "endurance": 15,
-        "agility": 15,
+        "agility": 16,
         "wisdom": 0,
         "psych": 0
     },
     "skills": {
-        "strike_power": 0,
+        "strike_power": 4,
         "medicine": 0,
         "willpower": 0,
         "luck": 0,
         "acrobatics": 15,
         "shields": 0,
-        "tough_skin": 0,
+        "tough_skin": 4,
         "speed": 30,
         "light_weapon": 3,
         "medium_weapon": 15,
@@ -125,8 +128,12 @@
             "sp": 1
         }
     },
-    "cooldowns": {},
-    "active_buffs": {},
+    "cooldowns": {
+        "berserker_rage": 4
+    },
+    "active_buffs": {
+        "berserker_rage": 2
+    },
     "resources": {},
     "biography": "",
     "money_log": [

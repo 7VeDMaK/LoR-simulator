@@ -59,7 +59,7 @@ class AugMerchantHysteria(Augmentation):
 class StrizhAugmentation(Augmentation):
     id = "aug_strizh"
     name = "Легкий экзоскелет 'СТРИЖ'"
-    description = " лёгкий экзоскелет СТРИЖ со шлемом и противогазом Акробатика +6 Даёт статус спешки +1  :zHaste: каждый ход кроме первого"
+    description = " лёгкий экзоскелет СТРИЖ со шлемом и противогазом Акробатика +6 Даёт статус спешки +1 каждый ход кроме первого"
 
     def on_calculate_stats(self, unit):
         return {"acrobatics": 6}
