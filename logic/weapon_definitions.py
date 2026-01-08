@@ -75,5 +75,13 @@ WEAPON_REGISTRY = {
         stats={},
         passive_id="mech_limagun",
         weapon_type="ranged"
-    )
+    ),
+    "skalalaz_iceaxe": Weapon(
+        id="skalalaz_iceaxe",
+        name="Ледоруб 'Скала Лаз'",
+        rank=7,
+        description="Позволяет карабкаться по стенам, отвесным скалам. Иногда требуется проверка Ловкости / Акробатики для совершения действия. +3 к Атаке.",
+        stats={"power_attack": 3},
+        weapon_type="medium"
+    ),
 }

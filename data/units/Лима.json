@@ -37,7 +37,7 @@
             "pierce": 1.0,
             "blunt": 1.0
         },
-        "weapon_id": "none"
+        "weapon_id": "skalalaz_iceaxe"
     },
     "card_cooldowns": {},
     "attributes": {
@@ -85,7 +85,9 @@
         "second_chance",
         "athletic"
     ],
-    "augmentations": [],
+    "augmentations": [
+        "aug_strizh"
+    ],
     "level_rolls": {
         "3": {
             "hp": 3,

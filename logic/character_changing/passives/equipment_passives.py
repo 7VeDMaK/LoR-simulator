@@ -100,3 +100,4 @@ class PassiveLimagun(BasePassive):
         if "лима" in name or "lima" in name:
             ctx.damage_multiplier += 6.66
             ctx.log.append("🚪 **ЛИМАГАН**: x6.66 Урона по Лиме!")
+

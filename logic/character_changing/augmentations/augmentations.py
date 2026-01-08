@@ -15,15 +15,12 @@ class AugBackSpeed(Augmentation):
     def on_calculate_stats(self, unit) -> dict:
         return {"speed": 10}
 
-# === [MOVED] ТАТУ "БЛАГОСЛОВЕНИЕ ВЕТРА" ===
-# Перенесено сюда, так как это аугментация (Тату).
 class AugBlessingOfWind(Augmentation):
     id = "aug_blessing_of_wind" # Важно: этот ID должен совпадать с тем, что в unit.augmentations
     name = "Тату 'Благословение Ветра'"
     description = "Пассивно: +1 к Атаке и Уклонению за каждые 5 Дыма. Лимит Дыма увеличен на 5."
 
     def on_combat_start(self, unit, log_func, **kwargs):
-        # Увеличиваем лимит дыма в памяти юнита. SmokeStatus это увидит.
         unit.memory['smoke_limit_bonus'] = 5
         if log_func: log_func(f"🌬️ **{self.name}**: Лимит дыма увеличен до 15")
 
@@ -54,15 +51,28 @@ class AugMerchantHysteria(Augmentation):
         card_id = "demon_scream"
         # Проверяем, есть ли карта уже в деке
         if card_id not in unit.deck:
-            # ВАЖНО: Добавляем в 'runtime' деку (unit.deck), которая используется в бою.
-            # Если нужно сохранить навсегда, это требует сохранения юнита, но для боя достаточно этого.
             unit.deck.append(card_id)
             if log_func:
                 log_func(f"📢 **{self.name}**: Карта '{card_id}' добавлена в руку.")
+
+
+class StrizhAugmentation(Augmentation):
+    id = "aug_strizh"
+    name = "Легкий экзоскелет 'СТРИЖ'"
+    description = " лёгкий экзоскелет СТРИЖ со шлемом и противогазом Акробатика +6 Даёт статус спешки +1  :zHaste: каждый ход кроме первого"
+
+    def on_calculate_stats(self, unit):
+        return {"acrobatics": 6}
+
+    def on_combat_end(self, unit, log_func, **kwargs):
+        unit.add_status("haste", 1, 2)
+        if log_func:
+            log_func(f"⚡ **{unit.name}**: Экзоскелет активирует сервоприводы (Спешка +1).")
 
 # === РЕЕСТР ===
 AUGMENTATION_REGISTRY = {
     "aug_back_speed": AugBackSpeed(),
     "aug_blessing_of_wind": AugBlessingOfWind(),
     "aug_merchant_hysteria": AugMerchantHysteria(),
+    "aug_strizh": StrizhAugmentation(),
 }
