@@ -1,6 +1,7 @@
 import streamlit as st
 import random
 
+from core.unit import unit
 from core.unit.unit import Unit
 
 # === 1. ОПРЕДЕЛЕНИЕ ГРУПП И НАЗВАНИЙ (Оставляем как было) ===
@@ -95,44 +96,87 @@ def get_stat_value(unit: Unit, key: str) -> int:
     return 0
 
 
-def calculate_pre_roll_stats(stat_key, stat_value, difficulty, bonus):
+def calculate_pre_roll_stats(unit, stat_key, stat_value, difficulty, bonus):
+    """
+    Рассчитывает шансы и матожидание.
+    """
     check_type, _, _ = get_check_params(stat_key)
-    die_min, die_max = 1, 6
-    stat_bonus = 0
+
+    # Инициализация переменных по умолчанию (для d6)
+    die_min = 1
+    die_max = 6
+    base_add = 0  # Добавочная база (например +10 от таланта)
+    stat_bonus = 0  # Бонус от характеристики
     final_dc = difficulty
 
-    if check_type == "type10":
-        die_max = 6;
-        stat_bonus = stat_value // 3
-    elif check_type == "type15":
-        die_max = 6;
-        stat_bonus = stat_value
-        if stat_key == "engineering" and difficulty > 0: final_dc = int(difficulty * 1.3)
-    elif check_type == "typeW":
-        die_max = 20;
-        stat_bonus = stat_value
-    elif check_type == "typeL":
-        die_max = 12;
-        stat_bonus = stat_value
-    elif check_type == "typeI":
-        # Была фиксированная прогрессия, теперь:
-        die_max = 6
-        stat_bonus = 4 + int(stat_value)
+    is_talent_active = False
 
-    target_roll = final_dc - stat_bonus - bonus
+    # === 1. ПРОВЕРКА ТАЛАНТОВ (ПРИОРИТЕТ) ===
+    # Если талант активен, он ПОЛНОСТЬЮ переписывает параметры дайса и бонусов
+
+    # 2.5 Мастер речи: 1d10 + 10 + Skill
+    if stat_key == "eloquence" and "speech_master" in unit.talents:
+        die_max = 10
+        base_add = 10
+        stat_bonus = stat_value  # Полный стат (не делим на 3)
+        is_talent_active = True
+
+    # 13.4 Яркий талант (Инженерия): 1d10 + 10 + Skill
+    elif stat_key == "engineering" and "bright_talent" in unit.talents:
+        die_max = 10
+        base_add = 10
+        stat_bonus = stat_value
+        if difficulty > 0: final_dc = int(difficulty * 1.3)  # Сохраняем штраф сложности
+        is_talent_active = True
+
+    # === 2. СТАНДАРТНАЯ ЛОГИКА (Если талантов нет) ===
+    if not is_talent_active:
+        if check_type == "type10":  # Атрибуты
+            die_max = 6
+            stat_bonus = stat_value // 3
+        elif check_type == "type15":  # Навыки
+            die_max = 6
+            stat_bonus = stat_value
+            if stat_key == "engineering" and difficulty > 0: final_dc = int(difficulty * 1.3)
+        elif check_type == "typeW":  # Мудрость
+            die_max = 20
+            stat_bonus = stat_value
+        elif check_type == "typeL":  # Удача
+            die_max = 12
+            stat_bonus = stat_value
+        elif check_type == "typeI":  # Интеллект
+            die_max = 6
+            stat_bonus = 4 + int(stat_value)
+
+    # === 3. РАСЧЕТ ШАНСОВ ===
+    # Условие успеха: Roll + base_add + stat_bonus + bonus >= DC
+    # Значит: Roll >= DC - (base_add + stat_bonus + bonus)
+    target_roll = final_dc - (base_add + stat_bonus + bonus)
+
     success_count = 0
+    total_faces = die_max - die_min + 1
+
     for r in range(die_min, die_max + 1):
-        if check_type in ["typeW", "typeL"]:
+        # Логика критов для d20/d12 (только если это не спец. талант)
+        if not is_talent_active and check_type in ["typeW", "typeL"]:
             if r == 1: continue
             if r == die_max: success_count += 1; continue
+
         if r >= target_roll: success_count += 1
 
-    chance = (success_count / die_max) * 100.0
-    ev = (die_min + die_max) / 2 + stat_bonus + bonus
-    return chance, ev, final_dc
+    chance = (success_count / total_faces) * 100.0
+
+    # Матожидание броска (среднее на кубике) + все бонусы
+    ev_roll = (die_min + die_max) / 2
+    ev_total = ev_roll + base_add + stat_bonus + bonus
+
+    return chance, ev_total, final_dc
 
 
-def perform_check_logic(stat_key, stat_value, difficulty, bonus):
+def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
+    """
+    Выполняет физический бросок.
+    """
     stat_key = stat_key.lower()
     check_type, die_type, _ = get_check_params(stat_key)
 
@@ -142,6 +186,47 @@ def perform_check_logic(stat_key, stat_value, difficulty, bonus):
         "is_crit": False, "is_fumble": False, "msg": "", "formula_text": ""
     }
 
+    # === 1. ТАЛАНТЫ (ПЕРЕОПРЕДЕЛЕНИЕ) ===
+    # Мастер речи
+    if stat_key == "eloquence" and "speech_master" in unit.talents:
+        result["die"] = "d10"
+        result["roll"] = random.randint(1, 10)
+        result["stat_bonus"] = stat_value
+        # Формула: [Roll] + 10 + Skill + Bonus
+        result["formula_text"] = f"`10 (Talent)` + `{stat_value} (Skill)`"
+        result["total"] = result["roll"] + 10 + stat_value + bonus
+
+        if difficulty > 0:
+            result["is_success"] = result["total"] >= difficulty
+            result["msg"] = "УСПЕХ" if result["is_success"] else "ПРОВАЛ"
+        else:
+            result["msg"] = "РЕЗУЛЬТАТ"
+            result["is_success"] = True
+
+        return result
+
+    # Яркий талант (Инженерия)
+    if stat_key == "engineering" and "bright_talent" in unit.talents:
+        result["die"] = "d10"
+        result["roll"] = random.randint(1, 10)
+        result["stat_bonus"] = stat_value
+
+        if difficulty > 0:
+            result["final_difficulty"] = int(difficulty * 1.3)
+
+        result["formula_text"] = f"`10 (Talent)` + `{stat_value} (Skill)`"
+        result["total"] = result["roll"] + 10 + stat_value + bonus
+
+        if difficulty > 0:
+            result["is_success"] = result["total"] >= result["final_difficulty"]
+            result["msg"] = "УСПЕХ" if result["is_success"] else "ПРОВАЛ"
+        else:
+            result["msg"] = "РЕЗУЛЬТАТ"
+            result["is_success"] = True
+
+        return result
+
+    # === 2. СТАНДАРТНАЯ ЛОГИКА ===
     if check_type == "type10":
         result["roll"] = random.randint(1, 6)
         result["stat_bonus"] = stat_value // 3
@@ -178,9 +263,11 @@ def perform_check_logic(stat_key, stat_value, difficulty, bonus):
 
     if difficulty > 0:
         if result["is_crit"]:
-            result["is_success"] = True; result["msg"] = "КРИТИЧЕСКИЙ УСПЕХ!"
+            result["is_success"] = True;
+            result["msg"] = "КРИТИЧЕСКИЙ УСПЕХ!"
         elif result["is_fumble"]:
-            result["is_success"] = False; result["msg"] = "КРИТИЧЕСКИЙ ПРОВАЛ!"
+            result["is_success"] = False;
+            result["msg"] = "КРИТИЧЕСКИЙ ПРОВАЛ!"
         else:
             result["is_success"] = result["total"] >= result["final_difficulty"]
             result["msg"] = "УСПЕХ" if result["is_success"] else "ПРОВАЛ"
@@ -322,7 +409,7 @@ def draw_roll_interface(unit, selected_key, selected_label):
     bonus = c_bonus.number_input("Бонус", -20, 20, 0, key=f"bonus_{selected_key}")
 
     # 3. Шансы
-    chance, ev, final_dc = calculate_pre_roll_stats(selected_key, val, difficulty, bonus)
+    chance, ev, final_dc = calculate_pre_roll_stats(unit, selected_key, val, difficulty, bonus)
 
     if chance >= 80:
         color = "green"
@@ -335,7 +422,7 @@ def draw_roll_interface(unit, selected_key, selected_label):
 
     # 4. Кнопка
     if st.button("🎲 Бросить", type="primary", use_container_width=True, key=f"btn_{selected_key}"):
-        res = perform_check_logic(selected_key, val, difficulty, bonus)
+        res = perform_check_logic(unit, selected_key, val, difficulty, bonus)
 
         res_color = "green" if res["is_success"] else "red"
 

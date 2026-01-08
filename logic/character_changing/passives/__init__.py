@@ -2,8 +2,9 @@ from logic.character_changing.passives.asgick_passives import PassiveWitnessOfGr
 from logic.character_changing.passives.equipment_passives import PassiveAnnihilator, PassiveBanganrang, PassiveGanitar, PassiveLimagun
 from logic.character_changing.passives.lilith_passives import PassiveHedonism, PassiveWagTail, PassiveBackstreetDemon, \
     PassiveDaughterOfBackstreets, PassiveLiveFastDieYoung
-from logic.character_changing.passives.lima_passives import PassiveAcceleratedLearning, TalentArtOfSelfDefense, PassiveLuckyStreak, \
-    PassiveFourEyes, PassiveHuntersVedas, PassiveMindSuppression
+from logic.character_changing.passives.lima_passives import PassiveAcceleratedLearning, TalentArtOfSelfDefense, \
+    PassiveLuckyStreak, \
+    PassiveFourEyes, PassiveHuntersVedas, PassiveMindSuppression, PassiveShipOfTheseus, PassiveWildCityscape
 from logic.character_changing.passives.rein_passives import PassiveSCells, PassiveNewDiscovery, TalentRedLycoris, TalentShadowOfMajesty
 from logic.character_changing.passives.zafiel_passives import PassiveSevereTraining, PassiveAdaptation
 
@@ -34,4 +35,6 @@ PASSIVE_REGISTRY = {
 "mech_limagun": PassiveLimagun(),
 "povar":PassivePovar(),
 "food_lover": PassiveFoodLover(),
+"ship_of_theseus": PassiveShipOfTheseus(),
+"wild_cityscape": PassiveWildCityscape()
 }

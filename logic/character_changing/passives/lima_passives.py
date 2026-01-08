@@ -117,8 +117,8 @@ class PassiveMindSuppression(BasePassive):
 
         # Получаем итоговый интеллект (с учетом всех бонусов)
         # Если total_intellect еще не рассчитан, берем базу
-        my_int = unit.modifiers.get("total_intellect", unit.base_intellect)
-        op_int = opponent.modifiers.get("total_intellect", opponent.base_intellect)
+        my_int = unit.modifiers.get("total_intellect", unit.base_intellect)['flat']
+        op_int = opponent.modifiers.get("total_intellect", opponent.base_intellect)['flat']
 
         # Считаем разницу (только если мы умнее)
         diff = max(0, my_int - op_int)
@@ -133,3 +133,28 @@ class PassiveMindSuppression(BasePassive):
         # Считываем сохраненный бонус
         bonus = unit.memory.get("mind_suppression_bonus", 0)
         return {"eloquence": bonus}
+
+# ==========================================
+# Проблема корабля Тесея (Ship of Theseus Problem)
+# ==========================================
+class PassiveShipOfTheseus(BasePassive):
+    id = "ship_of_theseus"
+    name = "Проблема корабля Тесея"
+    description = (
+        "Лима негативно относится к любым инородным модификациям своего тела.\n"
+        "Эффективность любых модификаций снижена вдвое.\n"
+        "Кибернетические модификации не оказывают никакого полезного действия и вызывают желание избавиться от них."
+    )
+    is_active_ability = False
+
+# ==========================================
+# Wild Cityscape
+# ==========================================
+class PassiveWildCityscape(BasePassive):
+    id = "wild_cityscape"
+    name = "Wild Cityscape"
+    description = (
+        "Особенность 'Wild Cityscape' превращает несколько 'обычных' случайных встреч в Городе "
+        "в безумные и невероятные!"
+    )
+    is_active_ability = False

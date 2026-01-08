@@ -19,8 +19,8 @@ SKILL_TREE = {
     ],
     "Ветка 2: Лучший из Лучших": [
         {"code": "2.1", "id": "remarkable", "req": None},
-        {"code": "2.2", "id": "wave_of_success", "req": "remarkable"},
-        {"code": "2.3", "id": "tactical_analysis", "req": "wave_of_success"},
+        {"code": "2.2", "id": "on_the_wave_of_success", "req": "remarkable"},
+        {"code": "2.3", "id": "tactical_analysis", "req": "on_the_wave_of_success"},
         {"code": "2.4", "id": "behavior_study", "req": "tactical_analysis"},
         {"code": "2.5", "id": "speech_master", "req": "behavior_study"},
         {"code": "2.6", "id": "pathfinder", "req": "speech_master"},
