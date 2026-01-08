@@ -8,13 +8,13 @@ class TalentAthletic(BasePassive):
     id = "athletic"
     name = "Атлетичный"
     description = (
-        "8.1 Скорость +1 (Инициатива).\n"
+        "8.1 haste +1 (после 1 хода).\n"
         "Вы можете перенаправлять атаки при РАВНОЙ скорости (обычно нужно строго больше)."
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
-        return {"initiative": 1}
+    def on_combat_end(self, unit, log_func, **kwargs):
+        unit.add_status("haste", 1, 2)
 
 
 # ==========================================

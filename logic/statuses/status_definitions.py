@@ -1,7 +1,8 @@
 # Импортируем классы из новых модулей
 from logic.statuses.common import (
     StrengthStatus, EnduranceStatus, BleedStatus, ParalysisStatus,
-    ProtectionStatus, FragileStatus, VulnerabilityStatus, BarrierStatus, BindStatus
+    ProtectionStatus, FragileStatus, VulnerabilityStatus, BarrierStatus, BindStatus, DeepWoundStatus, SlowStatus,
+    HasteStatus
 )
 from logic.statuses.custom import (
     SelfControlStatus, SmokeStatus, RedLycorisStatus, SinisterAuraStatus,
@@ -50,4 +51,8 @@ STATUS_REGISTRY = {
     "taunt": TauntStatus(),
 
     "bind": BindStatus(),
+    "deep_wound": DeepWoundStatus(),
+
+    "haste": HasteStatus(),
+    "slow": SlowStatus(),
 }

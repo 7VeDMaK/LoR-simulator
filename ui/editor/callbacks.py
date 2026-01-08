@@ -62,3 +62,4 @@ def edit_dice_script(dice_idx, script_idx):
 def delete_dice_script(dice_idx, script_idx):
     """Callback для удаления скрипта кубика."""
     st.session_state[f"ed_dice_scripts_{dice_idx}"].pop(script_idx)
+

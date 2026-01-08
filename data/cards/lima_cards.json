@@ -10,19 +10,20 @@
         {
           "type": "evade", "base_min": 1, "base_max": 1,
           "scripts": {
-            "on_roll": [{ "script_id": "modify_roll_power", "params": { "stat": "total_intellect", "diff": true, "factor": 1.0 } }]
+            "on_roll": [{ "script_id": "modify_roll_power", "params": { "stat": "total_intellect", "diff": true, "factor": 1.0, "max": 5
+            } }]
           }
         },
         {
           "type": "evade", "base_min": 1, "base_max": 1,
           "scripts": {
-            "on_roll": [{ "script_id": "modify_roll_power", "params": { "stat": "total_intellect", "diff": true, "factor": 1.0 } }]
+            "on_roll": [{ "script_id": "modify_roll_power", "params": { "stat": "total_intellect", "diff": true, "factor": 1.0, "max": 5} }]
           }
         },
         {
           "type": "evade", "base_min": 1, "base_max": 1,
           "scripts": {
-            "on_roll": [{ "script_id": "modify_roll_power", "params": { "stat": "total_intellect", "diff": true, "factor": 1.0 } }]
+            "on_roll": [{ "script_id": "modify_roll_power", "params": { "stat": "total_intellect", "diff": true, "factor": 1.0, "max": 5 } }]
           }
         }
       ]
@@ -37,7 +38,8 @@
         {
           "type": "evade", "base_min": 4, "base_max": 7,
           "scripts": {
-            "on_clash_win": [{ "script_id": "apply_status", "params": { "status": "bind", "base": 1, "target": "target" } }]
+            "on_clash_win": [{ "script_id": "apply_status", "params": { "status": "bind", "base": 1, "target": "target",
+              "duration": "3" } }]
           }
         },
         { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": {} }
@@ -53,19 +55,21 @@
         {
           "type": "pierce", "base_min": 3, "base_max": 3,
           "scripts": {
-            "on_clash_win": [{ "script_id": "apply_status", "params": { "status": "bleed", "base": 1, "target": "target" } }]
+            "on_clash_win": [{ "script_id": "apply_status", "params": { "status": "deep_wound", "base": 1, "target": "target"} }]
           }
         },
         {
           "type": "pierce", "base_min": 2, "base_max": 3,
           "scripts": {
-            "on_hit": [{ "script_id": "apply_status", "params": { "status": "fragile", "base": 1, "target": "target" } }]
+            "on_hit": [{ "script_id": "apply_status", "params": { "status": "fragile", "base": 1, "target": "target",
+              "duration": "3" } }]
           }
         },
         {
           "type": "pierce", "base_min": 2, "base_max": 2,
           "scripts": {
-            "on_hit": [{ "script_id": "apply_status", "params": { "status": "paralysis", "base": 1, "target": "target" } }]
+            "on_hit": [{ "script_id": "apply_status", "params": { "status": "paralysis", "base": 1, "target": "target",
+              "duration": "3" } }]
           }
         }
       ]
@@ -88,18 +92,11 @@
       "name": "Инерция",
       "tier": 2,
       "type": "Melee",
-      "description": "Воспроизводится за каждую Спешку атакующего (макс 4).",
-      "scripts": {
-        "on_use": [
-           { "script_id": "apply_status", "params": { "status": "haste", "base": 1, "target": "self" } }
-        ]
-      },
+      "description": "хехе хаха",
+      "scripts": {},
       "dice": [
         {
-          "type": "slash", "base_min": 1, "base_max": 3,
-          "scripts": {
-            "on_roll": [{ "script_id": "scale_roll_by_status", "params": { "status": "haste", "step": 1, "limit": 4 } }]
-          }
+          "type": "slash", "base_min": 1, "base_max": 3
         }
       ]
     },
@@ -117,7 +114,7 @@
             "on_hit": [
               { "script_id": "restore_resource", "params": { "type": "hp", "base": 0, "stat": "medicine", "factor": 1.0, "target": "target" } },
               { "script_id": "remove_status", "params": { "status": "haste", "base": 99, "target": "target" } },
-              { "script_id": "apply_status", "params": { "status": "slow", "base": 1, "target": "target" } }
+              { "script_id": "apply_status", "params": { "status": "slow", "base": 1, "target": "target", "duration": "3" } }
             ]
           }
         }
@@ -134,38 +131,50 @@
       ]
     },
     {
-      "id": "lima_ram",
-      "name": "Таран",
-      "tier": 3,
-      "type": "Melee",
-      "description": "Увеличивает Силу на Спешка * (Уровень/3). Снимает всю Спешку.",
-      "dice": [
-        {
-          "type": "blunt", "base_min": 1, "base_max": 1,
-          "scripts": {
-            "on_use": [
-               { "script_id": "modify_roll_power", "params": { "stat": "haste", "factor": 10.0, "reason": "Speed to Dmg" } },
-               { "script_id": "remove_status", "params": { "status": "haste", "base": 99, "target": "self" } }
-            ],
-            "on_clash_lose": [
-               { "script_id": "apply_status", "params": { "status": "slow", "base": 5, "target": "target" } }
-            ]
-          }
-        }
-      ]
-    },
+  "id": "lima_ram",
+  "name": "Таран",
+  "tier": 3,
+  "type": "Melee",
+  "description": "Конвертирует всю Спешку в урон (1 к 1).",
+  "dice": [
+    {
+      "type": "blunt", "base_min": 4, "base_max": 8,
+      "scripts": {
+        "on_roll": [
+           {
+             "script_id": "convert_status_to_power",
+             "params": {
+               "status": "haste",
+               "factor": 7.0
+             }
+           }
+        ],
+        "on_clash_lose": [
+           {
+             "script_id": "apply_status",
+             "params": {
+               "status": "slow",
+               "base": 5,
+               "target": "target"
+             }
+           }
+        ]
+      }
+    }
+  ]
+},
     {
       "id": "lima_purge_toxin",
       "name": "Пурж-Токсин",
       "tier": 3,
       "type": "Ranged",
       "flags": ["friendly"],
-      "description": "Снимает первый статусный эффект с цели.",
+      "description": "не.",
       "dice": [
-        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [{ "script_id": "cleanse_status_script", "params": {} }] } },
-        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [{ "script_id": "cleanse_status_script", "params": {} }] } },
-        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [{ "script_id": "cleanse_status_script", "params": {} }] } },
-        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [{ "script_id": "cleanse_status_script", "params": {} }] } }
+        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [] } },
+        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [] } },
+        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [] } },
+        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [] } }
       ]
     }
   ]

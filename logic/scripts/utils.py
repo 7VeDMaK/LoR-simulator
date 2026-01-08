@@ -51,7 +51,7 @@ def _resolve_value(source, target, params: dict) -> int:
     """
     # 1. Базовое значение
     base = int(params.get("base", params.get("amount", 0)))
-
+    limit = params.get("max", None)
     # 2. Стат для скалирования
     stat_key = params.get("stat")
     if not stat_key or stat_key == "None":
@@ -76,7 +76,8 @@ def _resolve_value(source, target, params: dict) -> int:
     if params.get("diff", False) and secondary_unit:
         secondary_val = _get_unit_stat(secondary_unit, stat_key)
         final_stat_val = primary_val - secondary_val
-
+    if limit is not None:
+        final_stat_val = min(final_stat_val, int(limit))
     # 5. Множитель
     factor = float(params.get("factor", 1.0))
 

@@ -82,3 +82,31 @@ def add_hp_damage(ctx: 'RollContext', params: dict):
     if damage > 0:
         target.current_hp = max(0, target.current_hp - damage)
         ctx.log.append(f"💔 **Decay**: -{damage} HP ({percent * 100}%)")
+
+
+def convert_status_to_power(ctx: 'RollContext', params: dict):
+    """
+    params: {
+        "status": "haste",   # Какой статус поглощать
+        "factor": 1.0,       # Сколько силы за 1 стак
+        "max_stacks": 999    # (Опц) Лимит поглощения
+    }
+    """
+    status_id = params.get("status")
+    factor = params.get("factor", 1.0)
+
+    # 1. Получаем текущее количество стаков у того, кто бьет (source)
+    # get_status возвращает int
+    stack_count = ctx.source.get_status(status_id)
+
+    if stack_count <= 0:
+        return
+
+    # 2. Считаем бонус
+    bonus = int(stack_count * factor)
+
+    # 3. Применяем бонус к текущему броску
+    ctx.modify_power(bonus, f"Consumed {status_id.capitalize()}")
+
+    # 4. Удаляем статус (полностью или сколько поглотили)
+    ctx.source.remove_status(status_id, stack_count)

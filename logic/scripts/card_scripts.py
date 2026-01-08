@@ -1,7 +1,7 @@
 # logic/card_scripts.py
 
 from logic.scripts.combat import modify_roll_power, deal_effect_damage, self_harm_percent, add_hp_damage, \
-    nullify_hp_damage
+    nullify_hp_damage, convert_status_to_power
 from logic.scripts.resources import restore_resource
 from logic.scripts.statuses import (
     apply_status, steal_status, multiply_status, remove_status_script,
@@ -33,4 +33,5 @@ SCRIPTS_REGISTRY = {
     "add_luck_bonus_roll": add_luck_bonus_roll,
     "scale_roll_by_luck": scale_roll_by_luck,
     "add_power_by_luck": add_power_by_luck,
+    "convert_status_to_power": convert_status_to_power
 }
