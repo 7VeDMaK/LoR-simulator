@@ -87,8 +87,10 @@ class TalentThermalEnergy(BasePassive):
     )
     is_active_ability = False
 
-    def on_take_damage(self, unit, amount, dmg_type, log_func=None):
-        # В движке тип урона обычно передается строкой или enum.
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        # 1. Извлекаем функцию логгирования (вернет None, если её нет)
+        log_func = kwargs.get("log_func")
+        dmg_type = kwargs.get("dmg_type")
         # Предположим dmg_type == "burn" (нужна поддержка в системе статусов)
         if dmg_type == "burn" and amount > 0:
             charge_gain = amount // 5

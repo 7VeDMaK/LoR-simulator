@@ -1,5 +1,6 @@
 import random
 from core.enums import DiceType
+from logic.character_changing.talents import TALENT_REGISTRY
 from logic.context import RollContext
 from logic.statuses.base_status import StatusEffect
 
@@ -35,6 +36,14 @@ class BleedStatus(StatusEffect):
                 # Снижаем на 33%
                 dmg = int(dmg * 0.67)
                 # Лог можно добавить при желании
+
+            if hasattr(ctx.source, "talents"):
+                for talent_id in ctx.source.talents:
+                    talent = TALENT_REGISTRY.get(talent_id)
+                    # Если у таланта есть метод modify_incoming_damage, вызываем его
+                    if talent and hasattr(talent, "modify_incoming_damage"):
+                        # Передаем тип урона как строку "bleed"
+                        dmg = talent.modify_incoming_damage(ctx.source, dmg, "bleed")
 
             ctx.source.current_hp -= dmg
             remove_amt = stack // 2

@@ -99,13 +99,14 @@ class TalentEnteringRhythm(BasePassive):
     )
     is_active_ability = False
 
-    def on_take_damage(self, unit, amount, dmg_type, log_func=None):
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        log_func = kwargs.get("log_func")
         if amount > 0:
             unit.remove_status("rhythm", 1)
             if log_func: log_func(f"💔 **{self.name}**: Ритм сбит (-1).")
 
 
-# ==========================================
+# ========================================== ПОМЕНЯТЬ ВСЕ ОН ТЕЙК ДМАГЕ
 # 10.3 Б (Опц): Грязные приёмы
 # ==========================================
 class TalentDirtyTricks(BasePassive):

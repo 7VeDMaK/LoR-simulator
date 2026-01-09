@@ -167,8 +167,9 @@ class TalentFieryTemper(BasePassive):
     )
     is_active_ability = False
 
-    def on_take_damage(self, unit, amount, dmg_type, log_func=None):
-        # Проверка на ближнюю атаку сложна без контекста, но если мы горим...
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        # 1. Извлекаем функцию логгирования (вернет None, если её нет)
+        log_func = kwargs.get("log_func")
         if unit.get_status("burn") > 0:
             # Эмулируем ответный огонь (нужен доступ к attacker, пока заглушка)
             if log_func: log_func(f"🔥 **{self.name}**: Враг обжегся (2 Burn)!")

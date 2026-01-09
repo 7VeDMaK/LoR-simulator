@@ -236,15 +236,81 @@ class TalentHeatResistant(BasePassive):
 
 
 # ==========================================
-# 3.6 Адаптация
+# 3.6 Адаптация (Тип 2)
 # ==========================================
 class TalentAdaptationTireless(BasePassive):
     id = "adaptation_tireless"
-    name = "Адаптация (Тип 2)"
+    name = "Адаптация"
     description = (
-        "3.6 В конце раунда резист к самому частому полученному типу урона снижается на 0.25."
+        "3.6 В конце раунда вы адаптируетесь к типу урона, полученному больше всего.\n"
+        "В следующем раунде получаемый урон этого типа снижен на 25%."
     )
     is_active_ability = False
+
+    def on_combat_start(self, unit, log_func, **kwargs):
+        # 1. Сбрасываем счетчик полученного урона для НОВОГО раунда
+        # (Но не сбрасываем active_adaptation, так как он должен работать в этом раунде)
+        unit.memory["adaptation_stats"] = {
+            DiceType.SLASH: 0,
+            DiceType.PIERCE: 0,
+            DiceType.BLUNT: 0
+        }
+
+        # Лог для игрока, к чему мы адаптированы сейчас
+        active_type = unit.memory.get("adaptation_active_type")
+        if active_type and log_func:
+            log_func(f"🧬 **{self.name}**: Активна защита от {active_type.name} (-25% урона).")
+
+    def modify_incoming_damage(self, unit, amount: int, damage_type, **kwargs) -> int:
+        """
+        Специальный хук для изменения входящего урона ПЕРЕД его нанесением.
+        """
+        # Проверяем, есть ли активная адаптация с прошлого раунда
+        active_type = unit.memory.get("adaptation_active_type")
+
+        if active_type and damage_type == active_type and amount > 0:
+            # Снижаем урон на 25%
+            new_amount = int(amount * 0.75)
+            # (Опционально можно вывести лог, если передается log_func, но в modify_ обычно тихо)
+            return new_amount
+
+        return amount
+
+    def on_take_damage(self, unit, amount, source, damage_type=None, **kwargs):
+        """
+        Считаем полученный урон для статистики (чтобы выбрать адаптацию на СЛЕДУЮЩИЙ раунд).
+        """
+        if amount > 0 and damage_type:
+            stats = unit.memory.get("adaptation_stats")
+            # Если по какой-то причине stats нет (первый удар в бою до старта раунда), создаем
+            if not stats:
+                stats = {DiceType.SLASH: 0, DiceType.PIERCE: 0, DiceType.BLUNT: 0}
+                unit.memory["adaptation_stats"] = stats
+
+            # Записываем урон в соответствующую категорию
+            if damage_type in stats:
+                stats[damage_type] += amount
+
+    def on_combat_end(self, unit, log_func, **kwargs):
+        """
+        Подводим итоги раунда и выбираем тип для адаптации.
+        """
+        stats = unit.memory.get("adaptation_stats", {})
+
+        best_type = None
+        max_dmg = 0
+
+        # Ищем тип с максимальным уроном
+        for dtype, val in stats.items():
+            if val > max_dmg:
+                max_dmg = val
+                best_type = dtype
+
+        # Сохраняем результат для следующего раунда
+        if best_type:
+            unit.memory["adaptation_active_type"] = best_type
+            if log_func:
+                log_func(f"🧬 **{self.name}**: Организм перестроился! Адаптация к {best_type.name}.")
 
 
 # ==========================================
@@ -255,7 +321,7 @@ class TalentToughAsSteel(BasePassive):
     name = "Крепкий как сталь"
     description = (
         "3.7 Макс. Здоровье +20%.\n"
-        "Победа костью блока -> накладывает 1 Хрупкость (Fragile) на врага (макс 3)."
+        "Победа костью блока -> накладывает 1 Хрупкость (Fragile)."
     )
     is_active_ability = False
 
@@ -266,9 +332,7 @@ class TalentToughAsSteel(BasePassive):
         if ctx.dice.dtype == DiceType.BLOCK:
             target = ctx.target  # Тот, с кем столкновение (атакующий)
             if target:
-                # Ограничение "не больше 3" сложно проверить без истории раунда, 
-                # но просто наложим
-                target.add_status("fragile", 1, duration=1)
+                target.add_status("fragile", 1, duration=3)
                 ctx.log.append(f"🧱 **{self.name}**: Враг получил +1 Хрупкость")
 
 
@@ -293,26 +357,50 @@ class TalentDefender(BasePassive):
 # 3.8 Выживший
 # ==========================================
 class TalentSurvivor(BasePassive):
-    id = "survivor"  # Связь с Обороной
+    id = "survivor"
     name = "Выживший"
     description = (
-        "3.8 Броски Стойкости с преимуществом.\n"
-        "Внезапная атака наносит x1.5 урона (вместо x2.0).\n"
+        "3.8 Проверки навыка Стойкости (Endurance) проходят с Преимуществом.\n"
+        "Пассивно: Если здоровье падает до 30% и ниже, вы восстанавливаете 10% HP в начале раунда.\n"
         "Урон от Кровотечения снижен на 33%.\n"
-        "Активно: Если в раунде не использовали кости -> Восстановить 15% HP."
     )
-    is_active_ability = True
-    cooldown = 99
+    is_active_ability = False  # Больше не активная способность
 
-    def activate(self, unit, log_func, **kwargs):
-        # Проверка "не использовали кости" (сложно, считаем что игрок честный)
-        if unit.cooldowns.get(self.id, 0) > 0: return False
+    def on_round_start(self, unit, log_func, **kwargs):
+        """
+        Пассивная регенерация при низком здоровье.
+        """
+        # Порог срабатывания (30%)
+        low_hp_threshold = unit.max_hp * 0.30
 
-        heal = int(unit.max_hp * 0.15)
-        unit.heal_hp(heal)
-        unit.cooldowns[self.id] = self.cooldown
-        if log_func: log_func(f"❤️ **Выживший**: Восстановлено {heal} HP")
-        return True
+        if unit.current_hp <= low_hp_threshold:
+            # Лечение (10%)
+            heal_amount = int(unit.max_hp * 0.10)
+            if heal_amount > 0:
+                actual = unit.heal_hp(heal_amount)
+                if log_func:
+                    log_func(f"❤️ **{self.name}**: Критическое состояние! Регенерация +{actual} HP.")
+
+    def modify_incoming_damage(self, unit, amount: int, damage_type, **kwargs) -> int:
+        """
+        Сохраняем снижение урона от Кровотечения.
+        """
+        dtype_str = str(damage_type).lower()
+        if dtype_str == "bleed":
+            return int(amount * 0.67)  # -33%
+        return amount
+
+    def on_skill_check(self, unit, skill_name: str, ctx):
+        """
+        Хук для системы проверок навыков.
+        ctx - это контекст проверки (CheckContext), где должен быть флаг advantage.
+        """
+        # Проверяем, что навык - Стойкость
+        if skill_name.lower() in ["endurance", "стойкость"]:
+            ctx.has_advantage = True
+            # Можно добавить лог, если ctx поддерживает это
+            if hasattr(ctx, "log"):
+                ctx.log.append(f"🎲 **{self.name}**: Применено Преимущество к проверке Стойкости!")
 
 
 # ==========================================

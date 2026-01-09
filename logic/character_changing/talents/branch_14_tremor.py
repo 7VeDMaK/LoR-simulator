@@ -15,10 +15,7 @@ class TalentFightToTheEnd(BasePassive):
     )
     is_active_ability = False
 
-    def on_take_damage(self, unit, amount, dmg_type, log_func=None):
-        # Допустим, это пассивная защита от физического урона для танка.
-        # В симуляторе просто снизим урон на 10% как заглушку RP эффекта.
-        pass
+    def on_take_damage(self, unit, amount, source, **kwargs): pass
 
     # ==========================================
 
@@ -136,7 +133,8 @@ class TalentKeepGoing(BasePassive):
     )
     is_active_ability = False
 
-    def on_take_damage(self, unit, amount, dmg_type, log_func=None):
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        log_func = kwargs.get("log_func")
         if unit.current_hp - amount <= 0:
             tremor = unit.get_status("tremor")
             if tremor > 0:

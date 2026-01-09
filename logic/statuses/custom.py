@@ -127,7 +127,8 @@ class ClarityStatus(StatusEffect):
 class EnrageTrackerStatus(StatusEffect):
     id = "enrage_tracker"
 
-    def on_take_damage(self, unit, amount, dmg_type, log_func=None):
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        log_func = kwargs.get("log_func")
         if amount > 0:
             # 1 урона = 1 силы
             unit.add_status("strength", amount,

@@ -284,8 +284,9 @@ class TalentKeyMoment(BasePassive):
     description = "5.9 Если жизнь на грани (HP < 25%), активируется Полная Сосредоточенность."
     is_active_ability = False
 
-    def on_take_damage(self, unit, amount, dmg_type, log_func=None):
-        # Проверяем HP < 25%
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        # 1. Извлекаем функцию логгирования (вернет None, если её нет)
+        log_func = kwargs.get("log_func")
         if unit.max_hp > 0 and (unit.current_hp / unit.max_hp) < 0.25:
             # Активируем Сосредоточенность (если не активна)
             if unit.active_buffs.get("full_concentration", 0) <= 0:

@@ -11,6 +11,16 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
     """Наносит урон (HP или Stagger), учитывая резисты и барьеры."""
     if amount <= 0: return
 
+    if hasattr(target, "talents"):
+        # Импорт реестра нужен, если таланты хранятся как ID строк
+        from logic.character_changing.talents import TALENT_REGISTRY
+
+        for talent_id in target.talents:
+            talent = TALENT_REGISTRY.get(talent_id)
+            if talent and hasattr(talent, "modify_incoming_damage"):
+                # Передаем dmg_type (например "bleed" или DiceType.SLASH)
+                amount = talent.modify_incoming_damage(target, amount, dmg_type)
+
     final_dmg = 0
 
     # Определяем тип атаки (Slash/Pierce/Blunt)
@@ -40,7 +50,6 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
                     stagger_mult = 1.25
                 else:
                     stagger_mult = 1.5
-
             res *= stagger_mult
             is_stag_hit = True
         # ===================================================
@@ -97,7 +106,7 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
         if dice_obj: extra_args["damage_type"] = dice_obj.dtype
 
         log_wrapper = lambda msg: source_ctx.log.append(msg)
-        trigger_event_func("on_take_damage", target, final_dmg, dmg_type, log_func=log_wrapper, **extra_args)
+        trigger_event_func("on_take_damage", target, final_dmg, source=source_ctx, dmg_type=dmg_type, log_func=log_wrapper, **extra_args)
 
 
 def apply_damage(attacker_ctx, defender_ctx, dmg_type="hp",

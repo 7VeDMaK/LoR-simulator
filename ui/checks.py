@@ -205,6 +205,11 @@ def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
 
         return result
 
+    is_advantage = False
+    # Проверка для Стойкости (3.8 Survivor)
+    if stat_key == "endurance" and "survivor" in unit.talents:
+        is_advantage = True
+
     # Яркий талант (Инженерия)
     if stat_key == "engineering" and "bright_talent" in unit.talents:
         result["die"] = "d10"
@@ -228,7 +233,19 @@ def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
 
     # === 2. СТАНДАРТНАЯ ЛОГИКА ===
     if check_type == "type10":
-        result["roll"] = random.randint(1, 6)
+        # Стандартный кубик d6 для характеристик
+        val1 = random.randint(1, 6)
+        rolls_log = [val1]
+
+        if is_advantage:
+            val2 = random.randint(1, 6)
+            rolls_log.append(val2)
+            result["roll"] = max(val1, val2)
+            # Показываем в интерфейсе, что кидали с преимуществом
+            result["die"] = f"d6 (Adv: {rolls_log})"
+        else:
+            result["roll"] = val1
+
         result["stat_bonus"] = stat_value // 3
         result["formula_text"] = f"`{result['stat_bonus']} (Стат // 3)`"
 
