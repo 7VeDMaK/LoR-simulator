@@ -22,8 +22,8 @@
         "имя11_f7dd"
     ],
     "base_stats": {
-        "current_hp": 126,
-        "current_sp": 92,
+        "current_hp": 65,
+        "current_sp": 60,
         "current_stagger": 63
     },
     "defense": {
@@ -67,7 +67,10 @@
         "engineering": 0,
         "programming": 0
     },
-    "passives": [],
+    "passives": [
+        "severe_training",
+        "adaptation"
+    ],
     "talents": [
         "big_guy",
         "defense",

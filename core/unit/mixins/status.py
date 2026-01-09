@@ -57,7 +57,7 @@ class UnitStatusMixin:
         if name not in self._status_effects:
             self._status_effects[name] = []
 
-        POOL_STATUSES = ["smoke", "charge", "satiety", "tremor", "self_control", "poise"]
+        POOL_STATUSES = ["smoke", "charge", "satiety", "tremor", "self_control", "poise", "adaptation"]
 
         if name in POOL_STATUSES and self._status_effects[name]:
             # Если статус уже есть, просто увеличиваем количество в первом слоте

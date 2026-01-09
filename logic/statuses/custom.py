@@ -76,30 +76,24 @@ class SinisterAuraStatus(StatusEffect):
 
 class AdaptationStatus(StatusEffect):
     id = "adaptation"
+    name = "Адаптация"
+    description = "Игнорирует слабый урон, снижает урон по выдержке. Атаки пробивают резисты."
 
-    def on_hit(self, ctx: RollContext, stack: int):
-        # stack = Уровень Адаптации (1-5)
-        lvl = max(1, min(stack, 5))
-        thresholds = [0.5, 0.75, 1.0, 1.25, 1.5]
-        target_min = thresholds[lvl - 1]
+    def on_roll(self, unit, stack):
+        # 1. Игнорирование урона: 11, 21, 31, 41, 51
+        # Формула: 1 + (Stack * 10) -> 1+10=11, 1+50=51
+        threshold = 1 + (stack * 10)
 
-        target = ctx.target
-        if not target: return
+        # Устанавливаем модификатор (система damage.py должна его читать)
+        # Если модификатор уже есть (например, от брони), берем максимум
+        old_thresh = unit.modifiers.get("damage_threshold", {}).get("flat", 0)
+        if threshold > old_thresh:
+            unit.modifiers["damage_threshold"] = {"flat": threshold}
 
-        # Определяем тип урона
-        dtype = ctx.dice.dtype.value.lower()
-        current_res = getattr(target.hp_resists, dtype, 1.0)
-
-        # Эффективный резист не может быть ниже порога адаптации
-        effective_res = max(current_res, target_min)
-
-        if effective_res > current_res:
-            factor = effective_res / current_res
-            ctx.damage_multiplier *= factor
-            ctx.log.append(f"🧬 Adapt (x{factor:.2f})")
-
-    def on_turn_end(self, unit, stack) -> list[str]:
-        return []
+        # 2. Снижение урона по выдержке вдвое (-50%)
+        # Складываемся с другими источниками (add_modifier логика) или перезаписываем
+        # Для простоты перезапишем или добавим в pct
+        unit.modifiers["stagger_take"] = {"pct": -50}
 
 
 class BulletTimeStatus(StatusEffect):

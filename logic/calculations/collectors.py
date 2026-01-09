@@ -34,10 +34,15 @@ def collect_status_bonuses(unit, mods, bonuses, logs):
         if status_id in STATUS_REGISTRY and stack > 0:
             st_obj = STATUS_REGISTRY[status_id]
             if hasattr(st_obj, 'on_calculate_stats'):
-                bonus_dict = st_obj.on_calculate_stats(unit)
+                # === [FIX] Передаем stack в метод ===
+                try:
+                    bonus_dict = st_obj.on_calculate_stats(unit, stack)
+                except TypeError:
+                    # Фолбек для старых статусов, которые не принимают stack
+                    bonus_dict = st_obj.on_calculate_stats(unit)
+                # ====================================
+
                 if bonus_dict:
-                    # Некоторые статусы возвращают сложные структуры, здесь предполагаем простой словарь
-                    # Если нужно учитывать стаки, статус сам должен умножить значения внутри on_calculate_stats
                     _apply_smart_bonuses(st_obj.id, bonus_dict, mods, bonuses, logs, None)
 
 

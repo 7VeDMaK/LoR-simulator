@@ -24,6 +24,6 @@ class StatusEffect:
         """Возвращает % изменения урона (0.1 = +10%, -0.2 = -20%)"""
         return 0.0
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, stack=0) -> dict:
         """Возвращает бонусы к статам (если статус их дает)."""
         return {}
