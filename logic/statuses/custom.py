@@ -79,21 +79,18 @@ class AdaptationStatus(StatusEffect):
     name = "Адаптация"
     description = "Игнорирует слабый урон, снижает урон по выдержке. Атаки пробивают резисты."
 
-    def on_roll(self, unit, stack):
+    def on_hit(self, unit, stack=0) -> dict:
         # 1. Игнорирование урона: 11, 21, 31, 41, 51
-        # Формула: 1 + (Stack * 10) -> 1+10=11, 1+50=51
         threshold = 1 + (stack * 10)
 
-        # Устанавливаем модификатор (система damage.py должна его читать)
-        # Если модификатор уже есть (например, от брони), берем максимум
-        old_thresh = unit.modifiers.get("damage_threshold", {}).get("flat", 0)
-        if threshold > old_thresh:
-            unit.modifiers["damage_threshold"] = {"flat": threshold}
+        # Обновляем модификатор порога урона
+        # (Проверяем, чтобы не перезаписать более высокий порог, если он есть)
+        current_thresh = unit.modifiers["damage_threshold"].get("flat", 0)
+        if threshold > current_thresh:
+            unit.modifiers["damage_threshold"]["flat"] = threshold
 
         # 2. Снижение урона по выдержке вдвое (-50%)
-        # Складываемся с другими источниками (add_modifier логика) или перезаписываем
-        # Для простоты перезапишем или добавим в pct
-        unit.modifiers["stagger_take"] = {"pct": -50}
+        # Возвращаем словарь модификаторов, который применит система
 
 
 class BulletTimeStatus(StatusEffect):

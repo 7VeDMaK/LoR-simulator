@@ -41,14 +41,12 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
             adapt_stack = source_ctx.source.get_status("adaptation")
             if adapt_stack > 0:
                 # Уровни: [1: 0.5], [2: 0.75], [3: 1.0], [4: 1.25], [5: 1.5]
-                # Формула: 0.25 * (stack + 1)
                 min_res = 0.25 * (adapt_stack + 1)
 
-                # Если текущий резист меньше минимального -> повышаем его
+                # Если резист цели меньше нашего минимума -> повышаем его (цель получает больше урона)
                 if res < min_res:
                     res = min_res
-                    # Лог (опционально)
-                    source_ctx.log.append(f"🧬 Adaptation Pierce: Res {res:.2f}")
+                    source_ctx.log.append(f"🧬 Adaptation Pierce: Res set to {res}")
 
         # === [NEW] МЕХАНИКА STAGGER RESIST (3.5 / 3.10) ===
         is_stag_hit = False
@@ -219,12 +217,17 @@ def apply_damage(attacker_ctx, defender_ctx, dmg_type="hp",
     if dmg_type == "hp" and not defender.is_staggered():
         if defender.get_status("red_lycoris") <= 0:
             res_stg = getattr(defender.stagger_resists, dtype, 1.0)
+
             stg_dmg = int(final_amt * res_stg)
 
-            # Также применяем механику адаптации к побочному урону
-            if defender.memory.get(
-                    "adaptation_active_type") and attacker_ctx.dice and attacker_ctx.dice.dtype == defender.memory.get(
-                    "adaptation_active_type"):
+            stg_take_pct = defender.modifiers["stagger_take"]["pct"]
+            if stg_take_pct != 0:
+                mod_mult = 1.0 + (stg_take_pct / 100.0)
+                stg_dmg = int(stg_dmg * mod_mult)
+
+            if defender.memory.get("adaptation_active_type") and \
+                    attacker_ctx.dice and \
+                    attacker_ctx.dice.dtype == defender.memory.get("adaptation_active_type"):
                 stg_dmg = int(stg_dmg * 0.75)
 
             defender.current_stagger = max(0, defender.current_stagger - stg_dmg)
