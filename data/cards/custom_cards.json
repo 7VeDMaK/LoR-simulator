@@ -740,6 +740,24 @@
           }
         }
       ]
+    },
+    {
+      "id": "блант_aafe",
+      "name": "блант",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 99,
+          "base_max": 99,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
     }
   ]
 }

@@ -1,10 +1,10 @@
 {
     "name": "Зафиэль",
-    "level": 25,
+    "level": 28,
     "rank": 6,
-    "avatar": "data/avatars/Зафиэль.png",
+    "avatar": "data/avatars/Зафиэль.jpg",
     "base_intellect": 5,
-    "total_xp": 25165824,
+    "total_xp": 159383552,
     "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -30,9 +30,9 @@
         "furious_assault"
     ],
     "base_stats": {
-        "current_hp": 65,
+        "current_hp": 116,
         "current_sp": 60,
-        "current_stagger": 63
+        "current_stagger": 75
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -49,13 +49,10 @@
         },
         "weapon_id": "none"
     },
-    "card_cooldowns": {
-        "thrill_of_battle": 1,
-        "furious_assault": 2
-    },
+    "card_cooldowns": {},
     "attributes": {
         "strength": 30,
-        "endurance": 10,
+        "endurance": 13,
         "agility": 9,
         "wisdom": 0,
         "psych": 0
@@ -63,10 +60,10 @@
     "skills": {
         "strike_power": 15,
         "medicine": 0,
-        "willpower": 0,
+        "willpower": 2,
         "luck": 0,
         "acrobatics": 0,
-        "shields": 11,
+        "shields": 15,
         "tough_skin": 15,
         "speed": 30,
         "light_weapon": 0,
@@ -90,7 +87,8 @@
         "despiteAdversities",
         "adaptation_tireless",
         "tough_as_steel",
-        "survivor"
+        "survivor",
+        "idol_oath"
     ],
     "augmentations": [],
     "level_rolls": {
@@ -125,6 +123,10 @@
         "24": {
             "hp": 1,
             "sp": 5
+        },
+        "27": {
+            "hp": 2,
+            "sp": 3
         }
     },
     "cooldowns": {},

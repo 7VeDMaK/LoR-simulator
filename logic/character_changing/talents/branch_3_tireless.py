@@ -414,7 +414,7 @@ class TalentIdolOath(BasePassive):
     id = "idol_oath"
     name = "Клятва идола"
     description = (
-        "3.9 Опц: Вы отказываетесь от лечения других.\n"
+        "3.9 Опц: Вы отказываетесь от лечения других WIP.\n"
         "Медицина +15.\n"
         "HP < 25% -> +2 Мощь.\n"
         "Крепкая кожа +15."
@@ -422,10 +422,16 @@ class TalentIdolOath(BasePassive):
     is_active_ability = False
 
     def on_calculate_stats(self, unit) -> dict:
+        # Базовые бонусы
         mods = {"medicine": 15, "tough_skin": 15}
+
         # Проверка HP < 25%
         if unit.max_hp > 0 and (unit.current_hp / unit.max_hp) < 0.25:
-            mods["power_all"] = 2  # Гипотетический модификатор ко всем броскам
+            # Заменяем нерабочий "power_all" на три конкретных бонуса
+            mods["power_attack"] = 2  # Для Атаки (Slash/Pierce/Blunt)
+            mods["power_block"] = 2  # Для Блока
+            mods["power_evade"] = 2  # Для Уклонения
+
         return mods
 
 

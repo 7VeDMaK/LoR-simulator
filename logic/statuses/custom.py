@@ -79,19 +79,29 @@ class AdaptationStatus(StatusEffect):
     name = "Адаптация"
     description = "Игнорирует слабый урон, снижает урон по выдержке. Атаки пробивают резисты."
 
-    def on_hit(self, unit, stack=0) -> dict:
+    # === [FIX] Это метод для пассивных статов, а не on_hit ===
+    def on_calculate_stats(self, unit, stack=0) -> dict:
         # 1. Игнорирование урона: 11, 21, 31, 41, 51
         threshold = 1 + (stack * 10)
 
         # Обновляем модификатор порога урона
         # (Проверяем, чтобы не перезаписать более высокий порог, если он есть)
         current_thresh = unit.modifiers["damage_threshold"].get("flat", 0)
+
         if threshold > current_thresh:
             unit.modifiers["damage_threshold"]["flat"] = threshold
 
         # 2. Снижение урона по выдержке вдвое (-50%)
-        # Возвращаем словарь модификаторов, который применит система
+        # Возвращаем словарь, который коллектор сам добавит в unit.modifiers
+        return {
+            "stagger_take_pct": -50
+        }
 
+    # Метод on_hit здесь больше не нужен для пробивания резистов,
+    # так как мы перенесли эту логику в damage.py (deal_direct_damage)
+
+    def on_turn_end(self, unit, stack) -> list[str]:
+        return []
 
 class BulletTimeStatus(StatusEffect):
     id = "bullet_time"
