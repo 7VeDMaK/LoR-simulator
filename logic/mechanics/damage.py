@@ -15,12 +15,21 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
     if amount <= 0: return
 
     # === ХУК ТАЛАНТОВ ===
+    # === ХУК ТАЛАНТОВ (Модификация входящего числа урона) ===
     if hasattr(target, "talents"):
         from logic.character_changing.talents import TALENT_REGISTRY
         for talent_id in target.talents:
             talent = TALENT_REGISTRY.get(talent_id)
-            if talent and hasattr(talent, "modify_incoming_damage"):
+            if talent:
                 amount = talent.modify_incoming_damage(target, amount, dmg_type)
+
+    # Также проверяем пассивки (на всякий случай, для единообразия)
+    if hasattr(target, "passives"):
+        from logic.character_changing.passives import PASSIVE_REGISTRY
+        for passive_id in target.passives:
+            passive = PASSIVE_REGISTRY.get(passive_id)
+            if passive:
+                amount = passive.modify_incoming_damage(target, amount, dmg_type)
 
     final_dmg = 0
     source_unit = source_ctx.source if source_ctx else None
@@ -46,15 +55,9 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
                 target.get_status("protection")
         )
 
-        # Б. Статы: "damage_take" (Крепкая кожа, Броня)
-        # В системе этот параметр хранит величину СНИЖЕНИЯ урона (положительное число).
-        # Поэтому мы должны его ВЫЧИТАТЬ.
         stat_reduction = get_modded_value(0, "damage_take", target.modifiers)
 
-        # Итоговое изменение: (Статусы) - (Снижение от брони)
         defense_sum = status_mod - stat_reduction
-
-        # Применяем защиту
         amount_after_def = max(0, amount + defense_sum)
 
         # Логируем
@@ -77,17 +80,26 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
                     res = min_res
                     source_ctx.log.append(f"🧬 Adaptation Pierce: Res {res:.2f}")
 
-        # Staggered penalty
         is_stag_hit = False
         if target.is_staggered():
             stagger_mult = 2.0
-            if "despiteAdversities" in target.talents:
-                if "surgeOfStrength" in target.talents:
-                    stagger_mult = 1.25
-                else:
-                    stagger_mult = 1.5
+
+            # Вместо хардкода if "despiteAdversities" in target.talents...
+            # Просим таланты изменить множитель
+            from logic.character_changing.talents import TALENT_REGISTRY
+            for tid in target.talents:
+                if tid in TALENT_REGISTRY:
+                    stagger_mult = TALENT_REGISTRY[tid].modify_stagger_damage_multiplier(target, stagger_mult)
+
+            # Просим пассивки изменить множитель
+            from logic.character_changing.passives import PASSIVE_REGISTRY
+            for pid in target.passives:
+                if pid in PASSIVE_REGISTRY:
+                    stagger_mult = PASSIVE_REGISTRY[pid].modify_stagger_damage_multiplier(target, stagger_mult)
+
             res *= stagger_mult
             is_stag_hit = True
+        # =====================================
 
         # Адаптация защитника
         active_adapt_type = target.memory.get("adaptation_active_type")
@@ -96,8 +108,6 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
             source_ctx.log.append(f"🧬 **Adaptation**: -25% Dmg vs {active_adapt_type.name}")
 
         final_dmg = int(amount_after_def * res)
-
-        # Добавляем резист в лог
         log_formula.append(f"x{res:.1f} (Res)")
 
         # 4. ПРОВЕРКА ПОРОГА
@@ -113,10 +123,8 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
                 final_dmg -= absorbed
                 source_ctx.log.append(f"🛡️ Barrier -{absorbed}")
 
-            # НАНЕСЕНИЕ
             target.current_hp = max(0, target.current_hp - final_dmg)
 
-            # Итоговое сообщение с формулой
             formula_str = "".join(log_formula)
             hit_msg = f"💥 **{target.name}**: Hit {final_dmg} HP [{formula_str}]"
             if is_stag_hit: hit_msg += " (Staggered)"

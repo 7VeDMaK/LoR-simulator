@@ -198,18 +198,16 @@ class TalentDespiteAdversities(BasePassive):
     )
     is_active_ability = False
 
-    def get_stagger_multiplier(self, unit) -> float:
-        """
-        Возвращает множитель входящего урона при оглушении.
-        """
-        # База для этого таланта 1.5
-        mult = 1.5
+    # === [NEW] Реализация хука ===
+    def modify_stagger_damage_multiplier(self, unit, multiplier: float) -> float:
+        # Стандартный множитель x2.0. Мы меняем его.
 
-        # Если есть 3.10 (Surge of Strength), снижаем до 1.25
+        # Если есть улучшение 3.10 (Прилив сил)
         if "surgeOfStrength" in unit.talents:
-            mult = 1.25
+            return 1.25
 
-        return mult
+        # Иначе просто эффект этого таланта
+        return 1.5
 
 
 # ==========================================

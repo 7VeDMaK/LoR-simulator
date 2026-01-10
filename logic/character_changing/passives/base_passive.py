@@ -39,3 +39,11 @@ class BasePassive:
     def on_take_damage(self, unit, amount, source, **kwargs): pass
 
     def get_speed_dice_bonus(self, unit) -> int: return 0
+
+    # === [NEW] Хук для изменения множителя урона по Staggered цели ===
+    def modify_stagger_damage_multiplier(self, unit, multiplier: float) -> float:
+        return multiplier
+
+    # === [NEW] Хук для изменения входящего урона (Pre-mitigation) ===
+    def modify_incoming_damage(self, unit, amount: int, damage_type: str) -> int:
+        return amount
