@@ -5,12 +5,16 @@ from logic.character_changing.passives.base_passive import BasePassive
 class PassiveAcceleratedLearning(BasePassive):
     id = "accelerated_learning"
     name = "Программа ускоренного обучения"
-    description = (
-        "Лима схватывает всё на лету.\n"
-        "Каждый 3-й уровень: +10 HP/SP (вместо 5+1d5).\n"
-        "Каждый 3-й уровень: +1 очко характеристик и +2 очка навыков."
-    )
-    is_active_ability = False
+    description = "Каждый 3-й уровень: +10 HP/SP (вместо 5+1d5)."
+
+    def calculate_level_growth(self, unit) -> dict:
+        # count = количество записей (каждая запись делается раз в 3 уровня)
+        count = len(unit.level_rolls)
+        return {
+            "hp": count * 10,
+            "sp": count * 10,
+            "logs": [f"🎓 Ускоренное обучение: +10 HP/SP за каждые 3 уровня"]
+        }
 
 
 class TalentArtOfSelfDefense(BasePassive):

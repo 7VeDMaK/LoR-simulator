@@ -231,58 +231,50 @@ def calculate_pools(unit, attrs, skills, mods, logs):
     """
     # --- 1. HP ---
     base_h = unit.base_hp
-    rolls_h = 0
+    base_s = unit.base_sp
 
-    if "severe_training" in unit.passives:
-        rolls_h = len(unit.level_rolls) * 10
-        logs.append(f"🏋️ Суровые тренировки: +10 HP за уровень")
-    elif "accelerated_learning" in unit.passives:
-        rolls_h = len(unit.level_rolls) * 10
-        logs.append(f"🎓 Ускоренное обучение: +10 HP за каждые 3 уровня")
-    else:
+    rolls_h = 0
+    rolls_s = 0
+    custom_growth = False
+
+    # === [ОПТИМИЗАЦИЯ] Ищем кастомную формулу роста ===
+    if hasattr(unit, "iter_mechanics"):
+        for mech in unit.iter_mechanics():
+            growth_data = mech.calculate_level_growth(unit)
+            if growth_data:
+                rolls_h = growth_data.get("hp", 0)
+                rolls_s = growth_data.get("sp", 0)
+                if "logs" in growth_data:
+                    logs.extend(growth_data["logs"])
+                custom_growth = True
+                break  # Используем первую найденную замену
+
+    if not custom_growth:
         rolls_h = sum(5 + v.get("hp", 0) for v in unit.level_rolls.values())
+        rolls_s = sum(5 + v.get("sp", 0) for v in unit.level_rolls.values())
 
     endurance_val = attrs["endurance"]
     hp_flat_attr = 5 * (endurance_val // 3)
     hp_pct_attr = min(abs(endurance_val) * 2, 100)
     if endurance_val < 0: hp_pct_attr = -hp_pct_attr
 
-    # Логи HP
     if endurance_val != 0:
         word = get_word(endurance_val)
         logs.append(f"{word} максимальный показатель ❤️ здоровья на {abs(hp_pct_attr)}% от основного")
-    if hp_flat_bonus := hp_flat_attr:  # walrus для краткости
+    if hp_flat_bonus := hp_flat_attr:
         action = "получает дополнительные" if hp_flat_bonus > 0 else "теряет"
         logs.append(f"Персонаж {action} {abs(hp_flat_bonus)} ❤️ здоровья")
 
-        # === [ВАЖНО] СБОР ВСЕХ МОДИФИКАТОРОВ В MODS ===
-        # Добавляем Flat (база + роллы + статы + ИМПЛАНТЫ)
     mods["hp"]["flat"] += base_h + rolls_h + hp_flat_attr + unit.implants_hp_flat
-
-    # Добавляем Percent (статы + импланты + таланты)
     mods["hp"]["pct"] += hp_pct_attr + unit.implants_hp_pct + unit.talents_hp_pct
-
     unit.max_hp = get_modded_value(0, "hp", mods)
 
     # --- 2. SP ---
-    base_s = unit.base_sp
-    rolls_s = 0
-
-    if "severe_training" in unit.passives:
-        rolls_s = len(unit.level_rolls) * 5
-        logs.append(f"🏋️ Суровые тренировки: +5 SP за уровень")
-    elif "accelerated_learning" in unit.passives:
-        rolls_s = len(unit.level_rolls) * 10
-        logs.append(f"🎓 Ускоренное обучение: +10 SP за каждые 3 уровня")
-    else:
-        rolls_s = sum(5 + v.get("sp", 0) for v in unit.level_rolls.values())
-
     psych_val = attrs["psych"]
     sp_flat_attr = 5 * (psych_val // 3)
     sp_pct_attr = min(abs(psych_val) * 2, 100)
     if psych_val < 0: sp_pct_attr = -sp_pct_attr
 
-    # Логи SP
     if psych_val != 0:
         word = get_word(psych_val)
         logs.append(f"{word} максимальный показатель 🧠 рассудка на {abs(sp_pct_attr)}% от основного")
@@ -290,34 +282,21 @@ def calculate_pools(unit, attrs, skills, mods, logs):
         action = "получает дополнительные" if sp_flat_bonus > 0 else "теряет"
         logs.append(f"Персонаж {action} {abs(sp_flat_bonus)} 🧠 рассудка")
 
-    # Сбор SP
     mods["sp"]["flat"] += base_s + rolls_s + sp_flat_attr + unit.implants_sp_flat
     mods["sp"]["pct"] += sp_pct_attr + unit.implants_sp_pct + unit.talents_sp_pct
-
     unit.max_sp = get_modded_value(0, "sp", mods)
 
-    base_stg = unit.max_hp // 2
-    stg_pct_skill = min(skills["willpower"], 50)
-
-    imp_stg_flat = unit.implants_stagger_flat
-    imp_stg_pct = unit.implants_stagger_pct
     # Сбор Stagger
-    mods["stagger"]["flat"] += base_stg + imp_stg_flat
-    mods["stagger"]["pct"] += stg_pct_skill + imp_stg_pct + unit.talents_stagger_pct
+    base_stg = unit.max_hp // 2
+    stg_pct = min(skills["willpower"], 50)
 
-    total_flat_stg = mods["stagger"]["flat"]
-    total_pct_stg = mods["stagger"]["pct"]
+    if stg_pct != 0:
+        word = get_word(stg_pct)
+        logs.append(f"{word} 😵 выдержку на {abs(stg_pct)}%")
 
-    final_stg = int(total_flat_stg * (1 + total_pct_stg / 100.0))
-    unit.max_stagger = final_stg
-
-    # ЛОГ
-    logs.append(f"😵 **Stagger Calculation**:")
-    logs.append(
-        f"   Base (HP/2) {base_stg} + Imp {imp_stg_flat} + Other {total_flat_stg - (base_stg + imp_stg_flat)} = **Flat {total_flat_stg}**")
-    logs.append(
-        f"   Willpower {stg_pct_skill}% + Imp {imp_stg_pct}% + Other {total_pct_stg - (stg_pct_skill + imp_stg_pct)}% = **Pct {total_pct_stg}%**")
-    logs.append(f"   Result: {total_flat_stg} * {1 + total_pct_stg / 100} = **{final_stg}**")
+    mods["stagger"]["flat"] += base_stg + unit.implants_stagger_flat
+    mods["stagger"]["pct"] += stg_pct + unit.implants_stagger_pct
+    unit.max_stagger = get_modded_value(0, "stagger", mods)
 
 def finalize_state(unit, mods, logs):
     """Финальные проверки."""

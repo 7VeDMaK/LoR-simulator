@@ -44,6 +44,17 @@ class BasePassive:
     def modify_stagger_damage_multiplier(self, unit, multiplier: float) -> float:
         return multiplier
 
+    def calculate_level_growth(self, unit) -> dict:
+        """
+        Если возвращает dict (напр. {'hp': 100, 'sp': 50, 'logs': [...]}),
+        то стандартная формула (5+roll) игнорируется.
+        """
+        return None
+
+    # === [NEW] Хук для модификации штрафов Сытости ===
+    def modify_satiety_penalties(self, unit, penalties: dict) -> dict:
+        return penalties
+
     # === [NEW] Хук для изменения входящего урона (Pre-mitigation) ===
     def modify_incoming_damage(self, unit, amount: int, damage_type: str) -> int:
         return amount

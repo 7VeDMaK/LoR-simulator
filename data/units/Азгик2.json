@@ -51,9 +51,9 @@
         "candy_waffles"
     ],
     "base_stats": {
-        "current_hp": 1,
-        "current_sp": 9,
-        "current_stagger": 1
+        "current_hp": 35,
+        "current_sp": 47,
+        "current_stagger": 10
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -70,11 +70,7 @@
         },
         "weapon_id": "dual_blades"
     },
-    "card_cooldowns": {
-        "azgick_rule_1": 1,
-        "azgick_rule_2": 1,
-        "azgick_rule_3": 1
-    },
+    "card_cooldowns": {},
     "attributes": {
         "strength": 6,
         "endurance": 7,

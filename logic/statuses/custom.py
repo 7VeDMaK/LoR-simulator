@@ -180,34 +180,42 @@ class MentalProtectionStatus(StatusEffect):
     pass
 
 
-# === ОБНОВЛЕННАЯ СЫТОСТЬ (SATIETY) ===
 class SatietyStatus(StatusEffect):
     id = "satiety"
 
-    def on_calculate_stats(self, unit) -> dict:
-        # Проверка на Суфле (ignore_satiety)
+    def on_calculate_stats(self, unit, stack=0) -> dict:
+        # Проверка на Суфле (ignore_satiety) - это статус, его можно оставить тут или тоже через фильтр
         if unit.get_status("ignore_satiety") > 0:
             return {}
 
-        # 2. Проверка на "Любителя поесть" (Азгик)
-        if "food_lover" in unit.passives:
-            # "Минусы по статам не делаются от сытости"
-            return {}
-
-        stack = unit.get_status("satiety")
-
+        penalties = {}
         if stack >= 15:
-            return {
+            penalties = {
                 "initiative": -3,
-                "power_all": -3
+                "power_all": -3  # Убедитесь, что power_all поддерживается в collectors/modifiers
             }
-        return {}
+
+        # === [ОПТИМИЗАЦИЯ] Прогоняем через фильтр ===
+        # Если есть "Любитель поесть", он вернет {} и штрафы исчезнут
+        if hasattr(unit, "apply_mechanics_filter"):
+            penalties = unit.apply_mechanics_filter("modify_satiety_penalties", penalties)
+        # ============================================
+
+        return penalties
 
     def on_turn_end(self, unit, stack) -> list[str]:
         msgs = []
-        damage_threshold = 27 if "food_lover" in unit.passives else 20
-        if stack > damage_threshold:
-            excess = stack - damage_threshold
+
+        # Базовый порог
+        threshold = 20
+
+        # === [ОПТИМИЗАЦИЯ] Можно добавить хук и для порога, если нужно ===
+        if "food_lover" in unit.passives:  # Пока оставим так, или можно добавить modify_satiety_threshold
+            threshold = 27
+        # ================================================================
+
+        if stack > threshold:
+            excess = stack - threshold
             damage = excess * 10
             unit.current_hp = max(0, unit.current_hp - damage)
             msgs.append(f"**Переедание**: {excess} лишних стаков -> -{damage} HP!")
