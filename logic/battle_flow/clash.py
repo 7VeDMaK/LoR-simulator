@@ -24,13 +24,26 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
 
     adv_a, adv_d, destroy_a, destroy_d = calculate_speed_advantage(spd_a, spd_d, intent_a, intent_d)
 
-    if destroy_d and "hedonism" in attacker.passives:
-        destroy_d = False
-        adv_a = True
-        # (Опционально можно добавить лог, но пока молча меняем правила)
+    prevent_dest_a = False
+    if hasattr(attacker, "iter_mechanics"):
+        for mech in attacker.iter_mechanics():
+            if mech.prevents_dice_destruction_by_speed(attacker):
+                prevent_dest_a = True
+                break
 
-        # Аналогично, если Защитник (defender) перегнал Атакующего и должен сломать его кубик (destroy_a):
-    if destroy_a and "hedonism" in defender.passives:
+    if destroy_d and prevent_dest_a:
+        destroy_d = False
+        adv_a = True  # Штраф себе
+
+    # === [FIX] Гедонизм (Защитник) ===
+    prevent_dest_d = False
+    if hasattr(defender, "iter_mechanics"):
+        for mech in defender.iter_mechanics():
+            if mech.prevents_dice_destruction_by_speed(defender):
+                prevent_dest_d = True
+                break
+
+    if destroy_a and prevent_dest_d:
         destroy_a = False
         adv_d = True
 
@@ -51,24 +64,39 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
 
         # 3. Если кубик сломан скоростью — уничтожаем его
         if is_broken and card_die:
-            # Исключение: Cat Reflexes спасает Evade
-            if card_die.dtype == DiceType.EVADE and "cat_reflexes" in unit.talents:
+            # === [FIX] Кошачьи рефлексы ===
+            is_saved = False
+            if hasattr(unit, "iter_mechanics"):
+                for mech in unit.iter_mechanics():
+                    if mech.prevents_specific_die_destruction(unit, card_die):
+                        is_saved = True;
+                        break
+
+            if is_saved:
                 pass  # Спасен
             else:
                 card_die = None  # Уничтожен
 
-        # 4. Если кубика нет (сломан или кончились в карте), ищем новый контр-кубик в пуле
+            # 4. Поиск контр-кубика
         if not card_die:
             if unit.counter_dice:
                 # Проверка на Stagger
                 if unit.is_staggered():
-                    # Талант Despite Adversities позволяет использовать спец. блоки
-                    if "despiteAdversities" in unit.talents:
+                    # === [FIX] Не взирая на невзгоды ===
+                    can_use_staggered = False
+                    if hasattr(unit, "iter_mechanics"):
+                        for mech in unit.iter_mechanics():
+                            if mech.can_use_counter_die_while_staggered(unit):
+                                can_use_staggered = True;
+                                break
+
+                    if can_use_staggered:
+                        # Тут еще была проверка флага talent_defense_die, её можно оставить или перенести в метод
                         if unit.counter_dice[0].flags and "talent_defense_die" in unit.counter_dice[0].flags:
                             return unit.counter_dice.pop(0), True
+                    # ====================================
                     return None, False
 
-                # Берем контр-кубик
                 return unit.counter_dice.pop(0), True
 
             return None, False  # Совсем ничего нет

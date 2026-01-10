@@ -16,6 +16,9 @@ class TalentAthletic(BasePassive):
     def on_combat_end(self, unit, log_func, **kwargs):
         unit.add_status("haste", 1, 2)
 
+    def can_redirect_on_equal_speed(self, unit) -> bool:
+        return True
+
 
 # ==========================================
 # 8.2 Быстрые руки

@@ -110,6 +110,8 @@ class PassiveHedonism(BasePassive):
     description = "Вы не можете уничтожать кубики врага за счет разницы в скорости. Вместо этого вы получаете Помеху (Disadvantage) на этот бросок."
     is_active_ability = False
 
+    def prevents_dice_destruction_by_speed(self, unit) -> bool:
+        return True
 
 
 # ==========================================

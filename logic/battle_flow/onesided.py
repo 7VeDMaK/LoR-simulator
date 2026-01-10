@@ -12,7 +12,14 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_def, inte
     adv_atk, adv_def, _, destroy_def = calculate_speed_advantage(spd_atk, spd_def, intent_atk, True)
 
     # [PASSIVE] Гедонизм
-    if destroy_def and "hedonism" in source.passives:
+    prevent_dest = False
+    if hasattr(source, "iter_mechanics"):
+        for mech in source.iter_mechanics():
+            if mech.prevents_dice_destruction_by_speed(source):
+                prevent_dest = True;
+                break
+
+    if destroy_def and prevent_dest:
         destroy_def = False
         adv_atk = True
 
@@ -26,12 +33,21 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_def, inte
         if unit.counter_dice:
             if unit.is_staggered():
                 # Talent check
-                if "despiteAdversities" in unit.talents:
+                can_use_staggered = False
+                if hasattr(unit, "iter_mechanics"):
+                    for mech in unit.iter_mechanics():
+                        if mech.can_use_counter_die_while_staggered(unit):
+                            can_use_staggered = True;
+                            break
+
+                if can_use_staggered:
+                    # Доп. проверка на флаг самого кубика (так задумано талантом)
                     if unit.counter_dice[0].flags and "talent_defense_die" in unit.counter_dice[0].flags:
                         return unit.counter_dice.pop(0)
+                # ====================================================
                 return None
             return unit.counter_dice.pop(0)
-        return None
+            return None
 
     # Покубичный перебор атаки
     for j, die in enumerate(card.dice_list):

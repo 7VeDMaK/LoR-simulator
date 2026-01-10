@@ -39,9 +39,15 @@ def calculate_redirections(atk_team: list, def_team: list):
                         # ===================================================
 
                         atk_spd = s_atk['speed']
-                        has_athletic = ("athletic" in atk_unit.talents) or ("athletic" in atk_unit.passives)
 
-                        if has_athletic:
+                        can_redirect_equal = False
+                        if hasattr(atk_unit, "iter_mechanics"):
+                            for mech in atk_unit.iter_mechanics():
+                                if mech.can_redirect_on_equal_speed(atk_unit):
+                                    can_redirect_equal = True
+                                    break
+
+                        if can_redirect_equal:
                             can_redirect = atk_spd >= def_spd
                         else:
                             can_redirect = atk_spd > def_spd

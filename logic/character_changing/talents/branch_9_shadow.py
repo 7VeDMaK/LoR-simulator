@@ -307,6 +307,9 @@ class TalentCatReflexes(BasePassive):
                 ctx.source.add_status("strength", 2, duration=3)
                 ctx.log.append("🐱 **Кошачьи рефлексы**: Успешное уклонение! +2 Силы.")
 
+    def prevents_specific_die_destruction(self, unit, die) -> bool:
+        # Спасает только Уклонение
+        return die.dtype == DiceType.EVADE
 
 # ==========================================
 # 9.6 Б: Уроки выдержки

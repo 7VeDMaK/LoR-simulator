@@ -58,3 +58,21 @@ class BasePassive:
     # === [NEW] Хук для изменения входящего урона (Pre-mitigation) ===
     def modify_incoming_damage(self, unit, amount: int, damage_type: str) -> int:
         return amount
+
+# 1. Для "Атлетичный" (Targeting)
+    def can_redirect_on_equal_speed(self, unit) -> bool:
+        return False
+
+    # 2. Для "Гедонизм" (Speed / Clash)
+    def prevents_dice_destruction_by_speed(self, unit) -> bool:
+        """Если True, этот юнит НЕ может ломать кубики врага скоростью (получает штраф вместо этого)."""
+        return False
+
+    # 3. Для "Кошачьи рефлексы" (Clash)
+    def prevents_specific_die_destruction(self, unit, die) -> bool:
+        """Спасает ли конкретный кубик от уничтожения?"""
+        return False
+
+    # 4. Для "Не взирая на невзгоды" (Clash / OneSided)
+    def can_use_counter_die_while_staggered(self, unit) -> bool:
+        return False
