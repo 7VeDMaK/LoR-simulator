@@ -296,29 +296,28 @@ def calculate_pools(unit, attrs, skills, mods, logs):
 
     unit.max_sp = get_modded_value(0, "sp", mods)
 
-    # --- 3. STAGGER ---
-    adapt_lvl = unit.get_status("adaptation")
-    if adapt_lvl > 0:
-        eff_lvl = min(adapt_lvl, 5)
-        # Damage Threshold
-        mods["damage_threshold"]["flat"] = 1 + (eff_lvl * 10)
-        # Stagger Take reduction (-50% at max)
-        mods["stagger_take"]["pct"] -= 50
-        logs.append(f"🧬 Адаптация (Ур. {eff_lvl}): Игнор < {1 + eff_lvl * 10}, StaggerResist +50%")
-
     base_stg = unit.max_hp // 2
-    stg_pct = min(skills["willpower"], 50)
+    stg_pct_skill = min(skills["willpower"], 50)
 
-    # Логи Stagger
-    if stg_pct != 0:
-        word = get_word(stg_pct)
-        logs.append(f"{word} 😵 выдержку на {abs(stg_pct)}%")
-
+    imp_stg_flat = unit.implants_stagger_flat
+    imp_stg_pct = unit.implants_stagger_pct
     # Сбор Stagger
-    mods["stagger"]["flat"] += base_stg + unit.implants_stagger_flat
-    mods["stagger"]["pct"] += stg_pct + unit.implants_stagger_pct
+    mods["stagger"]["flat"] += base_stg + imp_stg_flat
+    mods["stagger"]["pct"] += stg_pct_skill + imp_stg_pct + unit.talents_stagger_pct
 
-    unit.max_stagger = get_modded_value(0, "stagger", mods)
+    total_flat_stg = mods["stagger"]["flat"]
+    total_pct_stg = mods["stagger"]["pct"]
+
+    final_stg = int(total_flat_stg * (1 + total_pct_stg / 100.0))
+    unit.max_stagger = final_stg
+
+    # ЛОГ
+    logs.append(f"😵 **Stagger Calculation**:")
+    logs.append(
+        f"   Base (HP/2) {base_stg} + Imp {imp_stg_flat} + Other {total_flat_stg - (base_stg + imp_stg_flat)} = **Flat {total_flat_stg}**")
+    logs.append(
+        f"   Willpower {stg_pct_skill}% + Imp {imp_stg_pct}% + Other {total_pct_stg - (stg_pct_skill + imp_stg_pct)}% = **Pct {total_pct_stg}%**")
+    logs.append(f"   Result: {total_flat_stg} * {1 + total_pct_stg / 100} = **{final_stg}**")
 
 def finalize_state(unit, mods, logs):
     """Финальные проверки."""
