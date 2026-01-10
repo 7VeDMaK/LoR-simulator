@@ -55,7 +55,7 @@ class UnitCombatMixin:
         # 1. Основные кубики
         for (d_min, d_max) in self.computed_speed_dice:
             mod = self.get_status("haste") - self.get_status("slow") - self.get_status("bind")
-            val = max(1, random.randint(d_min, d_max) + mod)
+            val = max(1, random.randint(int(d_min), int(d_max)) + mod)
             self.active_slots.append({
                 'speed': val, 'card': None, 'target_slot': None, 'is_aggro': False
             })

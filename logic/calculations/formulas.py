@@ -217,8 +217,8 @@ def calculate_speed_dice(unit, speed_val, mods):
         points = max(0, min(10, speed_val - (i * 10)))
         skill_bonus = points // 2
 
-        d_min = unit.base_speed_min + global_init + skill_bonus
-        d_max = unit.base_speed_max + global_init + skill_bonus
+        d_min = int(unit.base_speed_min + global_init + skill_bonus)
+        d_max = int(unit.base_speed_max + global_init + skill_bonus)
         final_dice.append((d_min, d_max))
 
     unit.computed_speed_dice = final_dice
