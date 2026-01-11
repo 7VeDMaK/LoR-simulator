@@ -144,13 +144,13 @@ class EnrageTrackerStatus(StatusEffect):
 class InvisibilityStatus(StatusEffect):
     id = "invisibility"
 
-    def on_hit(self, ctx: RollContext, stack: int):
+    def on_hit(self, ctx: RollContext, **kwargs):
         # Раскрываемся ПОСЛЕ попадания (чтобы бонусы за невидимость успели сработать)
         if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
             ctx.source.remove_status("invisibility", 999)
             ctx.log.append("👻 **Невидимость**: Раскрыт после удара!")
 
-    def on_clash_lose(self, ctx: RollContext, stack: int):
+    def on_clash_lose(self, ctx: RollContext, **kwargs):
         # Также раскрываемся, если проиграли столкновение атакующим кубиком
         if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
             ctx.source.remove_status("invisibility", 999)

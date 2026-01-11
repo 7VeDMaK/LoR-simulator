@@ -70,7 +70,16 @@
         },
         "weapon_id": "dual_blades"
     },
-    "card_cooldowns": {},
+    "card_cooldowns": {
+        "azgick_smile": 1,
+        "azgick_rule_1": 2,
+        "azgick_rule_2": 2,
+        "azgick_rule_3": 2,
+        "azgick_expose_weakness": 1,
+        "azgick_enrage": 1,
+        "tea_dark": 4,
+        "tea_fruit": 4
+    },
     "attributes": {
         "strength": 6,
         "endurance": 7,

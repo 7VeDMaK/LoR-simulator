@@ -176,11 +176,7 @@ class TalentPeakSanity(BasePassive):
         sp = getattr(unit, 'max_sp', 20)
         return max(1, sp // 50)
 
-    # ВАЖНО: log_func=None делает аргумент необязательным и чинит TypeError
-    def on_combat_start(self, unit, log_func=None, **kwargs):
-        # === FIX: ПРОВЕРКА ИНИЦИАЛИЗАЦИИ ===
-        # Если мы уже выдавали стаки в этом бою, выходим.
-        # Флаг сбросится только при нажатии "Reset Battle".
+    def on_combat_start(self, unit, log_func, **kwargs):
         if unit.memory.get("peak_sanity_initialized"):
             return
 
@@ -248,9 +244,6 @@ class TalentPeakSanity(BasePassive):
 
 
 from core.enums import DiceType  # Не забудьте этот импорт в начале файла, если его нет
-
-
-# ... (другие таланты)
 
 # ==========================================
 # 1.6 Психическая нагрузка
@@ -336,9 +329,9 @@ class TalentEmotionalStorm(BasePassive):
     id = "emotional_storm"
     name = "Эмоциональный шторм"
     description = (
-        "1.8 Механика Эмоционального Уровня (0-5).\\n"
-        "Получайте Позитивные/Негативные эмоции за макс/мин броски и исходы столкновений.\\n"
-        "Уровни дают бонусы (Спешка, Выдержка, Сопр., Сила).\\n"
+        "1.8 Механика Эмоционального Уровня (0-5).\n"
+        "Получайте Позитивные/Негативные эмоции за макс/мин броски и исходы столкновений.\n"
+        "Уровни дают бонусы (Спешка, Выдержка, Сопр., Сила).\n"
         "Восстанавливает HP или SP в зависимости от преобладания типа эмоций."
     )
     is_active_ability = False

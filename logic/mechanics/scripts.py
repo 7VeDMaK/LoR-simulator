@@ -1,10 +1,6 @@
-from logic.character_changing.augmentations.augmentations import AUGMENTATION_REGISTRY
+# logic/mechanics/scripts.py
 from logic.scripts.card_scripts import SCRIPTS_REGISTRY
-from logic.statuses.status_manager import STATUS_REGISTRY
-from logic.character_changing.passives import PASSIVE_REGISTRY
-from logic.character_changing.talents import TALENT_REGISTRY
 from logic.context import RollContext
-from logic.weapon_definitions import WEAPON_REGISTRY
 
 
 def process_card_scripts(trigger: str, ctx: RollContext):
@@ -21,8 +17,6 @@ def process_card_scripts(trigger: str, ctx: RollContext):
 
 def process_card_self_scripts(trigger: str, source, target, logs, custom_log_list=None, card_override=None):
     """Запускает скрипты самой карты (например, On Use)."""
-
-    # Если передали конкретную карту (предмет), берем её. Иначе берем текущую карту юнита.
     card = card_override if card_override else source.current_card
 
     if not card or not card.scripts or trigger not in card.scripts: return
@@ -39,60 +33,21 @@ def process_card_self_scripts(trigger: str, source, target, logs, custom_log_lis
 
 
 def trigger_unit_event(event_name, unit, *args, **kwargs):
-    """Универсальный триггер для пассивок, талантов и статусов."""
-    # 1. Статусы
-    for status_id, stack in list(unit.statuses.items()):
-        if status_id in STATUS_REGISTRY:
-            handler = getattr(STATUS_REGISTRY[status_id], event_name, None)
-            if handler: handler(unit, *args, **kwargs)
-
-    if unit.get_status("passive_lock") > 0:
-        # Если заблокировано, пропускаем пассивки
-        pass
-    # 2. Пассивки
-    for pid in unit.passives:
-        if pid in PASSIVE_REGISTRY:
-            handler = getattr(PASSIVE_REGISTRY[pid], event_name, None)
-            if handler: handler(unit, *args, **kwargs)
-    if unit.weapon_id in WEAPON_REGISTRY:
-        wep = WEAPON_REGISTRY[unit.weapon_id]
-        if wep.passive_id and wep.passive_id in PASSIVE_REGISTRY:
-            handler = getattr(PASSIVE_REGISTRY[wep.passive_id], event_name, None)
-            if handler: handler(unit, *args, **kwargs)
-    # 3. Таланты
-    for aid in unit.augmentations:
-        if aid in AUGMENTATION_REGISTRY:
-            handler = getattr(AUGMENTATION_REGISTRY[aid], event_name, None)
-            if handler: handler(unit, *args, **kwargs)
-    for pid in unit.talents:
-        if pid in TALENT_REGISTRY:
-            handler = getattr(TALENT_REGISTRY[pid], event_name, None)
-            if handler: handler(unit, *args, **kwargs)
+    """
+    Универсальный триггер для пассивок, талантов и статусов.
+    Делегирует выполнение методу unit.trigger_mechanics, который уже умеет
+    правильно работать со стеками статусов и kwargs.
+    """
+    if hasattr(unit, "trigger_mechanics"):
+        unit.trigger_mechanics(event_name, unit, *args, **kwargs)
 
 
 def handle_clash_outcome(trigger, ctx: RollContext):
-    """Обрабатывает on_clash_win / on_clash_lose."""
-    # Статусы
-    for status_id, stack in list(ctx.source.statuses.items()):
-        handler = getattr(STATUS_REGISTRY[status_id], trigger, None)
-        if handler: handler(ctx, stack)
-
-    # Пассивки
-    for pid in ctx.source.passives:
-        handler = getattr(PASSIVE_REGISTRY[pid], trigger, None)
-        if handler: handler(ctx)
-
-    w_id = ctx.source.weapon_id
-    if w_id in WEAPON_REGISTRY:
-        wep = WEAPON_REGISTRY[w_id]
-        if wep.passive_id and wep.passive_id in PASSIVE_REGISTRY:
-            handler = getattr(PASSIVE_REGISTRY[wep.passive_id], trigger, None)
-            if handler: handler(ctx)
-
-    # Таланты
-    for pid in ctx.source.talents:
-        handler = getattr(TALENT_REGISTRY[pid], trigger, None)
-        if handler: handler(ctx)
-
-    # Скрипты на кубике
+    """
+    Обрабатывает on_clash_win / on_clash_lose.
+    Делегирует выполнение unit.trigger_mechanics для всех эффектов персонажа
+    и запускает скрипты карты.
+    """
+    if hasattr(ctx.source, "trigger_mechanics"):
+        ctx.source.trigger_mechanics(trigger, ctx)
     process_card_scripts(trigger, ctx)

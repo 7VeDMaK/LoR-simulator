@@ -60,13 +60,13 @@ class AugMerchantHysteria(Augmentation):
 class StrizhAugmentation(Augmentation):
     id = "aug_strizh"
     name = "Легкий экзоскелет 'СТРИЖ'"
-    description = " лёгкий экзоскелет СТРИЖ со шлемом и противогазом Акробатика +6 Даёт статус спешки +1 каждый ход кроме первого"
+    description = " лёгкий экзоскелет СТРИЖ со шлемом и противогазом Акробатика +6 Даёт статус спешки +1 каждый ход"
 
     def on_calculate_stats(self, unit):
         return {"acrobatics": 6}
 
-    def on_combat_end(self, unit, log_func, **kwargs):
-        unit.add_status("haste", 1, 2)
+    def on_round_start(self, unit, log_func, **kwargs):
+        unit.add_status("haste", 1, 1)
         if log_func:
             log_func(f"⚡ **{unit.name}**: Экзоскелет активирует сервоприводы (Спешка +1).")
 

@@ -15,20 +15,6 @@ def prepare_turn(engine, team_left: list, team_right: list):
     calculate_redirections(team_left, team_right)
     calculate_redirections(team_right, team_left)
 
-    # --- A. Триггеры начала боя (On Combat Start) ---
-    for u in all_units:
-        opponents = team_right if u in team_left else team_left
-        opp_ref = next((e for e in opponents if not e.is_dead()), None)
-        my_allies = team_left if u in team_left else team_right
-
-        engine._trigger_unit_event("on_round_start", unit=u, log_func=engine.log,
-                                   opponent=opp_ref, enemies=opponents, allies=my_allies)
-
-        if engine.logs:
-            report.append({"round": "Start", "rolls": "Events", "details": " | ".join(engine.logs)})
-        engine.logs = []
-
-    # --- B. Сбор действий ---
     actions = []
 
     def collect_actions(source_team, target_team, is_left_side):

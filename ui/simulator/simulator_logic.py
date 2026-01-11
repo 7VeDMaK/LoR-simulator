@@ -4,6 +4,7 @@ from contextlib import contextmanager
 from io import StringIO
 
 from core.card import Card
+from core.enums import CardType
 from core.library import Library
 from logic.character_changing.augmentations.augmentations import AUGMENTATION_REGISTRY
 from logic.clash import ClashSystem
@@ -29,6 +30,7 @@ def get_teams():
 
 
 def set_cooldowns(u):
+    # Эта проверка гарантирует, что код внутри выполнится только 1 раз за бой
     if not u.memory.get("battle_initialized"):
         u.memory["battle_initialized"] = True
         u.card_cooldowns = {}
@@ -37,57 +39,71 @@ def set_cooldowns(u):
             for card_id in u.deck:
                 card = Library.get_card(card_id)
                 if card:
+                    if card.card_type.upper() == CardType.ITEM.name:
+                        continue
+                    # ===============================================
+
                     initial_cd = max(0, card.tier - 1)
                     if initial_cd > 0:
                         u.card_cooldowns[card_id] = initial_cd
 
-        # === [ИЗМЕНЕНИЕ] Запуск on_combat_start только один раз в начале боя ===
-        # Находим врагов и союзников для контекста
+        # === ВЫЗОВ ON_COMBAT_START ===
         l_team, r_team = get_teams()
         opponents = r_team if u in l_team else l_team
         my_allies = l_team if u in l_team else r_team
 
-        # Для простоты логов (в консоль или лог боя)
-        # Если нужно вывести в UI, можно сохранить в st.session_state['turn_message'] или аналог
-        # Но здесь мы просто инициализируем состояние.
+        def log_start(msg):
+            if 'battle_logs' not in st.session_state:
+                st.session_state['battle_logs'] = []
 
-        def log_dummy(msg):
-            # Можно добавлять в стартовое сообщение, если очень нужно
-            pass
+            st.session_state['battle_logs'].append({
+                "round": "Start",
+                "rolls": "Event",
+                "details": f"🚩 **{u.name}**: {msg}"
+            })
 
-        # 1. Passives
-        for pid in u.passives:
-            if pid in PASSIVE_REGISTRY:
-                PASSIVE_REGISTRY[pid].on_combat_start(u, log_dummy, enemies=opponents, allies=my_allies)
-        # 2. Talents
-        for pid in u.talents:
-            if pid in TALENT_REGISTRY:
-                TALENT_REGISTRY[pid].on_combat_start(u, log_dummy, enemies=opponents, allies=my_allies)
-        # 3. Weapons
-        from logic.weapon_definitions import WEAPON_REGISTRY
-        if u.weapon_id in WEAPON_REGISTRY:
-            wep = WEAPON_REGISTRY[u.weapon_id]
-            if wep.passive_id and wep.passive_id in PASSIVE_REGISTRY:
-                PASSIVE_REGISTRY[wep.passive_id].on_combat_start(u, log_dummy, enemies=opponents, allies=my_allies)
-        for aid in u.augmentations:
-            if aid in AUGMENTATION_REGISTRY:
-                AUGMENTATION_REGISTRY[aid].on_combat_start(u, log_dummy, enemies=opponents, allies=my_allies)
+        if hasattr(u, "trigger_mechanics"):
+            u.trigger_mechanics("on_combat_start", u, log_start,
+                                enemies=opponents, allies=my_allies)
+
 
 def roll_phase():
     """
     Фаза броска скорости.
-    Инициализирует слоты для всех юнитов в обеих командах.
+    Теперь включает в себя Triggers: Combat Start -> Round Start -> Recalc Stats -> Roll Speed.
     """
     l_team, r_team = get_teams()
     all_units = l_team + r_team
 
-    # 1. Пересчет статов и бросок скорости
+    # === 1. TRIGGERS (События начала) ===
     for u in all_units:
-        u.recalculate_stats()
+        # A. Combat Start (Инициализация)
+        # Внутри set_cooldowns стоит защита, так что on_combat_start сработает только 1 раз в начале игры.
         set_cooldowns(u)
 
+        # B. Round Start (Каждый раунд)
+        opponents = r_team if u in l_team else l_team
+        my_allies = l_team if u in l_team else r_team
+
+        # Логгер для событий начала раунда
+        def log_round(msg):
+            if 'battle_logs' not in st.session_state: st.session_state['battle_logs'] = []
+            st.session_state['battle_logs'].append({
+                "round": "Round Start",
+                "rolls": "Event",
+                "details": f"🔄 **{u.name}**: {msg}"
+            })
+
+        if hasattr(u, "trigger_mechanics"):
+            u.trigger_mechanics("on_round_start", u, log_round,
+                                enemies=opponents, allies=my_allies)
+
+    # === 2. STATS & ROLL (Пересчет и Бросок) ===
+    for u in all_units:
+        # Пересчитываем статы ПОСЛЕ наложения баффов от Round Start
+        u.recalculate_stats()
+
         if u.is_staggered():
-            # Оглушенный юнит получает 1 слот с 0 скорости
             u.active_slots = [{
                 'speed': 0, 'card': None,
                 'target_unit_idx': -1, 'target_slot_idx': -1,
@@ -192,7 +208,9 @@ def execute_combat_auto():
 
 
 def finish_round_logic():
-    """Общая логика завершения раунда (очистка, кулдауны, реген)."""
+    """
+    Общая логика завершения раунда (очистка, кулдауны, реген).
+    """
     l_team, r_team = get_teams()
     all_units = l_team + r_team
     msg = []
@@ -201,28 +219,26 @@ def finish_round_logic():
         msg.append(message)
 
     for u in all_units:
-        # Восстановление Stagger, если был оглушен
+        # 1. Восстановление Stagger после стана
         if u.active_slots and u.active_slots[0].get('stunned'):
             u.current_stagger = u.max_stagger
             msg.append(f"✨ {u.name} recovered!")
 
-        # Определяем союзников для передачи в таланты
+        # Контекст союзников
         my_allies = l_team if u in l_team else r_team
 
-        # Пассивки и Таланты (On Round End)
-        for pid in u.passives:
-            if pid in PASSIVE_REGISTRY:
-                PASSIVE_REGISTRY[pid].on_round_end(u, log_collector, allies=my_allies)
-        for pid in u.talents:
-            if pid in TALENT_REGISTRY:
-                TALENT_REGISTRY[pid].on_round_end(u, log_collector, allies=my_allies)
-        # Статусы (снижение длительности, эффекты конца хода)
-        StatusManager.process_turn_end(u)
+        # 2. ЗАПУСК СОБЫТИЙ (Passives, Talents, Augmentations, Weapons, Statuses)
+        # trigger_mechanics сам найдет все механики и вызовет у них on_round_end
+        if hasattr(u, "trigger_mechanics"):
+            u.trigger_mechanics("on_round_end", u, log_collector, allies=my_allies)
 
-        # Кулдауны
+        # 3. Жизненный цикл статусов (снижение длительности)
+        # Получаем логи (например, от активации Delayed статусов) и добавляем в общий список
+        status_logs = StatusManager.process_turn_end(u)
+        msg.extend(status_logs)
+
+        # 4. Техническая очистка
         u.tick_cooldowns()
-
-        # Очистка слотов
         u.active_slots = []
 
     st.session_state['turn_message'] = " ".join(msg) if msg else "Round Complete."
@@ -231,11 +247,18 @@ def finish_round_logic():
 
 
 def reset_game():
-    """Полный сброс состояния боя."""
+    """Полный сброс состояния."""
     l_team, r_team = get_teams()
     all_units = l_team + r_team
 
     for u in all_units:
+        # 1. Сначала чистим память, чтобы set_cooldowns сработал в след. раунде
+        u.memory = {}
+        u.active_buffs = {}
+        u.card_cooldowns = {}
+        u.cooldowns = {}
+
+        # 2. Сбрасываем статы
         u.recalculate_stats()
         u.current_hp = u.max_hp
         u.current_stagger = u.max_stagger
@@ -243,13 +266,10 @@ def reset_game():
         u._status_effects = {}
         u.delayed_queue = []
         u.active_slots = []
-        set_cooldowns(u)
-        u.active_buffs = {}
-        u.memory = {}
 
     st.session_state['battle_logs'] = []
     st.session_state['script_logs'] = ""
-    st.session_state['turn_message'] = "Game Reset."
+    st.session_state['turn_message'] = "Game Reset. Press 'Roll Initiative'."
     st.session_state['phase'] = 'roll'
 
 
@@ -310,7 +330,7 @@ def sync_state_from_widgets(team_left: list, team_right: list):
 
 def precalculate_interactions(team_left: list, team_right: list):
     """
-    Финальная версия с исправлением ложных перехватов при взаимных атаках.
+    Финальная версия с визуализацией сломанных кубиков (Speed Break).
     """
     ClashSystem.calculate_redirections(team_left, team_right)
     ClashSystem.calculate_redirections(team_right, team_left)
@@ -330,41 +350,58 @@ def precalculate_interactions(team_left: list, team_right: list):
                 target_team_list = my_team if is_friendly else enemy_team
 
                 # --- 1. ПРОВЕРКА: ПЕРЕХВАТИЛИ ЛИ МЕНЯ? ---
-                # Ищем врага, который имеет force_clash на меня
                 intercepted_by = None
-
-                # (Только если мы бьем врагов, а не лечим своих)
                 if not is_friendly:
                     for e_idx, enemy in enumerate(enemy_team):
                         if enemy.is_dead(): continue
                         for e_s_idx, e_slot in enumerate(enemy.active_slots):
-                            # Если враг имеет force_clash И целится в меня
                             if e_slot.get('force_clash'):
+                                # Враг перехватывает именно этот слот
                                 if e_slot.get('target_unit_idx') == my_idx and \
                                         e_slot.get('target_slot_idx') == my_slot_idx:
 
-                                    # === [FIX] ГЛАВНОЕ ИСПРАВЛЕНИЕ ===
-                                    # Если я тоже целюсь в ЭТОГО врага в ЭТОТ слот -> Это ВЗАИМНО.
-                                    # Не считаем это перехватом, пропускаем.
+                                    # Если я тоже целюсь в него в этот слот - это Взаимно, не перехват
                                     if t_u_idx == e_idx and t_s_idx == e_s_idx:
                                         continue
-                                        # =================================
 
                                     intercepted_by = (enemy, e_slot, e_s_idx)
                                     break
                         if intercepted_by: break
 
-                # Если найден РЕАЛЬНЫЙ перехватчик (я бил другого, а он меня поймал)
                 if intercepted_by:
                     enemy, e_slot, e_s_idx = intercepted_by
-                    my_slot['ui_status'] = {
-                        "text": f"CLASH vs {enemy.name} [S{e_s_idx + 1}] | Перехвачен ({my_slot['speed']} < {e_slot['speed']})",
-                        "icon": "⚠️",
-                        "color": "orange"
-                    }
+
+                    # === ПРОВЕРКА: Ломает ли враг меня (даже пустым слотом с талантом) ===
+                    is_broken = False
+
+                    spd_diff = e_slot['speed'] - my_slot['speed']
+                    if spd_diff >= 8:
+                        # Условия поломки:
+                        # 1. Галочка (Intent) у врага включена (по умолчанию True)
+                        e_intent = e_slot.get('destroy_on_speed', True)
+
+                        # 2. У врага есть карта ИЛИ Талант Behavior Study
+                        e_has_card = e_slot.get('card') is not None
+                        e_has_talent = "behavior_study" in enemy.talents  # Упрощенная проверка для UI
+
+                        if e_intent and (e_has_card or e_has_talent):
+                            is_broken = True
+
+                    if is_broken:
+                        my_slot['ui_status'] = {
+                            "text": f"🚫 BROKEN vs {enemy.name} [S{e_s_idx + 1}] | Speed Gap {spd_diff}",
+                            "icon": "💥",
+                            "color": "red"
+                        }
+                    else:
+                        my_slot['ui_status'] = {
+                            "text": f"CLASH vs {enemy.name} [S{e_s_idx + 1}] | Перехвачен ({my_slot['speed']} < {e_slot['speed']})",
+                            "icon": "⚠️",
+                            "color": "orange"
+                        }
                     continue
 
-                # --- ДАЛЕЕ СТАНДАРТНАЯ ЛОГИКА ---
+                # --- ДАЛЕЕ СТАНДАРТНАЯ ЛОГИКА (Если не перехвачен) ---
                 if t_u_idx == -1 or t_u_idx >= len(target_team_list):
                     my_slot['ui_status'] = {"text": "НЕТ ЦЕЛИ", "icon": "⛔", "color": "gray"}
                     continue
@@ -374,10 +411,9 @@ def precalculate_interactions(team_left: list, team_right: list):
                     my_slot['ui_status'] = {"text": "ЦЕЛЬ МЕРТВА", "icon": "💀", "color": "gray"}
                     continue
 
-                my_spd = my_slot['speed']
-                tgt_spd = "?"
                 tgt_slot_label = "?"
                 target_slot = None
+                tgt_spd = 0
 
                 if t_s_idx != -1 and t_s_idx < len(target_unit.active_slots):
                     target_slot = target_unit.active_slots[t_s_idx]
@@ -388,13 +424,65 @@ def precalculate_interactions(team_left: list, team_right: list):
                     my_slot['ui_status'] = {"text": f"BUFF -> {target_unit.name}", "icon": "✨", "color": "green"}
                     continue
 
+                # === ПРОВЕРКА: ЛОМАЮ ЛИ Я ВРАГА? ===
+                # Это может произойти и в One Sided, и во взаимном Clash
+                # Условия: Моя скорость > Врага на 8, Галочка Break, Карта или Талант
+
+                i_break_enemy = False
+                if target_slot:
+                    my_diff = my_slot['speed'] - tgt_spd
+                    if my_diff >= 8:
+                        my_intent = my_slot.get('destroy_on_speed', True)
+                        my_has_card = my_slot.get('card') is not None
+                        my_has_talent = "behavior_study" in me.talents
+
+                        if my_intent and (my_has_card or my_has_talent):
+                            i_break_enemy = True
+
+                # === ОПРЕДЕЛЕНИЕ СТАТУСА ===
                 is_mutual = False
                 if target_slot:
                     if target_slot.get('target_unit_idx') == my_idx and \
                             target_slot.get('target_slot_idx') == my_slot_idx:
                         is_mutual = True
 
-                if my_slot.get('force_onesided'):
+                # Приоритет отображения:
+                # 1. Если я ломаю врага (это круто) -> SPEED BREAK
+                # 2. Если я проигрываю взаимный клэш и меня ломают -> BROKEN
+                # 3. Обычный Clash / One Sided
+
+                enemy_breaks_me_mutual = False
+                if is_mutual:
+                    # Проверяем, не ломает ли он меня в ответ (взаимный клэш)
+                    diff_rev = tgt_spd - my_slot['speed']
+                    if diff_rev >= 8:
+                        e_intent = target_slot.get('destroy_on_speed', True)
+                        e_has = target_slot.get('card') or ("behavior_study" in target_unit.talents)
+                        if e_intent and e_has:
+                            enemy_breaks_me_mutual = True
+
+                if i_break_enemy:
+                    my_slot['ui_status'] = {
+                        "text": f"✨ SPEED BREAK -> {target_unit.name} | Уничтожение ({my_slot['speed']} >> {tgt_spd})",
+                        "icon": "⚡",
+                        "color": "green"
+                    }
+                    # Если у меня нет карты, но я ломаю талантом - это валидное действие
+                    continue
+
+                    # Если нет карты и я НЕ ломаю врага -> я ничего не делаю
+                if not my_slot.get('card'):
+                    my_slot['ui_status'] = {"text": "НЕТ КАРТЫ", "icon": "⛔", "color": "gray"}
+                    continue
+
+                if enemy_breaks_me_mutual:
+                    my_slot['ui_status'] = {
+                        "text": f"🚫 BROKEN vs {target_unit.name} | Взаимно, он быстрее",
+                        "icon": "💥",
+                        "color": "red"
+                    }
+
+                elif my_slot.get('force_onesided'):
                     my_slot['ui_status'] = {
                         "text": f"ONE SIDED (Провал) -> {target_unit.name} | Слаб",
                         "icon": "🐌",
@@ -402,24 +490,17 @@ def precalculate_interactions(team_left: list, team_right: list):
                     }
 
                 elif my_slot.get('force_clash'):
-                    if is_mutual:
-                        reason = f"Взаимно ({my_spd} vs {tgt_spd})"
-                        icon = "⚔️"
-                    else:
-                        reason = f"Перехват! ({my_spd} > {tgt_spd})"
-                        icon = "⚡"
-
+                    # Я кого-то перехватил
                     my_slot['ui_status'] = {
-                        "text": f"CLASH vs {target_unit.name} [{tgt_slot_label}] | {reason}",
-                        "icon": icon,
+                        "text": f"CLASH vs {target_unit.name} [{tgt_slot_label}] | Перехват!",
+                        "icon": "⚡",
                         "color": "red"
                     }
 
                 elif is_mutual:
-                    # Сюда попадет тот, кто проиграл по скорости в взаимном клэше
-                    # (потому что у него нет force_clash, но is_mutual=True)
+                    # Взаимная атака (без перехвата, просто совпали слоты)
                     my_slot['ui_status'] = {
-                        "text": f"CLASH vs {target_unit.name} [{tgt_slot_label}] | Взаимно ({my_spd} vs {tgt_spd})",
+                        "text": f"CLASH vs {target_unit.name} [{tgt_slot_label}] | Взаимно",
                         "icon": "⚔️",
                         "color": "red"
                     }

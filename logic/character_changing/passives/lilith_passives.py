@@ -88,12 +88,9 @@ class PassiveBackstreetDemon(BasePassive):
 class PassiveDaughterOfBackstreets(BasePassive):
     id = "daughter_of_backstreets"
     name = "Дочь переулка"
-    description = "В конце хода +1 HP/SP/Stagger. Лечение от чужих источников снижено на 50%."
+    description = "В конце хода +1 HP/SP/Stagger"
 
     def on_round_end(self, unit, log_func, **kwargs):
-        # Самолечение не режется, так как source=None (или self, если передать)
-        # Но в методе tick/round_end мы вызываем heal_hp(1)
-        # heal_hp по умолчанию считает source_unit=None как self, так что резать не будет.
         unit.heal_hp(1)
 
         if unit.current_sp < unit.max_sp: unit.current_sp += 1
@@ -119,6 +116,7 @@ class PassiveHedonism(BasePassive):
 # ==========================================
 # Живи быстро, умирай молодым (Live Fast, Die Young)
 # ==========================================
+#TODO CHECK THIS
 class PassiveLiveFastDieYoung(BasePassive):
     id = "live_fast_die_young"
     name = "Живи быстро, умирай молодым"

@@ -71,7 +71,8 @@ class PassiveWitnessOfGroGoroth(BasePassive):
             ctx.log.append(f"🩸 **НЕНАВИСТЬ**: Урон по Лиме увеличен (+666%)!")
 
         # === НОВЫЙ ХУК: РАСПРОСТРАНЕНИЕ БАФФОВ ===
-    def on_status_applied(self, unit, status_id, amount, duration=1, **kwargs):
+        #TODO Check this
+    def on_status_applied(self, unit, status_id, amount, duration=100, **kwargs):
         # Список распространяемых баффов
         POSITIVE_BUFFS = [
             "strength", "haste", "endurance", "protection",

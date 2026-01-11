@@ -1,4 +1,4 @@
-# logic/status_manager.py
+# logic/statuses/status_manager.py
 from typing import List
 from core.unit.unit import Unit
 from logic.statuses.status_definitions import STATUS_REGISTRY
@@ -8,34 +8,21 @@ class StatusManager:
     @staticmethod
     def process_turn_end(unit: 'Unit') -> List[str]:
         """
-        Обрабатывает конец раунда для статусов (спадание, эффекты).
+        Управляет жизненным циклом статусов: снижение длительности, удаление истекших,
+        обработка очереди Delayed.
+        ВНИМАНИЕ: Сам эффект on_round_end теперь вызывается через unit.trigger_mechanics!
         """
         logs = []
-
-        # Функция-обертка для логов, чтобы передавать её в on_round_end
-        def log_wrapper(msg):
-            logs.append(msg)
 
         active_ids = list(unit._status_effects.keys())
 
         for status_id in active_ids:
             if status_id not in unit._status_effects: continue
 
-            instances_start = unit._status_effects[status_id]
-            total_stack = sum(i["amount"] for i in instances_start)
+            # --- ЛОГИКА ЭФФЕКТОВ ПЕРЕНЕСЕНА В TRIGGER_MECHANICS ---
+            # Здесь мы только управляем длительностью (Duration)
 
-            if status_id in STATUS_REGISTRY and total_stack > 0:
-                handler = STATUS_REGISTRY[status_id]
-
-                # === [ИЗМЕНЕНО] Вызываем on_round_end ===
-                # Передаем stack через kwargs
-                if hasattr(handler, "on_round_end"):
-                    handler.on_round_end(unit, log_wrapper, stack=total_stack)
-
-            # Проверка существования после хендлера
-            if status_id not in unit._status_effects: continue
-
-            # Уменьшение длительности (Decay)
+            # 1. Уменьшаем Duration
             current_instances = unit._status_effects[status_id]
             next_instances = []
 
@@ -43,8 +30,8 @@ class StatusManager:
                 item["duration"] -= 1
                 if item["duration"] > 0:
                     next_instances.append(item)
-                # Если длительность 0 - удаляется
 
+            # 2. Обновляем или удаляем
             if next_instances:
                 unit._status_effects[status_id] = next_instances
             else:
