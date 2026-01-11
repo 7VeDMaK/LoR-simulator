@@ -96,7 +96,7 @@ class TalentAerialFoot(BasePassive):
     )
     is_active_ability = False
 
-    def on_round_start(self, unit, log_func, **kwargs):
+    def on_speed_rolled(self, unit, log_func, **kwargs):
         # 1. Базовая кость + Бонус от дыма
         smoke = unit.get_status("smoke")
         bonus_dice = min(2, smoke // 5)

@@ -30,7 +30,7 @@ class TalentDefense(BasePassive):
     )
     is_active_ability = False
 
-    def on_round_start(self, unit, log_func, **kwargs):
+    def on_speed_rolled(self, unit, log_func, **kwargs):
         """
         Используем on_round_start, как в 'Махнуть хвостиком',
         чтобы гарантированно добавить кубики.

@@ -16,7 +16,7 @@ class PassiveWagTail(BasePassive):
     description = "🐈 (Пассивно) Каждый раунд добавляет 1 Counter Evade (5-7) в пул контр-атак."
     is_active_ability = False
 
-    def on_round_start(self, unit, log_func, **kwargs):
+    def on_speed_rolled(self, unit, log_func, **kwargs):
         # Create the counter evade die
         # Note: 5-7 range as per description
         evade_die = Dice(5, 7, DiceType.EVADE, is_counter=True)

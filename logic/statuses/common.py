@@ -21,7 +21,7 @@ class EnduranceStatus(StatusEffect):
     id = "endurance"
 
     def on_roll(self, ctx: RollContext, stack: int):
-        if ctx.dice.dtype == DiceType.BLOCK:
+        if ctx.dice.dtype == DiceType.BLOCK or ctx.dice.dtype == DiceType.EVADE:
             ctx.modify_power(stack, "Endurance")
 
 

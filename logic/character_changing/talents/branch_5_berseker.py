@@ -139,7 +139,7 @@ class TalentFrenzy(BasePassive):
     )
     is_active_ability = False
 
-    def on_round_start(self, unit, log_func, **kwargs):
+    def on_speed_rolled(self, unit, log_func, **kwargs):
         # Добавляем базовый контр-кубик
         base_die = Dice(5, 7, DiceType.SLASH, is_counter=True)
         if not hasattr(unit, 'counter_dice'):
