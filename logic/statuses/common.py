@@ -65,7 +65,7 @@ class BurnStatus(StatusEffect):
         msgs = []
 
         dmg = stack
-        # Напрямую понизить холичество хп вдвое
+        # Напрямую понизить количество хп вдвое
         unit.current_hp = max(0, unit.current_hp - dmg)
         if log_func:
             log_func(f"🔥 Burn: {unit.name} takes {dmg} dmg")
