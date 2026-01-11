@@ -145,13 +145,11 @@ class InvisibilityStatus(StatusEffect):
     id = "invisibility"
 
     def on_hit(self, ctx: RollContext, **kwargs):
-        # Раскрываемся ПОСЛЕ попадания (чтобы бонусы за невидимость успели сработать)
         if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
             ctx.source.remove_status("invisibility", 999)
             ctx.log.append("👻 **Невидимость**: Раскрыт после удара!")
 
     def on_clash_lose(self, ctx: RollContext, **kwargs):
-        # Также раскрываемся, если проиграли столкновение атакующим кубиком
         if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
             ctx.source.remove_status("invisibility", 999)
             ctx.log.append("👻 **Невидимость**: Раскрыт (перехвачен)!")
@@ -163,10 +161,6 @@ class InvisibilityStatus(StatusEffect):
 class WeaknessStatus(StatusEffect):
     id = "weakness"
 
-    # Логика увеличения урона должна быть прописана в damage.py
-    # Либо этот статус просто наследует Vulnerability, если движок это позволяет,
-    # но лучше прописать явно в damage.py
-
     def on_round_end(self, unit, log_func, **kwargs):
         # Уменьшаем стаки на 1 в конце хода (или снимаем все, как решите)
         unit.remove_status("weakness", 1)
@@ -174,9 +168,6 @@ class WeaknessStatus(StatusEffect):
 
 class MentalProtectionStatus(StatusEffect):
     id = "mental_protection"
-    # Для Эдама: Снижение урона по SP.
-    # Логика снижения должна быть в damage.py или card_scripts.py
-    # Здесь просто заглушка
     pass
 
 
@@ -184,7 +175,6 @@ class SatietyStatus(StatusEffect):
     id = "satiety"
 
     def on_calculate_stats(self, unit, stack=0) -> dict:
-        # Проверка на Суфле (ignore_satiety) - это статус, его можно оставить тут или тоже через фильтр
         if unit.get_status("ignore_satiety") > 0:
             return {}
 
