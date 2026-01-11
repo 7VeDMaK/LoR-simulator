@@ -33,16 +33,24 @@ def set_cooldowns(u):
     # Эта проверка гарантирует, что код внутри выполнится только 1 раз за бой
     if not u.memory.get("battle_initialized"):
         u.memory["battle_initialized"] = True
-        u.card_cooldowns = {}
+
+        # [FIX] НЕ сбрасываем словарь принудительно, если он уже существует
+        # Это сохраняет кулдауны от предметов, использованных до боя
+        if not hasattr(u, "card_cooldowns") or u.card_cooldowns is None:
+            u.card_cooldowns = {}
 
         if getattr(u, 'deck', None):
             for card_id in u.deck:
                 card = Library.get_card(card_id)
                 if card:
-                    if card.card_type.upper() == CardType.ITEM.name:
+                    # [FIX] Если кулдаун уже есть (от предмета), пропускаем расчет
+                    if u.card_cooldowns.get(card_id, 0) > 0:
                         continue
-                    # ===============================================
 
+                    elif card.card_type.upper() == CardType.ITEM.name:
+                        continue
+
+                    # Обычный расчет начального кулдауна (Tier - 1)
                     initial_cd = max(0, card.tier - 1)
                     if initial_cd > 0:
                         u.card_cooldowns[card_id] = initial_cd
