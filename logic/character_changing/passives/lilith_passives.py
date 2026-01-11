@@ -3,6 +3,7 @@
 # ==========================================
 from core.dice import Dice
 from core.enums import DiceType
+from core.ranks import get_base_roll_by_level
 from logic.context import RollContext
 from logic.character_changing.passives.base_passive import BasePassive
 
@@ -10,26 +11,31 @@ from logic.character_changing.passives.base_passive import BasePassive
 # ==========================================
 # Махнуть хвостиком (Wag Tail)
 # ==========================================
+# ==========================================
+# Махнуть хвостиком (Wag Tail)
+# ==========================================
 class PassiveWagTail(BasePassive):
     id = "wag_tail"
     name = "Махнуть хвостиком"
-    description = "🐈 (Пассивно) Каждый раунд добавляет 1 Counter Evade (5-7) в пул контр-атак."
+    description = "🐈 (Пассивно) Каждый раунд добавляет 1 Counter Evade (сила зависит от Уровня) в пул контр-атак."
     is_active_ability = False
 
     def on_speed_rolled(self, unit, log_func, **kwargs):
-        # Create the counter evade die
-        # Note: 5-7 range as per description
-        evade_die = Dice(5, 7, DiceType.EVADE, is_counter=True)
+        # 1. Определяем силу кубика на основе уровня персонажа
+        # (Используем ту же таблицу, что и для всех карт/талантов)
+        base_min, base_max = get_base_roll_by_level(unit.level)
 
-        # Add to the unit's counter dice pool
-        # This list is cleared every round in roll_speed_dice
+        # 2. Создаем кубик уклонения
+        evade_die = Dice(base_min, base_max, DiceType.EVADE, is_counter=True)
+
+        # 3. Добавляем в пул
         if not hasattr(unit, 'counter_dice'):
             unit.counter_dice = []
 
         unit.counter_dice.append(evade_die)
 
         if log_func:
-            log_func(f"🐈 **{self.name}**: +1 Counter Evade (5-7) added to pool.")
+            log_func(f"🐈 **{self.name}**: +1 Counter Evade ({base_min}-{base_max}) added to pool.")
 
 
 # ==========================================

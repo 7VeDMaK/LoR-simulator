@@ -33,9 +33,8 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
 
     if destroy_d and prevent_dest_a:
         destroy_d = False
-        adv_a = True  # Штраф себе
+        adv_a = True
 
-    # === [FIX] Гедонизм (Защитник) ===
     prevent_dest_d = False
     if hasattr(defender, "iter_mechanics"):
         for mech in defender.iter_mechanics():
@@ -47,7 +46,6 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
         destroy_a = False
         adv_d = True
 
-    # Подготовка очередей кубиков (копируем, т.к. будем менять для Melee Recycle)
     queue_a = list(ac.dice_list)
     queue_d = list(dc.dice_list)
 

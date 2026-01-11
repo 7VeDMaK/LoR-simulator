@@ -82,7 +82,6 @@ class TalentSmashingBlade(BasePassive):
     is_active_ability = False
 
     def on_roll(self, ctx, **kwargs):
-        stack = kwargs.get("stack", 0)
         unit = ctx.source
         target = ctx.target
         if not target: return
@@ -96,8 +95,6 @@ class TalentSmashingBlade(BasePassive):
             is_sudden = True
             reasons.append("Invisible")
 
-        # В. Цель полна сил (>90% или >75% с талантом 9.5)
-        # Проверяем наличие улучшения (9.5 А)
         threshold = 0.90
         multiplier = 1.5
         if "step_into_shadow" in unit.talents:

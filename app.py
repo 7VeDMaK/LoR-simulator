@@ -5,6 +5,7 @@ import json
 
 from core.unit.unit import Unit
 from core.unit.unit_library import UnitLibrary
+from ui.cheat_sheet import render_cheat_sheet_page
 from ui.checks import render_checks_page
 from ui.leveling import render_leveling_page
 from ui.profile.main import render_profile_page
@@ -104,7 +105,7 @@ if 'script_logs' not in st.session_state: st.session_state['script_logs'] = ""
 # --- ОТРИСОВКА ---
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to",
-                        ["⚔️ Simulator", "👤 Profile", "🌳 Skill Tree", "📈 Leveling", "🛠️ Card Editor", "🎲 Checks"],
+                        ["⚔️ Simulator", "👤 Profile", "🌳 Skill Tree", "📈 Leveling", "🛠️ Card Editor", "🎲 Checks", "📚 Cheat Sheet"],
                         key="nav_page", on_change=update_and_save_state)
 
 # === СТРАНИЦА: SIMULATOR ===
@@ -161,6 +162,9 @@ elif "Leveling" in page:
 elif "Skill Tree" in page:
     restore_widget("tree_selected_unit", "tree_unit")
     render_skill_tree_page()
+
+elif "Cheat Sheet" in page:
+    render_cheat_sheet_page()
 
 else:
     render_editor_page()

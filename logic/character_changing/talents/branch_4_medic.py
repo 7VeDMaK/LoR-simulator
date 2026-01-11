@@ -74,7 +74,7 @@ class TalentCheese(BasePassive):
                 unit.deck.append(cid)
                 added += 1
 
-        if log_func:
+        if log_func and added > 0:
             log_func(f"🧀 **Сыровар**: {added} видов сыра добавлено в инвентарь.")
 
 

@@ -34,11 +34,25 @@ def calculate_rank_penalty(player_lvl: int, enemy_lvl: int) -> int:
     """Считает штраф уровня на основе разницы рангов."""
     p_tier, _ = get_rank_info(player_lvl)
     e_tier, _ = get_rank_info(enemy_lvl)
-
-    # Разница рангов (только если враг выше рангом, иначе 0?)
-    # В вашем примере штраф вычитается из уровня врага.
-    # Если враг слабее (тир меньше), штраф будет 0.
     n = e_tier - p_tier
-
-    # Формула: n(n+1)/2
     return (n * (n + 1)) // 2
+
+
+# === [NEW] Базовые значения бросков по уровням ===
+def get_base_roll_by_level(level: int):
+    """
+    Возвращает (min, max) базового броска карты в зависимости от уровня.
+    Основано на таблице 'Чистые средние роллы'.
+    """
+    if level >= 90: return 35, 45 # Несовершенство (экстраполяция)
+    if level >= 80: return 25, 32 # Цвет
+    if level >= 65: return 21, 27 # 1 ранг
+    if level >= 50: return 17, 22 # 2 ранг
+    if level >= 43: return 14, 19 # 3 ранг
+    if level >= 36: return 11, 16 # 4 ранг
+    if level >= 30: return 9, 13  # 5 ранг
+    if level >= 24: return 7, 10  # 6 ранг
+    if level >= 18: return 5, 7   # 7 ранг
+    if level >= 12: return 4, 6   # 8 ранг
+    if level >= 6:  return 3, 5   # 9 ранг
+    return 1, 3                   # Крысы

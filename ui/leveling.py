@@ -53,11 +53,7 @@ def render_leveling_page():
         st.warning("Ростер пуст.")
         return
 
-    # --- 1. ВЫБОР ПЕРСОНАЖА ---
-    # --- 1. ВЫБОР ПЕРСОНАЖА (С СОХРАНЕНИЕМ) ---
     roster_names = list(st.session_state['roster'].keys())
-
-    # Используем key="leveling_selected_unit", который восстанавливается в app.py
     selected_name = st.selectbox(
         "Персонаж",
         roster_names,
@@ -68,9 +64,6 @@ def render_leveling_page():
 
     cur_tier, cur_rank_name = get_rank_info(unit.level)
 
-    # === ИНИЦИАЛИЗАЦИЯ XP ДЛЯ СТАРЫХ ПЕРСОНАЖЕЙ ===
-    # Если total_xp = 0, но уровень > 0, значит это старый сейв.
-    # Восстанавливаем XP по минимуму текущего уровня.
     if unit.total_xp == 0 and unit.level > 0:
         unit.total_xp = 2 ** (unit.level - 1) if unit.level > 1 else 1  # Lvl 1 = 1 XP (2^0)
 
