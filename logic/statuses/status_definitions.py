@@ -48,7 +48,7 @@ STATUS_REGISTRY = {
     "bleed_resist": BleedResistStatus(),
     "regen_ganache": RegenGanacheStatus(),
     "revenge_dmg_up": RevengeDmgUpStatus(),
-    "taunt": TauntStatus(),
+    "taunt": TauntStatus() ,
 
     "bind": BindStatus(),
     "deep_wound": DeepWoundStatus(),
