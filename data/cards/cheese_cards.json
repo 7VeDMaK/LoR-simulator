@@ -1,0 +1,196 @@
+{
+  "cards": [
+    {
+      "id": "cheese_parmesan",
+      "name": "Пармезан",
+      "tier": 5,
+      "type": "Item",
+      "description": "Восстанавливает 20% SP. Накладывает 2 Сытости.",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "sp",
+              "base": 0,
+              "stat": "max_sp",
+              "factor": 0.20,
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "satiety",
+              "base": 2,
+              "target": "self",
+              "duration": 99
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "cheese_edam",
+      "name": "Эдам",
+      "tier": 5,
+      "type": "Item",
+      "description": "Получает на 25% меньше урона по SP (макс 50%). Накладывает 4 Сытости.",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "mental_protection",
+              "base": 1,
+              "target": "self",
+              "duration": 3
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "satiety",
+              "base": 4,
+              "target": "self",
+              "duration": 99
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "cheese_cheddar",
+      "name": "Чеддер",
+      "tier": 5,
+      "type": "Item",
+      "description": "Восстанавливает 20% HP. Накладывает 2 Сытости.",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "hp",
+              "base": 0,
+              "stat": "max_hp",
+              "factor": 0.20,
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "satiety",
+              "base": 2,
+              "target": "self",
+              "duration": 99
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "cheese_gouda",
+      "name": "Гауда",
+      "tier": 5,
+      "type": "Item",
+      "description": "Снимает 30 Яда (Poison). Накладывает 3 Сытости.",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "remove_status",
+            "params": {
+              "status": "poison",
+              "base": 30,
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "satiety",
+              "base": 3,
+              "target": "self",
+              "duration": 99
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "cheese_maasdam",
+      "name": "Маасдам",
+      "tier": 5,
+      "type": "Item",
+      "description": "Повышает бросок характеристик (Сила+1, Стойкость+1). Накладывает 3 Сытости.",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "strength",
+              "base": 1,
+              "target": "self",
+              "duration": 3
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "endurance",
+              "base": 1,
+              "target": "self",
+              "duration": 3
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "satiety",
+              "base": 3,
+              "target": "self",
+              "duration": 99
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "cheese_emmental",
+      "name": "Эмменталь",
+      "tier": 5,
+      "type": "Item",
+      "description": "Восстанавливает 5 HP и дает 2 Защиты. Накладывает 3 Сытости.",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "hp",
+              "base": 5,
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "protection",
+              "base": 2,
+              "target": "self",
+              "duration": 2
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "satiety",
+              "base": 3,
+              "target": "self",
+              "duration": 99
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+    "name": "Лима",
+    "level": 24,
+    "rank": 6,
+    "avatar": "data/avatars/Лима.png",
+    "base_intellect": 8,
+    "total_xp": 0,
+    "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+    },
+    "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+    },
+    "deck": [
+        "lima_little_tricks",
+        "lima_jump_shooting",
+        "lima_assorted_arrows",
+        "lima_hit_and_run",
+        "lima_inertia",
+        "lima_morphine_dart",
+        "lima_one_furious_shot",
+        "lima_ram",
+        "lima_purge_toxin"
+    ],
+    "base_stats": {
+        "current_hp": 100,
+        "current_sp": 135,
+        "current_stagger": 50
+    },
+    "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "hp_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.25
+        },
+        "stagger_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "weapon_id": "skalalaz_iceaxe"
+    },
+    "card_cooldowns": {},
+    "attributes": {
+        "strength": 2,
+        "endurance": 0,
+        "agility": 30,
+        "wisdom": 15,
+        "psych": 9
+    },
+    "skills": {
+        "strike_power": 2,
+        "medicine": 20,
+        "willpower": 0,
+        "luck": 2,
+        "acrobatics": 15,
+        "shields": 0,
+        "tough_skin": 6,
+        "speed": 30,
+        "light_weapon": 6,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 15,
+        "eloquence": 4,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+    },
+    "passives": [
+        "accelerated_learning",
+        "art_of_self_defense",
+        "lucky_streak",
+        "four_eyes",
+        "hunters_vedas",
+        "ship_of_theseus",
+        "wild_cityscape",
+        "mind_suppression"
+    ],
+    "talents": [
+        "remarkable",
+        "on_the_wave_of_success",
+        "tactical_analysis",
+        "behavior_study",
+        "speech_master",
+        "deal_with_fortune",
+        "second_chance",
+        "athletic"
+    ],
+    "augmentations": [
+        "aug_strizh"
+    ],
+    "level_rolls": {
+        "3": {
+            "hp": 3,
+            "sp": 3
+        },
+        "6": {
+            "hp": 4,
+            "sp": 4
+        },
+        "9": {
+            "hp": 4,
+            "sp": 1
+        },
+        "12": {
+            "hp": 2,
+            "sp": 2
+        },
+        "15": {
+            "hp": 2,
+            "sp": 3
+        },
+        "18": {
+            "hp": 1,
+            "sp": 4
+        },
+        "21": {
+            "hp": 2,
+            "sp": 1
+        },
+        "24": {
+            "hp": 2,
+            "sp": 1
+        }
+    },
+    "cooldowns": {},
+    "active_buffs": {},
+    "resources": {},
+    "biography": "Броня - лёгкий экзоскелет \"СТРИЖ\" со шлемом и противогазом\nАкробатика +6\nДаёт статус спешки +1  :zHaste: каждый ход\n\nЛедоруб \"Скала Лаз\" х2 (6.5 ранг)\nПозволяет карабкаться по стенам, отвесным скалам. Иногда требуется проверка Ловкости / Акробатики для совершения действия\nПовышает значение куба :zAttackPowerUp: атаки на атакующих картами на 3\n\nСветошумовые гранаты 2шт B tier\n\nАПГРЕЙД КОСТЮМА: ПНВ B tier\nПозволяет видеть в темноте, не получает дебаффы в темноте. Возможны дебаффы при ярком свете/днём во включенном режиме \n",
+    "money_log": [
+        {
+            "amount": 5790000,
+            "reason": ""
+        },
+        {
+            "amount": -3700000,
+            "reason": "Шопинг, стрелы, гранаты"
+        }
+    ]
+}

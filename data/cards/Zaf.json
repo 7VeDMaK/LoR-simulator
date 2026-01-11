@@ -1,0 +1,72 @@
+{
+  "cards": [
+    {
+      "id": "unbridled_cruelty",
+      "name": "Безудержная жестокость",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 5,
+          "base_max": 12,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "thrill_of_battle",
+      "name": "Азарт битвы",
+      "tier": 2,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "furious_assault",
+      "name": "Неистовое наступление",
+      "tier": 3,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 10,
+          "base_max": 15,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 13,
+          "base_max": 13,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    }
+  ]
+}

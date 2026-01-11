@@ -1,0 +1,181 @@
+{
+  "cards": [
+    {
+      "id": "lima_little_tricks",
+      "name": "Маленькие Хитрости",
+      "tier": 1,
+      "type": "Melee",
+      "description": "Мощь бросков повышается на разницу в интеллекте (макс 5).",
+      "dice": [
+        {
+          "type": "evade", "base_min": 1, "base_max": 1,
+          "scripts": {
+            "on_roll": [{ "script_id": "modify_roll_power", "params": { "stat": "total_intellect", "diff": true, "factor": 1.0, "max": 5
+            } }]
+          }
+        },
+        {
+          "type": "evade", "base_min": 1, "base_max": 1,
+          "scripts": {
+            "on_roll": [{ "script_id": "modify_roll_power", "params": { "stat": "total_intellect", "diff": true, "factor": 1.0, "max": 5} }]
+          }
+        },
+        {
+          "type": "evade", "base_min": 1, "base_max": 1,
+          "scripts": {
+            "on_roll": [{ "script_id": "modify_roll_power", "params": { "stat": "total_intellect", "diff": true, "factor": 1.0, "max": 5 } }]
+          }
+        }
+      ]
+    },
+    {
+      "id": "lima_jump_shooting",
+      "name": "Стрельба в Прыжке",
+      "tier": 1,
+      "type": "Ranged",
+      "description": "При Защите наносит сопернику 1 Рассредоточенность (Bind/Slow).",
+      "dice": [
+        {
+          "type": "evade", "base_min": 4, "base_max": 7,
+          "scripts": {
+            "on_clash_win": [{ "script_id": "apply_status", "params": { "status": "bind", "base": 1, "target": "target",
+              "duration": "3" } }]
+          }
+        },
+        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": {} }
+      ]
+    },
+    {
+      "id": "lima_assorted_arrows",
+      "name": "Ассорти Стрел",
+      "tier": 1,
+      "type": "Ranged",
+      "description": "Разные эффекты стрел: Глубокая рана, Хрупкость, Паралич.",
+      "dice": [
+        {
+          "type": "pierce", "base_min": 3, "base_max": 3,
+          "scripts": {
+            "on_clash_win": [{ "script_id": "apply_status", "params": { "status": "deep_wound", "base": 1, "target": "target"} }]
+          }
+        },
+        {
+          "type": "pierce", "base_min": 2, "base_max": 3,
+          "scripts": {
+            "on_hit": [{ "script_id": "apply_status", "params": { "status": "fragile", "base": 1, "target": "target",
+              "duration": "3" } }]
+          }
+        },
+        {
+          "type": "pierce", "base_min": 2, "base_max": 2,
+          "scripts": {
+            "on_hit": [{ "script_id": "apply_status", "params": { "status": "paralysis", "base": 1, "target": "target",
+              "duration": "3" } }]
+          }
+        }
+      ]
+    },
+    {
+      "id": "lima_hit_and_run",
+      "name": "Бей И Беги",
+      "tier": 2,
+      "type": "Ranged",
+      "description": "Чередование атак и уворотов.",
+      "dice": [
+        { "type": "pierce", "base_min": 1, "base_max": 5 },
+        { "type": "evade", "base_min": 4, "base_max": 5 },
+        { "type": "pierce", "base_min": 1, "base_max": 5 },
+        { "type": "evade", "base_min": 4, "base_max": 5 }
+      ]
+    },
+    {
+      "id": "lima_inertia",
+      "name": "Инерция",
+      "tier": 2,
+      "type": "Melee",
+      "description": "хехе хаха",
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash", "base_min": 1, "base_max": 3
+        }
+      ]
+    },
+    {
+      "id": "lima_morphine_dart",
+      "name": "Моржиновый Дротик",
+      "tier": 2,
+      "type": "Ranged",
+      "flags": ["friendly"],
+      "description": "Восстанавливает HP (зависит от Медицины). Снимает всю Спешку. Накладывает Замедление.",
+      "dice": [
+        {
+          "type": "pierce", "base_min": 4, "base_max": 7,
+          "scripts": {
+            "on_hit": [
+              { "script_id": "restore_resource", "params": { "type": "hp", "base": 0, "stat": "medicine", "factor": 1.0, "target": "target" } },
+              { "script_id": "remove_status", "params": { "status": "haste", "base": 99, "target": "target" } },
+              { "script_id": "apply_status", "params": { "status": "slow", "base": 1, "target": "target", "duration": "3" } }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "lima_one_furious_shot",
+      "name": "Один Яростный Выстрел",
+      "tier": 3,
+      "type": "Ranged",
+      "description": "Мощная одиночная атака.",
+      "dice": [
+        { "type": "pierce", "base_min": 11, "base_max": 14 }
+      ]
+    },
+    {
+  "id": "lima_ram",
+  "name": "Таран",
+  "tier": 3,
+  "type": "Melee",
+  "description": "Конвертирует всю Спешку в урон (1 к 1).",
+  "dice": [
+    {
+      "type": "blunt", "base_min": 4, "base_max": 8,
+      "scripts": {
+        "on_roll": [
+           {
+             "script_id": "convert_status_to_power",
+             "params": {
+               "status": "haste",
+               "factor": 7.0
+             }
+           }
+        ],
+        "on_clash_lose": [
+           {
+             "script_id": "apply_status",
+             "params": {
+               "status": "slow",
+               "base": 5,
+               "target": "target"
+             }
+           }
+        ]
+      }
+    }
+  ]
+},
+    {
+      "id": "lima_purge_toxin",
+      "name": "Пурж-Токсин",
+      "tier": 3,
+      "type": "Ranged",
+      "flags": ["friendly"],
+      "description": "не.",
+      "dice": [
+        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [] } },
+        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [] } },
+        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [] } },
+        { "type": "pierce", "base_min": 1, "base_max": 1, "scripts": { "on_hit": [] } }
+      ]
+    }
+  ]
+}

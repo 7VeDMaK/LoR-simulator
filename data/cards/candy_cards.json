@@ -1,0 +1,101 @@
+{
+  "cards": [
+    {
+      "id": "candy_praline",
+      "name": "Пралине",
+      "tier": 5,
+      "type": "Item",
+      "description": "Восст. 20% HP. +2 Str/End/Haste/Prot. (+8 Сытости).",
+      "scripts": {
+        "on_use": [
+          { "script_id": "restore_resource", "params": { "type": "hp", "base": 0, "stat": "max_hp", "factor": 0.20, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "strength", "base": 2, "duration": 3, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "endurance", "base": 2, "duration": 3, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "haste", "base": 2, "duration": 3, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "protection", "base": 2, "duration": 3, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "satiety", "base": 8, "target": "self", "duration": 99 } }
+        ]
+      }
+    },
+    {
+      "id": "candy_marzipan",
+      "name": "Марципан",
+      "tier": 5,
+      "type": "Item",
+      "description": "+3 Спешки (Haste). (+3 Сытости).",
+      "scripts": {
+        "on_use": [
+          { "script_id": "apply_status", "params": { "status": "haste", "base": 3, "duration": 3, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "satiety", "base": 3, "target": "self", "duration": 99 } }
+        ]
+      }
+    },
+    {
+      "id": "candy_souffle",
+      "name": "Суфле",
+      "tier": 5,
+      "type": "Item",
+      "description": "Убирает штрафы Сытости на 1 ход. (+1 Сытости).",
+      "scripts": {
+        "on_use": [
+          { "script_id": "apply_status", "params": { "status": "ignore_satiety", "base": 1, "duration": 3, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "satiety", "base": 1, "target": "self", "duration": 99 } }
+        ]
+      }
+    },
+    {
+      "id": "candy_grillage",
+      "name": "Грильяж",
+      "tier": 5,
+      "type": "Item",
+      "description": "+5 Защиты. -33% урона по Выдержке. (+8 Сытости).",
+      "scripts": {
+        "on_use": [
+          { "script_id": "apply_status", "params": { "status": "protection", "base": 5, "duration": 3, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "stagger_resist", "base": 1, "duration": 3, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "satiety", "base": 8, "target": "self", "duration": 99 } }
+        ]
+      }
+    },
+    {
+      "id": "candy_ganache",
+      "name": "Ганаш",
+      "tier": 5,
+      "type": "Item",
+      "description": "Регенерация 5% HP (5 раундов). (+4 Сытости).",
+      "scripts": {
+        "on_use": [
+          { "script_id": "apply_status", "params": { "status": "regen_ganache", "base": 1, "duration": 5, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "satiety", "base": 4, "target": "self", "duration": 99 } }
+        ]
+      }
+    },
+    {
+      "id": "candy_fudge",
+      "name": "Помадка",
+      "tier": 5,
+      "type": "Item",
+      "description": "Снимает 30 Кровотечения. -33% урона от Кровотечения. (+4 Сытости).",
+      "scripts": {
+        "on_use": [
+          { "script_id": "remove_status", "params": { "status": "bleed", "base": 30, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "bleed_resist", "base": 1, "duration": 3, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "satiety", "base": 4, "target": "self", "duration": 99 } }
+        ]
+      }
+    },
+    {
+      "id": "candy_waffles",
+      "name": "Вафли",
+      "tier": 5,
+      "type": "Item",
+      "description": "Снимает 10 Сытости. Снимает ВСЕ положительные эффекты.",
+      "scripts": {
+        "on_use": [
+          { "script_id": "remove_status", "params": { "status": "satiety", "base": 10, "target": "self" } },
+          { "script_id": "remove_all_positive", "params": { "target": "self" } }
+        ]
+      }
+    }
+  ]
+}

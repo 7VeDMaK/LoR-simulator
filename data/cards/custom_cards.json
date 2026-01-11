@@ -1,0 +1,849 @@
+{
+  "cards": [
+    {
+      "id": "furioso_35c3",
+      "name": "furioso",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 40,
+          "base_max": 40,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "pierce",
+          "base_min": 40,
+          "base_max": 40,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "blunt",
+          "base_min": 40,
+          "base_max": 40,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "aboboa_d0e2",
+      "name": "aboboa",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "имя2_a4c0",
+      "name": "имя2",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 2,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "имя11_f7dd",
+      "name": "имя11",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "bleed",
+              "base": 10,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 5,
+              "delay": 3,
+              "target": "target"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "shadow_ziggurat",
+      "name": "Зиккурат",
+      "tier": 2,
+      "type": "Melee",
+      "description": "Дает Защиту (Protection) равную значению выпавшего Блока.\n1. На цель (союзника).\n2. На себя.",
+      "flags": [
+        "friendly"
+      ],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 4,
+          "is_counter": false,
+          "scripts": {
+            "on_roll": [
+              {
+                "script_id": "apply_status_by_roll",
+                "params": {
+                  "status": "protection",
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 3,
+          "is_counter": false,
+          "scripts": {
+            "on_roll": [
+              {
+                "script_id": "apply_status_by_roll",
+                "params": {
+                  "status": "protection",
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "давно_не_виделись!_3b38",
+      "name": "Давно не виделись!",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "bleed",
+              "base": 9,
+              "stat": "strength",
+              "scale_from_target": false,
+              "factor": 0.2,
+              "duration": 3,
+              "delay": 2,
+              "target": "target"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 4,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "идейная_темка_1b7a",
+      "name": "Идейная темка",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "hp",
+              "base": 20,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 4,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {
+            "on_clash_win": [
+              {
+                "script_id": "restore_resource",
+                "params": {
+                  "type": "hp",
+                  "base": 5,
+                  "stat": "None",
+                  "scale_from_target": false,
+                  "factor": 1.0,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ближе_к_делу_3166",
+      "name": "Ближе к делу",
+      "tier": 2,
+      "type": "Ranged",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "modify_roll_power",
+            "params": {
+              "base": 5,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "diff": false,
+              "reason": "Bonus"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 10,
+          "base_max": 10,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "modify_roll_power",
+                "params": {
+                  "base": 10,
+                  "stat": "None",
+                  "scale_from_target": false,
+                  "factor": 1.0,
+                  "diff": false,
+                  "reason": "Bonus"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "не_спрашивай_-_делай!_f7bd",
+      "name": "Не спрашивай - делай!",
+      "tier": 3,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "blunt",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "blunt",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "pierce",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "скоро_прибудет_поезд_1338",
+      "name": "Скоро прибудет поезд",
+      "tier": 3,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_combat_end": [
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "stagger",
+              "base": 100,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 20,
+          "base_max": 20,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "остатки_памяти_5609",
+      "name": "Остатки памяти",
+      "tier": 3,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "red_lycoris",
+              "base": 1,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 2,
+              "target": "target"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 7,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "знаешь,_ты_мне_нравишься_cbbd",
+      "name": "Знаешь, ты мне нравишься",
+      "tier": 2,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 7,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {
+            "on_roll": [
+              {
+                "script_id": "modify_roll_power",
+                "params": {
+                  "base": 0,
+                  "stat": "strength",
+                  "scale_from_target": false,
+                  "factor": 1.0,
+                  "diff": true,
+                  "reason": "Bonus"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {
+            "on_roll": [
+              {
+                "script_id": "modify_roll_power",
+                "params": {
+                  "base": 0,
+                  "stat": "agility",
+                  "scale_from_target": false,
+                  "factor": -1.0,
+                  "diff": false,
+                  "reason": "Bonus"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "11блид_23f3",
+      "name": "11блид",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "bleed",
+              "base": 10,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 5,
+              "delay": 3,
+              "target": "target"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "обычный_удар_726c",
+      "name": "Обычный удар",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 5,
+          "base_max": 12,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "оффф_d582",
+      "name": "оффф",
+      "tier": 1,
+      "type": "Offensive",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "ранге_8dcd",
+      "name": "ранге",
+      "tier": 1,
+      "type": "Ranged",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "масс_d38d",
+      "name": "масс",
+      "tier": 1,
+      "type": "Mass Summation",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "1321312_59c2",
+      "name": "1321312",
+      "tier": 1,
+      "type": "Mass Individual",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "132321_8f74",
+      "name": "132321",
+      "tier": 1,
+      "type": "Mass Individual",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "smokekeke_0705",
+      "name": "smokekeke",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "self_control",
+              "base": 100,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 99,
+              "delay": 0,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "1323123_cf12",
+      "name": "1323123",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 50,
+          "base_max": 50,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "lima_ram",
+      "name": "Таран",
+      "tier": 3,
+      "type": "Melee",
+      "description": "Снимает всю Спешку.",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "slow",
+                  "base": 5,
+                  "target": "target"
+                }
+              }
+            ],
+            "on_roll": [
+              {
+                "script_id": "remove_status",
+                "params": {
+                  "status": "haste",
+                  "base": 99,
+                  "target": "self"
+                }
+              }
+            ],
+            "on_use": [
+              {
+                "script_id": "modify_roll_power",
+                "params": {
+                  "base": 0,
+                  "stat": "haste",
+                  "scale_from_target": false,
+                  "factor": 5.0,
+                  "diff": false,
+                  "reason": "Speed to Dmg"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "блант_aafe",
+      "name": "блант",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 99,
+          "base_max": 99,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "фуриоза_бёрна_4f0b",
+      "name": "Фуриоза Бёрна",
+      "tier": 5,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 20,
+          "base_max": 39,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "фуриоза_бёрна_381c",
+      "name": "Фуриоза Бёрна",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "burn",
+              "base": 40,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 1,
+              "delay": 0,
+              "target": "target"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "фуриоза_бёрна_0b06",
+      "name": "Фуриоза Бёрна",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "burn",
+              "base": 80,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 999,
+              "delay": 0,
+              "target": "target"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 35,
+          "base_max": 40,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    }
+  ]
+}
