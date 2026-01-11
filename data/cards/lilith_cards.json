@@ -192,7 +192,7 @@
           "base_min": 3,
           "base_max": 4,
           "scripts": {
-            "on_roll": [
+            "on_hit": [
               {
                 "script_id": "apply_status",
                 "params": {
@@ -200,8 +200,7 @@
                   "stack": 3,
                   "duration": 99,
                   "delay": 0,
-                  "target": "target",
-                  "min_roll": 2
+                  "target": "target"
                 }
               }
             ]
