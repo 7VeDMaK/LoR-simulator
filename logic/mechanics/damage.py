@@ -61,7 +61,7 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
         if source_ctx and source_ctx.source:
             adapt_stack = source_ctx.source.get_status("adaptation")
             if adapt_stack > 0:
-                min_res = 0.25 * (adapt_stack + 1)
+                min_res = 0.25 * adapt_stack
                 if res < min_res:
                     res = min_res
                     source_ctx.log.append(f"🧬 Adaptation Pierce: Res {res:.2f}")

@@ -86,22 +86,22 @@ class SinisterAuraStatus(StatusEffect):
 class AdaptationStatus(StatusEffect):
     id = "adaptation"
     name = "Адаптация"
-    description = "Игнорирует слабый урон, снижает урон по выдержке. Атаки пробивают резисты."
+    description = ("Адаптация - накапливаемое до четырёх уровней состояние. "
+                   "Зафиэль начинает бой с 1 уровнем особенности и повышает его каждый ход. "
+                   "Понижает сопротивление к урону цели против атак Зафиэля до минимального "
+                   "[0.25], [0.5], [0.75], [1] за уровень.")
 
-    def on_calculate_stats(self, unit, stack=0) -> dict:
+    # def on_calculate_stats(self, unit, stack=0) -> dict:
         # 1. Игнорирование урона: 11, 21, 31, 41, 51
         # Передаем это как "damage_threshold_flat", чтобы коллектор сам добавил это в mods
-        threshold = 1 + (stack * 10)
+        # threshold = -1 + (stack * 8)
 
         # 2. Снижение урона по выдержке вдвое (-50%)
         # Возвращаем словарь с обоими параметрами
-        return {
-            "stagger_take_pct": -50,
-            "damage_threshold_flat": threshold
-        }
-
-    def on_round_end(self, unit, log_func, **kwargs):
-        return []
+        # return {
+        #     "stagger_take_pct": -30,
+        #     "damage_threshold_flat": threshold
+        # }
 
 class BulletTimeStatus(StatusEffect):
     id = "bullet_time"

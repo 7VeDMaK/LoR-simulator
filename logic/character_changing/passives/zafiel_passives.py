@@ -16,7 +16,6 @@ class PassiveSevereTraining(BasePassive):
         }
 
 
-# === ОБНОВЛЕННАЯ ПАССИВКА: АДАПТАЦИЯ ===
 class PassiveAdaptation(BasePassive):
     id = "adaptation"
     name = "Адаптация"
@@ -24,9 +23,8 @@ class PassiveAdaptation(BasePassive):
 
     def on_round_start(self, unit, log_func, **kwargs):
         current = unit.get_status("adaptation")
-        if current < 5:
+        if current < 4:
             unit.add_status("adaptation", 1, duration=99)
             if log_func: log_func(f"🧬 Адаптация: Рост -> Уровень {current + 1}")
         else:
-            # Если уже 5, просто обновляем длительность, чтобы не слетело
             unit.add_status("adaptation", 0, duration=99)

@@ -67,25 +67,68 @@ def render_cheat_sheet_page():
     # === ТАБ 3: РОЛЛЫ ===
     with tab_power:
         st.header("Чистые средние роллы карты")
-        st.caption("База + Сила + Оружие + Ветки + Импланты")
+        st.caption("Детальная разбивка источников силы.")
 
+        # Расширенная таблица с колонками для каждого бонуса
         data_power = [
-            {"Lvl": "90+", "Rank": "Несовершенство", "Base Roll": "35-45", "Total Avg": "70+"},
-            {"Lvl": 80, "Rank": "Цвет (Звезда+)", "Base Roll": "25-32", "Total Avg": "56"},
-            {"Lvl": 65, "Rank": "Rank 1 (Звезда)", "Base Roll": "21-27", "Total Avg": "50"},
-            {"Lvl": 50, "Rank": "Rank 2 (Кошмар+)", "Base Roll": "17-22", "Total Avg": "42"},
-            {"Lvl": 43, "Rank": "Rank 3 (Кошмар)", "Base Roll": "14-19", "Total Avg": "38"},
-            {"Lvl": 36, "Rank": "Rank 4 (Чума+)", "Base Roll": "11-16", "Total Avg": "31"},
-            {"Lvl": 30, "Rank": "Rank 5 (Чума)", "Base Roll": "9-13", "Total Avg": "26"},
-            {"Lvl": 24, "Rank": "Rank 6 (Легенда+)", "Base Roll": "7-10", "Total Avg": "20"},
-            {"Lvl": 18, "Rank": "Rank 7 (Легенда)", "Base Roll": "5-7", "Total Avg": "15"},
-            {"Lvl": 12, "Rank": "Rank 8 (Миф)", "Base Roll": "4-6", "Total Avg": "10"},
-            {"Lvl": 6, "Rank": "Rank 9 (Слухи+)", "Base Roll": "3-5", "Total Avg": "9"},
-            {"Lvl": 0, "Rank": "Крысы", "Base Roll": "1-3", "Total Avg": "3"},
+            {
+                "Lvl": 80, "Rank": "Color", "Base Roll": "25-32",
+                "Str": "+5", "W.Type": "+5", "Talents": "+2", "W.Rank": "+5", "Imp": "+10",
+                "Total Avg": "56 (29+27)"
+            },
+            {
+                "Lvl": 65, "Rank": "Rank 1", "Base Roll": "21-27",
+                "Str": "+5", "W.Type": "+5", "Talents": "+2", "W.Rank": "+5", "Imp": "+9",
+                "Total Avg": "50 (24+26)"
+            },
+            {
+                "Lvl": 50, "Rank": "Rank 2", "Base Roll": "17-22",
+                "Str": "+4", "W.Type": "+5", "Talents": "+2", "W.Rank": "+4", "Imp": "+8",
+                "Total Avg": "42 (19+23)"
+            },
+            {
+                "Lvl": 43, "Rank": "Rank 3", "Base Roll": "14-19",
+                "Str": "+4", "W.Type": "+4", "Talents": "+2", "W.Rank": "+4", "Imp": "+7",
+                "Total Avg": "38 (17+21)"
+            },
+            {
+                "Lvl": 36, "Rank": "Rank 4", "Base Roll": "11-16",
+                "Str": "+3", "W.Type": "+4", "Talents": "+2", "W.Rank": "+3", "Imp": "+6",
+                "Total Avg": "31 (13+18)"
+            },
+            {
+                "Lvl": 30, "Rank": "Rank 5", "Base Roll": "9-13",
+                "Str": "+2", "W.Type": "+3", "Talents": "+2", "W.Rank": "+3", "Imp": "+5",
+                "Total Avg": "26 (11+15)"
+            },
+            {
+                "Lvl": 24, "Rank": "Rank 6", "Base Roll": "7-10",
+                "Str": "+2", "W.Type": "+3", "Talents": "0", "W.Rank": "+3", "Imp": "+4",
+                "Total Avg": "20 (8+12)"
+            },
+            {
+                "Lvl": 18, "Rank": "Rank 7", "Base Roll": "5-7",
+                "Str": "+2", "W.Type": "+2", "Talents": "0", "W.Rank": "+2", "Imp": "+3",
+                "Total Avg": "15 (6+9)"
+            },
+            {
+                "Lvl": 12, "Rank": "Rank 8", "Base Roll": "4-6",
+                "Str": "+1", "W.Type": "+1", "Talents": "0", "W.Rank": "+1", "Imp": "+2",
+                "Total Avg": "10 (5+5)"
+            },
+            {
+                "Lvl": 6, "Rank": "Rank 9", "Base Roll": "3-5",
+                "Str": "1/0", "W.Type": "1/0", "Talents": "0", "W.Rank": "0/1", "Imp": "+1",
+                "Total Avg": "9 / 4"
+            },
         ]
 
         df_power = pd.DataFrame(data_power)
+        # Настройка отображения колонок
         st.table(df_power)
+
+        st.info(
+            "**Легенда:** Str = Сила | W.Type = Тип оружия | Talents = Бонус веток | W.Rank = Ранг оружия | Imp = Импланты")
 
     # === ТАБ 4: ЭКОНОМИКА ===
     with tab_eco:
