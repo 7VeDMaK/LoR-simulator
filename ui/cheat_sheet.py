@@ -280,12 +280,14 @@ def render_cheat_sheet_page():
                     "Melee (100%)": 1.0,
                     "Offensive (115%)": 1.15,
                     "Ranged (125%)": 1.25,
-                    "Mass Attack (140%)": 1.40
+                    "Mass Attack (140%)": 1.40,
+                    "On Play (50%)": 0.5,
+                    "Item (40%)": 0.4
                 }
                 ctype_label = st.selectbox("Тип карты", list(type_opts.keys()), index=0, key="bal_type")
                 type_mult = type_opts[ctype_label]
 
-                dice_count = st.slider("Количество дайсов", 1, 5, 2, key="bal_count")
+                dice_count = st.slider("Количество дайсов", 1, 7, 2, key="bal_count")
 
                 st.markdown("**Модификаторы:**")
                 effects_count = st.number_input("Кол-во эффектов (-10%)", 0, 100, 0)
@@ -301,7 +303,7 @@ def render_cheat_sheet_page():
                 est_power_mod = 1.0 - (effects_count * 0.10) + ((cond_hard * 0.15) - (cond_easy * 0.075))
                 est_budget = est_total_budget * est_power_mod
 
-                est_avg_die = est_budget / dice_count
+                est_avg_die = est_budget / max(dice_count, 1)
                 if dice_count < standard_dice_capacity:
                     bonus_mult = 1.3 ** abs(standard_dice_capacity - dice_count)
                     est_avg_die *= bonus_mult

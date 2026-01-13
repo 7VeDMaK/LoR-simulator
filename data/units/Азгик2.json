@@ -6,17 +6,17 @@
     "base_intellect": 3,
     "total_xp": 201326592,
     "pct_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0,
+        "imp_hp": 40,
+        "imp_sp": 20,
+        "imp_stg": 10,
         "tal_hp": 0,
         "tal_sp": 0,
         "tal_stg": 0
     },
     "flat_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0
+        "imp_hp": 30,
+        "imp_sp": 20,
+        "imp_stg": 10
     },
     "deck": [
         "pat_right_shoulder",
@@ -51,9 +51,9 @@
         "candy_waffles"
     ],
     "base_stats": {
-        "current_hp": 35,
-        "current_sp": 47,
-        "current_stagger": 10
+        "current_hp": 89,
+        "current_sp": 81,
+        "current_stagger": 37
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",

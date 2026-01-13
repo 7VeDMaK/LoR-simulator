@@ -785,31 +785,6 @@
       ]
     },
     {
-      "id": "pat_left_shoulder",
-      "name": "Похлопать по левому плечу",
-      "tier": 1,
-      "type": "On Play",
-      "description": "Увеличивает силу атакующих бросков на карте союзника на 6. [НЕВОЗМОЖНО СТОЛКНУТЬСЯ]",
-      "flags": [
-        "friendly",
-        "offensive"
-      ],
-      "scripts": {
-        "on_use": [
-          {
-            "script_id": "apply_status",
-            "params": {
-              "status": "strength",
-              "base": 6,
-              "duration": 1,
-              "target": "target"
-            }
-          }
-        ]
-      },
-      "dice": []
-    },
-    {
       "id": "death_dragonfist_a395",
       "name": "Death Dragonfist",
       "tier": 4,
