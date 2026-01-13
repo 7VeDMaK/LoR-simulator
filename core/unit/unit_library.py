@@ -56,5 +56,27 @@ class UnitLibrary:
             return False
 
     @classmethod
+    def delete_unit(cls, unit_name):
+        """Удаляет персонажа из памяти и с диска."""
+        # 1. Удаляем из памяти
+        if unit_name in cls._roster:
+            del cls._roster[unit_name]
+
+        # 2. Удаляем файл
+        safe_name = "".join(c for c in unit_name if c.isalnum() or c in (' ', '_', '-')).strip().replace(" ", "_")
+        filename = f"{safe_name}.json"
+        path = os.path.join(cls.DATA_PATH, filename)
+
+        if os.path.exists(path):
+            try:
+                os.remove(path)
+                print(f"🗑️ Deleted unit file: {path}")
+                return True
+            except Exception as e:
+                print(f"Error deleting unit file: {e}")
+                return False
+        return True
+
+    @classmethod
     def get_roster(cls):
         return cls._roster

@@ -47,6 +47,25 @@ def create_character_from_template(template, roster):
     return u, name
 
 
+def delete_unit_action(unit_name):
+    """Callback для безопасного удаления персонажа."""
+    if UnitLibrary.delete_unit(unit_name):
+        # Обновляем селектор (state)
+        roster = UnitLibrary.get_roster()
+
+        # Если остались персонажи, выбираем первого, иначе сбрасываем
+        current_keys = sorted(list(roster.keys()))
+        if current_keys:
+            st.session_state["profile_selected_unit"] = current_keys[0]
+        else:
+            st.session_state["profile_selected_unit"] = None
+
+        st.toast(f"Персонаж {unit_name} удален.", icon="🗑️")
+
+        # Принудительно сохраняем состояние сессии (чтобы обновился json)
+        if 'save_callback' in st.session_state:
+            st.session_state['save_callback']()
+
 def render_header(roster):
     # --- HEADER / SELECTION ---
     c1, c2 = st.columns([3, 1])
@@ -92,9 +111,24 @@ def render_header(roster):
     unit = roster[sel]
     u_key = unit.name.replace(" ", "_")
 
-    if st.button("💾 СОХРАНИТЬ ПРОФИЛЬ", type="primary", width='stretch', key=f"save_btn_{u_key}"):
-        UnitLibrary.save_unit(unit)
-        st.toast("Данные персонажа сохранены!", icon="✅")
+    c_save, c_del = st.columns([4, 1])
+
+    with c_save:
+        if st.button("💾 СОХРАНИТЬ ПРОФИЛЬ", type="primary", use_container_width=True, key=f"save_btn_{u_key}"):
+            UnitLibrary.save_unit(unit)
+            st.toast("Данные персонажа сохранены!", icon="✅")
+
+    with c_del:
+        with st.popover("🗑️", use_container_width=True):
+            st.warning(f"Удалить {unit.name}?")
+            # Используем callback для избежания ошибки изменения state после рендера
+            st.button(
+                "Да, удалить",
+                type="primary",
+                key=f"del_confirm_{u_key}",
+                on_click=delete_unit_action,
+                args=(unit.name,)
+            )
 
     st.divider()
     return unit, u_key
