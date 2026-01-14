@@ -116,35 +116,68 @@ if "Simulator" in page:
         key="sim_unit_add_sel",
         disabled=is_team_locked
     )
+
+    as_template = st.sidebar.checkbox(
+        "Добавить как копию (Шаблон)",
+        value=False,
+        help="Если включено: создает независимую копию (можно много). Если выключено: добавляет самого персонажа (урон сохранится в профиле).",
+        disabled=is_team_locked
+    )
+
+
+    def add_unit_to_team(target_list_key):
+        if not unit_to_add_name: return
+
+        # Получаем оригинал из ростера
+        base_unit = st.session_state['roster'][unit_to_add_name]
+
+        unit_to_add = None
+
+        if as_template:
+            # === РЕЖИМ ШАБЛОНА (КОПИЯ) ===
+            unit_to_add = copy.deepcopy(base_unit)
+
+            # Даем уникальное имя (Крыса 1, Крыса 2...)
+            existing_names = [u.name for u in st.session_state['team_left'] + st.session_state['team_right']]
+            count = 0
+            for name in existing_names:
+                if name.startswith(base_unit.name):
+                    count += 1
+
+            if count > 0:
+                unit_to_add.name = f"{base_unit.name} {count + 1}"
+
+        else:
+            # === РЕЖИМ ОРИГИНАЛА (ССЫЛКА) ===
+            # Проверяем, нет ли его уже в бою
+            all_current_units = st.session_state['team_left'] + st.session_state['team_right']
+            if any(u is base_unit for u in all_current_units):
+                st.sidebar.error(f"❌ {base_unit.name} уже в команде! (Используйте режим копии для дублей)")
+                return
+
+            unit_to_add = base_unit  # Передаем ссылку!
+
+        # === СОХРАНЯЕМ СНИМОК СОСТОЯНИЯ (Для Reset Battle) ===
+        # Сохраняем текущие (добоевые) статы в память юнита
+        unit_to_add.memory['start_of_battle_stats'] = {
+            'hp': unit_to_add.current_hp,
+            'sp': unit_to_add.current_sp,
+            'stagger': unit_to_add.current_stagger
+        }
+
+        st.session_state[target_list_key].append(unit_to_add)
+        st.session_state['battle_logs'] = []  # Сброс логов
+
     # 2. Кнопки добавления
     c_add_l, c_add_r = st.sidebar.columns(2)
 
     if c_add_l.button("⬅️ Add Left", use_container_width=True, disabled=is_team_locked):
-        if unit_to_add_name:
-            base_unit = st.session_state['roster'][unit_to_add_name]
-            new_unit = copy.deepcopy(base_unit)
-
-            count = len([u for u in st.session_state['team_left'] if u.name.startswith(base_unit.name)])
-            if count > 0:
-                new_unit.name = f"{base_unit.name} {count + 1}"
-
-            st.session_state['team_left'].append(new_unit)
-            # Сброс логов при изменении состава
-            st.session_state['battle_logs'] = []
-            st.rerun()
+        add_unit_to_team('team_left')
+        st.rerun()
 
     if c_add_r.button("Add Right ➡️", use_container_width=True, disabled=is_team_locked):
-        if unit_to_add_name:
-            base_unit = st.session_state['roster'][unit_to_add_name]
-            new_unit = copy.deepcopy(base_unit)
-
-            count = len([u for u in st.session_state['team_right'] if u.name.startswith(base_unit.name)])
-            if count > 0:
-                new_unit.name = f"{base_unit.name} {count + 1}"
-
-            st.session_state['team_right'].append(new_unit)
-            st.session_state['battle_logs'] = []
-            st.rerun()
+        add_unit_to_team('team_right')
+        st.rerun()
 
     st.sidebar.markdown("---")
 

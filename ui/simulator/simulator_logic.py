@@ -276,29 +276,43 @@ def finish_round_logic():
 
 
 def reset_game():
-    """Полный сброс состояния."""
+    """
+    Сброс боя. Восстанавливает состояние персонажей до того момента,
+    как они вступили в бой (start_of_battle_stats).
+    """
     l_team, r_team = get_teams()
     all_units = l_team + r_team
 
     for u in all_units:
-        # 1. Сначала чистим память, чтобы set_cooldowns сработал в след. раунде
-        u.memory = {}
+        # 1. Чистим память боя
+        u.memory.pop("battle_initialized", None)  # Чтобы сработал on_combat_start заново
+
+        # Сохраняем временные ключи, которые нужны (например, сам снимок)
+        saved_stats = u.memory.get('start_of_battle_stats')
+
+        # 2. Восстанавливаем статы из снимка
+        if saved_stats:
+            u.current_hp = saved_stats['hp']
+            u.current_sp = saved_stats['sp']
+            u.current_stagger = saved_stats['stagger']
+        else:
+            # Если снимка нет (легаси), сбрасываем в макс (как было раньше)
+            u.current_hp = u.max_hp
+            u.current_stagger = u.max_stagger
+            u.current_sp = u.max_sp
+
+        # 3. Очистка эффектов
         u.active_buffs = {}
         u.card_cooldowns = {}
         u.cooldowns = {}
-
-        # 2. Сбрасываем статы
         u.recalculate_stats()
-        u.current_hp = u.max_hp
-        u.current_stagger = u.max_stagger
-        u.current_sp = u.max_sp
         u._status_effects = {}
         u.delayed_queue = []
         u.active_slots = []
 
     st.session_state['battle_logs'] = []
     st.session_state['script_logs'] = ""
-    st.session_state['turn_message'] = "Game Reset. Press 'Roll Initiative'."
+    st.session_state['turn_message'] = "Game Reset to Pre-Battle State. Press 'Roll Initiative'."
     st.session_state['phase'] = 'roll'
     st.session_state['round_number'] = 1
 
