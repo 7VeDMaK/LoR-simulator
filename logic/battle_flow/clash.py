@@ -7,23 +7,15 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
     ac = attacker.current_card
     dc = defender.current_card
 
-    # Определяем типы страниц
-    # (В `core/card.py` поле card_type это строка, приводим к нижнему регистру для проверки или используем Enum)
-    type_a = ac.card_type.lower()
-    type_d = dc.card_type.lower()
-
-    is_ranged_a = (type_a == "ranged")
-    is_ranged_d = (type_d == "ranged")
-    is_melee_a = (type_a == "melee")
-    is_melee_d = (type_d == "melee")
-
     # Скрипты On Use
     on_use_logs = []
     engine._process_card_self_scripts("on_use", attacker, defender, custom_log_list=on_use_logs)
     engine._process_card_self_scripts("on_use", defender, attacker, custom_log_list=on_use_logs)
 
+    # Расчет преимущества скорости
     adv_a, adv_d, destroy_a, destroy_d = calculate_speed_advantage(spd_a, spd_d, intent_a, intent_d)
 
+    # Проверка иммунитета к уничтожению кубиков
     prevent_dest_a = False
     if hasattr(attacker, "iter_mechanics"):
         for mech in attacker.iter_mechanics():
@@ -49,100 +41,115 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
     queue_a = list(ac.dice_list)
     queue_d = list(dc.dice_list)
 
+    # Переменные для хранения "ресайкнутых" контр-кубиков (которые выиграли и остались)
     active_counter_a = None
     active_counter_d = None
 
     def resolve_slot_die(unit, queue, idx, is_broken, active_counter):
-        # 1. Если есть активный выживший контр-кубик, он имеет приоритет
+        # 1. Приоритет: Активный (выживший) контр-кубик
         if active_counter:
-            return active_counter, True  # Die object, Is_Counter
+            return active_counter, True  # (Die, Is_Counter)
 
-        # 2. Берем кубик из карты, если он есть
-        card_die = queue[idx] if idx < len(queue) else None
+        # 2. Кубик карты
+        card_die = None
+        if idx < len(queue):
+            card_die = queue[idx]
 
-        # 3. Если кубик сломан скоростью — уничтожаем его
-        if is_broken and card_die:
-            # === [FIX] Кошачьи рефлексы ===
-            is_saved = False
-            if hasattr(unit, "iter_mechanics"):
-                for mech in unit.iter_mechanics():
-                    if mech.prevents_specific_die_destruction(unit, card_die):
-                        is_saved = True;
-                        break
+            # Проверка на слом скоростью
+            if is_broken:
+                is_saved = False
+                if hasattr(unit, "iter_mechanics"):
+                    for mech in unit.iter_mechanics():
+                        if mech.prevents_specific_die_destruction(unit, card_die):
+                            is_saved = True;
+                            break
+                if not is_saved:
+                    card_die = None  # Уничтожен
 
-            if is_saved:
-                pass  # Спасен
-            else:
-                card_die = None  # Уничтожен
-
-            # 4. Поиск контр-кубика
+        # 3. Если кубика карты нет (кончились или сломан), ищем в Запасе (Stored/Counter)
         if not card_die:
-            if unit.counter_dice:
+            # Сначала проверяем Stored Dice (новая механика)
+            if hasattr(unit, 'stored_dice') and unit.stored_dice:
                 # Проверка на Stagger
                 if unit.is_staggered():
-                    # === [FIX] Не взирая на невзгоды ===
-                    can_use_staggered = False
+                    # Проверка талантов на использование в стане
+                    can_use = False
                     if hasattr(unit, "iter_mechanics"):
                         for mech in unit.iter_mechanics():
                             if mech.can_use_counter_die_while_staggered(unit):
-                                can_use_staggered = True;
+                                can_use = True;
                                 break
+                    if not can_use:
+                        return None, False
 
-                    if can_use_staggered:
-                        # Тут еще была проверка флага talent_defense_die, её можно оставить или перенести в метод
-                        if unit.counter_dice[0].flags and "talent_defense_die" in unit.counter_dice[0].flags:
-                            return unit.counter_dice.pop(0), True
-                    # ====================================
-                    return None, False
+                return unit.stored_dice.pop(0), True
+
+            # Затем проверяем Counter Dice (старая механика/скрипты)
+            if unit.counter_dice:
+                if unit.is_staggered():
+                    # Та же проверка
+                    can_use = False
+                    if hasattr(unit, "iter_mechanics"):
+                        for mech in unit.iter_mechanics():
+                            if mech.can_use_counter_die_while_staggered(unit):
+                                can_use = True;
+                                break
+                    if not can_use:
+                        return None, False
 
                 return unit.counter_dice.pop(0), True
 
-            return None, False  # Совсем ничего нет
+            return None, False
 
-        return card_die, False  # Обычный кубик карты
+        return card_die, False
 
-    # Индексы для отслеживания (бесконечный цикл с выходом, т.к. очереди могут расти)
     idx_a = 0
     idx_d = 0
-
-    # Защита от бесконечного цикла (макс 10 итераций)
-    max_iterations = 15
     iteration = 0
+    max_iterations = 25
 
-    while (idx_a < len(queue_a) or idx_d < len(queue_d)) and iteration < max_iterations:
+    while (idx_a < len(queue_a) or idx_d < len(
+            queue_d) or active_counter_a or active_counter_d) and iteration < max_iterations:
         iteration += 1
 
         if attacker.is_dead() or defender.is_dead(): break
-        # (Stagger проверяется внутри resolve_slot_die для контр-кубиков)
 
-        # 1. Определяем, чем дерутся стороны
-        # Передаем флаг destroy, только если мы еще в пределах длины очереди карты
+        # Флаги поломки скоростью (действуют только на кубики КАРТЫ)
         is_break_a = destroy_a if idx_a < len(queue_a) else False
         is_break_d = destroy_d if idx_d < len(queue_d) else False
 
-        final_die_a, is_cnt_a = resolve_slot_die(attacker, queue_a, idx_a, is_break_a, active_counter_a)
-        final_die_d, is_cnt_d = resolve_slot_die(defender, queue_d, idx_d, is_break_d, active_counter_d)
+        die_a, is_cnt_a = resolve_slot_die(attacker, queue_a, idx_a, is_break_a, active_counter_a)
+        die_d, is_cnt_d = resolve_slot_die(defender, queue_d, idx_d, is_break_d, active_counter_d)
 
-        # Обновляем текущие кубики для пассивок
-        attacker.current_die = final_die_a
-        defender.current_die = final_die_d
-
-        # Если у обоих пусто (все сломано и контр-кубиков нет), пропускаем слот карты
-        if not final_die_a and not final_die_d:
-            idx_a += 1
-            idx_d += 1
+        # Если у обоих пусто -> выходим (даже если индексы меньше очередей, но там всё сломано)
+        if not die_a and not die_d:
+            # Пытаемся продвинуть индексы, если они еще не в конце, чтобы не зациклиться
+            if idx_a < len(queue_a): idx_a += 1
+            if idx_d < len(queue_d): idx_d += 1
+            if idx_a >= len(queue_a) and idx_d >= len(queue_d): break
             continue
 
-        # 2. Формируем контексты
-        ctx_a = engine._create_roll_context(attacker, defender, final_die_a,
-                                            is_disadvantage=adv_a) if final_die_a else None
-        ctx_d = engine._create_roll_context(defender, attacker, final_die_d,
-                                            is_disadvantage=adv_d) if final_die_d else None
+        if die_a: attacker.current_die = die_a
+        if die_d: defender.current_die = die_d
+
+        type_a = die_a.dtype if die_a else None
+        type_d = die_d.dtype if die_d else None
+
+        is_atk_a = type_a in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]
+        is_evade_a = type_a == DiceType.EVADE
+        is_block_a = type_a == DiceType.BLOCK
+
+        is_atk_d = type_d in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]
+        is_evade_d = type_d == DiceType.EVADE
+        is_block_d = type_d == DiceType.BLOCK
+
+        # Контексты
+        ctx_a = engine._create_roll_context(attacker, defender, die_a, is_disadvantage=adv_a) if die_a else None
+        ctx_d = engine._create_roll_context(defender, attacker, die_d, is_disadvantage=adv_d) if die_d else None
 
         val_a = ctx_a.final_value if ctx_a else 0
         val_d = ctx_d.final_value if ctx_d else 0
 
-        # Связываем
         if ctx_a and ctx_d:
             ctx_a.opponent_ctx = ctx_d
             ctx_d.opponent_ctx = ctx_a
@@ -150,82 +157,219 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
         outcome = ""
         detail_logs = []
         if iteration == 1 and on_use_logs: detail_logs.extend(on_use_logs)
-
-        # 3. Резолв
-        # --- CLASH ---
-        if ctx_a and ctx_d:
-            if val_a > val_d:
-                outcome = f"🏆 {attacker.name} Win"
-                if is_cnt_a: outcome += " (Cnt)"
-
-                engine._handle_clash_win(ctx_a)
-                engine._handle_clash_lose(ctx_d)
-                engine._resolve_clash_interaction(ctx_a, ctx_d, val_a - val_d)
-
-                # Логика контр-кубиков
-                if is_cnt_d:
-                    active_counter_d = None  # Защитник проиграл контрой -> она ломается
-                    detail_logs.append("⚡ Def Counter Broken")
-                if is_cnt_a:
-                    active_counter_a = final_die_a  # Атакующий выиграл контрой -> она остается
-
-                # Melee Recycle (только для карт)
-                if not is_cnt_a and not is_cnt_d and is_melee_a and is_ranged_d:
-                    if final_die_a.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
-                        queue_a.append(final_die_a)
-                        detail_logs.append("♻️ Melee Recycled")
-
-            elif val_d > val_a:
-                outcome = f"🏆 {defender.name} Win"
-                if is_cnt_d: outcome += " (Cnt)"
-
-                engine._handle_clash_win(ctx_d)
-                engine._handle_clash_lose(ctx_a)
-                engine._resolve_clash_interaction(ctx_d, ctx_a, val_d - val_a)
-
-                if is_cnt_a:
-                    active_counter_a = None  # Атакующий проиграл контрой -> ломается
-                    detail_logs.append("⚡ Atk Counter Broken")
-                if is_cnt_d:
-                    active_counter_d = final_die_d  # Защитник выиграл контрой -> остается
-
-                if not is_cnt_d and not is_cnt_a and is_melee_d and is_ranged_a:
-                    if final_die_d.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
-                        queue_d.append(final_die_d)
-                        detail_logs.append("♻️ Melee Recycled")
-            else:
-                outcome = "🤝 Draw"
-                engine._handle_clash_draw(ctx_a)
-                engine._handle_clash_draw(ctx_d)
-                # При ничьей контр-кубики обычно выживают
-
-        # --- ONE SIDED (ATTACKER) ---
-        elif ctx_a:
-            outcome = f"🏹 {attacker.name} Hit"
-            engine._apply_damage(ctx_a, None, "hp")
-            # Если ударили контр-кубиком без сопротивления -> он тратится (Discard)
-            if is_cnt_a:
-                active_counter_a = None
-
-        # --- ONE SIDED (DEFENDER) ---
-        elif ctx_d:
-            outcome = f"🏹 {defender.name} Hit"
-            engine._apply_damage(ctx_d, None, "hp")
-            if is_cnt_d:
-                active_counter_d = None
-
-        # Сбор логов
         if ctx_a: detail_logs.extend(ctx_a.log)
         if ctx_d: detail_logs.extend(ctx_d.log)
 
-        # Красивое отображение
-        l_lbl = final_die_a.dtype.name if final_die_a else "Broken"
-        r_lbl = final_die_d.dtype.name if final_die_d else "Broken"
+        # --- РЕЗОЛВ ---
+
+        # 1. Слом скоростью (Один пуст, другой нет)
+        if not die_a and die_d:
+            outcome = f"🚫 {attacker.name} Broken"
+            if is_atk_d:
+                engine._apply_damage(ctx_d, None, "hp")
+
+            # Управление индексами
+            if not is_cnt_a:
+                idx_a += 1
+            else:
+                active_counter_a = None  # Контр уничтожен (хотя его и не было)
+
+            # Победитель тратится?
+            if is_cnt_d:
+                pass  # Контр (если атака) обычно ресайклится при победе над "ничем"? Нет, считается One-Sided hit -> сгорает
+                active_counter_d = None
+            else:
+                idx_d += 1
+
+        elif die_a and not die_d:
+            outcome = f"🚫 {defender.name} Broken"
+            if is_atk_a:
+                engine._apply_damage(ctx_a, None, "hp")
+
+            if not is_cnt_d:
+                idx_d += 1
+            else:
+                active_counter_d = None
+
+            if is_cnt_a:
+                active_counter_a = None
+            else:
+                idx_a += 1
+
+        # 2. Defensive vs Defensive
+        elif (is_evade_a or is_block_a) and (is_evade_d or is_block_d):
+            outcome = "🛡️ Defensive Clash (Both Spent)"
+
+            if is_cnt_a:
+                active_counter_a = None
+            else:
+                idx_a += 1
+
+            if is_cnt_d:
+                active_counter_d = None
+            else:
+                idx_d += 1
+
+        # 3. Clash
+        else:
+            if val_a > val_d:
+                # === A WIN ===
+                engine._handle_clash_win(ctx_a)
+                engine._handle_clash_lose(ctx_d)
+
+                if is_atk_a and is_atk_d:
+                    outcome = f"🏆 {attacker.name} Win (Hit)"
+                    engine._resolve_clash_interaction(ctx_a, ctx_d, val_a - val_d)
+                    if is_cnt_a:
+                        active_counter_a = None
+                    else:
+                        idx_a += 1
+                    if is_cnt_d:
+                        active_counter_d = None
+                    else:
+                        idx_d += 1
+
+                elif is_atk_a and is_evade_d:
+                    outcome = f"💥 Evade Failed"
+                    engine._resolve_clash_interaction(ctx_a, ctx_d, val_a)
+                    if is_cnt_a:
+                        active_counter_a = None
+                    else:
+                        idx_a += 1
+                    if is_cnt_d:
+                        active_counter_d = None
+                    else:
+                        idx_d += 1
+
+                elif is_evade_a and is_atk_d:
+                    outcome = f"🏃 {attacker.name} Evades! (Recycle)"
+                    attacker.restore_stagger(val_a)
+                    # RECYCLE A
+                    if is_cnt_a:
+                        pass  # Остается в active_counter_a
+                    else:
+                        pass  # idx_a НЕ увеличиваем
+
+                    # SPEND D
+                    if is_cnt_d:
+                        active_counter_d = None
+                    else:
+                        idx_d += 1
+
+                elif is_atk_a and is_block_d:
+                    outcome = f"🔨 Block Broken"
+                    defender.take_stagger_damage(val_a - val_d)
+                    if is_cnt_a:
+                        active_counter_a = None
+                    else:
+                        idx_a += 1
+                    if is_cnt_d:
+                        active_counter_d = None
+                    else:
+                        idx_d += 1
+
+                elif is_block_a and is_atk_d:
+                    outcome = f"🛡️ Blocked"
+                    attacker.restore_stagger(val_a - val_d)
+                    if is_cnt_a:
+                        active_counter_a = None
+                    else:
+                        idx_a += 1
+                    if is_cnt_d:
+                        active_counter_d = None
+                    else:
+                        idx_d += 1
+
+            elif val_d > val_a:
+                # === D WIN ===
+                engine._handle_clash_win(ctx_d)
+                engine._handle_clash_lose(ctx_a)
+
+                if is_atk_d and is_atk_a:
+                    outcome = f"🏆 {defender.name} Win (Hit)"
+                    engine._resolve_clash_interaction(ctx_d, ctx_a, val_d - val_a)
+                    if is_cnt_a:
+                        active_counter_a = None
+                    else:
+                        idx_a += 1
+                    if is_cnt_d:
+                        active_counter_d = None
+                    else:
+                        idx_d += 1
+
+                elif is_atk_d and is_evade_a:
+                    outcome = f"💥 Evade Failed"
+                    engine._resolve_clash_interaction(ctx_d, ctx_a, val_d)
+                    if is_cnt_a:
+                        active_counter_a = None
+                    else:
+                        idx_a += 1
+                    if is_cnt_d:
+                        active_counter_d = None
+                    else:
+                        idx_d += 1
+
+                elif is_evade_d and is_atk_a:
+                    outcome = f"🏃 {defender.name} Evades! (Recycle)"
+                    defender.restore_stagger(val_d)
+                    # RECYCLE D
+                    if is_cnt_d:
+                        pass
+                    else:
+                        pass
+                    # SPEND A
+                    if is_cnt_a:
+                        active_counter_a = None
+                    else:
+                        idx_a += 1
+
+                elif is_atk_d and is_block_a:
+                    outcome = f"🔨 Block Broken"
+                    attacker.take_stagger_damage(val_d - val_a)
+                    if is_cnt_a:
+                        active_counter_a = None
+                    else:
+                        idx_a += 1
+                    if is_cnt_d:
+                        active_counter_d = None
+                    else:
+                        idx_d += 1
+
+                elif is_block_d and is_atk_a:
+                    outcome = f"🛡️ Blocked"
+                    defender.restore_stagger(val_d - val_a)
+                    if is_cnt_a:
+                        active_counter_a = None
+                    else:
+                        idx_a += 1
+                    if is_cnt_d:
+                        active_counter_d = None
+                    else:
+                        idx_d += 1
+
+            else:
+                # === DRAW ===
+                outcome = "🤝 Draw"
+                engine._handle_clash_draw(ctx_a)
+                engine._handle_clash_draw(ctx_d)
+
+                if is_cnt_a:
+                    active_counter_a = None
+                else:
+                    idx_a += 1
+                if is_cnt_d:
+                    active_counter_d = None
+                else:
+                    idx_d += 1
+
+        # Логирование
+        l_lbl = die_a.dtype.name if die_a else "Broken"
+        r_lbl = die_d.dtype.name if die_d else "Broken"
         if is_cnt_a: l_lbl += " (C)"
         if is_cnt_d: r_lbl += " (C)"
 
-        l_rng = f"{final_die_a.min_val}-{final_die_a.max_val}" if final_die_a else "-"
-        r_rng = f"{final_die_d.min_val}-{final_die_d.max_val}" if final_die_d else "-"
+        l_rng = f"{die_a.min_val}-{die_a.max_val}" if die_a else "-"
+        r_rng = f"{die_d.min_val}-{die_d.max_val}" if die_d else "-"
 
         report.append({
             "type": "clash",
@@ -241,7 +385,31 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
             "outcome": outcome, "details": detail_logs
         })
 
-        if idx_a < len(queue_a): idx_a += 1
-        if idx_d < len(queue_d): idx_d += 1
+    # === ЗАВЕРШЕНИЕ: СОХРАНЕНИЕ ОСТАВШИХСЯ КУБИКОВ ===
+    # Если остались кубики Уклонения (в очереди или активные контры), сохраняем их
+
+    def store_remaining_dice(unit, queue, idx, active_cnt, log_list):
+        if not hasattr(unit, 'stored_dice') or not isinstance(unit.stored_dice, list):
+            unit.stored_dice = []
+
+        # 1. Если остался активный контр-кубик (Evade)
+        if active_cnt and active_cnt.dtype == DiceType.EVADE:
+            unit.stored_dice.append(active_cnt)
+            log_list.append({"type": "info", "outcome": f"🛡️ {unit.name} Kept Counter Evade", "details": []})
+
+        # 2. Оставшиеся в очереди
+        while idx < len(queue):
+            die = queue[idx]
+            if die.dtype == DiceType.EVADE:
+                unit.stored_dice.append(die)
+                log_list.append({
+                    "type": "info",
+                    "outcome": f"🛡️ {unit.name} Stored Evade Die",
+                    "details": [f"Die {die.min_val}-{die.max_val} saved."]
+                })
+            idx += 1
+
+    store_remaining_dice(attacker, queue_a, idx_a, active_counter_a, report)
+    store_remaining_dice(defender, queue_d, idx_d, active_counter_d, report)
 
     return report

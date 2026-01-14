@@ -8,7 +8,6 @@ class UnitLifecycleMixin:
             if "deep_wound" in STATUS_REGISTRY:
                 amount = STATUS_REGISTRY["deep_wound"].apply_heal_reduction(self, amount)
 
-        # Дальше ваш стандартный код лечения...
         self.current_hp = min(self.max_hp, self.current_hp + amount)
         return amount
 
@@ -20,5 +19,14 @@ class UnitLifecycleMixin:
         return recovered
 
     def take_sanity_damage(self, amount: int):
-        # Паника начинается с 0, но значение может уходить в минус
         self.current_sp = max(-45, self.current_sp - amount)
+
+    def restore_stagger(self, amount: int):
+        """Восстанавливает выдержку (Stagger Resist)."""
+        if amount <= 0: return
+        self.current_stagger = min(self.max_stagger, self.current_stagger + amount)
+
+    def take_stagger_damage(self, amount: int):
+        """Наносит урон по выдержке."""
+        if amount <= 0: return
+        self.current_stagger = max(0, self.current_stagger - amount)
