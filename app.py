@@ -76,7 +76,6 @@ if 'roster' not in st.session_state:
 roster_keys = sorted(list(st.session_state['roster'].keys()))
 if not roster_keys: st.stop()
 
-# --- ВОССТАНОВЛЕНИЕ (Функция-помощник) ---
 p_state = st.session_state['persistent_state']
 
 
@@ -108,19 +107,23 @@ if "Simulator" in page:
     st.sidebar.divider()
     st.sidebar.subheader("⚔️ Team Builder")
 
-    # 1. Выбор юнита для добавления
-    unit_to_add_name = st.sidebar.selectbox("Выберите персонажа", roster_keys, key="sim_unit_add_sel")
+    current_phase = st.session_state.get('phase', 'roll')
+    is_team_locked = current_phase != 'roll'
 
+    unit_to_add_name = st.sidebar.selectbox(
+        "Выберите персонажа",
+        roster_keys,
+        key="sim_unit_add_sel",
+        disabled=is_team_locked
+    )
     # 2. Кнопки добавления
     c_add_l, c_add_r = st.sidebar.columns(2)
 
-    if c_add_l.button("⬅️ Add Left", use_container_width=True):
+    if c_add_l.button("⬅️ Add Left", use_container_width=True, disabled=is_team_locked):
         if unit_to_add_name:
             base_unit = st.session_state['roster'][unit_to_add_name]
-            # Клонируем, чтобы статы были независимы
             new_unit = copy.deepcopy(base_unit)
 
-            # Если такой уже есть, даем номер (Rat, Rat 2, Rat 3...)
             count = len([u for u in st.session_state['team_left'] if u.name.startswith(base_unit.name)])
             if count > 0:
                 new_unit.name = f"{base_unit.name} {count + 1}"
@@ -130,7 +133,7 @@ if "Simulator" in page:
             st.session_state['battle_logs'] = []
             st.rerun()
 
-    if c_add_r.button("Add Right ➡️", use_container_width=True):
+    if c_add_r.button("Add Right ➡️", use_container_width=True, disabled=is_team_locked):
         if unit_to_add_name:
             base_unit = st.session_state['roster'][unit_to_add_name]
             new_unit = copy.deepcopy(base_unit)
@@ -143,7 +146,6 @@ if "Simulator" in page:
             st.session_state['battle_logs'] = []
             st.rerun()
 
-    # 3. Списки команд с удалением
     st.sidebar.markdown("---")
 
     # --- LEFT TEAM ---
@@ -152,7 +154,7 @@ if "Simulator" in page:
         for i, u in enumerate(st.session_state['team_left']):
             c_name, c_del = st.sidebar.columns([4, 1])
             c_name.caption(f"{i + 1}. {u.name} (Lvl {u.level})")
-            if c_del.button("❌", key=f"del_l_{i}"):
+            if c_del.button("❌", key=f"del_l_{i}", disabled=is_team_locked):
                 st.session_state['team_left'].pop(i)
                 st.rerun()
     else:
@@ -164,14 +166,14 @@ if "Simulator" in page:
         for i, u in enumerate(st.session_state['team_right']):
             c_name, c_del = st.sidebar.columns([4, 1])
             c_name.caption(f"{i + 1}. {u.name} (Lvl {u.level})")
-            if c_del.button("❌", key=f"del_r_{i}"):
+            if c_del.button("❌", key=f"del_r_{i}", disabled=is_team_locked):
                 st.session_state['team_right'].pop(i)
                 st.rerun()
     else:
         st.sidebar.caption("Пусто")
 
     # Кнопка очистки
-    if st.sidebar.button("🗑️ Очистить все команды", use_container_width=True):
+    if st.sidebar.button("🗑️ Очистить все команды", use_container_width=True, disabled=is_team_locked):
         st.session_state['team_left'] = []
         st.session_state['team_right'] = []
         st.session_state['battle_logs'] = []

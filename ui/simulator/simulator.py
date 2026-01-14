@@ -58,7 +58,7 @@ def render_simulator_page():
         </style>
 
         <div class="turn-counter-static">
-            <div class="counter-label">ACT / SCENE</div>
+            <div class="counter-label">SCENE</div>
             <div class="counter-value">{st.session_state['round_number']}</div>
         </div>
         """, unsafe_allow_html=True)
