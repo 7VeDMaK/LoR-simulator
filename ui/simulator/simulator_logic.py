@@ -269,6 +269,9 @@ def finish_round_logic():
         # 4. Техническая очистка
         u.tick_cooldowns()
         u.active_slots = []
+        if hasattr(u, 'stored_dice') and u.stored_dice:
+            u.stored_dice = []
+            msg.append(f"{u.name}: Stored evade dice burned.") # Опционально логировать
     st.session_state['round_number'] = st.session_state.get('round_number', 1) + 1
     st.session_state['turn_message'] = " ".join(msg) if msg else "Round Complete."
     st.session_state['phase'] = 'roll'
@@ -309,6 +312,7 @@ def reset_game():
         u._status_effects = {}
         u.delayed_queue = []
         u.active_slots = []
+        u.stored_dice = []
 
     st.session_state['battle_logs'] = []
     st.session_state['script_logs'] = ""

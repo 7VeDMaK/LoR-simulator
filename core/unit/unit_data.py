@@ -67,6 +67,8 @@ class UnitData:
     active_slots: List[Dict] = field(default_factory=list)
     current_card: Optional['Card'] = None
 
+    stored_dice = []
+
     # === СИСТЕМА СПОСОБНОСТЕЙ ===
     cooldowns: Dict[str, int] = field(default_factory=dict)
     active_buffs: Dict[str, int] = field(default_factory=dict)
@@ -116,6 +118,7 @@ class UnitData:
                 "imp_hp": self.implants_hp_flat, "imp_sp": self.implants_sp_flat, "imp_stg": self.implants_stagger_flat
             },
             "deck": self.deck,
+            "stored_dice": self.stored_dice,
             "base_stats": {
                 "current_hp": self.current_hp, "current_sp": self.current_sp,
                 "current_stagger": self.current_stagger
@@ -152,7 +155,7 @@ class UnitData:
         u.avatar = data.get("avatar", None)
         u.base_intellect = data.get("base_intellect", 1)
         u.total_xp = data.get("total_xp", 0)
-
+        u.stored_dice = data.get("stored_dice", 0)
         u.biography = data.get("biography", "")
         u.money_log = data.get("money_log", [])
 
