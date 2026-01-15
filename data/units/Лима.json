@@ -41,7 +41,7 @@
         "hp_resists": {
             "slash": 1.0,
             "pierce": 1.0,
-            "blunt": 1.25
+            "blunt": 1.2
         },
         "stagger_resists": {
             "slash": 1.0,

@@ -1,3 +1,4 @@
+import random
 from typing import TYPE_CHECKING
 from logic.scripts.utils import _check_conditions, _resolve_value, _get_targets
 
@@ -136,3 +137,50 @@ def apply_status_by_roll(ctx: 'RollContext', params: dict):
     for u in targets:
         u.add_status(status, amount)
         ctx.log.append(f"🎲 **Roll Status**: +{amount} {status}")
+
+
+def remove_random_status(ctx: 'RollContext', params: dict):
+    """Снимает случайный статус с цели, игнорируя уникальные."""
+    target = ctx.target
+    if not target or not hasattr(target, "statuses"): return
+
+    status_dict = target.statuses
+    if not status_dict: return
+
+    # Список статусов, которые нельзя снимать (уникальные, ресурсы, механики)
+    IGNORED_STATUSES = [
+        "slot_lock",  # Механика карты
+        "adaptation",  # Уникальный статус (Хаски/Рейн)
+        "red_lycoris",  # Уникальный статус
+        "ammo",  # Ресурс
+        "charge",  # Ресурс
+        "bullet_time",  # Спец. эффект (Лима)
+        "no_glasses",  # Спец. эффект (Лима)
+        "mental_protection"  # Защита Эдама
+    ]
+
+    # Фильтруем статусы
+    active_statuses = [s for s in status_dict.keys() if s not in IGNORED_STATUSES]
+
+    if not active_statuses: return
+
+    chosen_status = random.choice(active_statuses)
+    amount = int(params.get("amount", 1))
+
+    target.remove_status(chosen_status, amount)
+
+    if ctx.log is not None:
+        ctx.log.append(f"🧪 **Purge**: Снято {amount} {chosen_status} с {target.name}")
+
+
+def apply_slot_debuff(ctx: 'RollContext', params: dict):
+    """Накладывает дебафф на количество слотов."""
+    target = ctx.target
+    if not target: return
+
+    duration = int(params.get("duration", 1))
+    # Накладываем статус "slot_lock"
+    target.add_status("slot_lock", 1, duration=duration)
+
+    if ctx.log:
+        ctx.log.append(f"🔒 **Purge**: {target.name} will lose 1 Slot next turn")

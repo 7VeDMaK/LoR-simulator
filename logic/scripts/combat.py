@@ -178,3 +178,40 @@ def repeat_dice_by_status(ctx: 'RollContext', params: dict):
 
         if ctx.log:
             ctx.log.append(f"♻️ **{unit.name}** repeats dice {count} times (Status: {status_name})")
+
+def lima_ram_logic(ctx: 'RollContext', params: dict):
+    """
+    Логика карты Таран:
+    Бонус = f(Haste) * (Level / 3).
+    Снимает всю спешку.
+    """
+    unit = ctx.source
+    haste = unit.get_status("haste")
+
+    base_bonus = 0
+    if haste >= 20:
+        base_bonus = 5
+    elif haste >= 14:
+        base_bonus = 4
+    elif haste >= 9:
+        base_bonus = 3
+    elif haste >= 5:
+        base_bonus = 2
+    elif haste >= 2:
+        base_bonus = 1
+
+    # Множитель уровня
+    # Используем integer деление, чтобы избежать float
+    lvl_mult = int(unit.level / 3)
+
+    final_bonus = base_bonus * lvl_mult
+
+    if final_bonus > 0:
+        ctx.modify_power(final_bonus, f"Ram (Haste {haste} * Lvl {unit.level}/3)")
+
+    # Снимаем всю спешку
+    if haste > 0:
+        unit.remove_status("haste", 999)
+        if ctx.log:
+            ctx.log.append(f"📉 **{unit.name}** consumed all Haste")
+

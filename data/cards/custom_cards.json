@@ -736,48 +736,16 @@
       "name": "Таран",
       "tier": 3,
       "type": "Melee",
-      "description": "Снимает всю Спешку.",
-      "flags": [],
-      "scripts": {},
+      "description": "Сила = [Haste Bonus] * (Lvl / 3). Снимает всю Спешку. При поражении накладывает 5 Замедления.",
       "dice": [
         {
-          "type": "blunt",
-          "base_min": 1,
-          "base_max": 1,
-          "is_counter": false,
+          "type": "blunt", "base_min": 1, "base_max": 1,
           "scripts": {
-            "on_clash_lose": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "slow",
-                  "base": 5,
-                  "target": "target"
-                }
-              }
-            ],
             "on_roll": [
-              {
-                "script_id": "remove_status",
-                "params": {
-                  "status": "haste",
-                  "base": 99,
-                  "target": "self"
-                }
-              }
+               { "script_id": "lima_ram_logic", "params": {} }
             ],
-            "on_use": [
-              {
-                "script_id": "modify_roll_power",
-                "params": {
-                  "base": 0,
-                  "stat": "haste",
-                  "scale_from_target": false,
-                  "factor": 5.0,
-                  "diff": false,
-                  "reason": "Speed to Dmg"
-                }
-              }
+            "on_clash_lose": [
+               { "script_id": "apply_status", "params": { "status": "slow", "base": 5, "target": "target" } }
             ]
           }
         }

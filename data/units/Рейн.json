@@ -29,10 +29,11 @@
         "series_normal_strikes_img",
         "not_the_limit_img"
     ],
+    "stored_dice": 0,
     "base_stats": {
         "current_hp": 200,
-        "current_sp": 202,
-        "current_stagger": 87
+        "current_sp": 192,
+        "current_stagger": 102
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -57,19 +58,19 @@
     "attributes": {
         "strength": 5,
         "endurance": 22,
-        "agility": 7,
+        "agility": 8,
         "wisdom": 0,
         "psych": 21
     },
     "skills": {
         "strike_power": 0,
         "medicine": 15,
-        "willpower": 2,
+        "willpower": 3,
         "luck": 55,
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,
-        "speed": 26,
+        "speed": 27,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,

@@ -9,8 +9,8 @@
       "dice": [
         {
           "type": "evade",
-          "base_min": 1,
-          "base_max": 1,
+          "base_min": 2,
+          "base_max": 2,
           "scripts": {
             "on_roll": [
               {
@@ -27,8 +27,8 @@
         },
         {
           "type": "evade",
-          "base_min": 1,
-          "base_max": 1,
+          "base_min": 2,
+          "base_max": 2,
           "scripts": {
             "on_roll": [
               {
@@ -45,8 +45,8 @@
         },
         {
           "type": "evade",
-          "base_min": 1,
-          "base_max": 1,
+          "base_min": 2,
+          "base_max": 2,
           "scripts": {
             "on_roll": [
               {
@@ -72,8 +72,8 @@
       "dice": [
         {
           "type": "evade",
-          "base_min": 4,
-          "base_max": 7,
+          "base_min": 6,
+          "base_max": 9,
           "scripts": {
             "on_clash_win": [
               {
@@ -90,8 +90,8 @@
         },
         {
           "type": "pierce",
-          "base_min": 1,
-          "base_max": 1,
+          "base_min": 2,
+          "base_max": 5,
           "scripts": {}
         }
       ]
@@ -106,7 +106,7 @@
         {
           "type": "pierce",
           "base_min": 3,
-          "base_max": 3,
+          "base_max": 4,
           "scripts": {
             "on_clash_win": [
               {
@@ -122,8 +122,8 @@
         },
         {
           "type": "pierce",
-          "base_min": 2,
-          "base_max": 3,
+          "base_min": 3,
+          "base_max": 4,
           "scripts": {
             "on_hit": [
               {
@@ -140,8 +140,8 @@
         },
         {
           "type": "pierce",
-          "base_min": 2,
-          "base_max": 2,
+          "base_min": 3,
+          "base_max": 4,
           "scripts": {
             "on_hit": [
               {
@@ -167,23 +167,23 @@
       "dice": [
         {
           "type": "pierce",
-          "base_min": 1,
-          "base_max": 5
+          "base_min": 4,
+          "base_max": 7
         },
         {
           "type": "evade",
           "base_min": 4,
-          "base_max": 5
+          "base_max": 6
         },
         {
           "type": "pierce",
-          "base_min": 1,
-          "base_max": 5
+          "base_min": 4,
+          "base_max": 7
         },
         {
           "type": "evade",
           "base_min": 4,
-          "base_max": 5
+          "base_max": 6
         }
       ]
     },
@@ -195,13 +195,25 @@
       "description": "При использовании: Сбрасывает все запасенные Уклонения и дает Спешку за каждое. [Слеш] Копируется за каждую ед. Спешки (макс 4).",
       "scripts": {
         "on_use": [
-          { "script_id": "consume_evade_for_haste", "params": {} },
-          { "script_id": "repeat_dice_by_status", "params": { "status": "haste", "max": 10, "die_index": 0 } }
+          {
+            "script_id": "consume_evade_for_haste",
+            "params": {}
+          },
+          {
+            "script_id": "repeat_dice_by_status",
+            "params": {
+              "status": "haste",
+              "max": 4,
+              "die_index": 0
+            }
+          }
         ]
       },
       "dice": [
         {
-          "type": "slash", "base_min": 1, "base_max": 3
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 4
         }
       ]
     },
@@ -219,11 +231,15 @@
       "dice": [
         {
           "type": "pierce",
-          "base_min": 4,
-          "base_max": 7,
+          "base_min": 7,
+          "base_max": 11,
           "is_counter": false,
           "scripts": {
             "on_hit": [
+              {
+                "script_id": "nullify_hp_damage",
+                "params": {}
+              },
               {
                 "script_id": "restore_resource",
                 "params": {
@@ -265,8 +281,8 @@
       "dice": [
         {
           "type": "pierce",
-          "base_min": 11,
-          "base_max": 14
+          "base_min": 15,
+          "base_max": 21
         }
       ]
     },
@@ -275,7 +291,7 @@
       "name": "Таран",
       "tier": 3,
       "type": "Melee",
-      "description": "Конвертирует всю Спешку в урон (1 к 1).",
+      "description": "Сила = [Haste Bonus] * (Lvl / 3). Снимает всю Спешку. При поражении накладывает 5 Замедления.",
       "dice": [
         {
           "type": "blunt",
@@ -284,11 +300,8 @@
           "scripts": {
             "on_roll": [
               {
-                "script_id": "convert_status_to_power",
-                "params": {
-                  "status": "haste",
-                  "factor": 7.0
-                }
+                "script_id": "lima_ram_logic",
+                "params": {}
               }
             ],
             "on_clash_lose": [
@@ -297,7 +310,8 @@
                 "params": {
                   "status": "slow",
                   "base": 5,
-                  "target": "target"
+                  "target": "target",
+                  "duration": "3"
                 }
               }
             ]
@@ -310,41 +324,89 @@
       "name": "Пурж-Токсин",
       "tier": 3,
       "type": "Ranged",
+      "description": "3 удара. Каждый снимает 1 случайный статус и накладывает -1 Слот на след. ход. (Без урона)",
       "flags": [
-        "friendly"
+        "friendly",
+        "offensive"
       ],
-      "description": "не.",
+      "scripts": {},
       "dice": [
         {
           "type": "pierce",
           "base_min": 1,
           "base_max": 1,
+          "is_counter": false,
           "scripts": {
-            "on_hit": []
+            "on_hit": [
+              {
+                "script_id": "nullify_hp_damage",
+                "params": {}
+              },
+              {
+                "script_id": "remove_random_status",
+                "params": {
+                  "amount": 1
+                }
+              },
+              {
+                "script_id": "apply_slot_debuff",
+                "params": {
+                  "duration": 2
+                }
+              }
+            ]
           }
         },
         {
           "type": "pierce",
           "base_min": 1,
           "base_max": 1,
+          "is_counter": false,
           "scripts": {
-            "on_hit": []
+            "on_hit": [
+              {
+                "script_id": "nullify_hp_damage",
+                "params": {}
+              },
+              {
+                "script_id": "remove_random_status",
+                "params": {
+                  "amount": 1
+                }
+              },
+              {
+                "script_id": "apply_slot_debuff",
+                "params": {
+                  "duration": 2
+                }
+              }
+            ]
           }
         },
         {
           "type": "pierce",
           "base_min": 1,
           "base_max": 1,
+          "is_counter": false,
           "scripts": {
-            "on_hit": []
-          }
-        },
-        {
-          "type": "pierce",
-          "base_min": 1,
-          "base_max": 1,
-          "scripts": {
-            "on_hit": []
+            "on_hit": [
+              {
+                "script_id": "nullify_hp_damage",
+                "params": {}
+              },
+              {
+                "script_id": "remove_random_status",
+                "params": {
+                  "amount": 1
+                }
+              },
+              {
+                "script_id": "apply_slot_debuff",
+                "params": {
+                  "duration": 2
+                }
+              }
+            ]
           }
         }
       ]

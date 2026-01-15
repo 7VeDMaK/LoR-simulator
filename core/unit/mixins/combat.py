@@ -52,8 +52,19 @@ class UnitCombatMixin:
         if self.is_dead():
             return
 
-        # 1. Основные кубики
-        for (d_min, d_max) in self.computed_speed_dice:
+        slot_penalty = self.get_status("slot_lock")
+
+        total_potential_slots = len(self.computed_speed_dice)
+
+        # Вычитаем штраф (минимум 1 кубик всегда остается, если не стан)
+        # Если хотите, чтобы можно было оставить 0 кубиков (полный стан), уберите max(1, ...)
+        slots_to_roll = max(1, total_potential_slots - slot_penalty)
+        # ===============================================
+
+        # 1. Основные кубики (с учетом штрафа)
+        for i, (d_min, d_max) in enumerate(self.computed_speed_dice):
+            if i >= slots_to_roll: break  # Пропускаем заблокированные слоты
+
             mod = self.get_status("haste") - self.get_status("slow") - self.get_status("bind")
             val = max(1, random.randint(int(d_min), int(d_max)) + mod)
             self.active_slots.append({

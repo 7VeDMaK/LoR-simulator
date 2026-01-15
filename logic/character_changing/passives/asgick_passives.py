@@ -19,7 +19,6 @@ class PassiveWitnessOfGroGoroth(BasePassive):
         "-1 Уровень угрозы.\n"
         "Нельзя Уклоняться и Блокировать.\n"
         "Получаемый урон увеличен на 20% (аналог +0.2 резиста).\n"
-        "-3 ко всем характеристикам и навыкам.\n"
         "-15 Удачи.\n"
         "Особенность прокачки: 1 очко навыка и 1 очко хар-к за уровень (См. Профиль)."
     )
@@ -38,20 +37,6 @@ class PassiveWitnessOfGroGoroth(BasePassive):
             "disable_block": 1,
             "disable_evade": 1
         }
-
-        # -3 ко всем характеристикам
-        attributes = ["strength", "endurance", "agility", "wisdom", "psych"]
-        for attr in attributes:
-            stats[attr] = -3
-
-        # -3 ко всем навыкам
-        all_skills = [
-            "strike_power", "medicine", "willpower", "acrobatics", "shields",
-            "tough_skin", "speed", "light_weapon", "medium_weapon",
-            "heavy_weapon", "firearms", "forging", "engineering", "programming"
-        ]
-        for skill in all_skills:
-            stats[skill] = -3
 
         return stats
 
