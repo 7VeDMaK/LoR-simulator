@@ -1,6 +1,30 @@
 from logic.battle_flow.mass_attack import process_mass_attack
 
 
+def _apply_card_cooldown(unit, card):
+    """
+    Накладывает кулдаун на карту.
+    Поддерживает множественные копии (хранит список таймеров).
+    """
+    if not unit or not card or card.id == "unknown":
+        return
+
+    # Рассчитываем значение кулдауна (обычно равно Тиру карты)
+    cd_val = max(0, card.tier)
+
+    if cd_val > 0:
+        # Если записи нет, создаем список
+        if card.id not in unit.card_cooldowns:
+            unit.card_cooldowns[card.id] = []
+
+        # Защита от старого формата (если там вдруг int, превращаем в list)
+        if isinstance(unit.card_cooldowns[card.id], int):
+            unit.card_cooldowns[card.id] = [unit.card_cooldowns[card.id]]
+
+        # Добавляем новый экземпляр таймера в список
+        unit.card_cooldowns[card.id].append(cd_val)
+
+
 def execute_single_action(engine, act, executed_slots):
     """
     Фаза 2 (Микро): Выполнение конкретного действия из очереди.
@@ -31,8 +55,7 @@ def execute_single_action(engine, act, executed_slots):
         p_label = "Mass Atk" if act['is_left'] else "Enemy Mass"
 
         # Кулдаун
-        if source.current_card.id != "unknown":
-            source.card_cooldowns[source.current_card.id] = source.current_card.tier
+        _apply_card_cooldown(source, source.current_card)
 
         return process_mass_attack(engine, act, act['opposing_team'], p_label)
 
@@ -47,8 +70,7 @@ def execute_single_action(engine, act, executed_slots):
             details.extend(engine.logs)
 
         # Кулдаун
-        if source.current_card.id != "unknown":
-            source.card_cooldowns[source.current_card.id] = source.current_card.tier
+        _apply_card_cooldown(source, source.current_card)
 
         return [{"round": "On Play", "details": details}]
 
@@ -77,8 +99,7 @@ def execute_single_action(engine, act, executed_slots):
             is_clash = True
 
     # Кулдаун Атакующего
-    if source.current_card.id != "unknown":
-        source.card_cooldowns[source.current_card.id] = max(0, source.current_card.tier)
+    _apply_card_cooldown(source, source.current_card)
 
     battle_logs = []
     spd_src = act['slot_data']['speed']
@@ -93,8 +114,7 @@ def execute_single_action(engine, act, executed_slots):
         intent_tgt = target_slot.get('destroy_on_speed', True)
 
         # Кулдаун Защитника (он тоже тратит карту)
-        if target.current_card and target.current_card.id != "unknown":
-            target.card_cooldowns[target.current_card.id] = target.current_card.tier
+        _apply_card_cooldown(target, target.current_card)
 
         engine.log(f"⚔️ Clash: {source.name} vs {target.name}")
 

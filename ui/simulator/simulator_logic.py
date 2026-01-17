@@ -30,30 +30,31 @@ def get_teams():
 
 
 def set_cooldowns(u):
-    # Эта проверка гарантирует, что код внутри выполнится только 1 раз за бой
     if not u.memory.get("battle_initialized"):
         u.memory["battle_initialized"] = True
 
-        # [FIX] НЕ сбрасываем словарь принудительно, если он уже существует
-        # Это сохраняет кулдауны от предметов, использованных до боя
         if not hasattr(u, "card_cooldowns") or u.card_cooldowns is None:
             u.card_cooldowns = {}
 
         if getattr(u, 'deck', None):
-            for card_id in u.deck:
+            # Считаем, сколько копий каждой карты
+            from collections import Counter
+            deck_counts = Counter(u.deck)
+
+            for card_id, count in deck_counts.items():
                 card = Library.get_card(card_id)
                 if card:
-                    # [FIX] Если кулдаун уже есть (от предмета), пропускаем расчет
-                    if u.card_cooldowns.get(card_id, 0) > 0:
+                    # Пропускаем предметы
+                    if card.card_type.upper() == CardType.ITEM.name:
                         continue
 
-                    elif card.card_type.upper() == CardType.ITEM.name:
-                        continue
-
-                    # Обычный расчет начального кулдауна (Tier - 1)
+                    # Начальный кулдаун (Tier - 1)
                     initial_cd = max(0, card.tier - 1)
+
                     if initial_cd > 0:
-                        u.card_cooldowns[card_id] = initial_cd
+                        # Если есть "разогрев", он накладывается на ВСЕ копии карты в начале боя
+                        # Создаем список длиной равной количеству копий
+                        u.card_cooldowns[card_id] = [initial_cd] * count
 
         # === ВЫЗОВ ON_COMBAT_START ===
         l_team, r_team = get_teams()
@@ -569,14 +570,15 @@ def precalculate_interactions(team_left: list, team_right: list):
     update_ui_status(team_left, team_right)
     update_ui_status(team_right, team_left)
 
-def use_item_action(unit, card):
-    """
-    Мгновенно применяет эффект предмета.
-    """
 
-    current_cd = unit.card_cooldowns.get(card.id, 0)
-    if current_cd > 0:
-        st.toast(f"Предмет {card.name} на перезарядке ({current_cd} х.)!", icon="⏳")
+def use_item_action(unit, card):
+    # Проверка наличия доступных копий (дублирует UI, но для надежности)
+    cds = unit.card_cooldowns.get(card.id, [])
+    if isinstance(cds, int): cds = [cds]
+
+    deck_count = unit.deck.count(card.id)
+    if len(cds) >= deck_count:
+        st.toast(f"Все копии {card.name} на перезарядке!", icon="⏳")
         return
 
     msg = f"💊 **{unit.name}** uses **{card.name}**!"
@@ -590,7 +592,10 @@ def use_item_action(unit, card):
 
     cooldown = max(0, card.tier - 1)
     if cooldown > 0:
-        unit.card_cooldowns[card.id] = cooldown
+        if card.id not in unit.card_cooldowns:
+            unit.card_cooldowns[card.id] = []
+        # Добавляем 1 инстанс кулдауна
+        unit.card_cooldowns[card.id].append(cooldown)
         # Можно добавить лог про кд, если нужно, но обычно это визуально видно
         # item_logs.append(f"(Cooldown: {cooldown})")
     # Добавляем в общий лог боя

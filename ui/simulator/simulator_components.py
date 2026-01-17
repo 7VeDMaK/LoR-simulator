@@ -75,7 +75,7 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
     if not slot.get('locked'):
         if deck_ids:
-            # 1. Считаем, какие карты заняты в ДРУГИХ слотах
+            # 1. Считаем, какие карты заняты в ДРУГИХ слотах (которые мы выбираем прямо сейчас)
             used_in_others = Counter()
             for i, s in enumerate(unit.active_slots):
                 if i == slot_idx: continue  # Пропускаем текущий слот
@@ -86,18 +86,28 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
             unique_ids = sorted(list(set(deck_ids)))
 
             for cid in unique_ids:
-                # Проверка КД
-                if unit.card_cooldowns.get(cid, 0) > 0: continue
+                # --- [FIX START] ---
+                # Получаем количество копий в КД
+                cooldowns_list = unit.card_cooldowns.get(cid, [])
+                # Поддержка старого формата (на всякий случай)
+                if isinstance(cooldowns_list, int): cooldowns_list = [cooldowns_list]
 
-                # Проверка наличия свободных копий
+                # Количество копий на перезарядке
+                copies_on_cooldown = len(cooldowns_list)
+
+                # Общее количество этой карты в колоде
                 total_owned = deck_counts[cid]
+
+                # Сколько копий уже выбрано в других слотах в этом раунде
                 currently_used_elsewhere = used_in_others[cid]
 
-                # Если (Всего) > (Занято в других), значит одну можно взять сюда
-                if total_owned > currently_used_elsewhere:
+                # Формула доступности:
+                # (Всего) - (На перезарядке) - (Занято в соседнем слоте) > 0
+                if total_owned - copies_on_cooldown - currently_used_elsewhere > 0:
                     c_obj = Library.get_card(cid)
                     if c_obj and str(c_obj.card_type).lower() != "item":
                         available_cards.append(c_obj)
+                # --- [FIX END] ---
 
         else:
             # Режим отладки (нет колоды): показываем всю библиотеку без ограничений
@@ -421,29 +431,46 @@ def render_inventory(unit, unit_key):
             if card and str(card.card_type).lower() == "item":
                 inventory_cards.append(card)
 
+    deck_counts = Counter(unit.deck)
+
     if not inventory_cards: return
 
     with st.expander("🎒 Inventory (Consumables)", expanded=False):
-        # Разбиваем на колонки, чтобы было компактнее, если предметов много
+        # Используем set для уникальных карт, чтобы не рисовать 3 кнопки "Аптечка"
+        seen_items = set()
+
         for card in inventory_cards:
+            if card.id in seen_items: continue
+            seen_items.add(card.id)
+
             btn_key = f"use_item_{unit_key}_{card.id}"
             desc = card.description if card.description else "No description"
 
-            # Получаем текущий КД
-            cd_left = unit.card_cooldowns.get(card.id, 0)
+            # [FIX] Логика кулдауна предметов
+            cooldowns_list = unit.card_cooldowns.get(card.id, [])
+            if isinstance(cooldowns_list, int): cooldowns_list = [cooldowns_list]
 
-            if cd_left > 0:
-                # Кнопка отключена, показываем таймер
+            copies_on_cd = len(cooldowns_list)
+            total_copies = deck_counts[card.id]
+            available_copies = total_copies - copies_on_cd
+
+            if available_copies <= 0:
+                # Все копии в КД. Берем максимальный таймер для отображения
+                max_cd = max(cooldowns_list) if cooldowns_list else 0
                 st.button(
-                    f"⏳ {card.name} ({cd_left})",
+                    f"⏳ {card.name} ({max_cd})",
                     key=btn_key,
                     disabled=True,
                     use_container_width=True,
-                    help=f"{desc}\n\n(Перезарядка: {cd_left} х.)"
+                    help=f"{desc}\n\n(Все копии на перезарядке)"
                 )
             else:
-                # Кнопка активна
-                if st.button(f"💊 {card.name}", key=btn_key, help=desc, use_container_width=True):
+                # Есть доступные копии
+                label = f"💊 {card.name}"
+                if total_copies > 1:
+                    label += f" ({available_copies}/{total_copies})"
+
+                if st.button(label, key=btn_key, help=desc, use_container_width=True):
                     from ui.simulator.simulator_logic import use_item_action
                     use_item_action(unit, card)
                     st.rerun()

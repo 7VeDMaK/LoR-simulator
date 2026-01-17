@@ -147,11 +147,27 @@ class UnitCombatMixin:
         return False
 
     def tick_cooldowns(self):
-        # Очистка словарей в одну строку (Dict comprehension или list keys)
-        # Удаляем истекшие кулдауны
+        # Удаляем истекшие кулдауны способностей (обычные словари)
         self.cooldowns = {k: v - 1 for k, v in self.cooldowns.items() if v > 1}
         self.active_buffs = {k: v - 1 for k, v in self.active_buffs.items() if v > 1}
-        self.card_cooldowns = {k: v - 1 for k, v in self.card_cooldowns.items() if v > 1}
+
+        # === [FIX] ОБНОВЛЕННАЯ ЛОГИКА ДЛЯ СПИСКОВ КАРТ ===
+        new_card_cds = {}
+        if hasattr(self, 'card_cooldowns') and self.card_cooldowns:
+            for cid, timers in self.card_cooldowns.items():
+                # Если вдруг пришел int (старый формат), превращаем в список
+                if isinstance(timers, int):
+                    timers = [timers]
+
+                # Уменьшаем каждый таймер на 1, оставляем только те, что > 1
+                # (Если таймер стал 1, то в начале след раунда он станет 0, значит карта готова)
+                new_timers = [t - 1 for t in timers if t > 1]
+
+                if new_timers:
+                    new_card_cds[cid] = new_timers
+
+        self.card_cooldowns = new_card_cds
+        # =================================================
 
         if self.is_dead():
             self.active_buffs.clear()
