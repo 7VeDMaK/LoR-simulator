@@ -1,6 +1,8 @@
 import streamlit as st
 from collections import Counter
 from core.library import Library
+from core.enums import DiceType  # [NEW] Для проверки типов кубиков
+from logic.weapon_definitions import WEAPON_REGISTRY
 from ui.components import _format_script_text
 from ui.icons import get_icon_html
 from ui.styles import TYPE_COLORS
@@ -119,7 +121,7 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
             alive_enemies = [u for u in opposing_team if not u.is_dead()]
             has_taunt = any(u.get_status("taunt") > 0 for u in alive_enemies)
 
-            # [NEW] Проверяем, невидим ли сам юнит
+            # [FIX] Проверяем, невидим ли сам юнит
             am_i_invisible = unit.get_status("invisibility") > 0
 
             for t_idx, target_unit in enumerate(opposing_team):
@@ -127,13 +129,7 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
                 # --- ЛОГИКА НЕВИДИМОСТИ ---
                 is_target_invisible = target_unit.get_status("invisibility") > 0
-
-                # Старое условие:
-                # if target_unit.get_status("invisibility") > 0: continue
-
-                # Новое условие:
                 # Если цель невидима, мы можем ее видеть ТОЛЬКО если мы тоже невидимы.
-                # Если мы видимы (not am_i_invisible), а цель нет -> пропускаем.
                 if is_target_invisible and not am_i_invisible:
                     continue
                 # --------------------------
@@ -241,7 +237,8 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
             with c_opt1:
                 icon_aggro = get_icon_html("dice_slot", width=30)
-                st.markdown(f"<div style='text-align:center; height:30px;'>{icon_aggro}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='text-align:center; height:30px;'>{icon_aggro}</div>",
+                            unsafe_allow_html=True)
 
                 if slot.get('is_ally_target'):
                     c_opt1.checkbox("Aggro", value=False, disabled=True,
@@ -258,7 +255,8 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
             slot_destroy = slot.get('destroy_on_speed', True)
             with c_opt2:
                 icon_broken = get_icon_html("dice_broken", width=30)
-                st.markdown(f"<div style='text-align:center; height:30px;'>{icon_broken}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='text-align:center; height:30px;'>{icon_broken}</div>",
+                            unsafe_allow_html=True)
                 new_destroy = st.checkbox("Break", value=slot_destroy,
                                           key=f"{key_prefix}_{unit.name}_destroy_{slot_idx}",
                                           label_visibility="collapsed")
@@ -280,7 +278,61 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
                     dtype_key = d.dtype.name.lower()
                     if getattr(d, 'is_counter', False): dtype_key = f"counter_{dtype_key}"
                     icon_html = get_icon_html(dtype_key, width=20)
-                    dice_display.append(f"{icon_html} :{color}[**{d.min_val}-{d.max_val}**]")
+
+                    # === [NEW] РАСЧЕТ БОНУСА (Визуализация) ===
+                    bonus = 0
+                    mods = unit.modifiers
+
+                    # 1. Глобальный бонус (Power All)
+                    bonus += int(mods.get("power_all", {}).get("flat", 0))
+
+                    # 2. Бонусы в зависимости от типа кубика
+                    if d.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
+                        # Атрибуты (Сила) + Навыки (power_attack)
+                        bonus += int(mods.get("power_attack", {}).get("flat", 0))
+
+                        # Конкретный тип атаки (Slash/Pierce/Blunt)
+                        t_key = f"power_{d.dtype.name.lower()}"
+                        bonus += int(mods.get(t_key, {}).get("flat", 0))
+
+                        # Статусы
+                        bonus += unit.get_status("strength")
+                        bonus += unit.get_status("power_up")
+                        bonus -= unit.get_status("weakness")
+
+                        # Бонус от Оружия (тип)
+                        # Используем unit.defense.weapon_id
+                        wid = unit.weapon_id
+                        if wid and wid in WEAPON_REGISTRY:
+                            wtype = WEAPON_REGISTRY[wid].weapon_type
+                            if wtype:
+                                w_key = f"power_{wtype}"
+                                bonus += int(mods.get(w_key, {}).get("flat", 0))
+
+                    elif d.dtype == DiceType.BLOCK:
+                        # Атрибуты (Стойкость)
+                        bonus += int(mods.get("power_block", {}).get("flat", 0))
+                        # Статусы
+                        bonus += unit.get_status("endurance")
+                        bonus += unit.get_status("power_up")
+
+                    elif d.dtype == DiceType.EVADE:
+                        # Атрибуты (Ловкость/Акробатика)
+                        bonus += int(mods.get("power_evade", {}).get("flat", 0))
+                        # Статусы
+                        bonus += unit.get_status("endurance") # endurance часто дает защиту в целом
+                        bonus += unit.get_status("power_up")
+
+                    # Формирование строки бонуса
+                    bonus_str = ""
+                    if bonus > 0:
+                        bonus_str = f" :green[(+{bonus})]"
+                    elif bonus < 0:
+                        bonus_str = f" :red[({bonus})]"
+
+                    dice_display.append(f"{icon_html} :{color}[**{d.min_val}-{d.max_val}**]{bonus_str}")
+                    # ============================================
+
                 st.markdown(" ".join(dice_display), unsafe_allow_html=True)
 
             desc_text = []
