@@ -119,9 +119,25 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
             alive_enemies = [u for u in opposing_team if not u.is_dead()]
             has_taunt = any(u.get_status("taunt") > 0 for u in alive_enemies)
 
+            # [NEW] Проверяем, невидим ли сам юнит
+            am_i_invisible = unit.get_status("invisibility") > 0
+
             for t_idx, target_unit in enumerate(opposing_team):
                 if target_unit.is_dead(): continue
-                if target_unit.get_status("invisibility") > 0: continue
+
+                # --- ЛОГИКА НЕВИДИМОСТИ ---
+                is_target_invisible = target_unit.get_status("invisibility") > 0
+
+                # Старое условие:
+                # if target_unit.get_status("invisibility") > 0: continue
+
+                # Новое условие:
+                # Если цель невидима, мы можем ее видеть ТОЛЬКО если мы тоже невидимы.
+                # Если мы видимы (not am_i_invisible), а цель нет -> пропускаем.
+                if is_target_invisible and not am_i_invisible:
+                    continue
+                # --------------------------
+
                 if has_taunt and target_unit.get_status("taunt") <= 0: continue
 
                 for s_i, slot_obj in enumerate(target_unit.active_slots):

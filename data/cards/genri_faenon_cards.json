@@ -1,0 +1,418 @@
+{
+  "cards": [
+    {
+      "id": "open_veins",
+      "name": "Вскрыть вены",
+      "tier": 1,
+      "type": "melee",
+      "description": "Наносит множество мелких порезов.",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 3,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bleed",
+                  "stack": 2,
+                  "duration": 3,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 3,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bleed",
+                  "stack": 2,
+                  "duration": 3,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 3,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bleed",
+                  "stack": 1,
+                  "duration": 3,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "bloody_overture",
+      "name": "Кровавая увертюра",
+      "tier": 1,
+      "type": "melee",
+      "description": "Накладывает Кровотечение и Хрупкость.",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "bleed",
+              "stack": 3,
+              "duration": 3,
+              "target": "target"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 3,
+          "base_max": 6,
+          "scripts": {
+             "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "fragile",
+                  "stack": 1,
+                  "duration": 1,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 4,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "transfusion",
+      "name": "Гемотрансфузия",
+      "tier": 1,
+      "type": "melee",
+      "description": "Восстанавливает HP за счет крови врага.",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 10,
+          "base_max": 16,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "restore_resource",
+                "params": {
+                   "type": "hp",
+                   "base": 5,
+                   "target": "self"
+                }
+              },
+               {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bleed",
+                  "stack": 4,
+                  "duration": 3,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "masochism",
+      "name": "Мазохизм",
+      "tier": 2,
+      "type": "melee",
+      "description": "Наносит себе урон, чтобы получить Силу.",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 5,
+          "base_max": 11,
+          "scripts": {
+            "on_clash_win": [
+              {
+                "script_id": "restore_resource",
+                "params": {
+                  "type": "sp",
+                  "base": 3,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "evade",
+          "base_min": 4,
+          "base_max": 9,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 3,
+          "base_max": 7,
+          "scripts": {
+            "on_play": [
+               {
+                "script_id": "self_harm_percent",
+                "params": { "percent": 0.05 }
+               },
+               {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "strength",
+                  "stack": 2,
+                  "duration": 2,
+                  "target": "self"
+                }
+              }
+            ],
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bleed",
+                  "stack": 3,
+                  "duration": 2,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tendon_cut",
+      "name": "Подрезка сухожилий",
+      "tier": 2,
+      "type": "melee",
+      "description": "Сильно замедляет врага.",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 5,
+          "base_max": 8,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bind",
+                  "stack": 3,
+                  "duration": 3,
+                  "target": "target"
+                }
+              },
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bleed",
+                  "stack": 2,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "evade",
+          "base_min": 5,
+          "base_max": 10,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "blood_circulation",
+      "name": "Кровообращение",
+      "tier": 3,
+      "type": "melee",
+      "description": "Усиливает кровотечение.",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "bleed",
+              "stack": 10,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 3,
+          "base_max": 7,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 10,
+          "base_max": 12,
+          "scripts": {
+             "on_hit": [
+               {
+                 "script_id": "multiply_status",
+                 "params": {
+                   "status": "bleed",
+                   "multiplier": 1.5,
+                   "target": "target"
+                 }
+               }
+             ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "art_of_slaughter",
+      "name": "Искусство Резни",
+      "tier": 3,
+      "type": "melee",
+      "description": "Мощная серия атак.",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 9,
+          "base_max": 14
+        },
+        {
+          "type": "slash",
+          "base_min": 9,
+          "base_max": 14
+        },
+        {
+          "type": "pierce",
+          "base_min": 6,
+          "base_max": 10
+        }
+      ]
+    },
+    {
+      "id": "blood_mist",
+      "name": "Алый Туман",
+      "tier": 4,
+      "type": "Mass Summation",
+      "description": "Вызывает сильное кровотечение у всех врагов.",
+      "flags": ["offensive"],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 25,
+          "base_max": 35,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bleed",
+                  "stack": 15,
+                  "duration": 3,
+                  "target": "target"
+                }
+              },
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "vulnerability",
+                  "stack": 7,
+                  "duration": 3,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "crimson_trail",
+      "name": "Алый След",
+      "tier": 4,
+      "type": "melee",
+      "description": "Удваивает кровотечение на цели.",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 12,
+          "base_max": 20,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "multiply_status",
+                "params": {
+                  "status": "bleed",
+                  "multiplier": 2.0,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "evade",
+          "base_min": 10,
+          "base_max": 18,
+          "is_counter": true,
+          "scripts": {
+            "on_clash_win": [
+              {
+                "script_id": "restore_resource",
+                "params": {
+                   "type": "stagger",
+                   "base": 10,
+                   "target": "self"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

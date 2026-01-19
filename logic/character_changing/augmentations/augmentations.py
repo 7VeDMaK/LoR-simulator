@@ -70,10 +70,42 @@ class StrizhAugmentation(Augmentation):
         if log_func:
             log_func(f"⚡ **{unit.name}**: Экзоскелет активирует сервоприводы (Спешка +1).")
 
+
+# === [NEW] СТЕЛС-МОДУЛЬ "ПРИЗРАК" ===
+class AugStealthModule(Augmentation):
+    id = "aug_stealth_module"
+    name = "Стелс-модуль 'Призрак'"
+    description = (
+        "Система активного камуфляжа.\n"
+        "Эффект: +10 Скорости, +10 Акробатики (Уворот).\n"
+        "Аварийный режим: При HP <= 25% активирует Невидимость на 3 хода (1 раз за бой)."
+    )
+
+    def on_calculate_stats(self, unit) -> dict:
+        return {
+            "speed": 10,
+            "acrobatics": 10  # Навык, отвечающий за уворот
+        }
+
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        # Проверяем, срабатывал ли модуль в этом бою
+        if unit.memory.get("aug_stealth_triggered", False):
+            return
+
+        # Проверка порога здоровья (<= 25%)
+        # Используем current_hp, так как урон уже нанесен (обычно)
+        if unit.max_hp > 0 and (unit.current_hp / unit.max_hp) <= 0.25:
+            # Активируем невидимость
+            unit.add_status("invisibility", 1, duration=3)
+
+            # Ставим флаг срабатывания
+            unit.memory["aug_stealth_triggered"] = True
+
 # === РЕЕСТР ===
 AUGMENTATION_REGISTRY = {
     "aug_back_speed": AugBackSpeed(),
     "aug_blessing_of_wind": AugBlessingOfWind(),
     "aug_merchant_hysteria": AugMerchantHysteria(),
     "aug_strizh": StrizhAugmentation(),
+    "aug_stealth_module": AugStealthModule(),
 }

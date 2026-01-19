@@ -13,7 +13,11 @@ from logic.statuses.custom import (
 
 NEGATIVE_STATUSES = [
     "bleed", "paralysis", "fragile", "vulnerability", "burn",
-    "bind", "slow", "weakness", "lethargy", "wither", "tremor"
+    "bind", "slow", "weakness", "lethargy", "wither", "tremor",
+    "poison",       # Яд
+    "deep_wound",   # Глубокая рана
+    "slot_lock",    # Блокировка слота
+    "passive_lock"  # Блокировка пассивок (от Ганитара)
 ]
 
 # === РЕГИСТРАЦИЯ ===

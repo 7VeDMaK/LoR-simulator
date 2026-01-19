@@ -1,6 +1,7 @@
 from logic.character_changing.passives.asgick_passives import PassiveWitnessOfGroGoroth, PassivePovar, PassiveFoodLover, \
     PassiveDistortionGroGoroth
-from logic.character_changing.passives.equipment_passives import PassiveAnnihilator, PassiveBanganrang, PassiveGanitar, PassiveLimagun
+from logic.character_changing.passives.equipment_passives import PassiveAnnihilator, PassiveBanganrang, PassiveGanitar, \
+    PassiveLimagun, PassivePhantomRazors, PassiveCoagulation
 from logic.character_changing.passives.lilith_passives import PassiveHedonism, PassiveWagTail, PassiveBackstreetDemon, \
     PassiveDaughterOfBackstreets, PassiveLiveFastDieYoung
 from logic.character_changing.passives.lima_passives import PassiveAcceleratedLearning, TalentArtOfSelfDefense, \
@@ -38,5 +39,7 @@ PASSIVE_REGISTRY = {
 "food_lover": PassiveFoodLover(),
 "ship_of_theseus": PassiveShipOfTheseus(),
 "wild_cityscape": PassiveWildCityscape(),
-"distortionGroGoroth": PassiveDistortionGroGoroth()
+"distortionGroGoroth": PassiveDistortionGroGoroth(),
+"mech_phantom_razors": PassivePhantomRazors(),
+"coagulation": PassiveCoagulation(),
 }

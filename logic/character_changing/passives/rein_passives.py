@@ -66,9 +66,9 @@ class TalentRedLycoris(BasePassive):
             return False
 
         removed_list = []
-
         current_statuses = list(unit.statuses.keys())
         for status_id in current_statuses:
+            # УДАЛЯЕМ ТОЛЬКО ЕСЛИ ЭТО НЕГАТИВНЫЙ СТАТУС
             if status_id in NEGATIVE_STATUSES:
                 unit.remove_status(status_id)
                 removed_list.append(status_id)

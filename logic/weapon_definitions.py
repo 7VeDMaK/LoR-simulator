@@ -92,4 +92,14 @@ WEAPON_REGISTRY = {
         stats={},
         weapon_type="medium"
     ),
+
+    "phantom_razors": Weapon(
+        id="phantom_razors",
+        name="Фантомные Бритвы",
+        rank=5,
+        description="Нейротоксин. +2 к Рубящему, +2 ко всем броскам (включая уворот).\nПассивно: Паралич при ударе.\nАктивно: Уход в тень.",
+        # power_all дает +2 ко всему, power_slash добавляет еще +2 к рубящему (итого +4 к рубящему)
+        stats={"power_slash": 2, "power_all": 2},
+        weapon_type="light"
+    ),
 }

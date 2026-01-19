@@ -112,3 +112,58 @@ class PassiveLimagun(BasePassive):
             ctx.damage_multiplier += 6.66
             ctx.log.append("🚪 **ЛИМАГАН**: x6.66 Урона по Лиме!")
             logger.log(f"🚪 Limagun triggered: {ctx.source.name} vs {ctx.target.name}", LogLevel.NORMAL, "Passive")
+
+
+# === ФАНТОМНЫЕ БРИТВЫ ===
+class PassivePhantomRazors(BasePassive):
+    id = "mech_phantom_razors"
+    name = "Мех: Нейротоксин"
+    description = (
+        "Пассивно: При попадании накладывает 1 Паралич (3 хода).\n"
+        "Активно (КД 3): Следующий удар считается Внезапным (получение Невидимости)."
+    )
+    is_active_ability = True
+    cooldown = 3
+
+    def on_hit(self, ctx, **kwargs):
+        # Накладываем паралич при попадании любой атакой
+        if ctx.target and ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
+            # Паралич: 1 стак, длительность 3 раунда
+            ctx.target.add_status("paralysis", 1, duration=3)
+            ctx.log.append("🧪 **Нейротоксин**: Паралич наложен (3 хода).")
+            # Логгер для системы
+            if hasattr(logger, 'log'):
+                logger.log(f"🧪 Neurotoxin applied to {ctx.target.name}", LogLevel.VERBOSE, "Passive")
+
+    def activate(self, unit, log_func, **kwargs):
+        if unit.cooldowns.get(self.id, 0) > 0:
+            return False
+
+        # Даем невидимость. В системе (branch_9_shadow.py) Невидимость = Внезапная атака.
+        unit.add_status("invisibility", 1, duration=1)
+
+        unit.cooldowns[self.id] = self.cooldown
+
+        if log_func:
+            log_func(f"👻 **Фантомный удар**: Активирована маскировка! Следующая атака будет Внезапной.")
+
+        if hasattr(logger, 'log'):
+            logger.log(f"👻 Phantom Razors activated by {unit.name}", LogLevel.NORMAL, "Passive")
+
+        return True
+
+
+class PassiveCoagulation(BasePassive):
+    id = "coagulation"
+    name = "Свертываемость"
+    description = "Каждый ход накладывает Сопротивление к кровотечению (урон от Bleed -33%)."
+
+    def on_round_start(self, unit, log_func, **kwargs):
+        # Накладываем статус на 1 ход (обновляется каждый раунд)
+        unit.add_status("bleed_resist", 1, duration=1)
+
+        if log_func:
+            log_func(f"🩸 **{self.name}**: Кровь густеет (Resistance applied).")
+
+        if hasattr(logger, 'log'):
+            logger.log(f"🩸 Coagulation: Added bleed_resist to {unit.name}", LogLevel.VERBOSE, "Passive")
