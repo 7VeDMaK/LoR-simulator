@@ -104,6 +104,9 @@ class UnitData:
     modifiers: Dict[str, int] = field(default_factory=dict)
     memory: Dict[str, Any] = field(default_factory=dict)
 
+    death_count: int = 0  # Сколько раз уже возрождался (0, 1, 2...)
+    overkill_damage: int = 0  # Урон, ушедший в минус (для расчета сложности)
+
     def to_dict(self):
         return {
             "name": self.name, "level": self.level, "rank": self.rank, "avatar": self.avatar,
@@ -140,7 +143,9 @@ class UnitData:
             "active_buffs": self.active_buffs,
             "resources": self.resources,
             "biography": self.biography,
-            "money_log": self.money_log
+            "money_log": self.money_log,
+            "death_count": self.death_count,  # [NEW]
+            "overkill_damage": self.overkill_damage,  # [NEW]
         }
 
     @classmethod
@@ -194,6 +199,9 @@ class UnitData:
         u.hp_resists = Resistances.from_dict(defense.get("hp_resists", {}))
         u.stagger_resists = Resistances.from_dict(defense.get("stagger_resists", {}))
         u.weapon_id = defense.get("weapon_id", "none")
+
+        u.death_count = data.get("death_count", 0)  # [NEW]
+        u.overkill_damage = data.get("overkill_damage", 0)  # [NEW]
 
         # Словари данных
         if "attributes" in data: u.attributes.update(data["attributes"])

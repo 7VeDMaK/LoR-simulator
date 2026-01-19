@@ -2,6 +2,24 @@ from core.logging import logger, LogLevel
 from logic.calculations.formulas import get_modded_value
 
 
+def _check_death_threshold(unit, current_val, max_val, resource_name):
+    """
+    Проверяет, умер ли юнит, и записывает Overkill урон.
+    """
+    if current_val <= 0:
+        # Считаем оверкилл (абсолютное значение ухода в минус)
+        overkill = abs(current_val)
+
+        # Если юнит был жив (или это добивание), обновляем overkill
+        # Можно суммировать, если бьют труп, или перезаписывать.
+        # Обычно берется последний фатальный удар.
+        unit.overkill_damage = overkill
+
+        # Обнуляем для красивого UI (или оставляем 0)
+        return 0
+    return current_val
+
+
 def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_event_func):
     """
     Наносит урон (HP или Stagger), учитывая резисты, барьеры и защитные модификаторы.
@@ -94,11 +112,18 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
                 final_dmg -= absorbed
                 source_ctx.log.append(f"🛡️ Barrier -{absorbed}")
 
-            target.current_hp = max(0, target.current_hp - final_dmg)
+            # [MODIFIED] Применяем урон и проверяем смерть
+            new_hp = target.current_hp - final_dmg
+            target.current_hp = _check_death_threshold(target, new_hp, target.max_hp, "HP")
 
             formula_str = "".join(log_formula)
             hit_msg = f"💥 **{target.name}**: Hit {final_dmg} HP [{formula_str}]"
             if is_stag_hit: hit_msg += " (Staggered)"
+
+            # Если умерли, добавляем инфо про оверкилл
+            if target.current_hp == 0 and target.overkill_damage > 0:
+                hit_msg += f" (DEAD! Overkill: {target.overkill_damage})"
+
             source_ctx.log.append(hit_msg)
 
             # [CHANGE] VERBOSE -> MINIMAL
@@ -189,8 +214,16 @@ def apply_damage(attacker_ctx, defender_ctx, dmg_type="hp",
                 final_amt -= reduction
                 attacker_ctx.log.append(f"🧀 **Edam**: Blocked {reduction} SP dmg")
 
-            defender.take_sanity_damage(final_amt)
+            # [MODIFIED] Урон по SP (White Damage)
+            # В движке SP обычно управляется методами юнита, но здесь мы можем вмешаться
+            new_sp = defender.current_sp - final_amt
+            defender.current_sp = _check_death_threshold(defender, new_sp, defender.max_sp, "SP")
+
             attacker_ctx.log.append(f"🧠 **White Dmg**: {final_amt} SP")
+
+            if defender.current_sp == 0 and defender.overkill_damage > 0:
+                attacker_ctx.log.append(f"🤯 **PANIC/DEATH**: Overkill {defender.overkill_damage}")
+
             # [CHANGE] VERBOSE -> MINIMAL
             logger.log(f"🧠 {defender.name} took {final_amt} SP Damage (White)", LogLevel.MINIMAL, "Damage")
         else:

@@ -2,6 +2,8 @@ import streamlit as st
 
 # [NEW] Импорт логгера
 from core.logging import logger, LogLevel
+from logic.revival import render_death_overlay
+# Импортируем логику возрождения
 from ui.components import render_unit_stats
 # Импортируем логику симулятора
 from ui.simulator.components.simulator_components import render_slot_strip, render_active_abilities, render_inventory
@@ -178,11 +180,16 @@ def render_simulator_page():
                 # Активные способности и инвентарь
                 render_active_abilities(unit, f"l_abil_{i}")
                 render_inventory(unit, f"l_inv_{i}")
-
-                # Слоты (только если не стадия ролла)
                 if st.session_state['phase'] == 'planning':
                     st.divider()
-                    if unit.active_slots:
+
+                    # === [NEW] ПРОВЕРКА НА СМЕРТЬ ===
+                    # Если HP или SP <= 0 (и есть overkill), считаем его мертвым
+                    is_dead_mechanic = (unit.current_hp <= 0 or unit.current_sp <= 0 or unit.overkill_damage > 0)
+
+                    if is_dead_mechanic:
+                        render_death_overlay(unit, f"death_{i}_{unit.name}")
+                    elif unit.active_slots:
                         for s_i in range(len(unit.active_slots)):
                             render_slot_strip(unit, team_right, team_left, s_i, f"l_{i}")
                     else:
@@ -208,7 +215,13 @@ def render_simulator_page():
 
                 if st.session_state['phase'] == 'planning':
                     st.divider()
-                    if unit.active_slots:
+
+                    # === [NEW] ПРОВЕРКА НА СМЕРТЬ ===
+                    is_dead_mechanic = (unit.current_hp <= 0 or unit.current_sp <= 0 or unit.overkill_damage > 0)
+
+                    if is_dead_mechanic:
+                        render_death_overlay(unit, f"death_r_{i}_{unit.name}")
+                    elif unit.active_slots:
                         for s_i in range(len(unit.active_slots)):
                             render_slot_strip(unit, team_left, team_right, s_i, f"r_{i}")
                     else:

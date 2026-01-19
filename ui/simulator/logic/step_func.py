@@ -217,7 +217,9 @@ def reset_game():
         u._status_effects = {}
         u.delayed_queue = []
         u.active_slots = []
+        u.overkill_damage = 0
         u.stored_dice = []
+
 
     st.session_state['battle_logs'] = []
     st.session_state['script_logs'] = ""

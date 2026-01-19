@@ -29,11 +29,11 @@
         "series_normal_strikes_img",
         "not_the_limit_img"
     ],
-    "stored_dice": 0,
+    "stored_dice": [],
     "base_stats": {
         "current_hp": 200,
-        "current_sp": 192,
-        "current_stagger": 10
+        "current_sp": 202,
+        "current_stagger": 103
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -50,11 +50,7 @@
         },
         "weapon_id": "cleaver_7"
     },
-    "card_cooldowns": {
-        "warp_img": 1,
-        "series_normal_strikes_img": 1,
-        "not_the_limit_img": 1
-    },
+    "card_cooldowns": {},
     "attributes": {
         "strength": 5,
         "endurance": 22,
@@ -156,5 +152,7 @@
             "amount": 250000,
             "reason": "Собачка Макимы"
         }
-    ]
+    ],
+    "death_count": 0,
+    "overkill_damage": 0
 }
