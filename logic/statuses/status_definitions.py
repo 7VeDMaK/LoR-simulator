@@ -2,12 +2,12 @@
 from logic.statuses.common import (
     StrengthStatus, EnduranceStatus, BleedStatus, ParalysisStatus,
     ProtectionStatus, FragileStatus, VulnerabilityStatus, BarrierStatus, BindStatus, DeepWoundStatus, SlowStatus,
-    HasteStatus, BurnStatus
+    HasteStatus, BurnStatus, WeaknessStatus, StaggerResistStatus, DmgUpStatus, DmgDownStatus
 )
 from logic.statuses.custom import (
     SelfControlStatus, SmokeStatus, RedLycorisStatus, SinisterAuraStatus,
-    AdaptationStatus, BulletTimeStatus, ClarityStatus, WeaknessStatus, InvisibilityStatus, EnrageTrackerStatus,
-    SatietyStatus, MentalProtectionStatus, RegenGanacheStatus, BleedResistStatus, StaggerResistStatus,
+    AdaptationStatus, BulletTimeStatus, ClarityStatus,  InvisibilityStatus, EnrageTrackerStatus,
+    SatietyStatus, MentalProtectionStatus, RegenGanacheStatus, BleedResistStatus,
     IgnoreSatietyStatus, RevengeDmgUpStatus, TauntStatus, FanatMarkStatus
 )
 
@@ -52,5 +52,7 @@ STATUS_REGISTRY = {
     "haste": HasteStatus(),
     "slow": SlowStatus(),
 
-"fanat_mark":FanatMarkStatus()
+    "fanat_mark":FanatMarkStatus(),
+    "dmg_up":DmgUpStatus(),
+    "dmg_down":DmgDownStatus()
 }

@@ -102,7 +102,6 @@ def execute_single_action(engine, act, executed_slots):
 
         if slot_data.get('force_onesided'):
             is_clash = False
-        # Clash если: слот цели свободен, там есть карта, цель не в стане
         elif (tgt_id not in executed_slots) and \
                 target_slot.get('card') and \
                 not target.is_staggered():
@@ -122,8 +121,6 @@ def execute_single_action(engine, act, executed_slots):
         target.current_card = target_slot.get('card')
         spd_tgt = target_slot['speed']
         intent_tgt = target_slot.get('destroy_on_speed', True)
-
-        # Кулдаун Защитника (он тоже тратит карту)
         _apply_card_cooldown(target, target.current_card)
 
         logger.log(f"⚔️ Clash: {source.name} vs {target.name}", LogLevel.NORMAL, "Combat")
@@ -141,15 +138,11 @@ def execute_single_action(engine, act, executed_slots):
         p_label = "L" if act['is_left'] else "R"
 
         is_redirected = slot_data.get('force_onesided', False)
-
-        # Слот занят, если он в списке сыгранных ИЛИ атака перенаправлена
         is_target_busy = (tgt_id in executed_slots) or is_redirected
 
         spd_def_val = 0
         if target_slot:
             spd_def_val = target_slot['speed']
-            # [FIX] Явно устанавливаем карту цели для пассивной защиты
-            # Если слот не занят, берем карту из слота. Если занят - None.
             if not is_target_busy and not target.is_staggered():
                 target.current_card = target_slot.get('card')
             else:

@@ -9,24 +9,46 @@ from logic.statuses.base_status import StatusEffect
 
 class StrengthStatus(StatusEffect):
     id = "strength"
-    def on_roll(self, ctx: RollContext, stack: int):
+    def on_roll(self, ctx: RollContext, **kwargs):
+        stack = kwargs['stack']
         if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
             ctx.modify_power(stack, "Strength")
 
 class BindStatus(StatusEffect):
     id = "bind"
-    pass
+
+    def get_speed_dice_value_modifier(self, unit, stack=0) -> int:
+        if stack == 0: stack = unit.get_status(self.id)
+        return -stack
+
+class HasteStatus(StatusEffect):
+    id = "haste"
+    name = "Спешка"
+
+    def get_speed_dice_value_modifier(self, unit, stack=0) -> int:
+        if stack == 0: stack = unit.get_status(self.id)
+        return stack
+
+class SlowStatus(StatusEffect):
+    id = "slow"
+    name = "Замедление"
+
+    def get_speed_dice_value_modifier(self, unit, stack=0) -> int:
+        if stack == 0: stack = unit.get_status(self.id)
+        return -stack
 
 class EnduranceStatus(StatusEffect):
     id = "endurance"
-    def on_roll(self, ctx: RollContext, stack: int):
+    def on_roll(self, ctx: RollContext, **kwargs):
+        stack = kwargs['stack']
         if ctx.dice.dtype == DiceType.BLOCK or ctx.dice.dtype == DiceType.EVADE:
             ctx.modify_power(stack, "Endurance")
 
 class BleedStatus(StatusEffect):
     id = "bleed"
 
-    def on_hit(self, ctx: RollContext, stack: int):
+    def on_hit(self, ctx: RollContext, **kwargs):
+        stack = kwargs['stack']
         if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
             dmg = stack
 
@@ -50,32 +72,6 @@ class BleedStatus(StatusEffect):
                        LogLevel.MINIMAL, "Status")
 
 
-class ParalysisStatus(StatusEffect):
-    id = "paralysis"
-    def on_roll(self, ctx: RollContext, stack: int):
-        if ctx.dice:
-            diff = ctx.dice.min_val - ctx.base_value
-            if diff < 0:
-                ctx.modify_power(diff, "Paralysis (Min)")
-                logger.log(f"⚡ Paralysis: {ctx.source.name} roll reduced by {abs(diff)}", LogLevel.VERBOSE, "Status")
-            ctx.source.remove_status("paralysis", 1)
-
-class ProtectionStatus(StatusEffect):
-    id = "protection"
-    pass
-
-class FragileStatus(StatusEffect):
-    id = "fragile"
-    pass
-
-class VulnerabilityStatus(StatusEffect):
-    id = "vulnerability"
-    pass
-
-class BarrierStatus(StatusEffect):
-    id = "barrier"
-    pass
-
 class DeepWoundStatus(StatusEffect):
     id = "deep_wound"
     name = "Глубокая рана"
@@ -84,7 +80,8 @@ class DeepWoundStatus(StatusEffect):
         "При использовании Защиты (Block/Evade): Получает урон = стакам, затем накладывается столько же Кровотечения."
     )
 
-    def on_roll(self, ctx: RollContext, stack: int):
+    def on_roll(self, ctx: RollContext, **kwargs):
+        stack = kwargs['stack']
         if ctx.dice and ctx.dice.dtype in [DiceType.BLOCK, DiceType.EVADE]:
             dmg = stack
             if hasattr(ctx.source, "apply_mechanics_filter"):
@@ -104,20 +101,80 @@ class DeepWoundStatus(StatusEffect):
         return new_amount
 
 
-class HasteStatus(StatusEffect):
-    id = "haste"
-    name = "Спешка"
-    pass
+class ParalysisStatus(StatusEffect):
+    id = "paralysis"
+    def on_roll(self, ctx: RollContext, **kwargs):
+        diff = ctx.dice.min_val - ctx.base_value
+        if diff < 0:
+            ctx.modify_power(diff, "Paralysis (Min)")
+            logger.log(f"⚡ Paralysis: {ctx.source.name} roll reduced by {abs(diff)}", LogLevel.VERBOSE, "Status")
+        ctx.source.remove_status("paralysis", 1)
 
-class SlowStatus(StatusEffect):
-    id = "slow"
-    name = "Замедление"
-    pass
+
+class ProtectionStatus(StatusEffect):
+    id = "protection"
+
+    def modify_incoming_damage(self, unit, amount, damage_type, stack=0):
+        if damage_type == "hp":
+            if stack == 0: stack = unit.get_status(self.id)
+            return amount - stack
+        return amount
+
+
+class FragileStatus(StatusEffect):
+    id = "fragile"
+
+    def modify_incoming_damage(self, unit, amount, damage_type, stack=0):
+        if damage_type == "hp":
+            if stack == 0: stack = unit.get_status(self.id)
+            return amount + stack
+        return amount
+
+class WeaknessStatus(StatusEffect):
+    id = "weakness"
+
+    def modify_incoming_damage(self, unit, amount, damage_type, stack=0):
+        if damage_type == "hp":
+            if stack == 0: stack = unit.get_status(self.id)
+            return amount + stack
+        return amount
+
+class VulnerabilityStatus(StatusEffect):
+    id = "vulnerability"
+
+    def modify_incoming_damage(self, unit, amount, damage_type, stack=0):
+        if damage_type == "hp":
+            if stack == 0: stack = unit.get_status(self.id)
+            return amount + stack
+        return amount
+
+
+class BarrierStatus(StatusEffect):
+    id = "barrier"
+    name = "Барьер"
+
+    def absorb_damage(self, unit, amount, damage_type, stack=0, log_list=None):
+        # Если урона нет или барьера нет - ничего не делаем
+        if amount <= 0 or stack <= 0:
+            return amount
+
+        absorbed = min(stack, amount)
+
+        # Удаляем потраченные стаки барьера
+        unit.remove_status(self.id, absorbed)
+
+        if log_list is not None:
+            log_list.append(f"🛡️ Barrier -{absorbed}")
+
+        # Возвращаем остаток урона
+        return amount - absorbed
 
 class BurnStatus(StatusEffect):
     id = "burn"
 
-    def on_round_end(self, unit, log_func, stack: int = 0, **kwargs):
+    def on_round_end(self, unit, *args, **kwargs):
+        stack = kwargs['stack']
+        log_func = kwargs['log_func']
         if stack <= 0:
             return []
 
@@ -150,3 +207,33 @@ class BurnStatus(StatusEffect):
             msgs.append(f"🔥 Burn reduced: {stack} -> {new_stack}")
 
         return msgs
+
+class StaggerResistStatus(StatusEffect):
+    id = "stagger_resist"
+    name = "Stagger Resist"
+
+    def modify_incoming_damage(self, unit, amount, damage_type, stack=0):
+        if damage_type == "stagger":
+            return int(amount * 0.67)
+        return amount
+
+class DmgUpStatus(StatusEffect):
+    id = "dmg_up"
+    name = "Усиление урона"
+
+    def modify_outgoing_damage(self, unit, amount, damage_type, stack=0, log_list=None):
+        if stack == 0: stack = unit.get_status(self.id)
+        if stack > 0:
+            # log_list.append(f"⚔️ Dmg Up: +{stack}") # Опционально, если хотим видеть каждый бафф
+            return amount + stack
+        return amount
+
+class DmgDownStatus(StatusEffect):
+    id = "dmg_down"
+    name = "Ослабление урона"
+
+    def modify_outgoing_damage(self, unit, amount, damage_type, stack=0, log_list=None):
+        if stack == 0: stack = unit.get_status(self.id)
+        if stack > 0:
+            return amount - stack
+        return amount

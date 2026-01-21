@@ -59,26 +59,26 @@ class UnitCombatMixin:
 
         total_potential_slots = len(self.computed_speed_dice)
 
-        # Вычитаем штраф (минимум 1 кубик всегда остается, если не стан)
         slots_to_roll = max(1, total_potential_slots - slot_penalty)
 
-        # 1. Основные кубики (с учетом штрафа)
+        speed_modifier = 0
+        active_mechanics = list(self._iter_all_mechanics())
+
+        for effect in active_mechanics:
+            if hasattr(effect, "get_speed_dice_value_modifier"):
+                speed_modifier += effect.get_speed_dice_value_modifier(self)
+
         speed_rolls = []
         for i, (d_min, d_max) in enumerate(self.computed_speed_dice):
             if i >= slots_to_roll: break  # Пропускаем заблокированные слоты
 
-            mod = self.get_status("haste") - self.get_status("slow") - self.get_status("bind")
-            val = max(1, random.randint(int(d_min), int(d_max)) + mod)
+            val = max(1, random.randint(int(d_min), int(d_max)) + speed_modifier)
             self.active_slots.append({
                 'speed': val, 'card': None, 'target_slot': None, 'is_aggro': False
             })
             speed_rolls.append(val)
 
-        # 2. Бонусные слоты и Модификация слотов (Все в одном цикле!)
         extra_dice_count = 0
-
-        # Перебираем все механики ОДИН раз
-        active_mechanics = list(self._iter_all_mechanics())
 
         # А. Сбор бонусов к количеству кубиков
         for effect in active_mechanics:
@@ -96,10 +96,9 @@ class UnitCombatMixin:
             else:
                 d_min, d_max = self.base_speed_min, self.base_speed_max
 
-            mod = self.get_status("haste") - self.get_status("slow") - self.get_status("bind")
-
             for _ in range(extra_dice_count):
-                val = max(1, random.randint(d_min, d_max) + mod)
+                # [FIX] Используем тот же модификатор
+                val = max(1, random.randint(d_min, d_max) + speed_modifier)
                 self.active_slots.append({
                     'speed': val, 'card': None, 'target_slot': None,
                     'is_aggro': False, 'source_effect': 'Bonus 🌟'
@@ -107,9 +106,8 @@ class UnitCombatMixin:
                 speed_rolls.append(f"{val} (Bonus)")
 
         # [LOG] Итоговые роллы
-        logger.log(f"{self.name} speed rolls: {speed_rolls}", LogLevel.NORMAL, "Speed")
+        logger.log(f"{self.name} speed rolls: {speed_rolls} (Mod: {speed_modifier})", LogLevel.NORMAL, "Speed")
 
-        # 3. Модификация слотов (Замена хардкода Red Lycoris)
         for slot in self.active_slots:
             for effect in active_mechanics:
                 if hasattr(effect, "modify_active_slot"):

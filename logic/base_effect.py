@@ -48,6 +48,8 @@ class BaseEffect:
 
     def modify_clash_interaction_loser(self, ctx, interaction, winner_ctx): pass
 
+    def get_speed_dice_value_modifier(self, unit, stack=0) -> int: return 0
+
     def on_calculate_stats(self, unit, stack=0) -> dict: return {}
 
     def get_speed_dice_bonus(self, unit, stack=0) -> int: return 0
@@ -63,7 +65,7 @@ class BaseEffect:
     def modify_satiety_penalties(self, unit, penalties: dict, stack=0) -> dict:
         return penalties
 
-    def modify_incoming_damage(self, unit, amount: int, damage_type: str, stack=0) -> int:
+    def modify_incoming_damage(self, unit, amount: int, damage_type: str, stack=0, **kwargs) -> int:
         return amount
 
     def on_before_status_add(self, unit, status_id, amount, stack=0):
@@ -90,3 +92,17 @@ class BaseEffect:
     def prevents_stagger(self, unit, stack=0) -> bool: return False
 
     def prevents_surprise_attack(self, unit) -> bool: return False
+
+    def modify_resistance(self, unit, res: float, damage_type: str, dice=None, stack=0, log_list=None) -> float:
+        return res
+
+    def absorb_damage(self, unit, amount: int, damage_type: str, stack=0, log_list=None) -> int:
+        return amount
+
+    def prevents_damage(self, unit, attacker_ctx) -> bool:
+        return False
+
+    # [NEW] Хук для изменения исходящего урона (Dmg Up, Dmg Down, Passive Damage Boosts)
+    def modify_outgoing_damage(self, unit, amount: int, damage_type: str, stack=0, log_list=None) -> int:
+        return amount
+

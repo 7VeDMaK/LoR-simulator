@@ -59,6 +59,7 @@ class SmokeStatus(StatusEffect):
 
 class RedLycorisStatus(StatusEffect):
     id = "red_lycoris"
+    name = "Красный Ликорис" # Добавил имя для красивого лога
     prevents_stagger = True
     prevents_death = True
 
@@ -72,6 +73,10 @@ class RedLycorisStatus(StatusEffect):
 
     def on_round_end(self, unit, log_func, **kwargs):
         return []
+
+    # [NEW] Реализация иммунитета
+    def prevents_damage(self, unit, attacker_ctx) -> bool:
+        return True
 
 
 class SinisterAuraStatus(StatusEffect):
@@ -93,6 +98,30 @@ class AdaptationStatus(StatusEffect):
     id = "adaptation"
     name = "Адаптация"
     description = ("Адаптация - накапливаемое до четырёх уровней состояние...")
+
+    def on_round_start(self, unit, log_func, **kwargs):
+        current = unit.get_status("adaptation")
+        if current < 4:
+            unit.add_status("adaptation", 1, duration=99)
+            if log_func:
+                log_func(f"🧬 Адаптация: Рост -> Уровень {current + 1}")
+            logger.log(f"🧬 Adaptation: {unit.name} stack increased to {current + 1}", LogLevel.VERBOSE, "Passive")
+        else:
+            unit.add_status("adaptation", 0, duration=99)
+
+    # [NEW] Реализация логики защиты (пункт 4.3 из старого кода)
+    def modify_resistance(self, unit, res: float, damage_type: str, dice=None, stack=0, log_list=None) -> float:
+        # Проверяем, к какому типу мы адаптировались
+        active_type = unit.memory.get("adaptation_active_type")
+
+        # Если тип кубика совпадает с адаптацией -> Снижаем получаемый урон (резист * 0.75)
+        if active_type and dice and dice.dtype == active_type:
+            new_res = res * 0.75
+            if log_list is not None:
+                log_list.append(f"🧬 **Adaptation**: -25% Dmg vs {active_type.name}")
+            return new_res
+
+        return res
 
 
 class BulletTimeStatus(StatusEffect):
@@ -151,13 +180,6 @@ class InvisibilityStatus(StatusEffect):
         return ["👻 Невидимость рассеялась."]
 
 
-class WeaknessStatus(StatusEffect):
-    id = "weakness"
-
-    def on_round_end(self, unit, log_func, **kwargs):
-        unit.remove_status("weakness", 1)
-        return ["🔻 Слабость уменьшилась (-1)"]
-
 
 class MentalProtectionStatus(StatusEffect):
     id = "mental_protection"
@@ -201,11 +223,6 @@ class IgnoreSatietyStatus(StatusEffect):
     pass
 
 
-class StaggerResistStatus(StatusEffect):
-    id = "stagger_resist"
-    pass
-
-
 class BleedResistStatus(StatusEffect):
     id = "bleed_resist"
     pass
@@ -246,3 +263,25 @@ class FanatMarkStatus(StatusEffect):
     id = "fanat_mark"
     name = "Метка Фаната"
     description = "Цель получает +20 входящего урона от кубиков Фаната (через пассивку)."
+
+
+class MentalProtectionStatus(StatusEffect):
+    id = "mental_protection"
+    name = "Ментальная защита"
+
+    def modify_incoming_damage(self, unit, amount, damage_type, stack=0, log_list=None, **kwargs):
+        # Работаем только если тип урона 'sp' (конвертированный)
+        if damage_type == "sp":
+            if stack == 0: stack = unit.get_status(self.id)
+
+            if stack > 0:
+                # 25% за стак, макс 50%
+                pct_red = min(0.50, stack * 0.25)
+                reduction = int(amount * pct_red)
+
+                if reduction > 0:
+                    if log_list is not None:
+                        log_list.append(f"🧀 **Edam**: Blocked {reduction} SP dmg")
+
+                    return amount - reduction
+        return amount
