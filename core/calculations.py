@@ -11,7 +11,7 @@ from logic.calculations.formulas import (
     calculate_totals, apply_attribute_effects, apply_skill_effects,
     calculate_speed_dice, calculate_pools, finalize_state
 )
-
+    
 # [LOG] Импорт логгера
 from core.logging import logger, LogLevel
 
