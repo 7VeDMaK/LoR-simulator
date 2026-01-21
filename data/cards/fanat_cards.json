@@ -4,8 +4,8 @@
       "id": "fanat_branding",
       "name": "Клеймо Фаната",
       "tier": 1,
-      "type": "Melee",
-      "description": "Наносит Метку Фаната. Ваша пассивка дает +20 силы против меченых.",
+      "type": "Ranged",
+      "description": "Наносит Метку Фаната. Ваша пассивка дает +15 силы против меченых.",
       "flags": ["offensive"],
       "scripts": {
         "on_use": [
@@ -22,23 +22,10 @@
       },
       "dice": [
         {
-          "type": "slash",
-          "base_min": 4,
-          "base_max": 8,
-          "scripts": {}
-        },
-        {
           "type": "blunt",
-          "base_min": 5,
-          "base_max": 9,
-          "scripts": {
-             "on_hit": [
-               {
-                 "script_id": "apply_status",
-                 "params": { "status": "fragile", "base": 1, "target": "target" }
-               }
-             ]
-          }
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {}
         }
       ]
     },
@@ -53,25 +40,25 @@
         "on_use": [
           {
             "script_id": "apply_status",
-            "params": { "status": "protection", "base": 2, "duration": 1, "target": "self" }
+            "params": { "status": "protection", "base": 2, "duration": 2, "target": "self" }
           },
           {
             "script_id": "apply_status",
-            "params": { "status": "endurance", "base": 2, "duration": 1, "target": "self" }
+            "params": { "status": "endurance", "base": 2, "duration": 2, "target": "self" }
           }
         ]
       },
       "dice": [
         {
           "type": "block",
-          "base_min": 6,
-          "base_max": 10,
+          "base_min": 4,
+          "base_max": 4,
           "scripts": {}
         },
         {
           "type": "blunt",
-          "base_min": 4,
-          "base_max": 7,
+          "base_min": 1,
+          "base_max": 1,
           "scripts": {}
         }
       ]
@@ -87,18 +74,18 @@
       "dice": [
         {
           "type": "pierce",
-          "base_min": 4,
-          "base_max": 7
+          "base_min": 1,
+          "base_max": 4
         },
         {
           "type": "slash",
-          "base_min": 4,
-          "base_max": 7
+          "base_min": 2,
+          "base_max": 5
         },
         {
           "type": "blunt",
-          "base_min": 5,
-          "base_max": 9
+          "base_min": 3,
+          "base_max": 6
         }
       ]
     },
@@ -120,24 +107,14 @@
       "dice": [
         {
           "type": "block",
-          "base_min": 8,
-          "base_max": 14,
+          "base_min": 1,
+          "base_max": 7,
+          "is_counter": true,
           "scripts": {
             "on_clash_win": [
-               { "script_id": "restore_resource", "params": { "type": "stagger", "base": 100, "target": "self" } }
+               { "script_id": "restore_resource", "params": { "type": "stagger", "base": 40, "target": "self" } }
             ]
           }
-        },
-        {
-          "type": "block",
-          "base_min": 5,
-          "base_max": 9
-        },
-        {
-          "type": "blunt",
-          "base_min": 4,
-          "base_max": 8,
-          "is_counter": true
         }
       ]
     },
@@ -152,8 +129,8 @@
       "dice": [
         {
           "type": "blunt",
-          "base_min": 18,
-          "base_max": 25,
+          "base_min": 12,
+          "base_max": 16,
           "scripts": {
             "on_hit": [
               {
@@ -174,14 +151,10 @@
       "flags": ["offensive"],
       "scripts": {},
       "dice": [
-        { "type": "slash", "base_min": 5, "base_max": 9 },
-        { "type": "slash", "base_min": 5, "base_max": 9 },
-        { "type": "slash", "base_min": 5, "base_max": 9 },
-        { "type": "pierce", "base_min": 6, "base_max": 10,
-          "scripts": {
-             "on_hit": [{ "script_id": "apply_status", "params": { "status": "bleed", "base": 3, "target": "target" } }]
-          }
-        }
+        { "type": "slash", "base_min": 1, "base_max": 9 },
+        { "type": "slash", "base_min": 1, "base_max": 9 },
+        { "type": "slash", "base_min": 1, "base_max": 9 },
+        { "type": "pierce", "base_min": 1, "base_max": 10}
       ]
     },
     {
@@ -195,7 +168,7 @@
         "on_use": [
           {
             "script_id": "restore_resource",
-            "params": { "type": "hp", "base": -30, "target": "self" }
+            "params": { "type": "hp", "base": -75, "target": "self" }
           },
           {
             "script_id": "apply_status",
@@ -204,8 +177,8 @@
         ]
       },
       "dice": [
-        { "type": "blunt", "base_min": 10, "base_max": 20 },
-        { "type": "blunt", "base_min": 10, "base_max": 20 }
+        { "type": "blunt", "base_min": 1, "base_max": 7 },
+        { "type": "blunt", "base_min": 1, "base_max": 10 }
       ]
     },
     {
@@ -219,11 +192,7 @@
       "dice": [
         { "type": "slash", "base_min": 6, "base_max": 10 },
         { "type": "slash", "base_min": 6, "base_max": 10 },
-        { "type": "pierce", "base_min": 8, "base_max": 14,
-          "scripts": {
-             "on_hit": [{ "script_id": "apply_status", "params": { "status": "vulnerability", "base": 2, "target": "target" } }]
-          }
-        }
+        { "type": "pierce", "base_min": 6, "base_max": 10}
       ]
     }
   ]

@@ -52,7 +52,7 @@ def _calculate_resistance(target, source_ctx, dtype_name, dice_obj, log_list=Non
         stagger_mult = 2.0
         if hasattr(target, "apply_mechanics_filter"):
             stagger_mult = target.apply_mechanics_filter("modify_stagger_damage_multiplier", stagger_mult)
-        res *= stagger_mult
+        res = max(res, stagger_mult)
         is_stag_hit = True
 
     # 4. Defender Mechanics
@@ -182,7 +182,6 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
 
     initial_amount = amount
 
-    # 1. Incoming Filters (Protection, Fragile, Weakness...)
     if hasattr(target, "apply_mechanics_filter"):
         amount = target.apply_mechanics_filter("modify_incoming_damage", amount, damage_type=dmg_type)
 

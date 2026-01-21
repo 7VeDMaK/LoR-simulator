@@ -6,17 +6,17 @@
     "base_intellect": 29,
     "total_xp": 0,
     "pct_mods": {
-        "imp_hp": 99,
-        "imp_sp": 200,
+        "imp_hp": 50,
+        "imp_sp": 50,
         "imp_stg": 0,
         "tal_hp": 0,
         "tal_sp": 0,
         "tal_stg": 0
     },
     "flat_mods": {
-        "imp_hp": 133,
+        "imp_hp": 50,
         "imp_sp": 200,
-        "imp_stg": -300
+        "imp_stg": -100
     },
     "deck": [
         "fanat_branding",
@@ -38,9 +38,9 @@
     ],
     "stored_dice": [],
     "base_stats": {
-        "current_hp": 1009,
-        "current_sp": 868,
-        "current_stagger": 203
+        "current_hp": 526,
+        "current_sp": 370,
+        "current_stagger": 136
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -57,7 +57,14 @@
         },
         "weapon_id": "none"
     },
-    "card_cooldowns": {},
+    "card_cooldowns": {
+        "fanat_idols_voice": [
+            1
+        ],
+        "fanat_holy_crusade": [
+            3
+        ]
+    },
     "attributes": {
         "strength": 20,
         "endurance": 67,
@@ -85,7 +92,6 @@
     },
     "passives": [
         "fanat_unwavering",
-        "fanat_stagger_recovery",
         "fanat_anti_defense",
         "fanat_mark_hunter",
         "fanat_reflect"
@@ -141,7 +147,9 @@
         }
     },
     "cooldowns": {},
-    "active_buffs": {},
+    "active_buffs": {
+        "berserker_rage": 1
+    },
     "resources": {},
     "biography": "",
     "money_log": [
@@ -150,6 +158,6 @@
             "reason": "Счастливая монетка"
         }
     ],
-    "death_count": 0,
+    "death_count": 1,
     "overkill_damage": 0
 }

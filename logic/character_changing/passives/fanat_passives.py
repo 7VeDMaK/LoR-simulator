@@ -16,7 +16,7 @@ class PassiveFanatStaggerRecovery(BasePassive):
         # Если выдержка на нуле (или юнит считается в стаггере в начале раунда)
         if unit.current_stagger <= 0:
             # 1. Восстанавливаем HP
-            heal = 200
+            heal = 0
             unit.heal_hp(heal)
 
             # 2. Восстанавливаем Stagger до максимума
@@ -36,11 +36,11 @@ class PassiveFanatStaggerRecovery(BasePassive):
 class PassiveFanatAntiDefense(BasePassive):
     id = "fanat_anti_defense"
     name = "Пробивание защиты"
-    description = "Против кубиков: +10 к силе броска."
+    description = "Против кубиков: +5 к силе броска."
 
     def on_roll(self, ctx, **kwargs):
         # Проверяем наличие цели и её текущего кубика
-        ctx.modify_power(6, "Anti-Defense")
+        ctx.modify_power(5, "Anti-Defense")
         logger.log(f"👊 Anti-Defense triggered", LogLevel.VERBOSE, "Passive")
 
 
@@ -50,7 +50,7 @@ class PassiveFanatAntiDefense(BasePassive):
 class PassiveFanatMarkHunter(BasePassive):
     id = "fanat_mark_hunter"
     name = "Охота на меченых"
-    description = "Против целей с Меткой Фаната: +20 к силе броска."
+    description = "Против целей с Меткой Фаната: +15 к силе броска."
 
     def on_roll(self, ctx, **kwargs):
         target = ctx.target

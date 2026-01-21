@@ -29,10 +29,11 @@
         "furious_assault",
         "furious_assault"
     ],
+    "stored_dice": [],
     "base_stats": {
-        "current_hp": 116,
-        "current_sp": 60,
-        "current_stagger": 75
+        "current_hp": 181,
+        "current_sp": 182,
+        "current_stagger": 183
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -138,5 +139,7 @@
             "amount": 14460000,
             "reason": ""
         }
-    ]
+    ],
+    "death_count": 0,
+    "overkill_damage": 0
 }

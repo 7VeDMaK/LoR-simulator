@@ -273,7 +273,7 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
 
                 elif is_block_a and is_atk_d:
                     outcome = f"🛡️ Blocked"
-                    attacker.restore_stagger(val_a - val_d)
+                    attacker.take_stagger_damage(val_a - val_d)
                     consume_die_a_fn()
                     consume_die_d_fn()
 
@@ -309,7 +309,7 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
 
                 elif is_block_d and is_atk_a:
                     outcome = f"🛡️ Blocked"
-                    defender.restore_stagger(val_d - val_a)
+                    defender.take_stagger_damage(val_d - val_a)
                     consume_die_a_fn()
                     consume_die_d_fn()
 
