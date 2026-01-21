@@ -9,6 +9,7 @@ class Dice:
     max_val: int
     dtype: DiceType
     # === НОВЫЙ ФЛАГ ===
+    #sex
     is_counter: bool = False
     # ==================
     scripts: Dict[str, List[Dict]] = field(default_factory=dict)
