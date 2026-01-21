@@ -50,7 +50,8 @@
         "candy_fudge",
         "candy_waffles"
     ],
-    "stored_dice": 0,
+    "stored_dice": [],
+    "counter_dice": [],
     "base_stats": {
         "current_hp": 100,
         "current_sp": 91,
@@ -194,6 +195,18 @@
         {
             "amount": -900000000,
             "reason": ""
+        },
+        {
+            "amount": -15000000,
+            "reason": "ЛХ закупка + долги"
         }
-    ]
+    ],
+    "death_count": 0,
+    "overkill_damage": 0,
+    "_status_effects": {},
+    "delayed_queue": [],
+    "memory": {
+        "status_rank": "9 (Fixer)"
+    },
+    "active_slots": []
 }

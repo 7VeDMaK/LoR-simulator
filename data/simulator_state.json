@@ -345,7 +345,8 @@
           "hp": 115,
           "sp": 85,
           "stagger": 57
-        }
+        },
+        "mind_suppression_bonus": 15
       },
       "active_slots": []
     },
@@ -381,7 +382,29 @@
         "smoke_silhouette"
       ],
       "stored_dice": [],
-      "counter_dice": [],
+      "counter_dice": [
+        {
+          "type": "evade",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 5,
+          "base_max": 7,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 5,
+          "base_max": 7,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ],
       "base_stats": {
         "current_hp": 130,
         "current_sp": 77,
@@ -479,9 +502,7 @@
           "sp": 1
         }
       },
-      "cooldowns": {
-        "berserker_rage": 2
-      },
+      "cooldowns": {},
       "active_buffs": {},
       "resources": {},
       "biography": "",
@@ -500,7 +521,9 @@
           "hp": 130,
           "sp": 77,
           "stagger": 65
-        }
+        },
+        "smoke_is_defensive": true,
+        "smoke_limit_bonus": 5
       },
       "active_slots": []
     },
@@ -536,7 +559,29 @@
         "furious_assault"
       ],
       "stored_dice": [],
-      "counter_dice": [],
+      "counter_dice": [
+        {
+          "type": "block",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ],
       "base_stats": {
         "current_hp": 178,
         "current_sp": 65,
@@ -656,6 +701,11 @@
           "hp": 178,
           "sp": 65,
           "stagger": 90
+        },
+        "adaptation_stats": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0
         }
       },
       "active_slots": []
@@ -670,7 +720,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Roland",
+  "profile_unit": "Азгик2",
   "leveling_unit": "Roland",
   "tree_unit": "Roland",
   "checks_unit": "Roland"
