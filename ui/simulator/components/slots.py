@@ -170,7 +170,7 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
         selected_tgt_str = c_tgt.selectbox(
             "Target", target_options, index=idx_sel,
             key=f"{key_prefix}_{unit.name}_tgt_{slot_idx}", label_visibility="collapsed",
-            on_change=save_cb
+            on_change=st.session_state.get('save_callback')
         )
 
         if selected_tgt_str == "None":
@@ -215,7 +215,7 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
             new_card = c_sel.selectbox("Page", display_cards, format_func=format_card_option, index=c_idx,
                                        key=f"{key_prefix}_{unit.name}_card_{slot_idx}", label_visibility="collapsed",
-                                       on_change=save_cb)
+                                       on_change=st.session_state.get('save_callback'))
             slot['card'] = new_card
 
             # --- ОПЦИИ ---

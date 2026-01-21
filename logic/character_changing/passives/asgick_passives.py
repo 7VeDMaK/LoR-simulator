@@ -42,12 +42,12 @@ class PassiveWitnessOfGroGoroth(BasePassive):
 
     def on_combat_start(self, unit, log_func, **kwargs):
         allies = kwargs.get("allies", [])
-        # Оставляем только живых союзников, исключая себя
-        real_allies = [a for a in allies if a != unit]
-        unit.memory['cached_allies'] = real_allies
+        # Сохраняем ТОЛЬКО ИМЕНА (строки), а не объекты
+        real_allies_names = [a.name for a in allies if a != unit]
+        unit.memory['cached_allies_names'] = real_allies_names
 
         if log_func:
-            log_func(f"👁️ **{self.name}**: Тело изменено. Связь с {len(real_allies)} союзниками установлена.")
+            log_func(f"👁️ **{self.name}**: Тело изменено. Связь с {len(real_allies_names)} союзниками установлена.")
 
     def on_hit(self, ctx: RollContext):
         # +666% урона по Лиме и её родословной
@@ -58,34 +58,31 @@ class PassiveWitnessOfGroGoroth(BasePassive):
     def on_status_applied(self, unit, status_id, amount, duration=100, **kwargs):
         # Список распространяемых баффов
         POSITIVE_BUFFS = [
-            # Базовые характеристики
             "strength", "endurance", "haste", "protection", "barrier",
-            # Боевые модификаторы
             "dmg_up", "power_up", "clash_power_up", "revenge_dmg_up",
-            # Уникальные механики
             "self_control", "invisibility", "bullet_time", "adaptation", "clarity",
-            # Защитные и Регенерация
             "mental_protection", "stagger_resist", "bleed_resist", "regen_ganache", "ignore_satiety",
-            # Особые состояния
             "red_lycoris"
         ]
 
         if status_id in POSITIVE_BUFFS:
-            # Берем союзников из памяти (закэшированных в начале боя/раунда)
-            allies = unit.memory.get('cached_allies', [])
+            # Получаем имена из памяти
+            ally_names = unit.memory.get('cached_allies_names', [])
+            if not ally_names: return
 
-            if not allies:
-                return
+            # Импортируем streamlit для доступа к глобальным спискам команд
+            import streamlit as st
+            all_units = st.session_state.get('team_left', []) + st.session_state.get('team_right', [])
 
+            # Находим живые объекты по именам
             shared_names = []
-            for ally in allies:
-                if not ally.is_dead():
-                    # ВАЖНО: trigger_events=False предотвращает бесконечный цикл
-                    ally.add_status(status_id, amount, duration=duration, trigger_events=False)
-                    shared_names.append(ally.name)
+            for u in all_units:
+                if u.name in ally_names and not u.is_dead():
+                    u.add_status(status_id, amount, duration=duration, trigger_events=False)
+                    shared_names.append(u.name)
 
-            # [LOG] Логируем факт распространения (Verbose)
             if shared_names:
+                from core.logging import logger, LogLevel
                 logger.log(f"👁️ Witness: Shared {amount} {status_id} with {', '.join(shared_names)}", LogLevel.VERBOSE,
                            "Passive")
 

@@ -3,6 +3,8 @@ import json
 from dataclasses import dataclass, field
 from typing import List, Optional, Dict, Any, Tuple
 
+from core.dice import Dice
+
 try:
     from core.card import Card
 except ImportError:
@@ -67,7 +69,8 @@ class UnitData:
     active_slots: List[Dict] = field(default_factory=list)
     current_card: Optional['Card'] = None
 
-    stored_dice = []
+    stored_dice: List = field(default_factory=list)
+    counter_dice: List = field(default_factory=list)
 
     # === СИСТЕМА СПОСОБНОСТЕЙ ===
     cooldowns: Dict[str, int] = field(default_factory=dict)
@@ -121,7 +124,8 @@ class UnitData:
                 "imp_hp": self.implants_hp_flat, "imp_sp": self.implants_sp_flat, "imp_stg": self.implants_stagger_flat
             },
             "deck": self.deck,
-            "stored_dice": self.stored_dice,
+            "stored_dice": [d.to_dict() for d in self.stored_dice],
+            "counter_dice": [d.to_dict() for d in self.counter_dice],
             "base_stats": {
                 "current_hp": self.current_hp, "current_sp": self.current_sp,
                 "current_stagger": self.current_stagger
@@ -146,8 +150,11 @@ class UnitData:
             "money_log": self.money_log,
             "death_count": self.death_count,  # [NEW]
             "overkill_damage": self.overkill_damage,  # [NEW]
-            "active_slots": [self._serialize_slot(s) for s in self.active_slots],
-            "memory": self.memory
+            # === [FIX] СОХРАНЕНИЕ СТАТУСОВ И ПАМЯТИ ===
+            "_status_effects": self._status_effects, # Основные статусы (Bleed, Strength...)
+            "delayed_queue": self.delayed_queue,     # Отложенные статусы
+            "memory": self.memory,                   # Память талантов
+            "active_slots": [self._serialize_slot(s) for s in self.active_slots] # Слоты с картами
         }
 
     @classmethod
@@ -162,7 +169,22 @@ class UnitData:
         u.avatar = data.get("avatar", None)
         u.base_intellect = data.get("base_intellect", 1)
         u.total_xp = data.get("total_xp", 0)
-        u.stored_dice = data.get("stored_dice", 0)
+
+        from core.dice import Dice
+
+        raw_stored = data.get("stored_dice", [])
+        u.stored_dice = []
+        for d_data in raw_stored:
+            if isinstance(d_data, dict):
+                u.stored_dice.append(Dice.from_dict(d_data))
+
+        raw_counter = data.get("counter_dice", [])
+        u.counter_dice = []
+        for d_data in raw_counter:
+            if isinstance(d_data, dict):
+                u.counter_dice.append(Dice.from_dict(d_data))
+
+
         u.biography = data.get("biography", "")
         u.money_log = data.get("money_log", [])
 
@@ -184,9 +206,6 @@ class UnitData:
         u.implants_stagger_flat = flat.get("imp_stg", 0)
 
         u.card_cooldowns = data.get("card_cooldowns", {})
-
-        raw_slots = data.get("active_slots", [])
-        u.active_slots = [cls._deserialize_slot(s) for s in raw_slots]
 
         # Текущее состояние
         base = data.get("base_stats", {})
@@ -222,27 +241,42 @@ class UnitData:
         u.cooldowns = data.get("cooldowns", {})
         u.active_buffs = data.get("active_buffs", {})
 
+        u._status_effects = data.get("_status_effects", {})
+        u.delayed_queue = data.get("delayed_queue", [])
         u.memory = data.get("memory", {})
+
+        raw_slots = data.get("active_slots", [])
+        if raw_slots:
+            u.active_slots = [cls._deserialize_slot(s) for s in raw_slots]
+
+
 
         return u
 
     def _serialize_slot(self, slot):
-        """Превращает слот (с объектом карты) в словарь для JSON."""
+        """Превращает объект карты в ID для сохранения."""
         s_copy = slot.copy()
-        if s_copy.get('card'):
-            # Сохраняем только ID карты, чтобы не дублировать данные
-            s_copy['card'] = s_copy['card'].id
+        card_obj = s_copy.get('card')
+        # Если в слоте есть объект Карты, сохраняем только его ID
+        if card_obj and hasattr(card_obj, 'id'):
+            s_copy['card'] = card_obj.id
+        elif card_obj:
+            # Если там что-то странное, обнуляем
+            s_copy['card'] = None
         return s_copy
 
     @classmethod
     def _deserialize_slot(cls, slot_data):
         """Восстанавливает объект карты из ID."""
-        from core.library import Library  # Импорт внутри метода во избежание циклов
-        if slot_data.get('card') and isinstance(slot_data['card'], str):
-            found_card = Library.get_card(slot_data['card'])
+        # Локальный импорт, чтобы избежать ошибок циклического импорта
+        from core.library import Library
+
+        card_val = slot_data.get('card')
+        # Если в данных лежит строка (ID), загружаем объект из библиотеки
+        if card_val and isinstance(card_val, str):
+            found_card = Library.get_card(card_val)
             if found_card.id != "unknown":
                 slot_data['card'] = found_card
             else:
-                # Если карта удалена/не найдена, ставим None
                 slot_data['card'] = None
         return slot_data

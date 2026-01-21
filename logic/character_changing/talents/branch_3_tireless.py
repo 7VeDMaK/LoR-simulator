@@ -249,50 +249,46 @@ class TalentAdaptationTireless(BasePassive):
     is_active_ability = False
 
     def on_round_start(self, unit, log_func, **kwargs):
+        # ИСПОЛЬЗУЕМ СТРОКИ ВМЕСТО DiceType
         unit.memory["adaptation_stats"] = {
-            DiceType.SLASH: 0,
-            DiceType.PIERCE: 0,
-            DiceType.BLUNT: 0
+            "slash": 0,
+            "pierce": 0,
+            "blunt": 0
         }
 
         # Лог для игрока, к чему мы адаптированы сейчас
-        active_type = unit.memory.get("adaptation_active_type")
-        if active_type and log_func:
-            log_func(f"🧬 **{self.name}**: Активна защита от {active_type.name} (-25% урона).")
-            logger.log(f"🧬 Adaptation: Active resistance to {active_type.name} for {unit.name}", LogLevel.VERBOSE,
-                       "Talent")
+        active_type_str = unit.memory.get("adaptation_active_type")
 
-    def modify_incoming_damage(self, unit, amount: int, damage_type, **kwargs) -> int:
-        """
-        Специальный хук для изменения входящего урона ПЕРЕД его нанесением.
-        """
-        # Проверяем, есть ли активная адаптация с прошлого раунда
-        active_type = unit.memory.get("adaptation_active_type")
-
-        if active_type and damage_type == active_type and amount > 0:
-            # Снижаем урон на 25%
-            new_amount = int(amount * 0.75)
-            # (Опционально можно вывести лог, если передается log_func, но в modify_ обычно тихо)
-            logger.log(f"🧬 Adaptation reduced damage: {amount} -> {new_amount}", LogLevel.VERBOSE, "Talent")
-            return new_amount
-
-        return amount
+        # Превращаем строку обратно в Enum для красивого вывода имени (если нужно) или просто используем строку
+        if active_type_str and log_func:
+            # Для красивого лога делаем первую букву заглавной
+            type_name = active_type_str.capitalize()
+            log_func(f"🧬 **{self.name}**: Активна защита от {type_name} (-25% урона).")
+            # [LOG]
+            # logger.log не обязателен тут, если вы не используете глобальный логгер внутри этого метода
 
     def on_take_damage(self, unit, amount, source, **kwargs):
         """
-        Считаем полученный урон для статистики (чтобы выбрать адаптацию на СЛЕДУЮЩИЙ раунд).
+        Считаем полученный урон для статистики.
         """
-        damage_type = kwargs.get("damage_type")
+        damage_type = kwargs.get("damage_type")  # Это уже приходит как строка ("slash", "pierce"...)
+
         if amount > 0 and damage_type:
             stats = unit.memory.get("adaptation_stats")
-            # Если по какой-то причине stats нет (первый удар в бою до старта раунда), создаем
+            # Если stats нет, создаем со строковыми ключами
             if not stats:
-                stats = {DiceType.SLASH: 0, DiceType.PIERCE: 0, DiceType.BLUNT: 0}
+                stats = {"slash": 0, "pierce": 0, "blunt": 0}
                 unit.memory["adaptation_stats"] = stats
 
-            # Записываем урон в соответствующую категорию
-            if damage_type in stats:
-                stats[damage_type] += amount
+            # Приводим к строке и нижнему регистру для надежности
+            dtype_key = str(damage_type).lower()
+
+            # Обработка случая, если damage_type вдруг пришел как Enum (на всякий случай)
+            if hasattr(damage_type, 'name'):
+                dtype_key = damage_type.name.lower()
+
+            if dtype_key in stats:
+                stats[dtype_key] += amount
 
     def on_round_end(self, unit, log_func, **kwargs):
         """
@@ -309,13 +305,11 @@ class TalentAdaptationTireless(BasePassive):
                 max_dmg = val
                 best_type = dtype
 
-        # Сохраняем результат для следующего раунда
+        # Сохраняем результат (строку)
         if best_type:
             unit.memory["adaptation_active_type"] = best_type
             if log_func:
-                log_func(f"🧬 **{self.name}**: Организм перестроился! Адаптация к {best_type.name}.")
-            logger.log(f"🧬 Adaptation: New resistance type is {best_type.name} (took {max_dmg} dmg)", LogLevel.NORMAL,
-                       "Talent")
+                log_func(f"🧬 **{self.name}**: Организм перестроился! Адаптация к {best_type.capitalize()}.")
 
 
 # ==========================================
@@ -390,14 +384,17 @@ class TalentSurvivor(BasePassive):
                 logger.log(f"❤️ Survivor: Critical HP regen +{actual} HP for {unit.name}", LogLevel.NORMAL, "Talent")
 
     def modify_incoming_damage(self, unit, amount: int, damage_type, **kwargs) -> int:
-        """
-        Сохраняем снижение урона от Кровотечения.
-        """
-        dtype_str = str(damage_type).lower()
-        if dtype_str == "bleed":
-            new_amount = int(amount * 0.67)
-            logger.log(f"❤️ Survivor: Reduced Bleed damage {amount} -> {new_amount}", LogLevel.VERBOSE, "Talent")
-            return new_amount  # -33%
+        active_type = unit.memory.get("adaptation_active_type")  # Это теперь строка
+
+        # Приводим входящий тип к строке
+        incoming_type_str = str(damage_type).lower()
+        if hasattr(damage_type, 'name'):
+            incoming_type_str = damage_type.name.lower()
+
+        if active_type and incoming_type_str == active_type and amount > 0:
+            new_amount = int(amount * 0.75)
+            return new_amount
+
         return amount
 
     def on_skill_check(self, unit, skill_name: str, ctx):

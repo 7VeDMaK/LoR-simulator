@@ -3,7 +3,7 @@
     "level": 29,
     "rank": 5,
     "avatar": "data/avatars/ФанатBA.png",
-    "base_intellect": 29,
+    "base_intellect": 3,
     "total_xp": 0,
     "pct_mods": {
         "imp_hp": 50,
@@ -37,10 +37,11 @@
         "tea_coffee"
     ],
     "stored_dice": [],
+    "counter_dice": [],
     "base_stats": {
-        "current_hp": 526,
-        "current_sp": 370,
-        "current_stagger": 136
+        "current_hp": 635,
+        "current_sp": 444,
+        "current_stagger": 217
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -159,5 +160,11 @@
         }
     ],
     "death_count": 1,
-    "overkill_damage": 0
+    "overkill_damage": 0,
+    "_status_effects": {},
+    "delayed_queue": [],
+    "memory": {
+        "status_rank": "9 (Fixer)"
+    },
+    "active_slots": []
 }

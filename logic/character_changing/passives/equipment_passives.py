@@ -59,40 +59,39 @@ class PassiveGanitar(BasePassive):
     cooldown = 99
 
     def on_combat_start(self, unit, log_func, **kwargs):
-        # 1. Запоминаем список врагов в начале боя
         enemies = kwargs.get("enemies", [])
         if not enemies:
-            # Фолбек, если список не пришел (например в старых версиях движка)
             op = kwargs.get("opponent")
             if op: enemies = [op]
 
-        # Сохраняем в память юнита, чтобы кнопка Activate могла их достать
-        unit.memory['cached_enemies'] = enemies
+        # Сохраняем ИМЕНА
+        unit.memory['cached_enemies_names'] = [e.name for e in enemies]
 
     def activate(self, unit, log_func, **kwargs):
         if unit.cooldowns.get(self.id, 0) > 0: return False
 
-        # Достаем врагов из памяти
-        enemies = unit.memory.get('cached_enemies', [])
-
-        if not enemies:
-            if log_func: log_func("❌ Ганитар: Цели не найдены.")
+        enemy_names = unit.memory.get('cached_enemies_names', [])
+        if not enemy_names:
+            if log_func: log_func("❌ Ганитар: Цели не найдены в памяти.")
             return False
+
+        import streamlit as st
+        all_units = st.session_state.get('team_left', []) + st.session_state.get('team_right', [])
 
         count = 0
         names = []
-        for enemy in enemies:
-            if not enemy.is_dead():
-                # Накладываем статус блокировки
-                enemy.add_status("passive_lock", 1, duration=99)
+        for u in all_units:
+            if u.name in enemy_names and not u.is_dead():
+                u.add_status("passive_lock", 1, duration=99)
                 count += 1
-                names.append(enemy.name)
+                names.append(u.name)
 
         unit.cooldowns[self.id] = self.cooldown
 
         if log_func:
             log_func(f"📿 **Ганитар**: Активирован! Пассивки отключены у {count} врагов.")
 
+        from core.logging import logger, LogLevel
         logger.log(f"📿 Ganitar activated by {unit.name}. Targets: {', '.join(names)}", LogLevel.NORMAL, "Passive")
         return True
 
