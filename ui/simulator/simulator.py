@@ -3,6 +3,7 @@ import streamlit as st
 # [NEW] Импорт логгера
 from core.logging import logger, LogLevel
 from logic.revival import render_death_overlay
+from logic.state_manager import StateManager
 # Импортируем логику возрождения
 from ui.components import render_unit_stats
 # Импортируем логику симулятора
@@ -16,6 +17,8 @@ def render_simulator_page():
     # Инициализация фазы
     if 'phase' not in st.session_state: st.session_state['phase'] = 'roll'
     if 'round_number' not in st.session_state: st.session_state['round_number'] = 1
+
+    if 'undo_stack' not in st.session_state: st.session_state['undo_stack'] = []
 
     # === CSS СТИЛИ ДЛЯ ЛОГОВ И СЧЕТЧИКА ===
     st.markdown(f"""
@@ -87,11 +90,27 @@ def render_simulator_page():
         st.divider()
         st.subheader("⚙️ Управление боем")
 
-        # Кнопка сброса
-        if st.button("🔄 Сброс Боя (Reset)", type="secondary", width='stretch'):
-            reset_game()
-            logger.clear()  # Очищаем системный лог
-            st.rerun()
+        c_reset, c_undo = st.columns(2)
+
+        with c_reset:
+            # Кнопка сброса
+            if st.button("🔄 Сброс", type="secondary", width='stretch', help="Полный сброс боя"):
+                reset_game()
+                logger.clear()
+                st.rerun()
+
+        with c_undo:
+            # [UNDO] Кнопка отката
+            has_history = len(st.session_state.get('undo_stack', [])) > 0
+            if st.button("↩️ Откат", type="secondary", width='stretch', disabled=not has_history,
+                         help="Вернуться на 1 раунд назад"):
+                if has_history:
+                    # Достаем последний снимок
+                    snapshot = st.session_state['undo_stack'].pop()
+                    # Восстанавливаем состояние
+                    StateManager.restore_state_from_snapshot(st.session_state, snapshot)
+                    st.toast("Вернулись в прошлое! 🕰️")
+                    st.rerun()
 
         st.divider()
 

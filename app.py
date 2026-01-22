@@ -18,6 +18,60 @@ from ui.tree_view import render_skill_tree_page
 # Применяем стили
 apply_styles()
 
+# --- 0. МЕНЕДЖЕР СТЕЙТОВ (ВЫБОР ФАЙЛА) ---
+st.sidebar.title("Navigation")
+
+# Инициализация переменной текущего файла
+if "current_state_file" not in st.session_state:
+    st.session_state["current_state_file"] = "default"
+
+with st.sidebar.expander("💾 Менеджер Сейвов", expanded=False):
+    # 1. Список доступных сейвов
+    available_states = StateManager.get_available_states()
+    if not available_states:
+        available_states = ["default"]
+
+    # Индекс текущего файла в списке
+    curr_idx = 0
+    if st.session_state["current_state_file"] in available_states:
+        curr_idx = available_states.index(st.session_state["current_state_file"])
+
+    # 2. Селектор для выбора файла загрузки
+    selected_state = st.selectbox(
+        "Текущий файл:",
+        available_states,
+        index=curr_idx,
+        key="state_file_selector"
+    )
+
+    # Если пользователь сменил файл в селекторе -> Перезагружаем приложение с новыми данными
+    if selected_state != st.session_state["current_state_file"]:
+        st.session_state["current_state_file"] = selected_state
+        # Сбрасываем флаг загрузки, чтобы блок init (ниже) загрузил данные из нового файла
+        st.session_state['teams_loaded'] = False
+        st.rerun()
+
+    # 3. Создание нового сейва
+    new_state_name = st.text_input("Новое сохранение", placeholder="Название...")
+    if st.button("➕ Создать", key="create_state_btn"):
+        if new_state_name and new_state_name not in available_states:
+            if StateManager.create_new_state(new_state_name):
+                st.session_state["current_state_file"] = new_state_name
+                st.session_state['teams_loaded'] = False  # Загружаем "чистый" стейт
+                st.rerun()
+        elif new_state_name in available_states:
+            st.error("Такое имя уже есть!")
+
+    # 4. Удаление текущего сейва (кроме default)
+    if st.session_state["current_state_file"] != "default":
+        if st.button("🗑️ Удалить текущий", type="primary"):
+            StateManager.delete_state(st.session_state["current_state_file"])
+            st.session_state["current_state_file"] = "default"
+            st.session_state['teams_loaded'] = False
+            st.rerun()
+
+st.sidebar.divider()
+
 # --- 1. ИНИЦИАЛИЗАЦИЯ РОСТЕРА ---
 if 'roster' not in st.session_state:
     st.session_state['roster'] = UnitLibrary.load_all() or {"Roland": Unit("Roland")}
@@ -29,19 +83,24 @@ if not roster_keys: st.stop()
 # --- 2. ФУНКЦИЯ СОХРАНЕНИЯ (CALLBACK) ---
 def update_and_save_state():
     """
-    Сохраняет полное состояние сессии через StateManager.
+    Сохраняет полное состояние сессии через StateManager в ТЕКУЩИЙ ВЫБРАННЫЙ файл.
     Вызывается при любом изменении в UI (on_change).
     """
-    StateManager.save_state(st.session_state)
+    current_file = st.session_state.get("current_state_file", "default")
+    StateManager.save_state(st.session_state, filename=current_file)
 
 
 if 'save_callback' not in st.session_state:
     st.session_state['save_callback'] = update_and_save_state
 
 # --- 3. ЗАГРУЗКА СОСТОЯНИЯ (RESTORE) ---
-if 'teams_loaded' not in st.session_state:
-    # 1. Загружаем сырые данные из JSON
-    saved_data = StateManager.load_state()
+# Загружаем, если это первый запуск ИЛИ если мы принудительно сбросили флаг (при смене файла)
+if 'teams_loaded' not in st.session_state or not st.session_state['teams_loaded']:
+
+    current_file = st.session_state.get("current_state_file", "default")
+
+    # 1. Загружаем сырые данные из ВЫБРАННОГО JSON файла
+    saved_data = StateManager.load_state(filename=current_file)
 
     # 2. Восстанавливаем команды (Юниты + их слоты/статусы/карты)
     l_data = saved_data.get("team_left_data", [])
@@ -86,7 +145,6 @@ if 'teams_loaded' not in st.session_state:
         st.session_state['executed_slots'].add(tuple(item))  # (name, idx)
 
     # 4. Восстанавливаем Очередь Действий (Actions)
-    # Это самое важное для продолжения боя после перезагрузки страницы
     raw_actions = saved_data.get('turn_actions', [])
     if raw_actions:
         st.session_state['turn_actions'] = StateManager.restore_actions(
@@ -113,10 +171,11 @@ if 'teams_loaded' not in st.session_state:
     # Восстанавливаем навигацию
     st.session_state['nav_page'] = saved_data.get("page", "⚔️ Simulator")
 
+    # Ставим флаг, что загрузка завершена для текущей сессии
     st.session_state['teams_loaded'] = True
 
 # --- 4. ОТРИСОВКА ИНТЕРФЕЙСА ---
-st.sidebar.title("Navigation")
+# (навигация была выше, в сайдбаре)
 
 pages = ["⚔️ Simulator", "👤 Profile", "🌳 Skill Tree", "📈 Leveling", "🛠️ Card Editor", "🎲 Checks", "📚 Cheat Sheet"]
 
