@@ -102,11 +102,76 @@ if 'teams_loaded' not in st.session_state or not st.session_state['teams_loaded'
     # 1. Загружаем сырые данные из ВЫБРАННОГО JSON файла
     saved_data = StateManager.load_state(filename=current_file)
 
-    # 2. Восстанавливаем состояние через менеджер
-    # (Менеджер сам обновит st.session_state, включая команды и логи)
-    StateManager.restore_state_from_snapshot(st.session_state, saved_data)
+    # 2. Восстанавливаем команды (Юниты + их слоты/статусы/карты)
+    l_data = saved_data.get("team_left_data", [])
+    r_data = saved_data.get("team_right_data", [])
 
-    # Флаг ставится внутри метода restore, но для надежности:
+    team_left = []
+    for d in l_data:
+        try:
+            u = Unit.from_dict(d)
+            team_left.append(u)
+        except Exception as e:
+            print(f"Error loading left unit: {e}")
+
+    team_right = []
+    for d in r_data:
+        try:
+            u = Unit.from_dict(d)
+            team_right.append(u)
+        except Exception as e:
+            print(f"Error loading right unit: {e}")
+
+    # Обязательный пересчет статов после загрузки
+    for u in team_left + team_right:
+        u.recalculate_stats()
+
+    st.session_state['team_left'] = team_left
+    st.session_state['team_right'] = team_right
+
+    # 3. Восстанавливаем глобальные переменные боя
+    st.session_state['phase'] = saved_data.get('phase', 'roll')
+    st.session_state['round_number'] = saved_data.get('round_number', 1)
+    st.session_state['turn_message'] = saved_data.get('turn_message', "")
+    st.session_state['battle_logs'] = saved_data.get('battle_logs', [])
+    st.session_state['script_logs'] = saved_data.get('script_logs', "")
+
+    st.session_state['turn_phase'] = saved_data.get('turn_phase', 'planning')
+    st.session_state['action_idx'] = saved_data.get('action_idx', 0)
+
+    # Восстанавливаем сет выполненных слотов (из списка)
+    st.session_state['executed_slots'] = set()
+    for item in saved_data.get('executed_slots', []):
+        st.session_state['executed_slots'].add(tuple(item))  # (name, idx)
+
+    # 4. Восстанавливаем Очередь Действий (Actions)
+    raw_actions = saved_data.get('turn_actions', [])
+    if raw_actions:
+        st.session_state['turn_actions'] = StateManager.restore_actions(
+            raw_actions, team_left, team_right
+        )
+    else:
+        st.session_state['turn_actions'] = []
+
+    # 5. Восстанавливаем селекторы UI
+    selector_mapping = {
+        "profile_unit": "profile_selected_unit",
+        "leveling_unit": "leveling_selected_unit",
+        "tree_unit": "tree_selected_unit",
+        "checks_unit": "checks_selected_unit",
+    }
+
+    for json_key, session_key in selector_mapping.items():
+        saved_val = saved_data.get(json_key)
+        if saved_val and saved_val in roster_keys:
+            st.session_state[session_key] = saved_val
+        elif roster_keys and session_key not in st.session_state:
+            st.session_state[session_key] = roster_keys[0]
+
+    # Восстанавливаем навигацию
+    st.session_state['nav_page'] = saved_data.get("page", "⚔️ Simulator")
+
+    # Ставим флаг, что загрузка завершена для текущей сессии
     st.session_state['teams_loaded'] = True
 
 # --- 4. ОТРИСОВКА ИНТЕРФЕЙСА ---
