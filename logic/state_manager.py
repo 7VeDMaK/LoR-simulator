@@ -6,6 +6,7 @@ import streamlit as st
 # Папка для хранения стейтов
 STATES_DIR = "data/states"
 
+
 class StateManager:
     @staticmethod
     def ensure_dir():
@@ -46,53 +47,49 @@ class StateManager:
     @staticmethod
     def get_state_snapshot(session_state):
         """
-        Собирает текущее состояние в словарь (Snapshot).
-        Используется для сохранения в файл и для UNDO.
+        Собирает текущее состояние в словарь.
+        Включает в себя undo_stack для персистентности истории.
         """
         return {
             "page": session_state.get("nav_page", "⚔️ Simulator"),
 
-            # 1. Команды
             "team_left_data": [u.to_dict() for u in session_state.get('team_left', [])],
             "team_right_data": [u.to_dict() for u in session_state.get('team_right', [])],
 
-            # 2. Глобальные переменные боя
             "phase": session_state.get('phase', 'roll'),
             "round_number": session_state.get('round_number', 1),
             "turn_message": session_state.get('turn_message', ""),
             "battle_logs": session_state.get('battle_logs', []),
             "script_logs": session_state.get('script_logs', ""),
 
-            # 3. Состояние выполнения хода
             "turn_phase": session_state.get('turn_phase', 'planning'),
             "action_idx": session_state.get('action_idx', 0),
             "executed_slots": list(session_state.get('executed_slots', [])),
 
-            # 4. Очередь действий
             "turn_actions": StateManager._serialize_actions(
                 session_state.get('turn_actions', []),
                 session_state.get('team_left', []),
                 session_state.get('team_right', [])
             ),
 
-            # 5. Селекторы UI
             "profile_unit": session_state.get("profile_selected_unit"),
             "leveling_unit": session_state.get("leveling_selected_unit"),
             "tree_unit": session_state.get("tree_selected_unit"),
             "checks_unit": session_state.get("checks_selected_unit"),
+
+            # [NEW] Сохраняем историю
+            "undo_stack": session_state.get("undo_stack", [])
         }
 
     # === CORE LOGIC: APPLY DATA ===
     @staticmethod
     def restore_state_from_snapshot(session_state, data):
         """
-        Применяет словарь данных (Snapshot) к session_state.
-        Полностью восстанавливает объекты Unit и состояние боя.
+        Восстанавливает состояние.
         """
-        # Локальный импорт для предотвращения циклов
         from core.unit.unit import Unit
 
-        # 1. Восстанавливаем команды
+        # 1. Команды (Создаем НОВЫЕ объекты)
         l_data = data.get("team_left_data", [])
         r_data = data.get("team_right_data", [])
 
@@ -112,7 +109,6 @@ class StateManager:
             except Exception as e:
                 print(f"Error loading right unit: {e}")
 
-        # Пересчет статов
         for u in team_left + team_right:
             u.recalculate_stats()
 
@@ -132,7 +128,7 @@ class StateManager:
         for item in data.get('executed_slots', []):
             session_state['executed_slots'].add(tuple(item))
 
-        # 3. Actions
+        # 3. Действия
         raw_actions = data.get('turn_actions', [])
         if raw_actions:
             session_state['turn_actions'] = StateManager.restore_actions(
@@ -141,20 +137,29 @@ class StateManager:
         else:
             session_state['turn_actions'] = []
 
-        # 4. Селекторы
+        # 4. UI
         selector_mapping = {
             "profile_unit": "profile_selected_unit",
             "leveling_unit": "leveling_selected_unit",
             "tree_unit": "tree_selected_unit",
             "checks_unit": "checks_selected_unit",
         }
-        roster_keys = sorted(list(session_state.get('roster', {}).keys()))
         for json_key, session_key in selector_mapping.items():
             saved_val = data.get(json_key)
-            if saved_val and saved_val in roster_keys:
+            if saved_val:
                 session_state[session_key] = saved_val
 
-        session_state['nav_page'] = data.get("page", "⚔️ Simulator")
+        try:
+            session_state['nav_page'] = data.get("page", "⚔️ Simulator")
+        except Exception:
+            pass
+
+        # [NEW] Восстанавливаем стек истории
+        # (Только если это полная загрузка из файла, а не undo-шаг,
+        #  но undo-шаг сам не содержит поля undo_stack, так что всё ок)
+        if "undo_stack" in data:
+            session_state['undo_stack'] = data["undo_stack"]
+
         session_state['teams_loaded'] = True
 
     # === FILE OPERATIONS ===
@@ -163,7 +168,6 @@ class StateManager:
         StateManager.ensure_dir()
         target_file = os.path.join(STATES_DIR, f"{filename}.json")
         try:
-            # Используем общий метод сбора данных
             data = StateManager.get_state_snapshot(session_state)
             with open(target_file, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
@@ -182,7 +186,7 @@ class StateManager:
         except Exception:
             return {}
 
-    # === SERIALIZATION HELPERS (Без изменений) ===
+    # === SERIALIZATION HELPERS ===
     @staticmethod
     def _serialize_actions(actions, team_left, team_right):
         serialized = []
@@ -219,11 +223,9 @@ class StateManager:
             real_slot = None
             if 0 <= slot_idx < len(source.active_slots):
                 real_slot = source.active_slots[slot_idx]
-
             if not real_slot: continue
 
             opposing_team = team_right if s_act['is_left'] else team_left
-
             restored.append({
                 'source': source,
                 'source_idx': slot_idx,

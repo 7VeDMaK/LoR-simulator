@@ -18,6 +18,7 @@ def render_simulator_page():
     if 'phase' not in st.session_state: st.session_state['phase'] = 'roll'
     if 'round_number' not in st.session_state: st.session_state['round_number'] = 1
 
+    # Инициализация стека истории
     if 'undo_stack' not in st.session_state: st.session_state['undo_stack'] = []
 
     # === CSS СТИЛИ ДЛЯ ЛОГОВ И СЧЕТЧИКА ===
@@ -68,13 +69,13 @@ def render_simulator_page():
             .log-time {{ color: #6c757d; margin-right: 10px; min-width: 70px; font-size: 0.9em; }}
 
             /* Категории */
-            .cat-Combat {{ color: #ff6b6b; font-weight: bold; }} /* Красный */
-            .cat-Status {{ color: #4ecdc4; }} /* Бирюзовый */
-            .cat-Effect {{ color: #feca57; }} /* Желтый */
-            .cat-Stats {{ color: #54a0ff; }} /* Синий */
-            .cat-System {{ color: #8395a7; }} /* Серый */
-            .cat-Clash {{ color: #ff9ff3; font-weight: bold; }} /* Розовый */
-            .cat-Damage {{ color: #ff4757; font-weight: bold; text-decoration: underline; }} /* Кровавый */
+            .cat-Combat {{ color: #ff6b6b; font-weight: bold; }} 
+            .cat-Status {{ color: #4ecdc4; }} 
+            .cat-Effect {{ color: #feca57; }} 
+            .cat-Stats {{ color: #54a0ff; }} 
+            .cat-System {{ color: #8395a7; }} 
+            .cat-Clash {{ color: #ff9ff3; font-weight: bold; }} 
+            .cat-Damage {{ color: #ff4757; font-weight: bold; text-decoration: underline; }} 
 
             .log-cat {{ margin-right: 10px; min-width: 80px; text-transform: uppercase; font-size: 0.85em; }}
 
@@ -90,27 +91,57 @@ def render_simulator_page():
         st.divider()
         st.subheader("⚙️ Управление боем")
 
-        c_reset, c_undo = st.columns(2)
+        # --- 1. СБРОС ---
+        if st.button("🔄 Сброс боя (Reset)", type="secondary", width='stretch', help="Полный сброс к началу"):
+            reset_game()
+            logger.clear()
+            st.rerun()
 
-        with c_reset:
-            # Кнопка сброса
-            if st.button("🔄 Сброс", type="secondary", width='stretch', help="Полный сброс боя"):
-                reset_game()
-                logger.clear()
-                st.rerun()
+        # --- 2. МАШИНА ВРЕМЕНИ (TIMELINE) ---
+        undo_stack = st.session_state.get('undo_stack', [])
+        current_round = st.session_state.get('round_number', 1)
 
-        with c_undo:
-            # [UNDO] Кнопка отката
-            has_history = len(st.session_state.get('undo_stack', [])) > 0
-            if st.button("↩️ Откат", type="secondary", width='stretch', disabled=not has_history,
-                         help="Вернуться на 1 раунд назад"):
-                if has_history:
-                    # Достаем последний снимок
-                    snapshot = st.session_state['undo_stack'].pop()
-                    # Восстанавливаем состояние
-                    StateManager.restore_state_from_snapshot(st.session_state, snapshot)
-                    st.toast("Вернулись в прошлое! 🕰️")
-                    st.rerun()
+        # Список доступных точек возврата
+        # Стек хранит состояния начала раундов: Индекс 0 = Начало Раунда 1, Индекс 1 = Начало Раунда 2 и т.д.
+        # Мы можем вернуться к началу любого раунда, который есть в стеке.
+
+        if undo_stack:
+            with st.expander("🕰️ История ходов", expanded=True):
+                # Формируем список опций: "Раунд 1", "Раунд 2" ...
+                # undo_stack[i] - это состояние ПЕРЕД началом раунда (i+1)
+                available_rounds = list(range(1, len(undo_stack) + 1))
+
+                # Текущий раунд тоже может быть опцией (это по сути "начало текущего хода")
+                # Но обычно мы хотим откатиться НАЗАД.
+
+                target_round = st.selectbox(
+                    "Вернуться к началу раунда:",
+                    options=available_rounds,
+                    index=len(available_rounds) - 1,  # По умолчанию последний доступный
+                    format_func=lambda x: f"Раунд {x}",
+                    key="timeline_selector"
+                )
+
+                if st.button("⏪ Загрузить состояние", type="primary", width='stretch'):
+                    # Логика отката
+                    # 1. Находим индекс в стеке. Раунд 1 лежит по индексу 0.
+                    stack_index = target_round - 1
+
+                    if 0 <= stack_index < len(undo_stack):
+                        snapshot = undo_stack[stack_index]
+
+                        # 2. Восстанавливаем состояние
+                        StateManager.restore_state_from_snapshot(st.session_state, snapshot)
+
+                        # 3. Обрезаем историю БУДУЩЕГО (мы изменили временную линию)
+                        # Оставляем в стеке всё ДО этого раунда включительно (чтобы можно было снова загрузить этот же раунд)
+                        # Но удаляем всё, что было ПОСЛЕ него.
+                        st.session_state['undo_stack'] = undo_stack[:stack_index + 1]
+
+                        st.toast(f"Вы вернулись в Раунд {target_round}! 🕰️")
+                        st.rerun()
+        else:
+            st.caption("История ходов пуста (Раунд 1)")
 
         st.divider()
 
@@ -308,40 +339,38 @@ def render_simulator_page():
                     if current_log_level > LogLevel.MINIMAL:
                         st.caption(f"ℹ️ {log.get('round', '')}: {log.get('details', '')}")
 
-        # 2. SYSTEM LOG (Текстовая консоль)
-        with tab_system:
-            # Получаем отфильтрованные логи
-            system_logs = logger.get_logs_for_ui(current_log_level)
+    # 2. SYSTEM LOG (Текстовая консоль)
+    with tab_system:
+        # Получаем отфильтрованные логи
+        system_logs = logger.get_logs_for_ui(current_log_level)
 
-            # Доп. фильтр по категориям
-            if system_logs:
-                all_cats = sorted(list(set(l['category'] for l in system_logs)))
-                selected_cats = st.multiselect("Фильтр категорий", all_cats, default=all_cats, key="log_cat_filter")
-            else:
-                selected_cats = []
+        # Доп. фильтр по категориям
+        if system_logs:
+            all_cats = sorted(list(set(l['category'] for l in system_logs)))
+            selected_cats = st.multiselect("Фильтр категорий", all_cats, default=all_cats, key="log_cat_filter")
+        else:
+            selected_cats = []
 
-            # Начинаем контейнер
-            log_html = '<div class="log-container">'
+        # Начинаем контейнер
+        log_html = '<div class="log-container">'
 
-            if not system_logs:
-                log_html += '<div class="log-entry">Нет логов для отображения.</div>'
+        if not system_logs:
+            log_html += '<div class="log-entry">Нет логов для отображения.</div>'
 
-            for entry in system_logs:
-                if entry['category'] in selected_cats:
-                    # CSS классы
-                    lvl_class = f"lvl-{entry['level'].name}"
-                    cat_class = f"cat-{entry['category']}"
+        for entry in system_logs:
+            if entry['category'] in selected_cats:
+                # CSS классы
+                lvl_class = f"lvl-{entry['level'].name}"
+                cat_class = f"cat-{entry['category']}"
 
-                    # [FIX] Собираем строку без лишних отступов, чтобы Markdown не превратил это в Code Block
-                    # Используем конкатенацию или экранирование переносов строки (\)
-                    row = (
-                        f'<div class="log-entry {lvl_class}">'
-                        f'<span class="log-time">[{entry["time"]}]</span>'
-                        f'<span class="log-cat {cat_class}">[{entry["category"]}]</span>'
-                        f'<span class="log-msg">{entry["message"]}</span>'
-                        f'</div>'
-                    )
-                    log_html += row
+                row = (
+                    f'<div class="log-entry {lvl_class}">'
+                    f'<span class="log-time">[{entry["time"]}]</span>'
+                    f'<span class="log-cat {cat_class}">[{entry["category"]}]</span>'
+                    f'<span class="log-msg">{entry["message"]}</span>'
+                    f'</div>'
+                )
+                log_html += row
 
-            log_html += '</div>'
-            st.markdown(log_html, unsafe_allow_html=True)
+        log_html += '</div>'
+        st.markdown(log_html, unsafe_allow_html=True)
