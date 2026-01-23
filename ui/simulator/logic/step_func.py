@@ -2,7 +2,7 @@ import streamlit as st
 
 from logic.clash import ClashSystem
 from logic.statuses.status_manager import StatusManager
-from logic.state_manager import StateManager  # Импорт менеджера
+from logic.state_manager import StateManager
 from ui.simulator.logic.simulator_logic import get_teams, set_cooldowns, capture_output
 
 
@@ -10,33 +10,18 @@ def roll_phase():
     """
     Фаза броска скорости.
     """
-    # === [UNDO] СОХРАНЯЕМ ИСТОРИЮ ПЕРЕД НАЧАЛОМ РАУНДА ===
-    if 'undo_stack' not in st.session_state:
-        st.session_state['undo_stack'] = []
-
-    # Делаем снимок текущего состояния (конец предыдущего раунда)
-    snapshot = StateManager.get_state_snapshot(st.session_state)
-    st.session_state['undo_stack'].append(snapshot)
-
-    # Ограничиваем историю (например, 10 последних ходов)
-    if len(st.session_state['undo_stack']) > 10:
-        st.session_state['undo_stack'].pop(0)
-    # =======================================================
-
+    # 1. Сначала выполняем логику начала раунда и бросков
     l_team, r_team = get_teams()
     all_units = l_team + r_team
 
-    # ... (Остальной код без изменений) ...
-    # === 1. TRIGGERS (События начала) ===
+    # === TRIGGERS (События начала) ===
     for u in all_units:
         u.recalculate_stats()
         set_cooldowns(u)
 
-        # B. Round Start (Каждый раунд)
         opponents = r_team if u in l_team else l_team
         my_allies = l_team if u in l_team else r_team
 
-        # Логгер для событий начала раунда
         def log_round(msg):
             if 'battle_logs' not in st.session_state: st.session_state['battle_logs'] = []
             st.session_state['battle_logs'].append({
@@ -49,6 +34,7 @@ def roll_phase():
             u.trigger_mechanics("on_round_start", u, log_round,
                                 enemies=opponents, allies=my_allies)
 
+    # === БРОСОК КУБИКОВ ===
     for u in all_units:
         u.recalculate_stats()
 
@@ -59,15 +45,16 @@ def roll_phase():
                 'stunned': True, 'is_aggro': False
             }]
         else:
+            # Генерация случайных чисел происходит ЗДЕСЬ
             u.roll_speed_dice()
-            # Init fields
+
             for s in u.active_slots:
                 s['target_unit_idx'] = -1;
                 s['target_slot_idx'] = -1;
                 s['is_aggro'] = False;
                 s['force_clash'] = False
 
-    # === 3. SPEED ROLLED EVENTS (Баффы от слотов) ===
+    # === SPEED ROLLED EVENTS ===
     for u in all_units:
         opponents = r_team if u in l_team else l_team
         my_allies = l_team if u in l_team else r_team
@@ -78,7 +65,6 @@ def roll_phase():
                 "round": "Speed Roll", "rolls": "Passive", "details": f"⚡ **{u.name}**: {msg}"
             })
 
-        # Запускаем новый триггер
         if hasattr(u, "trigger_mechanics"):
             u.trigger_mechanics("on_speed_rolled", u, log_speed,
                                 enemies=opponents, allies=my_allies)
@@ -86,15 +72,35 @@ def roll_phase():
     for u in all_units:
         u.recalculate_stats()
 
+    # Переключаем фазу
     st.session_state['phase'] = 'planning'
     st.session_state['turn_message'] = "🎲 Speed Rolled (Targets Auto-Assigned)"
 
-    # Сохраняем новое состояние на диск
+    # === [FIX] СОХРАНЕНИЕ ИСТОРИИ (ТЕПЕРЬ В КОНЦЕ) ===
+    # Мы сохраняем состояние, когда кубики УЖЕ брошены и фаза 'planning'.
+    # Это гарантирует, что при загрузке мы увидим те же самые числа.
+
+    if 'undo_stack' not in st.session_state:
+        st.session_state['undo_stack'] = []
+
+    if not st.session_state['undo_stack']:
+        # Первый раунд -> Полный слепок
+        snapshot = StateManager.get_state_snapshot(st.session_state)
+    else:
+        # Последующие -> Динамический слепок
+        snapshot = StateManager.get_dynamic_snapshot(st.session_state)
+
+    st.session_state['undo_stack'].append(snapshot)
+
+    # Лимит истории
+    if len(st.session_state['undo_stack']) > 50:
+        st.session_state['undo_stack'].pop(1)  # Не удаляем базу [0]
+
+    # Сохраняем в файл для надежности
     StateManager.save_state(st.session_state, filename=st.session_state.get("current_state_file", "default"))
 
 
 def step_start():
-    # (Остальной код файла без изменений...)
     l_team, r_team = get_teams()
     sys_clash = ClashSystem()
 
@@ -203,6 +209,7 @@ def reset_game():
         u.active_slots = []
         u.overkill_damage = 0
         u.stored_dice = []
+        u.death_count = 0
 
     st.session_state['battle_logs'] = []
     st.session_state['undo_stack'] = []  # Очищаем стек при сбросе

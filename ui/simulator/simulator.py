@@ -99,20 +99,12 @@ def render_simulator_page():
 
         # --- 2. МАШИНА ВРЕМЕНИ (TIMELINE) ---
         undo_stack = st.session_state.get('undo_stack', [])
-        current_round = st.session_state.get('round_number', 1)
 
         # Список доступных точек возврата
-        # Стек хранит состояния начала раундов: Индекс 0 = Начало Раунда 1, Индекс 1 = Начало Раунда 2 и т.д.
-        # Мы можем вернуться к началу любого раунда, который есть в стеке.
-
         if undo_stack:
             with st.expander("🕰️ История ходов", expanded=True):
-                # Формируем список опций: "Раунд 1", "Раунд 2" ...
                 # undo_stack[i] - это состояние ПЕРЕД началом раунда (i+1)
                 available_rounds = list(range(1, len(undo_stack) + 1))
-
-                # Текущий раунд тоже может быть опцией (это по сути "начало текущего хода")
-                # Но обычно мы хотим откатиться НАЗАД.
 
                 target_round = st.selectbox(
                     "Вернуться к началу раунда:",
@@ -123,22 +115,29 @@ def render_simulator_page():
                 )
 
                 if st.button("⏪ Загрузить состояние", type="primary", width='stretch'):
-                    # Логика отката
                     # 1. Находим индекс в стеке. Раунд 1 лежит по индексу 0.
                     stack_index = target_round - 1
 
                     if 0 <= stack_index < len(undo_stack):
                         snapshot = undo_stack[stack_index]
 
-                        # 2. Восстанавливаем состояние
-                        StateManager.restore_state_from_snapshot(st.session_state, snapshot)
+                        # 2. Восстанавливаем состояние (Keyframe + Delta)
+                        if snapshot.get("type") == "dynamic":
+                            # Для восстановления динамики нужна База (Round 1 / Index 0)
+                            base_snapshot = undo_stack[0]
+                            if base_snapshot.get("type") != "full":
+                                st.error("❌ Ошибка истории: Базовый снимок поврежден!")
+                            else:
+                                StateManager.restore_from_dynamic_snapshot(st.session_state, snapshot, base_snapshot)
+                                st.toast(f"Раунд {target_round} восстановлен (Delta)! 🕰️")
+                        else:
+                            # Это полный снимок (Full Keyframe)
+                            StateManager.restore_state_from_snapshot(st.session_state, snapshot)
+                            st.toast(f"Раунд {target_round} восстановлен (Full)! 🕰️")
 
                         # 3. Обрезаем историю БУДУЩЕГО (мы изменили временную линию)
-                        # Оставляем в стеке всё ДО этого раунда включительно (чтобы можно было снова загрузить этот же раунд)
-                        # Но удаляем всё, что было ПОСЛЕ него.
                         st.session_state['undo_stack'] = undo_stack[:stack_index + 1]
 
-                        st.toast(f"Вы вернулись в Раунд {target_round}! 🕰️")
                         st.rerun()
         else:
             st.caption("История ходов пуста (Раунд 1)")
@@ -363,6 +362,7 @@ def render_simulator_page():
                 lvl_class = f"lvl-{entry['level'].name}"
                 cat_class = f"cat-{entry['category']}"
 
+                # Собираем строку лога
                 row = (
                     f'<div class="log-entry {lvl_class}">'
                     f'<span class="log-time">[{entry["time"]}]</span>'
