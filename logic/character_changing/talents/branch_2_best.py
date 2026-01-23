@@ -1,4 +1,7 @@
+from core.logging import LogLevel, logger
 from logic.character_changing.passives.base_passive import BasePassive
+from logic.mechanics.damage import _apply_resource_damage
+
 
 # ======================================================================================
 # КОРЕНЬ (ROOT)
@@ -137,16 +140,69 @@ class TalentViciousMockery(BasePassive):
     )
     is_active_ability = False
 
+    def on_hit(self, unit, context):
+        """
+        Срабатывает при успешном попадании атакой.
+        Наносит доп. урон по SP врага.
+        """
+        target = context.target
+        if not target: return
+
+        # 1. Получаем значение Красноречия (Eloquence)
+        # skill_value берется из unit.skills (словарь)
+        eloquence = unit.skills.get("eloquence", 0)
+
+        # 2. Считаем урон
+        sp_damage = int(eloquence / 5)
+
+        if sp_damage > 0:
+            # Логируем
+            if context.log is not None:
+                context.log.append(f"👅 **Злой Язык**: {sp_damage} SP урона")
+
+            logger.log(f"👅 Vicious Mockery ({unit.name}) deals {sp_damage} SP dmg to {target.name}", LogLevel.VERBOSE,
+                       "Talent")
+
+            # 3. Наносим урон по SP
+            # Используем внутреннюю функцию, она обрабатывает смерть/панику корректно
+            _apply_resource_damage(target, sp_damage, "sp", context)
+
 
 class TalentVerbalBarrier(BasePassive):
     id = "verbal_barrier"
     name = "2.2.B Словесный Барьер"
     description = (
         "При использовании Защиты (Block/Evade) вы получаете бонус +1 к кубику\n"
-        "за каждые 15 очков Красноречия."
+        "за каждые 5 очков Красноречия.\n"
+        "При использовании Атаки вы получаете бонус +1 к кубику\n"
+        "за каждые 5 очков Интеллекта."
     )
     is_active_ability = False
 
+    def modify_dice_value(self, unit, dice_value: int, dice_obj, context) -> int:
+        """
+        Модифицирует значение кубика перед броском.
+        """
+        if not dice_obj:
+            return dice_value
+
+        # Получаем строковое имя типа кубика (SLASH, BLOCK и т.д.)
+        d_type = dice_obj.dtype.name
+
+        # 1. ЗАЩИТА (BLOCK, EVADE) -> Зависит от Красноречия
+        if d_type in ["BLOCK", "EVADE"]:
+            eloquence = unit.skills.get("eloquence", 0)
+            bonus = int(eloquence / 5)  # +1 за каждые 5 очков
+            return dice_value + bonus
+
+        # 2. АТАКА (SLASH, PIERCE, BLUNT) -> Зависит от Интеллекта
+        elif d_type in ["SLASH", "PIERCE", "BLUNT"]:
+            # Используем Интеллект как боевой стат для "умника"
+            intellect = unit.attributes.get("intellect", 0)
+            bonus = int(intellect / 5)
+            return dice_value + bonus
+
+        return dice_value
 
 class TalentTacticalAnalysis(BasePassive):
     id = "tactical_analysis"
@@ -279,7 +335,7 @@ class TalentHoarder(BasePassive):
 
 class TalentForesight(BasePassive):
     id = "foresight"
-    name = "2.11 Я это предвидел"
+    name = "2.11 Твоя следующая фраза..."
     description = (
         "Ультимативная способность (1 раз за бой).\n"
         "Активно: Нажмите ПОСЛЕ бросков кубиков (но до урона).\n"
