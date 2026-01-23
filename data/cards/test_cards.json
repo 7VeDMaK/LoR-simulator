@@ -1,0 +1,429 @@
+{
+  "cards": [
+    {
+      "id": "testslash1_a468",
+      "name": "TestSlash2",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testslash3_5392",
+      "name": "TestSlash3",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testslash1_4680",
+      "name": "TestSlash1",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testevade1_59f0",
+      "name": "TestEvade1",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testevade2_6ae6",
+      "name": "TestEvade2",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testevade3_5be5",
+      "name": "TestEvade3",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testcounterslash1_ab7e",
+      "name": "TestCounterSlash1",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testcounterslash2_0039",
+      "name": "TestBlock1",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testcounterslash3_48de",
+      "name": "TestCounterSlash3",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testcounterevade1_252d",
+      "name": "TestCounterEvade1",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testcounterevade2_9e34",
+      "name": "TestCounterEvade2",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testcounterevade3_ebf5",
+      "name": "TestCounterEvade3",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testblock2_0d21",
+      "name": "TestBlock2",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testblock3_dd5e",
+      "name": "TestBlock3",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testcounterblock1_1ed5",
+      "name": "TestCounterBlock1",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testcounterblock2_25dd",
+      "name": "TestCounterBlock2",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "testcounterblock3_91bb",
+      "name": "TestCounterBlock3",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ]
+    }
+  ]
+}
