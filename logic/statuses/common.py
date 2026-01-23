@@ -232,6 +232,10 @@ class BarrierStatus(StatusEffect):
     name = "Барьер"
 
     def absorb_damage(self, unit, amount, damage_type, stack=0, log_list=None):
+        # [FIX] Получаем стаки, если они не переданы
+        if stack == 0:
+            stack = unit.get_status(self.id)
+
         # Если урона нет или барьера нет - ничего не делаем
         if amount <= 0 or stack <= 0:
             return amount
@@ -242,7 +246,7 @@ class BarrierStatus(StatusEffect):
         unit.remove_status(self.id, absorbed)
 
         if log_list is not None:
-            log_list.append(f"🛡️ Barrier -{absorbed}")
+            log_list.append(f"🛡️ Barrier ({damage_type}) -{absorbed}")
 
         # Возвращаем остаток урона
         return amount - absorbed

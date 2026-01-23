@@ -1,4 +1,5 @@
 {
+  "type": "full",
   "page": "⚔️ Simulator",
   "team_left_data": [
     {
@@ -21,6 +22,92 @@
         "imp_sp": 200,
         "imp_stg": -100
       },
+      "current_hp": 482,
+      "current_sp": 444,
+      "current_stagger": 17,
+      "resources": {},
+      "cooldowns": {
+        "mind_power": 1
+      },
+      "card_cooldowns": {
+        "fanat_holy_crusade": 0,
+        "tea_red": 0,
+        "tea_fruit": 0,
+        "fanat_living_shield": 0,
+        "fanat_frenzy_barrage": 0,
+        "tea_coffee": 0,
+        "tea_ginger": 0,
+        "tea_berry": 0,
+        "tea_sakura": 0,
+        "tea_green": 0,
+        "tea_dark": 0
+      },
+      "active_buffs": {
+        "berserker_rage": 1
+      },
+      "_status_effects": {
+        "haste": [
+          {
+            "amount": 2,
+            "duration": 2
+          },
+          {
+            "amount": 2,
+            "duration": 1
+          },
+          {
+            "amount": 2,
+            "duration": 1
+          }
+        ],
+        "strength": [
+          {
+            "amount": 1,
+            "duration": 2
+          },
+          {
+            "amount": 5,
+            "duration": 1
+          },
+          {
+            "amount": 2,
+            "duration": 1
+          },
+          {
+            "amount": 2,
+            "duration": 1
+          }
+        ],
+        "smoke": [
+          {
+            "amount": 4,
+            "duration": 98
+          }
+        ],
+        "endurance": [
+          {
+            "amount": 1,
+            "duration": 3
+          },
+          {
+            "amount": 2,
+            "duration": 1
+          }
+        ],
+        "barrier": [
+          {
+            "amount": 127,
+            "duration": 3
+          }
+        ],
+        "protection": [
+          {
+            "amount": 2,
+            "duration": 1
+          }
+        ]
+      },
+      "delayed_queue": [],
       "deck": [
         "fanat_branding",
         "fanat_blind_faith",
@@ -39,6 +126,59 @@
         "tea_ginger",
         "tea_coffee"
       ],
+      "active_slots": [
+        {
+          "speed": 13,
+          "card": "fanat_idols_voice",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
+          "force_clash": true,
+          "ui_status": {
+            "text": "CLASH vs Лима [S1] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": false
+        },
+        {
+          "speed": 15,
+          "card": "fanat_sacrifice",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 1,
+          "target_slot_idx": 1,
+          "force_clash": true,
+          "ui_status": {
+            "text": "CLASH vs Лилит [S2] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": false
+        },
+        {
+          "speed": 10,
+          "card": "fanat_meat_grinder",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 2,
+          "target_slot_idx": 0,
+          "force_clash": false,
+          "ui_status": {
+            "text": "🚫 BROKEN vs Лима [S2] | Speed Gap 11",
+            "icon": "💥",
+            "color": "red"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": true
+        }
+      ],
       "stored_dice": [],
       "counter_dice": [
         {
@@ -47,6 +187,30 @@
           "base_max": 10,
           "is_counter": true,
           "scripts": {}
+        }
+      ],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 635,
+          "sp": 444,
+          "stagger": 217
+        },
+        "clarity_cooldown_counter": 4,
+        "peak_sanity_initialized": true,
+        "emotional_storm_initialized": true,
+        "emo_level": 5,
+        "emo_progress": 35,
+        "emo_coins_pos": 32,
+        "emo_coins_neg": 3,
+        "battle_initialized": true
+      },
+      "death_count": 1,
+      "overkill_damage": 0,
+      "money_log": [
+        {
+          "amount": 1,
+          "reason": "Счастливая монетка"
         }
       ],
       "base_stats": {
@@ -68,41 +232,6 @@
           "blunt": 1.0
         },
         "weapon_id": "none"
-      },
-      "card_cooldowns": {
-        "fanat_holy_crusade": [
-          1
-        ],
-        "tea_red": [
-          3
-        ],
-        "tea_fruit": [
-          3
-        ],
-        "fanat_living_shield": [
-          1
-        ],
-        "fanat_frenzy_barrage": [
-          1
-        ],
-        "tea_coffee": [
-          4
-        ],
-        "tea_ginger": [
-          4
-        ],
-        "tea_berry": [
-          4
-        ],
-        "tea_sakura": [
-          4
-        ],
-        "tea_green": [
-          4
-        ],
-        "tea_dark": [
-          4
-        ]
       },
       "attributes": {
         "strength": 20,
@@ -185,154 +314,7 @@
           "sp": 2
         }
       },
-      "cooldowns": {
-        "mind_power": 1
-      },
-      "active_buffs": {
-        "berserker_rage": 1
-      },
-      "resources": {},
-      "biography": "",
-      "money_log": [
-        {
-          "amount": 1,
-          "reason": "Счастливая монетка"
-        }
-      ],
-      "death_count": 1,
-      "overkill_damage": 0,
-      "_status_effects": {
-        "haste": [
-          {
-            "amount": 2,
-            "duration": 2
-          },
-          {
-            "amount": 2,
-            "duration": 1
-          },
-          {
-            "amount": 2,
-            "duration": 1
-          }
-        ],
-        "strength": [
-          {
-            "amount": 1,
-            "duration": 2
-          },
-          {
-            "amount": 5,
-            "duration": 1
-          },
-          {
-            "amount": 2,
-            "duration": 1
-          },
-          {
-            "amount": 2,
-            "duration": 1
-          }
-        ],
-        "smoke": [
-          {
-            "amount": 4,
-            "duration": 98
-          }
-        ],
-        "endurance": [
-          {
-            "amount": 1,
-            "duration": 3
-          },
-          {
-            "amount": 2,
-            "duration": 1
-          }
-        ],
-        "barrier": [
-          {
-            "amount": 127,
-            "duration": 3
-          }
-        ],
-        "protection": [
-          {
-            "amount": 2,
-            "duration": 1
-          }
-        ]
-      },
-      "delayed_queue": [],
-      "memory": {
-        "status_rank": "9 (Fixer)",
-        "start_of_battle_stats": {
-          "hp": 635,
-          "sp": 444,
-          "stagger": 217
-        },
-        "clarity_cooldown_counter": 4,
-        "peak_sanity_initialized": true,
-        "emotional_storm_initialized": true,
-        "emo_level": 5,
-        "emo_progress": 35,
-        "emo_coins_pos": 32,
-        "emo_coins_neg": 3,
-        "battle_initialized": true
-      },
-      "active_slots": [
-        {
-          "speed": 13,
-          "card": "fanat_idols_voice",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": false,
-          "ui_status": {
-            "text": "ONE SIDED (Провал) -> Лима | Слаб",
-            "icon": "🐌",
-            "color": "orange"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
-        },
-        {
-          "speed": 15,
-          "card": "fanat_sacrifice",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 1,
-          "target_slot_idx": 1,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs Лилит [S2] | Перехват!",
-            "icon": "⚡",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        },
-        {
-          "speed": 10,
-          "card": "fanat_meat_grinder",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 2,
-          "target_slot_idx": 0,
-          "force_clash": false,
-          "ui_status": {
-            "text": "ONE SIDED (Провал) -> Зафиэль | Слаб",
-            "icon": "🐌",
-            "color": "orange"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
-        }
-      ]
+      "biography": ""
     }
   ],
   "team_right_data": [
@@ -356,6 +338,35 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
+      "current_hp": 73,
+      "current_sp": 35,
+      "current_stagger": 15,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {
+        "lima_hit_and_run": 0,
+        "lima_inertia": 0
+      },
+      "active_buffs": {},
+      "_status_effects": {
+        "fanat_mark": [
+          {
+            "amount": 1,
+            "duration": 1
+          }
+        ],
+        "haste": [
+          {
+            "amount": 1,
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
+          }
+        ]
+      },
+      "delayed_queue": [],
       "deck": [
         "lima_little_tricks",
         "lima_jump_shooting",
@@ -367,8 +378,100 @@
         "lima_ram",
         "lima_purge_toxin"
       ],
+      "active_slots": [
+        {
+          "speed": 18,
+          "card": "lima_little_tricks",
+          "target_slot": null,
+          "is_aggro": true,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
+          "force_clash": true,
+          "ui_status": {
+            "text": "CLASH vs ФанатBA [S1] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": false
+        },
+        {
+          "speed": 21,
+          "card": "lima_assorted_arrows",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 2,
+          "force_clash": true,
+          "ui_status": {
+            "text": "✨ SPEED BREAK -> ФанатBA | Уничтожение (21 >> 10)",
+            "icon": "⚡",
+            "color": "green"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": false
+        },
+        {
+          "speed": 20,
+          "card": "lima_jump_shooting",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 2,
+          "force_clash": false,
+          "ui_status": {
+            "text": "✨ SPEED BREAK -> ФанатBA | Уничтожение (20 >> 10)",
+            "icon": "⚡",
+            "color": "green"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": true
+        },
+        {
+          "speed": 15,
+          "card": "lima_one_furious_shot",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 2,
+          "force_clash": false,
+          "ui_status": {
+            "text": "ONE SIDED (Провал) -> ФанатBA | Слаб",
+            "icon": "🐌",
+            "color": "orange"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": true
+        }
+      ],
       "stored_dice": [],
       "counter_dice": [],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 115,
+          "sp": 85,
+          "stagger": 57
+        },
+        "mind_suppression_bonus": 15,
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [
+        {
+          "amount": 5790000,
+          "reason": ""
+        },
+        {
+          "amount": -3700000,
+          "reason": "Шопинг, стрелы, гранаты"
+        }
+      ],
       "base_stats": {
         "current_hp": 73,
         "current_sp": 35,
@@ -388,14 +491,6 @@
           "blunt": 1.0
         },
         "weapon_id": "skalalaz_iceaxe"
-      },
-      "card_cooldowns": {
-        "lima_hit_and_run": [
-          1
-        ],
-        "lima_inertia": [
-          1
-        ]
       },
       "attributes": {
         "strength": 2,
@@ -480,117 +575,7 @@
           "sp": 1
         }
       },
-      "cooldowns": {},
-      "active_buffs": {},
-      "resources": {},
-      "biography": "Броня - лёгкий экзоскелет \"СТРИЖ\" со шлемом и противогазом\nАкробатика +6\nДаёт статус спешки +1  :zHaste: каждый ход\n\nЛедоруб \"Скала Лаз\" х2 (6.5 ранг)\nПозволяет карабкаться по стенам, отвесным скалам. Иногда требуется проверка Ловкости / Акробатики для совершения действия\nПовышает значение куба :zAttackPowerUp: атаки на атакующих картами на 3\n\nСветошумовые гранаты 2шт B tier\n\nАПГРЕЙД КОСТЮМА: ПНВ B tier\nПозволяет видеть в темноте, не получает дебаффы в темноте. Возможны дебаффы при ярком свете/днём во включенном режиме \n",
-      "money_log": [
-        {
-          "amount": 5790000,
-          "reason": ""
-        },
-        {
-          "amount": -3700000,
-          "reason": "Шопинг, стрелы, гранаты"
-        }
-      ],
-      "death_count": 0,
-      "overkill_damage": 0,
-      "_status_effects": {
-        "fanat_mark": [
-          {
-            "amount": 1,
-            "duration": 1
-          }
-        ],
-        "haste": [
-          {
-            "amount": 1,
-            "duration": 1
-          },
-          {
-            "amount": 1,
-            "duration": 1
-          }
-        ]
-      },
-      "delayed_queue": [],
-      "memory": {
-        "status_rank": "9 (Fixer)",
-        "start_of_battle_stats": {
-          "hp": 115,
-          "sp": 85,
-          "stagger": 57
-        },
-        "mind_suppression_bonus": 15,
-        "battle_initialized": true
-      },
-      "active_slots": [
-        {
-          "speed": 18,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 21,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 20,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 15,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        }
-      ]
+      "biography": "Броня - лёгкий экзоскелет \"СТРИЖ\" со шлемом и противогазом\nАкробатика +6\nДаёт статус спешки +1  :zHaste: каждый ход\n\nЛедоруб \"Скала Лаз\" х2 (6.5 ранг)\nПозволяет карабкаться по стенам, отвесным скалам. Иногда требуется проверка Ловкости / Акробатики для совершения действия\nПовышает значение куба :zAttackPowerUp: атаки на атакующих картами на 3\n\nСветошумовые гранаты 2шт B tier\n\nАПГРЕЙД КОСТЮМА: ПНВ B tier\nПозволяет видеть в темноте, не получает дебаффы в темноте. Возможны дебаффы при ярком свете/днём во включенном режиме \n"
     },
     {
       "name": "Лилит",
@@ -612,6 +597,50 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
+      "current_hp": 59,
+      "current_sp": 29,
+      "current_stagger": 6,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {
+        "inhale_exhale": 0
+      },
+      "active_buffs": {},
+      "_status_effects": {
+        "smoke": [
+          {
+            "amount": 10,
+            "duration": 98
+          }
+        ],
+        "strength": [
+          {
+            "amount": 2,
+            "duration": 2
+          },
+          {
+            "amount": 5,
+            "duration": 3
+          },
+          {
+            "amount": 4,
+            "duration": 1
+          }
+        ],
+        "fanat_mark": [
+          {
+            "amount": 1,
+            "duration": 2
+          }
+        ],
+        "endurance": [
+          {
+            "amount": 4,
+            "duration": 1
+          }
+        ]
+      },
+      "delayed_queue": [],
       "deck": [
         "release_steam",
         "prelude",
@@ -622,6 +651,76 @@
         "smoke_arts",
         "demon_scream",
         "smoke_silhouette"
+      ],
+      "active_slots": [
+        {
+          "speed": 11,
+          "card": "release_steam",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
+          "force_clash": false,
+          "ui_status": {
+            "text": "ONE SIDED (Провал) -> ФанатBA | Слаб",
+            "icon": "🐌",
+            "color": "orange"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": true
+        },
+        {
+          "speed": 11,
+          "card": "prelude",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 1,
+          "force_clash": true,
+          "ui_status": {
+            "text": "CLASH vs ФанатBA [S2] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": false
+        },
+        {
+          "speed": 13,
+          "card": "demon_scream",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "ONE SIDED (Провал) -> ФанатBA | Слаб",
+            "icon": "🐌",
+            "color": "orange"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": true
+        },
+        {
+          "speed": 7,
+          "card": "puff",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 2,
+          "force_clash": false,
+          "ui_status": {
+            "text": "ONE SIDED (Провал) -> ФанатBA | Слаб",
+            "icon": "🐌",
+            "color": "orange"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": true
+        }
       ],
       "stored_dice": [],
       "counter_dice": [
@@ -661,6 +760,25 @@
           "scripts": {}
         }
       ],
+      "memory": {
+        "start_of_battle_stats": {
+          "hp": 130,
+          "sp": 77,
+          "stagger": 65
+        },
+        "smoke_is_defensive": true,
+        "smoke_limit_bonus": 5,
+        "battle_initialized": true,
+        "vengeful_payback_chunks": 7
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [
+        {
+          "amount": 280000,
+          "reason": ""
+        }
+      ],
       "base_stats": {
         "current_hp": 59,
         "current_sp": 29,
@@ -680,11 +798,6 @@
           "blunt": 1.0
         },
         "weapon_id": "lilith_scythe"
-      },
-      "card_cooldowns": {
-        "inhale_exhale": [
-          1
-        ]
       },
       "attributes": {
         "strength": 18,
@@ -762,132 +875,7 @@
           "sp": 1
         }
       },
-      "cooldowns": {},
-      "active_buffs": {},
-      "resources": {},
-      "biography": "",
-      "money_log": [
-        {
-          "amount": 280000,
-          "reason": ""
-        }
-      ],
-      "death_count": 0,
-      "overkill_damage": 0,
-      "_status_effects": {
-        "smoke": [
-          {
-            "amount": 10,
-            "duration": 98
-          }
-        ],
-        "strength": [
-          {
-            "amount": 2,
-            "duration": 2
-          },
-          {
-            "amount": 5,
-            "duration": 3
-          },
-          {
-            "amount": 4,
-            "duration": 1
-          }
-        ],
-        "fanat_mark": [
-          {
-            "amount": 1,
-            "duration": 2
-          }
-        ],
-        "endurance": [
-          {
-            "amount": 4,
-            "duration": 1
-          }
-        ]
-      },
-      "delayed_queue": [],
-      "memory": {
-        "start_of_battle_stats": {
-          "hp": 130,
-          "sp": 77,
-          "stagger": 65
-        },
-        "smoke_is_defensive": true,
-        "smoke_limit_bonus": 5,
-        "battle_initialized": true,
-        "vengeful_payback_chunks": 7
-      },
-      "active_slots": [
-        {
-          "speed": 11,
-          "card": "release_steam",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": false,
-          "ui_status": {
-            "text": "ONE SIDED (Провал) -> ФанатBA | Слаб",
-            "icon": "🐌",
-            "color": "orange"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
-        },
-        {
-          "speed": 11,
-          "card": "smoke_silhouette",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": false,
-          "ui_status": {
-            "text": "CLASH vs ФанатBA [S2] | Перехвачен (11 < 15)",
-            "icon": "⚠️",
-            "color": "orange"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
-        },
-        {
-          "speed": 13,
-          "card": "puff",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 7,
-          "card": "demon_scream",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        }
-      ]
+      "biography": ""
     },
     {
       "name": "Зафиэль",
@@ -909,6 +897,34 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
+      "current_hp": 150,
+      "current_sp": 15,
+      "current_stagger": 50,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {
+        "thrill_of_battle": 0
+      },
+      "active_buffs": {},
+      "_status_effects": {
+        "adaptation": [
+          {
+            "amount": 4,
+            "duration": 99
+          }
+        ],
+        "protection": [
+          {
+            "amount": 2,
+            "duration": 1
+          },
+          {
+            "amount": 2,
+            "duration": 2
+          }
+        ]
+      },
+      "delayed_queue": [],
       "deck": [
         "unbridled_cruelty",
         "unbridled_cruelty",
@@ -919,6 +935,73 @@
         "furious_assault",
         "furious_assault",
         "furious_assault"
+      ],
+      "active_slots": [
+        {
+          "speed": 12,
+          "card": "furious_assault",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
+          "force_clash": false,
+          "ui_status": {
+            "text": "ONE SIDED (Провал) -> ФанатBA | Слаб",
+            "icon": "🐌",
+            "color": "orange"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": true
+        },
+        {
+          "speed": 12,
+          "card": "furious_assault",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 9,
+          "card": "furious_assault",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 7,
+          "card": "thrill_of_battle",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
+        }
       ],
       "stored_dice": [],
       "counter_dice": [
@@ -944,6 +1027,28 @@
           "scripts": {}
         }
       ],
+      "memory": {
+        "start_of_battle_stats": {
+          "hp": 178,
+          "sp": 65,
+          "stagger": 90
+        },
+        "adaptation_stats": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0
+        },
+        "battle_initialized": true,
+        "adaptation_active_type": "pierce"
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [
+        {
+          "amount": 14460000,
+          "reason": ""
+        }
+      ],
       "base_stats": {
         "current_hp": 150,
         "current_sp": 15,
@@ -963,13 +1068,6 @@
           "blunt": 1.0
         },
         "weapon_id": "none"
-      },
-      "card_cooldowns": {
-        "thrill_of_battle": [
-          1,
-          1,
-          1
-        ]
       },
       "attributes": {
         "strength": 30,
@@ -1050,117 +1148,7 @@
           "sp": 3
         }
       },
-      "cooldowns": {},
-      "active_buffs": {},
-      "resources": {},
-      "biography": "",
-      "money_log": [
-        {
-          "amount": 14460000,
-          "reason": ""
-        }
-      ],
-      "death_count": 0,
-      "overkill_damage": 0,
-      "_status_effects": {
-        "adaptation": [
-          {
-            "amount": 4,
-            "duration": 99
-          }
-        ],
-        "protection": [
-          {
-            "amount": 2,
-            "duration": 1
-          },
-          {
-            "amount": 2,
-            "duration": 2
-          }
-        ]
-      },
-      "delayed_queue": [],
-      "memory": {
-        "start_of_battle_stats": {
-          "hp": 178,
-          "sp": 65,
-          "stagger": 90
-        },
-        "adaptation_stats": {
-          "slash": 0,
-          "pierce": 0,
-          "blunt": 0
-        },
-        "battle_initialized": true,
-        "adaptation_active_type": "pierce"
-      },
-      "active_slots": [
-        {
-          "speed": 12,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 12,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 9,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 7,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        }
-      ]
+      "biography": ""
     }
   ],
   "phase": "planning",
@@ -2075,5 +2063,6 @@
   "profile_unit": "Roland",
   "leveling_unit": "Roland",
   "tree_unit": "Roland",
-  "checks_unit": "Roland"
+  "checks_unit": "Roland",
+  "undo_stack": []
 }

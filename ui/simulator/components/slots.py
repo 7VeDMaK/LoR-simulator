@@ -1,15 +1,18 @@
 import streamlit as st
 from collections import Counter
 from core.library import Library
-from core.enums import DiceType  # [NEW] Для проверки типов кубиков
+from core.enums import DiceType, CardType
 from logic.state_manager import StateManager
 from logic.weapon_definitions import WEAPON_REGISTRY
 from ui.components import _format_script_text
 from ui.icons import get_icon_html
 from ui.styles import TYPE_COLORS
 from ui.simulator.components.common import CARD_TYPE_ICONS
+
+
 def save_cb():
     StateManager.save_state(st.session_state)
+
 
 def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
     """
@@ -41,7 +44,7 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
             slot['card'] = None
             selected_card = None
 
-    # Формируем заголовок
+    # Формирование заголовка
     if selected_card:
         c_type_lower = str(selected_card.card_type).lower()
         type_emoji = "📄"
@@ -97,178 +100,229 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
     # --- 3. ИНТЕРФЕЙС ВЫБОРА ---
     with st.expander(label, expanded=False):
-        c_tgt, c_sel = st.columns([1, 1])
-
-        # --- ВЫБОР ЦЕЛИ ---
-        target_options = ["None"]
-        show_allies = False
-        show_enemies = True
-
+        # Если выбрана МАССОВАЯ АТАКА -> Специальный интерфейс
+        is_mass_attack = False
         if selected_card:
-            flags = selected_card.flags if hasattr(selected_card, 'flags') and selected_card.flags else []
-            has_friendly = "friendly" in flags
-            has_offensive = "offensive" in flags
+            ctype = str(selected_card.card_type).lower()
+            if "mass" in ctype:
+                is_mass_attack = True
 
-            if has_friendly and has_offensive:
-                show_allies = True;
-                show_enemies = True
-            elif has_friendly:
-                show_allies = True;
-                show_enemies = False
-            else:
-                show_allies = False;
-                show_enemies = True
+        if is_mass_attack:
+            c_sel, c_mass = st.columns([1, 2])
+        else:
+            c_tgt, c_sel = st.columns([1, 1])
 
-        if show_enemies:
-            alive_enemies = [u for u in opposing_team if not u.is_dead()]
-            has_taunt = any(u.get_status("taunt") > 0 for u in alive_enemies)
+        # === ВЫБОР КАРТЫ (Общий для всех) ===
+        # Рисуем его первым, если это Mass Attack (чтобы был слева), или вторым если обычная
 
-            # [FIX] Проверяем, невидим ли сам юнит
-            am_i_invisible = unit.get_status("invisibility") > 0
-
-            for t_idx, target_unit in enumerate(opposing_team):
-                if target_unit.is_dead(): continue
-
-                # --- ЛОГИКА НЕВИДИМОСТИ ---
-                is_target_invisible = target_unit.get_status("invisibility") > 0
-                # Если цель невидима, мы можем ее видеть ТОЛЬКО если мы тоже невидимы.
-                if is_target_invisible and not am_i_invisible:
-                    continue
-                # --------------------------
-
-                if has_taunt and target_unit.get_status("taunt") <= 0: continue
-
-                for s_i, slot_obj in enumerate(target_unit.active_slots):
-                    t_spd = slot_obj['speed']
-                    extra = "😵" if slot_obj.get('stunned') else f"Spd {t_spd}"
-                    display_s = s_i + 1
-                    target_options.append(f"E|{t_idx}:{s_i} | ⚔️ {target_unit.name} S{display_s} ({extra})")
-
-        if show_allies:
-            for t_idx, target_unit in enumerate(my_team):
-                if target_unit.is_dead(): continue
-                for s_i, slot_obj in enumerate(target_unit.active_slots):
-                    t_spd = slot_obj['speed']
-                    extra = "😵" if slot_obj.get('stunned') else f"Spd {t_spd}"
-                    display_s = s_i + 1
-                    target_options.append(f"A|{t_idx}:{s_i} | 🛡️ {target_unit.name} S{display_s} ({extra})")
-
-        cur_t_unit = slot.get('target_unit_idx', -1)
-        cur_t_slot = slot.get('target_slot_idx', -1)
-        cur_is_ally = slot.get('is_ally_target', False)
-        current_val_str = "None"
-
-        if cur_t_unit != -1 and cur_t_slot != -1:
-            prefix_type = "A" if cur_is_ally else "E"
-            search_prefix = f"{prefix_type}|{cur_t_unit}:{cur_t_slot}"
-            for opt in target_options:
-                if opt.startswith(search_prefix):
-                    current_val_str = opt
+        display_cards = [None] + available_cards
+        c_idx = 0
+        if selected_card:
+            for idx, c in enumerate(display_cards):
+                if c and c.id == selected_card.id:
+                    c_idx = idx
                     break
 
-        idx_sel = target_options.index(current_val_str) if current_val_str in target_options else 0
-        selected_tgt_str = c_tgt.selectbox(
-            "Target", target_options, index=idx_sel,
-            key=f"{key_prefix}_{unit.name}_tgt_{slot_idx}", label_visibility="collapsed",
-            on_change=st.session_state.get('save_callback')
-        )
+        def format_card_option(x):
+            if not x: return "⛔ Пусто"
+            emoji = "📄"
+            ctype = str(x.card_type).lower()
+            for k, v in CARD_TYPE_ICONS.items():
+                if k in ctype: emoji = v; break
+            if deck_ids:
+                count = deck_counts.get(x.id, 0)
+                return f"{emoji} [{x.tier}] {x.name} (x{count})"
+            return f"{emoji} [{x.tier}] {x.name}"
 
-        if selected_tgt_str == "None":
-            slot['target_unit_idx'] = -1;
-            slot['target_slot_idx'] = -1;
-            slot['is_ally_target'] = False
-        else:
-            try:
-                meta_part, label_part = selected_tgt_str.split('|', 1)
-                team_type = meta_part.strip()
-                coords = label_part.split('|')[0].strip().split(':')
-                slot['target_unit_idx'] = int(coords[0])
-                slot['target_slot_idx'] = int(coords[1])
-                slot['is_ally_target'] = (team_type == "A")
-            except:
-                slot['target_unit_idx'] = -1;
-                slot['target_slot_idx'] = -1
+        # Контейнер для селектора карты
+        card_container = c_sel if not is_mass_attack else c_sel
 
-        # --- ВЫБОР КАРТЫ ---
         if slot.get('locked'):
-            c_sel.text_input("Page", value=selected_card.name if selected_card else "Locked", disabled=True,
-                             label_visibility="collapsed")
+            card_container.text_input("Page", value=selected_card.name if selected_card else "Locked", disabled=True,
+                                      label_visibility="collapsed")
         else:
-            display_cards = [None] + available_cards
-            c_idx = 0
-            if selected_card:
-                for idx, c in enumerate(display_cards):
-                    if c and c.id == selected_card.id:
-                        c_idx = idx
-                        break
-
-            def format_card_option(x):
-                if not x: return "⛔ Пусто"
-                emoji = "📄"
-                ctype = str(x.card_type).lower()
-                for k, v in CARD_TYPE_ICONS.items():
-                    if k in ctype: emoji = v; break
-                if deck_ids:
-                    count = deck_counts.get(x.id, 0)
-                    return f"{emoji} [{x.tier}] {x.name} (x{count})"
-                return f"{emoji} [{x.tier}] {x.name}"
-
-            new_card = c_sel.selectbox("Page", display_cards, format_func=format_card_option, index=c_idx,
-                                       key=f"{key_prefix}_{unit.name}_card_{slot_idx}", label_visibility="collapsed",
-                                       on_change=st.session_state.get('save_callback'))
+            new_card = card_container.selectbox("Page", display_cards, format_func=format_card_option, index=c_idx,
+                                                key=f"{key_prefix}_{unit.name}_card_{slot_idx}",
+                                                label_visibility="collapsed",
+                                                on_change=st.session_state.get('save_callback'))
             slot['card'] = new_card
 
-            # --- ОПЦИИ ---
-            can_redirect = True
-            enemy_spd_val = 0
-            has_athletic = ("athletic" in unit.talents) or ("athletic" in unit.passives)
+        # === ВЫБОР ЦЕЛИ (ДВА РЕЖИМА) ===
 
-            if selected_tgt_str != "None":
-                try:
-                    import re
-                    match = re.search(r"Spd (\d+)", selected_tgt_str)
-                    if match:
-                        enemy_spd_val = int(match.group(1))
-                        if has_athletic:
-                            if speed < enemy_spd_val: can_redirect = False
-                        else:
-                            if speed <= enemy_spd_val: can_redirect = False
-                except:
-                    pass
+        if is_mass_attack:
+            # --- РЕЖИМ МАССОВОЙ АТАКИ ---
+            # Показываем список врагов и выбор слота защиты для каждого
+            with c_mass:
+                st.caption("🎯 **Выбор целей Масс. Атаки** (Кто чем защищается)")
 
-            _, c_opt1, c_opt2 = st.columns([2.5, 1, 1])
-            aggro_val = slot.get('is_aggro', False)
+                # Инициализация словаря выбора
+                if 'mass_defenses' not in slot:
+                    slot['mass_defenses'] = {}
 
-            with c_opt1:
-                icon_aggro = get_icon_html("dice_slot", width=30)
-                st.markdown(f"<div style='text-align:center; height:30px;'>{icon_aggro}</div>",
-                            unsafe_allow_html=True)
+                # Перебираем врагов
+                for e_idx, enemy in enumerate(opposing_team):
+                    if enemy.is_dead(): continue
 
-                if slot.get('is_ally_target'):
-                    c_opt1.checkbox("Aggro", value=False, disabled=True,
-                                    key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}", label_visibility="collapsed",
-                                    on_change=save_cb)
-                    if aggro_val: slot['is_aggro'] = False
-                elif can_redirect:
-                    c_opt1.checkbox("Aggro", value=aggro_val, key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}",
-                                    label_visibility="collapsed",
-                                    on_change=save_cb)
+                    # Опции слотов: Auto (Рандом), S1, S2...
+                    slot_opts = ["Auto"]
+                    for s_i, _ in enumerate(enemy.active_slots):
+                        slot_opts.append(f"S{s_i + 1}")
+
+                    # Ключ для виджета
+                    md_key = f"{key_prefix}_mass_{slot_idx}_{e_idx}"
+
+                    # Текущее значение
+                    curr_val = slot['mass_defenses'].get(str(e_idx), "Auto")
+                    if curr_val not in slot_opts: curr_val = "Auto"
+
+                    cols_m = st.columns([1.5, 1])
+                    cols_m[0].markdown(f"**{enemy.name}**")
+                    new_val = cols_m[1].selectbox("Def Slot", slot_opts,
+                                                  index=slot_opts.index(curr_val),
+                                                  key=md_key,
+                                                  label_visibility="collapsed",
+                                                  on_change=save_cb)
+
+                    slot['mass_defenses'][str(e_idx)] = new_val
+
+            # Опции Aggro/Break для масс атак обычно скрыты или фиксированы, но можно оставить
+            # Если нужно, добавим их ниже. Для масс атак Break обычно встроен в механику.
+
+        else:
+            # --- ОБЫЧНЫЙ РЕЖИМ ---
+            target_options = ["None"]
+            show_allies = False
+            show_enemies = True
+
+            if selected_card:
+                flags = selected_card.flags if hasattr(selected_card, 'flags') and selected_card.flags else []
+                has_friendly = "friendly" in flags
+                has_offensive = "offensive" in flags
+
+                if has_friendly and has_offensive:
+                    show_allies = True;
+                    show_enemies = True
+                elif has_friendly:
+                    show_allies = True;
+                    show_enemies = False
                 else:
-                    c_opt1.checkbox("Aggro", value=False, disabled=True,
-                                    key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}", label_visibility="collapsed",
-                                    on_change=save_cb)
-                    if aggro_val: slot['is_aggro'] = False
+                    show_allies = False;
+                    show_enemies = True
 
-            slot_destroy = slot.get('destroy_on_speed', True)
-            with c_opt2:
-                icon_broken = get_icon_html("dice_broken", width=30)
-                st.markdown(f"<div style='text-align:center; height:30px;'>{icon_broken}</div>",
-                            unsafe_allow_html=True)
-                new_destroy = st.checkbox("Break", value=slot_destroy,
-                                          key=f"{key_prefix}_{unit.name}_destroy_{slot_idx}",
-                                          label_visibility="collapsed",
-                                          on_change=save_cb)
-                slot['destroy_on_speed'] = new_destroy
+            if show_enemies:
+                alive_enemies = [u for u in opposing_team if not u.is_dead()]
+                has_taunt = any(u.get_status("taunt") > 0 for u in alive_enemies)
+                am_i_invisible = unit.get_status("invisibility") > 0
+
+                for t_idx, target_unit in enumerate(opposing_team):
+                    if target_unit.is_dead(): continue
+                    is_target_invisible = target_unit.get_status("invisibility") > 0
+                    if is_target_invisible and not am_i_invisible: continue
+                    if has_taunt and target_unit.get_status("taunt") <= 0: continue
+
+                    for s_i, slot_obj in enumerate(target_unit.active_slots):
+                        t_spd = slot_obj['speed']
+                        extra = "😵" if slot_obj.get('stunned') else f"Spd {t_spd}"
+                        display_s = s_i + 1
+                        target_options.append(f"E|{t_idx}:{s_i} | ⚔️ {target_unit.name} S{display_s} ({extra})")
+
+            if show_allies:
+                for t_idx, target_unit in enumerate(my_team):
+                    if target_unit.is_dead(): continue
+                    for s_i, slot_obj in enumerate(target_unit.active_slots):
+                        t_spd = slot_obj['speed']
+                        extra = "😵" if slot_obj.get('stunned') else f"Spd {t_spd}"
+                        display_s = s_i + 1
+                        target_options.append(f"A|{t_idx}:{s_i} | 🛡️ {target_unit.name} S{display_s} ({extra})")
+
+            cur_t_unit = slot.get('target_unit_idx', -1)
+            cur_t_slot = slot.get('target_slot_idx', -1)
+            cur_is_ally = slot.get('is_ally_target', False)
+            current_val_str = "None"
+
+            if cur_t_unit != -1 and cur_t_slot != -1:
+                prefix_type = "A" if cur_is_ally else "E"
+                search_prefix = f"{prefix_type}|{cur_t_unit}:{cur_t_slot}"
+                for opt in target_options:
+                    if opt.startswith(search_prefix):
+                        current_val_str = opt
+                        break
+
+            idx_sel = target_options.index(current_val_str) if current_val_str in target_options else 0
+            selected_tgt_str = c_tgt.selectbox(
+                "Target", target_options, index=idx_sel,
+                key=f"{key_prefix}_{unit.name}_tgt_{slot_idx}", label_visibility="collapsed",
+                on_change=st.session_state.get('save_callback')
+            )
+
+            if selected_tgt_str == "None":
+                slot['target_unit_idx'] = -1;
+                slot['target_slot_idx'] = -1;
+                slot['is_ally_target'] = False
+            else:
+                try:
+                    meta_part, label_part = selected_tgt_str.split('|', 1)
+                    team_type = meta_part.strip()
+                    coords = label_part.split('|')[0].strip().split(':')
+                    slot['target_unit_idx'] = int(coords[0])
+                    slot['target_slot_idx'] = int(coords[1])
+                    slot['is_ally_target'] = (team_type == "A")
+                except:
+                    slot['target_unit_idx'] = -1;
+                    slot['target_slot_idx'] = -1
+
+            # --- ОПЦИИ (Aggro/Break) ---
+            if selected_card:  # Показываем опции только если карта выбрана
+                can_redirect = True
+                enemy_spd_val = 0
+                has_athletic = ("athletic" in unit.talents) or ("athletic" in unit.passives)
+
+                if selected_tgt_str != "None":
+                    try:
+                        import re
+                        match = re.search(r"Spd (\d+)", selected_tgt_str)
+                        if match:
+                            enemy_spd_val = int(match.group(1))
+                            if has_athletic:
+                                if speed < enemy_spd_val: can_redirect = False
+                            else:
+                                if speed <= enemy_spd_val: can_redirect = False
+                    except:
+                        pass
+
+                _, c_opt1, c_opt2 = st.columns([2.5, 1, 1])
+                aggro_val = slot.get('is_aggro', False)
+
+                with c_opt1:
+                    icon_aggro = get_icon_html("dice_slot", width=30)
+                    st.markdown(f"<div style='text-align:center; height:30px;'>{icon_aggro}</div>",
+                                unsafe_allow_html=True)
+
+                    if slot.get('is_ally_target'):
+                        c_opt1.checkbox("Aggro", value=False, disabled=True,
+                                        key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}", label_visibility="collapsed",
+                                        on_change=save_cb)
+                        if aggro_val: slot['is_aggro'] = False
+                    elif can_redirect:
+                        c_opt1.checkbox("Aggro", value=aggro_val, key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}",
+                                        label_visibility="collapsed",
+                                        on_change=save_cb)
+                    else:
+                        c_opt1.checkbox("Aggro", value=False, disabled=True,
+                                        key=f"{key_prefix}_{unit.name}_aggro_{slot_idx}", label_visibility="collapsed",
+                                        on_change=save_cb)
+                        if aggro_val: slot['is_aggro'] = False
+
+                slot_destroy = slot.get('destroy_on_speed', True)
+                with c_opt2:
+                    icon_broken = get_icon_html("dice_broken", width=30)
+                    st.markdown(f"<div style='text-align:center; height:30px;'>{icon_broken}</div>",
+                                unsafe_allow_html=True)
+                    new_destroy = st.checkbox("Break", value=slot_destroy,
+                                              key=f"{key_prefix}_{unit.name}_destroy_{slot_idx}",
+                                              label_visibility="collapsed",
+                                              on_change=save_cb)
+                    slot['destroy_on_speed'] = new_destroy
 
         # --- ИНФОРМАЦИЯ О КАРТЕ ---
         if selected_card:
@@ -287,7 +341,7 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
                     if getattr(d, 'is_counter', False): dtype_key = f"counter_{dtype_key}"
                     icon_html = get_icon_html(dtype_key, width=20)
 
-                    # === [NEW] РАСЧЕТ БОНУСА (Визуализация) ===
+                    # === РАСЧЕТ БОНУСА (Визуализация) ===
                     bonus = 0
                     mods = unit.modifiers
 
@@ -296,20 +350,12 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
 
                     # 2. Бонусы в зависимости от типа кубика
                     if d.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
-                        # Атрибуты (Сила) + Навыки (power_attack)
                         bonus += int(mods.get("power_attack", {}).get("flat", 0))
-
-                        # Конкретный тип атаки (Slash/Pierce/Blunt)
                         t_key = f"power_{d.dtype.name.lower()}"
                         bonus += int(mods.get(t_key, {}).get("flat", 0))
-
-                        # Статусы
                         bonus += unit.get_status("strength")
                         bonus += unit.get_status("power_up")
                         bonus -= unit.get_status("weakness")
-
-                        # Бонус от Оружия (тип)
-                        # Используем unit.defense.weapon_id
                         wid = unit.weapon_id
                         if wid and wid in WEAPON_REGISTRY:
                             wtype = WEAPON_REGISTRY[wid].weapon_type
@@ -318,20 +364,15 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
                                 bonus += int(mods.get(w_key, {}).get("flat", 0))
 
                     elif d.dtype == DiceType.BLOCK:
-                        # Атрибуты (Стойкость)
                         bonus += int(mods.get("power_block", {}).get("flat", 0))
-                        # Статусы
                         bonus += unit.get_status("endurance")
                         bonus += unit.get_status("power_up")
 
                     elif d.dtype == DiceType.EVADE:
-                        # Атрибуты (Ловкость/Акробатика)
                         bonus += int(mods.get("power_evade", {}).get("flat", 0))
-                        # Статусы
-                        bonus += unit.get_status("endurance") # endurance часто дает защиту в целом
+                        bonus += unit.get_status("endurance")
                         bonus += unit.get_status("power_up")
 
-                    # Формирование строки бонуса
                     bonus_str = ""
                     if bonus > 0:
                         bonus_str = f" :green[(+{bonus})]"
@@ -339,7 +380,6 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
                         bonus_str = f" :red[({bonus})]"
 
                     dice_display.append(f"{icon_html} :{color}[**{d.min_val}-{d.max_val}**]{bonus_str}")
-                    # ============================================
 
                 st.markdown(" ".join(dice_display), unsafe_allow_html=True)
 

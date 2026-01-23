@@ -1,6 +1,5 @@
-from logic.character_changing.passives.base_passive import BasePassive
 from core.logging import logger, LogLevel
-from logic.context import RollContext
+from logic.character_changing.passives.base_passive import BasePassive
 
 
 class PassiveAxisUnity(BasePassive):
@@ -101,14 +100,34 @@ class PassivePseudoProtagonist(BasePassive):
     id = "pseudo_protagonist"
     name = "Псевдо-главный герой"
     description = (
-        "Вне боя Аксис получает опыт за каждый брошенный кубик, "
-        "равный его значению, вне зависимости от результата."
+        "Вне боя Аксис получает опыт за каждый брошенный кубик. "
+        "Опыт = (Опыт текущего уровня) * (Результат броска / 100)."
     )
     is_active_ability = False
 
-    # TODO: Реализовать хук on_dice_rolled (вне боя)
-    def on_out_of_combat_roll(self, unit, roll_result):
-        pass
+    def on_skill_check(self, unit, check_result: int, stat_key: str, **kwargs):
+        # 1. Считаем базовую стоимость уровня (2^(lvl-1))
+        # Защита от уровня 0 или меньше
+        lvl = max(1, unit.level)
+        level_xp_base = 2 ** lvl
+
+        # 2. Считаем процент от броска
+        # Результат 10 = 0.1 (10%), Результат 30 = 0.3 (30%)
+        multiplier = check_result / 100.0
+
+        # 3. Итоговый опыт (целое число)
+        xp_gain = max(check_result, int(level_xp_base * multiplier))
+
+        if xp_gain > 0:
+            unit.total_xp += xp_gain
+
+            # Логируем
+            logger.log(f"📚 Pseudo Protagonist: {unit.name} gained {xp_gain} XP from roll {check_result}",
+                       LogLevel.NORMAL, "System")
+
+            # Пишем тост в интерфейс (чтобы игрок увидел сразу)
+            import streamlit as st
+            st.toast(f"Псевдо-ГГ: +{xp_gain} XP за бросок!", icon="📚")
 
 
 class PassiveSourceAccess(BasePassive):

@@ -116,7 +116,8 @@
         "programming": 0
     },
     "passives": [
-        "axis_unity"
+        "axis_unity",
+        "pseudo_protagonist"
     ],
     "talents": [],
     "augmentations": [],

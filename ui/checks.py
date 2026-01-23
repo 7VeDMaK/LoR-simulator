@@ -301,6 +301,10 @@ def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
         result["msg"] = "РЕЗУЛЬТАТ";
         result["is_success"] = True
 
+    if hasattr(unit, "trigger_mechanics"):
+        # Передаем итоговый результат броска
+        unit.trigger_mechanics("on_skill_check", unit, check_result=result["total"], stat_key=stat_key)
+
     return result
 
 

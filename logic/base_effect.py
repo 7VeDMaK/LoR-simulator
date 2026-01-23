@@ -266,7 +266,7 @@ class BaseEffect:
         """
         return res
 
-    def absorb_damage(self, unit, amount: int, damage_type: str, stack=0, log_list=None) -> int:
+    def absorb_damage(self, unit: object, amount: int, damage_type: str, stack: object = 0, log_list: object = None) -> int:
         """
         Поглощает финальный урон (после защиты и резистов), тратя ресурс эффекта.
         Пример: BarrierStatus (поглощает X урона, тратит X стаков).
@@ -286,3 +286,11 @@ class BaseEffect:
         Пример: DmgUp (+урон), DmgDown (-урон), пассивки на % урона.
         """
         return amount
+
+    def on_skill_check(self, unit, check_result: int, stat_key: str, **kwargs):
+        """
+        Вызывается после совершения проверки навыка/характеристики вне боя.
+        check_result: Итоговое значение броска.
+        stat_key: Название проверяемого стата (strength, luck, etc).
+        """
+        pass

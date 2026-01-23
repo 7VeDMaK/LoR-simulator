@@ -5,26 +5,20 @@ from core.logging import logger, LogLevel
 def _apply_card_cooldown(unit, card):
     """
     Накладывает кулдаун на карту.
-    Поддерживает множественные копии (хранит список таймеров).
     """
     if not unit or not card or card.id == "unknown":
         return
 
-    # Рассчитываем значение кулдауна (обычно равно Тиру карты)
     cd_val = max(0, card.tier)
 
     if cd_val > 0:
-        # Если записи нет, создаем список
         if card.id not in unit.card_cooldowns:
             unit.card_cooldowns[card.id] = []
 
-        # Защита от старого формата (если там вдруг int, превращаем в list)
         if isinstance(unit.card_cooldowns[card.id], int):
             unit.card_cooldowns[card.id] = [unit.card_cooldowns[card.id]]
 
-        # Добавляем новый экземпляр таймера в список
         unit.card_cooldowns[card.id].append(cd_val)
-
         logger.log(f"⏳ {unit.name}: Cooldown applied to '{card.name}' ({cd_val} turns)", LogLevel.NORMAL, "Cooldown")
 
 
@@ -59,13 +53,17 @@ def execute_single_action(engine, act, executed_slots):
     # === 1. MASS ATTACK ===
     if "mass" in act['card_type']:
         logger.log(f"💥 {source.name} initiates Mass Attack: {source.current_card.name}", LogLevel.NORMAL, "Combat")
+
+        # Помечаем слот атакующего как использованный
         executed_slots.add(src_id)
+
         p_label = "Mass Atk" if act['is_left'] else "Enemy Mass"
 
         # Кулдаун
         _apply_card_cooldown(source, source.current_card)
 
-        return process_mass_attack(engine, act, act['opposing_team'], p_label)
+        # [FIX] Передаем executed_slots, чтобы функция знала, какие слоты врагов уже пусты/использованы
+        return process_mass_attack(engine, act, act['opposing_team'], p_label, executed_slots)
 
     # === 2. ON PLAY / INSTANT ===
     if "on_play" in act['card_type'] or "on play" in act['card_type']:
@@ -78,20 +76,16 @@ def execute_single_action(engine, act, executed_slots):
         if engine.logs:
             details.extend(engine.logs)
 
-        # Кулдаун
         _apply_card_cooldown(source, source.current_card)
-
         return [{"round": "On Play", "details": details}]
 
-    # === 3. STANDARD COMBAT (Melee, Ranged, Offensive) ===
-    # target = act['target_unit'] (уже получен выше)
+    # === 3. STANDARD COMBAT ===
     t_s_idx = act['target_slot_idx']
 
     if not target or target.is_dead():
         logger.log(f"⚠️ {source.name}: Target missing or dead, action skipped.", LogLevel.VERBOSE, "Executor")
         return []
 
-    # Проверяем Clash или One-Sided
     is_clash = False
     tgt_id = (target.name, t_s_idx)
     target_slot = None
@@ -107,14 +101,11 @@ def execute_single_action(engine, act, executed_slots):
                 not target.is_staggered():
             is_clash = True
 
-    # Кулдаун Атакующего
     _apply_card_cooldown(source, source.current_card)
-
     battle_logs = []
     spd_src = act['slot_data']['speed']
 
     if is_clash:
-        # === CLASH ===
         executed_slots.add(src_id)
         executed_slots.add(tgt_id)
 
@@ -133,7 +124,6 @@ def execute_single_action(engine, act, executed_slots):
         battle_logs.extend(logs)
 
     else:
-        # === ONE-SIDED ===
         executed_slots.add(src_id)
         p_label = "L" if act['is_left'] else "R"
 
