@@ -2,7 +2,7 @@
 
 from logic.scripts.combat import modify_roll_power, deal_effect_damage, self_harm_percent, add_hp_damage, \
     nullify_hp_damage, convert_status_to_power, repeat_dice_by_status, consume_evade_for_haste, lima_ram_logic, \
-    apply_axis_team_buff, adaptive_damage_type
+    apply_axis_team_buff, adaptive_damage_type, summon_ally
 from logic.scripts.resources import restore_resource
 from logic.scripts.statuses import (
     apply_status, steal_status, multiply_status, remove_status_script,
@@ -44,4 +44,5 @@ SCRIPTS_REGISTRY = {
 
     "apply_axis_team_buff": apply_axis_team_buff,
     "adaptive_damage_type": adaptive_damage_type,
+    "summon_ally": summon_ally,
 }

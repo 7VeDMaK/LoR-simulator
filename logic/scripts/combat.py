@@ -1,4 +1,5 @@
 import copy
+import uuid
 from typing import TYPE_CHECKING
 
 from core.enums import DiceType
@@ -253,3 +254,73 @@ def adaptive_damage_type(ctx: 'RollContext', params: dict):
         if ctx.log is not None:
             ctx.log.append(msg)
         logger.log(f"🔄 Adaptive: Switched to {best_type.name} vs {ctx.target.name}", LogLevel.VERBOSE, "Scripts")
+
+
+def summon_ally(ctx: 'RollContext', params: dict):
+    """
+    Призывает копию юнита из библиотеки (Roster) на сторону кастующего.
+    Параметры:
+    - unit_name: Имя юнита в файле (например, "Ex Machina")
+    """
+    source = ctx.source
+    unit_name = params.get("unit_name")
+
+    if not unit_name:
+        if ctx.log is not None: ctx.log.append("🚫 Summon Error: No unit name")
+        return
+
+    # 1. Определяем команду
+    target_team_list = None
+    if 'team_left' in st.session_state and source in st.session_state['team_left']:
+        target_team_list = st.session_state['team_left']
+    elif 'team_right' in st.session_state and source in st.session_state['team_right']:
+        target_team_list = st.session_state['team_right']
+
+    if target_team_list is None: return
+
+    # Лимит на команду (5 юнитов)
+    if len(target_team_list) >= 5:
+        if ctx.log is not None: ctx.log.append("🚫 Summon Failed: Team Full")
+        logger.log(f"🚫 Summon failed for {source.name}: Team is full", LogLevel.NORMAL, "Summon")
+        return
+
+    # 2. Ищем шаблон в Ростере
+    roster = st.session_state.get('roster', {})
+    template_unit = roster.get(unit_name)
+
+    if not template_unit:
+        # Попытка найти по частичному совпадению (если файл называется Ex_Machina.json, а имя внутри Ex Machina)
+        for u in roster.values():
+            if u.name == unit_name:
+                template_unit = u
+                break
+
+    if not template_unit:
+        if ctx.log is not None: ctx.log.append(f"🚫 Summon Error: '{unit_name}' not found")
+        return
+
+    # 3. Создаем копию
+    new_unit = copy.deepcopy(template_unit)
+
+    # Уникальное имя, чтобы не путать
+    unique_suffix = str(uuid.uuid4())[:4]
+    new_unit.name = f"{template_unit.name} ({unique_suffix})"
+
+    # Инициализация боя
+    new_unit.recalculate_stats()
+    new_unit.current_hp = new_unit.max_hp
+    new_unit.current_sp = new_unit.max_sp
+    new_unit.current_stagger = new_unit.max_stagger
+
+    new_unit.memory['start_of_battle_stats'] = {
+        'hp': new_unit.max_hp,
+        'sp': new_unit.max_sp,
+        'stagger': new_unit.max_stagger
+    }
+
+    # 4. Добавляем в команду
+    target_team_list.append(new_unit)
+
+    msg = f"🤖 **Summon**: {new_unit.name} прибыл!"
+    if ctx.log is not None: ctx.log.append(msg)
+    logger.log(f"🤖 Summoned {new_unit.name} for {source.name}", LogLevel.NORMAL, "Summon")

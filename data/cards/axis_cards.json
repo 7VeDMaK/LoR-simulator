@@ -362,28 +362,22 @@
       "name": "Прототип Экс Махины",
       "tier": 3,
       "type": "Melee",
-      "description": "III. Ближний. On Use: Вызов союзника (WIP).",
+      "description": "III. Ближний. On Use: Призывает 'Ex Machina' из резерва.",
       "flags": [],
-      "scripts": {},
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "summon_ally",
+            "params": {
+              "unit_name": "Экс Машинариум"
+            }
+          }
+        ]
+      },
       "dice": [
-        {
-          "type": "evade",
-          "base_min": 1,
-          "base_max": 5,
-          "scripts": {}
-        },
-        {
-          "type": "evade",
-          "base_min": 1,
-          "base_max": 5,
-          "scripts": {}
-        },
-        {
-          "type": "evade",
-          "base_min": 1,
-          "base_max": 5,
-          "scripts": {}
-        }
+        { "type": "evade", "base_min": 1, "base_max": 5, "scripts": {} },
+        { "type": "evade", "base_min": 1, "base_max": 5, "scripts": {} },
+        { "type": "evade", "base_min": 1, "base_max": 5, "scripts": {} }
       ]
     }
   ]
