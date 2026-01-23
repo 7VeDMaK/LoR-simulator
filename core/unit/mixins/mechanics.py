@@ -1,3 +1,5 @@
+
+
 class MechanicsIteratorMixin:
     """
     Предоставляет методы для перебора всех активных механик юнита
@@ -12,7 +14,7 @@ class MechanicsIteratorMixin:
         from logic.character_changing.talents import TALENT_REGISTRY
         from logic.character_changing.passives import PASSIVE_REGISTRY
         from logic.character_changing.augmentations.augmentations import AUGMENTATION_REGISTRY
-        from logic.statuses.status_manager import STATUS_REGISTRY
+        from logic.statuses.status_definitions import STATUS_REGISTRY
 
         # 1. Таланты
         if hasattr(self, "talents"):

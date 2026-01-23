@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
-from ui.cheat_sheet.cheat_sheet import get_base_rolls_data
+
+from ui.cheat_sheet.utils import get_base_rolls_data
 
 
 def render_calculator_tab():

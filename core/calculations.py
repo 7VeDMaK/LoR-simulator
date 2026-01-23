@@ -1,14 +1,14 @@
 # [LOG] Импорт логгера
 from core.logging import logger, LogLevel
+from logic.calculations.attributes import apply_attribute_effects
 from logic.calculations.collectors import (
     collect_ability_bonuses, collect_status_bonuses, collect_weapon_bonuses
 )
-from logic.calculations.formulas import (
-    calculate_totals, apply_attribute_effects, apply_skill_effects,
-    calculate_speed_dice, calculate_pools, finalize_state
-)
+from logic.calculations.formulas import calculate_totals, finalize_state
 # Импорт наших новых модулей
 from logic.calculations.modifiers import init_modifiers, init_bonuses
+from logic.calculations.pools import calculate_speed_dice, calculate_pools
+from logic.calculations.skills import apply_skill_effects
 from logic.character_changing.augmentations.augmentations import AUGMENTATION_REGISTRY
 from logic.character_changing.passives import PASSIVE_REGISTRY
 from logic.character_changing.talents import TALENT_REGISTRY

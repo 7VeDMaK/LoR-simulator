@@ -1,4 +1,4 @@
-from logic.statuses.status_manager import STATUS_REGISTRY
+from logic.statuses.status_definitions import STATUS_REGISTRY
 
 # Списки опций
 STATUS_LIST = sorted(list(STATUS_REGISTRY.keys()))

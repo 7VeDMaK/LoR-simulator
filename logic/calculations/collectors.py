@@ -1,6 +1,6 @@
 from core.logging import logger, LogLevel
 from logic.character_changing.passives import PASSIVE_REGISTRY
-from logic.statuses.status_manager import STATUS_REGISTRY
+from logic.statuses.status_definitions import STATUS_REGISTRY
 from logic.weapon_definitions import WEAPON_REGISTRY
 
 
