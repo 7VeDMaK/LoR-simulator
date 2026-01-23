@@ -99,19 +99,36 @@ def create_roll_context(source, target, die, is_disadvantage=False) -> RollConte
 
     # === 4. МОДИФИКАТОРЫ (ОБНОВЛЕНО) ===
     mods = source.modifiers
+    skip_standard_stats = False
+
+    # [NEW] Проверка хука override_roll_base_stat
+    if hasattr(source, "apply_mechanics_filter"):
+        # Пытаемся получить подмену стата
+        override_val, override_reason = source.apply_mechanics_filter(
+            "override_roll_base_stat",
+            (0, ""),
+            dice=die
+        )
+
+        if override_val != 0:
+            # Применяем кастомный стат (например, Удача)
+            ctx.modify_power(override_val, override_reason)
+            # Отключаем стандартные бонусы от характеристик (Сила, Стойкость и т.д.)
+            skip_standard_stats = True
+            logger.log(f"⚡ Stat Override: Used {override_reason} (+{override_val}), standard stats skipped.", LogLevel.VERBOSE, "Roll")
 
     # Атака
     if die.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
-        # Общая сила (от стата Strength)
-        p_atk = get_modded_value(0, "power_attack", mods)
-        if p_atk:
-            ctx.modify_power(p_atk, "Сила")
-            logger.log(f"💪 Power Atk Bonus: {p_atk:+}", LogLevel.VERBOSE, "Roll")
+        # Общая сила (от стата Strength) - применяем только если нет оверрайда
+        if not skip_standard_stats:
+            p_atk = get_modded_value(0, "power_attack", mods)
+            if p_atk:
+                ctx.modify_power(p_atk, "Сила")
+                logger.log(f"💪 Power Atk Bonus: {p_atk:+}", LogLevel.VERBOSE, "Roll")
 
-        # === БОНУС ОРУЖИЯ ===
-        # Определяем тип текущего оружия
+        # === БОНУС ОРУЖИЯ (Оставляем, так как это экипировка) ===
         current_weapon_id = getattr(source, "weapon_id", "none")
-        weapon_type = "light"  # По дефолту (кулаки)
+        weapon_type = "light"  # По дефолту
 
         if current_weapon_id in WEAPON_REGISTRY:
             weapon_type = WEAPON_REGISTRY[current_weapon_id].weapon_type
@@ -147,20 +164,28 @@ def create_roll_context(source, target, die, is_disadvantage=False) -> RollConte
 
     # Блок
     elif die.dtype == DiceType.BLOCK:
-        p_blk = get_modded_value(0, "power_block", mods)
-        if p_blk:
-            ctx.modify_power(p_blk, "Стойкость")
-            logger.log(f"🛡️ Block Bonus: {p_blk:+}", LogLevel.VERBOSE, "Roll")
+        if not skip_standard_stats:
+            p_blk = get_modded_value(0, "power_block", mods)
+            if p_blk:
+                ctx.modify_power(p_blk, "Стойкость")
+                logger.log(f"🛡️ Block Bonus: {p_blk:+}", LogLevel.VERBOSE, "Roll")
 
     # Уворот
     elif die.dtype == DiceType.EVADE:
-        p_evd = get_modded_value(0, "power_evade", mods)
-        if p_evd:
-            ctx.modify_power(p_evd, "Ловкость")
-            logger.log(f"💨 Evade Bonus: {p_evd:+}", LogLevel.VERBOSE, "Roll")
+        if not skip_standard_stats:
+            p_evd = get_modded_value(0, "power_evade", mods)
+            if p_evd:
+                ctx.modify_power(p_evd, "Ловкость")
+                logger.log(f"💨 Evade Bonus: {p_evd:+}", LogLevel.VERBOSE, "Roll")
+
+    # --- 4. ГЛОБАЛЬНЫЙ БОНУС (Power All) ---
+    # Исправление ошибки: используем mods, который мы определили выше как source.modifiers
+    power_all = mods.get("power_all", {}).get("flat", 0)
+    if power_all != 0:
+        ctx.modify_power(power_all, "Power All")
 
     # === [ОПТИМИЗАЦИЯ] 5. СОБЫТИЯ ON_ROLL ===
-    # Заменяем ручной перебор на trigger_mechanics
+    # Здесь срабатывают Статусы (Strength, Endurance и т.д.)
     if hasattr(source, "trigger_mechanics"):
         source.trigger_mechanics("on_roll", ctx)
 
@@ -169,7 +194,6 @@ def create_roll_context(source, target, die, is_disadvantage=False) -> RollConte
 
     # === 6. ФИНАЛИЗАЦИЯ ЛОГА ===
     if hasattr(ctx, 'get_formatted_roll_log'):
-        # [FIXED] Сохраняем строку в переменную и используем её
         formula_text = ctx.get_formatted_roll_log()
         ctx.log.insert(0, formula_text)
         logger.log(f"🎲 Final: {ctx.final_value} ({formula_text})", LogLevel.VERBOSE, "Roll")

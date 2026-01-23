@@ -345,17 +345,33 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
                     bonus = 0
                     mods = unit.modifiers
 
+                    # [NEW] ПРОВЕРКА ПАССИВКИ "Доступ к истокам" (Source Access)
+                    # Если она есть, мы не добавляем стандартные бонусы статов, а используем Удачу.
+                    override_active = False
+                    if "source_access" in unit.passives or "source_access" in unit.talents:
+                        override_active = True
+                        # Добавляем бонус от Удачи (Luck / 5)
+                        luck_val = unit.skills.get("luck", 0)
+                        bonus += luck_val // 5
+
                     # 1. Глобальный бонус (Power All)
                     bonus += int(mods.get("power_all", {}).get("flat", 0))
 
                     # 2. Бонусы в зависимости от типа кубика
                     if d.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
-                        bonus += int(mods.get("power_attack", {}).get("flat", 0))
+                        # Если нет оверрайда, добавляем силу
+                        if not override_active:
+                            bonus += int(mods.get("power_attack", {}).get("flat", 0))
+
                         t_key = f"power_{d.dtype.name.lower()}"
                         bonus += int(mods.get(t_key, {}).get("flat", 0))
+
+                        # Статусы и прочее работают поверх
                         bonus += unit.get_status("strength")
                         bonus += unit.get_status("power_up")
                         bonus -= unit.get_status("weakness")
+
+                        # Бонус оружия
                         wid = unit.weapon_id
                         if wid and wid in WEAPON_REGISTRY:
                             wtype = WEAPON_REGISTRY[wid].weapon_type
@@ -364,12 +380,14 @@ def render_slot_strip(unit, opposing_team, my_team, slot_idx, key_prefix):
                                 bonus += int(mods.get(w_key, {}).get("flat", 0))
 
                     elif d.dtype == DiceType.BLOCK:
-                        bonus += int(mods.get("power_block", {}).get("flat", 0))
+                        if not override_active:
+                            bonus += int(mods.get("power_block", {}).get("flat", 0))
                         bonus += unit.get_status("endurance")
                         bonus += unit.get_status("power_up")
 
                     elif d.dtype == DiceType.EVADE:
-                        bonus += int(mods.get("power_evade", {}).get("flat", 0))
+                        if not override_active:
+                            bonus += int(mods.get("power_evade", {}).get("flat", 0))
                         bonus += unit.get_status("endurance")
                         bonus += unit.get_status("power_up")
 

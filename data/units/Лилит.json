@@ -43,7 +43,9 @@
     "active_slots": [],
     "stored_dice": [],
     "counter_dice": [],
-    "memory": {},
+    "memory": {
+        "status_rank": "9 (Fixer)"
+    },
     "death_count": 0,
     "overkill_damage": 0,
     "money_log": [
@@ -74,19 +76,19 @@
     },
     "attributes": {
         "strength": 18,
-        "endurance": 15,
-        "agility": 16,
+        "endurance": 16,
+        "agility": 18,
         "wisdom": 0,
         "psych": 0
     },
     "skills": {
-        "strike_power": 4,
+        "strike_power": 7,
         "medicine": 0,
         "willpower": 0,
         "luck": 0,
         "acrobatics": 15,
         "shields": 0,
-        "tough_skin": 4,
+        "tough_skin": 7,
         "speed": 30,
         "light_weapon": 3,
         "medium_weapon": 15,
@@ -112,7 +114,8 @@
         "frenzy",
         "hiding_in_smoke",
         "smoke_universality",
-        "aerial_foot"
+        "aerial_foot",
+        "recycling"
     ],
     "augmentations": [
         "aug_blessing_of_wind",

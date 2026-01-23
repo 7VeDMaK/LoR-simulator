@@ -4,7 +4,7 @@
     "rank": 9,
     "avatar": "data/avatars/Аксис_Мунди.png",
     "base_intellect": 1,
-    "total_xp": 0,
+    "total_xp": 2,
     "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -22,7 +22,7 @@
     "current_sp": 20,
     "current_stagger": 10,
     "resources": {
-        "luck": 100
+        "luck": 0
     },
     "cooldowns": {},
     "card_cooldowns": {},
@@ -86,7 +86,7 @@
         "strike_power": 0,
         "medicine": 0,
         "willpower": 0,
-        "luck": 100,
+        "luck": 0,
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,

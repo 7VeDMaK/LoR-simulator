@@ -170,6 +170,12 @@ class PassiveChthonic(BasePassive):
     description = "Любой бросок Красноречия проходит с Помехой (Disadvantage)."
     is_active_ability = False
 
-    # TODO: Реализовать наложение помехи на скиллчеки красноречия
     def on_check_roll(self, unit, attribute, context):
-        pass
+        # Проверяем, что атрибут - Красноречие
+        if attribute.lower() in ["eloquence", "красноречие"]:
+            context.is_disadvantage = True
+            if hasattr(context, "log"):
+                context.log.append(f"🌑 **{self.name}**: Помеха на Красноречие!")
+            # Лог в консоль
+            from core.logging import logger, LogLevel
+            logger.log(f"🌑 Chthonic Nature: Disadvantage on Eloquence for {unit.name}", LogLevel.VERBOSE, "Passive")

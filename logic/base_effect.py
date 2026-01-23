@@ -303,3 +303,11 @@ class BaseEffect:
         Пример: 'Доступ к истокам' заменяет Силу/Стойкость на Удачу.
         """
         return current_pair
+
+    def on_check_roll(self, unit, attribute, context):
+        """
+        Вызывается ПЕРЕД броском проверки навыка (Skill Check) в UI.
+        context: объект CheckContext с флагами is_advantage / is_disadvantage.
+        attribute: название навыка (строка).
+        """
+        pass

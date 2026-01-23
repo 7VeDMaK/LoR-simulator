@@ -397,17 +397,15 @@ class TalentSurvivor(BasePassive):
 
         return amount
 
-    def on_skill_check(self, unit, skill_name: str, ctx):
+    def on_check_roll(self, unit, attribute: str, context):
         """
-        Хук для системы проверок навыков.
-        ctx - это контекст проверки (CheckContext), где должен быть флаг advantage.
+        Хук для системы проверок навыков (UI).
         """
-        # Проверяем, что навык - Стойкость
-        if skill_name.lower() in ["endurance", "стойкость"]:
-            ctx.has_advantage = True
-            # Можно добавить лог, если ctx поддерживает это
-            if hasattr(ctx, "log"):
-                ctx.log.append(f"🎲 **{self.name}**: Применено Преимущество к проверке Стойкости!")
+        if attribute.lower() in ["endurance", "стойкость"]:
+            context.is_advantage = True
+            if hasattr(context, "log"):
+                context.log.append(f"🎲 **{self.name}**: Преимущество на Стойкость!")
+            from core.logging import logger, LogLevel
             logger.log(f"🎲 Survivor: Advantage on Endurance check for {unit.name}", LogLevel.VERBOSE, "Talent")
 
 

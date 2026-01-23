@@ -1,18 +1,14 @@
 import random
-
 import streamlit as st
-
 from core.unit.unit import Unit
 
 # === 1. ОПРЕДЕЛЕНИЕ ГРУПП И НАЗВАНИЙ ===
 
-# [CHANGED] Убрали speed и medicine отсюда
 TYPE_10_ATTRS = {
     "strength": "Сила", "agility": "Ловкость", "endurance": "Стойкость",
     "psych": "Психический порог", "willpower": "Сила воли"
 }
 
-# [CHANGED] Добавили speed и medicine сюда
 TYPE_15_SKILLS = {
     "speed": "Скорость", "medicine": "Медицина",
     "strike_power": "Сила удара", "acrobatics": "Акробатика", "shields": "Щиты",
@@ -27,14 +23,21 @@ TYPE_INTELLECT = {"intellect": "Интеллект"}
 
 ALL_LABELS = {**TYPE_10_ATTRS, **TYPE_15_SKILLS, **TYPE_WISDOM, **TYPE_LUCK, **TYPE_INTELLECT}
 
-# === 2. ЛОГИКА РАСЧЕТОВ ===
 
+# === НОВЫЙ КЛАСС КОНТЕКСТА ===
+class CheckContext:
+    def __init__(self):
+        self.is_advantage = False
+        self.is_disadvantage = False
+        self.log = []
+
+
+# === 2. ЛОГИКА РАСЧЕТОВ ===
 
 def get_difficulty_description(value, stat_key=""):
     """Возвращает текстовое описание сложности/уровня."""
     stat_key = stat_key.lower()
 
-    # === УДАЧА (ПОЛНЫЙ ТЕКСТ) ===
     if stat_key == "luck":
         val_abs = abs(value)
         prefix = "ОТРИЦАТЕЛЬНАЯ: " if value < 0 else ""
@@ -52,8 +55,6 @@ def get_difficulty_description(value, stat_key=""):
 
 
 def get_check_params(key):
-    # [CHANGED] Исключение: Скорость и Медицина считаются как Атрибуты (1/3),
-    # даже если они находятся в списке навыков.
     if key in ["speed", "medicine"]:
         return "type10", "d6", "Характеристика (1/3)"
 
@@ -71,33 +72,23 @@ def get_check_params(key):
 
 
 def get_stat_value(unit: Unit, key: str) -> int:
-    """
-    Безопасно получает значение стата из unit.modifiers или базовых атрибутов.
-    Обрабатывает новую структуру modifiers ({'flat': val, 'pct': val}).
-    """
-    # 1. Проверяем Luck отдельно (ресурс)
     if key == "luck":
         return unit.resources.get("luck", 0)
 
-    # 2. Пытаемся найти в modifiers
-    # Сначала ищем по прямому ключу (новая система: "strength"), потом по "total_" (старая/совместимость)
     val_data = None
     if key in unit.modifiers:
         val_data = unit.modifiers[key]
     elif f"total_{key}" in unit.modifiers:
         val_data = unit.modifiers[f"total_{key}"]
 
-    # Спец. кейс для интеллекта
     if key == "intellect" and "total_intellect" in unit.modifiers:
         val_data = unit.modifiers["total_intellect"]
 
-    # Если нашли в модах - извлекаем число
     if val_data is not None:
         if isinstance(val_data, dict):
             return int(val_data.get("flat", 0))
         return int(val_data)
 
-    # 3. Если нет в модах, ищем в базовых хранилищах
     if key in unit.attributes: return unit.attributes[key]
     if key in unit.skills: return unit.skills[key]
     if key == "intellect": return unit.base_intellect
@@ -111,71 +102,55 @@ def calculate_pre_roll_stats(unit, stat_key, stat_value, difficulty, bonus):
     """
     check_type, _, _ = get_check_params(stat_key)
 
-    # Инициализация переменных по умолчанию (для d6)
     die_min = 1
     die_max = 6
-    base_add = 0  # Добавочная база (например +10 от таланта)
-    stat_bonus = 0  # Бонус от характеристики
+    base_add = 0
+    stat_bonus = 0
     final_dc = difficulty
-
     is_talent_active = False
 
-    # === 1. ПРОВЕРКА ТАЛАНТОВ (ПРИОРИТЕТ) ===
-    # Если талант активен, он ПОЛНОСТЬЮ переписывает параметры дайса и бонусов
-
-    # 2.5 Мастер речи: 1d10 + 10 + Skill
     if stat_key == "eloquence" and "speech_master" in unit.talents:
         die_max = 10
         base_add = 10
-        stat_bonus = stat_value  # Полный стат (не делим на 3)
+        stat_bonus = stat_value
         is_talent_active = True
 
-    # 13.4 Яркий талант (Инженерия): 1d10 + 10 + Skill
     elif stat_key == "engineering" and "bright_talent" in unit.talents:
         die_max = 10
         base_add = 10
         stat_bonus = stat_value
-        if difficulty > 0: final_dc = int(difficulty * 1.3)  # Сохраняем штраф сложности
+        if difficulty > 0: final_dc = int(difficulty * 1.3)
         is_talent_active = True
 
-    # === 2. СТАНДАРТНАЯ ЛОГИКА (Если талантов нет) ===
     if not is_talent_active:
-        if check_type == "type10":  # Атрибуты
+        if check_type == "type10":
             die_max = 6
             stat_bonus = stat_value // 3
-        elif check_type == "type15":  # Навыки
+        elif check_type == "type15":
             die_max = 6
             stat_bonus = stat_value
             if stat_key == "engineering" and difficulty > 0: final_dc = int(difficulty * 1.3)
-        elif check_type == "typeW":  # Мудрость
+        elif check_type == "typeW":
             die_max = 20
             stat_bonus = stat_value
-        elif check_type == "typeL":  # Удача
+        elif check_type == "typeL":
             die_max = 12
             stat_bonus = stat_value
-        elif check_type == "typeI":  # Интеллект
+        elif check_type == "typeI":
             die_max = 6
             stat_bonus = 4 + int(stat_value)
 
-    # === 3. РАСЧЕТ ШАНСОВ ===
-    # Условие успеха: Roll + base_add + stat_bonus + bonus >= DC
-    # Значит: Roll >= DC - (base_add + stat_bonus + bonus)
     target_roll = final_dc - (base_add + stat_bonus + bonus)
-
     success_count = 0
     total_faces = die_max - die_min + 1
 
     for r in range(die_min, die_max + 1):
-        # Логика критов для d20/d12 (только если это не спец. талант)
         if not is_talent_active and check_type in ["typeW", "typeL"]:
             if r == 1: continue
             if r == die_max: success_count += 1; continue
-
         if r >= target_roll: success_count += 1
 
     chance = (success_count / total_faces) * 100.0
-
-    # Матожидание броска (среднее на кубике) + все бонусы
     ev_roll = (die_min + die_max) / 2
     ev_total = ev_roll + base_add + stat_bonus + bonus
 
@@ -184,7 +159,7 @@ def calculate_pre_roll_stats(unit, stat_key, stat_value, difficulty, bonus):
 
 def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
     """
-    Выполняет физический бросок.
+    Выполняет физический бросок с учетом Преимущества и Помехи.
     """
     stat_key = stat_key.lower()
     check_type, die_type, _ = get_check_params(stat_key)
@@ -195,13 +170,47 @@ def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
         "is_crit": False, "is_fumble": False, "msg": "", "formula_text": ""
     }
 
-    # === 1. ТАЛАНТЫ (ПЕРЕОПРЕДЕЛЕНИЕ) ===
-    # Мастер речи
+    # === 1. ИНИЦИАЛИЗАЦИЯ КОНТЕКСТА И ХУКИ ===
+    ctx = CheckContext()
+
+    # Вызываем событие on_check_roll у всех механик юнита
+    if hasattr(unit, "trigger_mechanics"):
+        unit.trigger_mechanics("on_check_roll", unit, attribute=stat_key, context=ctx)
+
+    is_adv = ctx.is_advantage
+    is_dis = ctx.is_disadvantage
+
+    # Взаимопоглощение
+    if is_adv and is_dis:
+        is_adv = False
+        is_dis = False
+
+    # === 2. ФУНКЦИЯ БРОСКА С ADV/DIS ===
+    def roll_with_mechanic(min_val, max_val):
+        r1 = random.randint(min_val, max_val)
+        if not is_adv and not is_dis:
+            return r1, [r1], ""
+
+        r2 = random.randint(min_val, max_val)
+        rolls = [r1, r2]
+
+        if is_adv:
+            final = max(r1, r2)
+            tag = f"(Adv: {r1}, {r2})"
+        else:  # is_dis
+            final = min(r1, r2)
+            tag = f"(Dis: {r1}, {r2})"
+
+        return final, rolls, tag
+
+    # === 3. ТАЛАНТЫ (ПЕРЕОПРЕДЕЛЕНИЕ - HIGHEST PRIORITY) ===
+    # Мастер речи (d10) - теперь использует roll_with_mechanic
     if stat_key == "eloquence" and "speech_master" in unit.talents:
-        result["die"] = "d10"
-        result["roll"] = random.randint(1, 10)
+        val, logs, tag = roll_with_mechanic(1, 10)
+
+        result["die"] = f"d10 {tag}"
+        result["roll"] = val
         result["stat_bonus"] = stat_value
-        # Формула: [Roll] + 10 + Skill + Bonus
         result["formula_text"] = f"`10 (Talent)` + `{stat_value} (Skill)`"
         result["total"] = result["roll"] + 10 + stat_value + bonus
 
@@ -211,24 +220,20 @@ def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
         else:
             result["msg"] = "РЕЗУЛЬТАТ"
             result["is_success"] = True
-
         return result
 
-    is_advantage = False
-    # Проверка для Стойкости (3.8 Survivor)
-    if stat_key == "endurance" and "survivor" in unit.talents:
-        is_advantage = True
+    # Яркий талант (Инженерия) - использует roll_with_mechanic
+    elif stat_key == "engineering" and "bright_talent" in unit.talents:
+        val, logs, tag = roll_with_mechanic(1, 10)
 
-    # Яркий талант (Инженерия)
-    if stat_key == "engineering" and "bright_talent" in unit.talents:
-        result["die"] = "d10"
-        result["roll"] = random.randint(1, 10)
+        result["die"] = f"d10 {tag}"
+        result["roll"] = val
         result["stat_bonus"] = stat_value
+        result["formula_text"] = f"`10 (Talent)` + `{stat_value} (Skill)`"
 
         if difficulty > 0:
             result["final_difficulty"] = int(difficulty * 1.3)
 
-        result["formula_text"] = f"`10 (Talent)` + `{stat_value} (Skill)`"
         result["total"] = result["roll"] + 10 + stat_value + bonus
 
         if difficulty > 0:
@@ -237,54 +242,52 @@ def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
         else:
             result["msg"] = "РЕЗУЛЬТАТ"
             result["is_success"] = True
-
         return result
 
-    # === 2. СТАНДАРТНАЯ ЛОГИКА ===
-    if check_type == "type10":
-        # Стандартный кубик d6 для характеристик
-        val1 = random.randint(1, 6)
-        rolls_log = [val1]
+    # === 4. СТАНДАРТНАЯ ЛОГИКА ===
 
-        if is_advantage:
-            val2 = random.randint(1, 6)
-            rolls_log.append(val2)
-            result["roll"] = max(val1, val2)
-            # Показываем в интерфейсе, что кидали с преимуществом
-            result["die"] = f"d6 (Adv: {rolls_log})"
-        else:
-            result["roll"] = val1
+    # Характеристики (d6) и Навыки (d6) и Интеллект (d6)
+    if check_type in ["type10", "type15", "typeI"]:
+        val, logs, tag = roll_with_mechanic(1, 6)
+        result["roll"] = val
+        result["die"] = f"d6 {tag}" if tag else "d6"
 
-        result["stat_bonus"] = stat_value // 3
-        result["formula_text"] = f"`{result['stat_bonus']} (Стат // 3)`"
+        if check_type == "type10":
+            result["stat_bonus"] = stat_value // 3
+            result["formula_text"] = f"`{result['stat_bonus']} (Стат // 3)`"
+        elif check_type == "typeI":
+            result["stat_bonus"] = 4 + int(stat_value)
+            result["formula_text"] = f"`{result['stat_bonus']} (4 + Инт)`"
+        else:  # type15
+            result["stat_bonus"] = stat_value
+            result["formula_text"] = f"`{result['stat_bonus']} (Навык)`"
+            if stat_key == "engineering" and difficulty > 0:
+                result["final_difficulty"] = int(difficulty * 1.3)
 
-    elif check_type == "type15":
-        result["roll"] = random.randint(1, 6)
-        result["stat_bonus"] = stat_value
-        result["formula_text"] = f"`{result['stat_bonus']} (Навык)`"
-        if stat_key == "engineering" and difficulty > 0:
-            result["final_difficulty"] = int(difficulty * 1.3)
-
+    # Мудрость (d20)
     elif check_type == "typeW":
-        result["roll"] = random.randint(1, 20)
+        val, logs, tag = roll_with_mechanic(1, 20)
+        result["roll"] = val
+        result["die"] = f"d20 {tag}" if tag else "d20"
         result["stat_bonus"] = stat_value
         result["formula_text"] = f"`{result['stat_bonus']} (Мудр)`"
-        if result["roll"] == 20: result["is_crit"] = True
-        if result["roll"] == 1: result["is_fumble"] = True
 
+        # Криты только если бросок был "честным" или выбран лучший/худший
+        if val == 20: result["is_crit"] = True
+        if val == 1: result["is_fumble"] = True
+
+    # Удача (d12)
     elif check_type == "typeL":
-        result["roll"] = random.randint(1, 12)
+        val, logs, tag = roll_with_mechanic(1, 12)
+        result["roll"] = val
+        result["die"] = f"d12 {tag}" if tag else "d12"
         result["stat_bonus"] = stat_value
         result["formula_text"] = f"`{result['stat_bonus']} (Удача)`"
-        if result["roll"] == 12: result["is_crit"] = True
-        if result["roll"] == 1: result["is_fumble"] = True
 
-    elif check_type == "typeI":
-        result["die"] = "d6"
-        result["roll"] = random.randint(1, 6)
-        result["stat_bonus"] = 4 + int(stat_value)
-        result["formula_text"] = f"`{result['stat_bonus']} (4 + Инт)`"
+        if val == 12: result["is_crit"] = True
+        if val == 1: result["is_fumble"] = True
 
+    # === ИТОГ ===
     result["total"] = result["roll"] + result["stat_bonus"] + bonus
 
     if difficulty > 0:
@@ -298,11 +301,11 @@ def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
             result["is_success"] = result["total"] >= result["final_difficulty"]
             result["msg"] = "УСПЕХ" if result["is_success"] else "ПРОВАЛ"
     else:
-        result["msg"] = "РЕЗУЛЬТАТ";
+        result["msg"] = "РЕЗУЛЬТАТ"
         result["is_success"] = True
 
     if hasattr(unit, "trigger_mechanics"):
-        # Передаем итоговый результат броска
+        # Передаем итоговый результат броска в систему
         unit.trigger_mechanics("on_skill_check", unit, check_result=result["total"], stat_key=stat_key)
 
     return result
