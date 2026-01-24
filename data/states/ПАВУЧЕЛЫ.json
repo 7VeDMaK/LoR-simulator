@@ -94,11 +94,11 @@
         },
         {
           "speed": 12,
-          "card": "prelude",
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
+          "target_unit_idx": 0,
+          "target_slot_idx": 1,
           "force_clash": false,
           "ui_status": {
             "text": "CLASH vs Павучел 3 [S1] | Перехвачен (12 < 15)",
@@ -106,38 +106,42 @@
             "color": "orange"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true
+          "destroy_on_speed": true,
+          "force_onesided": true
         },
         {
           "speed": 14,
-          "card": "puff",
+          "card": "prelude",
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": false,
+          "target_slot_idx": 1,
+          "force_clash": true,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "CLASH vs Павучел [S2] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true
+          "destroy_on_speed": true,
+          "force_onesided": false
         },
         {
           "speed": 10,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
+          "target_unit_idx": 0,
+          "target_slot_idx": 1,
           "force_clash": false,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
+            "text": "НЕТ КАРТЫ",
             "icon": "⛔",
             "color": "gray"
           },
-          "is_ally_target": false
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": true
         }
       ],
       "stored_dice": [],
@@ -364,9 +368,9 @@
           "target_slot_idx": -1,
           "force_clash": false,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "CLASH vs Лилит [S3] | Перехвачен (9 < 14)",
+            "icon": "⚠️",
+            "color": "orange"
           },
           "is_ally_target": false,
           "destroy_on_speed": true
