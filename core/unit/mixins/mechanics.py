@@ -1,15 +1,14 @@
-# core/unit/mixins/mechanics.py
 from core.logging import logger, LogLevel
 from logic.statuses.status_definitions import STATUS_REGISTRY
 
 
-class UnitMechanicsMixin:
+class MechanicsIteratorMixin:  # <--- Имя класса должно совпадать с импортом в unit.py
     """
     Миксин, предоставляющий единый интерфейс для доступа ко всем
     источникам механик (Пассивки, Таланты, Аугментации, Статусы, Оружие).
     """
 
-    def iter_mechanics(self):
+    def _iter_all_mechanics(self):  # <--- Переименовано для совместимости с checks.py
         """
         Генератор, возвращающий все активные объекты эффектов на юните.
         Порядок: Статусы -> Пассивки -> Таланты -> Аугментации -> Оружие.
@@ -57,17 +56,12 @@ class UnitMechanicsMixin:
         from logic.character_changing.augmentations.augmentations import AUGMENTATION_REGISTRY
         from logic.weapon_definitions import WEAPON_REGISTRY
 
-        # Логгируем сам факт вызова события (VERBOSE), чтобы не засорять основной лог
-        # logger.log(f"Event: {method_name} triggered for {self.name}", LogLevel.VERBOSE, "Event")
-
         # === 1. СТАТУСЫ (Передаем stack) ===
         if hasattr(self, "statuses"):
             for status_id, stack in self.statuses.items():
                 if status_id in STATUS_REGISTRY:
                     mech = STATUS_REGISTRY[status_id]
                     if hasattr(mech, method_name):
-                        # Log execution details
-                        # logger.log(f" -> Status {status_id} responding to {method_name}", LogLevel.VERBOSE, "Mechanic")
                         getattr(mech, method_name)(*args, stack=stack, **kwargs)
 
         # === 2. ОСТАЛЬНЫЕ МЕХАНИКИ (Без stack) ===
@@ -97,7 +91,6 @@ class UnitMechanicsMixin:
         # Запуск для остальных
         for mech in other_mechanics:
             if hasattr(mech, method_name):
-                # logger.log(f" -> {getattr(mech, 'id', 'Mechanic')} responding to {method_name}", LogLevel.VERBOSE, "Mechanic")
                 getattr(mech, method_name)(*args, **kwargs)
 
     def apply_mechanics_filter(self, method_name, initial_value, *args, **kwargs):
@@ -107,12 +100,16 @@ class UnitMechanicsMixin:
         """
         value = initial_value
 
-        # Логируем начало цепочки фильтрации
-        # logger.log(f"Filter {method_name} start: {initial_value}", LogLevel.VERBOSE, "Filter")
-
-        for mech in self.iter_mechanics():
+        # Используем переименованный метод _iter_all_mechanics
+        for mech in self._iter_all_mechanics():
             if hasattr(mech, method_name):
                 old_val = value
+
+                # Примечание: тут мы не передаем stack явно, так как генератор не возвращает stack.
+                # Но статусы в своих методах (например, modify_incoming_damage) обычно делают:
+                # if stack == 0: stack = unit.get_status(self.id)
+                # Так что это будет работать корректно.
+
                 value = getattr(mech, method_name)(self, value, *args, **kwargs)
 
                 # Логируем, если значение изменилось
