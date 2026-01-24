@@ -1,0 +1,170 @@
+{
+    "name": "Лайла",
+    "level": 50,
+    "rank": -2,
+    "avatar": "data/avatars/Лайла.jpg",
+    "base_intellect": 10,
+    "total_xp": 0,
+    "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+    },
+    "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+    },
+    "deck": [
+        "boom_6233",
+        "boom_6233",
+        "boom_6233",
+        "клеш_вин_9c21",
+        "клеш_вин_9c21",
+        "клеш_вин_9c21",
+        "абсолютная_защита_c72d",
+        "абсолютная_защита_c72d",
+        "абсолютная_защита_c72d"
+    ],
+    "stored_dice": [],
+    "counter_dice": [],
+    "base_stats": {
+        "current_hp": 183,
+        "current_sp": 126,
+        "current_stagger": 110
+    },
+    "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "hp_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "stagger_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "weapon_id": "none"
+    },
+    "card_cooldowns": {},
+    "attributes": {
+        "strength": 20,
+        "endurance": 20,
+        "agility": 20,
+        "wisdom": 7,
+        "psych": 7
+    },
+    "skills": {
+        "strike_power": 20,
+        "medicine": 0,
+        "willpower": 20,
+        "luck": 0,
+        "acrobatics": 20,
+        "shields": 0,
+        "tough_skin": 26,
+        "speed": 20,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 20,
+        "eloquence": 10,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+    },
+    "passives": [
+        "stances",
+        "hardened_by_solitude"
+    ],
+    "talents": [
+        "pain_points",
+        "pain_shock",
+        "entering_rhythm",
+        "dirty_tricks",
+        "playing_on_nerves",
+        "with_caution",
+        "sharp_eye",
+        "arrest",
+        "feint",
+        "weak_point_energy",
+        "rupture_application",
+        "achilles_heel",
+        "no_mistakes",
+        "pride_of_seven"
+    ],
+    "augmentations": [],
+    "level_rolls": {
+        "3": {
+            "hp": 3,
+            "sp": 3
+        },
+        "6": {
+            "hp": 3,
+            "sp": 3
+        },
+        "9": {
+            "hp": 3,
+            "sp": 3
+        },
+        "12": {
+            "hp": 3,
+            "sp": 3
+        },
+        "15": {
+            "hp": 3,
+            "sp": 3
+        },
+        "18": {
+            "hp": 3,
+            "sp": 3
+        },
+        "21": {
+            "hp": 3,
+            "sp": 3
+        },
+        "24": {
+            "hp": 3,
+            "sp": 3
+        },
+        "27": {
+            "hp": 3,
+            "sp": 3
+        },
+        "30": {
+            "hp": 3,
+            "sp": 3
+        }
+    },
+    "cooldowns": {},
+    "active_buffs": {},
+    "resources": {},
+    "biography": "",
+    "money_log": [],
+    "death_count": 3,
+    "overkill_damage": 0,
+    "_status_effects": {},
+    "delayed_queue": [],
+    "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+            "hp": 100,
+            "sp": 100,
+            "stagger": 50
+        },
+        "last_revive_attempt_round": 5,
+        "last_revive_log": {
+            "roll": 3,
+            "bonus": 0,
+            "penalty": 7,
+            "total": -4,
+            "dc": 0,
+            "success": false
+        }
+    },
+    "active_slots": []
+}

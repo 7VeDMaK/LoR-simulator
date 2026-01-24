@@ -18,17 +18,6 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 200,
-    "current_sp": 202,
-    "current_stagger": 103,
-    "resources": {
-        "luck": 84
-    },
-    "cooldowns": {},
-    "card_cooldowns": {},
-    "active_buffs": {},
-    "_status_effects": {},
-    "delayed_queue": [],
     "deck": [
         "обычный_удар_726c",
         "удачное_стечение_img2",
@@ -40,24 +29,8 @@
         "series_normal_strikes_img",
         "not_the_limit_img"
     ],
-    "active_slots": [],
     "stored_dice": [],
     "counter_dice": [],
-    "memory": {
-        "status_rank": "9 (Fixer)"
-    },
-    "death_count": 0,
-    "overkill_damage": 0,
-    "money_log": [
-        {
-            "amount": 7889000,
-            "reason": ""
-        },
-        {
-            "amount": 250000,
-            "reason": "Собачка Макимы"
-        }
-    ],
     "base_stats": {
         "current_hp": 200,
         "current_sp": 202,
@@ -78,6 +51,7 @@
         },
         "weapon_id": "cleaver_7"
     },
+    "card_cooldowns": {},
     "attributes": {
         "strength": 5,
         "endurance": 22,
@@ -164,5 +138,28 @@
             "sp": 1
         }
     },
-    "biography": "Буквально тесак, халат Свен"
+    "cooldowns": {},
+    "active_buffs": {},
+    "resources": {
+        "luck": 124
+    },
+    "biography": "Буквально тесак, халат Свен",
+    "money_log": [
+        {
+            "amount": 7889000,
+            "reason": ""
+        },
+        {
+            "amount": 250000,
+            "reason": "Собачка Макимы"
+        }
+    ],
+    "death_count": 0,
+    "overkill_damage": 0,
+    "_status_effects": {},
+    "delayed_queue": [],
+    "memory": {
+        "status_rank": "9 (Fixer)"
+    },
+    "active_slots": []
 }

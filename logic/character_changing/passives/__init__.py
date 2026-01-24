@@ -1,7 +1,5 @@
 from logic.character_changing.passives.asgick_passives import PassiveWitnessOfGroGoroth, PassivePovar, PassiveFoodLover, \
     PassiveDistortionGroGoroth
-from logic.character_changing.passives.axis_passives import PassiveAxisUnity, PassiveChthonic, PassiveMetaAwareness, \
-    PassiveSourceAccess, PassivePseudoProtagonist
 from logic.character_changing.passives.equipment_passives import PassiveAnnihilator, PassiveBanganrang, PassiveGanitar, \
     PassiveLimagun, PassivePhantomRazors, PassiveCoagulation
 from logic.character_changing.passives.fanat_passives import PassiveFanatReflect, PassiveFanatMarkHunter, \
@@ -11,11 +9,10 @@ from logic.character_changing.passives.lilith_passives import PassiveHedonism, P
 from logic.character_changing.passives.lima_passives import PassiveAcceleratedLearning, TalentArtOfSelfDefense, \
     PassiveLuckyStreak, \
     PassiveFourEyes, PassiveHuntersVedas, PassiveMindSuppression, PassiveShipOfTheseus, PassiveWildCityscape
-from logic.character_changing.passives.rein_passives import PassiveSCells, PassiveNewDiscovery, TalentRedLycoris, \
-    TalentShadowOfMajesty
-from logic.character_changing.passives.test_passives import IWin, ILose
+from logic.character_changing.passives.rein_passives import PassiveSCells, PassiveNewDiscovery, TalentRedLycoris, TalentShadowOfMajesty
 from logic.character_changing.passives.zafiel_passives import PassiveSevereTraining, PassiveAdaptation
-
+from logic.character_changing.passives.leila_passives import PassiveStances, PassiveHardenedBySolitude
+    
 # === РЕГИСТРАЦИЯ ===
 PASSIVE_REGISTRY = {
 "hedonism": PassiveHedonism(),
@@ -54,13 +51,6 @@ PASSIVE_REGISTRY = {
     "fanat_mark_hunter": PassiveFanatMarkHunter(),
     "fanat_reflect": PassiveFanatReflect(),
 "fanat_unwavering": PassiveFanatUnwavering(),
-
-"axis_unity": PassiveAxisUnity(),
-"pseudo_protagonist": PassivePseudoProtagonist(),
-    "source_access": PassiveSourceAccess(),
-    "meta_awareness": PassiveMetaAwareness(),
-    "chthonic_nature": PassiveChthonic(),
-
-"iwin": IWin(),
-"ilose": ILose(),
+"stances": PassiveStances(),
+"hardened_by_solitude": PassiveHardenedBySolitude(),
 }

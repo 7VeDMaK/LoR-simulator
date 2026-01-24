@@ -53,6 +53,12 @@ ICON_FILES = {
     "fragile": "Fragile.webp",
     "vulnerability": "Vulnerable.webp",
     "weakness": "AttackPowerDown.webp",  # Weakness = снижение силы атаки
+    "weak": "Weak.webp",  # Weak = получает +25% урона
+
+    # Resist Up (Ахиллесова пята)
+    "slash_resist_down": "achilles_heel.png",
+    "pierce_resist_down": "achilles_heel.png",
+    "blunt_resist_down": "achilles_heel.png",
 
     "bind": "Bind.webp",
     "tremor": "Tremor.webp",
@@ -68,6 +74,12 @@ ICON_FILES = {
     "power_down": "AttackPowerDown.webp",
     "invisibility": "Undetectable.webp",
     "rhythm": "Rythm.webp",  # Rythm
+
+    # --- Боевые Стойки ---
+    "stance_slash": "Slash_Stance.png",
+    "stance_pierce": "Pierce_Stance.png",
+    "stance_blunt": "Blunt_Stance.png",
+    "stance_block": "Defense_Stance.png",  # Специальная иконка стойки защиты
 
     # --- Типы карт (Ранги) ---
     "tier_1": "page1.webp",
@@ -87,6 +99,9 @@ ICON_FILES = {
     "liquid_blood": "LiquidBlood.webp",
     "tremor_burst": "TremorBurst.webp",
     "tremor_conversion": "TremorConversion.webp",
+
+    # --- Таланты ветки 10: Ахиллесова пята ---
+    "achilles_heel": "achilles_heel.png",
 }
 
 # Эмодзи по умолчанию (если картинки нет или ошибка)

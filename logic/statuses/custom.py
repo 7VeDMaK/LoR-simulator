@@ -211,6 +211,78 @@ class SatietyStatus(StatusEffect):
         return msgs
 
 
+class ArrestedStatus(StatusEffect):
+    id = "arrested"
+
+    def on_calculate_stats(self, unit, stack=0) -> dict:
+        """-20 ко всем основным атрибутам (strength, endurance, agility, wisdom, psych)."""
+        return {
+            "strength": -20,
+            "endurance": -20,
+            "agility": -20,
+            "wisdom": -20,
+            "psych": -20,
+            "strike_power": -20,
+            "medicine": -20,
+            "willpower": -20,
+            "luck": -20,
+            "acrobatics": -20,
+            "shields": -20,
+            "tough_skin": -20,
+            "speed": -20,
+            "light_weapon": -20,
+            "medium_weapon": -20,
+            "heavy_weapon": -20,
+            "firearms": -20,
+            "eloquence": -20,
+            "forging": -20,
+            "engineering": -20,
+            "programming": -20
+        }
+
+    def on_round_end(self, unit, log_func, **kwargs):
+        # Статус длительный (99); не добавляем авто-логи здесь, чтобы не засорять.
+        return []
+
+
+# ==========================================
+# Уменьшение резистов (для Ахиллесовой пяты)
+# ==========================================
+class SlashResistDownStatus(StatusEffect):
+    id = "slash_resist_down"
+
+    def modify_resistance(self, unit, res_value, damage_type=None, stack=0, **kwargs):
+        if damage_type == "slash":
+            if stack == 0:
+                stack = unit.get_status(self.id)
+            return res_value + 0.25 * stack
+        return res_value
+
+
+class PierceResistDownStatus(StatusEffect):
+    id = "pierce_resist_down"
+
+    def modify_resistance(self, unit, res_value, damage_type=None, stack=0, **kwargs):
+        if damage_type == "pierce":
+            if stack == 0:
+                stack = unit.get_status(self.id)
+            return res_value + 0.25 * stack
+        return res_value
+
+
+class BluntResistDownStatus(StatusEffect):
+    id = "blunt_resist_down"
+
+    def modify_resistance(self, unit, res_value, damage_type=None, stack=0, **kwargs):
+        if damage_type == "blunt":
+            if stack == 0:
+                stack = unit.get_status(self.id)
+            return res_value + 0.25 * stack
+        return res_value
+
+
+
+
 # === СТАТУСЫ КОНФЕТ ===
 class IgnoreSatietyStatus(StatusEffect):
     id = "ignore_satiety"
@@ -279,3 +351,5 @@ class MentalProtectionStatus(StatusEffect):
 
                     return amount - reduction
         return amount
+
+

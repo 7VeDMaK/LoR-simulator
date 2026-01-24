@@ -2,13 +2,14 @@
 from logic.statuses.common import (
     StrengthStatus, EnduranceStatus, BleedStatus, ParalysisStatus,
     ProtectionStatus, FragileStatus, VulnerabilityStatus, BarrierStatus, BindStatus, DeepWoundStatus, SlowStatus,
-    HasteStatus, BurnStatus, WeaknessStatus, StaggerResistStatus, DmgUpStatus, DmgDownStatus
+    HasteStatus, BurnStatus, WeaknessStatus, WeakStatus, StaggerResistStatus, DmgUpStatus, DmgDownStatus, RuptureStatus
 )
 from logic.statuses.custom import (
     SelfControlStatus, SmokeStatus, RedLycorisStatus, SinisterAuraStatus,
     AdaptationStatus, BulletTimeStatus, ClarityStatus,  InvisibilityStatus, EnrageTrackerStatus,
     SatietyStatus, MentalProtectionStatus, RegenGanacheStatus, BleedResistStatus,
-    IgnoreSatietyStatus, RevengeDmgUpStatus, TauntStatus, FanatMarkStatus
+    IgnoreSatietyStatus, RevengeDmgUpStatus, TauntStatus, FanatMarkStatus, ArrestedStatus,
+    SlashResistDownStatus, PierceResistDownStatus, BluntResistDownStatus
 )
 
 # === РЕГИСТРАЦИЯ ===
@@ -23,8 +24,7 @@ STATUS_REGISTRY = {
     "vulnerability": VulnerabilityStatus(),
     "barrier": BarrierStatus(),
     "burn": BurnStatus(),
-
-    # Custom
+    "rupture": RuptureStatus(),
     "self_control": SelfControlStatus(),
     "smoke": SmokeStatus(),
     "red_lycoris": RedLycorisStatus(),
@@ -46,6 +46,12 @@ STATUS_REGISTRY = {
     "revenge_dmg_up": RevengeDmgUpStatus(),
     "taunt": TauntStatus() ,
 
+    "slash_resist_down": SlashResistDownStatus(),
+    "pierce_resist_down": PierceResistDownStatus(),
+    "blunt_resist_down": BluntResistDownStatus(),
+
+    "arrested": ArrestedStatus(),
+
     "bind": BindStatus(),
     "deep_wound": DeepWoundStatus(),
 
@@ -54,5 +60,6 @@ STATUS_REGISTRY = {
 
     "fanat_mark":FanatMarkStatus(),
     "dmg_up":DmgUpStatus(),
-    "dmg_down":DmgDownStatus()
+    "dmg_down":DmgDownStatus(),
+    "weak": WeakStatus()
 }
