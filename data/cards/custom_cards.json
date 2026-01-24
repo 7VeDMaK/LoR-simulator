@@ -9,97 +9,9 @@
       "flags": [],
       "scripts": {},
       "dice": [
-        {
-          "type": "slash",
-          "base_min": 40,
-          "base_max": 40,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "pierce",
-          "base_min": 40,
-          "base_max": 40,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "blunt",
-          "base_min": 40,
-          "base_max": 40,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
-      "id": "aboboa_d0e2",
-      "name": "aboboa",
-      "tier": 1,
-      "type": "Melee",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
-      "id": "имя2_a4c0",
-      "name": "имя2",
-      "tier": 1,
-      "type": "Melee",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 2,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
-      "id": "имя11_f7dd",
-      "name": "имя11",
-      "tier": 1,
-      "type": "Melee",
-      "description": "",
-      "flags": [],
-      "scripts": {
-        "on_use": [
-          {
-            "script_id": "apply_status",
-            "params": {
-              "status": "bleed",
-              "base": 10,
-              "stat": "None",
-              "scale_from_target": false,
-              "factor": 1.0,
-              "duration": 5,
-              "delay": 3,
-              "target": "target"
-            }
-          }
-        ]
-      },
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 1,
-          "base_max": 1,
-          "is_counter": false,
-          "scripts": {}
-        }
+        { "type": "slash", "base_min": 40, "base_max": 40, "is_counter": false, "scripts": {} },
+        { "type": "pierce", "base_min": 40, "base_max": 40, "is_counter": false, "scripts": {} },
+        { "type": "blunt", "base_min": 40, "base_max": 40, "is_counter": false, "scripts": {} }
       ]
     },
     {
@@ -108,9 +20,7 @@
       "tier": 2,
       "type": "Melee",
       "description": "Дает Защиту (Protection) равную значению выпавшего Блока.\n1. На цель (союзника).\n2. На себя.",
-      "flags": [
-        "friendly"
-      ],
+      "flags": ["friendly"],
       "scripts": {},
       "dice": [
         {
@@ -122,10 +32,7 @@
             "on_roll": [
               {
                 "script_id": "apply_status_by_roll",
-                "params": {
-                  "status": "protection",
-                  "target": "target"
-                }
+                "params": { "status": "protection", "target": "target" }
               }
             ]
           }
@@ -139,10 +46,7 @@
             "on_roll": [
               {
                 "script_id": "apply_status_by_roll",
-                "params": {
-                  "status": "protection",
-                  "target": "self"
-                }
+                "params": { "status": "protection", "target": "self" }
               }
             ]
           }
@@ -174,13 +78,7 @@
         ]
       },
       "dice": [
-        {
-          "type": "blunt",
-          "base_min": 4,
-          "base_max": 7,
-          "is_counter": false,
-          "scripts": {}
-        }
+        { "type": "blunt", "base_min": 4, "base_max": 7, "is_counter": false, "scripts": {} }
       ]
     },
     {
@@ -284,41 +182,11 @@
       "flags": [],
       "scripts": {},
       "dice": [
-        {
-          "type": "blunt",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "blunt",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "blunt",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "pierce",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        }
+        { "type": "blunt", "base_min": 2, "base_max": 5, "is_counter": false, "scripts": {} },
+        { "type": "blunt", "base_min": 2, "base_max": 5, "is_counter": false, "scripts": {} },
+        { "type": "blunt", "base_min": 2, "base_max": 5, "is_counter": false, "scripts": {} },
+        { "type": "slash", "base_min": 2, "base_max": 5, "is_counter": false, "scripts": {} },
+        { "type": "pierce", "base_min": 2, "base_max": 5, "is_counter": false, "scripts": {} }
       ]
     },
     {
@@ -344,13 +212,7 @@
         ]
       },
       "dice": [
-        {
-          "type": "block",
-          "base_min": 20,
-          "base_max": 20,
-          "is_counter": false,
-          "scripts": {}
-        }
+        { "type": "block", "base_min": 20, "base_max": 20, "is_counter": false, "scripts": {} }
       ]
     },
     {
@@ -377,41 +239,11 @@
         ]
       },
       "dice": [
-        {
-          "type": "evade",
-          "base_min": 7,
-          "base_max": 7,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "slash",
-          "base_min": 7,
-          "base_max": 7,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "slash",
-          "base_min": 7,
-          "base_max": 7,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "slash",
-          "base_min": 7,
-          "base_max": 7,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "slash",
-          "base_min": 7,
-          "base_max": 7,
-          "is_counter": false,
-          "scripts": {}
-        }
+        { "type": "evade", "base_min": 7, "base_max": 7, "is_counter": false, "scripts": {} },
+        { "type": "slash", "base_min": 7, "base_max": 7, "is_counter": false, "scripts": {} },
+        { "type": "slash", "base_min": 7, "base_max": 7, "is_counter": false, "scripts": {} },
+        { "type": "slash", "base_min": 7, "base_max": 7, "is_counter": false, "scripts": {} },
+        { "type": "slash", "base_min": 7, "base_max": 7, "is_counter": false, "scripts": {} }
       ]
     },
     {
@@ -468,190 +300,12 @@
       ]
     },
     {
-      "id": "11блид_23f3",
-      "name": "11блид",
-      "tier": 1,
-      "type": "Melee",
-      "description": "",
-      "flags": [],
-      "scripts": {
-        "on_use": [
-          {
-            "script_id": "apply_status",
-            "params": {
-              "status": "bleed",
-              "base": 10,
-              "stat": "None",
-              "scale_from_target": false,
-              "factor": 1.0,
-              "duration": 5,
-              "delay": 3,
-              "target": "target"
-            }
-          }
-        ]
-      },
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
-      "id": "обычный_удар_726c",
-      "name": "Обычный удар",
-      "tier": 1,
-      "type": "Melee",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "blunt",
-          "base_min": 5,
-          "base_max": 12,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
-      "id": "оффф_d582",
-      "name": "оффф",
-      "tier": 1,
-      "type": "Offensive",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
-      "id": "ранге_8dcd",
-      "name": "ранге",
-      "tier": 1,
-      "type": "Ranged",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
-      "id": "масс_d38d",
-      "name": "масс",
-      "tier": 1,
-      "type": "Mass Summation",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
-      "id": "1321312_59c2",
-      "name": "1321312",
-      "tier": 1,
-      "type": "Mass Individual",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
-      "id": "132321_8f74",
-      "name": "132321",
-      "tier": 1,
-      "type": "Mass Individual",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
-      "id": "smokekeke_0705",
-      "name": "smokekeke",
-      "tier": 1,
-      "type": "Melee",
-      "description": "",
-      "flags": [],
-      "scripts": {
-        "on_use": [
-          {
-            "script_id": "apply_status",
-            "params": {
-              "status": "self_control",
-              "base": 100,
-              "stat": "None",
-              "scale_from_target": false,
-              "factor": 1.0,
-              "duration": 99,
-              "delay": 0,
-              "target": "self"
-            }
-          }
-        ]
-      },
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
       "id": "firestorm_mass",
       "name": "Огненный смерч",
       "tier": 5,
       "type": "Mass Summation",
       "description": "Массовая атака: базовый рол 45, увеличивается на ваш уровень. При попадании накладывает 25 Горения.",
-      "flags": [
-        "offensive"
-      ],
+      "flags": ["offensive"],
       "scripts": {},
       "dice": [
         {
@@ -663,11 +317,7 @@
             "on_roll": [
               {
                 "script_id": "modify_roll_power",
-                "params": {
-                  "stat": "level",
-                  "factor": 1.0,
-                  "base": 0
-                }
+                "params": { "stat": "level", "factor": 1.0, "base": 0 }
               }
             ],
             "on_hit": [
@@ -686,52 +336,6 @@
       ]
     },
     {
-      "id": "1323123_cf12",
-      "name": "1323123",
-      "tier": 1,
-      "type": "Melee",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 1,
-          "base_max": 1,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "slash",
-          "base_min": 1,
-          "base_max": 1,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "slash",
-          "base_min": 1,
-          "base_max": 1,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "slash",
-          "base_min": 50,
-          "base_max": 50,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {}
-        }
-      ]
-    },
-    {
       "id": "lima_ram",
       "name": "Таран",
       "tier": 3,
@@ -739,33 +343,20 @@
       "description": "Сила = [Haste Bonus] * (Lvl / 3). Снимает всю Спешку. При поражении накладывает 5 Замедления.",
       "dice": [
         {
-          "type": "blunt", "base_min": 1, "base_max": 1,
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 1,
           "scripts": {
             "on_roll": [
-               { "script_id": "lima_ram_logic", "params": {} }
+              { "script_id": "lima_ram_logic", "params": {} }
             ],
             "on_clash_lose": [
-               { "script_id": "apply_status", "params": { "status": "slow", "base": 5, "target": "target" } }
+              {
+                "script_id": "apply_status",
+                "params": { "status": "slow", "base": 5, "target": "target" }
+              }
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "блант_aafe",
-      "name": "блант",
-      "tier": 1,
-      "type": "Melee",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "blunt",
-          "base_min": 99,
-          "base_max": 99,
-          "is_counter": false,
-          "scripts": {}
         }
       ]
     },
@@ -803,10 +394,7 @@
             "on_clash_win": [
               {
                 "script_id": "apply_status_by_roll",
-                "params": {
-                  "status": "burn",
-                  "target": "target"
-                }
+                "params": { "status": "burn", "target": "target" }
               }
             ]
           }
@@ -820,9 +408,7 @@
             "on_hit": [
               {
                 "script_id": "self_harm_percent",
-                "params": {
-                  "percent": 0.20000000000000004
-                }
+                "params": { "percent": 0.2 }
               }
             ]
           }
@@ -835,9 +421,7 @@
       "tier": 1,
       "type": "Melee",
       "description": "Spark attack granted by Spark talent. Small blunt damage; applies Burn.",
-      "flags": [
-        "offensive"
-      ],
+      "flags": ["offensive"],
       "scripts": {},
       "dice": [
         {
@@ -854,102 +438,6 @@
                   "base": 4,
                   "duration": 99,
                   "target": "target"
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "id": "фывфв_9aed",
-      "name": "фывфв",
-      "tier": 1,
-      "type": "Melee",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {
-            "on_hit": [
-              {
-                "script_id": "modify_roll_power",
-                "params": {
-                  "base": 0,
-                  "stat": "None",
-                  "scale_from_target": false,
-                  "factor": 1.0,
-                  "diff": false,
-                  "reason": "Bonus"
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "id": "фывфв_1de1",
-      "name": "фывфв",
-      "tier": 1,
-      "type": "Melee",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {
-            "on_hit": [
-              {
-                "script_id": "modify_roll_power",
-                "params": {
-                  "base": 0,
-                  "stat": "None",
-                  "scale_from_target": false,
-                  "factor": 1.0,
-                  "diff": false,
-                  "reason": "Bonus"
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "id": "фывфв_6eaa",
-      "name": "фывфв",
-      "tier": 1,
-      "type": "Melee",
-      "description": "",
-      "flags": [],
-      "scripts": {},
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 2,
-          "base_max": 5,
-          "is_counter": false,
-          "scripts": {
-            "on_hit": [
-              {
-                "script_id": "modify_roll_power",
-                "params": {
-                  "base": 0,
-                  "stat": "None",
-                  "scale_from_target": false,
-                  "factor": 1.0,
-                  "diff": false,
-                  "reason": "Bonus"
                 }
               }
             ]
