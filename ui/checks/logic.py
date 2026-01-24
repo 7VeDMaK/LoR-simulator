@@ -67,7 +67,26 @@ def calculate_pre_roll_stats(unit, stat_key, stat_value, difficulty, bonus):
     is_talent_active = False
 
     # Специфичные таланты
-    if stat_key == "eloquence" and "speech_master" in unit.talents:
+    # Без Ошибок (5 + 1d15 для всех проверок)
+    if "no_mistakes" in unit.talents:
+        die_max = 15
+        base_add = 5
+        # Определяем бонус от характеристики/навыка в зависимости от типа
+        if check_type == "type10":
+            stat_bonus = stat_value // 3
+        elif check_type == "type15":
+            stat_bonus = stat_value
+        elif check_type == "typeW":
+            stat_bonus = stat_value
+        elif check_type == "typeL":
+            stat_bonus = stat_value
+        elif check_type == "typeI":
+            stat_bonus = 4 + int(stat_value)
+        else:
+            stat_bonus = 0
+        is_talent_active = True
+
+    elif stat_key == "eloquence" and "speech_master" in unit.talents:
         die_max = 10
         base_add = 10
         stat_bonus = stat_value
@@ -161,6 +180,53 @@ def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
         return final, rolls, tag
 
     # === 3. ТАЛАНТЫ (ПЕРЕОПРЕДЕЛЕНИЕ - HIGHEST PRIORITY) ===
+    # Без Ошибок (5 + 1d15 для всех проверок)
+    if "no_mistakes" in unit.talents:
+        val, logs, tag = roll_with_mechanic(1, 15)
+
+        result["die"] = f"d15 {tag}" if tag else "d15"
+        result["roll"] = val
+        
+        # Определяем бонус от характеристики/навыка в зависимости от типа
+        if check_type == "type10":
+            stat_modifier = stat_value // 3
+            stat_label = "Стат // 3"
+        elif check_type == "type15":
+            stat_modifier = stat_value
+            stat_label = "Навык"
+        elif check_type == "typeW":
+            stat_modifier = stat_value
+            stat_label = "Мудр"
+        elif check_type == "typeL":
+            stat_modifier = stat_value
+            stat_label = "Удача"
+        elif check_type == "typeI":
+            stat_modifier = 4 + int(stat_value)
+            stat_label = "4 + Инт"
+        else:
+            stat_modifier = 0
+            stat_label = ""
+        
+        result["stat_bonus"] = 5 + stat_modifier
+        
+        # Формируем текст формулы
+        formula_parts = ["`5 (No Mistakes)`"]
+        if stat_modifier != 0:
+            formula_parts.append(f"`{stat_modifier} ({stat_label})`")
+        if bonus != 0:
+            formula_parts.append(f"`{bonus} (Bonus)`")
+        result["formula_text"] = " + ".join(formula_parts)
+        
+        result["total"] = 5 + val + stat_modifier + bonus
+
+        if difficulty > 0:
+            result["is_success"] = result["total"] >= difficulty
+            result["msg"] = "УСПЕХ" if result["is_success"] else "ПРОВАЛ"
+        else:
+            result["msg"] = "РЕЗУЛЬТАТ"
+            result["is_success"] = True
+        return result
+
     # Мастер речи (d10)
     if stat_key == "eloquence" and "speech_master" in unit.talents:
         val, logs, tag = roll_with_mechanic(1, 10)
