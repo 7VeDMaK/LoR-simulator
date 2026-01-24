@@ -1,0 +1,126 @@
+{
+    "name": "Корректировщик 5 ранга 10",
+    "level": 30,
+    "rank": 4,
+    "avatar": null,
+    "base_intellect": 1,
+    "total_xp": 0,
+    "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+    },
+    "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+    },
+    "deck": [],
+    "stored_dice": [],
+    "counter_dice": [],
+    "base_stats": {
+        "current_hp": 20,
+        "current_sp": 20,
+        "current_stagger": 10
+    },
+    "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "hp_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "stagger_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "weapon_id": "none"
+    },
+    "card_cooldowns": {},
+    "attributes": {
+        "strength": 20,
+        "endurance": 40,
+        "agility": 12,
+        "wisdom": 0,
+        "psych": 0
+    },
+    "skills": {
+        "strike_power": 20,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 20,
+        "speed": 16,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+    },
+    "passives": [],
+    "talents": [],
+    "augmentations": [],
+    "level_rolls": {
+        "3": {
+            "hp": 3,
+            "sp": 3
+        },
+        "6": {
+            "hp": 3,
+            "sp": 3
+        },
+        "9": {
+            "hp": 3,
+            "sp": 3
+        },
+        "12": {
+            "hp": 3,
+            "sp": 3
+        },
+        "15": {
+            "hp": 3,
+            "sp": 3
+        },
+        "18": {
+            "hp": 3,
+            "sp": 3
+        },
+        "21": {
+            "hp": 3,
+            "sp": 3
+        },
+        "24": {
+            "hp": 3,
+            "sp": 3
+        },
+        "27": {
+            "hp": 3,
+            "sp": 3
+        },
+        "30": {
+            "hp": 3,
+            "sp": 3
+        }
+    },
+    "cooldowns": {},
+    "active_buffs": {},
+    "resources": {},
+    "biography": "",
+    "money_log": [],
+    "death_count": 0,
+    "overkill_damage": 0,
+    "_status_effects": {},
+    "delayed_queue": [],
+    "memory": {},
+    "active_slots": []
+}

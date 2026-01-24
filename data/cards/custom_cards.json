@@ -739,13 +739,25 @@
       "description": "Сила = [Haste Bonus] * (Lvl / 3). Снимает всю Спешку. При поражении накладывает 5 Замедления.",
       "dice": [
         {
-          "type": "blunt", "base_min": 1, "base_max": 1,
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 1,
           "scripts": {
             "on_roll": [
-               { "script_id": "lima_ram_logic", "params": {} }
+              {
+                "script_id": "lima_ram_logic",
+                "params": {}
+              }
             ],
             "on_clash_lose": [
-               { "script_id": "apply_status", "params": { "status": "slow", "base": 5, "target": "target" } }
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "slow",
+                  "base": 5,
+                  "target": "target"
+                }
+              }
             ]
           }
         }
@@ -954,6 +966,159 @@
               }
             ]
           }
+        }
+      ]
+    },
+    {
+      "id": "boom_6233",
+      "name": "Boom",
+      "tier": 1,
+      "type": "Ranged",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "pierce",
+          "base_min": 5,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "dmg_down",
+                  "base": 10,
+                  "stat": "None",
+                  "scale_from_target": false,
+                  "factor": 1.0,
+                  "duration": 1,
+                  "delay": 0,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "pierce",
+          "base_min": 5,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "rupture",
+                  "base": 10,
+                  "stat": "None",
+                  "scale_from_target": false,
+                  "factor": 1.0,
+                  "duration": 99,
+                  "delay": 1,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "клеш_вин_9c21",
+      "name": "КЛЕШ ВИН",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 20,
+          "base_max": 20,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "restore_resource",
+                "params": {
+                  "type": "hp",
+                  "base": 20,
+                  "stat": "None",
+                  "scale_from_target": false,
+                  "factor": 0.5,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "клеш_вин_e71c",
+      "name": "КЛЕШ ВИН",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 20,
+          "base_max": 20,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "restore_resource",
+                "params": {
+                  "type": "hp",
+                  "base": 20,
+                  "stat": "None",
+                  "scale_from_target": false,
+                  "factor": 0.5,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "абсолютная_защита_c72d",
+      "name": "АБСОЛЮТНАЯ ЗАЩИТА",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 30,
+          "base_max": 30,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 30,
+          "base_max": 30,
+          "is_counter": false,
+          "scripts": {}
         }
       ]
     }

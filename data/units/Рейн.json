@@ -30,6 +30,7 @@
         "not_the_limit_img"
     ],
     "stored_dice": [],
+    "counter_dice": [],
     "base_stats": {
         "current_hp": 200,
         "current_sp": 202,
@@ -154,5 +155,11 @@
         }
     ],
     "death_count": 0,
-    "overkill_damage": 0
+    "overkill_damage": 0,
+    "_status_effects": {},
+    "delayed_queue": [],
+    "memory": {
+        "status_rank": "9 (Fixer)"
+    },
+    "active_slots": []
 }

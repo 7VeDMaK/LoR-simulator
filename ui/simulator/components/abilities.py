@@ -28,8 +28,13 @@ def render_active_abilities(unit, unit_key):
 
                 st.markdown(f"**{obj.name}**")
                 if options:
-                    selected_opt = st.selectbox("Effect", options.keys(), key=f"sel_{unit_key}_{pid}",
-                                                label_visibility="collapsed")
+                    selected_opt = st.selectbox(
+                        "Effect", 
+                        options.keys(), 
+                        format_func=lambda x: options.get(x, x),
+                        key=f"sel_{unit_key}_{pid}",
+                        label_visibility="collapsed"
+                    )
 
                 btn_label = "Activate"
                 disabled = False

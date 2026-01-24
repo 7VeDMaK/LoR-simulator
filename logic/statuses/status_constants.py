@@ -11,7 +11,7 @@ POSITIVE_BUFFS = [
 # Список негативных эффектов (Дебаффы)
 NEGATIVE_STATUSES = [
     "bleed", "paralysis", "fragile", "vulnerability", "burn",
-    "bind", "slow", "weakness", "lethargy", "wither", "tremor",
+    "bind", "slow", "weakness", "lethargy", "wither", "tremor", "rupture",
     "poison",       # Яд
     "deep_wound",   # Глубокая рана
     "slot_lock",    # Блокировка слота

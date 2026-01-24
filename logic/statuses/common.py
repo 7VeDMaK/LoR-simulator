@@ -117,6 +117,18 @@ class VulnerabilityStatus(_IncomingDamageIncreaseStatus):
 class WeaknessStatus(_IncomingDamageIncreaseStatus):
     id = "weakness"
 
+class WeakStatus(StatusEffect):
+    id = "weak"
+    name = "Слабость"
+    description = "Получает на 25% больше урона"
+
+    def modify_incoming_damage(self, unit, amount, damage_type, stack=0, **kwargs):
+        if damage_type == "hp":
+            if stack == 0: stack = unit.get_status(self.id)
+            if stack > 0:
+                return int(amount * 1.25)
+        return amount
+
 class StaggerResistStatus(StatusEffect):
     id = "stagger_resist"
     name = "Stagger Resist"
@@ -222,6 +234,53 @@ class DeepWoundStatus(StatusEffect):
         logger.log(f"💔 Deep Wound reduced healing on {unit.name}: {amount} -> {new_amount}", LogLevel.VERBOSE, "Status")
         return new_amount
 
+class RuptureStatus(StatusEffect):
+    id = "rupture"
+    name = "Разрыв"
+    description = (
+        "Эффект Разрыва: Когда персонаж с Разрывом получает урон от любой атаки,\n"
+        "он получает дополнительный урон равный количеству стаков Разрыва.\n"
+        "Затем стаки Разрыва уменьшаются в 2 раза (в меньшую сторону).\n"
+        "Эффект имеет бесконечную длительность, пока не будет удален."
+    )
+
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        """Срабатывает при получении урона персонажем с Разрывом."""
+        log_func = kwargs.get("log_func")
+        
+        # Получаем текущие стаки Разрыва
+        rupture_stack = unit.get_status("rupture")
+        if rupture_stack <= 0:
+            return
+        
+        # Если урон не от атаки (может быть урон от статуса), не срабатываем
+        if amount <= 0:
+            return
+        
+        # Дополнительный урон = стакам Разрыва
+        extra_dmg = rupture_stack
+        
+        # Применяем фильтры талантов юнита (если есть специальная логика для снижения урона от Разрыва)
+        if hasattr(unit, "talents"):
+            for talent_id in unit.talents:
+                talent = TALENT_REGISTRY.get(talent_id)
+                if talent and hasattr(talent, "modify_incoming_damage"):
+                    extra_dmg = talent.modify_incoming_damage(unit, extra_dmg, "rupture")
+        
+        # Наносим дополнительный чистый урон
+        unit.current_hp = max(0, unit.current_hp - extra_dmg)
+        
+        # Снимаем половину эффекта (в меньшую сторону)
+        remove_amt = rupture_stack // 2
+        unit.remove_status("rupture", remove_amt)
+        
+        if log_func:
+            log_func(f"⚡ **Разрыв**: {unit.name} взрывается! -{extra_dmg} урона (Rupture {rupture_stack}->{rupture_stack - remove_amt})")
+        
+        logger.log(
+            f"⚡ Rupture: {unit.name} took {extra_dmg} damage from Rupture explosion (Stack: {rupture_stack}->{rupture_stack - remove_amt})",
+            LogLevel.MINIMAL, "Status"
+        )
 
 # ==========================================
 # 6. БАРЬЕРЫ И ЩИТЫ

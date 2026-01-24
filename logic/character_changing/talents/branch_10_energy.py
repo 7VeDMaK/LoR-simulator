@@ -47,8 +47,14 @@ class TalentMechanicalEnergy(BasePassive):
 class TalentPainShock(BasePassive):
     id = "pain_shock"
     name = "Болевой шок (Б)"
-    description = "10.2 Б: Атаки, накладывающие Разрыв, накладывают дополнительно +1 Разрыв."
+    description = "10.2 Б: Каждый атакующий кубик, накладывающий Разрыв, добавляет +1 Разрыв (длительность 99)."
     is_active_ability = False
+
+    def on_hit(self, ctx, **kwargs):
+        if ctx.target and ctx.target.get_status("rupture") > 0:
+            ctx.target.add_status("rupture", 1, duration=99)
+            if ctx.log: ctx.log.append("⚡ **10.2 Б (Болевой шок)**: +1 Разрыв (длительность 99)!")
+            logger.log(f"⚡ Pain Shock: Added +1 rupture to {ctx.target.name}", LogLevel.VERBOSE, "Talent")
 
 
 # ==========================================
@@ -98,17 +104,44 @@ class TalentEnteringRhythm(BasePassive):
     name = "Входя в Ритм (Б)"
     description = (
         "10.3 Б: Победа в столкновении всеми костями страницы -> +1 Ритм.\n"
-        "Ритм: +1 Урон за каждые 2 заряда (Макс 10).\n"
-        "Получение урона -> -1 Ритм."
+        "Ритм: Каждые 2 эффекта Ритма прибавляют +1 Урон наносимым атакам."
     )
     is_active_ability = False
 
-    def on_take_damage(self, unit, amount, source, **kwargs):
-        log_func = kwargs.get("log_func")
-        if amount > 0:
-            unit.remove_status("rhythm", 1)
-            if log_func: log_func(f"💔 **{self.name}**: Ритм сбит (-1).")
-            logger.log(f"💔 Entering Rhythm: Rhythm lost due to damage for {unit.name}", LogLevel.VERBOSE, "Talent")
+    def on_clash_win(self, ctx, **kwargs):
+        # Получаем текущее значение Ритма
+        current_rhythm = ctx.source.get_status("rhythm")
+        
+        # Полностью сбрасываем текущий статус
+        if current_rhythm > 0:
+            ctx.source.remove_status("rhythm", current_rhythm)
+        
+        # Добавляем новое значение: старое + 1, с длительностью 99
+        new_rhythm_value = current_rhythm + 1
+        ctx.source.add_status("rhythm", new_rhythm_value, duration=99)
+        
+        # Логирование срабатывания таланта
+        logger.log(f"🎵 {self.name} activated for {ctx.source.name}!", LogLevel.NORMAL, "Talent")
+        
+        if ctx.log: 
+            if current_rhythm > 0:
+                ctx.log.append(f"🎵 **{self.name}**: Ритм обновлен ({current_rhythm} -> {new_rhythm_value})!")
+            else:
+                ctx.log.append(f"🎵 **{self.name}**: +1 Ритм!")
+        
+        logger.log(f"🎵 {self.name}: Rhythm updated to {new_rhythm_value} for {ctx.source.name}", LogLevel.VERBOSE, "Talent")
+
+    def modify_outgoing_damage(self, unit, amount, damage_type, stack=0, log_list=None):
+        # Получаем текущее количество Ритма 
+        rhythm_stack = unit.get_status("rhythm")
+        if rhythm_stack > 0:
+            bonus_dmg = rhythm_stack // 2
+            if bonus_dmg > 0:
+                if log_list is not None:
+                    log_list.append(f"🎵 Ритм (+{bonus_dmg})")
+                return amount + bonus_dmg
+        return amount
+
 
 
 # ========================================== ПОМЕНЯТЬ ВСЕ ОН ТЕЙК ДМАГЕ
@@ -117,8 +150,21 @@ class TalentEnteringRhythm(BasePassive):
 class TalentDirtyTricks(BasePassive):
     id = "dirty_tricks"
     name = "Грязные приёмы"
-    description = "10.3 Б (Опц): Победа 3-й костью -> Накладывает 1 Понижение урона (Dmg Down)."
+    description = "10.3 Б (Опц): Победа в столкновении -> Цель получает +1 Понижение урона (Dmg Down, длительность 2)."
     is_active_ability = False
+
+    def on_clash_win(self, ctx, **kwargs):
+        # Применяем эффект на цель (врага)
+        if ctx.target:
+            ctx.target.add_status("dmg_down", 1, duration=2)
+            
+            # Логирование срабатывания таланта
+            logger.log(f"💢 {self.name} activated for {ctx.source.name}!", LogLevel.NORMAL, "Talent")
+            
+            if ctx.log:
+                ctx.log.append(f"💢 **{self.name}**: {ctx.target.name} получил Понижение урона!")
+            
+            logger.log(f"💢 {self.name}: Applied Dmg Down to {ctx.target.name}", LogLevel.VERBOSE, "Talent")
 
 
 # ==========================================
@@ -129,6 +175,28 @@ class TalentPlayingOnNerves(BasePassive):
     name = "Играя на нервах"
     description = "10.4 Пассивно: Каждая 3-я кость накладывает 5 Разрыва и +1 Количество."
     is_active_ability = False
+
+    def on_hit(self, ctx, **kwargs):
+        # Инициализируем счетчик если его нет
+        if not hasattr(ctx.source, '_nerve_counter'):
+            ctx.source._nerve_counter = 0
+        
+        # Увеличиваем счетчик
+        ctx.source._nerve_counter += 1
+        
+        # Проверяем каждый третий кубик
+        if ctx.source._nerve_counter % 3 == 0:
+            if ctx.target:
+                # Накладываем 5 Разрыва
+                ctx.target.add_status("rupture", 5, duration=3)
+                
+                # Логирование срабатывания таланта
+                logger.log(f"🎭 {self.name} activated for {ctx.source.name}!", LogLevel.NORMAL, "Talent")
+                
+                if ctx.log:
+                    ctx.log.append(f"🎭 **{self.name}**: +5 Разрыва на {ctx.target.name}!")
+                
+                logger.log(f"🎭 {self.name}: Applied 5 Rupture to {ctx.target.name}", LogLevel.VERBOSE, "Talent")
 
 
 # ==========================================
@@ -163,10 +231,21 @@ class TalentWithCaution(BasePassive):
     id = "with_caution"
     name = "С осторожностью (Б)"
     description = (
-        "10.5 Б: Проигрыш столкновения -> Получаете Блок (1/3 от выпавшего значения).\n"
-        "(Не превышает изначальный модификатор блока более чем в 2 раза)."
+        "10.5 Б: Проигрыш столкновения -> Получаете Protection 1 на 2 хода."
     )
     is_active_ability = False
+
+    def on_clash_lose(self, ctx, **kwargs):
+        # При проигрыше в столкновении
+        ctx.source.add_status("protection", 1, duration=2)
+        
+        # Логирование срабатывания таланта
+        logger.log(f"🛡️ {self.name} activated for {ctx.source.name}!", LogLevel.NORMAL, "Talent")
+        
+        if ctx.log:
+            ctx.log.append(f"🛡️ **{self.name}**: +1 Защиты (2 хода)!")
+        
+        logger.log(f"🛡️ {self.name}: Applied 1 Protection to {ctx.source.name}", LogLevel.VERBOSE, "Talent")
 
 
 # ==========================================
@@ -179,6 +258,38 @@ class TalentSharpEye(BasePassive):
         "10.5 Б (Опц): Огнестрел: При проигрыше понижает мин/макс бросок врага на 1/2 от вашего броска."
     )
     is_active_ability = False
+
+    def on_clash_lose(self, ctx, **kwargs):
+        # Проверяем, использует ли персонаж дальнюю карту атаки
+        if ctx.source and ctx.target and ctx.source.current_card:
+            card = ctx.source.current_card
+            
+            # Проверяем, является ли карта дальней/огнестрельной
+            is_ranged = True
+            
+            # Проверяем только свойства карты
+            if hasattr(card, 'card_range'):
+                is_ranged = card.card_range == 'ranged'
+            elif hasattr(card, 'range'):
+                is_ranged = card.range == 'ranged'
+            
+            # Если дальняя атака и есть значение броска
+            if is_ranged and hasattr(ctx, 'final_value'):
+                my_roll = ctx.final_value
+                damage = my_roll // 2  # Половина от броска
+                
+                if damage > 0:
+                    # Наносим урон даже при проигрыше (прямое вычитание HP)
+                    if ctx.target:
+                        ctx.target.current_hp = max(0, ctx.target.current_hp - damage)
+                    
+                    # Логирование срабатывания таланта
+                    logger.log(f"🎯 {self.name} activated for {ctx.source.name}!", LogLevel.NORMAL, "Talent")
+                    
+                    if ctx.log:
+                        ctx.log.append(f"🎯 **{self.name}**: Нанесено {damage} урона (половина от {my_roll})!")
+                    
+                    logger.log(f"🎯 {self.name}: Dealt {damage} damage to {ctx.target.name} despite losing", LogLevel.VERBOSE, "Talent")
 
 
 # ==========================================
@@ -198,10 +309,74 @@ class TalentArrest(BasePassive):
     id = "arrest"
     name = "Арест (Б)"
     description = (
-        "10.6 Б: После победы над врагом -> Надеть наручники.\n"
+        "10.6 Б: Надеть наручники целевому союзнику.\n"
         "Наручники: -20 ко всем атрибутам, спас-броски с помехой."
     )
     is_active_ability = True  # Активное действие "Надеть"
+
+    def _get_battle_targets(self):
+        """Возвращает всех участников боя (левая + правая команды), если симулятор запущен."""
+        try:
+            from ui.simulator.logic.simulator_logic import get_teams  # type: ignore
+            l_team, r_team = get_teams()
+            return (l_team or []) + (r_team or [])
+        except Exception:
+            return []
+
+    @property
+    def conversion_options(self):
+        """Строим список всех доступных целей (любой юнит в текущем бою)."""
+        options = {}
+        for u in self._get_battle_targets():
+            if not u or not hasattr(u, "name"):  # safety
+                continue
+            suffix = ""
+            if u.get_status("arrested") > 0:
+                suffix = " [уже в наручниках]"
+            options[u.name] = f"{u.name}{suffix}"
+        return options
+
+    def activate(self, unit, log_func, choice_key=None, **kwargs):
+        # Если цель не выбрана, просим выбрать через меню
+        if not choice_key:
+            if log_func:
+                opts = ", ".join(self.conversion_options.values()) or "нет доступных целей"
+                log_func(f"⚠️ Выберите цель для {self.name}: {opts}")
+            return False
+
+        target = None
+        for u in self._get_battle_targets():
+            if u and getattr(u, "name", None) == choice_key:
+                target = u
+                break
+
+        if not target:
+            if log_func:
+                log_func(f"⚠️ Цель не найдена: {choice_key}")
+            return False
+
+        # Нельзя выбрать самого себя
+        if target is unit:
+            if log_func:
+                log_func("⚠️ Нельзя выбрать самого себя")
+            return False
+
+        # Тоггл: если уже в наручниках — снимаем
+        if target.get_status("arrested") > 0:
+            target.remove_status("arrested", target.get_status("arrested"))
+            if log_func:
+                log_func(f"⛓️ **{self.name}**: Наручники сняты с {target.name}.")
+            logger.log(f"⛓️ {self.name}: Removed arrested from {target.name}", LogLevel.NORMAL, "Talent")
+            return True
+
+        # Накладываем статус наручников
+        target.add_status("arrested", 1, duration=99)
+
+        logger.log(f"⛓️ {self.name} activated for {target.name}!", LogLevel.NORMAL, "Talent")
+        if log_func:
+            log_func(f"⛓️ **{self.name}**: Наручники надеты на {target.name}! (-20 к атрибутам, длит. 99)")
+        logger.log(f"⛓️ {self.name}: Applied arrested status to {target.name}", LogLevel.VERBOSE, "Talent")
+        return True
 
 
 # ==========================================
@@ -260,6 +435,20 @@ class TalentFeint(BasePassive):
     description = "10.7 Б: Каждая 3-я кость понижает значение кости врага на 2."
     is_active_ability = False
 
+    def on_roll(self, ctx, **kwargs):
+        # Отслеживаем, сколько костей бросил юнит, и каждая 3-я усиливает бросок
+        if not hasattr(ctx.source, "_feint_counter"):
+            ctx.source._feint_counter = 0
+
+        ctx.source._feint_counter += 1
+
+        if ctx.source._feint_counter % 3 == 0:
+            # Эквивалент понижения вражеской кости на 2: добавляем себе +2 к силе броска
+            ctx.modify_power(2, "Финт")
+            if ctx.log is not None:
+                ctx.log.append(f"🎭 **{self.name}**: -2 к кости врага (эффект учтён)")
+            logger.log(f"🎭 Feint: +2 power applied for {ctx.source.name} on 3rd die", LogLevel.NORMAL, "Talent")
+
 
 # ==========================================
 # 10.7 Б (Опц): Уязвимая точка
@@ -267,17 +456,28 @@ class TalentFeint(BasePassive):
 class TalentWeakPointEnergy(BasePassive):
     id = "weak_point_energy"
     name = "Уязвимая точка (Б)"
-    description = "10.7 Б (Опц): Легендарные атаки накладывают Уязвимость (+25% урона) на след. раунд."
+    description = "10.7 Б (Опц): Атаки накладывают Уязвимость (+25% урона) на след. раунд."
     is_active_ability = False
+
+    def on_hit(self, ctx, **kwargs):
+        if ctx.target:
+            ctx.target.add_status("weak", 1, duration=2)
+            
+            logger.log(f"💔 {self.name} activated for {ctx.source.name}!", LogLevel.NORMAL, "Talent")
+            
+            if ctx.log:
+                ctx.log.append(f"💔 **{self.name}**: {ctx.target.name} получит Слабость в следующем раунде (+25% урона)!")
+            
+            logger.log(f"💔 {self.name}: Applied weak status to {ctx.target.name} for next round", LogLevel.VERBOSE, "Talent")
 
 
 # ==========================================
-# 10.8: (Без названия)
+# 10.8: (Мастер Разрыва)
 # ==========================================
 class TalentRuptureApplication(BasePassive):
     id = "rupture_application"
     name = "Мастер Разрыва"
-    description = "10.8 Пассивно: Попадание по врагу без Разрыва -> Накладывает 1 Разрыв (Кол-во 2)."
+    description = "10.8 Пассивно: Попадание по врагу без Разрыва -> Накладывает 10 Разрыв"
     is_active_ability = False
 
     def on_hit(self, ctx, **kwargs):
@@ -285,7 +485,7 @@ class TalentRuptureApplication(BasePassive):
         if ctx.target and ctx.target.get_status("rupture") <= 0:
             # Накладываем статус (заглушка, так как rupture имеет стаки и каунт)
             # В движке rupture - это int. Эмуляция Count сложнее.
-            ctx.target.add_status("rupture", 1, duration=3)
+            ctx.target.add_status("rupture", 10, duration=99)
             if ctx.log: ctx.log.append("🩸 **10.8**: Наложен начальный Разрыв.")
             logger.log(f"🩸 Rupture Application: Applied initial rupture to {ctx.target.name}", LogLevel.VERBOSE,
                        "Talent")
@@ -327,10 +527,97 @@ class TalentAchillesHeel(BasePassive):
     id = "achilles_heel"
     name = "Ахиллесова пята (Б)"
     description = (
-        "10.9 Б: Начало боя: Выберите резист врага -> Понизить на 0.25 (-25%).\n"
-        "RP: Залом врага ниже уровнем."
+        "10.9 Б: Начало боя: Выберите резист врага -> Понизить на 0.25 (+25%DMG)."
     )
-    is_active_ability = False
+    is_active_ability = True
+    cooldown = 99
+
+    def _get_battle_targets(self):
+        """Возвращает всех участников боя (враги), аналогично Аресту."""
+        try:
+            from ui.simulator.logic.simulator_logic import get_teams  # type: ignore
+            l_team, r_team = get_teams()
+            return (l_team or []) + (r_team or [])
+        except Exception:
+            return []
+
+    @property
+    def conversion_options(self):
+        """Формирует ключи выбора с типом урона: Имя::slash|pierce|blunt."""
+        options = {}
+        for u in self._get_battle_targets():
+            if not u or not hasattr(u, "name"):
+                continue
+            # Берём hp_resists, если есть, иначе пропускаем
+            resists_obj = getattr(u, "hp_resists", None)
+            if not resists_obj:
+                continue
+
+            resists = {
+                "slash": getattr(resists_obj, "slash", 1.0),
+                "pierce": getattr(resists_obj, "pierce", 1.0),
+                "blunt": getattr(resists_obj, "blunt", 1.0),
+            }
+
+            for r_type, val in resists.items():
+                key = f"{u.name}::{r_type}"
+                options[key] = f"{u.name} — {r_type}: {val:.2f} → {val + 0.25:.2f}"
+        return options
+
+    def activate(self, unit, log_func, choice_key=None, **kwargs):
+        if unit.cooldowns.get(self.id, 0) > 0:
+            return False
+        # Если выбор не сделан, просим выбрать (как в Аресте)
+        if not choice_key:
+            if log_func:
+                opts = ", ".join(self.conversion_options.values()) or "нет доступных врагов"
+                log_func(f"⚠️ Выберите врага и тип резиста для {self.name}: {opts}")
+            return False
+
+        if "::" not in choice_key:
+            if log_func:
+                log_func(f"⚠️ Некорректный выбор: {choice_key}")
+            return False
+
+        target_name, resist_type = choice_key.split("::", 1)
+
+        target = None
+        for u in self._get_battle_targets():
+            if u and getattr(u, "name", None) == target_name:
+                target = u
+                break
+
+        if not target:
+            if log_func:
+                log_func(f"⚠️ Враг не найден: {target_name}")
+            return False
+
+        # Нельзя выбрать самого себя
+        if target is unit:
+            if log_func:
+                log_func("⚠️ Нельзя выбрать самого себя")
+            return False
+
+        resists_obj = getattr(target, "hp_resists", None)
+        if not resists_obj or not hasattr(resists_obj, resist_type):
+            if log_func:
+                log_func(f"⚠️ Резист не найден: {resist_type}")
+            return False
+
+        old_value = getattr(resists_obj, resist_type, 1.0)
+        # Накладываем длительный эффект 99 раундов вместо прямого изменения
+        target.add_status(f"{resist_type}_resist_down", 1, duration=99)
+
+        logger.log(
+            f"⚔️ {self.name}: Applied {resist_type}_resist_down to {target.name}",
+            LogLevel.NORMAL, "Talent"
+        )
+        if log_func:
+            log_func(f"⚔️ **{self.name}**: {target.name} получает эффект {resist_type} Resist Down на 99!")
+        unit.cooldowns[self.id] = self.cooldown
+
+        return True
+
 
 
 # ==========================================
@@ -339,7 +626,7 @@ class TalentAchillesHeel(BasePassive):
 class TalentNoMistakes(BasePassive):
     id = "no_mistakes"
     name = "Без Ошибок"
-    description = "10.9 Б (Опц): Все спас-броски = 5 + 1d15."
+    description = "10.9 Б (Опц): Все броски = 5 + 1d15."
     is_active_ability = False
 
 
@@ -364,13 +651,4 @@ class TalentPrideOfSeven(BasePassive):
         "Попадание: Снимает 50% макс. Выдержки, накладывает 4 Паралича.\n"
         "Пассивно: Каждая 3-я кость при победе -> 1 Паралич."
     )
-    is_active_ability = True
-    cooldown = 99
-
-    def activate(self, unit, log_func, **kwargs):
-        if unit.cooldowns.get(self.id, 0) > 0: return False
-
-        unit.cooldowns[self.id] = self.cooldown
-        if log_func: log_func("💎 **Разбить алмаз**: Удар нанесен! (Паралич 4, Stagger Dmg).")
-        logger.log(f"💎 Pride of Seven: Diamond Shatter activated by {unit.name}", LogLevel.NORMAL, "Talent")
-        return True
+    is_active_ability = False

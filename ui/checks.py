@@ -123,6 +123,26 @@ def calculate_pre_roll_stats(unit, stat_key, stat_value, difficulty, bonus):
     # === 1. ПРОВЕРКА ТАЛАНТОВ (ПРИОРИТЕТ) ===
     # Если талант активен, он ПОЛНОСТЬЮ переписывает параметры дайса и бонусов
 
+    # Без Ошибок: 5 + 1d15 (применяется ко ВСЕМ проверкам)
+    if "no_mistakes" in unit.talents:
+        die_min = 1
+        die_max = 15
+        base_add = 5
+        # Рассчитываем бонусы от статов как обычно
+        if check_type == "type10":
+            stat_bonus = stat_value // 3
+        elif check_type == "type15":
+            stat_bonus = stat_value
+        elif check_type == "typeW":
+            stat_bonus = stat_value
+        elif check_type == "typeL":
+            stat_bonus = stat_value
+        elif check_type == "typeI":
+            stat_bonus = 4 + int(stat_value)
+        else:
+            stat_bonus = 0
+        is_talent_active = True
+
     # 2.5 Мастер речи: 1d10 + 10 + Skill
     if stat_key == "eloquence" and "speech_master" in unit.talents:
         die_max = 10
@@ -196,6 +216,42 @@ def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
     }
 
     # === 1. ТАЛАНТЫ (ПЕРЕОПРЕДЕЛЕНИЕ) ===
+    # Без Ошибок (применяется ко ВСЕМ проверкам - высший приоритет)
+    if "no_mistakes" in unit.talents:
+        result["die"] = "d15"
+        result["roll"] = random.randint(1, 15)
+        
+        # Рассчитываем бонусы от статов как обычно
+        if check_type == "type10":
+            result["stat_bonus"] = stat_value // 3
+            result["formula_text"] = f"`5 (No Mistakes)` + `{result['stat_bonus']} (Стат // 3)`"
+        elif check_type == "type15":
+            result["stat_bonus"] = stat_value
+            result["formula_text"] = f"`5 (No Mistakes)` + `{result['stat_bonus']} (Навык)`"
+        elif check_type == "typeW":
+            result["stat_bonus"] = stat_value
+            result["formula_text"] = f"`5 (No Mistakes)` + `{result['stat_bonus']} (Мудр)`"
+        elif check_type == "typeL":
+            result["stat_bonus"] = stat_value
+            result["formula_text"] = f"`5 (No Mistakes)` + `{result['stat_bonus']} (Удача)`"
+        elif check_type == "typeI":
+            result["stat_bonus"] = 4 + int(stat_value)
+            result["formula_text"] = f"`5 (No Mistakes)` + `{result['stat_bonus']} (4 + Инт)`"
+        else:
+            result["stat_bonus"] = 0
+            result["formula_text"] = "`5 (No Mistakes)`"
+        
+        result["total"] = result["roll"] + 5 + result["stat_bonus"] + bonus
+
+        if difficulty > 0:
+            result["is_success"] = result["total"] >= difficulty
+            result["msg"] = "УСПЕХ" if result["is_success"] else "ПРОВАЛ"
+        else:
+            result["msg"] = "РЕЗУЛЬТАТ"
+            result["is_success"] = True
+
+        return result
+
     # Мастер речи
     if stat_key == "eloquence" and "speech_master" in unit.talents:
         result["die"] = "d10"

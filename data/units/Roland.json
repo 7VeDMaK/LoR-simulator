@@ -19,10 +19,12 @@
         "imp_stg": 0
     },
     "deck": [],
+    "stored_dice": [],
+    "counter_dice": [],
     "base_stats": {
         "current_hp": 1674,
-        "current_sp": 20,
-        "current_stagger": 10
+        "current_sp": 268,
+        "current_stagger": 838
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -196,5 +198,18 @@
         "luck": 0
     },
     "biography": "",
-    "money_log": []
+    "money_log": [],
+    "death_count": 0,
+    "overkill_damage": 0,
+    "_status_effects": {},
+    "delayed_queue": [],
+    "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+            "hp": 1674,
+            "sp": 20,
+            "stagger": 10
+        }
+    },
+    "active_slots": []
 }
