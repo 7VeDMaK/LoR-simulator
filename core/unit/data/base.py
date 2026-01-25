@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from typing import List, Optional, Dict, Any
 
+from core.enums import UnitType
+
 
 @dataclass
 class UnitBaseMixin:
@@ -11,6 +13,7 @@ class UnitBaseMixin:
     name: str = "default"
     level: int = 1
     rank: int = 9
+    unit_type: str = UnitType.FIXER.value
     avatar: Optional[str] = None
     biography: str = ""
     total_xp: int = 0

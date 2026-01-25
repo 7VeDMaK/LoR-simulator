@@ -109,6 +109,7 @@ class UnitSerializationMixin:
             "level_rolls": safe_dict_copy(self.level_rolls),
             "biography": self.biography,
             "relationships": self.relationships.copy(),
+            "unit_type": self.unit_type,
         }
 
     @classmethod
@@ -123,7 +124,7 @@ class UnitSerializationMixin:
         u.base_intellect = data.get("base_intellect", 1)
         u.total_xp = data.get("total_xp", 0)
         u.biography = data.get("biography", "")
-
+        u.unit_type = data.get("unit_type", "fixer")
         # Stats & Mods
         pct = data.get("pct_mods", {})
         u.implants_hp_pct = pct.get("imp_hp", 0)

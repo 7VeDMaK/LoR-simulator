@@ -1,6 +1,7 @@
 import os
 import streamlit as st
 
+from core.enums import UnitType
 from core.game_templates import CHARACTER_TEMPLATES
 from core.ranks import RANK_THRESHOLDS
 from core.unit.unit import Unit
@@ -27,6 +28,7 @@ def create_character_from_template(template, roster):
     u = Unit(name)
     u.level = template["level"]
     u.rank = 9 - template["tier"]
+    u.unit_type = UnitType.MOB.value if template["tier"] > 0 else UnitType.PLAYER.value
     if u.rank < -1: u.rank = -1
 
     # Атрибуты из шаблона
@@ -113,68 +115,92 @@ def render_header(roster):
         if st.button("Крыса (Пустой)", width='stretch'):
             n = f"Unit_{len(roster) + 1}"
             u = Unit(n)
+            u.unit_type = UnitType.FIXER.value
             roster[n] = u
             UnitLibrary.save_unit(u)
             st.session_state["profile_selected_unit"] = n
             if 'save_callback' in st.session_state: st.session_state['save_callback']()
             st.rerun()
 
+        # ==========================================
+        # 🔍 ФИЛЬТРАЦИЯ (НОВОЕ)
+        # ==========================================
+
+        # 1. Получаем все уникальные ключи
+        all_keys = sorted(list(roster.keys()))
+
+        # 2. UI выбора фильтра (Pills или Radio горизонтально)
+        filter_opts = ["ALL", UnitType.PLAYER.value, UnitType.FIXER.value, UnitType.SYNDICATE.value,
+                       UnitType.MOB.value]
+        filter_labels = ["Все", "Игроки", "Фиксеры", "Синдикат", "Мобы"]
+
+        # Сохраняем состояние фильтра
+        if "profile_filter" not in st.session_state:
+            st.session_state["profile_filter"] = "ALL"
+
+        selected_filter_idx = 0
+        if st.session_state["profile_filter"] in filter_opts:
+            selected_filter_idx = filter_opts.index(st.session_state["profile_filter"])
+
+        # Рисуем фильтр
+        filter_cols = st.columns(5)
+        selected_filter = st.session_state["profile_filter"]
+
+        # Можно использовать st.pills (в новых версиях) или radio.
+        # Сделаем radio для надежности, но стилизованный
+        selected_filter = st.radio(
+            "Фильтр персонажей:",
+            filter_opts,
+            index=selected_filter_idx,
+            format_func=lambda x: filter_labels[filter_opts.index(x)],
+            horizontal=True,
+            label_visibility="collapsed"
+        )
+        st.session_state["profile_filter"] = selected_filter
+
+        # 3. Применяем фильтр к списку
+        if selected_filter == "ALL":
+            filtered_keys = all_keys
+        else:
+            filtered_keys = [k for k in all_keys if getattr(roster[k], "unit_type", "fixer") == selected_filter]
+
+        if not filtered_keys:
+            st.warning(f"В категории '{filter_labels[filter_opts.index(selected_filter)]}' никого нет.")
+            return None, None
+
+        # 4. Выбор персонажа из отфильтрованного списка
+        current_key = st.session_state.get("profile_selected_unit")
+
+        # Если текущий выбранный персонаж пропал из-за фильтра -> сбрасываем на первого в списке
+        default_index = 0
+        if current_key in filtered_keys:
+            default_index = filtered_keys.index(current_key)
+
+        sel = c1.selectbox(
+            "Выбор персонажа",
+            filtered_keys,
+            index=default_index,
+            key="profile_selected_unit",
+            on_change=st.session_state.get('save_callback')
+        )
+
+        unit = roster[sel]
+        u_key = unit.name.replace(" ", "_")
+
+        # Кнопки
+        c_save, c_del = st.columns([4, 1])
+        with c_save:
+            if st.button("💾 СОХРАНИТЬ ПРОФИЛЬ", type="primary", width='stretch', key=f"save_btn_{u_key}"):
+                UnitLibrary.save_unit(unit)
+                st.toast("Сохранено!", icon="✅")
+        with c_del:
+            with st.popover("🗑️", width='stretch'):
+                st.warning(f"Удалить {unit.name}?")
+                st.button("Да", type="primary", key=f"del_confirm_{u_key}", on_click=delete_unit_action,
+                          args=(unit.name,))
+
         st.divider()
-
-        for tmpl in CHARACTER_TEMPLATES:
-            if tmpl["tier"] == 0: continue
-            label = f"{tmpl['name']} (Lvl {tmpl['level']})"
-            if st.button(label, key=f"create_{tmpl['tier']}", width='stretch'):
-                u, n = create_character_from_template(tmpl, roster)
-                roster[n] = u
-                UnitLibrary.save_unit(u)
-                st.session_state["profile_selected_unit"] = n
-                if 'save_callback' in st.session_state: st.session_state['save_callback']()
-                st.rerun()
-
-    # === SELECTBOX ===
-    roster_keys = sorted(list(roster.keys()))
-    current_key = st.session_state.get("profile_selected_unit")
-
-    default_index = 0
-    if current_key in roster_keys:
-        default_index = roster_keys.index(current_key)
-
-    if not roster_keys:
-        st.info("Нет персонажей.")
-        return None, None
-
-    sel = c1.selectbox(
-        "Персонаж",
-        roster_keys,
-        index=default_index,
-        key="profile_selected_unit",
-        on_change=st.session_state.get('save_callback')
-    )
-
-    unit = roster[sel]
-    u_key = unit.name.replace(" ", "_")
-
-    c_save, c_del = st.columns([4, 1])
-
-    with c_save:
-        if st.button("💾 СОХРАНИТЬ ПРОФИЛЬ", type="primary", width='stretch', key=f"save_btn_{u_key}"):
-            UnitLibrary.save_unit(unit)
-            st.toast("Данные персонажа сохранены!", icon="✅")
-
-    with c_del:
-        with st.popover("🗑️", width='stretch'):
-            st.warning(f"Удалить {unit.name}?")
-            st.button(
-                "Да, удалить",
-                type="primary",
-                key=f"del_confirm_{u_key}",
-                on_click=delete_unit_action,
-                args=(unit.name,)
-            )
-
-    st.divider()
-    return unit, u_key
+        return unit, u_key
 
 
 def render_basic_info(unit, u_key):
@@ -197,6 +223,27 @@ def render_basic_info(unit, u_key):
         on_change=rename_unit_callback,  # <--- Вызываем callback
         args=(unit, input_key)  # <--- Передаем аргументы
     )
+
+    labels_map = UnitType.ui_labels()
+    type_options = list(labels_map.keys())
+
+    # Определяем текущий индекс
+    try:
+        curr_idx = type_options.index(unit.unit_type)
+    except ValueError:
+        curr_idx = 1  # Fixer по умолчанию
+
+    new_type = st.selectbox(
+        "Тип / Фракция",
+        type_options,
+        index=curr_idx,
+        format_func=lambda x: labels_map[x],  # Показываем "👤 Игрок" вместо "player"
+        key=f"type_select_{u_key}"
+    )
+
+    # Если изменили - сохраняем в объект (файл обновится при нажатии кнопки Сохранить)
+    if new_type != unit.unit_type:
+        unit.unit_type = new_type
 
     c_lvl, c_int = st.columns(2)
     unit.level = c_lvl.number_input("Уровень", 1, 120, unit.level, key=f"lvl_{u_key}")

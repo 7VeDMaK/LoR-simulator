@@ -153,7 +153,8 @@
         }
       },
       "biography": "",
-      "relationships": {}
+      "relationships": {},
+      "unit_type": "fixer"
     }
   ],
   "team_right_data": [
@@ -313,7 +314,8 @@
         }
       },
       "biography": "",
-      "relationships": {}
+      "relationships": {},
+      "unit_type": "fixer"
     }
   ],
   "phase": "planning",
@@ -377,7 +379,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "default",
+  "profile_unit": "Экс Машинариум",
   "leveling_unit": "Roland",
   "tree_unit": "Roland",
   "checks_unit": "Roland",

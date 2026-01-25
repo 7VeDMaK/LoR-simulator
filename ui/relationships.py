@@ -4,6 +4,8 @@ import os
 # Импортируем библиотеку для сохранения файлов напрямую
 from core.unit.unit_library import UnitLibrary
 from ui.app_modules.state_controller import update_and_save_state
+# Импортируем Enum для красивых названий типов
+from core.enums import UnitType
 
 
 def get_avatar_path(unit):
@@ -44,11 +46,15 @@ def render_relationships_page():
         )
         subject = roster[selected_name]
 
-        # --- ДОБАВЛЕНО: ПОЛУЧЕНИЕ СТАТУСА ---
-        # Берем из memory, как в профиле. Если нет — пишем дефолт.
+        # --- СТАТЫ И ТИП ---
         char_status = subject.memory.get("status_rank", "Неизвестно")
 
-        # Вывод информации в одну строку или компактным блоком
+        # Получаем красивое название типа (например, "👤 Игрок")
+        u_type = getattr(subject, "unit_type", UnitType.FIXER.value)
+        type_label = UnitType.ui_labels().get(u_type, u_type)
+
+        # Выводим тип жирным шрифтом в начале
+        st.markdown(f"### {type_label}")
         st.markdown(f"**Lvl:** {subject.level} | **Rank:** {subject.rank} | **Status:** {char_status}")
 
         st.caption(subject.biography[:100] + "..." if getattr(subject, 'biography', '') else "...")
@@ -82,6 +88,14 @@ def render_relationships_page():
             c1, c2 = st.columns(2)
             with c1:
                 target_name_input = st.selectbox("К кому (Цель)", target_options, index=sel_idx, key="rel_target_sel")
+
+                # Показываем тип цели в редакторе для удобства
+                tgt_u = roster.get(target_name_input)
+                if tgt_u:
+                    t_type_val = getattr(tgt_u, "unit_type", UnitType.FIXER.value)
+                    t_label = UnitType.ui_labels().get(t_type_val, t_type_val)
+                    st.caption(f"Тип цели: {t_label}")
+
                 # Данные для формы
                 curr_data = subject.relationships.get(target_name_input, {})
 
@@ -137,6 +151,13 @@ def render_relationships_page():
 
             target_unit = roster[t_name]
 
+            # Получаем тип и статус цели для отображения
+            t_type_val = getattr(target_unit, "unit_type", UnitType.FIXER.value)
+            t_type_label = UnitType.ui_labels().get(t_type_val, t_type_val)
+
+            t_rank_status = target_unit.memory.get("status_rank", "")
+            t_status_str = f" | {t_rank_status}" if t_rank_status else ""
+
             # --- Данные ИСХОДЯЩИЕ (Я -> К нему) ---
             out_data = subject.relationships.get(t_name)
 
@@ -153,10 +174,12 @@ def render_relationships_page():
 
                 # 2. Информация (Две строки)
                 with c_info:
-                    # Имя и статус цели
-                    t_status = target_unit.memory.get("status_rank", "")
-                    t_status_str = f" | {t_status}" if t_status else ""
-                    st.subheader(f"{t_name}{t_status_str}")
+                    # Имя
+                    st.subheader(f"{t_name}")
+                    # Тип и статус (например: "🔧 Фиксер | Легенда")
+                    st.caption(f"{t_type_label}{t_status_str}")
+
+                    st.markdown("---")
 
                     # Строка 1: Мое отношение (Outgoing)
                     if out_data:
