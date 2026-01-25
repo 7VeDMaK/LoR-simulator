@@ -1,6 +1,10 @@
 {
   "type": "full",
+<<<<<<< HEAD
   "page": "🎲 Checks",
+=======
+  "page": "⚔️ Simulator",
+>>>>>>> e53f8f811e5e356ce118191e5aeace02b12bef94
   "team_left_data": [
     {
       "name": "Павучел",
@@ -1300,9 +1304,16 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
+<<<<<<< HEAD
   "profile_unit": null,
   "leveling_unit": "Roland",
   "tree_unit": "Roland",
   "checks_unit": "Лайла",
+=======
+  "profile_unit": "Лилит",
+  "leveling_unit": "Roland",
+  "tree_unit": "Roland",
+  "checks_unit": "Roland",
+>>>>>>> e53f8f811e5e356ce118191e5aeace02b12bef94
   "undo_stack": []
 }

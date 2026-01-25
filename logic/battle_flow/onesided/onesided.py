@@ -126,6 +126,6 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_d, intent
         att_idx += 1
 
     # === CLEANUP ===
-    store_unused_counter(target, active_counter_die)
+    # store_unused_counter(target, active_counter_die)
 
     return report

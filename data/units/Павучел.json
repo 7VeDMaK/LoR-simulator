@@ -19,8 +19,8 @@
         "imp_stg": 0
     },
     "current_hp": 91,
-    "current_sp": 40,
-    "current_stagger": 46,
+    "current_sp": 41,
+    "current_stagger": 56,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
@@ -49,8 +49,8 @@
     "money_log": [],
     "base_stats": {
         "current_hp": 91,
-        "current_sp": 40,
-        "current_stagger": 46
+        "current_sp": 41,
+        "current_stagger": 56
     },
     "defense": {
         "armor_name": "Unit_13",

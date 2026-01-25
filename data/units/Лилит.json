@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 130,
-    "current_sp": 77,
-    "current_stagger": 65,
+    "current_hp": 61,
+    "current_sp": 32,
+    "current_stagger": 20,
     "resources": {},
     "cooldowns": {
         "berserker_rage": 2
@@ -55,9 +55,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 130,
-        "current_sp": 77,
-        "current_stagger": 65
+        "current_hp": 61,
+        "current_sp": 32,
+        "current_stagger": 20
     },
     "defense": {
         "armor_name": "None",
