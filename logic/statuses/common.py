@@ -271,7 +271,7 @@ class RuptureStatus(StatusEffect):
         unit.current_hp = max(0, unit.current_hp - extra_dmg)
         
         # Снимаем половину эффекта (в меньшую сторону)
-        remove_amt = rupture_stack // 2
+        remove_amt = max (1, rupture_stack // 2)
         unit.remove_status("rupture", remove_amt)
         
         if log_func:

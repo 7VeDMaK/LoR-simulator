@@ -8,9 +8,12 @@ def resolve_counter_clash(engine, source, target, die_atk, die_cnt, adv_atk):
     Возвращает: outcome_dict { outcome_str, details_list, counter_spent_bool }
     """
     target.current_die = die_cnt
+
+    # Создаем контексты бросков
     ctx_atk = engine._create_roll_context(source, target, die_atk, is_disadvantage=adv_atk)
     ctx_cnt = engine._create_roll_context(target, source, die_cnt)
 
+    # Связываем их для проверки эффектов "On Clash"
     ctx_atk.opponent_ctx = ctx_cnt
     ctx_cnt.opponent_ctx = ctx_atk
 
@@ -19,16 +22,26 @@ def resolve_counter_clash(engine, source, target, die_atk, die_cnt, adv_atk):
 
     details = ctx_atk.log + ctx_cnt.log
     outcome = ""
-    counter_spent = True  # По умолчанию тратится, если не выиграл/ничья
+
+    # --- ВАЖНО: Логика траты кубика ---
+    # По умолчанию кубик тратится (при поражении или ничьей).
+    # Если он побеждает, мы ставим False.
+    counter_spent = True
 
     is_atk_def = die_atk.dtype in [DiceType.BLOCK, DiceType.EVADE]
-    is_cnt_def = die_cnt.dtype in [DiceType.BLOCK, DiceType.EVADE]
+    # is_cnt_def = die_cnt.dtype in [DiceType.BLOCK, DiceType.EVADE] # Не обязательно для логики победы
 
-    if is_atk_def and is_cnt_def:
+    # 1. Специфичный случай: Защита об Защиту (оба сгорают без эффекта)
+    if is_atk_def and die_cnt.dtype in [DiceType.BLOCK, DiceType.EVADE]:
         outcome = "🛡️ Defensive Clash (Both Spent)"
+        counter_spent = True
 
+    # 2. Победа КОНТР-КУБИКА
     elif val_cnt > val_atk:
-        # Counter Wins
+        # === ИСПРАВЛЕНИЕ ЗДЕСЬ ===
+        # Контр-кубик победил -> он НЕ тратится и идет на следующий дайс этой же карты
+        counter_spent = False
+
         engine._handle_clash_win(ctx_cnt)
         engine._handle_clash_lose(ctx_atk)
 
@@ -36,22 +49,32 @@ def resolve_counter_clash(engine, source, target, die_atk, die_cnt, adv_atk):
             outcome = f"⚡ Stored Evade! (Recycle)"
             rec = target.restore_stagger(val_cnt)
             details.append(f"🛡️ +{rec} Stagger")
-            counter_spent = False  # Evade возвращается
         else:
-            outcome = f"⚡ Counter Hit"
-            engine._resolve_clash_interaction(ctx_cnt, ctx_atk, val_cnt - val_atk)
+            # Контр-атака победила: наносим урон атакующему
+            outcome = f"⚡ Counter Hit (Recycle)"
+            # Урон равен разнице или полному значению (зависит от вашей системы, обычно разница в clash)
+            dmg_val = val_cnt - val_atk
+            engine._resolve_clash_interaction(ctx_cnt, ctx_atk, dmg_val)
 
+    # 3. Победа АТАКИ (Контр-кубик сломан)
     elif val_atk > val_cnt:
-        # Attack Wins
         outcome = f"💥 Counter Broken"
+        counter_spent = True  # Кубик уничтожен
+
         engine._handle_clash_win(ctx_atk)
         engine._handle_clash_lose(ctx_cnt)
 
-        if die_atk.dtype not in [DiceType.BLOCK, DiceType.EVADE]:
+        # Если атака не была защитной (блок/уворот), она пробивает дальше
+        if not is_atk_def:
+            # Урон по цели с вычетом значения контр-кубика (Break damage)
             engine._resolve_clash_interaction(ctx_atk, ctx_cnt, val_atk - val_cnt)
 
+    # 4. Ничья
     else:
         outcome = "🤝 Draw (Counter Broken)"
+        counter_spent = True  # При ничьей контр-кубик обычно сгорает
+        engine._handle_clash_draw(ctx_atk)
+        engine._handle_clash_draw(ctx_cnt)
 
     return {
         "outcome": outcome,
@@ -59,7 +82,7 @@ def resolve_counter_clash(engine, source, target, die_atk, die_cnt, adv_atk):
         "counter_spent": counter_spent,
         "val_atk": val_atk,
         "val_cnt": val_cnt,
-        "atk_ctx": ctx_atk  # Нужен, если вдруг захотим нанести урон
+        "atk_ctx": ctx_atk
     }
 
 

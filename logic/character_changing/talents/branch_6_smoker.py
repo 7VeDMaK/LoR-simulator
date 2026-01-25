@@ -1,6 +1,7 @@
 from core.dice import Dice
 from core.enums import DiceType
 from core.logging import logger, LogLevel  # [NEW] Import
+from core.ranks import get_base_roll_by_level
 from logic.character_changing.passives.base_passive import BasePassive
 
 
@@ -97,38 +98,41 @@ class TalentAerialFoot(BasePassive):
     id = "aerial_foot"
     name = "Воздушная стопа"
     description = (
-        "6.3 Вы получаете пассивную кость Уклонения (5-7).\n"
+        "6.3 Вы получаете пассивную кость Уклонения (зависит от уровня).\n"
         "Бонус: +1 кость за каждые 5 дыма (макс 2).\n"
     )
     is_active_ability = False
 
     def on_speed_rolled(self, unit, log_func, **kwargs):
-        # 1. Базовая кость + Бонус от дыма
+        # 1. Базовая сила от уровня
+        base_min, base_max = get_base_roll_by_level(unit.level)
+
+        # 2. Расчет количества бонусов от дыма
         smoke = unit.get_status("smoke")
         bonus_dice = min(2, smoke // 5)
         total_count = 1 + bonus_dice
 
-        # 2. Инициализация списка, если его нет
+        # 3. Инициализация
         if not hasattr(unit, 'counter_dice'):
             unit.counter_dice = []
 
-        # 3. Добавление костей
-        # Пока фиксировано даем Уклонение 5-7
-        # Если в будущем нужно будет менять на Атаку (с 6.5), можно добавить проверку talents
+        # 4. Добавление костей
         die_type = DiceType.EVADE
 
-        # Пример проверки на 6.5 (если понадобится в будущем):
+        # Пример проверки на 6.5 (сохраняем логику, если она там была)
         # if "self_preservation" in unit.talents: die_type = DiceType.SLASH
 
         for _ in range(total_count):
-            # is_counter=True делает кость "пассивной" (используется при односторонней атаке врага)
-            die = Dice(5, 7, die_type, is_counter=True)
+            # Создаем дайс с силой, зависящей от уровня
+            die = Dice(base_min, base_max, die_type, is_counter=True)
             unit.counter_dice.append(die)
 
         if log_func:
-            log_func(f"🦶 **{self.name}**: Добавлено {total_count} контр-уклонений (Smoke: {smoke}).")
+            log_func(
+                f"🦶 **{self.name}**: Добавлено {total_count} контр-уклонений ({base_min}-{base_max}) (Smoke: {smoke}).")
 
-        logger.log(f"🦶 Aerial Foot: Added {total_count} evade counters to {unit.name}", LogLevel.VERBOSE, "Talent")
+        logger.log(f"🦶 Aerial Foot: Added {total_count} evade counters to {unit.name} (Lvl {unit.level})",
+                   LogLevel.VERBOSE, "Talent")
 
 
 # ==========================================

@@ -1,0 +1,211 @@
+{
+  "cards": [
+    {
+      "id": "pavuchel_web_trap",
+      "name": "Липкая ловушка",
+      "tier": 1,
+      "type": "Ranged",
+      "description": "Бросок паутины. Замедляет врага и вызывает кровотечение (Rupture).",
+      "flags": ["offensive"],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 4,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bind",
+                  "base": 1,
+                  "duration": 1,
+                  "target": "target"
+                }
+              },
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "rupture",
+                  "base": 1,
+                  "duration": 3,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 3,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "rupture",
+                  "base": 2,
+                  "duration": 3,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "pavuchel_silk_cocoon",
+      "name": "Шелковый кокон",
+      "tier": 2,
+      "type": "Melee",
+      "description": "Защитная стойка. Лечит 20 HP при использовании. Успешный блок восстанавливает выносливость.",
+      "flags": ["defensive"],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "hp",
+              "base": 20,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 4,
+          "scripts": {
+            "on_clash_win": [
+              {
+                "script_id": "restore_resource",
+                "params": {
+                  "type": "stagger",
+                  "base": 20,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 4,
+          "scripts": {
+            "on_clash_win": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "protection",
+                  "base": 1,
+                  "duration": 3,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "pavuchel_venom_bite",
+      "name": "Ядовитые жвалы",
+      "tier": 2,
+      "type": "Melee",
+      "description": "Агрессивный укус. Накладывает много Разрыва и Паралич.",
+      "flags": ["offensive"],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 4,
+          "base_max": 8,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "rupture",
+                  "base": 3,
+                  "duration": 3,
+                  "target": "target"
+                }
+              },
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "paralysis",
+                  "base": 1,
+                  "duration": 3,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "pavuchel_eight_eyes",
+      "name": "Восемь глаз",
+      "tier": 3,
+      "type": "Melee",
+      "description": "Контроль поля боя. Позволяет уклониться от атаки.",
+      "flags": ["offensive"],
+      "scripts": {
+      },
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 10,
+          "scripts": {
+            "on_clash_win": [
+              {
+                "script_id": "restore_resource",
+                "params": {
+                  "type": "hp",
+                  "base": 20,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "pierce",
+          "base_min": 5,
+          "base_max": 12,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "fragile",
+                  "base": 2,
+                  "duration": 3,
+                  "target": "target"
+                }
+              },
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "rupture",
+                  "base": 2,
+                  "duration": 3,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

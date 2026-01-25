@@ -18,16 +18,26 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 92,
-    "current_sp": 46,
-    "current_stagger": 46,
+    "current_hp": 91,
+    "current_sp": 41,
+    "current_stagger": 56,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
     "active_buffs": {},
     "_status_effects": {},
     "delayed_queue": [],
-    "deck": [],
+    "deck": [
+        "pavuchel_web_trap",
+        "pavuchel_web_trap",
+        "pavuchel_web_trap",
+        "pavuchel_eight_eyes",
+        "pavuchel_venom_bite",
+        "pavuchel_venom_bite",
+        "pavuchel_silk_cocoon",
+        "pavuchel_silk_cocoon",
+        "pavuchel_silk_cocoon"
+    ],
     "active_slots": [],
     "stored_dice": [],
     "counter_dice": [],
@@ -38,9 +48,9 @@
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 92,
-        "current_sp": 46,
-        "current_stagger": 46
+        "current_hp": 91,
+        "current_sp": 41,
+        "current_stagger": 56
     },
     "defense": {
         "armor_name": "Unit_13",

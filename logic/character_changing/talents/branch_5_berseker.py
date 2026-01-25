@@ -1,6 +1,7 @@
 from core.dice import Dice
 from core.enums import DiceType
 from core.logging import logger, LogLevel  # [NEW] Import
+from core.ranks import get_base_roll_by_level
 from logic.character_changing.passives.base_passive import BasePassive
 
 
@@ -39,6 +40,16 @@ class TalentVengefulPayback(BasePassive):
         current_chunks = lost_hp // 10
 
         mem_key = f"{self.id}_chunks"
+
+        # --- ИСПРАВЛЕНИЕ ---
+        # Если в памяти еще нет записи (первый раунд или вход в бой),
+        # просто запоминаем текущее состояние и выходим.
+        # Это предотвращает получение баффа за изначально потерянное ХП.
+        if mem_key not in unit.memory:
+            unit.memory[mem_key] = current_chunks
+            return
+        # -------------------
+
         previous_chunks = unit.memory.get(mem_key, 0)
 
         bonus = current_chunks - previous_chunks
@@ -145,29 +156,36 @@ class TalentFrenzy(BasePassive):
     id = "frenzy"
     name = "Неистовство"
     description = (
-        "5.5 Пассивно: Добавляет 1 Контр-кость (Slash 5-7) в пул контр-атак.\n"
-        "Если Самообладание > 10: Добавляет еще 1 Контр-кость (Slash 6-8)."
+        "5.5 Пассивно: Добавляет 1 Контр-кость (Slash, зависит от уровня) в пул контр-атак.\n"
+        "Если Самообладание > 10: Добавляет еще 1 Контр-кость (+1 к силе)."
     )
     is_active_ability = False
 
     def on_speed_rolled(self, unit, log_func, **kwargs):
-        # Добавляем базовый контр-кубик
-        base_die = Dice(5, 7, DiceType.SLASH, is_counter=True)
+        # 1. Получаем базовые значения от уровня
+        base_min, base_max = get_base_roll_by_level(unit.level)
+
+        # 2. Добавляем базовый контр-кубик
+        base_die = Dice(base_min, base_max, DiceType.SLASH, is_counter=True)
         if not hasattr(unit, 'counter_dice'):
             unit.counter_dice = []
         unit.counter_dice.append(base_die)
-        msg = "Frenzy (+1 Counter 5-7)"
 
-        # Проверяем условие для второго
+        msg = f"Frenzy (+1 Counter {base_min}-{base_max})"
+
+        # 3. Проверяем условие для второго кубика (Самообладание > 10)
+        # Второй кубик делаем немного сильнее (+1/+1), как в оригинале (было 5-7 и 6-8)
         if unit.get_status("self_control") > 10:
-            bonus_die = Dice(6, 8, DiceType.SLASH, is_counter=True)
+            bonus_min = base_min + 1
+            bonus_max = base_max + 1
+            bonus_die = Dice(bonus_min, bonus_max, DiceType.SLASH, is_counter=True)
             unit.counter_dice.append(bonus_die)
-            msg += " & (+1 Counter 6-8)"
+            msg += f" & (+1 Counter {bonus_min}-{bonus_max})"
 
         if log_func:
             log_func(f"😡 **{self.name}**: {msg}")
 
-        logger.log(f"😡 Frenzy: Added counter dice for {unit.name}", LogLevel.VERBOSE, "Talent")
+        logger.log(f"😡 Frenzy: Added counter dice for {unit.name} (Lvl {unit.level})", LogLevel.VERBOSE, "Talent")
 
 
 # ==========================================
