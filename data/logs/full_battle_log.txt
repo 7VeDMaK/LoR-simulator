@@ -1,4 +1,4 @@
-=== BATTLE LOG CLEARED: 2026-01-25 13:33:47.309651 ===
-[13:33:47.309] [VERBOSE] [Stats] Recalculating stats for Габриэль
-[13:33:47.310] [VERBOSE] [Stats] 🔄 Recalculating stats for Габриэль
-[13:33:47.311] [VERBOSE] [Stats] ✅ Stats updated for Габриэль. HP: 20, SP: 20, Speed: [(1, 4)]
+=== BATTLE LOG CLEARED: 2026-01-25 13:40:09.082907 ===
+[13:40:09.083] [VERBOSE] [Stats] Recalculating stats for Брат Йозеф
+[13:40:09.084] [VERBOSE] [Stats] 🔄 Recalculating stats for Брат Йозеф
+[13:40:09.084] [VERBOSE] [Stats] ✅ Stats updated for Брат Йозеф. HP: 20, SP: 20, Speed: [(1, 4)]
