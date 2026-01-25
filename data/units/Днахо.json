@@ -1,0 +1,98 @@
+{
+    "name": " Дна'хо",
+    "level": 1,
+    "rank": 9,
+    "avatar": "data/avatars/Днахо.jpg",
+    "base_intellect": 1,
+    "total_xp": 0,
+    "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+    },
+    "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+    },
+    "current_hp": 20,
+    "current_sp": 20,
+    "current_stagger": 10,
+    "resources": {},
+    "cooldowns": {},
+    "card_cooldowns": {},
+    "active_buffs": {},
+    "_status_effects": {},
+    "delayed_queue": [],
+    "deck": [],
+    "active_slots": [],
+    "stored_dice": [],
+    "counter_dice": [],
+    "memory": {
+        "status_rank": "МЕРТВА. Киборг Братства Высоких."
+    },
+    "death_count": 0,
+    "overkill_damage": 0,
+    "money_log": [],
+    "base_stats": {
+        "current_hp": 20,
+        "current_sp": 20,
+        "current_stagger": 10
+    },
+    "defense": {
+        "armor_name": "Unit_37",
+        "armor_type": "Medium",
+        "hp_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "stagger_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "weapon_id": "none"
+    },
+    "attributes": {
+        "strength": 0,
+        "endurance": 0,
+        "agility": 0,
+        "wisdom": 0,
+        "psych": 0
+    },
+    "skills": {
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 0,
+        "speed": 0,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+    },
+    "passives": [],
+    "talents": [],
+    "augmentations": [],
+    "level_rolls": {},
+    "biography": "",
+    "relationships": {
+        "Азгик": {
+            "value": -100,
+            "status": "Nemesis",
+            "notes": "УБИТА ИМ"
+        }
+    },
+    "unit_type": "dead"
+}

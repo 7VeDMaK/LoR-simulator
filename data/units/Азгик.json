@@ -1,0 +1,217 @@
+{
+    "name": "Азгик",
+    "level": 28,
+    "rank": 6,
+    "avatar": "data/avatars/Азгик2.png",
+    "base_intellect": 3,
+    "total_xp": 201326592,
+    "pct_mods": {
+        "imp_hp": 40,
+        "imp_sp": 20,
+        "imp_stg": 10,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+    },
+    "flat_mods": {
+        "imp_hp": 30,
+        "imp_sp": 20,
+        "imp_stg": 10
+    },
+    "current_hp": 100,
+    "current_sp": 91,
+    "current_stagger": 43,
+    "resources": {},
+    "cooldowns": {},
+    "card_cooldowns": {
+        "azgick_rule_1": 1,
+        "azgick_rule_2": 1,
+        "azgick_rule_3": 1
+    },
+    "active_buffs": {},
+    "_status_effects": {},
+    "delayed_queue": [],
+    "deck": [
+        "pat_right_shoulder",
+        "pat_right_shoulder",
+        "pat_left_shoulder",
+        "pat_left_shoulder",
+        "debate_red_eye",
+        "azgick_smile",
+        "azgick_rule_2",
+        "azgick_rule_3",
+        "azgick_enrage",
+        "tea_dark",
+        "tea_green",
+        "tea_fruit",
+        "tea_sakura",
+        "tea_berry",
+        "tea_red",
+        "tea_ginger",
+        "tea_coffee",
+        "cheese_parmesan",
+        "cheese_edam",
+        "cheese_cheddar",
+        "cheese_gouda",
+        "cheese_maasdam",
+        "cheese_emmental",
+        "candy_praline",
+        "candy_marzipan",
+        "candy_souffle",
+        "candy_grillage",
+        "candy_ganache",
+        "candy_fudge",
+        "candy_waffles"
+    ],
+    "active_slots": [],
+    "stored_dice": [],
+    "counter_dice": [],
+    "memory": {
+        "status_rank": "9 (Fixer)"
+    },
+    "death_count": 0,
+    "overkill_damage": 0,
+    "money_log": [
+        {
+            "amount": 999999,
+            "reason": ""
+        },
+        {
+            "amount": 900000000,
+            "reason": ""
+        },
+        {
+            "amount": 90000000,
+            "reason": ""
+        },
+        {
+            "amount": 9000000,
+            "reason": ""
+        },
+        {
+            "amount": 1,
+            "reason": ""
+        },
+        {
+            "amount": -1,
+            "reason": ""
+        },
+        {
+            "amount": -900000000,
+            "reason": ""
+        },
+        {
+            "amount": -15000000,
+            "reason": "ЛХ закупка + долги"
+        }
+    ],
+    "base_stats": {
+        "current_hp": 100,
+        "current_sp": 91,
+        "current_stagger": 43
+    },
+    "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "hp_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "stagger_resists": {
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        "weapon_id": "dual_blades"
+    },
+    "attributes": {
+        "strength": 6,
+        "endurance": 7,
+        "agility": 30,
+        "wisdom": 3,
+        "psych": 6
+    },
+    "skills": {
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 13,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 7,
+        "speed": 30,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 15,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+    },
+    "passives": [
+        "povar",
+        "food_lover",
+        "witness_gro_goroth"
+    ],
+    "talents": [
+        "keep_it_together",
+        "center_of_balance",
+        "tea_master",
+        "mind_power",
+        "peak_sanity",
+        "psychic_strain",
+        "unbearable_presence",
+        "emotional_storm",
+        "controlled_distortion",
+        "athleticism_shadow",
+        "athletic",
+        "cheese",
+        "confete"
+    ],
+    "augmentations": [
+        "aug_back_speed"
+    ],
+    "level_rolls": {
+        "3": {
+            "hp": 1,
+            "sp": 3
+        },
+        "6": {
+            "hp": 2,
+            "sp": 5
+        },
+        "9": {
+            "hp": 4,
+            "sp": 5
+        },
+        "12": {
+            "hp": 5,
+            "sp": 2
+        },
+        "15": {
+            "hp": 4,
+            "sp": 4
+        },
+        "18": {
+            "hp": 2,
+            "sp": 1
+        },
+        "21": {
+            "hp": 1,
+            "sp": 5
+        },
+        "24": {
+            "hp": 3,
+            "sp": 1
+        },
+        "27": {
+            "hp": 1,
+            "sp": 1
+        }
+    },
+    "biography": "",
+    "relationships": {},
+    "unit_type": "player"
+}

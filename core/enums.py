@@ -21,6 +21,7 @@ class UnitType(str, Enum):
     FIXER = "fixer"         # Фиксер / Корректировщик
     SYNDICATE = "syndicate" # Синдикат
     MOB = "mob"             # Мобы / Прочее
+    DEAD = "dead"             # Dead
 
     @classmethod
     def ui_labels(cls):
@@ -28,5 +29,6 @@ class UnitType(str, Enum):
             cls.PLAYER: "👤 Игрок",
             cls.FIXER: "🔧 Фиксер",
             cls.SYNDICATE: "💀 Синдикат",
-            cls.MOB: "👾 Моб/Прочее"
+            cls.MOB: "👾 Моб/Прочее",
+            cls.DEAD: "DEAD"
         }

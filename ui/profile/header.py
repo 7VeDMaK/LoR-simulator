@@ -131,8 +131,8 @@ def render_header(roster):
 
         # 2. UI выбора фильтра (Pills или Radio горизонтально)
         filter_opts = ["ALL", UnitType.PLAYER.value, UnitType.FIXER.value, UnitType.SYNDICATE.value,
-                       UnitType.MOB.value]
-        filter_labels = ["Все", "Игроки", "Фиксеры", "Синдикат", "Мобы"]
+                       UnitType.MOB.value, UnitType.DEAD.value]
+        filter_labels = ["Все", "Игроки", "Фиксеры", "Синдикат", "Мобы", "DEAD"]
 
         # Сохраняем состояние фильтра
         if "profile_filter" not in st.session_state:
