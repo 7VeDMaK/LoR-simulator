@@ -1,10 +1,10 @@
 {
     "name": "Аксис Мунди",
-    "level": 1,
+    "level": 6,
     "rank": 9,
     "avatar": "data/avatars/Аксис_Мунди.png",
     "base_intellect": 8,
-    "total_xp": 4,
+    "total_xp": 47,
     "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 20,
-    "current_sp": 20,
-    "current_stagger": 10,
+    "current_hp": 79,
+    "current_sp": 39,
+    "current_stagger": 39,
     "resources": {
         "luck": 38
     },
@@ -56,9 +56,9 @@
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 20,
-        "current_sp": 20,
-        "current_stagger": 10
+        "current_hp": 79,
+        "current_sp": 39,
+        "current_stagger": 39
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -77,7 +77,7 @@
     },
     "attributes": {
         "strength": 0,
-        "endurance": 10,
+        "endurance": 15,
         "agility": 0,
         "wisdom": 15,
         "psych": 0
@@ -86,11 +86,11 @@
         "strike_power": 0,
         "medicine": 0,
         "willpower": 0,
-        "luck": 38,
+        "luck": 42,
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,
-        "speed": 0,
+        "speed": 6,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,
@@ -107,8 +107,20 @@
         "meta_awareness",
         "chthonic_nature"
     ],
-    "talents": [],
+    "talents": [
+        "deal_with_fortune",
+        "second_chance"
+    ],
     "augmentations": [],
-    "level_rolls": {},
-    "biography": ""
+    "level_rolls": {
+        "3": {
+            "hp": 3,
+            "sp": 4
+        },
+        "6": {
+            "hp": 2,
+            "sp": 4
+        }
+    },
+    "biography": "Очки (крутые)\nВеревка (неудачливая)"
 }

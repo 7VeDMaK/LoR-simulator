@@ -22,57 +22,21 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 51,
-      "current_sp": 33,
-      "current_stagger": 20,
+      "current_hp": 56,
+      "current_sp": 38,
+      "current_stagger": 66,
       "resources": {},
       "cooldowns": {},
-      "card_cooldowns": {
-        "smoke_arts": [
-          1
-        ],
-        "demon_scream": [
-          1
-        ],
-        "smoke_silhouette": [
-          1
-        ]
-      },
+      "card_cooldowns": {},
       "active_buffs": {},
       "_status_effects": {
         "smoke": [
           {
-            "amount": 8,
-            "duration": 98
-          }
-        ],
-        "rupture": [
-          {
-            "amount": 1,
-            "duration": 2
-          },
-          {
-            "amount": 1,
-            "duration": 2
-          },
-          {
-            "amount": 2,
-            "duration": 2
-          },
-          {
-            "amount": 1,
-            "duration": 2
-          },
-          {
-            "amount": 2,
-            "duration": 2
+            "amount": 12,
+            "duration": 95
           }
         ],
         "strength": [
-          {
-            "amount": 1,
-            "duration": 3
-          },
           {
             "amount": 4,
             "duration": 1
@@ -99,59 +63,8 @@
       ],
       "active_slots": [
         {
-          "speed": 15,
-          "card": "trip_up",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 3,
-          "target_slot_idx": 1,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs Павучел 4 [S2] | Перехват!",
-            "icon": "⚡",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        },
-        {
           "speed": 14,
-          "card": "release_steam",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 1,
-          "target_slot_idx": 1,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs Павучел 2 [S2] | Перехват!",
-            "icon": "⚡",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        },
-        {
-          "speed": 12,
-          "card": "prelude",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 2,
-          "target_slot_idx": 1,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs Павучел 2 [S1] | Перехвачен (12 < 15)",
-            "icon": "⚠️",
-            "color": "orange"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        },
-        {
-          "speed": 9,
-          "card": "inhale_exhale",
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
@@ -162,8 +75,52 @@
             "icon": "⛔",
             "color": "gray"
           },
-          "is_ally_target": false,
-          "destroy_on_speed": true
+          "is_ally_target": false
+        },
+        {
+          "speed": 15,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 14,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 8,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
         }
       ],
       "stored_dice": [],
@@ -195,6 +152,13 @@
           "base_max": 10,
           "is_counter": true,
           "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
         }
       ],
       "memory": {
@@ -206,7 +170,7 @@
         },
         "smoke_is_defensive": true,
         "smoke_limit_bonus": 5,
-        "vengeful_payback_chunks": 8,
+        "vengeful_payback_chunks": 7,
         "battle_initialized": true
       },
       "death_count": 0,
@@ -218,9 +182,9 @@
         }
       ],
       "base_stats": {
-        "current_hp": 51,
-        "current_sp": 33,
-        "current_stagger": 20
+        "current_hp": 56,
+        "current_sp": 38,
+        "current_stagger": 66
       },
       "defense": {
         "armor_name": "None",
@@ -340,7 +304,7 @@
       },
       "current_hp": 18,
       "current_sp": 40,
-      "current_stagger": 0,
+      "current_stagger": 28,
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {},
@@ -358,21 +322,7 @@
         "pavuchel_silk_cocoon",
         "pavuchel_silk_cocoon"
       ],
-      "active_slots": [
-        {
-          "speed": 0,
-          "card": null,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "stunned": true,
-          "is_aggro": false,
-          "ui_status": {
-            "text": "ОГЛУШЕН",
-            "icon": "❌",
-            "color": "gray"
-          }
-        }
-      ],
+      "active_slots": [],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -383,23 +333,23 @@
           "stagger": 53
         },
         "battle_initialized": true,
-        "last_revive_attempt_round": 2,
+        "last_revive_attempt_round": 7,
         "last_revive_log": {
           "roll": 3,
           "bonus": 6,
-          "penalty": 0,
-          "total": 9,
-          "dc": 2,
+          "penalty": 3,
+          "total": 6,
+          "dc": 0,
           "success": true
         }
       },
-      "death_count": 1,
+      "death_count": 2,
       "overkill_damage": 0,
       "money_log": [],
       "base_stats": {
         "current_hp": 18,
         "current_sp": 40,
-        "current_stagger": 0
+        "current_stagger": 28
       },
       "defense": {
         "armor_name": "Unit_13",
@@ -480,16 +430,12 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 91,
+      "current_hp": 0,
       "current_sp": 40,
       "current_stagger": 53,
       "resources": {},
       "cooldowns": {},
-      "card_cooldowns": {
-        "pavuchel_eight_eyes": [
-          1
-        ]
-      },
+      "card_cooldowns": {},
       "active_buffs": {},
       "_status_effects": {},
       "delayed_queue": [],
@@ -504,42 +450,7 @@
         "pavuchel_silk_cocoon",
         "pavuchel_silk_cocoon"
       ],
-      "active_slots": [
-        {
-          "speed": 15,
-          "card": "pavuchel_venom_bite",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 2,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs Лилит [S3] | Перехват!",
-            "icon": "⚡",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        },
-        {
-          "speed": 7,
-          "card": "pavuchel_venom_bite",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 2,
-          "force_clash": false,
-          "ui_status": {
-            "text": "CLASH vs Лилит [S2] | Перехвачен (7 < 14)",
-            "icon": "⚠️",
-            "color": "orange"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
-        }
-      ],
+      "active_slots": [],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -549,13 +460,22 @@
           "sp": 40,
           "stagger": 53
         },
-        "battle_initialized": true
+        "battle_initialized": true,
+        "last_revive_attempt_round": 3,
+        "last_revive_log": {
+          "roll": 4,
+          "bonus": 6,
+          "penalty": 0,
+          "total": 10,
+          "dc": 0,
+          "success": true
+        }
       },
-      "death_count": 0,
-      "overkill_damage": 0,
+      "death_count": 1,
+      "overkill_damage": 16,
       "money_log": [],
       "base_stats": {
-        "current_hp": 91,
+        "current_hp": 0,
         "current_sp": 40,
         "current_stagger": 53
       },
@@ -638,16 +558,12 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 91,
+      "current_hp": 0,
       "current_sp": 40,
       "current_stagger": 53,
       "resources": {},
       "cooldowns": {},
-      "card_cooldowns": {
-        "pavuchel_eight_eyes": [
-          1
-        ]
-      },
+      "card_cooldowns": {},
       "active_buffs": {},
       "_status_effects": {},
       "delayed_queue": [],
@@ -662,42 +578,7 @@
         "pavuchel_silk_cocoon",
         "pavuchel_silk_cocoon"
       ],
-      "active_slots": [
-        {
-          "speed": 13,
-          "card": "pavuchel_venom_bite",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": false,
-          "ui_status": {
-            "text": "ONE SIDED (Провал) -> Лилит | Слаб",
-            "icon": "🐌",
-            "color": "orange"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
-        },
-        {
-          "speed": 8,
-          "card": "pavuchel_venom_bite",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 3,
-          "force_clash": false,
-          "ui_status": {
-            "text": "CLASH vs Лилит [S3] | Перехвачен (8 < 12)",
-            "icon": "⚠️",
-            "color": "orange"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
-        }
-      ],
+      "active_slots": [],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -710,10 +591,10 @@
         "battle_initialized": true
       },
       "death_count": 0,
-      "overkill_damage": 0,
+      "overkill_damage": 68,
       "money_log": [],
       "base_stats": {
-        "current_hp": 91,
+        "current_hp": 0,
         "current_sp": 40,
         "current_stagger": 53
       },
@@ -796,16 +677,12 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 91,
+      "current_hp": 0,
       "current_sp": 40,
       "current_stagger": 53,
       "resources": {},
       "cooldowns": {},
-      "card_cooldowns": {
-        "pavuchel_eight_eyes": [
-          1
-        ]
-      },
+      "card_cooldowns": {},
       "active_buffs": {},
       "_status_effects": {},
       "delayed_queue": [],
@@ -820,42 +697,7 @@
         "pavuchel_silk_cocoon",
         "pavuchel_silk_cocoon"
       ],
-      "active_slots": [
-        {
-          "speed": 12,
-          "card": "pavuchel_venom_bite",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 2,
-          "force_clash": false,
-          "ui_status": {
-            "text": "ONE SIDED (Провал) -> Лилит | Слаб",
-            "icon": "🐌",
-            "color": "orange"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
-        },
-        {
-          "speed": 9,
-          "card": "pavuchel_venom_bite",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs Лилит [S1] | Перехват!",
-            "icon": "⚡",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        }
-      ],
+      "active_slots": [],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -868,10 +710,10 @@
         "battle_initialized": true
       },
       "death_count": 0,
-      "overkill_damage": 0,
+      "overkill_damage": 8,
       "money_log": [],
       "base_stats": {
-        "current_hp": 91,
+        "current_hp": 0,
         "current_sp": 40,
         "current_stagger": 53
       },
@@ -936,499 +778,9 @@
     }
   ],
   "phase": "planning",
-  "round_number": 2,
+  "round_number": 7,
   "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
   "battle_logs": [
-    {
-      "type": "clash",
-      "round": "R Hit (Counter)",
-      "left": {
-        "unit": "Павучел 4",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 3,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "Stored",
-        "dice": "EVADE (Cnt)",
-        "val": 13,
-        "range": "-"
-      },
-      "outcome": "⚡ Counter Hit (Recycle)",
-      "details": [
-        "🎲 Roll [1-4]: 3 = **3**",
-        "🎲 Roll [7-10]: 9 + 4 (Endurance) = **13**"
-      ]
-    },
-    {
-      "type": "clash",
-      "round": "R Hit (Counter)",
-      "left": {
-        "unit": "Павучел 4",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 2,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "Stored",
-        "dice": "EVADE (Cnt)",
-        "val": 14,
-        "range": "-"
-      },
-      "outcome": "⚡ Counter Hit (Recycle)",
-      "details": [
-        "🎲 Roll [1-3]: 2 = **2**",
-        "🎲 Roll [7-10]: 10 + 4 (Endurance) = **14**"
-      ]
-    },
-    {
-      "type": "clash",
-      "round": "R Hit (Counter)",
-      "left": {
-        "unit": "Павучел 3",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 1,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "Stored",
-        "dice": "SLASH (Cnt)",
-        "val": 14,
-        "range": "-"
-      },
-      "outcome": "⚡ Counter Hit (Recycle)",
-      "details": [
-        "🎲 Roll [1-4]: 1 = **1**",
-        "🎲 Roll [7-10]: 10 + 4 (Strength) = **14**"
-      ]
-    },
-    {
-      "type": "clash",
-      "round": "R Hit (Counter)",
-      "left": {
-        "unit": "Павучел 3",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 1,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "Stored",
-        "dice": "SLASH (Cnt)",
-        "val": 11,
-        "range": "-"
-      },
-      "outcome": "⚡ Counter Hit (Recycle)",
-      "details": [
-        "🎲 Roll [1-3]: 1 = **1**",
-        "🎲 Roll [7-10]: 7 + 4 (Strength) = **11**"
-      ]
-    },
-    {
-      "type": "clash",
-      "round": "R Hit (Counter)",
-      "left": {
-        "unit": "Павучел 2",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 3,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "Stored",
-        "dice": "EVADE (Cnt)",
-        "val": 13,
-        "range": "-"
-      },
-      "outcome": "⚡ Counter Hit (Recycle)",
-      "details": [
-        "🎲 Roll [1-4]: 3 = **3**",
-        "🎲 Roll [7-10]: 9 + 4 (Endurance) = **13**"
-      ]
-    },
-    {
-      "type": "clash",
-      "round": "R Hit (Counter)",
-      "left": {
-        "unit": "Павучел 2",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 1,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "Stored",
-        "dice": "EVADE (Cnt)",
-        "val": 11,
-        "range": "-"
-      },
-      "outcome": "⚡ Counter Hit (Recycle)",
-      "details": [
-        "🎲 Roll [1-3]: 1 = **1**",
-        "🎲 Roll [7-10]: 7 + 4 (Endurance) = **11**"
-      ]
-    },
-    {
-      "type": "clash",
-      "round": "Clash (1)",
-      "left": {
-        "unit": "Лилит",
-        "card": "Выпустить пар",
-        "dice": "SLASH",
-        "val": 9,
-        "range": "1-3"
-      },
-      "right": {
-        "unit": "Павучел",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 4,
-        "range": "1-4"
-      },
-      "outcome": "🏆 Лилит Win (Hit)",
-      "details": [
-        "🎲 Roll [1-4]: 4 = **4**",
-        "🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) = **9**"
-      ]
-    },
-    {
-      "type": "clash",
-      "round": "Clash (2)",
-      "left": {
-        "unit": "Лилит",
-        "card": "Выпустить пар",
-        "dice": "SLASH",
-        "val": 10,
-        "range": "1-3"
-      },
-      "right": {
-        "unit": "Павучел",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 2,
-        "range": "1-3"
-      },
-      "outcome": "🏆 Лилит Win (Hit)",
-      "details": [
-        "🎲 Roll [1-3]: 2 = **2**",
-        "🎲 Roll [1-3]: 2 + 3 (Сила) + 5 (Среднее ор.) = **10**"
-      ]
-    },
-    {
-      "type": "clash",
-      "round": "Clash (3)",
-      "left": {
-        "unit": "Лилит",
-        "card": "Выпустить пар",
-        "dice": "SLASH",
-        "val": 10,
-        "range": "1-3"
-      },
-      "right": {
-        "unit": "Павучел",
-        "card": "Липкая ловушка",
-        "dice": "Broken",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "🚫 Павучел Broken",
-      "details": [
-        "🎲 Roll [1-3]: 2 + 3 (Сила) + 5 (Среднее ор.) = **10**"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Павучел 2",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 2,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "🎲 Roll [1-4]: 2 = **2**",
-        "🧪 **Лилит**: +1 Bind",
-        "🧪 **Лилит**: +1 Rupture",
-        "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Павучел 2",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 2,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "🎲 Roll [1-3]: 2 = **2**",
-        "🧪 **Лилит**: +2 Rupture",
-        "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Павучел",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 2,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "🎲 Roll [1-4]: 2 = **2**",
-        "📉 **Помеха!** (4, 2) -> Base: 2",
-        "🧪 **Лилит**: +1 Bind",
-        "🧪 **Лилит**: +1 Rupture",
-        "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Павучел",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 1,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "🎲 Roll [1-3]: 1 = **1**",
-        "📉 **Помеха!** (3, 1) -> Base: 1",
-        "🧪 **Лилит**: +2 Rupture",
-        "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Павучел 4",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 1,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "🎲 Roll [1-4]: 1 = **1**",
-        "📉 **Помеха!** (1, 2) -> Base: 1",
-        "🧪 **Лилит**: +1 Bind",
-        "🧪 **Лилит**: +1 Rupture",
-        "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Павучел 4",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 2,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "🎲 Roll [1-3]: 2 = **2**",
-        "📉 **Помеха!** (3, 2) -> Base: 2",
-        "🧪 **Лилит**: +2 Rupture",
-        "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Павучел 3",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 3,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "🎲 Roll [1-4]: 3 = **3**",
-        "🧪 **Лилит**: +1 Bind",
-        "🧪 **Лилит**: +1 Rupture",
-        "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 1 HP",
-        "⚡ **Разрыв**: Лилит взрывается! -10 урона (Rupture 10->5)"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Павучел 3",
-        "card": "Липкая ловушка",
-        "dice": "BLUNT",
-        "val": 1,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Лилит",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "🎲 Roll [1-3]: 1 = **1**",
-        "🧪 **Лилит**: +2 Rupture",
-        "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "L Hit (Hit)",
-      "left": {
-        "unit": "Лилит",
-        "card": "Прелюдия",
-        "dice": "BLUNT",
-        "val": 12,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Павучел",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "🧪 **Лилит**: +2 Smoke",
-        "🧪 **Павучел**: +2 Smoke",
-        "🎲 Roll [3-4]: 4 + 3 (Сила) + 5 (Среднее ор.) = **12**",
-        "🧠 **Не теряя голову**: +1 Self-Control",
-        "👊 Atk Boost: +2",
-        "💥 **Павучел**: [x2.0 Res] Hit 28 HP"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "L Hit (Hit)",
-      "left": {
-        "unit": "Лилит",
-        "card": "Прелюдия",
-        "dice": "BLUNT",
-        "val": 11,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Павучел",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "🎲 Roll [3-4]: 3 + 3 (Сила) + 5 (Среднее ор.) = **11**",
-        "🧠 **Не теряя голову**: +1 Self-Control",
-        "👊 Atk Boost: +2",
-        "💥 **Павучел**: [x2.0 Res] Hit 26 HP"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "L Hit (Hit)",
-      "left": {
-        "unit": "Лилит",
-        "card": "Затяг",
-        "dice": "SLASH",
-        "val": 16,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Павучел",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "✋ **Лилит** stole 5 smoke",
-        "🎲 Roll [6-8]: 6 + 3 (Сила) + 5 (Среднее ор.) + 1 (Smoke (Base)) + 1 (Blessing (9)) = **16**",
-        "🧠 **Не теряя голову**: +1 Self-Control",
-        "👊 Atk Boost: +2",
-        "💥 **Павучел**: [x2.0 Res] Hit 36 HP (Staggered) (DEAD! Overkill: 22)"
-      ]
-    },
-    {
-      "round": "Round Start",
-      "rolls": "Event",
-      "details": "🔄 **Лилит**: 🩸 **Злобная расплата**: Потеря здоровья (Порог 7->8) -> +1 Силы"
-    },
     {
       "round": "Speed Roll",
       "rolls": "Passive",
@@ -1447,7 +799,7 @@
     {
       "round": "Speed Roll",
       "rolls": "Passive",
-      "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Добавлено 2 контр-уклонений (7-10) (Smoke: 8)."
+      "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Добавлено 3 контр-уклонений (7-10) (Smoke: 12)."
     }
   ],
   "script_logs": "",
@@ -1484,33 +836,20 @@
             "imp_sp": 0,
             "imp_stg": 0
           },
-          "current_hp": 61,
-          "current_sp": 32,
-          "current_stagger": 20,
+          "current_hp": 55,
+          "current_sp": 37,
+          "current_stagger": 66,
           "resources": {},
           "cooldowns": {},
-          "card_cooldowns": {
-            "bad_habit": [
-              1
-            ],
-            "trip_up": [
-              1
-            ],
-            "inhale_exhale": [
-              1
-            ],
-            "smoke_arts": [
-              2
-            ],
-            "demon_scream": [
-              2
-            ],
-            "smoke_silhouette": [
-              2
-            ]
-          },
+          "card_cooldowns": {},
           "active_buffs": {},
           "_status_effects": {
+            "smoke": [
+              {
+                "amount": 13,
+                "duration": 96
+              }
+            ],
             "strength": [
               {
                 "amount": 4,
@@ -1538,7 +877,7 @@
           ],
           "active_slots": [
             {
-              "speed": 15,
+              "speed": 12,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -1556,7 +895,7 @@
               "force_clash": false
             },
             {
-              "speed": 14,
+              "speed": 13,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -1565,7 +904,7 @@
               "force_clash": false
             },
             {
-              "speed": 10,
+              "speed": 8,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -1585,6 +924,20 @@
             },
             {
               "type": "slash",
+              "base_min": 7,
+              "base_max": 10,
+              "is_counter": true,
+              "scripts": {}
+            },
+            {
+              "type": "evade",
+              "base_min": 7,
+              "base_max": 10,
+              "is_counter": true,
+              "scripts": {}
+            },
+            {
+              "type": "evade",
               "base_min": 7,
               "base_max": 10,
               "is_counter": true,
@@ -1619,9 +972,9 @@
             }
           ],
           "base_stats": {
-            "current_hp": 61,
-            "current_sp": 32,
-            "current_stagger": 20
+            "current_hp": 55,
+            "current_sp": 37,
+            "current_stagger": 66
           },
           "defense": {
             "armor_name": "None",
@@ -1739,25 +1092,12 @@
             "imp_sp": 0,
             "imp_stg": 0
           },
-          "current_hp": 91,
+          "current_hp": 0,
           "current_sp": 40,
-          "current_stagger": 53,
+          "current_stagger": 28,
           "resources": {},
           "cooldowns": {},
-          "card_cooldowns": {
-            "pavuchel_eight_eyes": [
-              2
-            ],
-            "pavuchel_venom_bite": [
-              1,
-              1
-            ],
-            "pavuchel_silk_cocoon": [
-              1,
-              1,
-              1
-            ]
-          },
+          "card_cooldowns": {},
           "active_buffs": {},
           "_status_effects": {},
           "delayed_queue": [],
@@ -1772,26 +1112,7 @@
             "pavuchel_silk_cocoon",
             "pavuchel_silk_cocoon"
           ],
-          "active_slots": [
-            {
-              "speed": 12,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 9,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
+          "active_slots": [],
           "stored_dice": [],
           "counter_dice": [],
           "memory": {
@@ -1801,15 +1122,24 @@
               "sp": 40,
               "stagger": 53
             },
-            "battle_initialized": true
+            "battle_initialized": true,
+            "last_revive_attempt_round": 2,
+            "last_revive_log": {
+              "roll": 3,
+              "bonus": 6,
+              "penalty": 0,
+              "total": 9,
+              "dc": 2,
+              "success": true
+            }
           },
-          "death_count": 0,
-          "overkill_damage": 0,
+          "death_count": 1,
+          "overkill_damage": 7,
           "money_log": [],
           "base_stats": {
-            "current_hp": 91,
+            "current_hp": 0,
             "current_sp": 40,
-            "current_stagger": 53
+            "current_stagger": 28
           },
           "defense": {
             "armor_name": "Unit_13",
@@ -1890,27 +1220,21 @@
             "imp_sp": 0,
             "imp_stg": 0
           },
-          "current_hp": 91,
+          "current_hp": 0,
           "current_sp": 40,
           "current_stagger": 53,
           "resources": {},
           "cooldowns": {},
-          "card_cooldowns": {
-            "pavuchel_eight_eyes": [
-              2
-            ],
-            "pavuchel_venom_bite": [
-              1,
-              1
-            ],
-            "pavuchel_silk_cocoon": [
-              1,
-              1,
-              1
+          "card_cooldowns": {},
+          "active_buffs": {},
+          "_status_effects": {
+            "smoke": [
+              {
+                "amount": 1,
+                "duration": 96
+              }
             ]
           },
-          "active_buffs": {},
-          "_status_effects": {},
           "delayed_queue": [],
           "deck": [
             "pavuchel_web_trap",
@@ -1923,26 +1247,7 @@
             "pavuchel_silk_cocoon",
             "pavuchel_silk_cocoon"
           ],
-          "active_slots": [
-            {
-              "speed": 12,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 9,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
+          "active_slots": [],
           "stored_dice": [],
           "counter_dice": [],
           "memory": {
@@ -1952,13 +1257,22 @@
               "sp": 40,
               "stagger": 53
             },
-            "battle_initialized": true
+            "battle_initialized": true,
+            "last_revive_attempt_round": 3,
+            "last_revive_log": {
+              "roll": 4,
+              "bonus": 6,
+              "penalty": 0,
+              "total": 10,
+              "dc": 0,
+              "success": true
+            }
           },
-          "death_count": 0,
-          "overkill_damage": 0,
+          "death_count": 1,
+          "overkill_damage": 16,
           "money_log": [],
           "base_stats": {
-            "current_hp": 91,
+            "current_hp": 0,
             "current_sp": 40,
             "current_stagger": 53
           },
@@ -2041,25 +1355,12 @@
             "imp_sp": 0,
             "imp_stg": 0
           },
-          "current_hp": 91,
+          "current_hp": 0,
           "current_sp": 40,
           "current_stagger": 53,
           "resources": {},
           "cooldowns": {},
-          "card_cooldowns": {
-            "pavuchel_eight_eyes": [
-              2
-            ],
-            "pavuchel_venom_bite": [
-              1,
-              1
-            ],
-            "pavuchel_silk_cocoon": [
-              1,
-              1,
-              1
-            ]
-          },
+          "card_cooldowns": {},
           "active_buffs": {},
           "_status_effects": {},
           "delayed_queue": [],
@@ -2074,26 +1375,7 @@
             "pavuchel_silk_cocoon",
             "pavuchel_silk_cocoon"
           ],
-          "active_slots": [
-            {
-              "speed": 15,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 7,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
+          "active_slots": [],
           "stored_dice": [],
           "counter_dice": [],
           "memory": {
@@ -2106,10 +1388,10 @@
             "battle_initialized": true
           },
           "death_count": 0,
-          "overkill_damage": 0,
+          "overkill_damage": 68,
           "money_log": [],
           "base_stats": {
-            "current_hp": 91,
+            "current_hp": 0,
             "current_sp": 40,
             "current_stagger": 53
           },
@@ -2192,25 +1474,12 @@
             "imp_sp": 0,
             "imp_stg": 0
           },
-          "current_hp": 91,
+          "current_hp": 0,
           "current_sp": 40,
           "current_stagger": 53,
           "resources": {},
           "cooldowns": {},
-          "card_cooldowns": {
-            "pavuchel_eight_eyes": [
-              2
-            ],
-            "pavuchel_venom_bite": [
-              1,
-              1
-            ],
-            "pavuchel_silk_cocoon": [
-              1,
-              1,
-              1
-            ]
-          },
+          "card_cooldowns": {},
           "active_buffs": {},
           "_status_effects": {},
           "delayed_queue": [],
@@ -2225,26 +1494,7 @@
             "pavuchel_silk_cocoon",
             "pavuchel_silk_cocoon"
           ],
-          "active_slots": [
-            {
-              "speed": 15,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 7,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
+          "active_slots": [],
           "stored_dice": [],
           "counter_dice": [],
           "memory": {
@@ -2257,10 +1507,10 @@
             "battle_initialized": true
           },
           "death_count": 0,
-          "overkill_damage": 0,
+          "overkill_damage": 8,
           "money_log": [],
           "base_stats": {
-            "current_hp": 91,
+            "current_hp": 0,
             "current_sp": 40,
             "current_stagger": 53
           },
@@ -2325,19 +1575,9 @@
         }
       ],
       "phase": "planning",
-      "round_number": 1,
+      "round_number": 6,
       "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
       "battle_logs": [
-        {
-          "round": "Start",
-          "rolls": "Event",
-          "details": "🚩 **Лилит**: 🛡️ **Встроенная Броня**: Броня снята. Резисты = 1.0"
-        },
-        {
-          "round": "Start",
-          "rolls": "Event",
-          "details": "🚩 **Лилит**: 🌬️ **Тату 'Благословение Ветра'**: Лимит дыма увеличен до 15"
-        },
         {
           "round": "Speed Roll",
           "rolls": "Passive",
@@ -2356,7 +1596,7 @@
         {
           "round": "Speed Roll",
           "rolls": "Passive",
-          "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Добавлено 1 контр-уклонений (7-10) (Smoke: 0)."
+          "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Добавлено 3 контр-уклонений (7-10) (Smoke: 13)."
         }
       ],
       "script_logs": "",
@@ -2373,57 +1613,21 @@
       "type": "dynamic",
       "team_left_dyn": [
         {
-          "current_hp": 51,
-          "current_sp": 33,
-          "current_stagger": 20,
+          "current_hp": 56,
+          "current_sp": 38,
+          "current_stagger": 66,
           "resources": {},
           "cooldowns": {},
-          "card_cooldowns": {
-            "smoke_arts": [
-              1
-            ],
-            "demon_scream": [
-              1
-            ],
-            "smoke_silhouette": [
-              1
-            ]
-          },
+          "card_cooldowns": {},
           "active_buffs": {},
           "_status_effects": {
             "smoke": [
               {
-                "amount": 8,
-                "duration": 98
-              }
-            ],
-            "rupture": [
-              {
-                "amount": 1,
-                "duration": 2
-              },
-              {
-                "amount": 1,
-                "duration": 2
-              },
-              {
-                "amount": 2,
-                "duration": 2
-              },
-              {
-                "amount": 1,
-                "duration": 2
-              },
-              {
-                "amount": 2,
-                "duration": 2
+                "amount": 12,
+                "duration": 95
               }
             ],
             "strength": [
-              {
-                "amount": 1,
-                "duration": 3
-              },
               {
                 "amount": 4,
                 "duration": 1
@@ -2450,6 +1654,15 @@
           ],
           "active_slots": [
             {
+              "speed": 14,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
               "speed": 15,
               "card": null,
               "target_slot": null,
@@ -2468,16 +1681,7 @@
               "force_clash": false
             },
             {
-              "speed": 12,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 9,
+              "speed": 8,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -2515,6 +1719,13 @@
               "base_max": 10,
               "is_counter": true,
               "scripts": {}
+            },
+            {
+              "type": "evade",
+              "base_min": 7,
+              "base_max": 10,
+              "is_counter": true,
+              "scripts": {}
             }
           ],
           "memory": {
@@ -2526,7 +1737,7 @@
             },
             "smoke_is_defensive": true,
             "smoke_limit_bonus": 5,
-            "vengeful_payback_chunks": 8,
+            "vengeful_payback_chunks": 7,
             "battle_initialized": true
           },
           "death_count": 0,
@@ -2543,7 +1754,7 @@
         {
           "current_hp": 0,
           "current_sp": 40,
-          "current_stagger": 0,
+          "current_stagger": 28,
           "resources": {},
           "cooldowns": {},
           "card_cooldowns": {},
@@ -2561,16 +1772,7 @@
             "pavuchel_silk_cocoon",
             "pavuchel_silk_cocoon"
           ],
-          "active_slots": [
-            {
-              "speed": 0,
-              "card": null,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "stunned": true,
-              "is_aggro": false
-            }
-          ],
+          "active_slots": [],
           "stored_dice": [],
           "counter_dice": [],
           "memory": {
@@ -2580,23 +1782,28 @@
               "sp": 40,
               "stagger": 53
             },
-            "battle_initialized": true
+            "battle_initialized": true,
+            "last_revive_attempt_round": 2,
+            "last_revive_log": {
+              "roll": 3,
+              "bonus": 6,
+              "penalty": 0,
+              "total": 9,
+              "dc": 2,
+              "success": true
+            }
           },
-          "death_count": 0,
-          "overkill_damage": 22,
+          "death_count": 1,
+          "overkill_damage": 7,
           "money_log": []
         },
         {
-          "current_hp": 91,
+          "current_hp": 0,
           "current_sp": 40,
           "current_stagger": 53,
           "resources": {},
           "cooldowns": {},
-          "card_cooldowns": {
-            "pavuchel_eight_eyes": [
-              1
-            ]
-          },
+          "card_cooldowns": {},
           "active_buffs": {},
           "_status_effects": {},
           "delayed_queue": [],
@@ -2611,26 +1818,7 @@
             "pavuchel_silk_cocoon",
             "pavuchel_silk_cocoon"
           ],
-          "active_slots": [
-            {
-              "speed": 15,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 7,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
+          "active_slots": [],
           "stored_dice": [],
           "counter_dice": [],
           "memory": {
@@ -2640,23 +1828,28 @@
               "sp": 40,
               "stagger": 53
             },
-            "battle_initialized": true
+            "battle_initialized": true,
+            "last_revive_attempt_round": 3,
+            "last_revive_log": {
+              "roll": 4,
+              "bonus": 6,
+              "penalty": 0,
+              "total": 10,
+              "dc": 0,
+              "success": true
+            }
           },
-          "death_count": 0,
-          "overkill_damage": 0,
+          "death_count": 1,
+          "overkill_damage": 16,
           "money_log": []
         },
         {
-          "current_hp": 91,
+          "current_hp": 0,
           "current_sp": 40,
           "current_stagger": 53,
           "resources": {},
           "cooldowns": {},
-          "card_cooldowns": {
-            "pavuchel_eight_eyes": [
-              1
-            ]
-          },
+          "card_cooldowns": {},
           "active_buffs": {},
           "_status_effects": {},
           "delayed_queue": [],
@@ -2671,26 +1864,7 @@
             "pavuchel_silk_cocoon",
             "pavuchel_silk_cocoon"
           ],
-          "active_slots": [
-            {
-              "speed": 13,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 8,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
+          "active_slots": [],
           "stored_dice": [],
           "counter_dice": [],
           "memory": {
@@ -2703,20 +1877,16 @@
             "battle_initialized": true
           },
           "death_count": 0,
-          "overkill_damage": 0,
+          "overkill_damage": 68,
           "money_log": []
         },
         {
-          "current_hp": 91,
+          "current_hp": 0,
           "current_sp": 40,
           "current_stagger": 53,
           "resources": {},
           "cooldowns": {},
-          "card_cooldowns": {
-            "pavuchel_eight_eyes": [
-              1
-            ]
-          },
+          "card_cooldowns": {},
           "active_buffs": {},
           "_status_effects": {},
           "delayed_queue": [],
@@ -2731,26 +1901,7 @@
             "pavuchel_silk_cocoon",
             "pavuchel_silk_cocoon"
           ],
-          "active_slots": [
-            {
-              "speed": 12,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 9,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
+          "active_slots": [],
           "stored_dice": [],
           "counter_dice": [],
           "memory": {
@@ -2763,504 +1914,14 @@
             "battle_initialized": true
           },
           "death_count": 0,
-          "overkill_damage": 0,
+          "overkill_damage": 8,
           "money_log": []
         }
       ],
       "phase": "planning",
-      "round_number": 2,
+      "round_number": 7,
       "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
       "battle_logs": [
-        {
-          "type": "clash",
-          "round": "R Hit (Counter)",
-          "left": {
-            "unit": "Павучел 4",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 3,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "Stored",
-            "dice": "EVADE (Cnt)",
-            "val": 13,
-            "range": "-"
-          },
-          "outcome": "⚡ Counter Hit (Recycle)",
-          "details": [
-            "🎲 Roll [1-4]: 3 = **3**",
-            "🎲 Roll [7-10]: 9 + 4 (Endurance) = **13**"
-          ]
-        },
-        {
-          "type": "clash",
-          "round": "R Hit (Counter)",
-          "left": {
-            "unit": "Павучел 4",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 2,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "Stored",
-            "dice": "EVADE (Cnt)",
-            "val": 14,
-            "range": "-"
-          },
-          "outcome": "⚡ Counter Hit (Recycle)",
-          "details": [
-            "🎲 Roll [1-3]: 2 = **2**",
-            "🎲 Roll [7-10]: 10 + 4 (Endurance) = **14**"
-          ]
-        },
-        {
-          "type": "clash",
-          "round": "R Hit (Counter)",
-          "left": {
-            "unit": "Павучел 3",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 1,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "Stored",
-            "dice": "SLASH (Cnt)",
-            "val": 14,
-            "range": "-"
-          },
-          "outcome": "⚡ Counter Hit (Recycle)",
-          "details": [
-            "🎲 Roll [1-4]: 1 = **1**",
-            "🎲 Roll [7-10]: 10 + 4 (Strength) = **14**"
-          ]
-        },
-        {
-          "type": "clash",
-          "round": "R Hit (Counter)",
-          "left": {
-            "unit": "Павучел 3",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 1,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "Stored",
-            "dice": "SLASH (Cnt)",
-            "val": 11,
-            "range": "-"
-          },
-          "outcome": "⚡ Counter Hit (Recycle)",
-          "details": [
-            "🎲 Roll [1-3]: 1 = **1**",
-            "🎲 Roll [7-10]: 7 + 4 (Strength) = **11**"
-          ]
-        },
-        {
-          "type": "clash",
-          "round": "R Hit (Counter)",
-          "left": {
-            "unit": "Павучел 2",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 3,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "Stored",
-            "dice": "EVADE (Cnt)",
-            "val": 13,
-            "range": "-"
-          },
-          "outcome": "⚡ Counter Hit (Recycle)",
-          "details": [
-            "🎲 Roll [1-4]: 3 = **3**",
-            "🎲 Roll [7-10]: 9 + 4 (Endurance) = **13**"
-          ]
-        },
-        {
-          "type": "clash",
-          "round": "R Hit (Counter)",
-          "left": {
-            "unit": "Павучел 2",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 1,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "Stored",
-            "dice": "EVADE (Cnt)",
-            "val": 11,
-            "range": "-"
-          },
-          "outcome": "⚡ Counter Hit (Recycle)",
-          "details": [
-            "🎲 Roll [1-3]: 1 = **1**",
-            "🎲 Roll [7-10]: 7 + 4 (Endurance) = **11**"
-          ]
-        },
-        {
-          "type": "clash",
-          "round": "Clash (1)",
-          "left": {
-            "unit": "Лилит",
-            "card": "Выпустить пар",
-            "dice": "SLASH",
-            "val": 9,
-            "range": "1-3"
-          },
-          "right": {
-            "unit": "Павучел",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 4,
-            "range": "1-4"
-          },
-          "outcome": "🏆 Лилит Win (Hit)",
-          "details": [
-            "🎲 Roll [1-4]: 4 = **4**",
-            "🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) = **9**"
-          ]
-        },
-        {
-          "type": "clash",
-          "round": "Clash (2)",
-          "left": {
-            "unit": "Лилит",
-            "card": "Выпустить пар",
-            "dice": "SLASH",
-            "val": 10,
-            "range": "1-3"
-          },
-          "right": {
-            "unit": "Павучел",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 2,
-            "range": "1-3"
-          },
-          "outcome": "🏆 Лилит Win (Hit)",
-          "details": [
-            "🎲 Roll [1-3]: 2 = **2**",
-            "🎲 Roll [1-3]: 2 + 3 (Сила) + 5 (Среднее ор.) = **10**"
-          ]
-        },
-        {
-          "type": "clash",
-          "round": "Clash (3)",
-          "left": {
-            "unit": "Лилит",
-            "card": "Выпустить пар",
-            "dice": "SLASH",
-            "val": 10,
-            "range": "1-3"
-          },
-          "right": {
-            "unit": "Павучел",
-            "card": "Липкая ловушка",
-            "dice": "Broken",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "🚫 Павучел Broken",
-          "details": [
-            "🎲 Roll [1-3]: 2 + 3 (Сила) + 5 (Среднее ор.) = **10**"
-          ]
-        },
-        {
-          "type": "onesided",
-          "round": "R Hit (Hit)",
-          "left": {
-            "unit": "Павучел 2",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 2,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "-",
-            "dice": "Busy",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed (Redirected)",
-          "details": [
-            "🎲 Roll [1-4]: 2 = **2**",
-            "🧪 **Лилит**: +1 Bind",
-            "🧪 **Лилит**: +1 Rupture",
-            "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-          ]
-        },
-        {
-          "type": "onesided",
-          "round": "R Hit (Hit)",
-          "left": {
-            "unit": "Павучел 2",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 2,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "-",
-            "dice": "Busy",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed (Redirected)",
-          "details": [
-            "🎲 Roll [1-3]: 2 = **2**",
-            "🧪 **Лилит**: +2 Rupture",
-            "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-          ]
-        },
-        {
-          "type": "onesided",
-          "round": "R Hit (Hit)",
-          "left": {
-            "unit": "Павучел",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 2,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "-",
-            "dice": "Busy",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed (Redirected)",
-          "details": [
-            "🎲 Roll [1-4]: 2 = **2**",
-            "📉 **Помеха!** (4, 2) -> Base: 2",
-            "🧪 **Лилит**: +1 Bind",
-            "🧪 **Лилит**: +1 Rupture",
-            "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-          ]
-        },
-        {
-          "type": "onesided",
-          "round": "R Hit (Hit)",
-          "left": {
-            "unit": "Павучел",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 1,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "-",
-            "dice": "Busy",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed (Redirected)",
-          "details": [
-            "🎲 Roll [1-3]: 1 = **1**",
-            "📉 **Помеха!** (3, 1) -> Base: 1",
-            "🧪 **Лилит**: +2 Rupture",
-            "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-          ]
-        },
-        {
-          "type": "onesided",
-          "round": "R Hit (Hit)",
-          "left": {
-            "unit": "Павучел 4",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 1,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "-",
-            "dice": "Busy",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed (Redirected)",
-          "details": [
-            "🎲 Roll [1-4]: 1 = **1**",
-            "📉 **Помеха!** (1, 2) -> Base: 1",
-            "🧪 **Лилит**: +1 Bind",
-            "🧪 **Лилит**: +1 Rupture",
-            "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-          ]
-        },
-        {
-          "type": "onesided",
-          "round": "R Hit (Hit)",
-          "left": {
-            "unit": "Павучел 4",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 2,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "-",
-            "dice": "Busy",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed (Redirected)",
-          "details": [
-            "🎲 Roll [1-3]: 2 = **2**",
-            "📉 **Помеха!** (3, 2) -> Base: 2",
-            "🧪 **Лилит**: +2 Rupture",
-            "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-          ]
-        },
-        {
-          "type": "onesided",
-          "round": "R Hit (Hit)",
-          "left": {
-            "unit": "Павучел 3",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 3,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "-",
-            "dice": "Busy",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed (Redirected)",
-          "details": [
-            "🎲 Roll [1-4]: 3 = **3**",
-            "🧪 **Лилит**: +1 Bind",
-            "🧪 **Лилит**: +1 Rupture",
-            "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 1 HP",
-            "⚡ **Разрыв**: Лилит взрывается! -10 урона (Rupture 10->5)"
-          ]
-        },
-        {
-          "type": "onesided",
-          "round": "R Hit (Hit)",
-          "left": {
-            "unit": "Павучел 3",
-            "card": "Липкая ловушка",
-            "dice": "BLUNT",
-            "val": 1,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Лилит",
-            "card": "-",
-            "dice": "Busy",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed (Redirected)",
-          "details": [
-            "🎲 Roll [1-3]: 1 = **1**",
-            "🧪 **Лилит**: +2 Rupture",
-            "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 0 HP"
-          ]
-        },
-        {
-          "type": "onesided",
-          "round": "L Hit (Hit)",
-          "left": {
-            "unit": "Лилит",
-            "card": "Прелюдия",
-            "dice": "BLUNT",
-            "val": 12,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Павучел",
-            "card": "-",
-            "dice": "Busy",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed (Redirected)",
-          "details": [
-            "🧪 **Лилит**: +2 Smoke",
-            "🧪 **Павучел**: +2 Smoke",
-            "🎲 Roll [3-4]: 4 + 3 (Сила) + 5 (Среднее ор.) = **12**",
-            "🧠 **Не теряя голову**: +1 Self-Control",
-            "👊 Atk Boost: +2",
-            "💥 **Павучел**: [x2.0 Res] Hit 28 HP"
-          ]
-        },
-        {
-          "type": "onesided",
-          "round": "L Hit (Hit)",
-          "left": {
-            "unit": "Лилит",
-            "card": "Прелюдия",
-            "dice": "BLUNT",
-            "val": 11,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Павучел",
-            "card": "-",
-            "dice": "Busy",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed (Redirected)",
-          "details": [
-            "🎲 Roll [3-4]: 3 + 3 (Сила) + 5 (Среднее ор.) = **11**",
-            "🧠 **Не теряя голову**: +1 Self-Control",
-            "👊 Atk Boost: +2",
-            "💥 **Павучел**: [x2.0 Res] Hit 26 HP"
-          ]
-        },
-        {
-          "type": "onesided",
-          "round": "L Hit (Hit)",
-          "left": {
-            "unit": "Лилит",
-            "card": "Затяг",
-            "dice": "SLASH",
-            "val": 16,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Павучел",
-            "card": "-",
-            "dice": "Busy",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed (Redirected)",
-          "details": [
-            "✋ **Лилит** stole 5 smoke",
-            "🎲 Roll [6-8]: 6 + 3 (Сила) + 5 (Среднее ор.) + 1 (Smoke (Base)) + 1 (Blessing (9)) = **16**",
-            "🧠 **Не теряя голову**: +1 Self-Control",
-            "👊 Atk Boost: +2",
-            "💥 **Павучел**: [x2.0 Res] Hit 36 HP (Staggered) (DEAD! Overkill: 22)"
-          ]
-        },
-        {
-          "round": "Round Start",
-          "rolls": "Event",
-          "details": "🔄 **Лилит**: 🩸 **Злобная расплата**: Потеря здоровья (Порог 7->8) -> +1 Силы"
-        },
         {
           "round": "Speed Roll",
           "rolls": "Passive",
@@ -3279,7 +1940,7 @@
         {
           "round": "Speed Roll",
           "rolls": "Passive",
-          "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Добавлено 2 контр-уклонений (7-10) (Smoke: 8)."
+          "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Добавлено 3 контр-уклонений (7-10) (Smoke: 12)."
         }
       ],
       "turn_actions": [],
