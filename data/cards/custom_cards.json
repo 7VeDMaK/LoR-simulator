@@ -1121,6 +1121,81 @@
           "scripts": {}
         }
       ]
+    },
+    {
+      "id": "слишком_быстрый_пинок_38ee",
+      "name": "Слишком Быстрый Пинок",
+      "tier": 4,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 40,
+          "base_max": 40,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "rupture",
+                  "base": 50,
+                  "stat": "None",
+                  "scale_from_target": false,
+                  "factor": 1.0,
+                  "duration": 99,
+                  "delay": 1,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "быстрый_пинок_07ca",
+      "name": "Быстрый Пинок",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 11,
+          "base_max": 11,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "blunt",
+          "base_min": 5,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "rupture",
+                  "base": 10,
+                  "stat": "None",
+                  "scale_from_target": false,
+                  "factor": 1.0,
+                  "duration": 99,
+                  "delay": 1,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

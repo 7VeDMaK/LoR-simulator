@@ -1,20 +1,998 @@
 {
   "type": "full",
-  "page": "❤️ Relationships",
-  "team_left_data": [],
-  "team_right_data": [],
-  "phase": "roll",
+  "page": "⚔️ Simulator",
+  "team_left_data": [
+    {
+      "name": "Ловкая-Кеклета",
+      "level": 25,
+      "rank": 9,
+      "avatar": "data/avatars/Ловкий-Кеклет.png",
+      "base_intellect": 5,
+      "total_xp": 0,
+      "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 100,
+        "imp_sp": 100,
+        "imp_stg": 100
+      },
+      "current_hp": 257,
+      "current_sp": 183,
+      "current_stagger": 228,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {
+        "изничтожение_img5": [
+          1,
+          1,
+          1
+        ],
+        "слишком_быстрый_пинок_38ee": [
+          3
+        ]
+      },
+      "active_buffs": {},
+      "_status_effects": {
+        "strength": [
+          {
+            "amount": 2,
+            "duration": 1
+          }
+        ],
+        "haste": [
+          {
+            "amount": 2,
+            "duration": 1
+          }
+        ],
+        "endurance": [
+          {
+            "amount": 2,
+            "duration": 1
+          }
+        ],
+        "protection": [
+          {
+            "amount": 1,
+            "duration": 2
+          }
+        ]
+      },
+      "delayed_queue": [],
+      "deck": [
+        "изничтожение_img5",
+        "изничтожение_img5",
+        "изничтожение_img5",
+        "обычный_удар_726c",
+        "обычный_удар_726c",
+        "обычный_удар_726c",
+        "слишком_быстрый_пинок_38ee",
+        "быстрый_пинок_07ca",
+        "быстрый_пинок_07ca"
+      ],
+      "active_slots": [
+        {
+          "speed": 23,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
+        },
+        {
+          "speed": 22,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
+        },
+        {
+          "speed": 21,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
+        },
+        {
+          "speed": 17,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
+        }
+      ],
+      "stored_dice": [],
+      "counter_dice": [
+        {
+          "type": "block",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 257,
+          "sp": 183,
+          "stagger": 228
+        },
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [],
+      "base_stats": {
+        "current_hp": 257,
+        "current_sp": 183,
+        "current_stagger": 228
+      },
+      "defense": {
+        "armor_name": "Unit_52",
+        "armor_type": "Medium",
+        "hp_resists": {
+          "slash": 0.5,
+          "pierce": 0.5,
+          "blunt": 2.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "dual_blades"
+      },
+      "attributes": {
+        "strength": 20,
+        "endurance": 10,
+        "agility": 30,
+        "wisdom": 0,
+        "psych": 0
+      },
+      "skills": {
+        "strike_power": 25,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 15,
+        "shields": 0,
+        "tough_skin": 10,
+        "speed": 30,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 99,
+        "eloquence": 99,
+        "forging": 0,
+        "engineering": 99,
+        "programming": 99
+      },
+      "passives": [
+        "hardened_by_solitude"
+      ],
+      "talents": [
+        "athleticism_shadow",
+        "not_great_attention",
+        "smashing_blade",
+        "fast_and_silent",
+        "big_guy",
+        "defense",
+        "commendable_constitution",
+        "rock"
+      ],
+      "augmentations": [],
+      "level_rolls": {
+        "3": {
+          "hp": 5,
+          "sp": 3
+        },
+        "6": {
+          "hp": 1,
+          "sp": 3
+        },
+        "9": {
+          "hp": 3,
+          "sp": 1
+        },
+        "12": {
+          "hp": 5,
+          "sp": 4
+        },
+        "15": {
+          "hp": 1,
+          "sp": 2
+        },
+        "18": {
+          "hp": 5,
+          "sp": 1
+        },
+        "21": {
+          "hp": 1,
+          "sp": 4
+        },
+        "24": {
+          "hp": 3,
+          "sp": 5
+        }
+      },
+      "biography": "",
+      "relationships": {},
+      "unit_type": "mob"
+    }
+  ],
+  "team_right_data": [
+    {
+      "name": "Лима",
+      "level": 28,
+      "rank": 6,
+      "avatar": "data/avatars/Лима.png",
+      "base_intellect": 8,
+      "total_xp": 268424064,
+      "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+      },
+      "current_hp": 93,
+      "current_sp": 85,
+      "current_stagger": 46,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {
+        "lima_hit_and_run": [
+          1
+        ],
+        "lima_inertia": [
+          1
+        ],
+        "lima_morphine_dart": [
+          1
+        ],
+        "lima_one_furious_shot": [
+          2
+        ],
+        "lima_ram": [
+          2
+        ],
+        "lima_purge_toxin": [
+          2
+        ]
+      },
+      "active_buffs": {},
+      "_status_effects": {
+        "haste": [
+          {
+            "amount": 1,
+            "duration": 1
+          }
+        ]
+      },
+      "delayed_queue": [],
+      "deck": [
+        "lima_little_tricks",
+        "lima_jump_shooting",
+        "lima_assorted_arrows",
+        "lima_hit_and_run",
+        "lima_inertia",
+        "lima_morphine_dart",
+        "lima_one_furious_shot",
+        "lima_ram",
+        "lima_purge_toxin"
+      ],
+      "active_slots": [
+        {
+          "speed": 20,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
+        },
+        {
+          "speed": 19,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
+        },
+        {
+          "speed": 18,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
+        },
+        {
+          "speed": 15,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
+        }
+      ],
+      "stored_dice": [],
+      "counter_dice": [],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 93,
+          "sp": 85,
+          "stagger": 46
+        },
+        "battle_initialized": true,
+        "mind_suppression_bonus": 13
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [
+        {
+          "amount": 5790000,
+          "reason": ""
+        },
+        {
+          "amount": -3700000,
+          "reason": "Шопинг, стрелы, гранаты"
+        }
+      ],
+      "base_stats": {
+        "current_hp": 93,
+        "current_sp": 85,
+        "current_stagger": 46
+      },
+      "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "hp_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.2
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "skalalaz_iceaxe"
+      },
+      "attributes": {
+        "strength": 2,
+        "endurance": 5,
+        "agility": 30,
+        "wisdom": 15,
+        "psych": 9
+      },
+      "skills": {
+        "strike_power": 2,
+        "medicine": 24,
+        "willpower": 0,
+        "luck": 2,
+        "acrobatics": 15,
+        "shields": 0,
+        "tough_skin": 8,
+        "speed": 30,
+        "light_weapon": 10,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 15,
+        "eloquence": 4,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [
+        "accelerated_learning",
+        "art_of_self_defense",
+        "lucky_streak",
+        "four_eyes",
+        "hunters_vedas",
+        "ship_of_theseus",
+        "wild_cityscape",
+        "mind_suppression"
+      ],
+      "talents": [],
+      "augmentations": [
+        "aug_strizh"
+      ],
+      "level_rolls": {
+        "3": {
+          "hp": 3,
+          "sp": 3
+        },
+        "6": {
+          "hp": 4,
+          "sp": 4
+        },
+        "9": {
+          "hp": 4,
+          "sp": 1
+        },
+        "12": {
+          "hp": 2,
+          "sp": 2
+        },
+        "15": {
+          "hp": 2,
+          "sp": 3
+        },
+        "18": {
+          "hp": 1,
+          "sp": 4
+        },
+        "21": {
+          "hp": 2,
+          "sp": 1
+        },
+        "24": {
+          "hp": 2,
+          "sp": 1
+        }
+      },
+      "biography": "Броня - лёгкий экзоскелет \"СТРИЖ\" со шлемом и противогазом\nАкробатика +6\nДаёт статус спешки +1  :zHaste: каждый ход\n\nЛедоруб \"Скала Лаз\" х2 (6.5 ранг)\nПозволяет карабкаться по стенам, отвесным скалам. Иногда требуется проверка Ловкости / Акробатики для совершения действия\nПовышает значение куба :zAttackPowerUp: атаки на атакующих картами на 3\n\nСветошумовые гранаты 2шт B tier\n\nАПГРЕЙД КОСТЮМА: ПНВ B tier\nПозволяет видеть в темноте, не получает дебаффы в темноте. Возможны дебаффы при ярком свете/днём во включенном режиме \n",
+      "relationships": {},
+      "unit_type": "player"
+    }
+  ],
+  "phase": "planning",
   "round_number": 1,
-  "turn_message": "",
-  "battle_logs": [],
+  "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
+  "battle_logs": [
+    {
+      "round": "Round Start",
+      "rolls": "Event",
+      "details": "🔄 **Ловкая-Кеклета**: 🛡️ **Похвальное телосложение**: +1 protection"
+    },
+    {
+      "round": "Start",
+      "rolls": "Event",
+      "details": "🚩 **Лима**: 🧠 **Подавление разумом**: Интеллект 18 vs 5. Бонус +13 к Красноречию."
+    },
+    {
+      "round": "Round Start",
+      "rolls": "Event",
+      "details": "🔄 **Лима**: ⚡ **Лима**: Экзоскелет активирует сервоприводы (Спешка +1)."
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Ловкая-Кеклета**: 🛡️ **Оборона**: Добавлено 1 контр-кубиков Блока (7-10)."
+    }
+  ],
   "script_logs": "",
   "turn_phase": "planning",
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": " Дна'хо",
+  "profile_unit": null,
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",
-  "undo_stack": []
+  "undo_stack": [
+    {
+      "type": "full",
+      "page": "⚔️ Simulator",
+      "team_left_data": [
+        {
+          "name": "Ловкая-Кеклета",
+          "level": 25,
+          "rank": 9,
+          "avatar": "data/avatars/Ловкий-Кеклет.png",
+          "base_intellect": 5,
+          "total_xp": 0,
+          "pct_mods": {
+            "imp_hp": 0,
+            "imp_sp": 0,
+            "imp_stg": 0,
+            "tal_hp": 0,
+            "tal_sp": 0,
+            "tal_stg": 0
+          },
+          "flat_mods": {
+            "imp_hp": 100,
+            "imp_sp": 100,
+            "imp_stg": 100
+          },
+          "current_hp": 257,
+          "current_sp": 183,
+          "current_stagger": 228,
+          "resources": {},
+          "cooldowns": {},
+          "card_cooldowns": {
+            "изничтожение_img5": [
+              1,
+              1,
+              1
+            ],
+            "слишком_быстрый_пинок_38ee": [
+              3
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {
+            "strength": [
+              {
+                "amount": 2,
+                "duration": 1
+              }
+            ],
+            "haste": [
+              {
+                "amount": 2,
+                "duration": 1
+              }
+            ],
+            "endurance": [
+              {
+                "amount": 2,
+                "duration": 1
+              }
+            ],
+            "protection": [
+              {
+                "amount": 1,
+                "duration": 2
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "изничтожение_img5",
+            "изничтожение_img5",
+            "изничтожение_img5",
+            "обычный_удар_726c",
+            "обычный_удар_726c",
+            "обычный_удар_726c",
+            "слишком_быстрый_пинок_38ee",
+            "быстрый_пинок_07ca",
+            "быстрый_пинок_07ca"
+          ],
+          "active_slots": [
+            {
+              "speed": 23,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 22,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 21,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 17,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [
+            {
+              "type": "block",
+              "base_min": 7,
+              "base_max": 10,
+              "is_counter": true,
+              "scripts": {}
+            }
+          ],
+          "memory": {
+            "status_rank": "9 (Fixer)",
+            "start_of_battle_stats": {
+              "hp": 257,
+              "sp": 183,
+              "stagger": 228
+            },
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": [],
+          "base_stats": {
+            "current_hp": 257,
+            "current_sp": 183,
+            "current_stagger": 228
+          },
+          "defense": {
+            "armor_name": "Unit_52",
+            "armor_type": "Medium",
+            "hp_resists": {
+              "slash": 0.5,
+              "pierce": 0.5,
+              "blunt": 2.0
+            },
+            "stagger_resists": {
+              "slash": 1.0,
+              "pierce": 1.0,
+              "blunt": 1.0
+            },
+            "weapon_id": "dual_blades"
+          },
+          "attributes": {
+            "strength": 20,
+            "endurance": 10,
+            "agility": 30,
+            "wisdom": 0,
+            "psych": 0
+          },
+          "skills": {
+            "strike_power": 25,
+            "medicine": 0,
+            "willpower": 0,
+            "luck": 0,
+            "acrobatics": 15,
+            "shields": 0,
+            "tough_skin": 10,
+            "speed": 30,
+            "light_weapon": 0,
+            "medium_weapon": 0,
+            "heavy_weapon": 0,
+            "firearms": 99,
+            "eloquence": 99,
+            "forging": 0,
+            "engineering": 99,
+            "programming": 99
+          },
+          "passives": [
+            "hardened_by_solitude"
+          ],
+          "talents": [
+            "athleticism_shadow",
+            "not_great_attention",
+            "smashing_blade",
+            "fast_and_silent",
+            "big_guy",
+            "defense",
+            "commendable_constitution",
+            "rock"
+          ],
+          "augmentations": [],
+          "level_rolls": {
+            "3": {
+              "hp": 5,
+              "sp": 3
+            },
+            "6": {
+              "hp": 1,
+              "sp": 3
+            },
+            "9": {
+              "hp": 3,
+              "sp": 1
+            },
+            "12": {
+              "hp": 5,
+              "sp": 4
+            },
+            "15": {
+              "hp": 1,
+              "sp": 2
+            },
+            "18": {
+              "hp": 5,
+              "sp": 1
+            },
+            "21": {
+              "hp": 1,
+              "sp": 4
+            },
+            "24": {
+              "hp": 3,
+              "sp": 5
+            }
+          },
+          "biography": "",
+          "relationships": {},
+          "unit_type": "mob"
+        }
+      ],
+      "team_right_data": [
+        {
+          "name": "Лима",
+          "level": 28,
+          "rank": 6,
+          "avatar": "data/avatars/Лима.png",
+          "base_intellect": 8,
+          "total_xp": 268424064,
+          "pct_mods": {
+            "imp_hp": 0,
+            "imp_sp": 0,
+            "imp_stg": 0,
+            "tal_hp": 0,
+            "tal_sp": 0,
+            "tal_stg": 0
+          },
+          "flat_mods": {
+            "imp_hp": 0,
+            "imp_sp": 0,
+            "imp_stg": 0
+          },
+          "current_hp": 93,
+          "current_sp": 85,
+          "current_stagger": 46,
+          "resources": {},
+          "cooldowns": {},
+          "card_cooldowns": {
+            "lima_hit_and_run": [
+              1
+            ],
+            "lima_inertia": [
+              1
+            ],
+            "lima_morphine_dart": [
+              1
+            ],
+            "lima_one_furious_shot": [
+              2
+            ],
+            "lima_ram": [
+              2
+            ],
+            "lima_purge_toxin": [
+              2
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {
+            "haste": [
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "lima_little_tricks",
+            "lima_jump_shooting",
+            "lima_assorted_arrows",
+            "lima_hit_and_run",
+            "lima_inertia",
+            "lima_morphine_dart",
+            "lima_one_furious_shot",
+            "lima_ram",
+            "lima_purge_toxin"
+          ],
+          "active_slots": [
+            {
+              "speed": 20,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 19,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 18,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 15,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "9 (Fixer)",
+            "start_of_battle_stats": {
+              "hp": 93,
+              "sp": 85,
+              "stagger": 46
+            },
+            "battle_initialized": true,
+            "mind_suppression_bonus": 13
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": [
+            {
+              "amount": 5790000,
+              "reason": ""
+            },
+            {
+              "amount": -3700000,
+              "reason": "Шопинг, стрелы, гранаты"
+            }
+          ],
+          "base_stats": {
+            "current_hp": 93,
+            "current_sp": 85,
+            "current_stagger": 46
+          },
+          "defense": {
+            "armor_name": "Standard Fixer Suit",
+            "armor_type": "Medium",
+            "hp_resists": {
+              "slash": 1.0,
+              "pierce": 1.0,
+              "blunt": 1.2
+            },
+            "stagger_resists": {
+              "slash": 1.0,
+              "pierce": 1.0,
+              "blunt": 1.0
+            },
+            "weapon_id": "skalalaz_iceaxe"
+          },
+          "attributes": {
+            "strength": 2,
+            "endurance": 5,
+            "agility": 30,
+            "wisdom": 15,
+            "psych": 9
+          },
+          "skills": {
+            "strike_power": 2,
+            "medicine": 24,
+            "willpower": 0,
+            "luck": 2,
+            "acrobatics": 15,
+            "shields": 0,
+            "tough_skin": 8,
+            "speed": 30,
+            "light_weapon": 10,
+            "medium_weapon": 0,
+            "heavy_weapon": 0,
+            "firearms": 15,
+            "eloquence": 4,
+            "forging": 0,
+            "engineering": 0,
+            "programming": 0
+          },
+          "passives": [
+            "accelerated_learning",
+            "art_of_self_defense",
+            "lucky_streak",
+            "four_eyes",
+            "hunters_vedas",
+            "ship_of_theseus",
+            "wild_cityscape",
+            "mind_suppression"
+          ],
+          "talents": [],
+          "augmentations": [
+            "aug_strizh"
+          ],
+          "level_rolls": {
+            "3": {
+              "hp": 3,
+              "sp": 3
+            },
+            "6": {
+              "hp": 4,
+              "sp": 4
+            },
+            "9": {
+              "hp": 4,
+              "sp": 1
+            },
+            "12": {
+              "hp": 2,
+              "sp": 2
+            },
+            "15": {
+              "hp": 2,
+              "sp": 3
+            },
+            "18": {
+              "hp": 1,
+              "sp": 4
+            },
+            "21": {
+              "hp": 2,
+              "sp": 1
+            },
+            "24": {
+              "hp": 2,
+              "sp": 1
+            }
+          },
+          "biography": "Броня - лёгкий экзоскелет \"СТРИЖ\" со шлемом и противогазом\nАкробатика +6\nДаёт статус спешки +1  :zHaste: каждый ход\n\nЛедоруб \"Скала Лаз\" х2 (6.5 ранг)\nПозволяет карабкаться по стенам, отвесным скалам. Иногда требуется проверка Ловкости / Акробатики для совершения действия\nПовышает значение куба :zAttackPowerUp: атаки на атакующих картами на 3\n\nСветошумовые гранаты 2шт B tier\n\nАПГРЕЙД КОСТЮМА: ПНВ B tier\nПозволяет видеть в темноте, не получает дебаффы в темноте. Возможны дебаффы при ярком свете/днём во включенном режиме \n",
+          "relationships": {},
+          "unit_type": "player"
+        }
+      ],
+      "phase": "planning",
+      "round_number": 1,
+      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
+      "battle_logs": [
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Ловкая-Кеклета**: 🛡️ **Похвальное телосложение**: +1 protection"
+        },
+        {
+          "round": "Start",
+          "rolls": "Event",
+          "details": "🚩 **Лима**: 🧠 **Подавление разумом**: Интеллект 18 vs 5. Бонус +13 к Красноречию."
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Лима**: ⚡ **Лима**: Экзоскелет активирует сервоприводы (Спешка +1)."
+        },
+        {
+          "round": "Speed Roll",
+          "rolls": "Passive",
+          "details": "⚡ **Ловкая-Кеклета**: 🛡️ **Оборона**: Добавлено 1 контр-кубиков Блока (7-10)."
+        }
+      ],
+      "script_logs": "",
+      "turn_phase": "planning",
+      "action_idx": 0,
+      "executed_slots": [],
+      "turn_actions": [],
+      "profile_unit": null,
+      "leveling_unit": " Дна'хо",
+      "tree_unit": " Дна'хо",
+      "checks_unit": " Дна'хо"
+    }
+  ]
 }
