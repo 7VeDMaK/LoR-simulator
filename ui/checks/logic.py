@@ -70,8 +70,7 @@ def calculate_pre_roll_stats(unit, stat_key, stat_value, difficulty, bonus):
     # Без Ошибок (5 + 1d15 для всех проверок)
     if "no_mistakes" in unit.talents:
         die_max = 15
-        base_add = 5
-        # Определяем бонус от характеристики/навыка в зависимости от типа
+        base_add = 5        
         if check_type == "type10":
             stat_bonus = stat_value // 3
         elif check_type == "type15":
@@ -307,6 +306,20 @@ def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
 
     # === ИТОГ ===
     result["total"] = result["roll"] + result["stat_bonus"] + bonus
+
+    # === МОДИФИКАТОРЫ ОТ ПАССИВОК ===
+    passive_modifier = 0
+    if hasattr(unit, "trigger_mechanics"):
+        # Собираем модификаторы от всех пассивок
+        for mechanic in getattr(unit, "mechanics", []):
+            if hasattr(mechanic, "modify_skill_check_result"):
+                mod = mechanic.modify_skill_check_result(unit, stat_key, result["total"])
+                if mod != 0:
+                    passive_modifier += mod
+    
+    if passive_modifier != 0:
+        result["total"] += passive_modifier
+        result["passive_modifier"] = passive_modifier
 
     if difficulty > 0:
         if result["is_crit"]:
