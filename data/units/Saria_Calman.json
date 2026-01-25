@@ -87,6 +87,27 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Comander Lucy": {
+            "value": -10,
+            "status": "Rival",
+            "notes": "В ответ не любит, но вынуждена работать совместно"
+        },
+        "Лима": {
+            "value": 50,
+            "status": "Best Friend",
+            "notes": "Вкусняшка Лима))) Уже вместе почти поспали"
+        },
+        "Перигея": {
+            "value": 20,
+            "status": "Neutral",
+            "notes": "Норм девочка, работяжим вместе"
+        },
+        "Экна": {
+            "value": 5,
+            "status": "Neutral",
+            "notes": "Норм девочка, работяжим вместе"
+        }
+    },
     "unit_type": "fixer"
 }

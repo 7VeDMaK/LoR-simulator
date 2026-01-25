@@ -87,6 +87,12 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Азгик": {
+            "value": -100,
+            "status": "Nemesis",
+            "notes": "УБИТА ИМ"
+        }
+    },
     "unit_type": "dead"
 }

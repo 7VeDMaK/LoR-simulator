@@ -87,6 +87,17 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Лима": {
+            "value": 10,
+            "status": "Neutral",
+            "notes": "Контрактная цель"
+        },
+        "Азгик": {
+            "value": -1,
+            "status": "Neutral",
+            "notes": "Случайно раздавила на мотоцикле"
+        }
+    },
     "unit_type": "syndicate"
 }

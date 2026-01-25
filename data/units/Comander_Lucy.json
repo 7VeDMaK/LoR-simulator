@@ -87,6 +87,17 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "Хладнокровная, безжалостная\n",
-    "relationships": {},
+    "relationships": {
+        "Saria Calman": {
+            "value": -20,
+            "status": "Rival",
+            "notes": "Сестра, недолюбливает"
+        },
+        "Лима": {
+            "value": -5,
+            "status": "Neutral",
+            "notes": "Лох какой-то, подсос сестры"
+        }
+    },
     "unit_type": "fixer"
 }

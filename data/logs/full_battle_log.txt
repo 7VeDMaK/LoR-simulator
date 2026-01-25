@@ -1,4 +1,4 @@
-=== BATTLE LOG CLEARED: 2026-01-25 13:40:09.082907 ===
-[13:40:09.083] [VERBOSE] [Stats] Recalculating stats for Брат Йозеф
-[13:40:09.084] [VERBOSE] [Stats] 🔄 Recalculating stats for Брат Йозеф
-[13:40:09.084] [VERBOSE] [Stats] ✅ Stats updated for Брат Йозеф. HP: 20, SP: 20, Speed: [(1, 4)]
+=== BATTLE LOG CLEARED: 2026-01-25 14:02:19.625360 ===
+[14:02:19.625] [VERBOSE] [Stats] Recalculating stats for Лаванда Хи (ЛХ) (Фина Доку)
+[14:02:19.626] [VERBOSE] [Stats] 🔄 Recalculating stats for Лаванда Хи (ЛХ) (Фина Доку)
+[14:02:19.627] [VERBOSE] [Stats] ✅ Stats updated for Лаванда Хи (ЛХ) (Фина Доку). HP: 20, SP: 20, Speed: [(1, 4)]
