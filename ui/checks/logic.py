@@ -307,6 +307,20 @@ def perform_check_logic(unit, stat_key, stat_value, difficulty, bonus):
     # === ИТОГ ===
     result["total"] = result["roll"] + result["stat_bonus"] + bonus
 
+    # === МОДИФИКАТОРЫ ОТ ПАССИВОК ===
+    passive_modifier = 0
+    if hasattr(unit, "trigger_mechanics"):
+        # Собираем модификаторы от всех пассивок
+        for mechanic in getattr(unit, "mechanics", []):
+            if hasattr(mechanic, "modify_skill_check_result"):
+                mod = mechanic.modify_skill_check_result(unit, stat_key, result["total"])
+                if mod != 0:
+                    passive_modifier += mod
+    
+    if passive_modifier != 0:
+        result["total"] += passive_modifier
+        result["passive_modifier"] = passive_modifier
+
     if difficulty > 0:
         if result["is_crit"]:
             result["is_success"] = True; result["msg"] = "КРИТИЧЕСКИЙ УСПЕХ!"

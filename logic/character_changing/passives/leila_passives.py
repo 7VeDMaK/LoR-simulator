@@ -193,6 +193,90 @@ class PassiveStances(BasePassive):
         return current_power
 
 
+class PassiveFearOfHealing(BasePassive):
+    """
+    Страх перед лечением.
+    Броски на медицину получают -5.
+    """
+    id = "fear_of_healing"
+    name = "Страх перед лечением"
+    description = "Броски на медицину получают -5."
+    is_active_ability = False
+
+    def modify_skill_check_result(self, unit, stat_key: str, current_result: int) -> int:
+        """Модифицирует результат проверки медицины."""
+        if stat_key == "medicine":
+            logger.log(
+                f"🩹 {self.name}: {unit.name} получает -5 к проверке медицины",
+                LogLevel.NORMAL, "Passive"
+            )
+            return -5
+        return 0
+
+
+class PassiveNotEconomicallyMinded(BasePassive):
+    """
+    Не экономического склада ума.
+    Броски кубика на красноречие получают -2.
+    """
+    id = "not_economically_minded"
+    name = "Не экономического склада ума"
+    description = "Броски кубика на красноречие получают -2."
+    is_active_ability = False
+
+    def modify_skill_check_result(self, unit, stat_key: str, current_result: int) -> int:
+        """Модифицирует результат проверки красноречия."""
+        if stat_key == "eloquence":
+            logger.log(
+                f"💬 {self.name}: {unit.name} получает -2 к проверке красноречия",
+                LogLevel.NORMAL, "Passive"
+            )
+            return -2
+        return 0
+
+
+class PassiveTopographicCretinism(BasePassive):
+    """
+    Топографический кретинизм.
+    Броски на мудрость получают -3.
+    """
+    id = "topographic_cretinism"
+    name = "Топографический кретинизм"
+    description = "Броски на мудрость получают -3."
+    is_active_ability = False
+
+    def modify_skill_check_result(self, unit, stat_key: str, current_result: int) -> int:
+        """Модифицирует результат проверки мудрости."""
+        if stat_key == "wisdom":
+            logger.log(
+                f"🧭 {self.name}: {unit.name} получает -3 к проверке мудрости",
+                LogLevel.NORMAL, "Passive"
+            )
+            return -3
+        return 0
+
+
+class PassiveSharpMind(BasePassive):
+    """
+    Острый Разум.
+    Броски кубика на Психический порог получают +4.
+    """
+    id = "sharp_mind"
+    name = "Острый Разум"
+    description = "Броски кубика на Психический порог получают +4."
+    is_active_ability = False
+
+    def modify_skill_check_result(self, unit, stat_key: str, current_result: int) -> int:
+        """Модифицирует результат проверки психического порога."""
+        if stat_key == "psych":
+            logger.log(
+                f"🧠 {self.name}: {unit.name} получает +4 к проверке психического порога",
+                LogLevel.NORMAL, "Passive"
+            )
+            return +4
+        return 0
+
+
 class PassiveHardenedBySolitude(BasePassive):
     """
     Закалённая Одиночеством.

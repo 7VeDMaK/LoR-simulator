@@ -28,10 +28,18 @@ def render_active_abilities(unit, unit_key):
 
                 st.markdown(f"**{obj.name}**")
                 if options:
+                    def format_option(key):
+                        val = options.get(key, key)
+                        # If value is a dict, just return the key (which is already formatted)
+                        if isinstance(val, dict):
+                            return key
+                        # Otherwise return the string value
+                        return val
+                    
                     selected_opt = st.selectbox(
                         "Effect", 
                         options.keys(), 
-                        format_func=lambda x: options.get(x, x),
+                        format_func=format_option,
                         key=f"sel_{unit_key}_{pid}",
                         label_visibility="collapsed"
                     )

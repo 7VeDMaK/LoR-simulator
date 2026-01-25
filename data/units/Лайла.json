@@ -18,6 +18,15 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
+    "current_hp": 182,
+    "current_sp": 125,
+    "current_stagger": 109,
+    "resources": {},
+    "cooldowns": {},
+    "card_cooldowns": {},
+    "active_buffs": {},
+    "_status_effects": {},
+    "delayed_queue": [],
     "deck": [
         "boom_6233",
         "boom_6233",
@@ -29,12 +38,33 @@
         "абсолютная_защита_c72d",
         "абсолютная_защита_c72d"
     ],
+    "active_slots": [],
     "stored_dice": [],
     "counter_dice": [],
+    "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+            "hp": 100,
+            "sp": 100,
+            "stagger": 50
+        },
+        "last_revive_attempt_round": 5,
+        "last_revive_log": {
+            "roll": 3,
+            "bonus": 0,
+            "penalty": 7,
+            "total": -4,
+            "dc": 0,
+            "success": false
+        }
+    },
+    "death_count": 3,
+    "overkill_damage": 0,
+    "money_log": [],
     "base_stats": {
-        "current_hp": 183,
-        "current_sp": 126,
-        "current_stagger": 110
+        "current_hp": 182,
+        "current_sp": 125,
+        "current_stagger": 109
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -51,7 +81,6 @@
         },
         "weapon_id": "none"
     },
-    "card_cooldowns": {},
     "attributes": {
         "strength": 20,
         "endurance": 20,
@@ -79,7 +108,11 @@
     },
     "passives": [
         "stances",
-        "hardened_by_solitude"
+        "hardened_by_solitude",
+        "topographic_cretinism",
+        "not_economically_minded",
+        "fear_of_healing",
+        "sharp_mind"
     ],
     "talents": [
         "pain_points",
@@ -94,7 +127,6 @@
         "weak_point_energy",
         "rupture_application",
         "achilles_heel",
-        "no_mistakes",
         "pride_of_seven"
     ],
     "augmentations": [],
@@ -140,31 +172,5 @@
             "sp": 3
         }
     },
-    "cooldowns": {},
-    "active_buffs": {},
-    "resources": {},
-    "biography": "",
-    "money_log": [],
-    "death_count": 3,
-    "overkill_damage": 0,
-    "_status_effects": {},
-    "delayed_queue": [],
-    "memory": {
-        "status_rank": "9 (Fixer)",
-        "start_of_battle_stats": {
-            "hp": 100,
-            "sp": 100,
-            "stagger": 50
-        },
-        "last_revive_attempt_round": 5,
-        "last_revive_log": {
-            "roll": 3,
-            "bonus": 0,
-            "penalty": 7,
-            "total": -4,
-            "dc": 0,
-            "success": false
-        }
-    },
-    "active_slots": []
+    "biography": ""
 }

@@ -294,6 +294,15 @@ class BaseEffect:
         """
         pass
 
+    def modify_skill_check_result(self, unit, stat_key: str, current_result: int) -> int:
+        """
+        Модифицирует итоговый результат проверки навыка/характеристики.
+        stat_key: Название проверяемого стата (strength, luck, medicine, etc).
+        current_result: Текущий результат проверки до применения модификаторов от пассивок.
+        Returns: Модификатор к результату (может быть положительным или отрицательным).
+        """
+        return 0
+
     def override_roll_base_stat(self, unit, current_pair, dice=None, **kwargs):
         """
         Позволяет изменить базовую характеристику, от которой зависит бросок.

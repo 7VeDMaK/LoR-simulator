@@ -11,7 +11,8 @@ from logic.character_changing.passives.lima_passives import PassiveAcceleratedLe
     PassiveFourEyes, PassiveHuntersVedas, PassiveMindSuppression, PassiveShipOfTheseus, PassiveWildCityscape
 from logic.character_changing.passives.rein_passives import PassiveSCells, PassiveNewDiscovery, TalentRedLycoris, TalentShadowOfMajesty
 from logic.character_changing.passives.zafiel_passives import PassiveSevereTraining, PassiveAdaptation
-from logic.character_changing.passives.leila_passives import PassiveStances, PassiveHardenedBySolitude
+from logic.character_changing.passives.leila_passives import PassiveStances, PassiveHardenedBySolitude, \
+    PassiveFearOfHealing, PassiveNotEconomicallyMinded, PassiveTopographicCretinism, PassiveSharpMind
     
 # === РЕГИСТРАЦИЯ ===
 PASSIVE_REGISTRY = {
@@ -53,4 +54,8 @@ PASSIVE_REGISTRY = {
 "fanat_unwavering": PassiveFanatUnwavering(),
 "stances": PassiveStances(),
 "hardened_by_solitude": PassiveHardenedBySolitude(),
+"fear_of_healing": PassiveFearOfHealing(),
+"not_economically_minded": PassiveNotEconomicallyMinded(),
+"topographic_cretinism": PassiveTopographicCretinism(),
+"sharp_mind": PassiveSharpMind(),
 }
