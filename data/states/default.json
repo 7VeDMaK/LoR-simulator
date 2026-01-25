@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "⚔️ Simulator",
+  "page": "❤️ Relationships",
   "team_left_data": [
     {
       "name": "Павучел 2",
@@ -152,7 +152,8 @@
           "sp": 2
         }
       },
-      "biography": ""
+      "biography": "",
+      "relationships": {}
     }
   ],
   "team_right_data": [
@@ -311,7 +312,8 @@
           "sp": 2
         }
       },
-      "biography": ""
+      "biography": "",
+      "relationships": {}
     }
   ],
   "phase": "planning",
@@ -375,7 +377,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Лилит",
+  "profile_unit": "Roland",
   "leveling_unit": "Roland",
   "tree_unit": "Roland",
   "checks_unit": "Roland",

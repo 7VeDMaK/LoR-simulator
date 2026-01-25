@@ -34,7 +34,7 @@
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
-        "status_rank": "9 (Fixer)",
+        "status_rank": "2321321",
         "start_of_battle_stats": {
             "hp": 1674,
             "sp": 20,
@@ -215,5 +215,6 @@
             "sp": 4
         }
     },
-    "biography": ""
+    "biography": "",
+    "relationships": {}
 }

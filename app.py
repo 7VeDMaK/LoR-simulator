@@ -8,6 +8,7 @@ from ui.checks import render_checks_page
 from ui.editor.editor import render_editor_page
 from ui.leveling import render_leveling_page
 from ui.profile.main import render_profile_page
+from ui.relationships import render_relationships_page
 # Страницы
 from ui.simulator.simulator import render_simulator_page
 from ui.styles import apply_styles
@@ -23,7 +24,16 @@ render_save_manager_sidebar()
 load_initial_state()
 
 # 4. Навигация
-pages = ["⚔️ Simulator", "👤 Profile", "🌳 Skill Tree", "📈 Leveling", "🛠️ Card Editor", "🎲 Checks", "📚 Cheat Sheet"]
+pages = [
+    "⚔️ Simulator",
+    "👤 Profile",
+    "🌳 Skill Tree",
+    "📈 Leveling",
+    "🛠️ Card Editor",
+    "🎲 Checks",
+    "❤️ Relationships",  # <--- НОВЫЙ ПУНКТ
+    "📚 Cheat Sheet"
+]
 page = st.sidebar.radio("Go to", pages, key="nav_page", on_change=update_and_save_state)
 
 # 5. Маршрутизация
@@ -45,6 +55,9 @@ elif "Skill Tree" in page:
 
 elif "Cheat Sheet" in page:
     render_cheat_sheet_page()
+
+elif "Relationships" in page:
+    render_relationships_page()
 
 else:
     render_editor_page()

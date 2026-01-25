@@ -108,6 +108,7 @@ class UnitSerializationMixin:
             "augmentations": list(self.augmentations),
             "level_rolls": safe_dict_copy(self.level_rolls),
             "biography": self.biography,
+            "relationships": self.relationships.copy(),
         }
 
     @classmethod
@@ -158,6 +159,7 @@ class UnitSerializationMixin:
         u.talents = data.get("talents", [])
         u.augmentations = data.get("augmentations", [])
         u.level_rolls = data.get("level_rolls", {})
+        u.relationships = data.get("relationships", {})
 
         # Dynamic apply
         u.apply_dynamic_state(data)

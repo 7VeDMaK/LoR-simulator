@@ -29,6 +29,8 @@ class UnitRPGMixin:
         "eloquence": 0, "forging": 0, "engineering": 0, "programming": 0
     })
 
+    relationships: Dict[str, Dict] = field(default_factory=dict)
+
     # === ПРОГРЕССИЯ ===
     augmentations: List[str] = field(default_factory=list)
     passives: List[str] = field(default_factory=list)

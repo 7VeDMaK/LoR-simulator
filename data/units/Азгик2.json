@@ -18,6 +18,19 @@
         "imp_sp": 20,
         "imp_stg": 10
     },
+    "current_hp": 100,
+    "current_sp": 91,
+    "current_stagger": 43,
+    "resources": {},
+    "cooldowns": {},
+    "card_cooldowns": {
+        "azgick_rule_1": 1,
+        "azgick_rule_2": 1,
+        "azgick_rule_3": 1
+    },
+    "active_buffs": {},
+    "_status_effects": {},
+    "delayed_queue": [],
     "deck": [
         "pat_right_shoulder",
         "pat_right_shoulder",
@@ -50,8 +63,48 @@
         "candy_fudge",
         "candy_waffles"
     ],
+    "active_slots": [],
     "stored_dice": [],
     "counter_dice": [],
+    "memory": {
+        "status_rank": "9 (Fixer)"
+    },
+    "death_count": 0,
+    "overkill_damage": 0,
+    "money_log": [
+        {
+            "amount": 999999,
+            "reason": ""
+        },
+        {
+            "amount": 900000000,
+            "reason": ""
+        },
+        {
+            "amount": 90000000,
+            "reason": ""
+        },
+        {
+            "amount": 9000000,
+            "reason": ""
+        },
+        {
+            "amount": 1,
+            "reason": ""
+        },
+        {
+            "amount": -1,
+            "reason": ""
+        },
+        {
+            "amount": -900000000,
+            "reason": ""
+        },
+        {
+            "amount": -15000000,
+            "reason": "ЛХ закупка + долги"
+        }
+    ],
     "base_stats": {
         "current_hp": 100,
         "current_sp": 91,
@@ -71,11 +124,6 @@
             "blunt": 1.0
         },
         "weapon_id": "dual_blades"
-    },
-    "card_cooldowns": {
-        "azgick_rule_1": 1,
-        "azgick_rule_2": 1,
-        "azgick_rule_3": 1
     },
     "attributes": {
         "strength": 6,
@@ -163,50 +211,6 @@
             "sp": 1
         }
     },
-    "cooldowns": {},
-    "active_buffs": {},
-    "resources": {},
     "biography": "",
-    "money_log": [
-        {
-            "amount": 999999,
-            "reason": ""
-        },
-        {
-            "amount": 900000000,
-            "reason": ""
-        },
-        {
-            "amount": 90000000,
-            "reason": ""
-        },
-        {
-            "amount": 9000000,
-            "reason": ""
-        },
-        {
-            "amount": 1,
-            "reason": ""
-        },
-        {
-            "amount": -1,
-            "reason": ""
-        },
-        {
-            "amount": -900000000,
-            "reason": ""
-        },
-        {
-            "amount": -15000000,
-            "reason": "ЛХ закупка + долги"
-        }
-    ],
-    "death_count": 0,
-    "overkill_damage": 0,
-    "_status_effects": {},
-    "delayed_queue": [],
-    "memory": {
-        "status_rank": "9 (Fixer)"
-    },
-    "active_slots": []
+    "relationships": {}
 }
