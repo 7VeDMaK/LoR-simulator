@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "👤 Profile",
+  "page": "🛠️ Card Editor",
   "team_left_data": [
     {
       "name": "Павучел 2",
@@ -379,7 +379,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Экс Машинариум",
+  "profile_unit": "Roland",
   "leveling_unit": "Roland",
   "tree_unit": "Roland",
   "checks_unit": "Roland",

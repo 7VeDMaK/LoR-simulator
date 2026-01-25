@@ -210,8 +210,8 @@ class PassiveFearOfHealing(BasePassive):
                 f"🩹 {self.name}: {unit.name} получает -5 к проверке медицины",
                 LogLevel.NORMAL, "Passive"
             )
-            return -5
-        return 0
+            return current_result - 5
+        return current_result
 
 
 class PassiveNotEconomicallyMinded(BasePassive):
@@ -231,8 +231,8 @@ class PassiveNotEconomicallyMinded(BasePassive):
                 f"💬 {self.name}: {unit.name} получает -2 к проверке красноречия",
                 LogLevel.NORMAL, "Passive"
             )
-            return -2
-        return 0
+            return current_result - 2
+        return current_result
 
 
 class PassiveTopographicCretinism(BasePassive):
@@ -252,8 +252,8 @@ class PassiveTopographicCretinism(BasePassive):
                 f"🧭 {self.name}: {unit.name} получает -3 к проверке мудрости",
                 LogLevel.NORMAL, "Passive"
             )
-            return -3
-        return 0
+            return current_result - 3
+        return current_result
 
 
 class PassiveSharpMind(BasePassive):
@@ -273,8 +273,8 @@ class PassiveSharpMind(BasePassive):
                 f"🧠 {self.name}: {unit.name} получает +4 к проверке психического порога",
                 LogLevel.NORMAL, "Passive"
             )
-            return +4
-        return 0
+            return current_result + 4
+        return current_result
 
 
 class PassiveHardenedBySolitude(BasePassive):

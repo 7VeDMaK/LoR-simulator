@@ -54,11 +54,14 @@ ICON_FILES = {
     "vulnerability": "Vulnerable.webp",
     "weakness": "AttackPowerDown.webp",  # Weakness = снижение силы атаки
     "weak": "Weak.webp",  # Weak = получает +25% урона
+    "slow": "Bind.webp",  # Замедление использует иконку Bind
 
-    # Resist Up (Ахиллесова пята)
+    # Resist Up/Down (Ахиллесова пята и защиты)
     "slash_resist_down": "achilles_heel.png",
     "pierce_resist_down": "achilles_heel.png",
     "blunt_resist_down": "achilles_heel.png",
+    "bleed_resist": "BleedResist.webp",
+    "stagger_resist": "StaggerResist.webp",
 
     "bind": "Bind.webp",
     "tremor": "Tremor.webp",
@@ -66,6 +69,24 @@ ICON_FILES = {
     "self_control": "Poise.webp",
     "poison": "Poison.webp",
     "sinking": "Overdose.webp",  # Или Sinking, если есть. Overdose подходит для негатива.
+    "deep_wound": "DeepWound.webp",
+
+    # --- Специальные статусы ---
+    "red_lycoris": "RedLycoris.webp",
+    "sinister_aura": "SinisterAura.webp",
+    "adaptation": "Adaptation.webp",
+    "bullet_time": "BulletTime.webp",
+    "clarity": "Clarity.webp",
+    "enrage_tracker": "EnrageTracker.webp",
+    "satiety": "Satiety.webp",
+    "ignore_satiety": "IgnoreSatiety.webp",
+    "revenge_dmg_up": "RevengeDmgUp.webp",
+    "taunt": "Taunt.webp",
+    "fanat_mark": "FanatMark.webp",
+    "mental_protection": "MentalProtection.webp",
+    "dice_break": "DiceBreak.webp",
+    "advantage": "Advantage.webp",
+    "blue_flame": "BlueFlame.webp",
 
     # --- Специальные ---
     "dmg_up": "DamageUp.webp",

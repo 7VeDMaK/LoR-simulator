@@ -75,6 +75,13 @@ class TalentBrightTalent(BasePassive):
     def on_calculate_stats(self, unit) -> dict:
         return {"engineering": 3}
 
+    def modify_check_parameters(self, unit, stat_key: str, params: dict) -> dict:
+        """Изменяем проверки инженерии на d10+10."""
+        if stat_key == "engineering":
+            params["die_max"] = 10
+            params["base_bonus"] = 10
+        return params
+
 
 # ==========================================
 # 13.5 Smaller Lighter Faster

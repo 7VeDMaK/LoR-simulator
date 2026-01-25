@@ -288,20 +288,54 @@ class BaseEffect:
 
     def on_skill_check(self, unit, check_result: int, stat_key: str, **kwargs):
         """
-        Вызывается после совершения проверки навыка/характеристики вне боя.
-        check_result: Итоговое значение броска.
-        stat_key: Название проверяемого стата (strength, luck, etc).
+        ТОЧКА 3: Вызывается ПОСЛЕ совершения проверки навыка/характеристики.
+        Используется для триггеров и эффектов, зависящих от результата.
+        
+        Args:
+            unit: юнит, совершивший проверку
+            check_result: ИТОГОВОЕ значение броска (после всех модификаторов)
+            stat_key: название навыка: "strength", "medicine" и т.д.
+        
+        ШАБЛОН ИСПОЛЬЗОВАНИЯ:
+        ```python
+        def on_skill_check(self, unit, check_result: int, stat_key: str, **kwargs):
+            if stat_key == "medicine" and check_result >= 15:
+                # Если успешная проверка медицины
+                unit.add_status("heal_bonus", 1, duration=2)
+            
+            if stat_key == "luck":
+                # Реагируем на любую проверку удачи
+                unit.resources["luck_uses"] = unit.resources.get("luck_uses", 0) + 1
+        ```
         """
         pass
 
     def modify_skill_check_result(self, unit, stat_key: str, current_result: int) -> int:
         """
-        Модифицирует итоговый результат проверки навыка/характеристики.
-        stat_key: Название проверяемого стата (strength, luck, medicine, etc).
-        current_result: Текущий результат проверки до применения модификаторов от пассивок.
-        Returns: Модификатор к результату (может быть положительным или отрицательным).
+        ТОЧКА 2: Модифицирует ИТОГОВЫЙ результат проверки навыка/характеристики.
+        Вызывается ПОСЛЕ броска кубика и добавления базовых модификаторов.
+        
+        Args:
+            unit: юнит, совершающий проверку
+            stat_key: название навыка: "strength", "medicine", "luck" и т.д.
+            current_result: текущий результат (бросок + модификатор стата + бонус)
+        
+        Returns:
+            int: НОВЫЙ результат (не модификатор, а полное значение!)
+        
+        ШАБЛОН ИСПОЛЬЗОВАНИЯ:
+        ```python
+        def modify_skill_check_result(self, unit, stat_key: str, current_result: int) -> int:
+            if stat_key == "medicine":
+                return current_result - 5  # Штраф -5 к медицине
+            
+            if stat_key == "psych":
+                return current_result + 4  # Бонус +4 к психике
+            
+            return current_result  # Обязательно вернуть результат!
+        ```
         """
-        return 0
+        return current_result
 
     def override_roll_base_stat(self, unit, current_pair, dice=None, **kwargs):
         """
@@ -314,8 +348,59 @@ class BaseEffect:
 
     def on_check_roll(self, unit, attribute, context):
         """
-        Вызывается ПЕРЕД броском проверки навыка (Skill Check) в UI.
-        context: объект CheckContext с флагами is_advantage / is_disadvantage.
-        attribute: название навыка (строка).
+        ТОЧКА 1: Вызывается ПЕРЕД броском проверки навыка (Skill Check).
+        Используется для добавления Advantage/Disadvantage.
+        
+        Args:
+            unit: юнит, совершающий проверку
+            attribute: название навыка (строка): "strength", "medicine", "eloquence" и т.д.
+            context: объект CheckContext с флагами is_advantage / is_disadvantage
+        
+        ШАБЛОН ИСПОЛЬЗОВАНИЯ:
+        ```python
+        def on_check_roll(self, unit, attribute, context):
+            if attribute == "medicine":  # Проверка конкретного навыка
+                context.is_advantage = True  # Даем преимущество
+            
+            if attribute in ["strength", "endurance"]:  # Несколько навыков
+                context.is_disadvantage = True  # Даем помеху
+        ```
         """
+        pass
+
+    def modify_check_parameters(self, unit, stat_key: str, params: dict) -> dict:
+        """
+        ТОЧКА 1.5: Модифицирует параметры броска ДО его выполнения.
+        Используется талантами для изменения типа кубика и базовых бонусов.
+        
+        Args:
+            unit: юнит, совершающий проверку
+            stat_key: название навыка
+            params: словарь с параметрами {
+                "die_max": int,      # Максимум на кубике (6, 12, 15, 20)
+                "die_min": int,      # Минимум на кубике (обычно 1)
+                "base_bonus": int,   # Базовый бонус (например, +5 от таланта)
+                "stat_bonus": int    # Бонус от характеристики
+            }
+        
+        Returns:
+            dict: НОВЫЕ параметры (измените нужные поля)
+        
+        ШАБЛОН ИСПОЛЬЗОВАНИЯ (Талант):
+        ```python
+        def modify_check_parameters(self, unit, stat_key: str, params: dict) -> dict:
+            # Талант "Без Ошибок": 5 + d15 вместо обычного d6
+            params["die_max"] = 15
+            params["base_bonus"] = 5
+            return params
+        
+        # Талант "Мастер речи": d10 + 10 для красноречия
+        def modify_check_parameters(self, unit, stat_key: str, params: dict) -> dict:
+            if stat_key == "eloquence":
+                params["die_max"] = 10
+                params["base_bonus"] = 10
+            return params
+        ```
+        """
+        return params
         pass

@@ -629,6 +629,12 @@ class TalentNoMistakes(BasePassive):
     description = "10.9 Б (Опц): Все броски = 5 + 1d15."
     is_active_ability = False
 
+    def modify_check_parameters(self, unit, stat_key: str, params: dict) -> dict:
+        """Изменяем ВСЕ проверки на 5 + d15."""
+        params["die_max"] = 15
+        params["base_bonus"] = 5
+        return params
+
 
 # ==========================================
 # 10.10 А: Короткое замыкание

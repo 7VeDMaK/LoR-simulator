@@ -135,10 +135,9 @@ def draw_roll_interface(unit, selected_key, selected_label):
                 st.markdown(f"### :{res_color}[{res['msg']}]")
                 st.markdown(f"**{res['total']}** vs **{res['final_difficulty']}**")
 
+                # Формула: бросок + модификаторы = итог
                 die_text = f"`{res['roll']} ({res['die']})`" if res['die'] != "Fixed" else ""
-                bonus_text = f" + `{bonus}`" if bonus != 0 else ""
-
-                st.markdown(f"{die_text} + {res['formula_text']}{bonus_text} = **{res['total']}**")
+                st.markdown(f"{die_text} + {res['formula_text']} = **{res['total']}**")
 
                 if res['is_crit']: st.caption("🔥 CRITICAL SUCCESS")
                 if res['is_fumble']: st.caption("💀 CRITICAL FAILURE")

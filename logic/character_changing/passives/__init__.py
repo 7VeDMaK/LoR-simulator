@@ -13,6 +13,8 @@ from logic.character_changing.passives.rein_passives import PassiveSCells, Passi
 from logic.character_changing.passives.zafiel_passives import PassiveSevereTraining, PassiveAdaptation
 from logic.character_changing.passives.leila_passives import PassiveStances, PassiveHardenedBySolitude, \
     PassiveFearOfHealing, PassiveNotEconomicallyMinded, PassiveTopographicCretinism, PassiveSharpMind
+from logic.character_changing.passives.axis_passives import PassiveAxisUnity, PassivePseudoProtagonist, \
+    PassiveSourceAccess, PassiveMetaAwareness, PassiveChthonic
     
 # === РЕГИСТРАЦИЯ ===
 PASSIVE_REGISTRY = {
@@ -58,4 +60,11 @@ PASSIVE_REGISTRY = {
 "not_economically_minded": PassiveNotEconomicallyMinded(),
 "topographic_cretinism": PassiveTopographicCretinism(),
 "sharp_mind": PassiveSharpMind(),
+
+# Axis Mundi
+"axis_unity": PassiveAxisUnity(),
+"pseudo_protagonist": PassivePseudoProtagonist(),
+"source_access": PassiveSourceAccess(),
+"meta_awareness": PassiveMetaAwareness(),
+"chthonic_nature": PassiveChthonic(),
 }
