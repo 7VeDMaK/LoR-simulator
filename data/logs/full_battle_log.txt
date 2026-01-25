@@ -1,4 +1,37 @@
-=== BATTLE LOG CLEARED: 2026-01-25 14:02:19.625360 ===
-[14:02:19.625] [VERBOSE] [Stats] Recalculating stats for Лаванда Хи (ЛХ) (Фина Доку)
-[14:02:19.626] [VERBOSE] [Stats] 🔄 Recalculating stats for Лаванда Хи (ЛХ) (Фина Доку)
-[14:02:19.627] [VERBOSE] [Stats] ✅ Stats updated for Лаванда Хи (ЛХ) (Фина Доку). HP: 20, SP: 20, Speed: [(1, 4)]
+=== BATTLE LOG CLEARED: 2026-01-25 14:03:42.880204 ===
+[14:03:42.880] [VERBOSE] [Stats] Recalculating stats for Аксис Мунди
+[14:03:42.881] [VERBOSE] [Stats] 🔄 Recalculating stats for Аксис Мунди
+[14:03:42.882] [VERBOSE] [Stats] 🌟 Сделка с фортуной: luck +11
+[14:03:42.883] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[14:03:42.885] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[14:03:42.886] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 30% от основного
+[14:03:42.888] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[14:03:42.889] [VERBOSE] [Stats] ✅ Stats updated for Аксис Мунди. HP: 78, SP: 38, Speed: [(4, 7)]
+[14:05:45.583] [NORMAL ] [System] 💾 Saved unit: Snake, Софрон Авельев  -> data/units\Snake_Софрон_Авельев.json
+[14:06:59.171] [NORMAL ] [System] 💾 Saved unit: Snake, Софрон Авельев  -> data/units\Snake_Софрон_Авельев.json
+[14:07:32.632] [NORMAL ] [System] 💾 Saved unit: Snake, Софрон Авельев  -> data/units\Snake_Софрон_Авельев.json
+[14:07:46.660] [NORMAL ] [System] 💾 Saved unit: Адам Серый Лис -> data/units\Адам_Серый_Лис.json
+[14:08:10.885] [NORMAL ] [System] 💾 Saved unit: Адам Серый Лис -> data/units\Адам_Серый_Лис.json
+[14:08:33.459] [NORMAL ] [System] 💾 Saved unit: Адам Серый Лис -> data/units\Адам_Серый_Лис.json
+[14:09:35.721] [NORMAL ] [System] 💾 Saved unit: Адам Серый Лис -> data/units\Адам_Серый_Лис.json
+[14:10:09.143] [NORMAL ] [System] 💾 Saved unit: Акаги -> data/units\Акаги.json
+[14:10:46.511] [NORMAL ] [System] 💾 Saved unit: Акаги -> data/units\Акаги.json
+[14:11:10.755] [NORMAL ] [System] 💾 Saved unit: Акаги -> data/units\Акаги.json
+[14:11:27.557] [NORMAL ] [System] 💾 Saved unit: Акаги -> data/units\Акаги.json
+[14:12:09.168] [NORMAL ] [System] 💾 Saved unit: Алас -> data/units\Алас.json
+[14:12:32.262] [NORMAL ] [System] 💾 Saved unit: Алас -> data/units\Алас.json
+[14:13:06.652] [NORMAL ] [System] 💾 Saved unit: Афелия Токс -> data/units\Афелия_Токс.json
+[14:13:34.540] [NORMAL ] [System] 💾 Saved unit: Борис Бритва -> data/units\Борис_Бритва.json
+[14:13:44.925] [NORMAL ] [System] 💾 Saved unit: Борис Бритва -> data/units\Борис_Бритва.json
+[14:13:49.055] [NORMAL ] [System] 💾 Saved unit: Борис Бритва -> data/units\Борис_Бритва.json
+[14:13:58.255] [NORMAL ] [System] 💾 Saved unit: Борис Бритва -> data/units\Борис_Бритва.json
+[14:14:19.186] [NORMAL ] [System] 💾 Saved unit: Брат Йозеф -> data/units\Брат_Йозеф.json
+[14:14:39.016] [NORMAL ] [System] 💾 Saved unit: Брат Йозеф -> data/units\Брат_Йозеф.json
+[14:14:43.896] [NORMAL ] [System] 💾 Saved unit: Брат Йозеф -> data/units\Брат_Йозеф.json
+[14:15:11.745] [NORMAL ] [System] 💾 Saved unit: Габриэль -> data/units\Габриэль.json
+[14:15:38.931] [NORMAL ] [System] 💾 Saved unit: Габриэль -> data/units\Габриэль.json
+[14:15:56.414] [NORMAL ] [System] 💾 Saved unit: Гагигегабо Избранный -> data/units\Гагигегабо_Избранный.json
+[14:17:02.695] [NORMAL ] [System] 💾 Saved unit: Гачикута -> data/units\Гачикута.json
+[14:17:35.227] [NORMAL ] [System] 💾 Saved unit: Генри Фаэнон -> data/units\Генри_Фаэнон.json
+[14:18:09.311] [NORMAL ] [System] 💾 Saved unit: Генри Фаэнон -> data/units\Генри_Фаэнон.json
+[14:18:41.234] [NORMAL ] [System] 💾 Saved unit: Генри Фаэнон -> data/units\Генри_Фаэнон.json

@@ -87,6 +87,27 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Азгик": {
+            "value": 90,
+            "status": "Best Friend",
+            "notes": "Бротато"
+        },
+        "Фемя Винд": {
+            "value": 70,
+            "status": "Best Friend",
+            "notes": "Бротато"
+        },
+        "Лаванда Хи (ЛХ) (Фина Доку)": {
+            "value": 70,
+            "status": "Best Friend",
+            "notes": "Бротато"
+        },
+        "Помощник Кен": {
+            "value": 50,
+            "status": "Best Friend",
+            "notes": "Бротато"
+        }
+    },
     "unit_type": "dead"
 }

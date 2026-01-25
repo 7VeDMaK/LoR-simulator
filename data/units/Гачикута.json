@@ -87,6 +87,12 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Зафиэль": {
+            "value": 30,
+            "status": "Friend",
+            "notes": "Милый парень. Хочу почаще видеть его"
+        }
+    },
     "unit_type": "syndicate"
 }

@@ -87,6 +87,27 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Аксис Мунди": {
+            "value": 10,
+            "status": "Neutral",
+            "notes": "Ученица"
+        },
+        "Рейн": {
+            "value": 5,
+            "status": "Neutral",
+            "notes": "Открытая книжка"
+        },
+        "Фемя Винд": {
+            "value": 20,
+            "status": "Friend",
+            "notes": "Босс"
+        },
+        "Лаванда Хи (ЛХ) (Фина Доку)": {
+            "value": 17,
+            "status": "Friend",
+            "notes": "Выше по рангу"
+        }
+    },
     "unit_type": "fixer"
 }

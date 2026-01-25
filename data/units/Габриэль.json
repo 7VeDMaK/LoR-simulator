@@ -87,6 +87,17 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Лилит": {
+            "value": 50,
+            "status": "Best Friend",
+            "notes": "Милая. Хорошая клиентка"
+        },
+        "Квасия": {
+            "value": 30,
+            "status": "Friend",
+            "notes": "Милая."
+        }
+    },
     "unit_type": "fixer"
 }

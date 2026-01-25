@@ -379,7 +379,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Лаванда Хи (ЛХ) (Фина Доку)",
+  "profile_unit": null,
   "leveling_unit": "Roland",
   "tree_unit": "Roland",
   "checks_unit": "Roland",

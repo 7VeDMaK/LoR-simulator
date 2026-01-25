@@ -87,6 +87,12 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Азгик": {
+            "value": 1,
+            "status": "Neutral",
+            "notes": "Йоу"
+        }
+    },
     "unit_type": "syndicate"
 }

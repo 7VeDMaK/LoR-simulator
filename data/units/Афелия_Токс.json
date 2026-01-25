@@ -87,6 +87,12 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Адам Серый Лис": {
+            "value": 50,
+            "status": "Friend",
+            "notes": "Доверяет. Служит"
+        }
+    },
     "unit_type": "syndicate"
 }

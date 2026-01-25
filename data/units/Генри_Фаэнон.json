@@ -170,6 +170,22 @@
         }
     },
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Ммм???": {
+            "value": 100,
+            "status": "Soulmate",
+            "notes": "До гроба"
+        },
+        "Адам Серый Лис": {
+            "value": 50,
+            "status": "Friend",
+            "notes": "Сильный. Рекомендован для изменений"
+        },
+        "Френсис Гудэнаф": {
+            "value": 50,
+            "status": "Friend",
+            "notes": "Хороший руководитель"
+        }
+    },
     "unit_type": "syndicate"
 }

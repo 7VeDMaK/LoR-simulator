@@ -87,6 +87,17 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Сестра Сивео Кланская": {
+            "value": 10,
+            "status": "Rival",
+            "notes": "Сестра"
+        },
+        "Лима": {
+            "value": -70,
+            "status": "Enemy",
+            "notes": "Убийца"
+        }
+    },
     "unit_type": "dead"
 }

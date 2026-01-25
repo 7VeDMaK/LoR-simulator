@@ -87,6 +87,27 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Snake, Софрон Авельев ": {
+            "value": 30,
+            "status": "Friend",
+            "notes": "Союзник"
+        },
+        "Зафиэль": {
+            "value": 5,
+            "status": "Neutral",
+            "notes": "Заинтересован, цель для вербовки"
+        },
+        "Лима": {
+            "value": -70,
+            "status": "Enemy",
+            "notes": "Цель для убийства"
+        },
+        "Алас": {
+            "value": -100,
+            "status": "Enemy",
+            "notes": "Убит им"
+        }
+    },
     "unit_type": "player"
 }

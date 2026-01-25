@@ -87,6 +87,22 @@
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
-    "relationships": {},
+    "relationships": {
+        "Лилит": {
+            "value": 5,
+            "status": "Neutral",
+            "notes": "Погладил по голове. Верит в неё, что большой потенциал"
+        },
+        "Ммм???": {
+            "value": 100,
+            "status": "Neutral",
+            "notes": "Беспрекословный подчиненный"
+        },
+        "Адам Серый Лис": {
+            "value": 30,
+            "status": "Friend",
+            "notes": "Союзник"
+        }
+    },
     "unit_type": "syndicate"
 }
