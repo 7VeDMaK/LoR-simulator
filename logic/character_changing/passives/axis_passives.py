@@ -170,7 +170,7 @@ class PassiveChthonic(BasePassive):
     description = "Любой бросок Красноречия проходит с Помехой (Disadvantage)."
     is_active_ability = False
 
-    def on_check_roll(self, unit, attribute, context):
+    def on_check_roll(self, unit, attribute, context, **kwargs):
         # Проверяем, что атрибут - Красноречие
         if attribute.lower() in ["eloquence", "красноречие"]:
             context.is_disadvantage = True

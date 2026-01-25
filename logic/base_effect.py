@@ -346,7 +346,7 @@ class BaseEffect:
         """
         return current_pair
 
-    def on_check_roll(self, unit, attribute, context):
+    def on_check_roll(self, unit, attribute, context, **kwargs):
         """
         ТОЧКА 1: Вызывается ПЕРЕД броском проверки навыка (Skill Check).
         Используется для добавления Advantage/Disadvantage.
@@ -355,10 +355,11 @@ class BaseEffect:
             unit: юнит, совершающий проверку
             attribute: название навыка (строка): "strength", "medicine", "eloquence" и т.д.
             context: объект CheckContext с флагами is_advantage / is_disadvantage
+            **kwargs: дополнительные параметры (например, stack для статусов)
         
         ШАБЛОН ИСПОЛЬЗОВАНИЯ:
         ```python
-        def on_check_roll(self, unit, attribute, context):
+        def on_check_roll(self, unit, attribute, context, **kwargs):
             if attribute == "medicine":  # Проверка конкретного навыка
                 context.is_advantage = True  # Даем преимущество
             

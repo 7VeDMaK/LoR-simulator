@@ -1,0 +1,199 @@
+{
+  "cards": [
+    {
+      "id": "short_lunge",
+      "name": "Короткий Выпад",
+      "tier": 1,
+      "type": "melee",
+      "description": "Быстрый выпад с защитой",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 2,
+          "base_max": 3,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 2,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "long_lunge",
+      "name": "Длинный Выпад",
+      "tier": 1,
+      "type": "melee",
+      "description": "Выпад с дополнительным ударом",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 3,
+          "scripts": {}
+        },
+        {
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 2,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "draw_sword",
+      "name": "Выхватить Меч",
+      "tier": 1,
+      "type": "melee",
+      "description": "Быстрое выхватывание меча",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 6,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "long_edge",
+      "name": "Длинное Острие",
+      "tier": 2,
+      "type": "melee",
+      "description": "Мощный режущий удар",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 6,
+          "base_max": 10,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "tale_of_rebirth",
+      "name": "Повесть о Перерождении",
+      "tier": 2,
+      "type": "melee",
+      "description": "Уклонение с последующим блоком",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 6,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 4,
+          "base_max": 5,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "double_strike",
+      "name": "Двойной Удар",
+      "tier": 2,
+      "type": "melee",
+      "description": "Два быстрых режущих удара",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 3,
+          "base_max": 5,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 6,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "time_cant_turn_back",
+      "name": "Время не повернуть спять",
+      "tier": 3,
+      "type": "melee",
+      "description": "Уклонение с мощным контратакующим ударом",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 2,
+          "base_max": 14,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 3,
+          "base_max": 5,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "still_alive",
+      "name": "Всё ещё жива",
+      "tier": 3,
+      "type": "melee",
+      "description": "Непоколебимая защита",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 2,
+          "base_max": 4,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 4,
+          "base_max": 6,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 2,
+          "base_max": 6,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "perfect_cut",
+      "name": "Идеальный Разрез",
+      "tier": 3,
+      "type": "melee",
+      "description": "Совершенный режущий удар",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 9,
+          "base_max": 15,
+          "scripts": {}
+        }
+      ]
+    }
+  ]
+}

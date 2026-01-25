@@ -18,13 +18,11 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 61,
+    "current_hp": 111,
     "current_sp": 32,
-    "current_stagger": 20,
+    "current_stagger": 67,
     "resources": {},
-    "cooldowns": {
-        "berserker_rage": 2
-    },
+    "cooldowns": {},
     "card_cooldowns": {},
     "active_buffs": {},
     "_status_effects": {},
@@ -42,9 +40,48 @@
     ],
     "active_slots": [],
     "stored_dice": [],
-    "counter_dice": [],
+    "counter_dice": [
+        {
+            "type": "evade",
+            "base_min": 7,
+            "base_max": 10,
+            "is_counter": true,
+            "scripts": {}
+        },
+        {
+            "type": "slash",
+            "base_min": 7,
+            "base_max": 10,
+            "is_counter": true,
+            "scripts": {}
+        },
+        {
+            "type": "evade",
+            "base_min": 7,
+            "base_max": 10,
+            "is_counter": true,
+            "scripts": {}
+        }
+    ],
     "memory": {
-        "status_rank": "9 (Fixer)"
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+            "hp": 61,
+            "sp": 32,
+            "stagger": 20
+        },
+        "smoke_is_defensive": true,
+        "smoke_limit_bonus": 5,
+        "vengeful_payback_chunks": 7,
+        "last_revive_attempt_round": 2,
+        "last_revive_log": {
+            "roll": 2,
+            "bonus": 0,
+            "penalty": 0,
+            "total": 2,
+            "dc": 1,
+            "success": true
+        }
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -55,9 +92,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 61,
+        "current_hp": 111,
         "current_sp": 32,
-        "current_stagger": 20
+        "current_stagger": 67
     },
     "defense": {
         "armor_name": "None",

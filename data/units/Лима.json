@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 93,
-    "current_sp": 85,
-    "current_stagger": 46,
+    "current_hp": 104,
+    "current_sp": 40,
+    "current_stagger": 51,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
@@ -42,7 +42,13 @@
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
-        "status_rank": "9 (Fixer)"
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+            "hp": 93,
+            "sp": 85,
+            "stagger": 46
+        },
+        "mind_suppression_bonus": 13
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -57,9 +63,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 93,
-        "current_sp": 85,
-        "current_stagger": 46
+        "current_hp": 104,
+        "current_sp": 40,
+        "current_stagger": 51
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -147,6 +153,10 @@
         "24": {
             "hp": 2,
             "sp": 1
+        },
+        "27": {
+            "hp": 4,
+            "sp": 4
         }
     },
     "biography": "Броня - лёгкий экзоскелет \"СТРИЖ\" со шлемом и противогазом\nАкробатика +6\nДаёт статус спешки +1  :zHaste: каждый ход\n\nЛедоруб \"Скала Лаз\" х2 (6.5 ранг)\nПозволяет карабкаться по стенам, отвесным скалам. Иногда требуется проверка Ловкости / Акробатики для совершения действия\nПовышает значение куба :zAttackPowerUp: атаки на атакующих картами на 3\n\nСветошумовые гранаты 2шт B tier\n\nАПГРЕЙД КОСТЮМА: ПНВ B tier\nПозволяет видеть в темноте, не получает дебаффы в темноте. Возможны дебаффы при ярком свете/днём во включенном режиме \n",

@@ -4,7 +4,7 @@
     "rank": 9,
     "avatar": "data/avatars/Ловкий-Кеклет.png",
     "base_intellect": 5,
-    "total_xp": 0,
+    "total_xp": 16777216,
     "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -15,15 +15,22 @@
     },
     "flat_mods": {
         "imp_hp": 100,
-        "imp_sp": 100,
-        "imp_stg": 100
+        "imp_sp": 0,
+        "imp_stg": 0
     },
-    "current_hp": 257,
-    "current_sp": 183,
-    "current_stagger": 228,
+    "current_hp": 193,
+    "current_sp": 83,
+    "current_stagger": 89,
     "resources": {},
     "cooldowns": {},
-    "card_cooldowns": {},
+    "card_cooldowns": {
+        "слишком_быстрый_пинок_38ee": [
+            1
+        ],
+        "изничтожение_img5": [
+            1
+        ]
+    },
     "active_buffs": {},
     "_status_effects": {},
     "delayed_queue": [],
@@ -44,18 +51,19 @@
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 257,
-            "sp": 183,
-            "stagger": 228
-        }
+            "hp": 238,
+            "sp": 83,
+            "stagger": 119
+        },
+        "battle_initialized": true
     },
     "death_count": 0,
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 257,
-        "current_sp": 183,
-        "current_stagger": 228
+        "current_hp": 193,
+        "current_sp": 83,
+        "current_stagger": 89
     },
     "defense": {
         "armor_name": "Unit_52",
@@ -63,19 +71,19 @@
         "hp_resists": {
             "slash": 0.5,
             "pierce": 0.5,
-            "blunt": 2.0
+            "blunt": 3.0
         },
         "stagger_resists": {
             "slash": 1.0,
             "pierce": 1.0,
             "blunt": 1.0
         },
-        "weapon_id": "dual_blades"
+        "weapon_id": "none"
     },
     "attributes": {
         "strength": 20,
         "endurance": 10,
-        "agility": 30,
+        "agility": 15,
         "wisdom": 0,
         "psych": 0
     },
@@ -86,7 +94,7 @@
         "luck": 0,
         "acrobatics": 15,
         "shields": 0,
-        "tough_skin": 10,
+        "tough_skin": 0,
         "speed": 30,
         "light_weapon": 0,
         "medium_weapon": 0,
@@ -104,11 +112,7 @@
         "athleticism_shadow",
         "not_great_attention",
         "smashing_blade",
-        "fast_and_silent",
-        "big_guy",
-        "defense",
-        "commendable_constitution",
-        "rock"
+        "fast_and_silent"
     ],
     "augmentations": [],
     "level_rolls": {

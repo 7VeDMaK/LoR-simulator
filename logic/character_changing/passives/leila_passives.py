@@ -58,7 +58,7 @@ class PassiveStances(BasePassive):
             return []
 
     def activate(self, unit, log_func, choice_key=None, **kwargs):
-        """Активирует выбранную стойку."""
+        """Активирует выбранную стойку и меняет колоду карт."""
         # Проверяем кулдаун
         if unit.cooldowns.get(self.id, 0) > 0:
             if log_func:
@@ -89,6 +89,18 @@ class PassiveStances(BasePassive):
         stance_status_id = f"stance_{choice_key}"
         unit.add_status(stance_status_id, 1, duration=99)
 
+        # ===== СМЕНА КОЛОДЫ КАРТ =====
+        deck_mapping = {
+            "slash": "layla_slash_stance_cards.json",
+            "pierce": "layla_pierce_stance_cards.json",
+            "blunt": "layla_blunt_stance_cards.json",
+            "block": "layla_defense_stance_cards.json"
+        }
+        
+        deck_file = deck_mapping.get(choice_key)
+        if deck_file:
+            self._load_deck_from_file(unit, deck_file)
+
         # Логируем
         stance_names = {
             "slash": "🔪 Режущая",
@@ -103,12 +115,46 @@ class PassiveStances(BasePassive):
             LogLevel.NORMAL, "Passive"
         )
         if log_func:
-            log_func(f"⚔️ **{self.name}**: Активирована {stance_name} стойка! (+1 мощность)")
+            log_func(f"⚔️ **{self.name}**: Активирована {stance_name} стойка! (+1 мощность, колода сменена)")
 
         # Установляем кулдаун
         unit.cooldowns[self.id] = self.cooldown
 
         return True
+
+    def _load_deck_from_file(self, unit, filename: str):
+        """Загружает колоду карт из JSON файла."""
+        import json
+        import os
+        
+        filepath = os.path.join("data", "cards", filename)
+        
+        try:
+            if not os.path.exists(filepath):
+                logger.log(
+                    f"⚠️ Файл колоды не найден: {filepath}",
+                    LogLevel.NORMAL, "Passive"
+                )
+                return
+            
+            with open(filepath, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            cards_list = data.get("cards", [])
+            
+            # Заменяем колоду на новую (список ID карт)
+            unit.deck = [card.get("id") for card in cards_list if card.get("id")]
+            
+            logger.log(
+                f"🃏 {self.name}: Загружена колода из {filename} ({len(unit.deck)} карт)",
+                LogLevel.NORMAL, "Passive"
+            )
+            
+        except Exception as e:
+            logger.log(
+                f"⚠️ Ошибка загрузки колоды из {filename}: {e}",
+                LogLevel.NORMAL, "Passive"
+            )
 
     def modify_outgoing_damage(self, unit, amount, damage_type, stack=0, log_list=None, **kwargs):
         """

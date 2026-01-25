@@ -1,0 +1,211 @@
+{
+  "cards": [
+    {
+      "id": "deflect_defense",
+      "name": "Отразить",
+      "tier": 1,
+      "type": "melee",
+      "description": "Отражение атаки",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 3,
+          "base_max": 5,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "hasty_dodge_defense",
+      "name": "Спешное Уклонение",
+      "tier": 1,
+      "type": "melee",
+      "description": "Быстрое уклонение",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 7,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "hail_of_strikes_defense",
+      "name": "Град Ударов",
+      "tier": 1,
+      "type": "melee",
+      "description": "Множество слабых ударов",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 2,
+          "scripts": {}
+        },
+        {
+          "type": "pierce",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {}
+        },
+        {
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 2,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "gather_strength_defense",
+      "name": "Собраться силами",
+      "tier": 2,
+      "type": "melee",
+      "description": "Подготовка к защите",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 3,
+          "base_max": 5,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 5,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "tale_of_rebirth_defense",
+      "name": "Повесть о Перерождении",
+      "tier": 2,
+      "type": "melee",
+      "description": "Уклонение с последующим блоком",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 6,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 4,
+          "base_max": 5,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "risky_thrust_defense",
+      "name": "Рисковый Укол",
+      "tier": 2,
+      "type": "melee",
+      "description": "Уклонение с контратакой",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 5,
+          "scripts": {}
+        },
+        {
+          "type": "pierce",
+          "base_min": 3,
+          "base_max": 7,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "time_cant_turn_back_defense",
+      "name": "Время не повернуть спять",
+      "tier": 3,
+      "type": "melee",
+      "description": "Уклонение с мощным контратакующим ударом",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 2,
+          "base_max": 14,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 3,
+          "base_max": 5,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "still_alive_defense",
+      "name": "Всё ещё жива",
+      "tier": 3,
+      "type": "melee",
+      "description": "Непоколебимая защита",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 2,
+          "base_max": 4,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 4,
+          "base_max": 6,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 2,
+          "base_max": 6,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "perfect_block_defense",
+      "name": "Идеальный Блок",
+      "tier": 3,
+      "type": "melee",
+      "description": "Совершенный блок",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 9,
+          "base_max": 15,
+          "scripts": {}
+        }
+      ]
+    }
+  ]
+}
