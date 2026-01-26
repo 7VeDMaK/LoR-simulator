@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "🎲 Checks",
+  "page": "👤 Profile",
   "team_left_data": [
     {
       "name": "Аксис Мунди",
@@ -401,9 +401,9 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": " Дна'хо",
-  "leveling_unit": " Дна'хо",
+  "profile_unit": "Рейн",
+  "leveling_unit": null,
   "tree_unit": " Дна'хо",
-  "checks_unit": null,
+  "checks_unit": " Дна'хо",
   "undo_stack": []
 }

@@ -123,3 +123,19 @@ class MechanicsIteratorMixin:  # <--- Имя класса должно совп�
                     logger.log(f"Filter change by {mech_id}: {old_val} -> {value}", LogLevel.VERBOSE, "Filter")
 
         return value
+
+    def trigger_hooks(self, hook_name: str, **kwargs):
+        """
+        Вызывает метод hook_name у всех активных механик.
+        Пример: unit.trigger_hooks('on_luck_check', result=15)
+        """
+        for mechanic in self._iter_all_mechanics():
+            # Проверяем, есть ли у механики нужный метод (например, on_luck_check)
+            hook_method = getattr(mechanic, hook_name, None)
+
+            if callable(hook_method):
+                try:
+                    # Вызываем метод, передавая self (юнита) первым аргументом
+                    hook_method(self, **kwargs)
+                except Exception as e:
+                    logger.log(f"Error in hook '{hook_name}' for {mechanic.id}: {e}", LogLevel.ERROR, "System")

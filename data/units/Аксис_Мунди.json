@@ -1,10 +1,10 @@
 {
     "name": "Аксис Мунди",
-    "level": 6,
+    "level": 8,
     "rank": 9,
     "avatar": "data/avatars/Аксис_Мунди.png",
     "base_intellect": 8,
-    "total_xp": 47,
+    "total_xp": 141,
     "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -22,7 +22,7 @@
     "current_sp": 38,
     "current_stagger": 39,
     "resources": {
-        "luck": 53
+        "luck": 55
     },
     "cooldowns": {},
     "card_cooldowns": {},
@@ -93,7 +93,7 @@
     },
     "attributes": {
         "strength": 0,
-        "endurance": 15,
+        "endurance": 17,
         "agility": 0,
         "wisdom": 15,
         "psych": 0
@@ -102,11 +102,11 @@
         "strike_power": 0,
         "medicine": 0,
         "willpower": 0,
-        "luck": 42,
+        "luck": 44,
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,
-        "speed": 6,
+        "speed": 8,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,
