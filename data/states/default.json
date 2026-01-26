@@ -1,20 +1,409 @@
 {
   "type": "full",
-  "page": "❤️ Relationships",
-  "team_left_data": [],
-  "team_right_data": [],
+  "page": "🎲 Checks",
+  "team_left_data": [
+    {
+      "name": "Аксис Мунди",
+      "level": 6,
+      "rank": 9,
+      "avatar": "data/avatars/Аксис_Мунди.png",
+      "base_intellect": 8,
+      "total_xp": 47,
+      "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+      },
+      "current_hp": 60,
+      "current_sp": 38,
+      "current_stagger": 21,
+      "resources": {
+        "luck": 38
+      },
+      "cooldowns": {},
+      "card_cooldowns": {
+        "axis_mcguffin": 0,
+        "axis_plot_armor": 0,
+        "axis_ex_machina": 0
+      },
+      "active_buffs": {},
+      "_status_effects": {
+        "paralysis": [
+          {
+            "amount": 3,
+            "duration": 2
+          }
+        ]
+      },
+      "delayed_queue": [],
+      "deck": [
+        "axis_minor_setbacks",
+        "axis_min_effort",
+        "axis_pirouette",
+        "axis_sword_glory",
+        "axis_spear_determination",
+        "axis_fist_justice",
+        "axis_mcguffin",
+        "axis_plot_armor",
+        "axis_ex_machina",
+        "item_heal_5",
+        "item_heal_35",
+        "item_heal_65"
+      ],
+      "active_slots": [],
+      "stored_dice": [],
+      "counter_dice": [],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 78,
+          "sp": 38,
+          "stagger": 39
+        },
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [
+        {
+          "amount": 1500000,
+          "reason": "Первое задание Фемя"
+        },
+        {
+          "amount": -540000,
+          "reason": "Платье + ампулы "
+        },
+        {
+          "amount": 500000,
+          "reason": "У Лимы отобрала"
+        }
+      ],
+      "base_stats": {
+        "current_hp": 60,
+        "current_sp": 38,
+        "current_stagger": 21
+      },
+      "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "hp_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "none"
+      },
+      "attributes": {
+        "strength": 0,
+        "endurance": 15,
+        "agility": 0,
+        "wisdom": 15,
+        "psych": 0
+      },
+      "skills": {
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 42,
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 0,
+        "speed": 6,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [
+        "axis_unity",
+        "pseudo_protagonist",
+        "source_access",
+        "meta_awareness",
+        "chthonic_nature"
+      ],
+      "talents": [
+        "deal_with_fortune",
+        "second_chance"
+      ],
+      "augmentations": [],
+      "level_rolls": {
+        "3": {
+          "hp": 3,
+          "sp": 4
+        },
+        "6": {
+          "hp": 2,
+          "sp": 4
+        }
+      },
+      "biography": "Очки (крутые)\nВеревка (неудачливая)\n3 карточки хилок и платье (5, 30, 65. 3 бинда 0 2 3 сытости)\nплатье 500к\nстарый лук, немного приколов и стрел Лимы, но не все, еë шампунь, сами волосы Л, а также взяла у неë карандаш, бумагу, и оставила Лиме записку",
+      "relationships": {},
+      "unit_type": "player"
+    }
+  ],
+  "team_right_data": [
+    {
+      "name": "Зафиэль",
+      "level": 29,
+      "rank": 6,
+      "avatar": "data/avatars/Зафиэль.jpg",
+      "base_intellect": 5,
+      "total_xp": 293601280,
+      "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+      },
+      "current_hp": 150,
+      "current_sp": 65,
+      "current_stagger": 78,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {
+        "furious_assault": 0
+      },
+      "active_buffs": {},
+      "_status_effects": {
+        "adaptation": [
+          {
+            "amount": 1,
+            "duration": 98
+          }
+        ],
+        "protection": [
+          {
+            "amount": 2,
+            "duration": 1
+          }
+        ]
+      },
+      "delayed_queue": [],
+      "deck": [
+        "unbridled_cruelty",
+        "unbridled_cruelty",
+        "unbridled_cruelty",
+        "thrill_of_battle",
+        "thrill_of_battle",
+        "thrill_of_battle",
+        "furious_assault",
+        "furious_assault",
+        "furious_assault",
+        "card_toxic_p"
+      ],
+      "active_slots": [],
+      "stored_dice": [],
+      "counter_dice": [
+        {
+          "type": "block",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 150,
+          "sp": 65,
+          "stagger": 78
+        },
+        "adaptation_stats": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0
+        },
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [
+        {
+          "amount": 14460000,
+          "reason": ""
+        }
+      ],
+      "base_stats": {
+        "current_hp": 150,
+        "current_sp": 65,
+        "current_stagger": 78
+      },
+      "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "hp_resists": {
+          "slash": 0.5,
+          "pierce": 2.0,
+          "blunt": 1.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "mace"
+      },
+      "attributes": {
+        "strength": 30,
+        "endurance": 14,
+        "agility": 9,
+        "wisdom": 0,
+        "psych": 0
+      },
+      "skills": {
+        "strike_power": 15,
+        "medicine": 0,
+        "willpower": 4,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 15,
+        "tough_skin": 15,
+        "speed": 30,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 15,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [
+        "severe_training",
+        "adaptation"
+      ],
+      "talents": [
+        "big_guy",
+        "defense",
+        "commendable_constitution",
+        "rock",
+        "despiteAdversities",
+        "adaptation_tireless",
+        "tough_as_steel",
+        "survivor",
+        "idol_oath"
+      ],
+      "augmentations": [],
+      "level_rolls": {
+        "3": {
+          "hp": 1,
+          "sp": 5
+        },
+        "6": {
+          "hp": 1,
+          "sp": 4
+        },
+        "9": {
+          "hp": 2,
+          "sp": 4
+        },
+        "12": {
+          "hp": 5,
+          "sp": 2
+        },
+        "15": {
+          "hp": 3,
+          "sp": 3
+        },
+        "18": {
+          "hp": 5,
+          "sp": 4
+        },
+        "21": {
+          "hp": 2,
+          "sp": 5
+        },
+        "24": {
+          "hp": 1,
+          "sp": 5
+        },
+        "27": {
+          "hp": 2,
+          "sp": 3
+        }
+      },
+      "biography": "",
+      "relationships": {},
+      "unit_type": "player"
+    }
+  ],
   "phase": "roll",
-  "round_number": 1,
-  "turn_message": "",
-  "battle_logs": [],
+  "round_number": 2,
+  "turn_message": "Round Complete.",
+  "battle_logs": [
+    {
+      "type": "onesided",
+      "round": "R Hit (Hit)",
+      "left": {
+        "unit": "Зафиэль",
+        "card": "ТоксикП",
+        "dice": "PIERCE",
+        "val": 13,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Аксис Мунди",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed",
+      "details": [
+        "🎲 Roll [1-1]: 1 + 6 (Сила) + 6 (Тяжелое ор.) = **13**",
+        "🧪 **Аксис Мунди**: +3 Paralysis",
+        "👊 Atk Boost: +5",
+        "💥 **Аксис Мунди**: [x1.0 Res] Hit 18 HP"
+      ]
+    }
+  ],
   "script_logs": "",
-  "turn_phase": "planning",
+  "turn_phase": "done",
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
   "profile_unit": " Дна'хо",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
-  "checks_unit": " Дна'хо",
+  "checks_unit": null,
   "undo_stack": []
 }

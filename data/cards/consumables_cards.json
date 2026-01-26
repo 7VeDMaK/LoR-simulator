@@ -1,0 +1,147 @@
+[
+  {
+    "id": "item_heal_5",
+    "name": "Лечилка 5",
+    "tier": 5,
+    "type": "Item",
+    "description": "Восстанавливает 5 HP. Накладывает 0 Сытости на 99 ходов.",
+    "flags": [],
+    "scripts": {
+      "on_use": [
+        {
+          "script_id": "restore_resource",
+          "params": {
+            "type": "hp",
+            "base": 5,
+            "stat": "None",
+            "scale_from_target": false,
+            "factor": 1,
+            "target": "self"
+          }
+        },
+        {
+          "script_id": "apply_status",
+          "params": {
+            "status": "satiety",
+            "base": 0,
+            "stat": "None",
+            "scale_from_target": false,
+            "factor": 1.0,
+            "duration": 99,
+            "delay": 0,
+            "target": "self"
+          }
+        }
+      ]
+    },
+    "dice": []
+  },
+  {
+    "id": "item_heal_35",
+    "name": "Лечилка 35",
+    "tier": 5,
+    "type": "Item",
+    "description": "Восстанавливает 35 HP. Накладывает 1 Сытости на 99 ходов.",
+    "flags": [],
+    "scripts": {
+      "on_use": [
+        {
+          "script_id": "restore_resource",
+          "params": {
+            "type": "hp",
+            "base": 35,
+            "stat": "None",
+            "scale_from_target": false,
+            "factor": 1,
+            "target": "self"
+          }
+        },
+        {
+          "script_id": "apply_status",
+          "params": {
+            "status": "satiety",
+            "base": 1,
+            "stat": "None",
+            "scale_from_target": false,
+            "factor": 1.0,
+            "duration": 99,
+            "delay": 0,
+            "target": "self"
+          }
+        }
+      ]
+    },
+    "dice": []
+  },
+  {
+    "id": "item_heal_65",
+    "name": "Лечилка 65",
+    "tier": 5,
+    "type": "Item",
+    "description": "Восстанавливает 65 HP. Накладывает 2 Сытости на 99 ходов.",
+    "flags": [],
+    "scripts": {
+      "on_use": [
+        {
+          "script_id": "restore_resource",
+          "params": {
+            "type": "hp",
+            "base": 65,
+            "stat": "None",
+            "scale_from_target": false,
+            "factor": 1,
+            "target": "self"
+          }
+        },
+        {
+          "script_id": "apply_status",
+          "params": {
+            "status": "satiety",
+            "base": 2,
+            "stat": "None",
+            "scale_from_target": false,
+            "factor": 1.0,
+            "duration": 99,
+            "delay": 0,
+            "target": "self"
+          }
+        }
+      ]
+    },
+    "dice": []
+  },
+  {
+    "id": "card_toxic_p",
+    "name": "ТоксикП",
+    "tier": 1,
+    "type": "Melee",
+    "description": "Колющий 1-1. При попадании: 3 Паралича на 3 хода.",
+    "flags": [],
+    "scripts": {},
+    "dice": [
+      {
+        "type": "pierce",
+        "base_min": 1,
+        "base_max": 1,
+        "is_counter": false,
+        "scripts": {
+          "on_hit": [
+            {
+              "script_id": "apply_status",
+              "params": {
+                "status": "paralysis",
+                "base": 3,
+                "stat": "None",
+                "scale_from_target": false,
+                "factor": 1.0,
+                "duration": 3,
+                "delay": 0,
+                "target": "target"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

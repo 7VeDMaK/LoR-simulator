@@ -102,4 +102,13 @@ WEAPON_REGISTRY = {
         stats={"power_slash": 2, "power_all": 2},
         weapon_type="light"
     ),
+
+    "mace": Weapon(
+        id="mace",
+        name="Булава",
+        rank=8,  # Ранг можете изменить по желанию
+        description="Тяжелое оружие. +3 к Тяжелому, +2 к Дробящему.",
+        stats={"heavy_weapon": 3, "power_blunt": 2},
+        weapon_type="heavy"
+    ),
 }

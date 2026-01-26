@@ -36,13 +36,46 @@
         "thrill_of_battle",
         "furious_assault",
         "furious_assault",
-        "furious_assault"
+        "furious_assault",
+        "card_toxic_p"
     ],
     "active_slots": [],
     "stored_dice": [],
-    "counter_dice": [],
+    "counter_dice": [
+        {
+            "type": "block",
+            "base_min": 7,
+            "base_max": 10,
+            "is_counter": true,
+            "scripts": {}
+        },
+        {
+            "type": "block",
+            "base_min": 7,
+            "base_max": 10,
+            "is_counter": true,
+            "scripts": {}
+        },
+        {
+            "type": "block",
+            "base_min": 7,
+            "base_max": 10,
+            "is_counter": true,
+            "scripts": {}
+        }
+    ],
     "memory": {
-        "status_rank": "9 (Fixer)"
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+            "hp": 150,
+            "sp": 65,
+            "stagger": 78
+        },
+        "adaptation_stats": {
+            "slash": 0,
+            "pierce": 0,
+            "blunt": 0
+        }
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -70,7 +103,7 @@
             "pierce": 1.0,
             "blunt": 1.0
         },
-        "weapon_id": "none"
+        "weapon_id": "mace"
     },
     "attributes": {
         "strength": 30,

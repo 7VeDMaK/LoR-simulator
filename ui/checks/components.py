@@ -1,7 +1,5 @@
 import random
-
 import streamlit as st
-
 from ui.checks.logic import get_stat_value, calculate_pre_roll_stats, perform_check_logic
 
 
@@ -24,19 +22,23 @@ def get_difficulty_description(value, stat_key=""):
         return prefix + "100+ - Поле 'Удачи' (Звезда Города)"
     return None
 
+
 def calculate_luck_cost(chosen_value, current_luck):
-    """
-    Рассчитывает стоимость (или восстановление) удачи.
-    """
     abs_val = abs(chosen_value)
     cost = 0
 
-    if abs_val < 6: cost = 1
-    elif abs_val < 12: cost = 3
-    elif abs_val < 20: cost = 5
-    elif abs_val < 30: cost = 10
-    elif abs_val < 45: cost = 20
-    elif abs_val < 60: cost = 40
+    if abs_val < 6:
+        cost = 1
+    elif abs_val < 12:
+        cost = 3
+    elif abs_val < 20:
+        cost = 5
+    elif abs_val < 30:
+        cost = 10
+    elif abs_val < 45:
+        cost = 20
+    elif abs_val < 60:
+        cost = 40
     elif abs_val < 80:
         cost = current_luck if current_luck > 0 else 0
         if chosen_value < 0: cost = 60
@@ -45,6 +47,7 @@ def calculate_luck_cost(chosen_value, current_luck):
         if chosen_value < 0: cost = 100
 
     return cost
+
 
 def draw_luck_interface(unit):
     """Специальный интерфейс для Удачи."""
@@ -56,12 +59,20 @@ def draw_luck_interface(unit):
 
     roll_key = f"luck_roll_val_{unit.name}"
 
+    # === [FIX] КНОПКА РОЛЛА УДАЧИ С ТРИГГЕРОМ ===
     if c_roll.button("🎲 Ролл Потенциала (1d12 + Luck)", type="primary"):
         roll = random.randint(1, 12)
         total_roll = roll + current_luck
+
+        # 1. Сохраняем в сессию для отображения слайдера
         st.session_state[roll_key] = total_roll
         if f"luck_choice_{unit.name}" in st.session_state:
             del st.session_state[f"luck_choice_{unit.name}"]
+
+        # 2. ВЫЗЫВАЕМ ПАССИВКУ (Псевдо-ГГ)
+        # Она слушает "on_luck_check"
+        if hasattr(unit, "trigger_hooks"):
+            unit.trigger_hooks("on_luck_check", result=total_roll)
 
     if roll_key in st.session_state:
         max_pot = abs(st.session_state[roll_key])
@@ -103,6 +114,7 @@ def draw_luck_interface(unit):
                 st.success("Удача обновлена!")
                 st.rerun()
 
+
 def draw_roll_interface(unit, selected_key, selected_label):
     st.divider()
     val = get_stat_value(unit, selected_key)
@@ -115,15 +127,24 @@ def draw_roll_interface(unit, selected_key, selected_label):
 
     chance, ev, final_dc = calculate_pre_roll_stats(unit, selected_key, val, difficulty, bonus)
 
-    if chance >= 80: color = "green"
-    elif chance >= 50: color = "orange"
-    else: color = "red"
+    if chance >= 80:
+        color = "green"
+    elif chance >= 50:
+        color = "orange"
+    else:
+        color = "red"
 
     st.markdown(f"Шанс: :{color}[**{chance:.1f}%**] | Ожидание: **{ev:.1f}** | DC: **{final_dc}**")
 
+    # === [FIX] КНОПКА ОБЫЧНОГО РОЛЛА С ТРИГГЕРОМ ===
     if st.button("🎲 Бросить", type="primary", width='stretch', key=f"btn_{selected_key}"):
         res = perform_check_logic(unit, selected_key, val, difficulty, bonus)
         res_color = "green" if res["is_success"] else "red"
+
+        # ВЫЗЫВАЕМ ПАССИВКУ
+        # Она слушает "on_skill_check"
+        if hasattr(unit, "trigger_hooks"):
+            unit.trigger_hooks("on_skill_check", check_result=res['total'], stat_key=selected_key)
 
         with st.container(border=True):
             c_img, c_txt = st.columns([1, 4])
@@ -135,7 +156,6 @@ def draw_roll_interface(unit, selected_key, selected_label):
                 st.markdown(f"### :{res_color}[{res['msg']}]")
                 st.markdown(f"**{res['total']}** vs **{res['final_difficulty']}**")
 
-                # Формула: бросок + модификаторы = итог
                 die_text = f"`{res['roll']} ({res['die']})`" if res['die'] != "Fixed" else ""
                 st.markdown(f"{die_text} + {res['formula_text']} = **{res['total']}**")
 

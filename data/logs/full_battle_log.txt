@@ -1,4 +1,7 @@
-=== BATTLE LOG CLEARED: 2026-01-25 12:21:46.965398 ===
-[12:21:46.965] [VERBOSE] [Stats] Recalculating stats for  Дна'хо
-[12:21:46.965] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо
-[12:21:46.966] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо. HP: 20, SP: 20, Speed: [(1, 4)]
+=== BATTLE LOG CLEARED: 2026-01-26 17:02:26.438788 ===
+[17:02:26.439] [VERBOSE] [Stats] Recalculating stats for  Дна'хо
+[17:02:26.441] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо
+[17:02:26.444] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо. HP: 20, SP: 20, Speed: [(1, 4)]
+[17:02:28.567] [VERBOSE] [Stats] Recalculating stats for  Дна'хо
+[17:02:28.568] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо
+[17:02:28.570] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо. HP: 20, SP: 20, Speed: [(1, 4)]
