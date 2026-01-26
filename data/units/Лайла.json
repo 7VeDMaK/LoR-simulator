@@ -28,14 +28,14 @@
     "_status_effects": {},
     "delayed_queue": [],
     "deck": [
-        "short_lunge",
-        "long_lunge",
-        "draw_sword",
-        "long_edge",
-        "tale_of_rebirth",
-        "double_strike",
-        "time_cant_turn_back",
-        "still_alive",
+        "short_lunge_blunt",
+        "long_lunge_blunt",
+        "draw_sword_blunt",
+        "long_edge_blunt",
+        "tale_of_rebirth_blunt",
+        "double_strike_blunt",
+        "time_cant_turn_back_blunt",
+        "still_alive_blunt",
         "perfect_cut"
     ],
     "active_slots": [],
@@ -112,7 +112,8 @@
         "topographic_cretinism",
         "not_economically_minded",
         "fear_of_healing",
-        "sharp_mind"
+        "sharp_mind",
+        "low_endurance"
     ],
     "talents": [],
     "augmentations": [],

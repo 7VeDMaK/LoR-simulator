@@ -2,7 +2,8 @@
 from logic.statuses.common import (
     StrengthStatus, EnduranceStatus, BleedStatus, ParalysisStatus,
     ProtectionStatus, FragileStatus, VulnerabilityStatus, BarrierStatus, BindStatus, DeepWoundStatus, SlowStatus,
-    HasteStatus, BurnStatus, WeaknessStatus, WeakStatus, StaggerResistStatus, DmgUpStatus, DmgDownStatus, RuptureStatus
+    HasteStatus, BurnStatus, WeaknessStatus, WeakStatus, StaggerResistStatus, DmgUpStatus, DmgDownStatus, RuptureStatus,
+    AttackPowerDownStatus
 )
 from logic.statuses.custom import (
     SelfControlStatus, SmokeStatus, RedLycorisStatus, SinisterAuraStatus,
@@ -61,5 +62,6 @@ STATUS_REGISTRY = {
     "fanat_mark":FanatMarkStatus(),
     "dmg_up":DmgUpStatus(),
     "dmg_down":DmgDownStatus(),
-    "weak": WeakStatus()
+    "weak": WeakStatus(),
+    "attack_power_down": AttackPowerDownStatus()
 }

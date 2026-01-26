@@ -93,6 +93,7 @@ ICON_FILES = {
     "dmg_down": "DamageDown.webp",
     "power_up": "AttackPowerUp.webp",
     "power_down": "AttackPowerDown.webp",
+    "attack_power_down": "AttackPowerDown.webp",
     "invisibility": "Undetectable.webp",
     "rhythm": "Rythm.webp",  # Rythm
 

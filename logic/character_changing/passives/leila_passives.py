@@ -323,6 +323,47 @@ class PassiveSharpMind(BasePassive):
         return current_result
 
 
+class PassiveLowEndurance(BasePassive):
+    """
+    Малая выносливость.
+    Продолжительные битвы даются тяжело.
+    После 6-й сцены сражений получает +2 Bind и +2 Attack Power Down до конца битвы.
+    """
+    id = "low_endurance"
+    name = "Малая выносливость"
+    description = (
+        "Продолжительные битвы даются тяжело.\n"
+        "После 6-й сцены: +2 Bind, +2 Attack Power Down (до конца битвы)."
+    )
+    is_active_ability = False
+
+    def on_round_start(self, unit, *args, **kwargs):
+        """Проверяет номер сцены и накладывает дебафы после 6-й сцены."""
+        try:
+            import streamlit as st
+            current_round = st.session_state.get('round_number', 1)
+            
+            # Если это 6-я или более поздняя сцена
+            if current_round >= 6:
+                # Проверяем, не наложены ли уже дебафы (чтобы не накладывать каждый раунд заново)
+                if not hasattr(unit, '_low_endurance_applied'):
+                    # Накладываем дебафы с длительностью 99 (до конца битвы)
+                    unit.add_status("bind", 2, duration=99)
+                    unit.add_status("attack_power_down", 2, duration=99)
+                    
+                    # Помечаем, что дебафы уже наложены
+                    unit._low_endurance_applied = True
+                    
+                    logger.log(
+                        f"💔 {self.name}: {unit.name} измотан длительным боем! (+2 Bind, +2 Attack Power Down)",
+                        LogLevel.NORMAL, "Passive"
+                    )
+        except Exception as e:
+            # Если streamlit не доступен (например, в тестах), игнорируем
+            logger.log(f"⚠️ Low Endurance check error: {e}", LogLevel.VERBOSE, "Passive")
+            pass
+
+
 class PassiveHardenedBySolitude(BasePassive):
     """
     Закалённая Одиночеством.

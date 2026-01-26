@@ -23,6 +23,19 @@ class EnduranceStatus(StatusEffect):
         if ctx.dice.dtype == DiceType.BLOCK or ctx.dice.dtype == DiceType.EVADE:
             ctx.modify_power(stack, "Endurance")
 
+class AttackPowerDownStatus(StatusEffect):
+    id = "attack_power_down"
+    name = "Ослабление атаки"
+    
+    def on_roll(self, ctx: RollContext, **kwargs):
+        stack = kwargs.get('stack', 0)
+        if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
+            ctx.modify_power(-stack, "Attack Power Down")
+            logger.log(
+                f"⬇️ Attack Power Down: {ctx.source.name} attack power reduced by {stack}",
+                LogLevel.VERBOSE, "Status"
+            )
+
 class ParalysisStatus(StatusEffect):
     id = "paralysis"
     def on_roll(self, ctx: RollContext, **kwargs):
