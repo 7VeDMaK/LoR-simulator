@@ -44,7 +44,13 @@
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
-        "status_rank": "9 (Fixer)"
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+            "hp": 200,
+            "sp": 202,
+            "stagger": 103
+        },
+        "cat_reflexes_triggered": false
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -76,7 +82,7 @@
             "pierce": 1.0,
             "blunt": 1.0
         },
-        "weapon_id": "cleaver_7"
+        "weapon_id": "phantom_razors"
     },
     "attributes": {
         "strength": 5,
