@@ -96,38 +96,51 @@ class PassiveAxisUnity(BasePassive):
 
 # === НОВЫЕ ПАССИВКИ (СИЛЬНЫЕ СТОРОНЫ) ===
 
+from core.logging import logger, LogLevel
+from logic.character_changing.passives.base_passive import BasePassive
+import streamlit as st
+
 class PassivePseudoProtagonist(BasePassive):
     id = "pseudo_protagonist"
     name = "Псевдо-главный герой"
     description = (
-        "Вне боя Аксис получает опыт за каждый брошенный кубик. "
+        "Вне боя Аксис получает опыт за каждый брошенный кубик (Навыки и Удача). "
         "Опыт = (Опыт текущего уровня) * (Результат броска / 100)."
     )
     is_active_ability = False
 
     def on_skill_check(self, unit, check_result: int, stat_key: str, **kwargs):
+        """
+        Основная логика начисления опыта за проверки.
+        """
         # 1. Считаем базовую стоимость уровня (2^(lvl-1))
-        # Защита от уровня 0 или меньше
         lvl = max(1, unit.level)
         level_xp_base = 2 ** lvl
 
         # 2. Считаем процент от броска
-        # Результат 10 = 0.1 (10%), Результат 30 = 0.3 (30%)
+        # Результат 10 = 0.1, 50 = 0.5, 100 = 1.0
         multiplier = check_result / 100.0
 
-        # 3. Итоговый опыт (целое число)
+        # 3. Итоговый опыт (минимум равен результату броска)
         xp_gain = max(check_result, int(level_xp_base * multiplier))
 
         if xp_gain > 0:
             unit.total_xp += xp_gain
 
-            # Логируем
-            logger.log(f"📚 Pseudo Protagonist: {unit.name} gained {xp_gain} XP from roll {check_result}",
+            # Логирование
+            check_type = "Luck" if stat_key == "luck" else "Skill"
+            logger.log(f"📚 Pseudo Protagonist: {unit.name} gained {xp_gain} XP from {check_type} roll {check_result}",
                        LogLevel.NORMAL, "System")
 
-            # Пишем тост в интерфейс (чтобы игрок увидел сразу)
-            import streamlit as st
-            st.toast(f"Псевдо-ГГ: +{xp_gain} XP за бросок!", icon="📚")
+            # Тост для игрока
+            st.toast(f"Псевдо-ГГ: +{xp_gain} XP ({check_type})!", icon="📚")
+
+    def on_luck_check(self, unit, result: int, **kwargs):
+        """
+        Перехватывает броски удачи (trigger_hooks('on_luck_check')) и направляет их в общую логику.
+        """
+        # Передаем результат броска удачи как check_result, а ключ как 'luck'
+        self.on_skill_check(unit, result, "luck")
 
 
 class PassiveSourceAccess(BasePassive):

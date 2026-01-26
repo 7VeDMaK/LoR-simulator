@@ -1,10 +1,10 @@
 {
     "name": "Аксис Мунди",
-    "level": 6,
+    "level": 8,
     "rank": 9,
     "avatar": "data/avatars/Аксис_Мунди.png",
     "base_intellect": 8,
-    "total_xp": 47,
+    "total_xp": 141,
     "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -22,7 +22,7 @@
     "current_sp": 38,
     "current_stagger": 39,
     "resources": {
-        "luck": 38
+        "luck": 55
     },
     "cooldowns": {},
     "card_cooldowns": {},
@@ -38,7 +38,10 @@
         "axis_fist_justice",
         "axis_mcguffin",
         "axis_plot_armor",
-        "axis_ex_machina"
+        "axis_ex_machina",
+        "item_heal_5",
+        "item_heal_35",
+        "item_heal_65"
     ],
     "active_slots": [],
     "stored_dice": [],
@@ -54,7 +57,20 @@
     },
     "death_count": 0,
     "overkill_damage": 0,
-    "money_log": [],
+    "money_log": [
+        {
+            "amount": 1500000,
+            "reason": "Первое задание Фемя"
+        },
+        {
+            "amount": -540000,
+            "reason": "Платье + ампулы "
+        },
+        {
+            "amount": 500000,
+            "reason": "У Лимы отобрала"
+        }
+    ],
     "base_stats": {
         "current_hp": 78,
         "current_sp": 38,
@@ -77,7 +93,7 @@
     },
     "attributes": {
         "strength": 0,
-        "endurance": 15,
+        "endurance": 17,
         "agility": 0,
         "wisdom": 15,
         "psych": 0
@@ -86,11 +102,11 @@
         "strike_power": 0,
         "medicine": 0,
         "willpower": 0,
-        "luck": 42,
+        "luck": 44,
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,
-        "speed": 6,
+        "speed": 8,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,
@@ -122,7 +138,7 @@
             "sp": 4
         }
     },
-    "biography": "Очки (крутые)\nВеревка (неудачливая)",
+    "biography": "Очки (крутые)\nВеревка (неудачливая)\n3 карточки хилок и платье (5, 30, 65. 3 бинда 0 2 3 сытости)\nплатье 500к\nстарый лук, немного приколов и стрел Лимы, но не все, еë шампунь, сами волосы Л, а также взяла у неë карандаш, бумагу, и оставила Лиме записку",
     "relationships": {},
     "unit_type": "player"
 }

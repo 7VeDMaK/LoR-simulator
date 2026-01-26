@@ -82,18 +82,26 @@ class TalentSmashingBlade(BasePassive):
         "9.3 А: Внезапные атаки наносят x1.5 урона.\n"
         "Условия: Невидимость, Цель имеет >90% HP.\n"
         "(Если взят 9.5 А 'Шаг в тень', порог HP снижается до 75%, урон 2х).\n"
-        "При Внезапной атаке: накладывает Xd6 Кровотечения (X = таланты ветки)."
+        "При Внезапной атаке: накладывает Xd6 Кровотечения (X = таланты ветки).\n"
+        "Срабатывает 1 раз за раунд."
     )
     is_active_ability = False
+
+    def on_round_start(self, unit, *args, **kwargs):
+        """Сбрасываем использование таланта в начале раунда."""
+        unit.memory["smashing_blade_used"] = False
 
     def on_roll(self, ctx, **kwargs):
         unit = ctx.source
         target = ctx.target
         if not target: return
 
+        # === 0. ПРОВЕРКА НА ИСПОЛЬЗОВАНИЕ ===
+        # Если талант уже сработал в этом раунде — выходим
+        if unit.memory.get("smashing_blade_used", False):
+            return
+
         if target.is_immune_to_surprise_attack():
-            # Если цель имеет иммунитет, логика внезапности не срабатывает
-            # Можно добавить лог, если нужно (опционально)
             ctx.log.append(f"🛡️ {target.name} immune to Surprise Attack!")
             logger.log(f"🛡️ Smashing Blade: {target.name} immune to surprise", LogLevel.VERBOSE, "Talent")
             return
@@ -121,7 +129,10 @@ class TalentSmashingBlade(BasePassive):
 
         # === 2. ПРИМЕНЕНИЕ ЭФФЕКТОВ ===
         if is_sudden:
-            # Множитель x2.0
+            # === ЗАПИСЫВАЕМ ИСПОЛЬЗОВАНИЕ ===
+            unit.memory["smashing_blade_used"] = True
+
+            # Множитель
             ctx.damage_multiplier = max(ctx.damage_multiplier, multiplier)
 
             # Наложение Кровотечения (Xd6)
@@ -143,7 +154,7 @@ class TalentSmashingBlade(BasePassive):
 
             target.add_status("bleed", bleed_stack, duration=3)
 
-            ctx.log.append(f"🗡️ **Sudden Attack**: x{multiplier} Dmg & {bleed_stack} Bleed ({', '.join(reasons)})")
+            ctx.log.append(f"🗡️ **Sudden Attack**: x{multiplier} Dmg & {bleed_stack} Bleed ({', '.join(reasons)}) [1/Round]")
             logger.log(f"🗡️ Smashing Blade: Sudden Attack x{multiplier} on {target.name}", LogLevel.NORMAL, "Talent")
 
 
@@ -202,12 +213,20 @@ class TalentFastAndSilent(BasePassive):
     name = "Быстрый и Тихий (А)"
     description = (
         "9.4 А: Бесшумные шаги (радиус слышимости 0-4м).\n"
-        "Пассивно: +5 к Скорости."
+        "Если персонаж невидим: +5 к роллу Атаки."
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
-        return {"speed": 5}
+    def on_roll(self, ctx, **kwargs):
+        unit = ctx.source
+
+        # 1. Проверяем, что это Атакующий кубик
+        if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
+
+            # 2. Проверяем наличие невидимости
+            if unit.get_status("invisibility") > 0:
+                # Добавляем +5 к значению броска
+                ctx.modify_power(5, "Fast & Silent (Invis)")
 
 
 # ==========================================
