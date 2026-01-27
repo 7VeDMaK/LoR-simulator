@@ -18,7 +18,7 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 104,
+    "current_hp": 103,
     "current_sp": 40,
     "current_stagger": 51,
     "resources": {},
@@ -67,7 +67,7 @@
         }
     ],
     "base_stats": {
-        "current_hp": 104,
+        "current_hp": 103,
         "current_sp": 40,
         "current_stagger": 51
     },
@@ -121,7 +121,17 @@
         "wild_cityscape",
         "mind_suppression"
     ],
-    "talents": [],
+    "talents": [
+        "natural_genius",
+        "celestial_eyes",
+        "watch_and_learn",
+        "right_of_the_first",
+        "role_model",
+        "mockery",
+        "plot_armor_v2",
+        "muted",
+        "just_getting_started"
+    ],
     "augmentations": [
         "aug_strizh"
     ],
