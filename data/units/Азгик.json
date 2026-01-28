@@ -19,17 +19,120 @@
         "imp_stg": 10
     },
     "current_hp": 100,
-    "current_sp": 91,
+    "current_sp": 109,
     "current_stagger": 43,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {
-        "azgick_rule_1": 1,
-        "azgick_rule_2": 1,
-        "azgick_rule_3": 1
+        "azgick_rule_2": [
+            1
+        ],
+        "azgick_rule_3": [
+            1
+        ],
+        "candy_praline": [
+            3
+        ],
+        "candy_marzipan": [
+            3
+        ],
+        "candy_grillage": [
+            3
+        ],
+        "tea_dark": [
+            3
+        ],
+        "tea_green": [
+            3
+        ],
+        "tea_fruit": [
+            3
+        ],
+        "tea_berry": [
+            3
+        ],
+        "tea_red": [
+            3
+        ],
+        "tea_ginger": [
+            3
+        ]
     },
     "active_buffs": {},
-    "_status_effects": {},
+    "_status_effects": {
+        "strength": [
+            {
+                "amount": 2,
+                "duration": 2
+            },
+            {
+                "amount": 1,
+                "duration": 2
+            }
+        ],
+        "endurance": [
+            {
+                "amount": 2,
+                "duration": 2
+            },
+            {
+                "amount": 1,
+                "duration": 2
+            }
+        ],
+        "haste": [
+            {
+                "amount": 2,
+                "duration": 2
+            },
+            {
+                "amount": 3,
+                "duration": 2
+            },
+            {
+                "amount": 2,
+                "duration": 2
+            }
+        ],
+        "protection": [
+            {
+                "amount": 2,
+                "duration": 2
+            },
+            {
+                "amount": 5,
+                "duration": 2
+            }
+        ],
+        "satiety": [
+            {
+                "amount": 18,
+                "duration": 98
+            }
+        ],
+        "stagger_resist": [
+            {
+                "amount": 1,
+                "duration": 2
+            }
+        ],
+        "barrier": [
+            {
+                "amount": 24,
+                "duration": 2
+            }
+        ],
+        "clarity": [
+            {
+                "amount": 1,
+                "duration": 98
+            },
+            {
+                "amount": 2,
+                "duration": 98
+            }
+        ]
+    },
     "delayed_queue": [],
     "deck": [
         "pat_right_shoulder",
@@ -67,7 +170,21 @@
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
-        "status_rank": "9 (Fixer)"
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+            "hp": 100,
+            "sp": 91,
+            "stagger": 43
+        },
+        "battle_initialized": true,
+        "cached_allies_names": [],
+        "clarity_cooldown_counter": 0,
+        "peak_sanity_initialized": true,
+        "emotional_storm_initialized": true,
+        "emo_level": 0,
+        "emo_progress": 1,
+        "emo_coins_pos": 1,
+        "emo_coins_neg": 0
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -107,7 +224,7 @@
     ],
     "base_stats": {
         "current_hp": 100,
-        "current_sp": 91,
+        "current_sp": 109,
         "current_stagger": 43
     },
     "defense": {
@@ -123,7 +240,7 @@
             "pierce": 1.0,
             "blunt": 1.0
         },
-        "weapon_id": "dual_blades"
+        "weapon_id": "banganrang"
     },
     "attributes": {
         "strength": 6,
