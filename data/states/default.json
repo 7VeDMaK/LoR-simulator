@@ -29,14 +29,7 @@
         "luck": 55
       },
       "cooldowns": {},
-      "card_cooldowns": {
-        "axis_sword_glory": 0,
-        "axis_spear_determination": 0,
-        "axis_fist_justice": 0,
-        "axis_mcguffin": 0,
-        "axis_plot_armor": 0,
-        "axis_ex_machina": 0
-      },
+      "card_cooldowns": {},
       "active_buffs": {},
       "_status_effects": {},
       "delayed_queue": [],
@@ -52,26 +45,10 @@
         "axis_ex_machina",
         "item_heal_5",
         "item_heal_35",
-        "item_heal_65"
+        "item_heal_65",
+        "tea_coffee_vespo"
       ],
-      "active_slots": [
-        {
-          "speed": 8,
-          "card": "axis_minor_setbacks",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        }
-      ],
+      "active_slots": [],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -89,8 +66,7 @@
           "total": 6,
           "dc": 0,
           "success": true
-        },
-        "battle_initialized": true
+        }
       },
       "death_count": 0,
       "overkill_damage": 0,
@@ -206,29 +182,9 @@
       "current_stagger": 66,
       "resources": {},
       "cooldowns": {},
-      "card_cooldowns": {
-        "bad_habit": 0,
-        "trip_up": 0,
-        "inhale_exhale": 0,
-        "smoke_arts": 0,
-        "demon_scream": 0,
-        "smoke_silhouette": 0
-      },
+      "card_cooldowns": {},
       "active_buffs": {},
-      "_status_effects": {
-        "strength": [
-          {
-            "amount": 4,
-            "duration": 1
-          }
-        ],
-        "endurance": [
-          {
-            "amount": 4,
-            "duration": 1
-          }
-        ]
-      },
+      "_status_effects": {},
       "delayed_queue": [],
       "deck": [
         "release_steam",
@@ -241,69 +197,7 @@
         "demon_scream",
         "smoke_silhouette"
       ],
-      "active_slots": [
-        {
-          "speed": 15,
-          "card": "release_steam",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 15,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 15,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 7,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        }
-      ],
+      "active_slots": [],
       "stored_dice": [],
       "counter_dice": [
         {
@@ -346,8 +240,7 @@
           "total": 2,
           "dc": 1,
           "success": true
-        },
-        "battle_initialized": true
+        }
       },
       "death_count": 0,
       "overkill_damage": 0,
@@ -459,47 +352,16 @@
       "unit_type": "player"
     }
   ],
-  "phase": "planning",
+  "phase": "roll",
   "round_number": 1,
-  "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-  "battle_logs": [
-    {
-      "round": "Start",
-      "rolls": "Event",
-      "details": "🚩 **Лилит**: 🛡️ **Встроенная Броня**: Броня снята. Резисты = 1.0"
-    },
-    {
-      "round": "Start",
-      "rolls": "Event",
-      "details": "🚩 **Лилит**: 🌬️ **Тату 'Благословение Ветра'**: Лимит дыма увеличен до 15"
-    },
-    {
-      "round": "Speed Roll",
-      "rolls": "Passive",
-      "details": "⚡ **Лилит**: 🐈 **Махнуть хвостиком**: +1 Counter Evade (7-10) added to pool."
-    },
-    {
-      "round": "Speed Roll",
-      "rolls": "Passive",
-      "details": "⚡ **Лилит**: ⚡ **Живи быстро, умирай молодым**: +4 Силы и Стойкости (за 4 слота)"
-    },
-    {
-      "round": "Speed Roll",
-      "rolls": "Passive",
-      "details": "⚡ **Лилит**: 😡 **Неистовство**: Frenzy (+1 Counter 7-10)"
-    },
-    {
-      "round": "Speed Roll",
-      "rolls": "Passive",
-      "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Добавлено 1 контр-уклонений (7-10) (Smoke: 0)."
-    }
-  ],
+  "turn_message": "Game Reset to Pre-Battle State. Press 'Roll Initiative'.",
+  "battle_logs": [],
   "script_logs": "",
   "turn_phase": "done",
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Экс Машинариум",
+  "profile_unit": null,
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",

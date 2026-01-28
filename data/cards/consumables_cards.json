@@ -37,6 +37,66 @@
     "dice": []
   },
   {
+  "id": "tea_coffee_vespo",
+  "name": "Кофе Веспо",
+  "tier": 5,
+  "type": "Item",
+  "description": "Лучшее кофе в Северном Округе 12 района! Бодрит так, что можно умереть (буквально).",
+  "scripts": {
+    "on_use": [
+      {
+        "script_id": "apply_status",
+        "params": {
+          "status": "satiety",
+          "base": 3,
+          "stat": "None",
+          "scale_from_target": false,
+          "factor": 1.0,
+          "duration": 99,
+          "delay": 0,
+          "target": "self"
+        }
+      },
+      {
+        "script_id": "apply_status",
+        "params": {
+          "status": "strength",
+          "base": 3,
+          "duration": 3,
+          "target": "self"
+        }
+      },
+      {
+        "script_id": "apply_status",
+        "params": {
+          "status": "haste",
+          "base": 3,
+          "duration": 3,
+          "target": "self"
+        }
+      },
+      {
+        "script_id": "apply_status",
+        "params": {
+          "status": "endurance",
+          "base": 3,
+          "duration": 3,
+          "target": "self"
+        }
+      },
+      {
+        "script_id": "deal_effect_damage",
+        "params": {
+          "type": "hp",
+          "base": 9999,
+          "probability": 0.01,
+          "target": "self"
+        }
+      }
+    ]
+  }
+},
+  {
     "id": "item_heal_35",
     "name": "Лечилка 35",
     "tier": 5,

@@ -19,8 +19,8 @@
         "imp_stg": 0
     },
     "current_hp": 80,
-    "current_sp": 101,
-    "current_stagger": 40102,
+    "current_sp": 38,
+    "current_stagger": 40,
     "resources": {
         "luck": 55
     },
@@ -41,7 +41,8 @@
         "axis_ex_machina",
         "item_heal_5",
         "item_heal_35",
-        "item_heal_65"
+        "item_heal_65",
+        "tea_coffee_vespo"
     ],
     "active_slots": [],
     "stored_dice": [],
@@ -81,8 +82,8 @@
     ],
     "base_stats": {
         "current_hp": 80,
-        "current_sp": 101,
-        "current_stagger": 40102
+        "current_sp": 38,
+        "current_stagger": 40
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
