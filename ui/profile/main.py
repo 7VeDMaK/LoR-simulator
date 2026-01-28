@@ -1,8 +1,9 @@
 import streamlit as st
 import io
+import os
 from fpdf import FPDF
 
-from core.logging import logger  # [ВАЖНО] Импорт логгера
+from core.logging import logger
 from core.unit.unit import Unit
 from core.unit.unit_library import UnitLibrary
 from ui.profile.abilities import render_abilities
@@ -17,34 +18,26 @@ def render_profile_page():
 
     roster = st.session_state['roster']
 
-    # 1. Header & Selection
     unit, u_key = render_header(roster)
     if unit is None:
-        return  # ничего не показываем, если персонажа нет
+        return
 
-    # === ПЕРЕСЧЕТ ХАРАКТЕРИСТИК (В НАЧАЛЕ) ===
-    logger.clear()  # Очищаем логгер перед расчетом
-    unit.recalculate_stats()  # Обновляем HP, SP, навыки и т.д.
-    calculation_logs = logger.get_logs()  # Логи пересчета
+    logger.clear()
+    unit.recalculate_stats()
+    calculation_logs = logger.get_logs()
 
-    # === ОТРИСОВКА ИНТЕРФЕЙСА ===
     col_l, col_r = st.columns([1, 2.5], gap="medium")
 
-    # 2. Left Column: Basic Info
     with col_l:
         render_basic_info(unit, u_key)
 
-    # 3. Right Column: Everything else
     with col_r:
         render_equipment(unit, u_key)
         render_stats(unit, u_key)
 
     st.markdown("---")
-
-    # 4. Abilities & Deck
     render_abilities(unit, u_key)
 
-    # 5. Calculation Log
     with st.expander("📜 Лог расчета характеристик", expanded=False):
         if calculation_logs:
             for l in calculation_logs:
@@ -59,14 +52,16 @@ def render_profile_page():
 
     st.divider()
 
-    # pdf generation
-    st.markdown("## Get charshit in PDF")
+    st.markdown("## Скачать профиль в PDF")
 
     def create_character_pdf(unit):
         pdf = FPDF()
         pdf.set_auto_page_break(auto=True, margin=15)
         pdf.add_page()
-        pdf.set_font("Arial", size=12)
+
+        font_path = os.path.join("..", "fonts", "DejaVuSans", "DejaVuSans.ttf")
+        pdf.add_font("DejaVu", "", font_path, uni=True)
+        pdf.set_font("DejaVu", size=12)
 
         lines = []
 
