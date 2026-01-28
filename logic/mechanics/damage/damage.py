@@ -37,8 +37,9 @@ def _apply_stagger_side_damage(target, attacker_ctx, final_amt):
 
 
 def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_event_func):
-    """Наносит прямой урон (эффекты, скрипты и т.д.) без конвертации типов."""
-    if amount <= 0: return
+    """Наносит прямой урон (эффекты, скрипты и т.д.) без конвертации типов.
+    Возвращает количество нанесенного урона."""
+    if amount <= 0: return 0
 
     initial_amount = amount
 
@@ -47,7 +48,7 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
 
     if amount <= 0 < initial_amount:
         if source_ctx: source_ctx.log.append("🛡️ Damage mitigated to 0")
-        return
+        return 0
 
     final_dmg = 0
     dtype_name, dice_obj = _get_attack_info(source_ctx)
@@ -110,24 +111,28 @@ def deal_direct_damage(source_ctx, target, amount: int, dmg_type: str, trigger_e
             **extra_args
         )
 
+    # [FIX] Возвращаем итоговый урон
+    return final_dmg
+
 
 def apply_damage(attacker_ctx, defender_ctx, dmg_type="hp",
                  trigger_event_func=None, script_runner_func=None):
     """
     Основной пайплайн нанесения урона от атаки.
+    Возвращает количество нанесенного урона.
     """
     attacker = attacker_ctx.source
     defender = attacker_ctx.target
     if defender_ctx: defender = defender_ctx.source
 
-    if not defender: return
+    if not defender: return 0
 
     if hasattr(defender, "iter_mechanics"):
         for mech in defender.iter_mechanics():
             if mech.prevents_damage(defender, attacker_ctx):
                 attacker_ctx.log.append(f"🚫 {defender.name} Immune ({mech.name if hasattr(mech, 'name') else mech.id})")
                 logger.log(f"🚫 {defender.name} Immune to Damage ({mech.id})", LogLevel.MINIMAL, "Damage")
-                return
+                return 0
 
     if hasattr(attacker, "trigger_mechanics"):
         attacker.trigger_mechanics("on_hit", attacker_ctx)
@@ -137,6 +142,8 @@ def apply_damage(attacker_ctx, defender_ctx, dmg_type="hp",
     final_amt = _calculate_outgoing_damage(attacker, attacker_ctx, dmg_type)
 
     convert_to_sp = getattr(attacker_ctx, 'convert_hp_to_sp', False)
+
+    damage_dealt = 0  # [FIX] Переменная для сохранения результата
 
     if dmg_type == "hp":
         if convert_to_sp:
@@ -149,11 +156,17 @@ def apply_damage(attacker_ctx, defender_ctx, dmg_type="hp",
                     log_list=attacker_ctx.log
                 )
             _apply_resource_damage(defender, sp_damage, "sp", attacker_ctx)
+            damage_dealt = sp_damage  # Считаем, что нанесли этот урон (в SP)
         else:
-            deal_direct_damage(attacker_ctx, defender, final_amt, "hp", trigger_event_func)
+            # [FIX] Сохраняем результат
+            damage_dealt = deal_direct_damage(attacker_ctx, defender, final_amt, "hp", trigger_event_func)
 
     elif dmg_type == "stagger":
-        deal_direct_damage(attacker_ctx, defender, final_amt, "stagger", trigger_event_func)
+        # [FIX] Сохраняем результат
+        damage_dealt = deal_direct_damage(attacker_ctx, defender, final_amt, "stagger", trigger_event_func)
 
     if dmg_type == "hp":
         _apply_stagger_side_damage(defender, attacker_ctx, final_amt)
+
+    # [FIX] Возвращаем результат
+    return damage_dealt

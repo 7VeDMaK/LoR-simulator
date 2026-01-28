@@ -36,12 +36,17 @@ def resolve_clash_round(engine, ctx_a, ctx_d, die_a, die_d):
         logger.log(f"{attacker.name} wins clash ({val_a} vs {val_d})", LogLevel.NORMAL, "Clash")
 
         if is_atk_a and is_atk_d:
-            result["outcome"] = f"🏆 {attacker.name} Win (Hit)"
-            engine._resolve_clash_interaction(ctx_a, ctx_d, val_a - val_d)
+            # [FIX] Сначала наносим урон и получаем результат
+            dmg = engine._resolve_clash_interaction(ctx_a, ctx_d, val_a - val_d)
+            # Формируем строку с уроном
+            dmg_str = f" 💥 **-{dmg} HP**" if dmg else ""
+            result["outcome"] = f"🏆 {attacker.name} Win (Hit){dmg_str}"
 
         elif is_atk_a and is_evade_d:
-            result["outcome"] = f"💥 Evade Failed"
-            engine._resolve_clash_interaction(ctx_a, ctx_d, val_a)
+            # [FIX] Тут тоже наносим урон (провал уворота)
+            dmg = engine._resolve_clash_interaction(ctx_a, ctx_d, val_a)
+            dmg_str = f" 💥 **-{dmg} HP**" if dmg else ""
+            result["outcome"] = f"💥 Evade Failed{dmg_str}"
 
         elif is_evade_a and is_atk_d:
             result["outcome"] = f"🏃 {attacker.name} Evades! (Recycle)"
@@ -64,12 +69,16 @@ def resolve_clash_round(engine, ctx_a, ctx_d, die_a, die_d):
         logger.log(f"{defender.name} wins clash ({val_d} vs {val_a})", LogLevel.NORMAL, "Clash")
 
         if is_atk_d and is_atk_a:
-            result["outcome"] = f"🏆 {defender.name} Win (Hit)"
-            engine._resolve_clash_interaction(ctx_d, ctx_a, val_d - val_a)
+            # [FIX] Сначала наносим урон и получаем результат
+            dmg = engine._resolve_clash_interaction(ctx_d, ctx_a, val_d - val_a)
+            dmg_str = f" 💥 **-{dmg} HP**" if dmg else ""
+            result["outcome"] = f"🏆 {defender.name} Win (Hit){dmg_str}"
 
         elif is_atk_d and is_evade_a:
-            result["outcome"] = f"💥 Evade Failed"
-            engine._resolve_clash_interaction(ctx_d, ctx_a, val_d)
+            # [FIX] Тут тоже наносим урон
+            dmg = engine._resolve_clash_interaction(ctx_d, ctx_a, val_d)
+            dmg_str = f" 💥 **-{dmg} HP**" if dmg else ""
+            result["outcome"] = f"💥 Evade Failed{dmg_str}"
 
         elif is_evade_d and is_atk_a:
             result["outcome"] = f"🏃 {defender.name} Evades! (Recycle)"

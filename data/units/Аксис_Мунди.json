@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 78,
-    "current_sp": 38,
-    "current_stagger": 39,
+    "current_hp": 80,
+    "current_sp": 101,
+    "current_stagger": 40102,
     "resources": {
         "luck": 55
     },
@@ -49,11 +49,19 @@
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 20,
-            "sp": 20,
-            "stagger": 10
+            "hp": 80,
+            "sp": -15,
+            "stagger": 39
         },
-        "battle_initialized": true
+        "last_revive_attempt_round": 1,
+        "last_revive_log": {
+            "roll": 6,
+            "bonus": 0,
+            "penalty": 0,
+            "total": 6,
+            "dc": 0,
+            "success": true
+        }
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -72,9 +80,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 78,
-        "current_sp": 38,
-        "current_stagger": 39
+        "current_hp": 80,
+        "current_sp": 101,
+        "current_stagger": 40102
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
