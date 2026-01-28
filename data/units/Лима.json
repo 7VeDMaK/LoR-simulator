@@ -121,7 +121,13 @@
         "wild_cityscape",
         "mind_suppression"
     ],
-    "talents": [],
+    "talents": [
+        "innate_talent",
+        "celestial_eyes",
+        "void_cleave",
+        "golden_reputation",
+        "copycat_insight"
+    ],
     "augmentations": [
         "aug_strizh"
     ],

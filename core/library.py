@@ -18,6 +18,15 @@ class Library:
         cls._cards[key] = card
 
     @classmethod
+    def register_temp_card(cls, new_id, card_obj):
+        """
+        [NEW] Регистрирует модифицированную временную карту под новым ID.
+        Используется для талантов типа Copycat.
+        """
+        card_obj.id = new_id
+        cls._cards[new_id] = card_obj
+
+    @classmethod
     def get_card(cls, key: str) -> Card:
         if key in cls._cards:
             return copy.deepcopy(cls._cards[key])

@@ -1,3 +1,4 @@
+import copy
 import random
 
 from core.enums import DiceType, CardType
@@ -138,18 +139,18 @@ class TalentCelestialEyes(BasePassive):
         details.append(f"📜 **Био**: {bio}")
 
         # ТИР 1: Фракция (UnitType) и Ранг (5+)
-        if diff >= 5:
+        if diff >= 3:
             u_type = getattr(target, "unit_type", "Неизвестно")
             rank = getattr(target, "rank", 9)
             details.append(f"🏴 **Тип/Ранг**: {u_type} | Ранг {rank}")
 
         # ТИР 2: Слабые карты (Tier 1) (10+)
-        if diff >= 10:
+        if diff >= 7:
             c_str = ", ".join(cards_by_tier[1]) if cards_by_tier[1] else "Нет"
             details.append(f"🃏 **Слабые карты (T1)**: {c_str}")
 
         # ТИР 3: Средние карты (Tier 2) + Предметы (15+)
-        if diff >= 15:
+        if diff >= 12:
             c_str = ", ".join(cards_by_tier[2]) if cards_by_tier[2] else "Нет"
             details.append(f"🃏 **Средние карты (T2)**: {c_str}")
 
@@ -165,7 +166,7 @@ class TalentCelestialEyes(BasePassive):
             details.append(f"💊 **Предметы**: {item_str}")
 
         # ТИР 4: Сильные карты (Tier 3) + Оружие (20+)
-        if diff >= 20:
+        if diff >= 16:
             c_str = ", ".join(cards_by_tier[3]) if cards_by_tier[3] else "Нет"
             details.append(f"🃏 **Сильные карты (T3)**: {c_str}")
 
@@ -177,7 +178,7 @@ class TalentCelestialEyes(BasePassive):
             details.append(f"⚔️ **Оружие**: {weapon_name}")
 
         # ТИР 5: Мощные карты (Tier 4+) + Аугментации (25+)
-        if diff >= 25:
+        if diff >= 20:
             c_str = ", ".join(cards_by_tier[4]) if cards_by_tier[4] else "Нет"
             details.append(f"🃏 **Мощные карты (T4+)**: {c_str}")
 
@@ -186,13 +187,13 @@ class TalentCelestialEyes(BasePassive):
             details.append(f"🦾 **Аугментации**: {aug_str}")
 
         # ТИР 6: Таланты (30+)
-        if diff >= 30:
+        if diff >= 25:
             talents = getattr(target, "talents", [])
             tal_str = resolve_names(talents, TALENT_REGISTRY)
             details.append(f"🧠 **Таланты**: {tal_str}")
 
         # ТИР 7: Пассивные навыки (35+)
-        if diff >= 35:
+        if diff >= 30:
             passives = getattr(target, "passives", [])
             pas_str = resolve_names(passives, PASSIVE_REGISTRY)
             details.append(f"⚛️ **Пассивки**: {pas_str}")
@@ -221,10 +222,14 @@ class TalentVoidCleave(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_damage_multiplier(self, multiplier, attacker, target, dice):
+    def on_calculate_damage_multiplier(self, unit, multiplier, **kwargs):
+        """
+        [FIX] Исправлена сигнатура метода.
+        Аргументы: unit (attacker), multiplier (current_res), kwargs (attacker, target, dice...)
+        """
         new_mult = multiplier + 0.2
         logger.log(
-            f"⚔️ {self.name}: Сопротивление цели изменено ({multiplier:.1f} -> {new_mult:.1f})",
+            f"⚔️ {self.name}: Сопротивление цели изменено ({multiplier:.2f} -> {new_mult:.2f})",
             LogLevel.VERBOSE,
             "Talent"
         )
@@ -232,48 +237,111 @@ class TalentVoidCleave(BasePassive):
 
 
 # ==========================================
-# 2.4 Мгновенное Озарение
+# 2.4 Золотая Репутация
 # ==========================================
-class TalentCopycatInsight(BasePassive):
-    id = "copycat_insight"
-    name = "2.4 Мгновенное Озарение"
+class TalentGoldenReputation(BasePassive):
+    id = "golden_reputation"
+    name = "2.4 Золотая Репутация"
     description = (
-        "Достаточно одного взгляда, чтобы превзойти чужую технику.\n"
-        "Активно (КД: 3 сцены): Создать в руке временную копию любой карты раунда. Стоимость: 0."
-    )
-    is_active_ability = True
-    cooldown = 3
-
-    # Логика активации реализуется через UI выбора карты, здесь только пассивная структура
-
-
-# ==========================================
-# 2.5 Право Первенства
-# ==========================================
-class TalentHeirPriority(BasePassive):
-    id = "heir_priority"
-    name = "2.5 Право Первенства"
-    description = (
-        "Истинный мастер диктует темп битвы с первого шага.\n"
-        "В начале битвы: +2 Спешки на 3 раунда.\n"
-        "Доп. урон равен разнице в скорости (Макс +8)."
+        "Ваше имя известно в высших кругах, а статус открывает многие двери.\n"
+        "Эффект: Вы получаете скидку 20% у торговцев и особые реплики в диалогах.\n"
+        "Дает +5 К красноречию"
     )
     is_active_ability = False
 
-    def on_combat_start(self, unit, log_func, **kwargs):
-        unit.add_status("haste", 2, duration=3)
+    def on_calculate_stats(self, unit) -> dict:
+        return {"eloquence": 5}
+
+
+# ==========================================
+# 2.5 Мгновенное Озарение
+# ==========================================
+class TalentCopycatInsight(BasePassive):
+    id = "copycat_insight"
+    name = "2.5 Мгновенное Озарение"
+    description = (
+        "Достаточно одного взгляда, чтобы превзойти чужую технику.\n"
+        "Активно (КД: 3 сцены): Выберите цель (Враг/Союзник) и одну из её доступных карт.\n"
+        "Вы получаете временную копию этой карты в руку на этот раунд.\n"
+        "Карта исчезает при использовании или в конце раунда."
+    )
+    is_active_ability = True
+    selection_type = "all"
+    requires_card_selection = True
+    cooldown = 3
+
+    def on_round_end(self, unit, log_func, **kwargs):
+        """
+        Удаляем временные карты, если они не были использованы за ход.
+        """
+        temp_cards = unit.memory.get("copycat_active_cards", [])
+        if not temp_cards:
+            return
+
+        removed_count = 0
+        new_deck = []
+
+        # Пересобираем колоду без временных карт этого таланта
+        for card_id in unit.deck:
+            if card_id in temp_cards:
+                removed_count += 1
+                # Удаляем также из глобальной библиотеки, чтобы не засорять память
+                if hasattr(Library, "delete_card"):
+                    Library.delete_card(card_id)
+            else:
+                new_deck.append(card_id)
+
+        unit.deck = new_deck
+        unit.memory["copycat_active_cards"] = []  # Очищаем список
+
+        if removed_count > 0 and log_func:
+            # log_func здесь обычно нет (это пассивный хук), но для структуры оставим
+            pass
+
+    def activate(self, unit, log_func, **kwargs):
+        target = kwargs.get("target")
+        card_id = kwargs.get("selected_card_id")
+
+        if not target or not card_id:
+            if log_func: log_func("⚠️ Нужно выбрать цель и карту!")
+            return False
+
+        original_card = Library.get_card(card_id)
+        if not original_card:
+            if log_func: log_func(f"❌ Ошибка: карта {card_id} не найдена.")
+            return False
+
+        # 1. Создаем копию
+        copied_card = copy.deepcopy(original_card)
+
+        # 2. Настраиваем свойства "Одноразовости"
+        # exhaust_on_use удалит карту из руки ПОСЛЕ использования в бою
+        copied_card.exhaust_on_use = True
+        copied_card.description = f"[Временная] {copied_card.description}"
+
+        # 3. Регистрируем уникальную временную карту
+        temp_id = f"{card_id}_copy_{unit.name}_{len(unit.deck)}_{random.randint(100, 999)}"
+
+        # Используем метод регистрации (если добавлен) или обычный register + ручная установка ID
+        copied_card.id = temp_id
+        Library.register(copied_card)  # Регистрируем в памяти
+
+        # 4. Добавляем в руку
+        unit.deck.append(temp_id)
+
+        # 5. Запоминаем ID, чтобы удалить в конце раунда (если не юзнули)
+        if "copycat_active_cards" not in unit.memory:
+            unit.memory["copycat_active_cards"] = []
+        unit.memory["copycat_active_cards"].append(temp_id)
+
         if log_func:
-            log_func(f"⚡ {self.name}: Получено +2 Спешки на 3 раунда.")
-        logger.log(f"⚡ {self.name}: {unit.name} gains Haste II", LogLevel.NORMAL, "Talent")
+            log_func(f"👁️ **Озарение**: Скопирована '{original_card.name}'!")
+            log_func(f"⏳ Карта исчезнет в конце раунда.")
 
-    def on_hit(self, ctx, **kwargs):
-        if ctx.target:
-            diff = max(0, ctx.source.speed - ctx.target.speed)
-            bonus = min(8, diff)
-            if bonus > 0:
-                ctx.damage += bonus
-                ctx.log.append(f"⚡ **Право Первенства**: +{bonus} урона (Разница скоростей)")
+        logger.log(f"👁️ Copycat: {unit.name} copied {card_id} as {temp_id}", LogLevel.NORMAL, "Talent")
 
+        unit.cooldowns[self.id] = self.cooldown
+        return True
 
 # ======================================================================================
 # РЕФЕРЕНСНЫЕ ТАЛАНТЫ (2.6 - 2.10)

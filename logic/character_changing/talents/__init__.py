@@ -33,7 +33,9 @@ from logic.character_changing.talents.branch_1_mindgames import TalentKeepItToge
     TalentControlledDistortion, \
     TalentSafeEGO, TalentEmotionalStorm, TalentUnbearablePresence, TalentTeaMaster, TalentMindPower, TalentPeakSanity, \
     TalentPsychicStrain
-from logic.character_changing.talents.branch_2_best import TalentInnateTalent, TalentCelestialEyes
+from logic.character_changing.talents.branch_2_best import TalentInnateTalent, TalentCelestialEyes, TalentBlueFlashStep, \
+    TalentBlackFlashSpark, TalentJustWarmingUp, TalentSilenceExecution, TalentMainCharacterShell, TalentArrogantTaunt, \
+    TalentIdealStandard, TalentCopycatInsight, TalentVoidCleave, TalentGoldenReputation
 
 from logic.character_changing.talents.branch_3_tireless import (
     TalentBigGuy, TalentDefense, TalentCommendableConstitution, TalentBigHeart,
@@ -96,9 +98,23 @@ TALENT_REGISTRY = {
     "safe_ego": TalentSafeEGO(),
     "controlled_distortion": TalentControlledDistortion(),
 
-# === ВЕТКА 2: ЛУЧШИЙ ИЗ ЛУЧШИХ ===
-    "innate_talent":TalentInnateTalent(),
-    "celestial_eyes":TalentCelestialEyes(),
+    # === ВЕТКА 2: ЛУЧШИЙ ИЗ ЛУЧШИХ ===
+    "innate_talent": TalentInnateTalent(),
+    "celestial_eyes": TalentCelestialEyes(),
+    "void_cleave": TalentVoidCleave(),
+    "copycat_insight": TalentCopycatInsight(),
+    "golden_reputation": TalentGoldenReputation(),
+
+    # Референсные
+    "ideal_standard": TalentIdealStandard(),
+    "arrogant_taunt": TalentArrogantTaunt(),
+    "main_character_shell": TalentMainCharacterShell(),
+    "silence_execution": TalentSilenceExecution(),
+    "just_warming_up": TalentJustWarmingUp(),
+
+    # Опциональные
+    "black_flash_spark": TalentBlackFlashSpark(),
+    "blue_flash_step": TalentBlueFlashStep(),
 
 # === ВЕТКА 3: НЕУТОМИМЫЙ ===
     "big_guy": TalentBigGuy(),
