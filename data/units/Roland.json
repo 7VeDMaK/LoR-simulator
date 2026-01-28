@@ -69,7 +69,7 @@
         "strength": 0,
         "endurance": 30,
         "agility": 0,
-        "wisdom": 0,
+        "wisdom": 999,
         "psych": 0
     },
     "skills": {
@@ -91,7 +91,9 @@
         "programming": 0
     },
     "passives": [],
-    "talents": [],
+    "talents": [
+        "celestial_eyes"
+    ],
     "augmentations": [],
     "level_rolls": {
         "3": {
@@ -216,5 +218,6 @@
         }
     },
     "biography": "",
-    "relationships": {}
+    "relationships": {},
+    "unit_type": "fixer"
 }
