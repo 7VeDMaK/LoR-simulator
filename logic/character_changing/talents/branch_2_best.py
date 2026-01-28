@@ -15,7 +15,7 @@ from logic.character_changing.passives.base_passive import BasePassive
 # ==========================================
 class TalentInnateTalent(BasePassive):
     id = "innate_talent"
-    name = "2.1 Врожденный дар"
+    name = "Врожденный дар"
     description = (
         "Прокачивая данный талант, персонаж вкладывает в данную ветку еще 4 таланта.\n"
         "Эффект: Вы получаете бонус +1 ко всем характеристикам и +2 к навыкам.\n"
@@ -48,7 +48,7 @@ class TalentInnateTalent(BasePassive):
 # ==========================================
 class TalentCelestialEyes(BasePassive):
     id = "celestial_eyes"
-    name = "2.2 Глаза Небожителя"
+    name = "Глаза Небожителя"
     description = (
         "Активно (Цель - Враг): Проводит глубокий анализ цели.\n"
         "Бросок: 1d20 + Мудрость против 1d20 + Мудрость цели.\n"
@@ -214,11 +214,11 @@ class TalentCelestialEyes(BasePassive):
 # ==========================================
 class TalentVoidCleave(BasePassive):
     id = "void_cleave"
-    name = "2.3 Разрез Пустоты"
+    name = "Разрез Пустоты"
     description = (
         "Удар, который игнорирует плотность материи и стойкость духа.\n"
-        "При расчете урона к множителю сопротивления цели прибавляется +0.2.\n"
-        "(Пример: 0.5 (Endured) -> 0.7, цель получает больше урона)."
+        "При расчете урона к множителю сопротивления цели прибавляется +0.1.\n"
+        "(Пример: 0.5 (Endured) -> 0.6, цель получает больше урона)."
     )
     is_active_ability = False
 
@@ -227,7 +227,7 @@ class TalentVoidCleave(BasePassive):
         [FIX] Исправлена сигнатура метода.
         Аргументы: unit (attacker), multiplier (current_res), kwargs (attacker, target, dice...)
         """
-        new_mult = multiplier + 0.2
+        new_mult = multiplier + 0.1
         logger.log(
             f"⚔️ {self.name}: Сопротивление цели изменено ({multiplier:.2f} -> {new_mult:.2f})",
             LogLevel.VERBOSE,
@@ -241,7 +241,7 @@ class TalentVoidCleave(BasePassive):
 # ==========================================
 class TalentGoldenReputation(BasePassive):
     id = "golden_reputation"
-    name = "2.4 Золотая Репутация"
+    name = "Золотая Репутация"
     description = (
         "Ваше имя известно в высших кругах, а статус открывает многие двери.\n"
         "Эффект: Вы получаете скидку 20% у торговцев и особые реплики в диалогах.\n"
@@ -258,7 +258,7 @@ class TalentGoldenReputation(BasePassive):
 # ==========================================
 class TalentCopycatInsight(BasePassive):
     id = "copycat_insight"
-    name = "2.5 Мгновенное Озарение"
+    name = "Мгновенное Озарение"
     description = (
         "Достаточно одного взгляда, чтобы превзойти чужую технику.\n"
         "Активно (КД: 3 сцены): Выберите цель (Враг/Союзник) и одну из её доступных карт.\n"
@@ -352,7 +352,7 @@ class TalentCopycatInsight(BasePassive):
 # ==========================================
 class TalentIdealStandard(BasePassive):
     id = "ideal_standard"
-    name = "2.6 Пример для подражания!"
+    name = "Пример для подражания!"
     description = (
         "За каждого живого союзника: +2 к характеристикам (макс 5).\n"
         "При оглушении персонажа союзники получают +3 Power на 2 хода."
@@ -364,7 +364,7 @@ class TalentIdealStandard(BasePassive):
 # ==========================================
 class TalentArrogantTaunt(BasePassive):
     id = "arrogant_taunt"
-    name = "2.7 Насмешка"
+    name = "Насмешка"
     description = (
         "+5 к Красноречию.\n"
         "Активно: позволяет выбрать цели, которые будут обязаны атаковать выбранного персонажа."
@@ -379,7 +379,7 @@ class TalentArrogantTaunt(BasePassive):
 # ==========================================
 class TalentMainCharacterShell(BasePassive):
     id = "main_character_shell"
-    name = "2.8 Сюжетная броня"
+    name = "Сюжетная броня"
     description = (
         "+25% к Выдержке.\n"
         "1 раз за битву: при летальном уроне — 1 HP, полное восстановление выдержки и неуязвимость на раунд."
@@ -394,7 +394,7 @@ class TalentMainCharacterShell(BasePassive):
 # ==========================================
 class TalentSilenceExecution(BasePassive):
     id = "silence_execution"
-    name = "2.9 Muted"
+    name = "Muted"
     description = (
         "Активно (КД: 5 сцен): Уничтожить кубик скорости противника "
         "(кроме Массовых атак) без использования карт."
@@ -408,7 +408,7 @@ class TalentSilenceExecution(BasePassive):
 # ==========================================
 class TalentJustWarmingUp(BasePassive):
     id = "just_warming_up"
-    name = "2.10 Да мы только начали!"
+    name = "Да мы только начали!"
     description = "За каждое проигранное столкновение: +1 к Мощи в следующей сцене на один ход."
 
 
@@ -428,12 +428,24 @@ class TalentBlackFlashSpark(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_damage_multiplier(self, multiplier, attacker, target, dice):
-        # Проверяем, выпало ли минимальное или максимальное значение на кости
-        if hasattr(dice, 'last_roll'):
-            if dice.last_roll == dice.min_val or dice.last_roll == dice.max_val:
-                logger.log(f"⚫ **BLACK FLASH**: Critical Hit! (Roll: {dice.last_roll})", LogLevel.NORMAL, "Talent")
-                return multiplier * 1.5
+    def on_calculate_damage_multiplier(self, unit, multiplier, **kwargs):
+        """
+        Увеличивает множитель урона в 1.5 раза, если выпал мин. или макс. ролл.
+        """
+        dice = kwargs.get("dice")
+
+        # Проверяем, что кубик есть и у него есть результат
+        if dice and hasattr(dice, 'result'):
+            # Сравниваем результат (result) с границами кубика
+            if dice.result == dice.min_val or dice.result == dice.max_val:
+                new_mult = multiplier * 1.5
+                logger.log(
+                    f"⚫ **BLACK FLASH**: {unit.name} поймал ритм! (Ролл: {dice.result}) Урон x1.5",
+                    LogLevel.NORMAL,
+                    "Talent"
+                )
+                return new_mult
+
         return multiplier
 
 

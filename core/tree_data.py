@@ -13,17 +13,25 @@ SKILL_TREE = {
         {"code": "1.9 Б", "id": "controlled_distortion", "req": "emotional_storm"},
     ],
     "Ветка 2: Лучший из Лучших": [
-        {"code": "2.1", "id": "remarkable", "req": None},
-        {"code": "2.2", "id": "on_the_wave_of_success", "req": "remarkable"},
-        {"code": "2.3", "id": "tactical_analysis", "req": "on_the_wave_of_success"},
-        {"code": "2.4", "id": "behavior_study", "req": "tactical_analysis"},
-        {"code": "2.5", "id": "speech_master", "req": "behavior_study"},
-        {"code": "2.6", "id": "pathfinder", "req": "speech_master"},
-        {"code": "2.7", "id": "ace_of_all_trades", "req": "pathfinder"},
-        {"code": "2.8", "id": "know_your_enemy", "req": "ace_of_all_trades"},
-        {"code": "2.9 A", "id": "strategist", "req": "know_your_enemy"},
-        {"code": "2.9 Б", "id": "always_ready", "req": "know_your_enemy"},
-    ],
+        {"code": "2.1", "id": "innate_talent", "req": None},
+        {"code": "2.2", "id": "celestial_eyes", "req": "innate_talent"},
+        {"code": "2.3", "id": "void_cleave", "req": "celestial_eyes"},
+        {"code": "2.4", "id": "golden_reputation", "req": "void_cleave"},
+        {"code": "2.5", "id": "copycat_insight", "req": "golden_reputation"},
+
+        # --- Блок 2.6 ---
+        {"code": "2.6", "id": "ideal_standard", "req": "copycat_insight"},
+        {"code": "2.6+", "id": "black_flash_spark", "req": "ideal_standard"}, # Дополнительный (Искра)
+
+        {"code": "2.7", "id": "arrogant_taunt", "req": "ideal_standard"},
+        {"code": "2.8", "id": "main_character_shell", "req": "arrogant_taunt"},
+
+        # --- Блок 2.9 ---
+        {"code": "2.9", "id": "silence_execution", "req": "main_character_shell"},
+        {"code": "2.9+", "id": "blue_flash_step", "req": "silence_execution"}, # Дополнительный (Синяя Вспышка)
+
+        {"code": "2.10", "id": "just_warming_up", "req": "silence_execution"},
+],
     "Ветка 3: Неутомимый": [
         {"code": "3.1", "id": "big_guy", "req": None},
         {"code": "3.2", "id": "defense", "req": "big_guy"},
