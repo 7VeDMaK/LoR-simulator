@@ -56,7 +56,7 @@
               {
                 "script_id": "apply_status",
                 "params": {
-                  "status": "slow",
+                  "status": "bind",
                   "base": 1,
                   "duration": 1,
                   "delay": 1,
@@ -192,7 +192,7 @@
       "description": "II. Дальний. 1. Замедление врагу. 2. Скорость себе. 3. Скорость команде (или х2 себе).",
        "scripts": {
         "on_use": [
-           { "script_id": "apply_status", "params": { "status": "slow", "base": 1, "duration": 1, "target": "target" } }
+           { "script_id": "apply_status", "params": { "status": "bind", "base": 1, "duration": 1, "target": "target" } }
         ]
       },
       "dice": [

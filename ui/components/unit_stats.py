@@ -71,7 +71,7 @@ def render_unit_stats(unit: Unit):
 
             if dly > 0: bg_color, border_color = "#1a1a2e", "#6c757d"
 
-            if name in ["bleed", "burn", "paralysis", "fragile", "vulnerability", "weakness", "bind", "slow", "tremor"]:
+            if name in ["bleed", "burn", "paralysis", "fragile", "vulnerability", "weakness", "bind", "tremor"]:
                 border_color = "#ef233c"
             elif name in ["strength", "endurance", "haste", "protection", "barrier", "regen_hp"]:
                 border_color = "#2ec4b6"

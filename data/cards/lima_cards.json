@@ -68,7 +68,7 @@
       "name": "Стрельба в Прыжке",
       "tier": 1,
       "type": "Ranged",
-      "description": "При Защите наносит сопернику 1 Рассредоточенность (Bind/Slow).",
+      "description": "При Защите наносит сопернику 1 Рассредоточенность (Bind).",
       "dice": [
         {
           "type": "evade",
@@ -261,7 +261,7 @@
               {
                 "script_id": "apply_status",
                 "params": {
-                  "status": "slow",
+                  "status": "bind",
                   "base": 1,
                   "target": "target",
                   "duration": "3"
@@ -308,7 +308,7 @@
               {
                 "script_id": "apply_status",
                 "params": {
-                  "status": "slow",
+                  "status": "bind",
                   "base": 5,
                   "target": "target",
                   "duration": "3"

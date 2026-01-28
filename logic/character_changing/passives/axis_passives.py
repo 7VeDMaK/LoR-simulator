@@ -48,22 +48,22 @@ class PassiveAxisUnity(BasePassive):
             if is_active:
                 target.memory["axis_buff_triad_active"] = False
 
-        # === 2. НЕГАТИВНАЯ ТРИАДА (Weakness, Paralysis, Slow) ===
+        # === 2. НЕГАТИВНАЯ ТРИАДА (Weakness, Paralysis, Bind) ===
         has_weak = target.get_status("weakness") >= 1
         has_para = target.get_status("paralysis") >= 1
-        has_slow = target.get_status("slow") >= 1
+        has_bind = target.get_status("bind") >= 1
 
         is_active_debuff = target.memory.get("axis_debuff_triad_active", False)
 
-        if has_weak and has_para and has_slow:
+        if has_weak and has_para and has_bind:
             if not is_active_debuff:
                 d_weak = self._get_max_duration(target, "weakness")
                 d_para = self._get_max_duration(target, "paralysis")
-                d_slow = self._get_max_duration(target, "slow")
+                d_bind = self._get_max_duration(target, "bind")
 
                 target.add_status("weakness", 1, duration=d_weak, trigger_events=False)
                 target.add_status("paralysis", 1, duration=d_para, trigger_events=False)
-                target.add_status("slow", 1, duration=d_slow, trigger_events=False)
+                target.add_status("bind", 1, duration=d_bind, trigger_events=False)
 
                 target.memory["axis_debuff_triad_active"] = True
                 logger.log(f"⛓️ Axis Unity: Debuff Triad activated on {target.name}", LogLevel.NORMAL, "Passive")

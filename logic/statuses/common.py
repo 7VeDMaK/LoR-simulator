@@ -59,16 +59,9 @@ class HasteStatus(StatusEffect):
         if stack == 0: stack = unit.get_status(self.id)
         return stack
 
-class SlowStatus(StatusEffect):
-    id = "slow"
-    name = "Замедление"
-
-    def get_speed_dice_value_modifier(self, unit, stack=0) -> int:
-        if stack == 0: stack = unit.get_status(self.id)
-        return -stack
-
 class BindStatus(StatusEffect):
     id = "bind"
+    name = "Замедление"
 
     def get_speed_dice_value_modifier(self, unit, stack=0) -> int:
         if stack == 0: stack = unit.get_status(self.id)

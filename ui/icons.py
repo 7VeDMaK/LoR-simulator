@@ -54,7 +54,6 @@ ICON_FILES = {
     "vulnerability": "Vulnerable.webp",
     "weakness": "AttackPowerDown.webp",  # Weakness = снижение силы атаки
     "weak": "Weak.webp",  # Weak = получает +25% урона
-    "slow": "Bind.webp",  # Замедление использует иконку Bind
 
     # Resist Up/Down (Ахиллесова пята и защиты)
     "slash_resist_down": "achilles_heel.png",
