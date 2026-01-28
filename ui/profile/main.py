@@ -17,6 +17,7 @@ def render_profile_page():
         st.session_state['roster'] = UnitLibrary.load_all() or {"New Unit": Unit("New Unit")}
 
     roster = st.session_state['roster']
+
     unit, u_key = render_header(roster)
     if unit is None:
         return
@@ -26,8 +27,10 @@ def render_profile_page():
     calculation_logs = logger.get_logs()
 
     col_l, col_r = st.columns([1, 2.5], gap="medium")
+
     with col_l:
         render_basic_info(unit, u_key)
+
     with col_r:
         render_equipment(unit, u_key)
         render_stats(unit, u_key)
@@ -51,7 +54,7 @@ def render_profile_page():
     st.markdown("## Скачать профиль в PDF")
 
     def create_character_pdf(unit: Unit) -> io.BytesIO:
-        pdf = FPDF(format="A4")
+        pdf = FPDF()
         pdf.add_page()
 
         font_path = os.path.abspath(
@@ -59,6 +62,8 @@ def render_profile_page():
         )
         pdf.add_font("DejaVu", "", font_path, uni=True)
         pdf.set_font("DejaVu", size=12)
+
+        page_width = pdf.w - 2 * pdf.l_margin
 
         lines = [
             unit.name,
@@ -75,13 +80,14 @@ def render_profile_page():
             "",
             "Атрибуты",
         ]
+
         for attr, val in unit.attributes.items():
             lines.append(f"{attr.capitalize()}: {val}")
 
         lines.append("")
         lines.append("Навыки")
         for skill, val in unit.skills.items():
-            lines.append(f"{skill.replace('_', ' ').capitalize()}: {val}")
+            lines.append(f"{skill.replace('_',' ').capitalize()}: {val}")
 
         lines.append("")
         lines.append("Пассивные способности")
@@ -98,12 +104,11 @@ def render_profile_page():
         lines.extend(unit.biography.split("\n"))
 
         for line in lines:
-            pdf.multi_cell(0, 6, txt=line)
+            pdf.multi_cell(page_width, 6, txt=line)
 
-
-        pdf_bytes=pdf.output(dest="S")
+        pdf_bytes = pdf.output(dest="S")
         return io.BytesIO(pdf_bytes)
-        
+
     if st.button("Download"):
         pdf_buffer = create_character_pdf(unit)
         st.download_button(
