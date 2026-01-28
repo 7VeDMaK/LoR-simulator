@@ -2,7 +2,6 @@ from core.enums import DiceType
 from core.logging import logger, LogLevel
 from logic.battle_flow.clash.clash_one_sided import handle_one_sided_exchange
 from logic.battle_flow.clash.clash_resolution import resolve_clash_round
-# Новые модули
 from logic.battle_flow.clash.clash_setup import setup_clash_parameters
 from logic.battle_flow.clash.clash_state import ClashParticipantState
 
@@ -13,7 +12,7 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
     logger.log(f"⚔️ Clash Start: {attacker.name} vs {defender.name} (Spd: {spd_a} vs {spd_d})", LogLevel.NORMAL,
                "Clash")
 
-    # 1. SETUP (On Use, Speed, Immunity)
+    # 1. SETUP
     adv_a, adv_d, destroy_a, destroy_d, on_use_logs = setup_clash_parameters(
         engine, attacker, defender, spd_a, spd_d, intent_a, intent_d
     )
@@ -30,13 +29,12 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
         iteration += 1
         if attacker.is_dead() or defender.is_dead(): break
 
-        # Получаем кубики на этот раунд
+        # Получаем кубики
         die_a = state_a.resolve_current_die()
         die_d = state_d.resolve_current_die()
 
-        # Если обоих нет (оба сломаны или кончились) - пропускаем
         if not die_a and not die_d:
-            state_a.consume()  # Продвигаем индексы
+            state_a.consume()
             state_d.consume()
             continue
 
@@ -44,7 +42,7 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
         ctx_a = engine._create_roll_context(attacker, defender, die_a, is_disadvantage=adv_a) if die_a else None
         ctx_d = engine._create_roll_context(defender, attacker, die_d, is_disadvantage=adv_d) if die_d else None
 
-        # Связывание контекстов в State
+        # Связывание
         state_a.current_ctx = ctx_a
         state_d.current_ctx = ctx_d
 
@@ -58,7 +56,7 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
             ctx_a.opponent_ctx = ctx_d
             ctx_d.opponent_ctx = ctx_a
 
-        # Подготовка логов
+        # [FIX] Предварительные логи (нужны для One-Sided ветки, которая требует их аргументом)
         detail_logs = []
         if iteration == 1 and on_use_logs: detail_logs.extend(on_use_logs)
         if ctx_a: detail_logs.extend(ctx_a.log)
@@ -68,17 +66,17 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
 
         # === РЕЗОЛЮЦИЯ ===
 
-        # Случай 1: Атакующий сломан/пуст, Защитник бьет
+        # Случай 1: Атакующий сломан/пуст
         if not die_a and die_d:
             outcome = handle_one_sided_exchange(engine, active_side=state_d, passive_side=state_a,
                                                 detail_logs=detail_logs)
 
-        # Случай 2: Защитник сломан/пуст, Атакующий бьет
+        # Случай 2: Защитник сломан/пуст
         elif die_a and not die_d:
             outcome = handle_one_sided_exchange(engine, active_side=state_a, passive_side=state_d,
                                                 detail_logs=detail_logs)
 
-        # Случай 3: Оба защитные (Evade/Block vs Evade/Block)
+        # Случай 3: Оба защитные
         elif (die_a.dtype in [DiceType.EVADE, DiceType.BLOCK]) and (die_d.dtype in [DiceType.EVADE, DiceType.BLOCK]):
             outcome = "🛡️ Defensive Clash (Both Spent)"
             state_a.consume()
@@ -88,6 +86,14 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
         else:
             res = resolve_clash_round(engine, ctx_a, ctx_d, die_a, die_d)
             outcome = res["outcome"]
+
+            # [FIX] ВАЖНО: Пересобираем логи ПОСЛЕ резолва, чтобы захватить сообщения об уроне
+            # (так как resolve_clash_round -> apply_damage пишет в ctx_a.log, но detail_logs имеет старую копию)
+            detail_logs = []
+            if iteration == 1 and on_use_logs: detail_logs.extend(on_use_logs)
+            if ctx_a: detail_logs.extend(ctx_a.log)
+            if ctx_d: detail_logs.extend(ctx_d.log)
+
             detail_logs.extend(res["details"])
 
             if res["recycle_a"]:
@@ -122,7 +128,7 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
             "outcome": outcome, "details": detail_logs
         })
 
-    # 3. CLEANUP (Store Remaining)
+    # 3. CLEANUP
     state_a.store_remaining(report)
     state_d.store_remaining(report)
 
