@@ -116,7 +116,7 @@ class TalentCommendableConstitution(BasePassive):
         amt = 1
         if "survivor" in unit.talents:  # 3.8
             amt += 1
-        unit.add_status("protection", amt, duration=2)
+        unit.add_status("protection", amt, duration=1)
         if log_func: log_func(f"🛡️ **{self.name}**: +{amt} protection")
 
         logger.log(f"🛡️ Commendable Constitution: +{amt} Protection for {unit.name}", LogLevel.VERBOSE, "Talent")

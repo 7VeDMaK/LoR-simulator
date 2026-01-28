@@ -20,27 +20,19 @@ def resolve_counter_clash(engine, source, target, die_atk, die_cnt, adv_atk):
     val_atk = ctx_atk.final_value
     val_cnt = ctx_cnt.final_value
 
-    details = ctx_atk.log + ctx_cnt.log
     outcome = ""
-
-    # --- ВАЖНО: Логика траты кубика ---
-    # По умолчанию кубик тратится (при поражении или ничьей).
-    # Если он побеждает, мы ставим False.
     counter_spent = True
 
     is_atk_def = die_atk.dtype in [DiceType.BLOCK, DiceType.EVADE]
-    # is_cnt_def = die_cnt.dtype in [DiceType.BLOCK, DiceType.EVADE] # Не обязательно для логики победы
 
-    # 1. Специфичный случай: Защита об Защиту (оба сгорают без эффекта)
+    # 1. Специфичный случай: Защита об Защиту
     if is_atk_def and die_cnt.dtype in [DiceType.BLOCK, DiceType.EVADE]:
         outcome = "🛡️ Defensive Clash (Both Spent)"
         counter_spent = True
 
     # 2. Победа КОНТР-КУБИКА
     elif val_cnt > val_atk:
-        # === ИСПРАВЛЕНИЕ ЗДЕСЬ ===
-        # Контр-кубик победил -> он НЕ тратится и идет на следующий дайс этой же карты
-        counter_spent = False
+        counter_spent = False  # Не тратится
 
         engine._handle_clash_win(ctx_cnt)
         engine._handle_clash_lose(ctx_atk)
@@ -48,33 +40,41 @@ def resolve_counter_clash(engine, source, target, die_atk, die_cnt, adv_atk):
         if die_cnt.dtype == DiceType.EVADE:
             outcome = f"⚡ Stored Evade! (Recycle)"
             rec = target.restore_stagger(val_cnt)
-            details.append(f"🛡️ +{rec} Stagger")
+            ctx_cnt.log.append(f"🛡️ +{rec} Stagger")
         else:
-            # Контр-атака победила: наносим урон атакующему
-            outcome = f"⚡ Counter Hit (Recycle)"
-            # Урон равен разнице или полному значению (зависит от вашей системы, обычно разница в clash)
+            # [FIX] Контр-атака победила
             dmg_val = val_cnt - val_atk
-            engine._resolve_clash_interaction(ctx_cnt, ctx_atk, dmg_val)
+            dmg = engine._resolve_clash_interaction(ctx_cnt, ctx_atk, dmg_val)
+
+            dmg_str = f" 💥 **-{dmg} HP**" if dmg else ""
+            outcome = f"⚡ Counter Hit (Recycle){dmg_str}"
 
     # 3. Победа АТАКИ (Контр-кубик сломан)
     elif val_atk > val_cnt:
-        outcome = f"💥 Counter Broken"
         counter_spent = True  # Кубик уничтожен
 
         engine._handle_clash_win(ctx_atk)
         engine._handle_clash_lose(ctx_cnt)
 
-        # Если атака не была защитной (блок/уворот), она пробивает дальше
+        # Если атака не была защитной, она пробивает дальше
         if not is_atk_def:
-            # Урон по цели с вычетом значения контр-кубика (Break damage)
-            engine._resolve_clash_interaction(ctx_atk, ctx_cnt, val_atk - val_cnt)
+            # [FIX] Урон по цели (Break damage)
+            dmg = engine._resolve_clash_interaction(ctx_atk, ctx_cnt, val_atk - val_cnt)
+
+            dmg_str = f" 💥 **-{dmg} HP**" if dmg else ""
+            outcome = f"💥 Counter Broken{dmg_str}"
+        else:
+            outcome = f"💥 Counter Broken"
 
     # 4. Ничья
     else:
         outcome = "🤝 Draw (Counter Broken)"
-        counter_spent = True  # При ничьей контр-кубик обычно сгорает
+        counter_spent = True
         engine._handle_clash_draw(ctx_atk)
         engine._handle_clash_draw(ctx_cnt)
+
+    # [FIX] Собираем логи ПОСЛЕ всех действий, чтобы захватить сообщения об уроне
+    details = ctx_atk.log + ctx_cnt.log
 
     return {
         "outcome": outcome,
@@ -105,21 +105,31 @@ def resolve_passive_defense(engine, source, target, die_atk, die_def, adv_atk, a
 
     if is_atk_def:
         outcome = "🛡️ Defensive Clash (Both Spent)"
+
     elif val_atk > val_def:
-        outcome = f"🗡️ Atk Break"
         engine._handle_clash_win(ctx_atk)
         engine._handle_clash_lose(ctx_def)
-        engine._resolve_clash_interaction(ctx_atk, ctx_def, val_atk - val_def)
+
+        # [FIX]
+        dmg = engine._resolve_clash_interaction(ctx_atk, ctx_def, val_atk - val_def)
+        dmg_str = f" 💥 **-{dmg} HP**" if dmg else ""
+        outcome = f"🗡️ Atk Break{dmg_str}"
+
     elif val_def > val_atk:
-        outcome = f"🛡️ Defended"
         engine._handle_clash_win(ctx_def)
         engine._handle_clash_lose(ctx_atk)
-        engine._resolve_clash_interaction(ctx_def, ctx_atk, val_def - val_atk)
+
+        # [FIX] (Например, Stagger урон от блока)
+        dmg = engine._resolve_clash_interaction(ctx_def, ctx_atk, val_def - val_atk)
+        # Если это был блок, урон идет в Stagger, но interaction вернет число
+        outcome = f"🛡️ Defended"
+
     else:
         outcome = "🤝 Draw"
         engine._handle_clash_draw(ctx_atk)
         engine._handle_clash_draw(ctx_def)
 
+    # [FIX] Собираем логи в конце
     return {
         "outcome": outcome,
         "details": ctx_atk.log + ctx_def.log,
@@ -144,7 +154,10 @@ def resolve_unopposed_hit(engine, source, target, die_atk, adv_atk, flags):
 
     if die_atk.dtype in ATK_TYPES:
         logger.log(f"⚔️ Direct Hit! {ctx_atk.final_value} Dmg", LogLevel.NORMAL, "OneSided")
-        engine._apply_damage(ctx_atk, None, "hp")
+        # [FIX]
+        dmg = engine._apply_damage(ctx_atk, None, "hp")
+        dmg_str = f" 💥 **-{dmg} HP**" if dmg else ""
+        outcome += dmg_str
 
     elif die_atk.dtype == DiceType.EVADE:
         if not hasattr(source, 'stored_dice') or not isinstance(source.stored_dice, list):
