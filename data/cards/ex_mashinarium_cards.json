@@ -1,0 +1,58 @@
+{
+  "cards": [
+    {
+      "id": "бросок_камешка_5cc2",
+      "name": "Бросок камешка",
+      "tier": 1,
+      "type": "Ranged",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 4,
+          "base_max": 6,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "бросок_камешка_5cc2",
+      "name": "Насадил на шпагу!",
+      "tier": 2,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "self_harm_percent",
+            "params": {
+              "percent": 0.1
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 3,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "add_hp_damage",
+                "params": {
+                  "percent": 0.05
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

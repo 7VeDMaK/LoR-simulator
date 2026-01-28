@@ -1196,6 +1196,58 @@
           }
         }
       ]
+    },
+    {
+      "id": "бросок_камешка_7f34",
+      "name": "Бросок камешка",
+      "tier": 1,
+      "type": "Ranged",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 3,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "вдумчиво_посмотрел_53ea",
+      "name": "Вдумчиво посмотрел",
+      "tier": 3,
+      "type": "Ranged",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 3,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {
+            "on_roll": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "rupture",
+                  "base": 7,
+                  "stat": "None",
+                  "scale_from_target": false,
+                  "factor": 1.0,
+                  "duration": 3,
+                  "delay": 0,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }
