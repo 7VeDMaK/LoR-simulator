@@ -35,6 +35,17 @@ def _calculate_resistance(target, source_ctx, dtype_name, dice_obj, log_list=Non
             log_list=log_list
         )
 
+    # === [NEW] 5. Attacker Mechanics (Penetration / Void Cleave) ===
+    if source_ctx and source_ctx.source and hasattr(source_ctx.source, "apply_mechanics_filter"):
+        res = source_ctx.source.apply_mechanics_filter(
+            "on_calculate_damage_multiplier",  # Хук для таланта
+            res,
+            attacker=source_ctx.source,
+            target=target,
+            dice=dice_obj,
+            damage_type=dtype_name
+        )
+
     return res, is_stag_hit
 
 def _calculate_outgoing_damage(attacker, attacker_ctx, dmg_type):

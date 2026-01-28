@@ -122,6 +122,7 @@
         "mind_suppression"
     ],
     "talents": [
+<<<<<<< HEAD
         "natural_genius",
         "celestial_eyes",
         "watch_and_learn",
@@ -131,6 +132,13 @@
         "plot_armor_v2",
         "muted",
         "just_getting_started"
+=======
+        "innate_talent",
+        "celestial_eyes",
+        "void_cleave",
+        "golden_reputation",
+        "copycat_insight"
+>>>>>>> c916355f0910085208ccc685d7a0ae93ec550744
     ],
     "augmentations": [
         "aug_strizh"
