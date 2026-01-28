@@ -1,8 +1,341 @@
 {
   "type": "full",
+<<<<<<< HEAD
   "page": "👤 Profile",
   "team_left_data": [
     {
+=======
+  "page": "⚔️ Simulator",
+  "team_left_data": [
+    {
+      "name": "Roland",
+      "level": 90,
+      "rank": 9,
+      "avatar": "data/avatars/Roland.jpg",
+      "base_intellect": 1,
+      "total_xp": 618970019642690137449562112,
+      "pct_mods": {
+        "imp_hp": 200,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 200,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+      },
+      "current_hp": 1674,
+      "current_sp": 20,
+      "current_stagger": 10,
+      "resources": {
+        "luck": 0
+      },
+      "cooldowns": {},
+      "card_cooldowns": {},
+      "active_buffs": {},
+      "_status_effects": {},
+      "delayed_queue": [],
+      "deck": [],
+      "active_slots": [],
+      "stored_dice": [],
+      "counter_dice": [],
+      "memory": {
+        "status_rank": "2321321",
+        "start_of_battle_stats": {
+          "hp": 1674,
+          "sp": 20,
+          "stagger": 10
+        }
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [],
+      "base_stats": {
+        "current_hp": 1674,
+        "current_sp": 20,
+        "current_stagger": 10
+      },
+      "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "hp_resists": {
+          "slash": 1.7999999999999998,
+          "pierce": 0.8,
+          "blunt": 0.30000000000000004
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "none"
+      },
+      "attributes": {
+        "strength": 0,
+        "endurance": 30,
+        "agility": 0,
+        "wisdom": 999,
+        "psych": 0
+      },
+      "skills": {
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 15,
+        "tough_skin": 30,
+        "speed": 15,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [],
+      "talents": [
+        "celestial_eyes"
+      ],
+      "augmentations": [],
+      "level_rolls": {
+        "3": {
+          "hp": 3,
+          "sp": 5
+        },
+        "6": {
+          "hp": 4,
+          "sp": 4
+        },
+        "9": {
+          "hp": 1,
+          "sp": 2
+        },
+        "12": {
+          "hp": 1,
+          "sp": 1
+        },
+        "15": {
+          "hp": 2,
+          "sp": 2
+        },
+        "18": {
+          "hp": 3,
+          "sp": 5
+        },
+        "21": {
+          "hp": 3,
+          "sp": 4
+        },
+        "24": {
+          "hp": 5,
+          "sp": 3
+        },
+        "27": {
+          "hp": 3,
+          "sp": 1
+        },
+        "30": {
+          "hp": 5,
+          "sp": 4
+        },
+        "33": {
+          "hp": 2,
+          "sp": 5
+        },
+        "36": {
+          "hp": 1,
+          "sp": 3
+        },
+        "39": {
+          "hp": 5,
+          "sp": 3
+        },
+        "42": {
+          "hp": 4,
+          "sp": 5
+        },
+        "45": {
+          "hp": 1,
+          "sp": 4
+        },
+        "48": {
+          "hp": 2,
+          "sp": 5
+        },
+        "51": {
+          "hp": 1,
+          "sp": 2
+        },
+        "54": {
+          "hp": 4,
+          "sp": 1
+        },
+        "57": {
+          "hp": 3,
+          "sp": 5
+        },
+        "60": {
+          "hp": 1,
+          "sp": 2
+        },
+        "63": {
+          "hp": 3,
+          "sp": 1
+        },
+        "66": {
+          "hp": 2,
+          "sp": 5
+        },
+        "69": {
+          "hp": 1,
+          "sp": 1
+        },
+        "72": {
+          "hp": 2,
+          "sp": 3
+        },
+        "75": {
+          "hp": 2,
+          "sp": 2
+        },
+        "78": {
+          "hp": 2,
+          "sp": 4
+        },
+        "81": {
+          "hp": 2,
+          "sp": 3
+        },
+        "84": {
+          "hp": 5,
+          "sp": 4
+        },
+        "87": {
+          "hp": 4,
+          "sp": 4
+        },
+        "90": {
+          "hp": 2,
+          "sp": 4
+        }
+      },
+      "biography": "",
+      "relationships": {},
+      "unit_type": "fixer"
+    }
+  ],
+  "team_right_data": [
+    {
+      "name": " Дна'хо",
+      "level": 1,
+      "rank": 9,
+      "avatar": "data/avatars/Днахо.jpg",
+      "base_intellect": 1,
+      "total_xp": 0,
+      "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+      },
+      "current_hp": 20,
+      "current_sp": 20,
+      "current_stagger": 10,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {},
+      "active_buffs": {},
+      "_status_effects": {},
+      "delayed_queue": [],
+      "deck": [],
+      "active_slots": [],
+      "stored_dice": [],
+      "counter_dice": [],
+      "memory": {
+        "status_rank": "МЕРТВА. Киборг Братства Высоких.",
+        "start_of_battle_stats": {
+          "hp": 20,
+          "sp": 20,
+          "stagger": 10
+        }
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [],
+      "base_stats": {
+        "current_hp": 20,
+        "current_sp": 20,
+        "current_stagger": 10
+      },
+      "defense": {
+        "armor_name": "Unit_37",
+        "armor_type": "Medium",
+        "hp_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "none"
+      },
+      "attributes": {
+        "strength": 0,
+        "endurance": 0,
+        "agility": 0,
+        "wisdom": 0,
+        "psych": 0
+      },
+      "skills": {
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 0,
+        "speed": 0,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [],
+      "talents": [],
+      "augmentations": [],
+      "level_rolls": {},
+      "biography": "",
+      "relationships": {
+        "Азгик": {
+          "value": -100,
+          "status": "Nemesis",
+          "notes": "УБИТА ИМ"
+        }
+      },
+      "unit_type": "dead"
+    },
+    {
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
       "name": "Лима",
       "level": 28,
       "rank": 6,
@@ -22,7 +355,11 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
+<<<<<<< HEAD
       "current_hp": 103,
+=======
+      "current_hp": 104,
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
       "current_sp": 40,
       "current_stagger": 51,
       "resources": {},
@@ -48,7 +385,11 @@
       "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
+<<<<<<< HEAD
           "hp": 103,
+=======
+          "hp": 104,
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
           "sp": 40,
           "stagger": 51
         },
@@ -71,7 +412,11 @@
         }
       ],
       "base_stats": {
+<<<<<<< HEAD
         "current_hp": 103,
+=======
+        "current_hp": 104,
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
         "current_sp": 40,
         "current_stagger": 51
       },
@@ -125,6 +470,7 @@
         "wild_cityscape",
         "mind_suppression"
       ],
+<<<<<<< HEAD
       "talents": [
         "natural_genius",
         "celestial_eyes",
@@ -136,6 +482,9 @@
         "muted",
         "just_getting_started"
       ],
+=======
+      "talents": [],
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
       "augmentations": [
         "aug_strizh"
       ],
@@ -182,6 +531,7 @@
       "unit_type": "player"
     },
     {
+<<<<<<< HEAD
       "name": "Лилит",
       "level": 28,
       "rank": 7,
@@ -192,11 +542,24 @@
         "imp_hp": 6,
         "imp_sp": 0,
         "imp_stg": 0,
+=======
+      "name": "Азгик",
+      "level": 28,
+      "rank": 6,
+      "avatar": "data/avatars/Азгик2.png",
+      "base_intellect": 3,
+      "total_xp": 201326592,
+      "pct_mods": {
+        "imp_hp": 40,
+        "imp_sp": 20,
+        "imp_stg": 10,
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
         "tal_hp": 0,
         "tal_sp": 0,
         "tal_stg": 0
       },
       "flat_mods": {
+<<<<<<< HEAD
         "imp_hp": 0,
         "imp_sp": 0,
         "imp_stg": 0
@@ -207,10 +570,27 @@
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {},
+=======
+        "imp_hp": 30,
+        "imp_sp": 20,
+        "imp_stg": 10
+      },
+      "current_hp": 100,
+      "current_sp": 91,
+      "current_stagger": 43,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {
+        "azgick_rule_1": 1,
+        "azgick_rule_2": 1,
+        "azgick_rule_3": 1
+      },
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
       "active_buffs": {},
       "_status_effects": {},
       "delayed_queue": [],
       "deck": [
+<<<<<<< HEAD
         "release_steam",
         "prelude",
         "puff",
@@ -264,12 +644,55 @@
           "total": 2,
           "dc": 1,
           "success": true
+=======
+        "pat_right_shoulder",
+        "pat_right_shoulder",
+        "pat_left_shoulder",
+        "pat_left_shoulder",
+        "debate_red_eye",
+        "azgick_smile",
+        "azgick_rule_2",
+        "azgick_rule_3",
+        "azgick_enrage",
+        "tea_dark",
+        "tea_green",
+        "tea_fruit",
+        "tea_sakura",
+        "tea_berry",
+        "tea_red",
+        "tea_ginger",
+        "tea_coffee",
+        "cheese_parmesan",
+        "cheese_edam",
+        "cheese_cheddar",
+        "cheese_gouda",
+        "cheese_maasdam",
+        "cheese_emmental",
+        "candy_praline",
+        "candy_marzipan",
+        "candy_souffle",
+        "candy_grillage",
+        "candy_ganache",
+        "candy_fudge",
+        "candy_waffles"
+      ],
+      "active_slots": [],
+      "stored_dice": [],
+      "counter_dice": [],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 100,
+          "sp": 91,
+          "stagger": 43
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
         }
       },
       "death_count": 0,
       "overkill_damage": 0,
       "money_log": [
         {
+<<<<<<< HEAD
           "amount": 280000,
           "reason": ""
         }
@@ -281,6 +704,47 @@
       },
       "defense": {
         "armor_name": "None",
+=======
+          "amount": 999999,
+          "reason": ""
+        },
+        {
+          "amount": 900000000,
+          "reason": ""
+        },
+        {
+          "amount": 90000000,
+          "reason": ""
+        },
+        {
+          "amount": 9000000,
+          "reason": ""
+        },
+        {
+          "amount": 1,
+          "reason": ""
+        },
+        {
+          "amount": -1,
+          "reason": ""
+        },
+        {
+          "amount": -900000000,
+          "reason": ""
+        },
+        {
+          "amount": -15000000,
+          "reason": "ЛХ закупка + долги"
+        }
+      ],
+      "base_stats": {
+        "current_hp": 100,
+        "current_sp": 91,
+        "current_stagger": 43
+      },
+      "defense": {
+        "armor_name": "Standard Fixer Suit",
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
         "armor_type": "Medium",
         "hp_resists": {
           "slash": 1.0,
@@ -292,6 +756,7 @@
           "pierce": 1.0,
           "blunt": 1.0
         },
+<<<<<<< HEAD
         "weapon_id": "lilith_scythe"
       },
       "attributes": {
@@ -312,6 +777,28 @@
         "speed": 30,
         "light_weapon": 3,
         "medium_weapon": 15,
+=======
+        "weapon_id": "dual_blades"
+      },
+      "attributes": {
+        "strength": 6,
+        "endurance": 7,
+        "agility": 30,
+        "wisdom": 3,
+        "psych": 6
+      },
+      "skills": {
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 13,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 7,
+        "speed": 30,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
         "heavy_weapon": 0,
         "firearms": 0,
         "eloquence": 15,
@@ -320,6 +807,7 @@
         "programming": 0
       },
       "passives": [
+<<<<<<< HEAD
         "wag_tail",
         "backstreet_demon",
         "daughter_of_backstreets",
@@ -682,10 +1170,16 @@
         "s_cells",
         "red_lycoris",
         "shadow_majesty"
+=======
+        "povar",
+        "food_lover",
+        "witness_gro_goroth"
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
       ],
       "talents": [
         "keep_it_together",
         "center_of_balance",
+<<<<<<< HEAD
         "athleticism_shadow",
         "not_great_attention",
         "smashing_blade",
@@ -886,11 +1380,68 @@
         "24": {
           "hp": 3,
           "sp": 5
+=======
+        "tea_master",
+        "mind_power",
+        "peak_sanity",
+        "psychic_strain",
+        "unbearable_presence",
+        "emotional_storm",
+        "controlled_distortion",
+        "athleticism_shadow",
+        "athletic",
+        "cheese",
+        "confete"
+      ],
+      "augmentations": [
+        "aug_back_speed"
+      ],
+      "level_rolls": {
+        "3": {
+          "hp": 1,
+          "sp": 3
+        },
+        "6": {
+          "hp": 2,
+          "sp": 5
+        },
+        "9": {
+          "hp": 4,
+          "sp": 5
+        },
+        "12": {
+          "hp": 5,
+          "sp": 2
+        },
+        "15": {
+          "hp": 4,
+          "sp": 4
+        },
+        "18": {
+          "hp": 2,
+          "sp": 1
+        },
+        "21": {
+          "hp": 1,
+          "sp": 5
+        },
+        "24": {
+          "hp": 3,
+          "sp": 1
+        },
+        "27": {
+          "hp": 1,
+          "sp": 1
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
         }
       },
       "biography": "",
       "relationships": {},
+<<<<<<< HEAD
       "unit_type": "mob"
+=======
+      "unit_type": "player"
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
     }
   ],
   "phase": "roll",

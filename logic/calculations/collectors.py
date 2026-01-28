@@ -3,6 +3,12 @@ from logic.character_changing.passives import PASSIVE_REGISTRY
 from logic.statuses.status_definitions import STATUS_REGISTRY
 from logic.weapon_definitions import WEAPON_REGISTRY
 
+ALL_ATTRIBUTES = ["strength", "endurance", "agility", "wisdom", "psych"]
+ALL_SKILLS = [
+    "strike_power", "medicine", "willpower", "luck", "acrobatics", "shields",
+    "tough_skin", "speed", "light_weapon", "medium_weapon", "heavy_weapon",
+    "firearms", "eloquence", "forging", "engineering", "programming"
+]
 
 def collect_ability_bonuses(unit, source_list, registry, prefix_icon, mods, bonuses):
     """
@@ -63,6 +69,19 @@ def _apply_smart_bonuses(source_name, bonus_dict, mods, bonuses, icon):
     Вспомогательная функция распределения бонусов (Flat vs Percent, Mods vs Bonuses).
     """
     for key, val in bonus_dict.items():
+
+        if key == "all_attributes":
+            for attr in ALL_ATTRIBUTES:
+                bonuses[attr] += val
+                if icon: logger.log(f"{icon} {source_name}: {attr} {val:+}", LogLevel.VERBOSE, "Stats")
+            continue
+
+        if key == "all_skills":
+            for skill in ALL_SKILLS:
+                bonuses[skill] += val
+                if icon: logger.log(f"{icon} {source_name}: {skill} {val:+}", LogLevel.VERBOSE, "Stats")
+            continue
+
         stat_name = key
         mode = "flat"  # По умолчанию добавляем как число
 
@@ -75,10 +94,7 @@ def _apply_smart_bonuses(source_name, bonus_dict, mods, bonuses, icon):
             mode = "flat"
 
         # 2. Определяем куда писать: в bonuses (базовые статы) или mods (боевые/производные)
-        is_attribute = stat_name in ["strength", "endurance", "agility", "wisdom", "psych",
-                                     "strike_power", "medicine", "willpower", "luck", "acrobatics", "shields",
-                                     "tough_skin", "speed", "light_weapon", "medium_weapon", "heavy_weapon",
-                                     "firearms", "eloquence", "forging", "engineering", "programming"]
+        is_attribute = (stat_name in ALL_ATTRIBUTES) or (stat_name in ALL_SKILLS)
 
         if is_attribute and mode == "flat":
             bonuses[stat_name] += val

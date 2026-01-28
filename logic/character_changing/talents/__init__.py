@@ -33,12 +33,17 @@ from logic.character_changing.talents.branch_1_mindgames import TalentKeepItToge
     TalentControlledDistortion, \
     TalentSafeEGO, TalentEmotionalStorm, TalentUnbearablePresence, TalentTeaMaster, TalentMindPower, TalentPeakSanity, \
     TalentPsychicStrain
+<<<<<<< HEAD
 from logic.character_changing.talents.branch_2_best import (
     # Новые таланты ветки 2
     TalentNaturalGenius, TalentCelestialEyes, TalentWatchAndLearn, TalentRightOfTheFirst,
     TalentBlackFlash, TalentBlueFlash, TalentRoleModel, TalentMockery, TalentPlotArmor,
     TalentMuted, TalentJustGettingStarted
 )
+=======
+from logic.character_changing.talents.branch_2_best import TalentInnateTalent, TalentCelestialEyes
+
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
 from logic.character_changing.talents.branch_3_tireless import (
     TalentBigGuy, TalentDefense, TalentCommendableConstitution, TalentBigHeart,
     TalentRock, TalentDespiteAdversities, TalentHeatResistant,
@@ -100,6 +105,7 @@ TALENT_REGISTRY = {
     "safe_ego": TalentSafeEGO(),
     "controlled_distortion": TalentControlledDistortion(),
 
+<<<<<<< HEAD
 # === ВЕТКА 2: ЛУЧШИЙ ИЗ ЛУЧШИХ ===  
     # Новые основные таланты ветки 2
     "natural_genius": TalentNaturalGenius(),
@@ -114,6 +120,11 @@ TALENT_REGISTRY = {
     "muted": TalentMuted(),
     "just_getting_started": TalentJustGettingStarted(),
 
+=======
+# === ВЕТКА 2: ЛУЧШИЙ ИЗ ЛУЧШИХ ===
+    "innate_talent":TalentInnateTalent(),
+    "celestial_eyes":TalentCelestialEyes(),
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
 
 # === ВЕТКА 3: НЕУТОМИМЫЙ ===
     "big_guy": TalentBigGuy(),
