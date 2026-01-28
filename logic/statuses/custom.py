@@ -99,16 +99,6 @@ class AdaptationStatus(StatusEffect):
     name = "Адаптация"
     description = ("Адаптация - накапливаемое до четырёх уровней состояние...")
 
-    def on_round_start(self, unit, log_func, **kwargs):
-        current = unit.get_status("adaptation")
-        if current < 4:
-            unit.add_status("adaptation", 1, duration=99)
-            if log_func:
-                log_func(f"🧬 Адаптация: Рост -> Уровень {current + 1}")
-            logger.log(f"🧬 Adaptation: {unit.name} stack increased to {current + 1}", LogLevel.VERBOSE, "Passive")
-        else:
-            unit.add_status("adaptation", 0, duration=99)
-
     # [NEW] Реализация логики защиты (пункт 4.3 из старого кода)
     def modify_resistance(self, unit, res: float, damage_type: str, dice=None, stack=0, log_list=None) -> float:
         # Проверяем, к какому типу мы адаптировались

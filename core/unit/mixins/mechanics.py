@@ -139,3 +139,7 @@ class MechanicsIteratorMixin:  # <--- Имя класса должно совп�
                     hook_method(self, **kwargs)
                 except Exception as e:
                     logger.log(f"Error in hook '{hook_name}' for {mechanic.id}: {e}", LogLevel.ERROR, "System")
+
+    def iter_mechanics(self):
+        """Публичный интерфейс для расчетов, вызывающий основной генератор."""
+        return self._iter_all_mechanics()
