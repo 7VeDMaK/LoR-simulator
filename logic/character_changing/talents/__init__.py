@@ -33,10 +33,23 @@ from logic.character_changing.talents.branch_1_mindgames import TalentKeepItToge
     TalentControlledDistortion, \
     TalentSafeEGO, TalentEmotionalStorm, TalentUnbearablePresence, TalentTeaMaster, TalentMindPower, TalentPeakSanity, \
     TalentPsychicStrain
+<<<<<<< HEAD
+<<<<<<< HEAD
+from logic.character_changing.talents.branch_2_best import (
+    # Новые таланты ветки 2
+    TalentNaturalGenius, TalentCelestialEyes, TalentWatchAndLearn, TalentRightOfTheFirst,
+    TalentBlackFlash, TalentBlueFlash, TalentRoleModel, TalentMockery, TalentPlotArmor,
+    TalentMuted, TalentJustGettingStarted
+)
+=======
+from logic.character_changing.talents.branch_2_best import TalentInnateTalent, TalentCelestialEyes
+=======
 from logic.character_changing.talents.branch_2_best import TalentInnateTalent, TalentCelestialEyes, TalentBlueFlashStep, \
     TalentBlackFlashSpark, TalentJustWarmingUp, TalentSilenceExecution, TalentMainCharacterShell, TalentArrogantTaunt, \
     TalentIdealStandard, TalentCopycatInsight, TalentVoidCleave, TalentGoldenReputation
+>>>>>>> c916355f0910085208ccc685d7a0ae93ec550744
 
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
 from logic.character_changing.talents.branch_3_tireless import (
     TalentBigGuy, TalentDefense, TalentCommendableConstitution, TalentBigHeart,
     TalentRock, TalentDespiteAdversities, TalentHeatResistant,
@@ -98,6 +111,28 @@ TALENT_REGISTRY = {
     "safe_ego": TalentSafeEGO(),
     "controlled_distortion": TalentControlledDistortion(),
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+# === ВЕТКА 2: ЛУЧШИЙ ИЗ ЛУЧШИХ ===  
+    # Новые основные таланты ветки 2
+    "natural_genius": TalentNaturalGenius(),
+    "celestial_eyes": TalentCelestialEyes(),
+    "watch_and_learn": TalentWatchAndLearn(),
+    "right_of_the_first": TalentRightOfTheFirst(),
+    "black_flash": TalentBlackFlash(),
+    "blue_flash": TalentBlueFlash(),
+    "role_model": TalentRoleModel(),
+    "mockery": TalentMockery(),
+    "plot_armor_v2": TalentPlotArmor(),
+    "muted": TalentMuted(),
+    "just_getting_started": TalentJustGettingStarted(),
+
+=======
+# === ВЕТКА 2: ЛУЧШИЙ ИЗ ЛУЧШИХ ===
+    "innate_talent":TalentInnateTalent(),
+    "celestial_eyes":TalentCelestialEyes(),
+>>>>>>> f9685f337597bab3a5a887dfea9e48115e8bcb72
+=======
     # === ВЕТКА 2: ЛУЧШИЙ ИЗ ЛУЧШИХ ===
     "innate_talent": TalentInnateTalent(),
     "celestial_eyes": TalentCelestialEyes(),
@@ -115,6 +150,7 @@ TALENT_REGISTRY = {
     # Опциональные
     "black_flash_spark": TalentBlackFlashSpark(),
     "blue_flash_step": TalentBlueFlashStep(),
+>>>>>>> c916355f0910085208ccc685d7a0ae93ec550744
 
 # === ВЕТКА 3: НЕУТОМИМЫЙ ===
     "big_guy": TalentBigGuy(),
