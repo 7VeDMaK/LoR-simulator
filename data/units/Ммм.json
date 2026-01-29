@@ -1,27 +1,29 @@
 {
     "name": "Ммм???",
-    "level": 1,
-    "rank": 9,
+    "level": 90,
+    "rank": 0,
     "avatar": "data/avatars/.png",
-    "base_intellect": 1,
+    "base_intellect": 7,
     "total_xp": 0,
     "pct_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0,
+        "imp_hp": 500,
+        "imp_sp": 176,
+        "imp_stg": 25,
         "tal_hp": 0,
         "tal_sp": 0,
         "tal_stg": 0
     },
     "flat_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0
+        "imp_hp": 200,
+        "imp_sp": 137,
+        "imp_stg": 155
     },
-    "current_hp": 20,
-    "current_sp": 20,
-    "current_stagger": 10,
-    "resources": {},
+    "current_hp": 10000,
+    "current_sp": 10001,
+    "current_stagger": 10001,
+    "resources": {
+        "luck": 66
+    },
     "cooldowns": {},
     "card_cooldowns": {},
     "active_buffs": {},
@@ -36,19 +38,24 @@
     },
     "death_count": 0,
     "overkill_damage": 0,
-    "money_log": [],
+    "money_log": [
+        {
+            "amount": 537226396375,
+            "reason": "Счастливые монетки"
+        }
+    ],
     "base_stats": {
-        "current_hp": 20,
-        "current_sp": 20,
-        "current_stagger": 10
+        "current_hp": 10000,
+        "current_sp": 10001,
+        "current_stagger": 10001
     },
     "defense": {
         "armor_name": "Unit_35",
         "armor_type": "Medium",
         "hp_resists": {
-            "slash": 1.0,
-            "pierce": 1.0,
-            "blunt": 1.0
+            "slash": 0.2,
+            "pierce": 0.3,
+            "blunt": 0.30000000000000004
         },
         "stagger_resists": {
             "slash": 1.0,
@@ -58,34 +65,186 @@
         "weapon_id": "none"
     },
     "attributes": {
-        "strength": 0,
-        "endurance": 0,
-        "agility": 0,
-        "wisdom": 0,
-        "psych": 0
+        "strength": 30,
+        "endurance": 20,
+        "agility": 30,
+        "wisdom": 14,
+        "psych": 20
     },
     "skills": {
-        "strike_power": 0,
+        "strike_power": 15,
         "medicine": 0,
-        "willpower": 0,
-        "luck": 0,
-        "acrobatics": 0,
-        "shields": 0,
-        "tough_skin": 0,
-        "speed": 0,
-        "light_weapon": 0,
+        "willpower": 15,
+        "luck": 66,
+        "acrobatics": 15,
+        "shields": 15,
+        "tough_skin": 15,
+        "speed": 30,
+        "light_weapon": 15,
         "medium_weapon": 0,
         "heavy_weapon": 0,
-        "firearms": 0,
-        "eloquence": 0,
+        "firearms": 15,
+        "eloquence": 15,
         "forging": 0,
         "engineering": 0,
         "programming": 0
     },
     "passives": [],
-    "talents": [],
+    "talents": [
+        "innate_talent",
+        "celestial_eyes",
+        "void_cleave",
+        "golden_reputation",
+        "copycat_insight",
+        "ideal_standard",
+        "black_flash_spark",
+        "arrogant_taunt",
+        "main_character_shell",
+        "silence_execution",
+        "blue_flash_step",
+        "just_warming_up",
+        "naked_defense",
+        "vengeful_payback",
+        "berserker_rage",
+        "calm_mind",
+        "frenzy",
+        "raging_fury",
+        "descending_into_madness",
+        "deal_with_fortune",
+        "second_chance",
+        "athleticism_shadow",
+        "not_great_attention",
+        "smashing_blade",
+        "fast_and_silent",
+        "step_into_shadow",
+        "cat_reflexes",
+        "eye_for_danger",
+        "covering_tracks",
+        "knife_in_back"
+    ],
     "augmentations": [],
-    "level_rolls": {},
+    "level_rolls": {
+        "3": {
+            "hp": 5,
+            "sp": 1
+        },
+        "6": {
+            "hp": 2,
+            "sp": 3
+        },
+        "9": {
+            "hp": 3,
+            "sp": 4
+        },
+        "12": {
+            "hp": 5,
+            "sp": 5
+        },
+        "15": {
+            "hp": 4,
+            "sp": 2
+        },
+        "18": {
+            "hp": 3,
+            "sp": 5
+        },
+        "21": {
+            "hp": 5,
+            "sp": 5
+        },
+        "24": {
+            "hp": 3,
+            "sp": 5
+        },
+        "27": {
+            "hp": 2,
+            "sp": 2
+        },
+        "30": {
+            "hp": 1,
+            "sp": 4
+        },
+        "33": {
+            "hp": 3,
+            "sp": 4
+        },
+        "36": {
+            "hp": 1,
+            "sp": 3
+        },
+        "39": {
+            "hp": 1,
+            "sp": 3
+        },
+        "42": {
+            "hp": 4,
+            "sp": 3
+        },
+        "45": {
+            "hp": 3,
+            "sp": 2
+        },
+        "48": {
+            "hp": 4,
+            "sp": 1
+        },
+        "51": {
+            "hp": 3,
+            "sp": 3
+        },
+        "54": {
+            "hp": 1,
+            "sp": 3
+        },
+        "57": {
+            "hp": 5,
+            "sp": 3
+        },
+        "60": {
+            "hp": 1,
+            "sp": 4
+        },
+        "63": {
+            "hp": 4,
+            "sp": 3
+        },
+        "66": {
+            "hp": 3,
+            "sp": 3
+        },
+        "69": {
+            "hp": 1,
+            "sp": 1
+        },
+        "72": {
+            "hp": 2,
+            "sp": 1
+        },
+        "75": {
+            "hp": 2,
+            "sp": 3
+        },
+        "78": {
+            "hp": 2,
+            "sp": 5
+        },
+        "81": {
+            "hp": 4,
+            "sp": 5
+        },
+        "84": {
+            "hp": 3,
+            "sp": 4
+        },
+        "87": {
+            "hp": 4,
+            "sp": 5
+        },
+        "90": {
+            "hp": 1,
+            "sp": 1
+        }
+    },
     "biography": "",
     "relationships": {},
     "unit_type": "syndicate"

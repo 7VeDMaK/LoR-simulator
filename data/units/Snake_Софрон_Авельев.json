@@ -19,13 +19,20 @@
         "imp_stg": 0
     },
     "current_hp": 70,
-    "current_sp": 55,
-    "current_stagger": 56,
+    "current_sp": -12,
+    "current_stagger": 99,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
     "active_buffs": {},
-    "_status_effects": {},
+    "_status_effects": {
+        "haste": [
+            {
+                "amount": 1,
+                "duration": 1
+            }
+        ]
+    },
     "delayed_queue": [],
     "deck": [
         "unbridled_cruelty",
@@ -41,24 +48,77 @@
         "long_lunge_blunt",
         "long_lunge_blunt"
     ],
-    "active_slots": [],
+    "active_slots": [
+        {
+            "speed": 14,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            }
+        },
+        {
+            "speed": 15,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            }
+        },
+        {
+            "speed": 15,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            }
+        }
+    ],
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
         "status_rank": "Глава синдиката Синдикат Сломленного Духа",
         "start_of_battle_stats": {
-            "hp": 132,
-            "sp": 70,
-            "stagger": 79
+            "hp": 70,
+            "sp": 55,
+            "stagger": 56
+        },
+        "battle_initialized": true,
+        "last_revive_attempt_round": 4,
+        "last_revive_log": {
+            "roll": 4,
+            "bonus": 6,
+            "penalty": 7,
+            "total": 3,
+            "dc": 0,
+            "success": true
         }
     },
-    "death_count": 0,
-    "overkill_damage": 0,
+    "death_count": 3,
+    "overkill_damage": 8,
     "money_log": [],
     "base_stats": {
         "current_hp": 70,
-        "current_sp": 55,
-        "current_stagger": 56
+        "current_sp": -12,
+        "current_stagger": 99
     },
     "defense": {
         "armor_name": "Unit_28",
@@ -169,5 +229,5 @@
             "notes": "Союзник"
         }
     },
-    "unit_type": "syndicate"
+    "unit_type": "dead"
 }
