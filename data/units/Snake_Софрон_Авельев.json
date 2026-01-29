@@ -1,13 +1,20 @@
 {
     "name": "Snake, Софрон Авельев ",
+<<<<<<< HEAD
     "level": 36,
     "rank": 9,
     "avatar": "data/avatars/Солидиус_Бледно-черная_Змея.jpg",
     "base_intellect": 7,
+=======
+    "level": 30,
+    "rank": 5,
+    "avatar": "data/avatars/Солидиус_Бледно-черная_Змея.jpg",
+    "base_intellect": 4,
+>>>>>>> dd6216aab5f2390b1db052ffd5afc0825794c631
     "total_xp": 0,
     "pct_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
+        "imp_hp": 30,
+        "imp_sp": 30,
         "imp_stg": 0,
         "tal_hp": 0,
         "tal_sp": 0,
@@ -18,16 +25,30 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
+<<<<<<< HEAD
     "current_hp": 178,
     "current_sp": 147,
     "current_stagger": 113,
+=======
+    "current_hp": 70,
+    "current_sp": -12,
+    "current_stagger": 99,
+>>>>>>> dd6216aab5f2390b1db052ffd5afc0825794c631
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
     "active_buffs": {},
-    "_status_effects": {},
+    "_status_effects": {
+        "haste": [
+            {
+                "amount": 1,
+                "duration": 1
+            }
+        ]
+    },
     "delayed_queue": [],
     "deck": [
+<<<<<<< HEAD
         "изничтожение_img5",
         "изничтожение_img5",
         "изничтожение_img5",
@@ -42,26 +63,106 @@
         "тяжкое_бремя_img4"
     ],
     "active_slots": [],
+=======
+        "unbridled_cruelty",
+        "unbridled_cruelty",
+        "unbridled_cruelty",
+        "furious_assault",
+        "furious_assault",
+        "furious_assault",
+        "thrill_of_battle",
+        "thrill_of_battle",
+        "thrill_of_battle",
+        "long_lunge_blunt",
+        "long_lunge_blunt",
+        "long_lunge_blunt"
+    ],
+    "active_slots": [
+        {
+            "speed": 14,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            }
+        },
+        {
+            "speed": 15,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            }
+        },
+        {
+            "speed": 15,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            }
+        }
+    ],
+>>>>>>> dd6216aab5f2390b1db052ffd5afc0825794c631
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
-        "status_rank": "Глава синдиката Синдикат Сломленного Духа"
+        "status_rank": "Глава синдиката Синдикат Сломленного Духа",
+        "start_of_battle_stats": {
+            "hp": 70,
+            "sp": 55,
+            "stagger": 56
+        },
+        "battle_initialized": true,
+        "last_revive_attempt_round": 4,
+        "last_revive_log": {
+            "roll": 4,
+            "bonus": 6,
+            "penalty": 7,
+            "total": 3,
+            "dc": 0,
+            "success": true
+        }
     },
-    "death_count": 0,
-    "overkill_damage": 0,
+    "death_count": 3,
+    "overkill_damage": 8,
     "money_log": [],
     "base_stats": {
+<<<<<<< HEAD
         "current_hp": 178,
         "current_sp": 147,
         "current_stagger": 113
+=======
+        "current_hp": 70,
+        "current_sp": -12,
+        "current_stagger": 99
+>>>>>>> dd6216aab5f2390b1db052ffd5afc0825794c631
     },
     "defense": {
         "armor_name": "Unit_28",
         "armor_type": "Medium",
         "hp_resists": {
-            "slash": 1.0,
-            "pierce": 1.0,
-            "blunt": 1.0
+            "slash": 0.7000000000000001,
+            "pierce": 0.8,
+            "blunt": 0.7000000000000001
         },
         "stagger_resists": {
             "slash": 1.0,
@@ -71,32 +172,52 @@
         "weapon_id": "none"
     },
     "attributes": {
+<<<<<<< HEAD
         "strength": 25,
         "endurance": 15,
         "agility": 10,
+=======
+        "strength": 30,
+        "endurance": 10,
+        "agility": 14,
+>>>>>>> dd6216aab5f2390b1db052ffd5afc0825794c631
         "wisdom": 0,
         "psych": 10
     },
     "skills": {
+<<<<<<< HEAD
         "strike_power": 15,
         "medicine": 0,
         "willpower": 28,
+=======
+        "strike_power": 20,
+        "medicine": 0,
+        "willpower": 20,
+>>>>>>> dd6216aab5f2390b1db052ffd5afc0825794c631
         "luck": 0,
         "acrobatics": 3,
         "shields": 0,
+<<<<<<< HEAD
         "tough_skin": 17,
         "speed": 30,
         "light_weapon": 15,
         "medium_weapon": 0,
+=======
+        "tough_skin": 30,
+        "speed": 10,
+        "light_weapon": 0,
+        "medium_weapon": 6,
+>>>>>>> dd6216aab5f2390b1db052ffd5afc0825794c631
         "heavy_weapon": 0,
         "firearms": 0,
-        "eloquence": 0,
+        "eloquence": 10,
         "forging": 0,
         "engineering": 0,
         "programming": 0
     },
     "passives": [],
     "talents": [
+<<<<<<< HEAD
         "big_guy",
         "defense",
         "commendable_constitution",
@@ -155,6 +276,55 @@
         "33": {
             "hp": 5,
             "sp": 1
+=======
+        "innate_talent",
+        "athletic",
+        "athleticism_shadow"
+    ],
+    "augmentations": [
+        "aug_back_speed"
+    ],
+    "level_rolls": {
+        "3": {
+            "hp": 1,
+            "sp": 4
+        },
+        "6": {
+            "hp": 2,
+            "sp": 4
+        },
+        "9": {
+            "hp": 2,
+            "sp": 4
+        },
+        "12": {
+            "hp": 4,
+            "sp": 4
+        },
+        "15": {
+            "hp": 5,
+            "sp": 2
+        },
+        "18": {
+            "hp": 2,
+            "sp": 4
+        },
+        "21": {
+            "hp": 3,
+            "sp": 3
+        },
+        "24": {
+            "hp": 1,
+            "sp": 2
+        },
+        "27": {
+            "hp": 1,
+            "sp": 5
+        },
+        "30": {
+            "hp": 2,
+            "sp": 3
+>>>>>>> dd6216aab5f2390b1db052ffd5afc0825794c631
         }
     },
     "biography": "",
@@ -175,5 +345,5 @@
             "notes": "Союзник"
         }
     },
-    "unit_type": "syndicate"
+    "unit_type": "dead"
 }
