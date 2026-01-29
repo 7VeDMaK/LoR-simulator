@@ -18,18 +18,14 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 193,
-    "current_sp": 83,
-    "current_stagger": 89,
+    "current_hp": 1001,
+    "current_sp": 1001,
+    "current_stagger": 1002,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {
-        "слишком_быстрый_пинок_38ee": [
-            1
-        ],
-        "изничтожение_img5": [
-            1
-        ]
+        "слишком_быстрый_пинок_38ee": 0,
+        "изничтожение_img5": 0
     },
     "active_buffs": {},
     "_status_effects": {},
@@ -61,9 +57,9 @@
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 193,
-        "current_sp": 83,
-        "current_stagger": 89
+        "current_hp": 1001,
+        "current_sp": 1001,
+        "current_stagger": 1002
     },
     "defense": {
         "armor_name": "Unit_52",
