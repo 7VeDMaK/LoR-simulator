@@ -8,8 +8,9 @@ class PassiveAxisUnity(BasePassive):
     description = (
         "Пока Аксис на поле боя:\n"
         "- Если на персонаже есть Сила, Стойкость и Спешка (мин 1): +1 ко всем этим эффектам.\n"
+        "  ДОПОЛНИТЕЛЬНО: Каждые 3 Силы дают +1 Спешку, каждые 3 Стойкости -> +1 Силу, каждые 3 Спешки -> +1 Стойкость.\n"
         "- Если на персонаже есть Слабость, Паралич и Замедление (мин 1): +1 ко всем этим эффектам.\n"
-        "Бонус дается 1 раз за 'сборку' комбинации. Статусы обновляются мгновенно."
+        "Бонус дается 1 раз за 'сборку' комбинации."
     )
     is_active_ability = False
 
@@ -20,35 +21,84 @@ class PassiveAxisUnity(BasePassive):
         return max((eff.get('duration', 0) for eff in effects), default=0)
 
     def _evaluate_triad(self, target):
-        """Проверяет статусы цели и активирует триаду."""
+        """Проверяет статусы цели и активирует/обновляет триаду с усилением."""
         if not target: return
 
         # === 1. ПОЛОЖИТЕЛЬНАЯ ТРИАДА (Strength, Endurance, Haste) ===
-        has_str = target.get_status("strength") >= 1
-        has_end = target.get_status("endurance") >= 1
-        has_haste = target.get_status("haste") >= 1
+        cur_str = target.get_status("strength")
+        cur_end = target.get_status("endurance")
+        cur_haste = target.get_status("haste")
 
-        is_active = target.memory.get("axis_buff_triad_active", False)
+        # Условия наличия (минимум 1 стак)
+        has_str = cur_str >= 1
+        has_end = cur_end >= 1
+        has_haste = cur_haste >= 1
+
+        # Ключи для памяти (чтобы знать, сколько мы уже дали)
+        mem_key_str = "axis_applied_bonus_str"
+        mem_key_end = "axis_applied_bonus_end"
+        mem_key_haste = "axis_applied_bonus_haste"
 
         if has_str and has_end and has_haste:
-            if not is_active:
-                # Активация!
+            # --- РАСЧЕТ ЦЕЛЕВОГО БОНУСА ---
+            # База 1 + (Источник // 3)
+            # Str получает бонус от End
+            target_bonus_str = 1 + (cur_end // 3)
+            # End получает бонус от Haste
+            target_bonus_end = 1 + (cur_haste // 3)
+            # Haste получает бонус от Str
+            target_bonus_haste = 1 + (cur_str // 3)
+
+            # --- ПОЛУЧЕНИЕ УЖЕ ВЫДАННОГО ---
+            applied_str = target.memory.get(mem_key_str, 0)
+            applied_end = target.memory.get(mem_key_end, 0)
+            applied_haste = target.memory.get(mem_key_haste, 0)
+
+            # --- РАСЧЕТ РАЗНИЦЫ (DELTA) ---
+            # Накладываем только если новый бонус больше старого
+            diff_str = max(0, target_bonus_str - applied_str)
+            diff_end = max(0, target_bonus_end - applied_end)
+            diff_haste = max(0, target_bonus_haste - applied_haste)
+
+            # Если есть что добавить хоть по одному пункту
+            if diff_str > 0 or diff_end > 0 or diff_haste > 0:
                 d_str = self._get_max_duration(target, "strength")
                 d_end = self._get_max_duration(target, "endurance")
-                d_has = self._get_max_duration(target, "haste")
+                d_haste = self._get_max_duration(target, "haste")
 
-                target.add_status("strength", 1, duration=d_str, trigger_events=False)
-                target.add_status("endurance", 1, duration=d_end, trigger_events=False)
-                target.add_status("haste", 1, duration=d_has, trigger_events=False)
+                # Накладываем разницу
+                if diff_str > 0:
+                    target.add_status("strength", diff_str, duration=d_str, trigger_events=False)
+                    target.memory[mem_key_str] = target_bonus_str
+
+                if diff_end > 0:
+                    target.add_status("endurance", diff_end, duration=d_end, trigger_events=False)
+                    target.memory[mem_key_end] = target_bonus_end
+
+                if diff_haste > 0:
+                    target.add_status("haste", diff_haste, duration=d_haste, trigger_events=False)
+                    target.memory[mem_key_haste] = target_bonus_haste
 
                 target.memory["axis_buff_triad_active"] = True
-                logger.log(f"✨ Axis Unity: Buff Triad activated on {target.name}", LogLevel.NORMAL, "Passive")
+
+                logger.log(
+                    f"✨ Axis Unity Update: Added delta (+{diff_str} Str, +{diff_end} End, +{diff_haste} Haste). "
+                    f"Total from Passive: ({target_bonus_str}/{target_bonus_end}/{target_bonus_haste})",
+                    LogLevel.NORMAL, "Passive"
+                )
+
         else:
-            # Если хотя бы одного нет - сбрасываем флаг
-            if is_active:
+            # Если условия нарушены - сбрасываем память, чтобы при повторной сборке бонус дался заново
+            if target.memory.get("axis_buff_triad_active", False):
                 target.memory["axis_buff_triad_active"] = False
+                target.memory[mem_key_str] = 0
+                target.memory[mem_key_end] = 0
+                target.memory[mem_key_haste] = 0
+                logger.log(f"📉 Axis Unity: Buff Triad broken on {target.name}. Reset counters.", LogLevel.VERBOSE,
+                           "Passive")
 
         # === 2. НЕГАТИВНАЯ ТРИАДА (Weakness, Paralysis, Bind) ===
+        # (Оставляем логику как есть, либо переделываем по аналогии, если для неё нужно такое же скалирование)
         has_weak = target.get_status("weakness") >= 1
         has_para = target.get_status("paralysis") >= 1
         has_bind = target.get_status("bind") >= 1
@@ -61,6 +111,8 @@ class PassiveAxisUnity(BasePassive):
                 d_para = self._get_max_duration(target, "paralysis")
                 d_bind = self._get_max_duration(target, "bind")
 
+                # Тут пока статично +1, как в оригинале.
+                # Если нужно усиление и здесь - напиши, добавлю.
                 target.add_status("weakness", 1, duration=d_weak, trigger_events=False)
                 target.add_status("paralysis", 1, duration=d_para, trigger_events=False)
                 target.add_status("bind", 1, duration=d_bind, trigger_events=False)
@@ -79,9 +131,7 @@ class PassiveAxisUnity(BasePassive):
 
     def on_status_applied_global(self, unit, target, status_id, amount, **kwargs):
         """
-        Новый хук! Срабатывает, когда статус накладывается на ЛЮБОГО ДРУГОГО юнита (target).
-        unit - это Аксис (наблюдатель).
-        target - это тот, кто получил статус.
+        Срабатывает, когда статус накладывается на ЛЮБОГО ДРУГОГО юнита (target).
         """
         self._evaluate_triad(target)
 
