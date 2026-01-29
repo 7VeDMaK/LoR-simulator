@@ -6,9 +6,9 @@ from core.logging import logger
 from core.unit.unit import Unit
 from core.unit.unit_library import UnitLibrary
 from ui.profile.abilities import render_abilities
-from ui.profile.equipment import render_equipment
 from ui.profile.header import render_header, render_basic_info
 from ui.profile.stats import render_stats
+from ui.profile_new.tabs.equipment import render_equipment_tab
 
 
 def render_profile_page():
@@ -31,7 +31,7 @@ def render_profile_page():
         render_basic_info(unit, u_key)
 
     with col_r:
-        render_equipment(unit, u_key)
+        render_equipment_tab(unit, u_key)
         render_stats(unit, u_key)
 
     st.markdown("---")

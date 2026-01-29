@@ -94,20 +94,26 @@ def render_visuals_tab(unit, is_edit_mode: bool):
     # === 3. ЛОГИ РАСЧЕТА ===
     st.markdown("### ⚙️ Системный лог")
     with st.expander("📜 Лог пересчета характеристик", expanded=False):
-        # Получаем логи из логгера (предполагается, что они были собраны при recalculate_stats)
-        calculation_logs = logger.get_logs()
+        # БЕРЕМ ЛОГИ ИЗ ЮНИТА (snapshot), чтобы не смешивать с другими
+        calculation_logs = getattr(unit, '_ui_logs', [])
+
+        # Если вдруг пусто (например, первый запуск), пробуем глобальный
+        if not calculation_logs:
+            calculation_logs = logger.get_logs()
 
         if calculation_logs:
             for l in calculation_logs:
-                # Простая фильтрация для красоты
                 log_str = str(l)
+                # Красивая подсветка
                 if "Stats" in log_str or "Talent" in log_str:
                     st.caption(f"• {log_str}")
                 elif "ERROR" in log_str:
                     st.error(f"• {log_str}")
                 elif "Passive" in log_str:
                     st.markdown(f":blue[• {log_str}]")
+                elif "Recalculating" in log_str:
+                    st.markdown(f"**{log_str}**")
                 else:
                     st.text(f"• {log_str}")
         else:
-            st.info("Нет записей. (Логи очищаются при перезагрузке страницы)")
+            st.info("Нет записей. (Лог очищен)")

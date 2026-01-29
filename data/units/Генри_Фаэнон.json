@@ -2,7 +2,7 @@
     "name": "Генри Фаэнон",
     "level": 36,
     "rank": 5,
-    "avatar": "data/avatars/Генри_Фаэнон.jpg",
+    "avatar": "data/avatars\\Генри_Фаэнон.jpg",
     "base_intellect": 5,
     "total_xp": 0,
     "pct_mods": {
@@ -18,9 +18,9 @@
         "imp_sp": 10,
         "imp_stg": 0
     },
-    "current_hp": 167,
-    "current_sp": 65,
-    "current_stagger": 79,
+    "current_hp": 344,
+    "current_sp": 102,
+    "current_stagger": 197,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
@@ -53,9 +53,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 167,
-        "current_sp": 65,
-        "current_stagger": 79
+        "current_hp": 344,
+        "current_sp": 102,
+        "current_stagger": 197
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",

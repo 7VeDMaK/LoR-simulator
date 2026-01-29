@@ -2,7 +2,7 @@
     "name": "Аксис Мунди",
     "level": 10,
     "rank": 9,
-    "avatar": "data/avatars/Аксис_Мунди.png",
+    "avatar": "data/avatars\\Аксис_Мунди.png",
     "base_intellect": 8,
     "total_xp": 666,
     "pct_mods": {
