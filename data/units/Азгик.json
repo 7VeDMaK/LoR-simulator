@@ -2,7 +2,7 @@
     "name": "Азгик",
     "level": 30,
     "rank": 6,
-    "avatar": "data/avatars/Азгик2.png",
+    "avatar": "data/avatars\\Азгик2.png",
     "base_intellect": 3,
     "total_xp": 738197504,
     "pct_mods": {

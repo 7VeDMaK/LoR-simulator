@@ -2,7 +2,7 @@
     "name": "Ловкая-Кеклета",
     "level": 25,
     "rank": 9,
-    "avatar": "data/avatars/Ловкий-Кеклет.png",
+    "avatar": "data/avatars\\Ловкий-Кеклет.png",
     "base_intellect": 5,
     "total_xp": 16777216,
     "pct_mods": {
@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 1001,
-    "current_sp": 1001,
-    "current_stagger": 1002,
+    "current_hp": 238,
+    "current_sp": 83,
+    "current_stagger": 119,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {
@@ -57,9 +57,9 @@
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 1001,
-        "current_sp": 1001,
-        "current_stagger": 1002
+        "current_hp": 238,
+        "current_sp": 83,
+        "current_stagger": 119
     },
     "defense": {
         "armor_name": "Unit_52",
@@ -102,13 +102,16 @@
         "programming": 99
     },
     "passives": [
-        "hardened_by_solitude"
+        "hardened_by_solitude",
+        "distortionGroGoroth",
+        "wild_cityscape"
     ],
     "talents": [
         "athleticism_shadow",
         "not_great_attention",
         "smashing_blade",
-        "fast_and_silent"
+        "fast_and_silent",
+        "keep_it_together"
     ],
     "augmentations": [],
     "level_rolls": {

@@ -9,7 +9,9 @@ from ui.profile_new.tabs.build import render_build_tab
 from ui.profile_new.tabs.passives import render_passives_tab
 from ui.profile_new.tabs.equipment import render_equipment_tab
 from ui.profile_new.tabs.talents import render_talents_tab
-from ui.profile_new.tabs.stats import render_stats_tab  # <--- ДОБАВЛЕН ИМПОРТ
+from ui.profile_new.tabs.stats import render_stats_tab
+# Импортируем новую вкладку
+from ui.profile_new.tabs.visuals import render_visuals_tab
 
 
 def render_profile_page_v2():
@@ -27,7 +29,7 @@ def render_profile_page_v2():
     if unit is None:
         return
 
-    # Пересчет статов каждый раз при рендере, чтобы видеть актуальные цифры
+    # Пересчет статов
     unit.recalculate_stats()
     st.markdown("---")
 
@@ -46,7 +48,7 @@ def render_profile_page_v2():
             "🧬 Пассивки",
             "🌟 Таланты",
             "📊 Параметры",
-            "🎨 Внешность"
+            "📝 Инфо"  # <--- Переименовали последнюю вкладку
         ])
 
         # TAB 1: Deck
@@ -65,10 +67,10 @@ def render_profile_page_v2():
         with tabs[3]:
             render_talents_tab(unit, is_edit_mode)
 
-        # TAB 5: Stats (ТЕПЕРЬ РАБОТАЕТ)
+        # TAB 5: Stats
         with tabs[4]:
-            render_stats_tab(unit, is_edit_mode) # <--- ВЫЗОВ ФУНКЦИИ
+            render_stats_tab(unit, is_edit_mode)
 
-        # TAB 6: Visuals
+        # TAB 6: Visuals / Info (НОВАЯ ФУНКЦИЯ)
         with tabs[5]:
-            st.info("Настройки скинов и биографии (Скоро)")
+            render_visuals_tab(unit, is_edit_mode)

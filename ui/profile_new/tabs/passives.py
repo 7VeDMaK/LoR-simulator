@@ -1,57 +1,99 @@
 import streamlit as st
-# Импортируем реестр пассивок, чтобы находить их по ID
+from core.unit.unit_library import UnitLibrary
+# Импортируем реестр пассивок для выбора
 from logic.character_changing.passives import PASSIVE_REGISTRY
 
 
 def render_passives_tab(unit, is_edit_mode: bool):
-    # Получаем список ID пассивок (строки)
-    raw_passives = unit.passives if hasattr(unit, 'passives') else []
+    # Убедимся, что список инициализирован
+    if not hasattr(unit, 'passives') or unit.passives is None:
+        unit.passives = []
 
+    raw_passives = unit.passives
+
+    # === 1. ДОБАВЛЕНИЕ ПАССИВКИ (EDIT MODE) ===
     if is_edit_mode:
-        st.warning(
-            "⚠️ Редактирование пассивок (добавление/удаление) через это меню пока в разработке. Используйте Editor.")
+        # Собираем список ID, которые уже есть у персонажа
+        current_ids = set()
+        for p in raw_passives:
+            if isinstance(p, str):
+                current_ids.add(p)
+            elif hasattr(p, 'id'):
+                current_ids.add(p.id)
+
+        # Формируем список доступных для добавления
+        available_opts = []
+        for pid, p_obj in PASSIVE_REGISTRY.items():
+            if pid not in current_ids:
+                available_opts.append((pid, p_obj))
+
+        # Сортируем по имени
+        available_opts.sort(key=lambda x: x[1].name)
+
+        # UI добавления
+        c_add, _ = st.columns([1, 2])
+        with c_add:
+            with st.popover("➕ Добавить пассивку", use_container_width=True):
+                # Формируем строки для селектора
+                options_map = {f"{p_obj.name}": pid for pid, p_obj in available_opts}
+
+                sel_label = st.selectbox(
+                    "Выберите способность из реестра",
+                    options=[""] + list(options_map.keys()),
+                    label_visibility="collapsed"
+                )
+
+                if sel_label and sel_label in options_map:
+                    pid_to_add = options_map[sel_label]
+                    if st.button(f"Добавить: {PASSIVE_REGISTRY[pid_to_add].name}", type="primary"):
+                        unit.passives.append(pid_to_add)
+                        UnitLibrary.save_unit(unit)
+                        st.rerun()
+
+        st.divider()
 
     if not raw_passives:
         st.info("Нет активных пассивных способностей.")
         return
 
-    # === 1. ПРЕОБРАЗОВАНИЕ ID В ОБЪЕКТЫ ===
+    # === 2. ПРЕОБРАЗОВАНИЕ ID В ОБЪЕКТЫ ===
     passives_list = []
-    for p_item in raw_passives:
-        # Если это строка (ID), ищем в реестре
+    for index, p_item in enumerate(raw_passives):
+        # Сохраняем оригинальный индекс или значение для удаления
+        p_data = {"original": p_item, "index": index}
+
         if isinstance(p_item, str):
             if p_item in PASSIVE_REGISTRY:
-                passives_list.append(PASSIVE_REGISTRY[p_item])
+                # Если нашли в реестре
+                p_obj = PASSIVE_REGISTRY[p_item]
+                p_data["obj"] = p_obj
+                p_data["name"] = p_obj.name
             else:
-                # Если ID нет в базе, создаем заглушку (словарь)
-                passives_list.append({
-                    "name": f"Unknown ID: {p_item}",
-                    "description": "Пассивка не найдена в реестре.",
-                    "cost": 0
-                })
-        # Если это уже объект или словарь (легаси или кастом)
+                # Если ID нет в базе
+                p_data["obj"] = None
+                p_data["name"] = f"Unknown ID: {p_item}"
+                p_data["desc"] = "Пассивка не найдена в реестре."
         else:
-            passives_list.append(p_item)
+            # Если это уже объект/словарь
+            p_data["obj"] = p_item
+            if isinstance(p_item, dict):
+                p_data["name"] = p_item.get('name', '???')
+            else:
+                p_data["name"] = getattr(p_item, 'name', 'Unnamed')
 
-    # Layout: Список слева (Radio), Детали справа
+        passives_list.append(p_data)
+
+    # === 3. ОТОБРАЖЕНИЕ (Master-Detail) ===
     col_list, col_details = st.columns([1, 2])
 
     with col_list:
         st.markdown("### Список")
 
-        # Собираем имена для радио-кнопки
-        p_names = []
-        for p in passives_list:
-            if isinstance(p, dict):
-                p_names.append(p.get('name', '???'))
-            else:
-                # Проверяем атрибут name, если его нет — fallback
-                p_names.append(getattr(p, 'name', 'Unnamed Passive'))
+        p_names = [p["name"] for p in passives_list]
 
-        # Radio button работает как селектор
-        selected_name = st.radio("Select Passive", p_names, label_visibility="collapsed")
+        # Radio button как селектор
+        selected_name = st.radio("Select Passive", p_names, label_visibility="collapsed", key="passive_list_radio")
 
-        # Находим индекс выбранного элемента
         sel_idx = 0
         if selected_name in p_names:
             sel_idx = p_names.index(selected_name)
@@ -59,25 +101,48 @@ def render_passives_tab(unit, is_edit_mode: bool):
     with col_details:
         st.markdown("### Описание")
         if passives_list:
-            p = passives_list[sel_idx]
-            _render_passive_details(p, is_edit_mode)
+            selected_data = passives_list[sel_idx]
+            _render_passive_details(unit, selected_data, is_edit_mode)
 
 
-def _render_passive_details(passive, is_edit_mode):
-    # Универсальный доступ (словарь или объект)
-    if isinstance(passive, dict):
-        name = passive.get('name', 'Unknown')
-        desc = passive.get('description', '')
+def _render_passive_details(unit, p_data, is_edit_mode):
+    """
+    Рисует детали пассивки и кнопку удаления.
+    """
+    p_obj = p_data.get("obj")
+
+    # Извлекаем данные
+    if p_obj:
+        # Это реальный объект или словарь
+        if isinstance(p_obj, dict):
+            name = p_obj.get('name', 'Unknown')
+            desc = p_obj.get('description', '')
+        else:
+            name = getattr(p_obj, 'name', 'Unknown')
+            desc = getattr(p_obj, 'description', '')
     else:
-        name = getattr(passive, 'name', 'Unknown')
-        desc = getattr(passive, 'description', '')
+        # Это заглушка (Unknown ID)
+        name = p_data["name"]
+        desc = p_data.get("desc", "")
+        cost = 0
 
-    # Красивая карточка
-    st.info(f"**{name}**")
+    # Карточка
+    st.info(f"🧬 **{name}**")
 
+    # Контент
     if is_edit_mode:
-        st.text_area("Описание", value=desc, height=150, key=f"desc_{name}")
-        if st.button("Сохранить описание (Mock)", key=f"save_{name}"):
-            st.toast("Сохранение описания... (Функция не реализована)", icon="⚠️")
+        st.text_area("Описание (ReadOnly из кода)", value=desc, height=150, disabled=True, key=f"desc_view_{name}")
+
+        # КНОПКА УДАЛЕНИЯ
+        c_del, _ = st.columns([1, 3])
+        with c_del:
+            if st.button("🗑️ Удалить", key=f"del_passive_{p_data['index']}"):
+                # Удаляем по индексу или значению
+                val_to_remove = p_data["original"]
+                if val_to_remove in unit.passives:
+                    unit.passives.remove(val_to_remove)
+                    UnitLibrary.save_unit(unit)
+                    st.toast(f"Пассивка {name} удалена")
+                    st.rerun()
     else:
         st.markdown(desc)
