@@ -8,6 +8,7 @@ from ui.checks import render_checks_page
 from ui.editor.editor import render_editor_page
 from ui.leveling import render_leveling_page
 from ui.profile.main import render_profile_page
+from ui.profile_new.main import render_profile_page_v2
 from ui.relationships import render_relationships_page
 # Страницы
 from ui.simulator.simulator import render_simulator_page
@@ -34,6 +35,9 @@ pages = [
     "❤️ Relationships",  # <--- НОВЫЙ ПУНКТ
     "📚 Cheat Sheet"
 ]
+if "nav_page" in st.session_state and st.session_state["nav_page"] not in pages:
+    st.session_state["nav_page"] = pages[1] # Устанавливаем "👤 Profile" или pages[0] (Simulator)
+    
 page = st.sidebar.radio("Go to", pages, key="nav_page", on_change=update_and_save_state)
 
 # 5. Маршрутизация
@@ -42,7 +46,8 @@ if "Simulator" in page:
     render_simulator_page()
 
 elif "Profile" in page:
-    render_profile_page()
+    # render_profile_page()
+    render_profile_page_v2()
 
 elif "Checks" in page:
     render_checks_page()
