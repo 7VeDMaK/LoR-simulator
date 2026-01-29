@@ -3,28 +3,32 @@ import streamlit as st
 
 def render_talents_tab(unit, is_edit_mode: bool):
     """
-    Вкладка для отображения талантов.
+    Вкладка Талантов.
     """
-    # Пытаемся получить таланты, если их нет - пустой список
+    # Получаем список талантов (или пустой, если их нет)
     talents = getattr(unit, 'talents', [])
 
+    # Кнопка добавления (в режиме редактирования)
+    if is_edit_mode:
+        if st.button("➕ Добавить талант (Mock)", key="add_talent_top_btn"):
+            st.toast("Редактор талантов в разработке")
+
     if not talents:
-        st.info("Нет изученных талантов.")
-        if is_edit_mode:
-            st.button("➕ Добавить талант (Mock)", key="add_talent_btn")
+        st.info("У этого персонажа нет изученных талантов.")
         return
 
-    # Layout: Список (слева) | Описание (справа)
+    # Разметка: Список (слева) | Детали (справа)
     col_list, col_details = st.columns([1, 2])
 
     with col_list:
         st.markdown("### Список")
-        # Собираем имена для радио-кнопки
-        t_names = [t.get('name', '???') if isinstance(t, dict) else t.name for t in talents]
+        # Генерируем список имен для выбора
+        t_names = [t.get('name', 'Unknown') if isinstance(t, dict) else t.name for t in talents]
 
-        selected_name = st.radio("Select Talent", t_names, label_visibility="collapsed", key="talents_radio")
+        # Используем radio как селектор
+        selected_name = st.radio("Select Talent", t_names, label_visibility="collapsed", key="talents_list_radio")
 
-        # Находим индекс
+        # Определяем индекс выбранного
         sel_idx = 0
         if selected_name in t_names:
             sel_idx = t_names.index(selected_name)
@@ -37,17 +41,23 @@ def render_talents_tab(unit, is_edit_mode: bool):
 
 
 def _render_talent_details(talent, is_edit_mode):
-    # Адаптер для словаря или объекта
+    # Универсальный доступ к данным (dict или object)
     name = talent.get('name') if isinstance(talent, dict) else talent.name
     desc = talent.get('description', '') if isinstance(talent, dict) else getattr(talent, 'description', '')
     lvl_req = talent.get('level_req', 1) if isinstance(talent, dict) else getattr(talent, 'level_req', 1)
 
-    # Заголовок таланта (можно добавить цвет или иконку 🌟)
-    st.info(f"🌟 **{name}** (Lvl Req: {lvl_req})")
+    # Красивая шапка
+    st.info(f"🌟 **{name}** (Level Req: {lvl_req})")
 
     if is_edit_mode:
-        st.text_area("Эффект таланта", value=desc, height=150, key=f"desc_{name}")
-        if st.button(f"Сохранить {name}", key=f"save_t_{name}"):
-            st.toast("Сохранено (в памяти)")
+        st.text_area("Описание эффекта", value=desc, height=150, key=f"desc_talent_{name}")
+
+        c1, c2 = st.columns(2)
+        with c1:
+            if st.button("💾 Сохранить", key=f"save_t_{name}"):
+                st.toast(f"Описание {name} сохранено (в памяти)")
+        with c2:
+            if st.button("🗑️ Удалить", key=f"del_t_{name}"):
+                st.toast(f"Талант {name} удален (Mock)")
     else:
         st.markdown(desc)

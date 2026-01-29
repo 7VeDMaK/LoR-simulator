@@ -4,29 +4,24 @@ from core.unit.unit import Unit
 from ui.profile.header import render_header
 
 # === ИМПОРТЫ ===
-# 1. Сайдбар и контролы
 from ui.profile_new.sidebar import render_sidebar, render_profile_controls
-
-# 2. Вкладки (убедись, что все файлы созданы)
 from ui.profile_new.tabs.build import render_build_tab
 from ui.profile_new.tabs.passives import render_passives_tab
-from ui.profile_new.tabs.equipment import render_equipment_tab  # Наш новый файл
+from ui.profile_new.tabs.equipment import render_equipment_tab
+from ui.profile_new.tabs.talents import render_talents_tab  # <--- ВЕРНУЛИ ИМПОРТ
 
-
-# from ui.profile_new.tabs.talents import render_talents_tab # Раскомментируй, если создал talents.py
 
 def render_profile_page_v2():
-    # 1. Загрузка Ростера
+    # 1. Init Roster
     if 'roster' not in st.session_state or not st.session_state['roster']:
         st.session_state['roster'] = UnitLibrary.load_all() or {"New Unit": Unit("New Unit")}
 
     roster = st.session_state['roster']
 
-    # 2. РИСУЕМ КОНТРОЛЫ В ГЛОБАЛЬНОМ САЙДБАРЕ
-    # Эта функция сама вызовет with st.sidebar: ...
+    # 2. Global Controls (Sidebar)
     is_edit_mode = render_profile_controls()
 
-    # 3. Шапка профиля
+    # 3. Header (Unit Select)
     unit, u_key = render_header(roster)
     if unit is None:
         return
@@ -34,42 +29,45 @@ def render_profile_page_v2():
     unit.recalculate_stats()
     st.markdown("---")
 
-    # 4. Основная сетка страницы
+    # 4. Layout
     col_left, col_right = st.columns([1, 2.5], gap="medium")
 
-    # === ЛЕВАЯ КОЛОНКА (ПАСПОРТ) ===
+    # === LEFT: PASSPORT ===
     with col_left:
-        # Передаем режим, полученный из сайдбара
         render_sidebar(unit, is_edit_mode)
 
-    # === ПРАВАЯ КОЛОНКА (ВКЛАДКИ) ===
+    # === RIGHT: TABS ===
     with col_right:
-        # Список вкладок
+        # Добавили "🌟 Таланты" в список
         tabs = st.tabs([
             "⚔️ Колода",
-            "🛠️ Снаряжение",  # <--- Вкладка экипировки
+            "🛠️ Снаряжение",
             "🧬 Пассивки",
+            "🌟 Таланты",  # <--- ВОТ ОНА
             "📊 Параметры",
             "🎨 Внешность"
         ])
 
-        # TAB 1: Колода
+        # TAB 1: Deck
         with tabs[0]:
             render_build_tab(unit, is_edit_mode)
 
-        # TAB 2: Экипировка (Оружие/Броня/Аугментации)
+        # TAB 2: Equipment
         with tabs[1]:
             render_equipment_tab(unit, is_edit_mode)
 
-        # TAB 3: Пассивки
+        # TAB 3: Passives
         with tabs[2]:
             render_passives_tab(unit, is_edit_mode)
 
-        # TAB 4: Параметры (Заглушка или старый код)
+        # TAB 4: Talents (ВЫЗОВ ФУНКЦИИ)
         with tabs[3]:
-            st.info("Атрибуты (Сила/Ловкость) и Таланты")
-            # render_talents_tab(unit, is_edit_mode)
+            render_talents_tab(unit, is_edit_mode)
 
-        # TAB 5: Внешность
+            # TAB 5: Stats (Placeholder)
         with tabs[4]:
+            st.info("Атрибуты (Сила/Ловкость) и дерево прокачки")
+
+        # TAB 6: Visuals
+        with tabs[5]:
             st.info("Настройки скинов и биографии")
