@@ -22,36 +22,32 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 139,
+      "current_hp": 121,
       "current_sp": 161,
-      "current_stagger": 73,
+      "current_stagger": 55,
       "resources": {},
       "cooldowns": {
-        "copycat_insight": 3,
-        "celestial_eyes": 1
+        "copycat_insight": 2
       },
       "card_cooldowns": {
-        "lima_hit_and_run": [
-          1
-        ],
-        "lima_inertia": [
-          1
-        ],
-        "lima_morphine_dart": [
-          1
-        ],
         "lima_one_furious_shot": [
-          2
+          1
         ],
         "lima_ram": [
-          2
+          1
         ],
         "lima_purge_toxin": [
-          2
+          1
         ]
       },
       "active_buffs": {},
       "_status_effects": {
+        "rupture": [
+          {
+            "amount": 10,
+            "duration": 99
+          }
+        ],
         "haste": [
           {
             "amount": 1,
@@ -69,73 +65,75 @@
         "lima_morphine_dart",
         "lima_one_furious_shot",
         "lima_ram",
-        "lima_purge_toxin",
-        "обычный_удар_726c_copy_Лима_9_518"
+        "lima_purge_toxin"
       ],
       "active_slots": [
         {
-          "speed": 23,
-          "card": "lima_assorted_arrows",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 22,
+          "speed": 20,
           "card": "lima_little_tricks",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 2,
+          "force_clash": true,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "CLASH vs Ловкая-Кеклета [S3] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 23,
-          "card": "lima_jump_shooting",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
+          "force_onesided": false,
           "destroy_on_speed": true
         },
         {
           "speed": 20,
-          "card": "обычный_удар_726c_copy_Лима_9_518",
+          "card": "lima_jump_shooting",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
+          "force_clash": true,
+          "ui_status": {
+            "text": "CLASH vs Ловкая-Кеклета [S1] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
+          },
+          "is_ally_target": false,
+          "force_onesided": false,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 20,
+          "card": "lima_assorted_arrows",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 3,
+          "force_clash": true,
+          "ui_status": {
+            "text": "✨ SPEED BREAK -> Ловкая-Кеклета | Уничтожение (20 >> 12)",
+            "icon": "⚡",
+            "color": "green"
+          },
+          "is_ally_target": false,
+          "force_onesided": false,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 19,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 3,
           "force_clash": false,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
+            "text": "НЕТ КАРТЫ",
             "icon": "⛔",
             "color": "gray"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true
+          "force_onesided": true
         }
       ],
       "stored_dice": [],
@@ -148,9 +146,7 @@
           "stagger": 1001
         },
         "mind_suppression_bonus": 14,
-        "copycat_active_cards": [
-          "обычный_удар_726c_copy_Лима_9_518"
-        ],
+        "copycat_active_cards": [],
         "smashing_blade_used": false,
         "battle_initialized": true
       },
@@ -171,9 +167,9 @@
         }
       ],
       "base_stats": {
-        "current_hp": 139,
+        "current_hp": 121,
         "current_sp": 161,
-        "current_stagger": 73
+        "current_stagger": 55
       },
       "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -303,23 +299,24 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 238,
+      "current_hp": 153,
       "current_sp": 83,
-      "current_stagger": 119,
+      "current_stagger": 51,
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {
-        "изничтожение_img5": [
-          1,
-          1,
-          1
-        ],
         "слишком_быстрый_пинок_38ee": [
-          3
+          2
         ]
       },
       "active_buffs": {},
       "_status_effects": {
+        "bleed": [
+          {
+            "amount": 9,
+            "duration": 2
+          }
+        ],
         "strength": [
           {
             "amount": 2,
@@ -354,61 +351,67 @@
       "active_slots": [
         {
           "speed": 18,
-          "card": null,
+          "card": "изничтожение_img5",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
           "force_clash": false,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "CLASH vs Лима [S2] | Перехвачен (18 < 20)",
+            "icon": "⚠️",
+            "color": "orange"
           },
-          "is_ally_target": false
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": true
         },
         {
-          "speed": 18,
-          "card": null,
+          "speed": 17,
+          "card": "изничтожение_img5",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
           "force_clash": false,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "ONE SIDED (Провал) -> Лима | Слаб",
+            "icon": "🐌",
+            "color": "orange"
           },
-          "is_ally_target": false
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": true
         },
         {
           "speed": 15,
-          "card": null,
+          "card": "изничтожение_img5",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
+          "force_clash": true,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "CLASH vs Лима [S1] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
           },
-          "is_ally_target": false
+          "is_ally_target": false,
+          "destroy_on_speed": true,
+          "force_onesided": false
         },
         {
-          "speed": 11,
-          "card": null,
+          "speed": 12,
+          "card": "быстрый_пинок_07ca",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
           "force_clash": false,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "🚫 BROKEN vs Лима [S3] | Speed Gap 8",
+            "icon": "💥",
+            "color": "red"
           },
           "is_ally_target": false,
           "destroy_on_speed": true,
@@ -431,9 +434,9 @@
       "overkill_damage": 0,
       "money_log": [],
       "base_stats": {
-        "current_hp": 238,
+        "current_hp": 153,
         "current_sp": 83,
-        "current_stagger": 119
+        "current_stagger": 51
       },
       "defense": {
         "armor_name": "Unit_52",
@@ -525,38 +528,274 @@
     }
   ],
   "phase": "planning",
-  "round_number": 1,
+  "round_number": 2,
   "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
   "battle_logs": [
     {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "👁️ **Озарение**: Скопирована 'Обычный удар'!"
+      "type": "clash",
+      "round": "Clash (1)",
+      "left": {
+        "unit": "Лима",
+        "card": "Ассорти Стрел",
+        "dice": "PIERCE",
+        "val": 10,
+        "range": "3-4"
+      },
+      "right": {
+        "unit": "Ловкая-Кеклета",
+        "card": "Быстрый Пинок",
+        "dice": "EVADE",
+        "val": 21,
+        "range": "11-11"
+      },
+      "outcome": "🏃 Ловкая-Кеклета Evades! (Recycle)",
+      "details": [
+        "🎲 Roll [3-4]: 4 + 4 (Сила) + 2 (Среднее ор.) = **10**",
+        "🗡️ **Sudden Attack**: x1.5 Dmg & 17 Bleed (>90% HP) [1/Round]",
+        "🎲 Roll [11-11]: 11 + 8 (Ловкость) + 2 (Endurance) = **21**",
+        "📉 **Помеха!** (11, 11) -> Base: 11",
+        "🛡️ Лима immune to Surprise Attack!",
+        "🛡️ +21 Stagger"
+      ]
     },
     {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "⏳ Карта исчезнет в конце раунда."
+      "type": "clash",
+      "round": "Clash (2)",
+      "left": {
+        "unit": "Лима",
+        "card": "Ассорти Стрел",
+        "dice": "PIERCE",
+        "val": 9,
+        "range": "3-4"
+      },
+      "right": {
+        "unit": "Ловкая-Кеклета",
+        "card": "Быстрый Пинок",
+        "dice": "EVADE",
+        "val": 21,
+        "range": "11-11"
+      },
+      "outcome": "🏃 Ловкая-Кеклета Evades! (Recycle)",
+      "details": [
+        "🎲 Roll [3-4]: 3 + 4 (Сила) + 2 (Среднее ор.) = **9**",
+        "🎲 Roll [11-11]: 11 + 8 (Ловкость) + 2 (Endurance) = **21**",
+        "📉 **Помеха!** (11, 11) -> Base: 11",
+        "🛡️ Лима immune to Surprise Attack!",
+        "🛡️ +21 Stagger"
+      ]
     },
     {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "👁️ **АНАЛИЗ**: Лима [22] vs Ловкая-Кеклета [16] (Разница: 6)"
+      "type": "clash",
+      "round": "Clash (3)",
+      "left": {
+        "unit": "Лима",
+        "card": "Ассорти Стрел",
+        "dice": "PIERCE",
+        "val": 9,
+        "range": "3-4"
+      },
+      "right": {
+        "unit": "Ловкая-Кеклета",
+        "card": "Быстрый Пинок",
+        "dice": "EVADE",
+        "val": 21,
+        "range": "11-11"
+      },
+      "outcome": "🏃 Ловкая-Кеклета Evades! (Recycle)",
+      "details": [
+        "🎲 Roll [3-4]: 3 + 4 (Сила) + 2 (Среднее ор.) = **9**",
+        "🎲 Roll [11-11]: 11 + 8 (Ловкость) + 2 (Endurance) = **21**",
+        "📉 **Помеха!** (11, 11) -> Base: 11",
+        "🛡️ Лима immune to Surprise Attack!",
+        "🛡️ +21 Stagger"
+      ]
     },
     {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "📜 **Био**: Нет описания"
+      "type": "clash",
+      "round": "Clash (4)",
+      "left": {
+        "unit": "Лима",
+        "card": "Ассорти Стрел",
+        "dice": "Broken",
+        "val": 0,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Ловкая-Кеклета",
+        "card": "Быстрый Пинок",
+        "dice": "EVADE",
+        "val": 21,
+        "range": "11-11"
+      },
+      "outcome": "🏃 Evade Saved (Opponent Broken)",
+      "details": [
+        "🎲 Roll [11-11]: 11 + 8 (Ловкость) + 2 (Endurance) = **21**",
+        "📉 **Помеха!** (11, 11) -> Base: 11",
+        "🛡️ Лима immune to Surprise Attack!",
+        "🛡️ Ловкая-Кеклета Stored Evade (Auto)"
+      ]
     },
     {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "🏴 **Тип/Ранг**: mob | Ранг 9"
+      "type": "clash",
+      "round": "Clash (5)",
+      "left": {
+        "unit": "Лима",
+        "card": "Ассорти Стрел",
+        "dice": "Broken",
+        "val": 0,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Ловкая-Кеклета",
+        "card": "Быстрый Пинок",
+        "dice": "BLUNT",
+        "val": 11,
+        "range": "5-5"
+      },
+      "outcome": "🚫 Лима Broken",
+      "details": [
+        "🎲 Roll [5-5]: 5 + 4 (Сила) + 2 (Strength) = **11**",
+        "📉 **Помеха!** (5, 5) -> Base: 5",
+        "🛡️ Лима immune to Surprise Attack!"
+      ]
     },
     {
-      "round": "Start",
-      "rolls": "Event",
-      "details": "🚩 **Лима**: 🧠 **Подавление разумом**: Интеллект 19 vs 5. Бонус +14 к Красноречию."
+      "type": "clash",
+      "round": "L Hit (Counter)",
+      "left": {
+        "unit": "Лима",
+        "card": "Стрельба в Прыжке",
+        "dice": "EVADE",
+        "val": 23,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Ловкая-Кеклета",
+        "card": "Stored",
+        "dice": "Broken (Cnt)",
+        "val": 21,
+        "range": "-"
+      },
+      "outcome": "🛡️ Defensive Clash (Both Spent)",
+      "details": [
+        "🎲 Roll [6-9]: 8 + 15 (Ловкость) = **23**",
+        "🎲 Roll [11-11]: 11 + 8 (Ловкость) + 2 (Endurance) = **21**",
+        "🛡️ Лима immune to Surprise Attack!"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лима",
+        "card": "Стрельба в Прыжке",
+        "dice": "PIERCE",
+        "val": 9,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Ловкая-Кеклета",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-6 HP**",
+      "details": [
+        "🎲 Roll [2-5]: 3 + 4 (Сила) + 2 (Среднее ор.) = **9**",
+        "👊 Atk Boost: +2",
+        "💥 **Ловкая-Кеклета**: [x0.6 Res] Hit 6 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лима",
+        "card": "Маленькие Хитрости",
+        "dice": "EVADE",
+        "val": 22,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Ловкая-Кеклета",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🏃 Evade Stored",
+      "details": [
+        "🎲 Roll [2-2]: 2 + 15 (Ловкость) + 5 (Total_Intellect scale) = **22**"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лима",
+        "card": "Маленькие Хитрости",
+        "dice": "EVADE",
+        "val": 22,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Ловкая-Кеклета",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🏃 Evade Stored",
+      "details": [
+        "🎲 Roll [2-2]: 2 + 15 (Ловкость) + 5 (Total_Intellect scale) = **22**"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лима",
+        "card": "Маленькие Хитрости",
+        "dice": "EVADE",
+        "val": 22,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Ловкая-Кеклета",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🏃 Evade Stored",
+      "details": [
+        "🎲 Roll [2-2]: 2 + 15 (Ловкость) + 5 (Total_Intellect scale) = **22**"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лима",
+        "card": "Обычный удар",
+        "dice": "BLUNT",
+        "val": 18,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Ловкая-Кеклета",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-62 HP**",
+      "details": [
+        "🎲 Roll [5-12]: 12 + 4 (Сила) + 2 (Среднее ор.) = **18**",
+        "👊 Atk Boost: +2",
+        "💥 **Ловкая-Кеклета**: [x3.1 Res] Hit 62 HP"
+      ]
     },
     {
       "round": "Round Start",
@@ -1095,6 +1334,512 @@
       "leveling_unit": " Дна'хо",
       "tree_unit": " Дна'хо",
       "checks_unit": " Дна'хо"
+    },
+    {
+      "type": "dynamic",
+      "team_left_dyn": [
+        {
+          "current_hp": 121,
+          "current_sp": 161,
+          "current_stagger": 55,
+          "resources": {},
+          "cooldowns": {
+            "copycat_insight": 2
+          },
+          "card_cooldowns": {
+            "lima_one_furious_shot": [
+              1
+            ],
+            "lima_ram": [
+              1
+            ],
+            "lima_purge_toxin": [
+              1
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {
+            "rupture": [
+              {
+                "amount": 10,
+                "duration": 99
+              }
+            ],
+            "haste": [
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "lima_little_tricks",
+            "lima_jump_shooting",
+            "lima_assorted_arrows",
+            "lima_hit_and_run",
+            "lima_inertia",
+            "lima_morphine_dart",
+            "lima_one_furious_shot",
+            "lima_ram",
+            "lima_purge_toxin"
+          ],
+          "active_slots": [
+            {
+              "speed": 20,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 20,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 20,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 19,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "9 (Fixer)",
+            "start_of_battle_stats": {
+              "hp": 1001,
+              "sp": 1002,
+              "stagger": 1001
+            },
+            "mind_suppression_bonus": 14,
+            "copycat_active_cards": [],
+            "smashing_blade_used": false,
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": [
+            {
+              "amount": 5790000,
+              "reason": ""
+            },
+            {
+              "amount": -3700000,
+              "reason": "Шопинг, стрелы, гранаты"
+            },
+            {
+              "amount": -500000,
+              "reason": "украла Аксис"
+            }
+          ]
+        }
+      ],
+      "team_right_dyn": [
+        {
+          "current_hp": 153,
+          "current_sp": 83,
+          "current_stagger": 51,
+          "resources": {},
+          "cooldowns": {},
+          "card_cooldowns": {
+            "слишком_быстрый_пинок_38ee": [
+              2
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {
+            "bleed": [
+              {
+                "amount": 9,
+                "duration": 2
+              }
+            ],
+            "strength": [
+              {
+                "amount": 2,
+                "duration": 1
+              }
+            ],
+            "haste": [
+              {
+                "amount": 2,
+                "duration": 1
+              }
+            ],
+            "endurance": [
+              {
+                "amount": 2,
+                "duration": 1
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "изничтожение_img5",
+            "изничтожение_img5",
+            "изничтожение_img5",
+            "обычный_удар_726c",
+            "обычный_удар_726c",
+            "обычный_удар_726c",
+            "слишком_быстрый_пинок_38ee",
+            "быстрый_пинок_07ca",
+            "быстрый_пинок_07ca"
+          ],
+          "active_slots": [
+            {
+              "speed": 18,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 17,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 15,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 12,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "9 (Fixer)",
+            "start_of_battle_stats": {
+              "hp": 1001,
+              "sp": 1001,
+              "stagger": 1002
+            },
+            "smashing_blade_used": false,
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": []
+        }
+      ],
+      "phase": "planning",
+      "round_number": 2,
+      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
+      "battle_logs": [
+        {
+          "type": "clash",
+          "round": "Clash (1)",
+          "left": {
+            "unit": "Лима",
+            "card": "Ассорти Стрел",
+            "dice": "PIERCE",
+            "val": 10,
+            "range": "3-4"
+          },
+          "right": {
+            "unit": "Ловкая-Кеклета",
+            "card": "Быстрый Пинок",
+            "dice": "EVADE",
+            "val": 21,
+            "range": "11-11"
+          },
+          "outcome": "🏃 Ловкая-Кеклета Evades! (Recycle)",
+          "details": [
+            "🎲 Roll [3-4]: 4 + 4 (Сила) + 2 (Среднее ор.) = **10**",
+            "🗡️ **Sudden Attack**: x1.5 Dmg & 17 Bleed (>90% HP) [1/Round]",
+            "🎲 Roll [11-11]: 11 + 8 (Ловкость) + 2 (Endurance) = **21**",
+            "📉 **Помеха!** (11, 11) -> Base: 11",
+            "🛡️ Лима immune to Surprise Attack!",
+            "🛡️ +21 Stagger"
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "Clash (2)",
+          "left": {
+            "unit": "Лима",
+            "card": "Ассорти Стрел",
+            "dice": "PIERCE",
+            "val": 9,
+            "range": "3-4"
+          },
+          "right": {
+            "unit": "Ловкая-Кеклета",
+            "card": "Быстрый Пинок",
+            "dice": "EVADE",
+            "val": 21,
+            "range": "11-11"
+          },
+          "outcome": "🏃 Ловкая-Кеклета Evades! (Recycle)",
+          "details": [
+            "🎲 Roll [3-4]: 3 + 4 (Сила) + 2 (Среднее ор.) = **9**",
+            "🎲 Roll [11-11]: 11 + 8 (Ловкость) + 2 (Endurance) = **21**",
+            "📉 **Помеха!** (11, 11) -> Base: 11",
+            "🛡️ Лима immune to Surprise Attack!",
+            "🛡️ +21 Stagger"
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "Clash (3)",
+          "left": {
+            "unit": "Лима",
+            "card": "Ассорти Стрел",
+            "dice": "PIERCE",
+            "val": 9,
+            "range": "3-4"
+          },
+          "right": {
+            "unit": "Ловкая-Кеклета",
+            "card": "Быстрый Пинок",
+            "dice": "EVADE",
+            "val": 21,
+            "range": "11-11"
+          },
+          "outcome": "🏃 Ловкая-Кеклета Evades! (Recycle)",
+          "details": [
+            "🎲 Roll [3-4]: 3 + 4 (Сила) + 2 (Среднее ор.) = **9**",
+            "🎲 Roll [11-11]: 11 + 8 (Ловкость) + 2 (Endurance) = **21**",
+            "📉 **Помеха!** (11, 11) -> Base: 11",
+            "🛡️ Лима immune to Surprise Attack!",
+            "🛡️ +21 Stagger"
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "Clash (4)",
+          "left": {
+            "unit": "Лима",
+            "card": "Ассорти Стрел",
+            "dice": "Broken",
+            "val": 0,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Ловкая-Кеклета",
+            "card": "Быстрый Пинок",
+            "dice": "EVADE",
+            "val": 21,
+            "range": "11-11"
+          },
+          "outcome": "🏃 Evade Saved (Opponent Broken)",
+          "details": [
+            "🎲 Roll [11-11]: 11 + 8 (Ловкость) + 2 (Endurance) = **21**",
+            "📉 **Помеха!** (11, 11) -> Base: 11",
+            "🛡️ Лима immune to Surprise Attack!",
+            "🛡️ Ловкая-Кеклета Stored Evade (Auto)"
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "Clash (5)",
+          "left": {
+            "unit": "Лима",
+            "card": "Ассорти Стрел",
+            "dice": "Broken",
+            "val": 0,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Ловкая-Кеклета",
+            "card": "Быстрый Пинок",
+            "dice": "BLUNT",
+            "val": 11,
+            "range": "5-5"
+          },
+          "outcome": "🚫 Лима Broken",
+          "details": [
+            "🎲 Roll [5-5]: 5 + 4 (Сила) + 2 (Strength) = **11**",
+            "📉 **Помеха!** (5, 5) -> Base: 5",
+            "🛡️ Лима immune to Surprise Attack!"
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "L Hit (Counter)",
+          "left": {
+            "unit": "Лима",
+            "card": "Стрельба в Прыжке",
+            "dice": "EVADE",
+            "val": 23,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Ловкая-Кеклета",
+            "card": "Stored",
+            "dice": "Broken (Cnt)",
+            "val": 21,
+            "range": "-"
+          },
+          "outcome": "🛡️ Defensive Clash (Both Spent)",
+          "details": [
+            "🎲 Roll [6-9]: 8 + 15 (Ловкость) = **23**",
+            "🎲 Roll [11-11]: 11 + 8 (Ловкость) + 2 (Endurance) = **21**",
+            "🛡️ Лима immune to Surprise Attack!"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лима",
+            "card": "Стрельба в Прыжке",
+            "dice": "PIERCE",
+            "val": 9,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Ловкая-Кеклета",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-6 HP**",
+          "details": [
+            "🎲 Roll [2-5]: 3 + 4 (Сила) + 2 (Среднее ор.) = **9**",
+            "👊 Atk Boost: +2",
+            "💥 **Ловкая-Кеклета**: [x0.6 Res] Hit 6 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лима",
+            "card": "Маленькие Хитрости",
+            "dice": "EVADE",
+            "val": 22,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Ловкая-Кеклета",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "🏃 Evade Stored",
+          "details": [
+            "🎲 Roll [2-2]: 2 + 15 (Ловкость) + 5 (Total_Intellect scale) = **22**"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лима",
+            "card": "Маленькие Хитрости",
+            "dice": "EVADE",
+            "val": 22,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Ловкая-Кеклета",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "🏃 Evade Stored",
+          "details": [
+            "🎲 Roll [2-2]: 2 + 15 (Ловкость) + 5 (Total_Intellect scale) = **22**"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лима",
+            "card": "Маленькие Хитрости",
+            "dice": "EVADE",
+            "val": 22,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Ловкая-Кеклета",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "🏃 Evade Stored",
+          "details": [
+            "🎲 Roll [2-2]: 2 + 15 (Ловкость) + 5 (Total_Intellect scale) = **22**"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лима",
+            "card": "Обычный удар",
+            "dice": "BLUNT",
+            "val": 18,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Ловкая-Кеклета",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-62 HP**",
+          "details": [
+            "🎲 Roll [5-12]: 12 + 4 (Сила) + 2 (Среднее ор.) = **18**",
+            "👊 Atk Boost: +2",
+            "💥 **Ловкая-Кеклета**: [x3.1 Res] Hit 62 HP"
+          ]
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Лима**: ⚡ **Лима**: Экзоскелет активирует сервоприводы (Спешка +1)."
+        }
+      ],
+      "turn_actions": [],
+      "turn_phase": "done",
+      "action_idx": 0,
+      "executed_slots": []
     }
   ]
 }
