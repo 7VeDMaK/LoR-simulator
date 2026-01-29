@@ -98,8 +98,9 @@
       "id": "изничтожение_img5",
       "name": "Изничтожение",
       "tier": 2,
-      "type": "melee",
+      "type": "Melee",
       "description": "Пассивное: при использовании отнимается 7 HP, но все кубики получают +3 к мощи.",
+      "flags": [],
       "scripts": {
         "on_use": [
           {
@@ -107,15 +108,6 @@
             "params": {
               "type": "hp",
               "base": -7,
-              "target": "self"
-            }
-          },
-          {
-            "script_id": "apply_status",
-            "params": {
-              "status": "strength",
-              "base": 3,
-              "duration": 1,
               "target": "self"
             }
           }
@@ -126,18 +118,30 @@
           "type": "pierce",
           "base_min": 9,
           "base_max": 13,
-          "scripts": {}
+          "is_counter": false,
+          "scripts": {
+            "on_roll": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "strength",
+                  "base": 3,
+                  "stat": "None",
+                  "scale_from_target": false,
+                  "factor": 1.0,
+                  "duration": 2,
+                  "delay": 0,
+                  "target": "self"
+                }
+              }
+            ]
+          }
         },
         {
-          "type": "pierce",
-          "base_min": 4,
-          "base_max": 6,
-          "scripts": {}
-        },
-        {
-          "type": "pierce",
-          "base_min": 4,
-          "base_max": 6,
+          "type": "slash",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": false,
           "scripts": {}
         }
       ]
@@ -235,36 +239,36 @@
       ]
     },
     {
-  "id": "series_normal_strikes_img",
-  "name": "Серия обычных ударов",
-  "tier": 3,
-  "type": "melee",
-  "description": "При использовании: Добавляет +1 атакующий кубик за каждые 10 Удачи (Макс 10).",
+      "id": "series_normal_strikes_img",
+      "name": "Серия обычных ударов",
+      "tier": 3,
+      "type": "melee",
+      "description": "При использовании: Добавляет +1 атакующий кубик за каждые 10 Удачи (Макс 10).",
       "flags": [
         "unchangeable"
       ],
-  "scripts": {
-    "on_use": [
-      {
-        "script_id": "repeat_dice_by_luck",
-        "params": {
-          "step": 30,
-          "limit": 5
-        }
-      }
-    ]
-  },
-  "dice": [
-    {
-      "type": "slash",
-      "base_min": 7,
-      "base_max": 15,
       "scripts": {
-         "on_roll": []
-      }
-    }
-  ]
-},
+        "on_use": [
+          {
+            "script_id": "repeat_dice_by_luck",
+            "params": {
+              "step": 30,
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 15,
+          "scripts": {
+            "on_roll": []
+          }
+        }
+      ]
+    },
     {
       "id": "not_the_limit_img",
       "name": "Это не предел возможностей",

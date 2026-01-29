@@ -1,7 +1,7 @@
 # Импортируем классы из новых модулей
 from logic.statuses.common import (
     StrengthStatus, EnduranceStatus, BleedStatus, ParalysisStatus,
-    ProtectionStatus, FragileStatus, VulnerabilityStatus, BarrierStatus, BindStatus, DeepWoundStatus,
+    ProtectionStatus, FragileStatus, VulnerableStatus, BarrierStatus, BindStatus, DeepWoundStatus,
     HasteStatus, BurnStatus, WeaknessStatus, WeakStatus, StaggerResistStatus, DmgUpStatus, DmgDownStatus, RuptureStatus,
     AttackPowerDownStatus
 )
@@ -10,7 +10,8 @@ from logic.statuses.custom import (
     AdaptationStatus, BulletTimeStatus, ClarityStatus,  InvisibilityStatus, EnrageTrackerStatus,
     SatietyStatus, MentalProtectionStatus, RegenGanacheStatus, BleedResistStatus,
     IgnoreSatietyStatus, RevengeDmgUpStatus, TauntStatus, FanatMarkStatus, ArrestedStatus,
-    SlashResistDownStatus, PierceResistDownStatus, BluntResistDownStatus
+    SlashResistDownStatus, PierceResistDownStatus, BluntResistDownStatus,
+    MainCharacterShellStatus
 )
 
 # === РЕГИСТРАЦИЯ ===
@@ -22,7 +23,7 @@ STATUS_REGISTRY = {
     "paralysis": ParalysisStatus(),
     "protection": ProtectionStatus(),
     "fragile": FragileStatus(),
-    "vulnerability": VulnerabilityStatus(),
+    "vulnerable": VulnerableStatus(),
     "barrier": BarrierStatus(),
     "burn": BurnStatus(),
     "rupture": RuptureStatus(),
@@ -61,6 +62,9 @@ STATUS_REGISTRY = {
     "fanat_mark":FanatMarkStatus(),
     "dmg_up":DmgUpStatus(),
     "dmg_down":DmgDownStatus(),
+    
+    # Talent statuses
+    "main_character_shell": MainCharacterShellStatus(),
     "weak": WeakStatus(),
     "attack_power_down": AttackPowerDownStatus()
 }

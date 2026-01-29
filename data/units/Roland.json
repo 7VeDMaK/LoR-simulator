@@ -19,7 +19,7 @@
         "imp_stg": 0
     },
     "current_hp": 1674,
-    "current_sp": 20,
+    "current_sp": 267,
     "current_stagger": 10,
     "resources": {
         "luck": 0
@@ -37,17 +37,16 @@
         "status_rank": "2321321",
         "start_of_battle_stats": {
             "hp": 1674,
-            "sp": 20,
+            "sp": 268,
             "stagger": 10
-        },
-        "battle_initialized": true
+        }
     },
     "death_count": 0,
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
         "current_hp": 1674,
-        "current_sp": 20,
+        "current_sp": 267,
         "current_stagger": 10
     },
     "defense": {

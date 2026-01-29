@@ -19,7 +19,7 @@ class TalentInnateTalent(BasePassive):
     description = (
         "Прокачивая данный талант, персонаж вкладывает в данную ветку еще 4 таланта.\n"
         "Эффект: Вы получаете бонус +1 ко всем характеристикам и +2 к навыкам.\n"
-        "Каждые 10 уровней персонажа этот бонус увеличивается (Максимум +5 / +10 на 50 уровне)."
+        "Каждые 10 уровней персонажа этот бонус увеличивается (Максимум +4 / +8 на 40 уровне)."
     )
     is_active_ability = False
 
@@ -354,9 +354,204 @@ class TalentIdealStandard(BasePassive):
     id = "ideal_standard"
     name = "Пример для подражания!"
     description = (
-        "За каждого живого союзника: +2 к характеристикам (макс 5).\n"
-        "При оглушении персонажа союзники получают +3 Power на 2 хода."
+        "В битвах с союзниками получаете баффы за каждого:\n"
+        "1-й союзник: +2 Endurance | 2-й: +2 Attack Power | 3-й: +2 Haste\n"
+        "4-й и 5-й: +1 к каждому баффу (макс 5 союзников).\n"
+        "При оглушении: союзники получают +3 Vulnerable, Attack Power Down, Bind на 2 хода."
     )
+    is_active_ability = False
+
+    def _count_active_allies(self, unit):
+        """Подсчитывает активных союзников на поле боя (живые и не оглушенные)."""
+        try:
+            from ui.simulator.logic.simulator_logic import get_teams
+            l_team, r_team = get_teams()
+            
+            # Определяем команду юнита
+            my_team = None
+            if unit in (l_team or []):
+                my_team = l_team
+            elif unit in (r_team or []):
+                my_team = r_team
+            
+            if not my_team:
+                logger.log(f"🔍 Ideal Standard: {unit.name} team not found", LogLevel.VERBOSE, "Talent")
+                return 0
+            
+            # Подсчитываем активных союзников (не считая себя)
+            active_allies = 0
+            for ally in my_team:
+                # Пропускаем самого себя (проверяем по имени)
+                if ally.name == unit.name:
+                    continue
+                
+                # Считаем союзника активным, если он жив и не оглушен
+                is_alive = ally.current_hp > 0
+                is_staggered = ally.is_staggered() if callable(getattr(ally, 'is_staggered', None)) else False
+                
+                if is_alive and not is_staggered:
+                    active_allies += 1
+            
+            # Максимум 5 союзников
+            return min(active_allies, 5)
+            
+        except Exception as e:
+            logger.log(f"⚠️ Ideal Standard count error: {e}", LogLevel.VERBOSE, "Talent")
+            return 0
+
+    def _get_active_allies(self, unit):
+        """Возвращает список активных союзников на поле боя."""
+        try:
+            from ui.simulator.logic.simulator_logic import get_teams
+            l_team, r_team = get_teams()
+            
+            # Определяем команду юнита
+            my_team = None
+            if unit in (l_team or []):
+                my_team = l_team
+            elif unit in (r_team or []):
+                my_team = r_team
+            
+            if not my_team:
+                return []
+            
+            # Собираем активных союзников
+            allies = []
+            for ally in my_team:
+                if ally.name == unit.name:
+                    continue
+                
+                is_alive = ally.current_hp > 0
+                is_staggered = ally.is_staggered() if callable(getattr(ally, 'is_staggered', None)) else False
+                
+                if is_alive and not is_staggered:
+                    allies.append(ally)
+            
+            return allies
+            
+        except Exception as e:
+            logger.log(f"⚠️ Ideal Standard allies error: {e}", LogLevel.VERBOSE, "Talent")
+            return []
+
+    def on_round_start(self, unit, *args, **kwargs):
+        """
+        В начале раунда выдает баффы в зависимости от количества активных союзников.
+        Также сбрасывает флаг дебаффов для новых падений.
+        """
+        # Сбрасываем флаг дебаффов (позволяет таланту срабатывать при каждом новом падении)
+        unit.memory["ideal_standard_debuff_applied"] = False
+        
+        alive_count = self._count_active_allies(unit)
+        
+        if alive_count == 0:
+            return
+        
+        # Базовые баффы
+        endurance_bonus = 0
+        attack_power_bonus = 0
+        haste_bonus = 0
+        
+        # 1-й союзник: +2 Endurance
+        if alive_count >= 1:
+            endurance_bonus = 2
+        
+        # 2-й союзник: +2 Attack Power
+        if alive_count >= 2:
+            attack_power_bonus = 2
+        
+        # 3-й союзник: +2 Haste
+        if alive_count >= 3:
+            haste_bonus = 2
+        
+        # 4-й и 5-й союзники: +1 к каждому баффу
+        extra_allies = max(0, alive_count - 3)
+        if extra_allies > 0:
+            endurance_bonus += extra_allies
+            attack_power_bonus += extra_allies
+            haste_bonus += extra_allies
+        
+        # Применяем статусы на раунд
+        if endurance_bonus > 0:
+            unit.add_status("endurance", endurance_bonus, duration=1)
+        if attack_power_bonus > 0:
+            unit.add_status("strength", attack_power_bonus, duration=1)
+        if haste_bonus > 0:
+            unit.add_status("haste", haste_bonus, duration=1)
+        
+        # Формируем описание баффов для лога
+        buffs_desc = []
+        if endurance_bonus > 0:
+            buffs_desc.append(f"+{endurance_bonus} Endurance")
+        if attack_power_bonus > 0:
+            buffs_desc.append(f"+{attack_power_bonus} Power")
+        if haste_bonus > 0:
+            buffs_desc.append(f"+{haste_bonus} Haste")
+        
+        logger.log(
+            f"👥 {self.name}: {unit.name} с {alive_count} союзниками -> {', '.join(buffs_desc)}",
+            LogLevel.NORMAL,
+            "Talent"
+        )
+
+    def on_take_damage(self, *args, **kwargs):
+        """
+        Отслеживаем момент падения персонажа (когда HP опускается до 0).
+        Если персонаж упал, применяем дебаффы к союзникам СРАЗУ.
+        НЕ срабатывает, если активна Сюжетная броня (статус main_character_shell).
+        """
+        # Извлекаем аргументы
+        unit = args[0] if len(args) > 0 else kwargs.get("unit")
+        damage = args[1] if len(args) > 1 else kwargs.get("damage", 0)
+        
+        if not unit:
+            return damage
+        
+        # Проверяем наличие статуса Сюжетной брони (талант 2.8)
+        has_plot_armor = unit.get_status("main_character_shell") > 0
+        
+        # УСЛОВИЕ АКТИВАЦИИ: Статуса main_character_shell НЕТ
+        if has_plot_armor:
+            # Сюжетная броня активна - дебаффы к союзникам НЕ применяются
+            logger.log(
+                f"👥 {self.name}: {unit.name} защищён Сюжетной бронёй - дебаффы союзникам не применены",
+                LogLevel.VERBOSE,
+                "Talent"
+            )
+            return damage
+        
+        # Сюжетной брони нет - проверяем условия для дебаффов
+        # Проверяем, приведет ли урон к падению персонажа
+        will_fall = unit.current_hp - damage <= 0
+        
+        # Проверяем, не применяли ли мы уже дебаффы за это падение
+        already_debuffed = unit.memory.get("ideal_standard_debuff_applied", False)
+        
+        if will_fall and not already_debuffed:
+            # Помечаем, что дебаффы будут применены
+            unit.memory["ideal_standard_debuff_applied"] = True
+            
+            # Получаем активных союзников и применяем дебаффы СРАЗУ
+            allies = self._get_active_allies(unit)
+            if allies:
+                debuffed_count = 0
+                for ally in allies:
+                    # Применяем негативные статусы напрямую на союзников (демотивация)
+                    ally.add_status("vulnerable", 3, duration=2)
+                    ally.add_status("attack_power_down", 3, duration=2)
+                    ally.add_status("bind", 3, duration=2)
+                    debuffed_count += 1
+                
+                if debuffed_count > 0:
+                    logger.log(
+                        f"👥 {self.name}: {unit.name} получает летальный урон! "
+                        f"{debuffed_count} союзников демотивированы! (+3 Vulnerable/-3 Power/+3 Bind на 2 хода)",
+                        LogLevel.NORMAL,
+                        "Talent"
+                    )
+        
+        return damage
+
+
 
 
 # ==========================================
@@ -367,11 +562,85 @@ class TalentArrogantTaunt(BasePassive):
     name = "Насмешка"
     description = (
         "+5 к Красноречию.\n"
-        "Активно: позволяет выбрать цели, которые будут обязаны атаковать выбранного персонажа."
+        "Активно: Выберите персонажа на поле боя.\n"
+        "Цель получает +2 Power и +4 Vulnerable на 1 ход.\n"
+        "(Можно использовать на себя или союзников/врагов)"
     )
+    is_active_ability = True
+    cooldown = 1  # Кулдаун 1 ход
 
     def on_calculate_stats(self, unit) -> dict:
         return {"eloquence": 5}
+
+    def _get_battle_targets(self):
+        """Получает всех юнитов на поле боя."""
+        try:
+            from ui.simulator.logic.simulator_logic import get_teams
+            l_team, r_team = get_teams()
+            return (l_team or []) + (r_team or [])
+        except Exception:
+            return []
+
+    @property
+    def conversion_options(self):
+        """Список всех доступных целей (включая себя)."""
+        options = {}
+        for u in self._get_battle_targets():
+            if not u or not hasattr(u, "name"):
+                continue
+            # Показываем только живых персонажей
+            if getattr(u, "current_hp", 0) > 0:
+                options[u.name] = f"{u.name} ({u.current_hp} HP)"
+        return options
+
+    def activate(self, unit, log_func, choice_key=None, **kwargs):
+        """
+        Накладывает +2 Power и +4 Vulnerable на выбранного персонажа на 1 ход.
+        """
+        # Если цель не выбрана
+        if not choice_key:
+            if log_func:
+                opts = ", ".join(self.conversion_options.values()) or "нет доступных целей"
+                log_func(f"⚠️ Выберите цель для {self.name}: {opts}")
+            return False
+
+        # Ищем цель по имени
+        target = None
+        for u in self._get_battle_targets():
+            if u and getattr(u, "name", None) == choice_key:
+                target = u
+                break
+
+        if not target:
+            if log_func:
+                log_func(f"⚠️ Цель не найдена: {choice_key}")
+            return False
+
+        # Проверяем, что цель жива
+        if getattr(target, "current_hp", 0) <= 0:
+            if log_func:
+                log_func(f"⚠️ {target.name} не может быть целью (HP <= 0)")
+            return False
+
+        # Применяем баффы/дебаффы
+        target.add_status("strength", 2, duration=1)
+        target.add_status("vulnerable", 4, duration=1)
+        
+        if log_func:
+            target_text = "себя" if target is unit else target.name
+            log_func(
+                f"😤 **{self.name}**: {unit.name} → {target_text}: "
+                f"+2 Power, +4 Vulnerable (1 ход)"
+            )
+        
+        logger.log(
+            f"😤 Arrogant Taunt: {unit.name} applied to {target.name} (+2 Power, +4 Vulnerable)",
+            LogLevel.NORMAL,
+            "Talent"
+        )
+        
+        unit.cooldowns[self.id] = self.cooldown
+        return True
 
 
 # ==========================================
@@ -381,12 +650,80 @@ class TalentMainCharacterShell(BasePassive):
     id = "main_character_shell"
     name = "Сюжетная броня"
     description = (
-        "+25% к Выдержке.\n"
-        "1 раз за битву: при летальном уроне — 1 HP, полное восстановление выдержки и неуязвимость на раунд."
+        "+25% к значению Выдержки.\n"
+        "HP и Stagger не могут опуститься ниже 1 (одноразово на всю битву)."
     )
+    is_active_ability = False
 
     def on_calculate_stats(self, unit) -> dict:
         return {"stagger_resist_pct": 25}
+
+    def on_combat_start(self, unit, *args, **kwargs):
+        """
+        Накладываем статус защиты в начале каждого боя.
+        """
+        # Сбрасываем флаг использования для нового боя
+        unit.memory["main_character_shell_used"] = False
+        
+        # Накладываем защитный статус
+        unit.add_status("main_character_shell", 1, duration=999)
+        logger.log(
+            f"🛡️ Main Character Shell: {unit.name} activated plot armor",
+            LogLevel.NORMAL,
+            "Talent"
+        )
+    
+    def on_scene_start(self, unit, *args, **kwargs):
+        """
+        В начале каждой новой сцены проверяем, использовалась ли защита.
+        Если да - больше не восстанавливаем статус.
+        Если нет - восстанавливаем статус (он мог быть удален системой).
+        """
+        was_used = unit.memory.get("main_character_shell_used", False)
+        
+        if was_used:
+            # Защита уже использовалась - не восстанавливаем
+            logger.log(
+                f"🛡️ Main Character Shell: {unit.name} protection already consumed",
+                LogLevel.VERBOSE,
+                "Talent"
+            )
+        else:
+            # Защита еще не использовалась - восстанавливаем статус на случай, если он был удален
+            current_status = unit.get_status("main_character_shell")
+            if current_status == 0:
+                unit.add_status("main_character_shell", 1, duration=999)
+                logger.log(
+                    f"🛡️ Main Character Shell: {unit.name} protection restored at scene start",
+                    LogLevel.VERBOSE,
+                    "Talent"
+                )
+    
+    def on_take_damage(self, *args, **kwargs):
+        """
+        Отслеживаем момент срабатывания защиты.
+        Когда HP падает до 1 из-за защиты - помечаем, что защита была использована.
+        """
+        unit = args[0] if len(args) > 0 else kwargs.get("unit")
+        damage = args[1] if len(args) > 1 else kwargs.get("damage", 0)
+        
+        if not unit:
+            return damage
+        
+        # Проверяем, есть ли активная защита
+        has_protection = unit.get_status("main_character_shell") > 0
+        
+        # Если защита активна и урон привел бы к смерти
+        if has_protection and unit.current_hp - damage <= 0:
+            # Помечаем, что защита использована (будет удалена в начале следующей сцены)
+            unit.memory["main_character_shell_used"] = True
+            logger.log(
+                f"🛡️ Main Character Shell: {unit.name} protection triggered and will be removed next scene",
+                LogLevel.NORMAL,
+                "Talent"
+            )
+        
+        return damage
 
 
 # ==========================================
@@ -396,8 +733,8 @@ class TalentSilenceExecution(BasePassive):
     id = "silence_execution"
     name = "Muted"
     description = (
-        "Активно (КД: 5 сцен): Уничтожить кубик скорости противника "
-        "(кроме Массовых атак) без использования карт."
+        "Активно (КД: 5 сцен): Выберите врага и кубик его скорости для уничтожения.\n"
+        "Нельзя уничтожить кубики с картами 3+ уровня или массовыми атаками."
     )
     is_active_ability = True
     cooldown = 5
@@ -409,7 +746,53 @@ class TalentSilenceExecution(BasePassive):
 class TalentJustWarmingUp(BasePassive):
     id = "just_warming_up"
     name = "Да мы только начали!"
-    description = "За каждое проигранное столкновение: +1 к Мощи в следующей сцене на один ход."
+    description = "За каждое проигранное столкновение: +1 к Силе (Strength) в следующей сцене на один ход."
+    is_active_ability = False
+
+    def on_clash_lose(self, ctx, **kwargs):
+        """
+        Считаем количество проигранных столкновений.
+        """
+        unit = ctx.source
+        
+        # Увеличиваем счетчик проигрышей
+        if "lost_clashes" not in unit.memory:
+            unit.memory["lost_clashes"] = 0
+        
+        unit.memory["lost_clashes"] += 1
+        
+        ctx.log.append(
+            f"🔥 **{self.name}**: {unit.name} набирается опыта... (Проиграно: {unit.memory['lost_clashes']})"
+        )
+        
+        logger.log(
+            f"🔥 Just Warming Up: {unit.name} lost clash, total losses = {unit.memory['lost_clashes']}",
+            LogLevel.VERBOSE,
+            "Talent"
+        )
+
+    def on_scene_start(self, unit, log_func, **kwargs):
+        """
+        В начале новой сцены дает +Strength равный количеству проигранных столкновений.
+        """
+        lost_count = unit.memory.get("lost_clashes", 0)
+        if lost_count <= 0:
+            return
+        
+        # Добавляем Strength (мощь атакующих кубов: Slash, Blunt, Pierce)
+        unit.add_status("strength", lost_count, duration=1)
+        
+        if log_func:
+            log_func(f"🔥 **{self.name}**: {unit.name} разогрелся! (+{lost_count} Strength на 1 ход)")
+        
+        logger.log(
+            f"🔥 Just Warming Up: {unit.name} gains +{lost_count} Strength for 1 turn",
+            LogLevel.NORMAL,
+            "Talent"
+        )
+        
+        # Сбрасываем счетчик проигрышей после использования
+        unit.memory["lost_clashes"] = 0
 
 
 # ======================================================================================

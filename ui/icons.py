@@ -51,7 +51,7 @@ ICON_FILES = {
     "smoke": "Smoke.webp",
     "paralysis": "Paralize.webp",  # Паралич часто похож на Weakness или отдельную иконку
     "fragile": "Fragile.webp",
-    "vulnerability": "Vulnerable.webp",
+    "vulnerable": "Vulnerable.webp",  # Рассредоточенность - снижает защитные кубы
     "weakness": "AttackPowerDown.webp",  # Weakness = снижение силы атаки
     "weak": "Weak.webp",  # Weak = получает +25% урона
 

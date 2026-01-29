@@ -343,3 +343,55 @@ class MentalProtectionStatus(StatusEffect):
         return amount
 
 
+class MainCharacterShellStatus(StatusEffect):
+    """
+    Статус для таланта 2.8 'Сюжетная броня'.
+    Предотвращает смерть: HP и Stagger не могут опуститься ниже 1.
+    Срабатывает один раз, после чего статус удаляется.
+    """
+    id = "main_character_shell"
+    name = "Сюжетная броня"
+    description = "HP и Stagger не могут опуститься ниже 1 (одноразово)"
+    
+    def modify_incoming_damage(self, unit, amount, damage_type, **kwargs):
+        """Предотвращаем падение HP и Stagger ниже 1."""
+        # Защита HP
+        if damage_type == "hp" and unit.current_hp - amount <= 0:
+            limited_damage = max(0, unit.current_hp - 1)
+            logger.log(
+                f"🛡️ Main Character Shell: {unit.name} HP protected! "
+                f"Damage {amount} → {limited_damage}",
+                LogLevel.NORMAL,
+                "Status"
+            )
+            # Помечаем для удаления после срабатывания
+            unit.memory["main_character_shell_triggered"] = True
+            return limited_damage
+        
+        # Защита Stagger
+        if damage_type == "stagger" and unit.current_stagger - amount <= 0:
+            limited_damage = max(0, unit.current_stagger - 1)
+            logger.log(
+                f"🛡️ Main Character Shell: {unit.name} Stagger protected! "
+                f"Damage {amount} → {limited_damage}",
+                LogLevel.NORMAL,
+                "Status"
+            )
+            # Помечаем для удаления после срабатывания
+            unit.memory["main_character_shell_triggered"] = True
+            return limited_damage
+        
+        return amount
+    
+    def on_round_end(self, unit, *args, **kwargs):
+        """Удаляем статус после срабатывания."""
+        if unit.memory.get("main_character_shell_triggered", False):
+            unit.remove_status(self.id, 999)  # Удаляем полностью
+            unit.memory["main_character_shell_triggered"] = False
+            logger.log(
+                f"🛡️ Main Character Shell: {unit.name} protection consumed and removed",
+                LogLevel.NORMAL,
+                "Status"
+            )
+
+

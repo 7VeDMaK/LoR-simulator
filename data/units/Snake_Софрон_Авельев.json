@@ -1,9 +1,9 @@
 {
     "name": "Snake, Софрон Авельев ",
-    "level": 1,
+    "level": 36,
     "rank": 9,
     "avatar": "data/avatars/Солидиус_Бледно-черная_Змея.jpg",
-    "base_intellect": 1,
+    "base_intellect": 7,
     "total_xp": 0,
     "pct_mods": {
         "imp_hp": 0,
@@ -18,16 +18,29 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 20,
-    "current_sp": 20,
-    "current_stagger": 10,
+    "current_hp": 178,
+    "current_sp": 147,
+    "current_stagger": 113,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
     "active_buffs": {},
     "_status_effects": {},
     "delayed_queue": [],
-    "deck": [],
+    "deck": [
+        "изничтожение_img5",
+        "изничтожение_img5",
+        "изничтожение_img5",
+        "не_беспокойство_img3",
+        "не_беспокойство_img3",
+        "не_беспокойство_img3",
+        "warp_img",
+        "удачное_стечение_img2",
+        "обычный_удар_726c",
+        "обычный_удар_726c",
+        "обычный_удар_726c",
+        "тяжкое_бремя_img4"
+    ],
     "active_slots": [],
     "stored_dice": [],
     "counter_dice": [],
@@ -38,9 +51,9 @@
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 20,
-        "current_sp": 20,
-        "current_stagger": 10
+        "current_hp": 178,
+        "current_sp": 147,
+        "current_stagger": 113
     },
     "defense": {
         "armor_name": "Unit_28",
@@ -58,22 +71,22 @@
         "weapon_id": "none"
     },
     "attributes": {
-        "strength": 0,
-        "endurance": 0,
-        "agility": 0,
+        "strength": 25,
+        "endurance": 15,
+        "agility": 10,
         "wisdom": 0,
-        "psych": 0
+        "psych": 10
     },
     "skills": {
-        "strike_power": 0,
+        "strike_power": 15,
         "medicine": 0,
-        "willpower": 0,
+        "willpower": 28,
         "luck": 0,
-        "acrobatics": 0,
+        "acrobatics": 3,
         "shields": 0,
-        "tough_skin": 0,
-        "speed": 0,
-        "light_weapon": 0,
+        "tough_skin": 17,
+        "speed": 30,
+        "light_weapon": 15,
         "medium_weapon": 0,
         "heavy_weapon": 0,
         "firearms": 0,
@@ -83,9 +96,67 @@
         "programming": 0
     },
     "passives": [],
-    "talents": [],
+    "talents": [
+        "big_guy",
+        "defense",
+        "commendable_constitution",
+        "rock",
+        "despiteAdversities",
+        "naked_defense",
+        "vengeful_payback",
+        "berserker_rage",
+        "adaptation_tireless",
+        "pain_points",
+        "pain_shock",
+        "entering_rhythm"
+    ],
     "augmentations": [],
-    "level_rolls": {},
+    "level_rolls": {
+        "3": {
+            "hp": 4,
+            "sp": 3
+        },
+        "6": {
+            "hp": 1,
+            "sp": 4
+        },
+        "9": {
+            "hp": 1,
+            "sp": 4
+        },
+        "12": {
+            "hp": 5,
+            "sp": 4
+        },
+        "15": {
+            "hp": 3,
+            "sp": 3
+        },
+        "18": {
+            "hp": 3,
+            "sp": 1
+        },
+        "21": {
+            "hp": 5,
+            "sp": 3
+        },
+        "24": {
+            "hp": 5,
+            "sp": 5
+        },
+        "27": {
+            "hp": 4,
+            "sp": 2
+        },
+        "30": {
+            "hp": 1,
+            "sp": 3
+        },
+        "33": {
+            "hp": 5,
+            "sp": 1
+        }
+    },
     "biography": "",
     "relationships": {
         "Лилит": {

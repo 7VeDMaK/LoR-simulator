@@ -106,7 +106,7 @@ class ProtectionStatus(StatusEffect):
             return amount - stack
         return amount
 
-# Базовый класс для статусов, увеличивающих входящий урон (Fragile, Vulnerability, Weakness)
+# Базовый класс для статусов, увеличивающих входящий урон (Fragile, Weakness)
 class _IncomingDamageIncreaseStatus(StatusEffect):
     def modify_incoming_damage(self, unit, amount, damage_type, stack=0, **kwargs):
         if damage_type == "hp":
@@ -117,8 +117,19 @@ class _IncomingDamageIncreaseStatus(StatusEffect):
 class FragileStatus(_IncomingDamageIncreaseStatus):
     id = "fragile"
 
-class VulnerabilityStatus(_IncomingDamageIncreaseStatus):
-    id = "vulnerability"
+class VulnerableStatus(StatusEffect):
+    id = "vulnerable"
+    name = "Рассредоточенность"
+    description = "Снижает силу защитных кубов (Block/Evade)"
+    
+    def on_roll(self, ctx: RollContext, **kwargs):
+        stack = kwargs.get('stack', 0)
+        if ctx.dice.dtype == DiceType.BLOCK or ctx.dice.dtype == DiceType.EVADE:
+            ctx.modify_power(-stack, "Vulnerable")
+            logger.log(
+                f"⬇️ Vulnerable: {ctx.source.name} defense power reduced by {stack}",
+                LogLevel.VERBOSE, "Status"
+            )
 
 class WeaknessStatus(_IncomingDamageIncreaseStatus):
     id = "weakness"

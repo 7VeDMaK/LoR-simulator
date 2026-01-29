@@ -1,6 +1,6 @@
 {
     "name": "Лайла",
-    "level": 1,
+    "level": 29,
     "rank": 9,
     "avatar": "data/avatars/Лайла.jpg",
     "base_intellect": 10,
@@ -26,15 +26,9 @@
         "stances": 1
     },
     "card_cooldowns": {
-        "time_cant_turn_back_blunt": [
-            1
-        ],
-        "still_alive_blunt": [
-            1
-        ],
-        "perfect_strike_blunt": [
-            1
-        ]
+        "time_cant_turn_back_blunt": 0,
+        "still_alive_blunt": 0,
+        "perfect_strike_blunt": 0
     },
     "active_buffs": {},
     "_status_effects": {
@@ -47,14 +41,14 @@
     },
     "delayed_queue": [],
     "deck": [
-        "short_lunge",
-        "long_lunge",
-        "draw_sword",
-        "long_edge",
-        "tale_of_rebirth",
-        "double_strike",
-        "time_cant_turn_back",
-        "still_alive",
+        "short_lunge_blunt",
+        "long_lunge_blunt",
+        "draw_sword_blunt",
+        "long_edge_blunt",
+        "tale_of_rebirth_blunt",
+        "double_strike_blunt",
+        "time_cant_turn_back_blunt",
+        "still_alive_blunt",
         "perfect_cut"
     ],
     "active_slots": [],
@@ -136,7 +130,20 @@
         "stances",
         "hardened_by_solitude"
     ],
-    "talents": [],
+    "talents": [
+        "innate_talent",
+        "celestial_eyes",
+        "void_cleave",
+        "golden_reputation",
+        "copycat_insight",
+        "ideal_standard",
+        "black_flash_spark",
+        "arrogant_taunt",
+        "main_character_shell",
+        "silence_execution",
+        "blue_flash_step",
+        "just_warming_up"
+    ],
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
