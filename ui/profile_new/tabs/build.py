@@ -20,6 +20,6 @@ def render_build_tab(unit, is_edit_mode: bool):
             card_cost = card.cost if hasattr(card, 'cost') else card.get('cost', 0)
 
             if is_edit_mode:
-                st.button(f"{card_name} ({card_cost}) ✏️", key=f"deck_edit_{i}", use_container_width=True)
+                st.button(f"{card_name} ({card_cost}) ✏️", key=f"deck_edit_{i}", width='stretch')
             else:
-                st.button(f"{card_name}\n({card_cost})", key=f"deck_view_{i}", use_container_width=True)
+                st.button(f"{card_name}\n({card_cost})", key=f"deck_view_{i}", width='stretch')

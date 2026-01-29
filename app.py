@@ -46,8 +46,8 @@ if "Simulator" in page:
     render_simulator_page()
 
 elif "Profile" in page:
-    render_profile_page()
-    # render_profile_page_v2()
+    # render_profile_page()
+    render_profile_page_v2()
 
 elif "Checks" in page:
     render_checks_page()

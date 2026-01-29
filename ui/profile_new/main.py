@@ -3,62 +3,73 @@ from core.unit.unit_library import UnitLibrary
 from core.unit.unit import Unit
 from ui.profile.header import render_header
 
-# Импорты компонентов
-from ui.profile_new.sidebar import render_sidebar
+# === ИМПОРТЫ ===
+# 1. Сайдбар и контролы
+from ui.profile_new.sidebar import render_sidebar, render_profile_controls
+
+# 2. Вкладки (убедись, что все файлы созданы)
 from ui.profile_new.tabs.build import render_build_tab
 from ui.profile_new.tabs.passives import render_passives_tab
+from ui.profile_new.tabs.equipment import render_equipment_tab  # Наш новый файл
 
+
+# from ui.profile_new.tabs.talents import render_talents_tab # Раскомментируй, если создал talents.py
 
 def render_profile_page_v2():
-    # 1. Загрузка данных
+    # 1. Загрузка Ростера
     if 'roster' not in st.session_state or not st.session_state['roster']:
         st.session_state['roster'] = UnitLibrary.load_all() or {"New Unit": Unit("New Unit")}
 
     roster = st.session_state['roster']
 
-    # 2. Шапка выбора персонажа
+    # 2. РИСУЕМ КОНТРОЛЫ В ГЛОБАЛЬНОМ САЙДБАРЕ
+    # Эта функция сама вызовет with st.sidebar: ...
+    is_edit_mode = render_profile_controls()
+
+    # 3. Шапка профиля
     unit, u_key = render_header(roster)
     if unit is None:
         return
 
     unit.recalculate_stats()
+    st.markdown("---")
 
-    # 3. Панель управления (Toggle Edit Mode)
-    # Используем колонки, чтобы чекбокс был аккуратно справа или слева
-    c1, c2 = st.columns([0.8, 0.2])
-    with c2:
-        is_edit_mode = st.toggle("✏️ Режим редактирования", value=False, key="profile_edit_mode")
-
-    st.divider()
-
-    # 4. Основная разметка
+    # 4. Основная сетка страницы
     col_left, col_right = st.columns([1, 2.5], gap="medium")
 
     # === ЛЕВАЯ КОЛОНКА (ПАСПОРТ) ===
     with col_left:
-        # Передаем флаг редактирования внутрь
+        # Передаем режим, полученный из сайдбара
         render_sidebar(unit, is_edit_mode)
 
     # === ПРАВАЯ КОЛОНКА (ВКЛАДКИ) ===
     with col_right:
-        # Вынесли Пассивки в отдельную вкладку
-        tab_deck, tab_passives, tab_stats, tab_bio = st.tabs([
+        # Список вкладок
+        tabs = st.tabs([
             "⚔️ Колода",
+            "🛠️ Снаряжение",  # <--- Вкладка экипировки
             "🧬 Пассивки",
             "📊 Параметры",
             "🎨 Внешность"
         ])
 
-        with tab_deck:
+        # TAB 1: Колода
+        with tabs[0]:
             render_build_tab(unit, is_edit_mode)
 
-        with tab_passives:
+        # TAB 2: Экипировка (Оружие/Броня/Аугментации)
+        with tabs[1]:
+            render_equipment_tab(unit, is_edit_mode)
+
+        # TAB 3: Пассивки
+        with tabs[2]:
             render_passives_tab(unit, is_edit_mode)
 
-        with tab_stats:
-            st.info("Тут будут Атрибуты (Сила/Ловкость) и дерево прокачки")
-            # Если нужно редактирование статов:
-            # if is_edit_mode: ...
+        # TAB 4: Параметры (Заглушка или старый код)
+        with tabs[3]:
+            st.info("Атрибуты (Сила/Ловкость) и Таланты")
+            # render_talents_tab(unit, is_edit_mode)
 
-        with tab_bio:
-            st.info("Тут настройки скинов и биографии")
+        # TAB 5: Внешность
+        with tabs[4]:
+            st.info("Настройки скинов и биографии")
