@@ -2,7 +2,7 @@
     "name": "Зафиэль",
     "level": 29,
     "rank": 6,
-    "avatar": "data/avatars/Зафиэль.jpg",
+    "avatar": "data/avatars\\Зафиэль.jpg",
     "base_intellect": 5,
     "total_xp": 293601280,
     "pct_mods": {

@@ -2,7 +2,7 @@
     "name": "Рейн",
     "level": 32,
     "rank": 6,
-    "avatar": "data/avatars/Рейн.png",
+    "avatar": "data/avatars\\Рейн.png",
     "base_intellect": 6,
     "total_xp": 2165047296,
     "pct_mods": {

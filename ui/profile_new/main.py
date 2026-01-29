@@ -8,7 +8,8 @@ from ui.profile_new.sidebar import render_sidebar, render_profile_controls
 from ui.profile_new.tabs.build import render_build_tab
 from ui.profile_new.tabs.passives import render_passives_tab
 from ui.profile_new.tabs.equipment import render_equipment_tab
-from ui.profile_new.tabs.talents import render_talents_tab  # <--- ВЕРНУЛИ ИМПОРТ
+from ui.profile_new.tabs.talents import render_talents_tab
+from ui.profile_new.tabs.stats import render_stats_tab  # <--- ДОБАВЛЕН ИМПОРТ
 
 
 def render_profile_page_v2():
@@ -26,6 +27,7 @@ def render_profile_page_v2():
     if unit is None:
         return
 
+    # Пересчет статов каждый раз при рендере, чтобы видеть актуальные цифры
     unit.recalculate_stats()
     st.markdown("---")
 
@@ -38,12 +40,11 @@ def render_profile_page_v2():
 
     # === RIGHT: TABS ===
     with col_right:
-        # Добавили "🌟 Таланты" в список
         tabs = st.tabs([
             "⚔️ Колода",
             "🛠️ Снаряжение",
             "🧬 Пассивки",
-            "🌟 Таланты",  # <--- ВОТ ОНА
+            "🌟 Таланты",
             "📊 Параметры",
             "🎨 Внешность"
         ])
@@ -60,14 +61,14 @@ def render_profile_page_v2():
         with tabs[2]:
             render_passives_tab(unit, is_edit_mode)
 
-        # TAB 4: Talents (ВЫЗОВ ФУНКЦИИ)
+        # TAB 4: Talents
         with tabs[3]:
             render_talents_tab(unit, is_edit_mode)
 
-            # TAB 5: Stats (Placeholder)
+        # TAB 5: Stats (ТЕПЕРЬ РАБОТАЕТ)
         with tabs[4]:
-            st.info("Атрибуты (Сила/Ловкость) и дерево прокачки")
+            render_stats_tab(unit, is_edit_mode) # <--- ВЫЗОВ ФУНКЦИИ
 
         # TAB 6: Visuals
         with tabs[5]:
-            st.info("Настройки скинов и биографии")
+            st.info("Настройки скинов и биографии (Скоро)")

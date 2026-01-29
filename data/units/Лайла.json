@@ -2,7 +2,7 @@
     "name": "Лайла",
     "level": 29,
     "rank": 9,
-    "avatar": "data/avatars/Лайла.jpg",
+    "avatar": "data/avatars\\Лайла.jpg",
     "base_intellect": 10,
     "total_xp": 0,
     "pct_mods": {

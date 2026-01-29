@@ -114,15 +114,81 @@ def draw_roll_interface(unit, selected_key, selected_label):
     color = "green" if chance >= 80 else "orange" if chance >= 50 else "red"
     st.markdown(f"Шанс: :{color}[**{chance:.1f}%**] | Ожидание: **{ev:.1f}** | DC: **{final_dc}**")
 
+    chk_key = f"last_check_{unit.name}_{selected_key}"
+
     if st.button("🎲 Бросить", type="primary", width='stretch', key=f"btn_{selected_key}"):
         res = perform_check_logic(unit, selected_key, val, difficulty, bonus)
-        res_color = "green" if res["is_success"] else "red"
+        st.session_state[chk_key] = res
+        st.rerun()
 
-        # ВЫЗЫВАЕМ ХУК ПАССИВКИ (Для обычных навыков)
-        if hasattr(unit, "trigger_hooks"):
-            unit.trigger_hooks("on_skill_check", check_result=res['total'], stat_key=selected_key)
+    if chk_key in st.session_state:
+        res = st.session_state[chk_key]
+        res_color = "green" if res["is_success"] else "red"
 
         with st.container(border=True):
             st.markdown(f"### :{res_color}[{res['msg']}]")
             st.markdown(f"**{res['total']}** vs **{res['final_difficulty']}**")
+            st.caption(f"Кубик: {res['roll']} ({res['die']}) | Формула: {res['formula_text']}")
             if res['is_crit']: st.caption("🔥 CRITICAL SUCCESS")
+
+            # === ПРОВЕРКА НАЛИЧИЯ ТАЛАНТА (ИСПРАВЛЕНО) ===
+            # Проверяем и строки (ID), и объекты
+            talents = getattr(unit, 'talents', [])
+            passives = getattr(unit, 'passives', [])
+
+            has_talent = False
+
+            # Проверяем таланты
+            for t in talents:
+                t_id = t if isinstance(t, str) else getattr(t, 'id', '')
+                if t_id == "sequential_luck":
+                    has_talent = True
+                    break
+
+            # Если не нашли, проверяем пассивки
+            if not has_talent:
+                for p in passives:
+                    p_id = p if isinstance(p, str) else getattr(p, 'id', '')
+                    if p_id == "sequential_luck":
+                        has_talent = True
+                        break
+
+            # === МЕХАНИКА УДАЧИ (ТОЛЬКО ПРИ ПРОВАЛЕ И ПРИ НАЛИЧИИ ТАЛАНТА) ===
+            if not res["is_success"] and has_talent:
+                st.divider()
+                st.markdown("**🍀 Вмешательство Удачи**")
+
+                missing = res['final_difficulty'] - res['total']
+                cost = missing * 2
+
+                roll_val = res.get('roll', 0)
+                gain = max(0, 20 - roll_val)
+
+                current_luck = unit.resources.get("luck", 0)
+
+                c_fail, c_fix = st.columns(2)
+
+                with c_fail:
+                    if st.button(f"📉 Принять провал\n(+{gain} Удачи)", key=f"fail_{chk_key}", use_container_width=True):
+                        unit.resources["luck"] = current_luck + gain
+                        del st.session_state[chk_key]
+                        st.toast(f"Провал принят. Удача: {unit.resources['luck']} (+{gain})")
+                        st.rerun()
+
+                with c_fix:
+                    can_afford = current_luck >= cost
+                    label_fix = f"🔥 Исправить (-{cost} Удачи)"
+                    if not can_afford:
+                        label_fix += "\n[Не хватает]"
+
+                    if st.button(label_fix, disabled=not can_afford, key=f"fix_{chk_key}", type="primary",
+                                 use_container_width=True):
+                        unit.resources["luck"] = current_luck - cost
+                        del st.session_state[chk_key]
+                        st.toast(f"Судьба изменена на Успех! Удача: {unit.resources['luck']} (-{cost})")
+                        st.rerun()
+
+            else:
+                if st.button("Закрыть результат", key=f"close_{chk_key}"):
+                    del st.session_state[chk_key]
+                    st.rerun()

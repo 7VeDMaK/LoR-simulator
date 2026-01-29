@@ -102,7 +102,7 @@
     },
     "attributes": {
         "strength": 0,
-        "endurance": 17,
+        "endurance": 19,
         "agility": 0,
         "wisdom": 15,
         "psych": 0
@@ -111,11 +111,11 @@
         "strike_power": 0,
         "medicine": 0,
         "willpower": 0,
-        "luck": 44,
+        "luck": 46,
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,
-        "speed": 8,
+        "speed": 10,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,
@@ -134,7 +134,8 @@
     ],
     "talents": [
         "deal_with_fortune",
-        "second_chance"
+        "second_chance",
+        "sequential_luck"
     ],
     "augmentations": [],
     "level_rolls": {

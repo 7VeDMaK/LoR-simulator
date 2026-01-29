@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "👤 Profile",
+  "page": "🎲 Checks",
   "team_left_data": [
     {
       "name": "Лима",
@@ -60,7 +60,7 @@
       "active_slots": [
         {
           "speed": 21,
-          "card": null,
+          "card": "lima_assorted_arrows",
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
@@ -71,7 +71,8 @@
             "icon": "⛔",
             "color": "gray"
           },
-          "is_ally_target": false
+          "is_ally_target": false,
+          "destroy_on_speed": true
         },
         {
           "speed": 21,
@@ -760,9 +761,9 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": null,
+  "profile_unit": "Ловкая-Кеклета",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
-  "checks_unit": "Ловкая-Кеклета",
+  "checks_unit": "Аксис Мунди",
   "undo_stack": []
 }
