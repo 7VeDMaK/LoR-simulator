@@ -37,6 +37,58 @@ def render_unit_stats(unit: Unit):
 
     st.progress(sp_pct, text=f"Sanity: {unit.current_sp}/{unit.max_sp} {mood}")
 
+    # Resistances
+    if hasattr(unit, 'hp_resists'):
+        # Базовые резисты
+        r_slash_base = unit.hp_resists.slash
+        r_pierce_base = unit.hp_resists.pierce
+        r_blunt_base = unit.hp_resists.blunt
+        
+        # Модификаторы от статусов
+        slash_down = unit.get_status("slash_resist_down") if hasattr(unit, 'get_status') else 0
+        pierce_down = unit.get_status("pierce_resist_down") if hasattr(unit, 'get_status') else 0
+        blunt_down = unit.get_status("blunt_resist_down") if hasattr(unit, 'get_status') else 0
+        
+        # Итоговые резисты
+        r_slash = r_slash_base + 0.25 * slash_down
+        r_pierce = r_pierce_base + 0.25 * pierce_down
+        r_blunt = r_blunt_base + 0.25 * blunt_down
+        
+        def get_resist_color(resist_val):
+            if resist_val < 1.0:
+                return "#2ec4b6"  # Зелёный - сопротивление
+            elif resist_val > 1.0:
+                return "#ef233c"  # Красный - уязвимость
+            else:
+                return "#8d99ae"  # Серый - нейтрально
+        
+        def format_resist(base, modifier, total):
+            if modifier > 0:
+                return f"×{total:.2f}<br><span style='font-size:0.7em; color:#ef233c;'>(+{modifier * 0.25:.2f})</span>"
+            else:
+                return f"×{total:.2f}"
+        
+        resist_html = f"""
+        <div style="display: flex; justify-content: space-around; margin-top: 8px; margin-bottom: 8px; padding: 4px; background-color: rgba(255,255,255,0.05); border-radius: 5px;">
+            <div style="text-align: center;">
+                <div style="font-size: 1.1em;">🗡️</div>
+                <div style="font-size: 0.85em; color: {get_resist_color(r_slash)};">{format_resist(r_slash_base, slash_down, r_slash)}</div>
+                <div style="font-size: 0.7em; opacity: 0.7;">Slash</div>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 1.1em;">🏹</div>
+                <div style="font-size: 0.85em; color: {get_resist_color(r_pierce)};">{format_resist(r_pierce_base, pierce_down, r_pierce)}</div>
+                <div style="font-size: 0.7em; opacity: 0.7;">Pierce</div>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 1.1em;">🔨</div>
+                <div style="font-size: 0.85em; color: {get_resist_color(r_blunt)};">{format_resist(r_blunt_base, blunt_down, r_blunt)}</div>
+                <div style="font-size: 0.7em; opacity: 0.7;">Blunt</div>
+            </div>
+        </div>
+        """
+        st.markdown(resist_html, unsafe_allow_html=True)
+
     # Statuses
     status_display_list = []
 

@@ -12,6 +12,7 @@ class UnitRPGMixin:
     # === ЗАЩИТА И ЭКИПИРОВКА ===
     armor_name: str = "Standard Fixer Suit"
     armor_type: str = "Medium"
+    armor_id: str = "standard_fixer_suit"
     weapon_id: str = "none"
 
     hp_resists: Resistances = field(default_factory=lambda: Resistances())

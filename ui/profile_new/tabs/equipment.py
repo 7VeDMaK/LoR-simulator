@@ -2,6 +2,7 @@ import streamlit as st
 from core.unit.unit_library import UnitLibrary
 # Импорт реестров данных
 from logic.weapon_definitions import WEAPON_REGISTRY
+from logic.armor_definitions import ARMOR_REGISTRY
 from logic.character_changing.augmentations.augmentations import AUGMENTATION_REGISTRY
 
 
@@ -75,50 +76,92 @@ def render_equipment_tab(unit, is_edit_mode: bool):
 
     # === 2. БРОНЯ (ARMOR) ===
     st.markdown("### 🛡️ Броня")
-    # Пока реестра брони нет, используем текстовое поле и резисты
 
+    # Получаем текущий ID брони
+    if not hasattr(unit, 'armor_id'):
+        unit.armor_id = "standard_fixer_suit"  # Fallback для старых юнитов
+    
+    current_armor_id = unit.armor_id
+    # Проверка на валидность ID
+    if current_armor_id not in ARMOR_REGISTRY:
+        current_armor_id = "none"  # Fallback
+
+    armor_obj = ARMOR_REGISTRY[current_armor_id]
+
+    # Layout: Карточка слева, Детали/Селектор справа
     c_arm_l, c_arm_r = st.columns([1, 2])
 
     with c_arm_l:
-        if is_edit_mode:
-            new_armor = st.text_input("Название брони", value=unit.armor_name)
-            if new_armor != unit.armor_name:
-                unit.armor_name = new_armor
-                UnitLibrary.save_unit(unit)  # Save string only
-        else:
-            st.markdown(f"**{unit.armor_name if unit.armor_name else 'Без брони'}**")
+        # Визуальная карточка
+        with st.container(border=True):
+            st.markdown(f"**{armor_obj.name}**")
+            st.caption(f"Rank: {armor_obj.rank}")
+
+            # Отображение резистов брони
+            st.caption("HP Resists:")
+            for dtype, val in armor_obj.hp_resists.items():
+                color = "#4ade80" if val < 1.0 else "#f87171" if val > 1.0 else "white"
+                st.markdown(f"<span style='color:{color}'>×{val:.2f}</span> {dtype.capitalize()}", unsafe_allow_html=True)
 
     with c_arm_r:
-        st.caption("Сопротивления (HP Resistances)")
-        # Резисты (Slash / Pierce / Blunt)
-        r1, r2, r3 = st.columns(3)
+        if is_edit_mode:
+            # Селектор брони
+            armor_options = list(ARMOR_REGISTRY.keys())
 
-        # Получаем объект резистов (предполагаем, что это объект с полями slash, pierce, blunt)
-        # В UnitData это обычно unit.hp_resists
-        resists = unit.hp_resists if hasattr(unit, 'hp_resists') else None
+            # Находим индекс текущей
+            try:
+                idx = armor_options.index(current_armor_id)
+            except ValueError:
+                idx = 0
 
-        if resists:
-            # Helper to render/edit resist
-            def _res_field(col, label, val_attr):
-                val = getattr(resists, val_attr, 1.0)
-                if is_edit_mode:
-                    new_val = col.number_input(label, 0.1, 3.0, val, 0.1, key=f"res_{val_attr}")
-                    if new_val != val:
-                        setattr(resists, val_attr, new_val)
-                        UnitLibrary.save_unit(unit)  # Нужно сохранять структуру
-                else:
-                    color = "white"
-                    if val < 1.0:
-                        color = "#4ade80"  # Resist
-                    elif val > 1.0:
-                        color = "#f87171"  # Fatal/Weak
-                    col.markdown(f"{label}: <span style='color:{color}'><b>{val}</b></span>", unsafe_allow_html=True)
+            new_armor_id = st.selectbox(
+                "Выбрать броню",
+                armor_options,
+                index=idx,
+                format_func=lambda x: f"{ARMOR_REGISTRY[x].name} (Rank {ARMOR_REGISTRY[x].rank})",
+                label_visibility="collapsed"
+            )
 
-            _res_field(r1, "🗡️ Slash", "slash")
-            _res_field(r2, "🏹 Pierce", "pierce")
-            _res_field(r3, "🔨 Blunt", "blunt")
+            if new_armor_id != current_armor_id:
+                unit.armor_id = new_armor_id
+                unit.armor_name = ARMOR_REGISTRY[new_armor_id].name
+                
+                # Применяем резисты из брони
+                armor = ARMOR_REGISTRY[new_armor_id]
+                unit.hp_resists.slash = armor.hp_resists["slash"]
+                unit.hp_resists.pierce = armor.hp_resists["pierce"]
+                unit.hp_resists.blunt = armor.hp_resists["blunt"]
+                unit.stagger_resists.slash = armor.stagger_resists["slash"]
+                unit.stagger_resists.pierce = armor.stagger_resists["pierce"]
+                unit.stagger_resists.blunt = armor.stagger_resists["blunt"]
+                
+                unit.recalculate_stats()
+                UnitLibrary.save_unit(unit)
+                st.rerun()
+
+            # Показываем описание выбранной (для справки при выборе)
+            sel_armor = ARMOR_REGISTRY[new_armor_id]
+            st.info(sel_armor.description)
+            
+            # Показываем дополнительные статы если есть
+            if sel_armor.stats:
+                stats_str = ", ".join([f"{k}: {'+' if v > 0 else ''}{v}" for k, v in sel_armor.stats.items()])
+                st.caption(f"Stats: {stats_str}")
+
         else:
-            st.error("Resistances data missing on unit.")
+            # Режим просмотра - просто описание
+            st.markdown(armor_obj.description)
+            if armor_obj.passive_id:
+                st.caption(f"Grant Passive: {armor_obj.passive_id}")
+            
+            # Показываем резисты
+            st.caption("Сопротивления (HP Resistances)")
+            r1, r2, r3 = st.columns(3)
+            for i, (dtype, val) in enumerate(armor_obj.hp_resists.items()):
+                col = [r1, r2, r3][i]
+                emoji = ["🗡️", "🏹", "🔨"][i]
+                color = "#4ade80" if val < 1.0 else "#f87171" if val > 1.0 else "white"
+                col.markdown(f"{emoji} {dtype.capitalize()}: <span style='color:{color}'><b>×{val:.2f}</b></span>", unsafe_allow_html=True)
 
     st.divider()
 
