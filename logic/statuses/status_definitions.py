@@ -7,11 +7,11 @@ from logic.statuses.common import (
 )
 from logic.statuses.custom import (
     SelfControlStatus, SmokeStatus, RedLycorisStatus, SinisterAuraStatus,
-    AdaptationStatus, BulletTimeStatus, ClarityStatus,  InvisibilityStatus, EnrageTrackerStatus,
+    AdaptationStatus, BulletTimeStatus, ClarityStatus, InvisibilityStatus, EnrageTrackerStatus,
     SatietyStatus, MentalProtectionStatus, RegenGanacheStatus, BleedResistStatus,
     IgnoreSatietyStatus, RevengeDmgUpStatus, TauntStatus, FanatMarkStatus, ArrestedStatus,
     SlashResistDownStatus, PierceResistDownStatus, BluntResistDownStatus,
-    MainCharacterShellStatus
+    MainCharacterShellStatus, AzinoBeastStatus, AzinoJackpotStatus
 )
 
 # === РЕГИСТРАЦИЯ ===
@@ -66,5 +66,7 @@ STATUS_REGISTRY = {
     # Talent statuses
     "main_character_shell": MainCharacterShellStatus(),
     "weak": WeakStatus(),
-    "attack_power_down": AttackPowerDownStatus()
+    "attack_power_down": AttackPowerDownStatus(),
+    "azino_jackpot": AzinoJackpotStatus(),
+    "azino_beast": AzinoBeastStatus(),
 }

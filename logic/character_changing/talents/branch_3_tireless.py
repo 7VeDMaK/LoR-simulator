@@ -18,7 +18,7 @@ class TalentBigGuy(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"max_hp_pct": 15}
 
 
@@ -118,7 +118,7 @@ class TalentCommendableConstitution(BasePassive):
     is_active_ability = True
     cooldown = 99  # Фактически 1 раз за бой
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"endurance": 3}
 
     def on_round_start(self, unit, log_func, **kwargs):
@@ -368,7 +368,7 @@ class TalentToughAsSteel(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"max_hp_pct": 20}
 
     def on_clash_win(self, ctx, **kwargs):
@@ -542,7 +542,7 @@ class TalentIdolOath(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         # Базовые бонусы
         mods = {"medicine": 15, "tough_skin": 15}
 

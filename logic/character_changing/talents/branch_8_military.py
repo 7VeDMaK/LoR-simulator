@@ -44,7 +44,7 @@ class TalentFastHands(BasePassive):
     )
     is_active_ability = True
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"firearms": 3}
 
     def activate(self, unit, log_func, **kwargs):
@@ -186,7 +186,7 @@ class TalentIronFormation(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         # Пока даем бонус только владельцу (в сингл симуляторе)
         stats = {}
         for skill in unit.skills:

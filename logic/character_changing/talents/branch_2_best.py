@@ -24,7 +24,7 @@ class TalentInnateTalent(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         # Базовый стек: 1 (1-9 ур), 2 (10-19 ур) и т.д.
         base_stack = 1 + (unit.level // 10)
 
@@ -249,7 +249,7 @@ class TalentGoldenReputation(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"eloquence": 5}
 
 
@@ -560,7 +560,7 @@ class TalentArrogantTaunt(BasePassive):
     is_active_ability = True
     cooldown = 1
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"eloquence": 5}
 
     def _get_battle_targets(self):
@@ -634,7 +634,7 @@ class TalentMainCharacterShell(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"stagger_resist_pct": 25}
 
     def on_combat_start(self, unit, log_func, **kwargs):

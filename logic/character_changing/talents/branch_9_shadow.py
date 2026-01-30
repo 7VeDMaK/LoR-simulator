@@ -20,7 +20,7 @@ class TalentAthleticismShadow(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"agility": 5}
 
 
@@ -60,7 +60,7 @@ class TalentNotGreatAttention(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         # Даем прямой бонус к атрибуту
         return {"agility": 3}
 
@@ -78,7 +78,7 @@ class TalentFormidablePerson(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         # Даем прямой бонус к навыку
         return {"eloquence": 5}
 
@@ -417,7 +417,7 @@ class TalentEyeForDanger(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {
             "acrobatics": 5,
             "engineering": 10
@@ -465,7 +465,7 @@ class TalentCoveringTracks(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         # Аппаем проверку ловкости через стат
         return {"agility": 7}
 

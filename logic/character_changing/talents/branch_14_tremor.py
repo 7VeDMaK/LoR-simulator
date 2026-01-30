@@ -44,7 +44,7 @@ class TalentCarelessness(BasePassive):
     description = "14.3 За каждые 10 Сотрясения на себе -> +1 Скорость (Макс +3)."
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         tremor = unit.get_status("tremor")
         bonus = min(3, tremor // 10)
         if bonus > 0:

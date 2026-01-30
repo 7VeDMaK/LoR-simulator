@@ -17,7 +17,7 @@ class TalentKeepItTogether(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"sp_pct": 20}
 
     # def on_roll(self, ctx, **kwargs):

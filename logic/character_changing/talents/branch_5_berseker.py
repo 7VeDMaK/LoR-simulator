@@ -338,7 +338,7 @@ class TalentDescendingIntoMadness(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         if unit.max_sp > 0:
             missing_pct = 1.0 - (unit.current_sp / unit.max_sp)
             stacks = int(missing_pct / 0.40)  # 40%

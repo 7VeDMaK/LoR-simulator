@@ -14,7 +14,7 @@ class TalentNoHippocraticOath(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         # Условно добавляем к медицине, хотя в ТЗ "спас броски на введение"
         return {"medicine": 3}
 
@@ -212,7 +212,7 @@ class TalentOrganStriking(BasePassive):
     description = "4.4 (Плохой) Весь ваш урон увеличен на 25%."
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         # Заглушка: +25% к множителю урона
         return {"damage_deal_mult": 0.25}
 
@@ -243,7 +243,7 @@ class TalentMedicalJargon(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"eloquence": 3}
 
 

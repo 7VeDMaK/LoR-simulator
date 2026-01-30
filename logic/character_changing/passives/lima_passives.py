@@ -59,7 +59,7 @@ class PassiveLuckyStreak(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"luck": 7}
 
     def prevents_surprise_attack(self, unit) -> bool:
@@ -120,7 +120,7 @@ class PassiveHuntersVedas(BasePassive):
     name = "Охотничьи веды"
     description = "Пассивно: +15 Мудрости."
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"wisdom": 15}
 
 
@@ -161,7 +161,7 @@ class PassiveMindSuppression(BasePassive):
             log_func(f"🧠 **{self.name}**: Интеллект {my_int} vs {op_int}. Бонус +{diff} к Красноречию.")
             logger.log(f"🧠 Mind Suppression: +{diff} Eloquence for {unit.name} (Int Diff)", LogLevel.VERBOSE, "Passive")
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         # Считываем сохраненный бонус
         bonus = unit.memory.get("mind_suppression_bonus", 0)
         return {"eloquence": bonus}

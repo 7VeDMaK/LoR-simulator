@@ -24,7 +24,7 @@ class PassiveWitnessOfGroGoroth(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         stats = {
             "eloquence": 20,  # Харизма +20
             "luck": -15,  # Удача -15
@@ -91,7 +91,7 @@ class PassivePovar(BasePassive):
     name = "Поваренок"
     description = "Отлично готовишь и вкусно кушаешь! Автоматически получает доступ к талантам 4.4 и 4.5."
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         talents_to_learn = ["cheese", "confete"]
         # Добавляем таланты, если их нет (без логов, т.к. это происходит часто)
         for tid in talents_to_learn:
@@ -106,7 +106,7 @@ class PassiveDistortionGroGoroth(BasePassive):
     name = "Traces of Gro-goroth"
     description = "Инкубационный период. +10 скорости. +1 ко всем картам"
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         stats = {
             "speed": 10,
         }
@@ -119,7 +119,7 @@ class PassiveFoodLover(BasePassive):
     description = "Сытый: Порог 27, нет штрафов. Голодный: Штрафы."
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         satiety = unit.get_status("satiety")
         if satiety <= 0:
             return {"hp_pct": -25, "sp_pct": -25}

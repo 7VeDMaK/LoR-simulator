@@ -14,7 +14,7 @@ class TalentElectrician(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"engineering": 3}
 
 
@@ -27,7 +27,7 @@ class TalentPainPoints(BasePassive):
     description = "10.1 Б: Сила удара (навык) +3."
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"power_attack": 3}
 
 

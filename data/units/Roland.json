@@ -2,7 +2,7 @@
     "name": "Roland",
     "level": 90,
     "rank": 9,
-    "avatar": "data/avatars/Roland.jpg",
+    "avatar": "data/avatars\\Roland.jpg",
     "base_intellect": 1,
     "total_xp": 618970019642690137449562112,
     "pct_mods": {
@@ -18,36 +18,80 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 1674,
+    "current_hp": 1,
     "current_sp": 267,
-    "current_stagger": 10,
+    "current_stagger": 837,
     "resources": {
-        "luck": 0
+        "luck": 719
     },
     "cooldowns": {},
     "card_cooldowns": {},
     "active_buffs": {},
-    "_status_effects": {},
+    "_status_effects": {
+        "azino_jackpot": [
+            {
+                "amount": 1,
+                "duration": 7
+            }
+        ]
+    },
     "delayed_queue": [],
     "deck": [],
-    "active_slots": [],
+    "active_slots": [
+        {
+            "speed": 8,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false
+        },
+        {
+            "speed": 5,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false
+        }
+    ],
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
         "status_rank": "2321321",
         "start_of_battle_stats": {
             "hp": 1674,
-            "sp": 268,
+            "sp": 267,
             "stagger": 10
-        }
+        },
+        "golden_dice_current": 2,
+        "azino_slots": [
+            7,
+            7,
+            7
+        ]
     },
     "death_count": 0,
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 1674,
+        "current_hp": 1,
         "current_sp": 267,
-        "current_stagger": 10
+        "current_stagger": 837
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -89,9 +133,18 @@
         "engineering": 0,
         "programming": 0
     },
-    "passives": [],
+    "passives": [
+        "axis_unity"
+    ],
     "talents": [
-        "celestial_eyes"
+        "celestial_eyes",
+        "deal_with_fortune",
+        "second_chance",
+        "sequential_luck",
+        "lucky_bastard",
+        "not_luck_just_skill",
+        "raise_stakes",
+        "azino_777"
     ],
     "augmentations": [],
     "level_rolls": {
