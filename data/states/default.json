@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "🌳 Skill Tree",
+  "page": "👤 Profile",
   "team_left_data": [
     {
       "name": "Roland",
@@ -22,24 +22,22 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 1,
+      "current_hp": 1393,
       "current_sp": 267,
-      "current_stagger": 837,
+      "current_stagger": 812,
       "resources": {
         "luck": 719
       },
-      "cooldowns": {},
-      "card_cooldowns": {
-        "not_the_limit_img": [
-          2
-        ]
+      "cooldowns": {
+        "blessed_by_fate": 2
       },
+      "card_cooldowns": {},
       "active_buffs": {},
       "_status_effects": {
-        "azino_jackpot": [
+        "smoke": [
           {
-            "amount": 1,
-            "duration": 6
+            "amount": 2,
+            "duration": 98
           }
         ]
       },
@@ -53,23 +51,19 @@
         "start_of_battle_stats": {
           "hp": 1674,
           "sp": 267,
-          "stagger": 10
+          "stagger": 837
         },
-        "golden_dice_current": 2,
-        "azino_slots": [
-          7,
-          7,
-          7
-        ],
+        "golden_dice_current": 0,
+        "azino_slots": [],
         "battle_initialized": true
       },
       "death_count": 0,
       "overkill_damage": 0,
       "money_log": [],
       "base_stats": {
-        "current_hp": 1,
+        "current_hp": 1393,
         "current_sp": 267,
-        "current_stagger": 837
+        "current_stagger": 812
       },
       "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -122,7 +116,8 @@
         "lucky_bastard",
         "not_luck_just_skill",
         "raise_stakes",
-        "azino_777"
+        "azino_777",
+        "blessed_by_fate"
       ],
       "augmentations": [],
       "level_rolls": {
@@ -273,14 +268,33 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 1,
-      "current_sp": 40,
-      "current_stagger": 1,
+      "current_hp": 77,
+      "current_sp": 38,
+      "current_stagger": 64,
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {},
       "active_buffs": {},
-      "_status_effects": {},
+      "_status_effects": {
+        "bleed": [
+          {
+            "amount": 3,
+            "duration": 4
+          }
+        ],
+        "smoke": [
+          {
+            "amount": 1,
+            "duration": 98
+          }
+        ],
+        "rupture": [
+          {
+            "amount": 10,
+            "duration": 99
+          }
+        ]
+      },
       "delayed_queue": [],
       "deck": [
         "release_steam",
@@ -296,13 +310,6 @@
       "active_slots": [],
       "stored_dice": [],
       "counter_dice": [
-        {
-          "type": "slash",
-          "base_min": 7,
-          "base_max": 10,
-          "is_counter": true,
-          "scripts": {}
-        },
         {
           "type": "evade",
           "base_min": 7,
@@ -320,7 +327,7 @@
         },
         "smoke_is_defensive": true,
         "smoke_limit_bonus": 5,
-        "vengeful_payback_chunks": 12,
+        "vengeful_payback_chunks": 1,
         "last_revive_attempt_round": 3,
         "last_revive_log": {
           "roll": 2,
@@ -332,8 +339,8 @@
         },
         "battle_initialized": true
       },
-      "death_count": 1,
-      "overkill_damage": 17,
+      "death_count": 0,
+      "overkill_damage": 0,
       "money_log": [
         {
           "amount": 280000,
@@ -341,9 +348,9 @@
         }
       ],
       "base_stats": {
-        "current_hp": 1,
-        "current_sp": 40,
-        "current_stagger": 1
+        "current_hp": 77,
+        "current_sp": 38,
+        "current_stagger": 64
       },
       "defense": {
         "armor_name": "None",
@@ -440,558 +447,171 @@
       "biography": "",
       "relationships": {},
       "unit_type": "player"
-    },
-    {
-      "name": "Аксис Мунди",
-      "level": 10,
-      "rank": 9,
-      "avatar": "data/avatars\\Аксис_Мунди.png",
-      "base_intellect": 8,
-      "total_xp": 666,
-      "pct_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0,
-        "tal_hp": 0,
-        "tal_sp": 0,
-        "tal_stg": 0
-      },
-      "flat_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0
-      },
-      "current_hp": 80,
-      "current_sp": 38,
-      "current_stagger": 40,
-      "resources": {
-        "luck": 55
-      },
-      "cooldowns": {},
-      "card_cooldowns": {},
-      "active_buffs": {},
-      "_status_effects": {},
-      "delayed_queue": [],
-      "deck": [
-        "axis_minor_setbacks",
-        "axis_min_effort",
-        "axis_pirouette",
-        "axis_sword_glory",
-        "axis_spear_determination",
-        "axis_fist_justice",
-        "axis_mcguffin",
-        "axis_plot_armor",
-        "axis_ex_machina",
-        "item_heal_5",
-        "item_heal_35",
-        "item_heal_65",
-        "tea_coffee_vespo"
-      ],
-      "active_slots": [],
-      "stored_dice": [],
-      "counter_dice": [],
-      "memory": {
-        "status_rank": "9 (Fixer)",
-        "start_of_battle_stats": {
-          "hp": 80,
-          "sp": 38,
-          "stagger": 40
-        },
-        "last_revive_attempt_round": 1,
-        "last_revive_log": {
-          "roll": 6,
-          "bonus": 0,
-          "penalty": 0,
-          "total": 6,
-          "dc": 0,
-          "success": true
-        },
-        "battle_initialized": true
-      },
-      "death_count": 0,
-      "overkill_damage": 0,
-      "money_log": [
-        {
-          "amount": 1500000,
-          "reason": "Первое задание Фемя"
-        },
-        {
-          "amount": -540000,
-          "reason": "Платье + ампулы "
-        },
-        {
-          "amount": 500000,
-          "reason": "У Лимы отобрала"
-        }
-      ],
-      "base_stats": {
-        "current_hp": 80,
-        "current_sp": 38,
-        "current_stagger": 40
-      },
-      "defense": {
-        "armor_name": "Standard Fixer Suit",
-        "armor_type": "Medium",
-        "hp_resists": {
-          "slash": 1.0,
-          "pierce": 1.0,
-          "blunt": 1.0
-        },
-        "stagger_resists": {
-          "slash": 1.0,
-          "pierce": 1.0,
-          "blunt": 1.0
-        },
-        "weapon_id": "none"
-      },
-      "attributes": {
-        "strength": 0,
-        "endurance": 19,
-        "agility": 0,
-        "wisdom": 15,
-        "psych": 0
-      },
-      "skills": {
-        "strike_power": 0,
-        "medicine": 0,
-        "willpower": 0,
-        "luck": 46,
-        "acrobatics": 0,
-        "shields": 0,
-        "tough_skin": 0,
-        "speed": 10,
-        "light_weapon": 0,
-        "medium_weapon": 0,
-        "heavy_weapon": 0,
-        "firearms": 0,
-        "eloquence": 0,
-        "forging": 0,
-        "engineering": 0,
-        "programming": 0
-      },
-      "passives": [
-        "axis_unity",
-        "pseudo_protagonist",
-        "source_access",
-        "meta_awareness",
-        "chthonic_nature"
-      ],
-      "talents": [
-        "deal_with_fortune",
-        "second_chance",
-        "sequential_luck"
-      ],
-      "augmentations": [],
-      "level_rolls": {
-        "3": {
-          "hp": 3,
-          "sp": 4
-        },
-        "6": {
-          "hp": 2,
-          "sp": 4
-        }
-      },
-      "biography": "Очки (крутые)\nВеревка (неудачливая)\n3 карточки хилок и платье (5, 30, 65. 3 бинда 0 2 3 сытости)\nплатье 500к\nстарый лук, немного приколов и стрел Лимы, но не все, еë шампунь, сами волосы Л, а также взяла у неë карандаш, бумагу, и оставила Лиме записку",
-      "relationships": {},
-      "unit_type": "player"
-    },
-    {
-      "name": "Roland 2",
-      "level": 90,
-      "rank": 9,
-      "avatar": "data/avatars\\Roland.jpg",
-      "base_intellect": 1,
-      "total_xp": 618970019642690137449562112,
-      "pct_mods": {
-        "imp_hp": 200,
-        "imp_sp": 0,
-        "imp_stg": 0,
-        "tal_hp": 200,
-        "tal_sp": 0,
-        "tal_stg": 0
-      },
-      "flat_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0
-      },
-      "current_hp": 1674,
-      "current_sp": 267,
-      "current_stagger": 10,
-      "resources": {
-        "luck": 0
-      },
-      "cooldowns": {},
-      "card_cooldowns": {},
-      "active_buffs": {},
-      "_status_effects": {},
-      "delayed_queue": [],
-      "deck": [
-        "item_heal_65"
-      ],
-      "active_slots": [],
-      "stored_dice": [],
-      "counter_dice": [],
-      "memory": {
-        "status_rank": "2321321",
-        "start_of_battle_stats": {
-          "hp": 1674,
-          "sp": 267,
-          "stagger": 10
-        },
-        "golden_dice_current": 2,
-        "battle_initialized": true,
-        "lucky_bastard_item": "item_heal_65"
-      },
-      "death_count": 0,
-      "overkill_damage": 0,
-      "money_log": [],
-      "base_stats": {
-        "current_hp": 1674,
-        "current_sp": 267,
-        "current_stagger": 10
-      },
-      "defense": {
-        "armor_name": "Standard Fixer Suit",
-        "armor_type": "Medium",
-        "hp_resists": {
-          "slash": 1.7999999999999998,
-          "pierce": 0.8,
-          "blunt": 0.30000000000000004
-        },
-        "stagger_resists": {
-          "slash": 1.0,
-          "pierce": 1.0,
-          "blunt": 1.0
-        },
-        "weapon_id": "none"
-      },
-      "attributes": {
-        "strength": 0,
-        "endurance": 30,
-        "agility": 0,
-        "wisdom": 999,
-        "psych": 0
-      },
-      "skills": {
-        "strike_power": 0,
-        "medicine": 0,
-        "willpower": 0,
-        "luck": 0,
-        "acrobatics": 0,
-        "shields": 15,
-        "tough_skin": 30,
-        "speed": 15,
-        "light_weapon": 0,
-        "medium_weapon": 0,
-        "heavy_weapon": 0,
-        "firearms": 0,
-        "eloquence": 0,
-        "forging": 0,
-        "engineering": 0,
-        "programming": 0
-      },
-      "passives": [
-        "axis_unity"
-      ],
-      "talents": [
-        "celestial_eyes",
-        "deal_with_fortune",
-        "second_chance",
-        "sequential_luck",
-        "lucky_bastard",
-        "not_luck_just_skill",
-        "raise_stakes",
-        "azino_777"
-      ],
-      "augmentations": [],
-      "level_rolls": {
-        "3": {
-          "hp": 3,
-          "sp": 5
-        },
-        "6": {
-          "hp": 4,
-          "sp": 4
-        },
-        "9": {
-          "hp": 1,
-          "sp": 2
-        },
-        "12": {
-          "hp": 1,
-          "sp": 1
-        },
-        "15": {
-          "hp": 2,
-          "sp": 2
-        },
-        "18": {
-          "hp": 3,
-          "sp": 5
-        },
-        "21": {
-          "hp": 3,
-          "sp": 4
-        },
-        "24": {
-          "hp": 5,
-          "sp": 3
-        },
-        "27": {
-          "hp": 3,
-          "sp": 1
-        },
-        "30": {
-          "hp": 5,
-          "sp": 4
-        },
-        "33": {
-          "hp": 2,
-          "sp": 5
-        },
-        "36": {
-          "hp": 1,
-          "sp": 3
-        },
-        "39": {
-          "hp": 5,
-          "sp": 3
-        },
-        "42": {
-          "hp": 4,
-          "sp": 5
-        },
-        "45": {
-          "hp": 1,
-          "sp": 4
-        },
-        "48": {
-          "hp": 2,
-          "sp": 5
-        },
-        "51": {
-          "hp": 1,
-          "sp": 2
-        },
-        "54": {
-          "hp": 4,
-          "sp": 1
-        },
-        "57": {
-          "hp": 3,
-          "sp": 5
-        },
-        "60": {
-          "hp": 1,
-          "sp": 2
-        },
-        "63": {
-          "hp": 3,
-          "sp": 1
-        },
-        "66": {
-          "hp": 2,
-          "sp": 5
-        },
-        "69": {
-          "hp": 1,
-          "sp": 1
-        },
-        "72": {
-          "hp": 2,
-          "sp": 3
-        },
-        "75": {
-          "hp": 2,
-          "sp": 2
-        },
-        "78": {
-          "hp": 2,
-          "sp": 4
-        },
-        "81": {
-          "hp": 2,
-          "sp": 3
-        },
-        "84": {
-          "hp": 5,
-          "sp": 4
-        },
-        "87": {
-          "hp": 4,
-          "sp": 4
-        },
-        "90": {
-          "hp": 2,
-          "sp": 4
-        }
-      },
-      "biography": "",
-      "relationships": {},
-      "unit_type": "fixer"
-    },
-    {
-      "name": "Comander Lucy",
-      "level": 1,
-      "rank": 9,
-      "avatar": "data/avatars/Comander_Lucy.png",
-      "base_intellect": 1,
-      "total_xp": 0,
-      "pct_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0,
-        "tal_hp": 0,
-        "tal_sp": 0,
-        "tal_stg": 0
-      },
-      "flat_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0
-      },
-      "current_hp": 20,
-      "current_sp": 20,
-      "current_stagger": 10,
-      "resources": {},
-      "cooldowns": {},
-      "card_cooldowns": {},
-      "active_buffs": {},
-      "_status_effects": {},
-      "delayed_queue": [],
-      "deck": [],
-      "active_slots": [],
-      "stored_dice": [],
-      "counter_dice": [],
-      "memory": {
-        "status_rank": "Radiactive Corpus S-93",
-        "start_of_battle_stats": {
-          "hp": 20,
-          "sp": 20,
-          "stagger": 10
-        },
-        "battle_initialized": true
-      },
-      "death_count": 0,
-      "overkill_damage": 0,
-      "money_log": [],
-      "base_stats": {
-        "current_hp": 20,
-        "current_sp": 20,
-        "current_stagger": 10
-      },
-      "defense": {
-        "armor_name": "Unit_14",
-        "armor_type": "Medium",
-        "hp_resists": {
-          "slash": 1.0,
-          "pierce": 1.0,
-          "blunt": 1.0
-        },
-        "stagger_resists": {
-          "slash": 1.0,
-          "pierce": 1.0,
-          "blunt": 1.0
-        },
-        "weapon_id": "none"
-      },
-      "attributes": {
-        "strength": 0,
-        "endurance": 0,
-        "agility": 0,
-        "wisdom": 0,
-        "psych": 0
-      },
-      "skills": {
-        "strike_power": 0,
-        "medicine": 0,
-        "willpower": 0,
-        "luck": 0,
-        "acrobatics": 0,
-        "shields": 0,
-        "tough_skin": 0,
-        "speed": 0,
-        "light_weapon": 0,
-        "medium_weapon": 0,
-        "heavy_weapon": 0,
-        "firearms": 0,
-        "eloquence": 0,
-        "forging": 0,
-        "engineering": 0,
-        "programming": 0
-      },
-      "passives": [],
-      "talents": [],
-      "augmentations": [],
-      "level_rolls": {},
-      "biography": "Хладнокровная, безжалостная\n",
-      "relationships": {
-        "Saria Calman": {
-          "value": -20,
-          "status": "Rival",
-          "notes": "Сестра, недолюбливает"
-        },
-        "Лима": {
-          "value": -5,
-          "status": "Neutral",
-          "notes": "Лох какой-то, подсос сестры"
-        }
-      },
-      "unit_type": "fixer"
     }
   ],
   "phase": "roll",
-  "round_number": 9,
-  "turn_message": "🏙️ **Дочь переулка**: Реген (+1 HP, +1 SP, +1 Stagger)",
+  "round_number": 7,
+  "turn_message": "🏙️ **Дочь переулка**: Реген (+1 HP, +1 SP, +1 Stagger) ⏰ Rupture activated!",
   "battle_logs": [
     {
       "type": "clash",
-      "round": "L Hit (Counter)",
+      "round": "Clash (1)",
       "left": {
         "unit": "Roland",
-        "card": "Это не предел возможностей",
+        "card": "Быстрый Пинок",
+        "dice": "EVADE",
+        "val": 9999,
+        "range": "11-11"
+      },
+      "right": {
+        "unit": "Лилит",
+        "card": "Затяг",
         "dice": "SLASH",
-        "val": 25,
+        "val": 19,
+        "range": "6-8"
+      },
+      "outcome": "🏃 Roland Evades! (Recycle)",
+      "details": [
+        "🎲 Roll [6-8]: 6 + 3 (Сила) + 5 (Среднее ор.) + 5 (Strength) = **19**",
+        "📉 **Помеха!** (7, 6) -> Base: 6",
+        "🎲 Roll [11-11]: 11 = **9999**",
+        "🪙 **ОРЕЛ**: Авто-победа (Base 11)",
+        "🛡️ +9999 Stagger"
+      ]
+    },
+    {
+      "type": "clash",
+      "round": "Clash (2)",
+      "left": {
+        "unit": "Roland",
+        "card": "Быстрый Пинок",
+        "dice": "EVADE",
+        "val": 9999,
+        "range": "11-11"
+      },
+      "right": {
+        "unit": "Лилит",
+        "card": "Затяг",
+        "dice": "EVADE (C)",
+        "val": 21,
+        "range": "7-10"
+      },
+      "outcome": "🛡️ Defensive Clash (Both Spent)",
+      "details": [
+        "🎲 Roll [7-10]: 10 + 7 (Ловкость) + 4 (Endurance) = **21**",
+        "📉 **Помеха!** (10, 10) -> Base: 10",
+        "🎲 Roll [11-11]: 11 = **9999**",
+        "🪙 **ОРЕЛ**: Авто-победа (Base 11)"
+      ]
+    },
+    {
+      "type": "clash",
+      "round": "Clash (3)",
+      "left": {
+        "unit": "Roland",
+        "card": "Быстрый Пинок",
+        "dice": "BLUNT",
+        "val": 9999,
+        "range": "5-5"
+      },
+      "right": {
+        "unit": "Лилит",
+        "card": "Затяг",
+        "dice": "SLASH (C)",
+        "val": 22,
+        "range": "7-10"
+      },
+      "outcome": "🏆 Roland Win (Hit) 💥 **-3 HP**",
+      "details": [
+        "🎲 Roll [7-10]: 9 + 3 (Сила) + 5 (Среднее ор.) + 5 (Strength) = **22**",
+        "📉 **Помеха!** (10, 9) -> Base: 9",
+        "🎲 Roll [5-5]: 5 = **9999**",
+        "🪙 **ОРЕЛ**: Авто-победа (Base 5)",
+        "⏰ **Лилит**: Rupture (Delayed 1 turns)",
+        "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 3 HP"
+      ]
+    },
+    {
+      "type": "clash",
+      "round": "Clash (1)",
+      "left": {
+        "unit": "Roland",
+        "card": "Длинный Выпад",
+        "dice": "SLASH",
+        "val": 0,
+        "range": "2-3"
+      },
+      "right": {
+        "unit": "Лилит",
+        "card": "Выпустить пар",
+        "dice": "SLASH",
+        "val": 15,
+        "range": "1-3"
+      },
+      "outcome": "🏆 Лилит Win (Hit)",
+      "details": [
+        "🎲 Roll [1-3]: 2 + 3 (Сила) + 5 (Среднее ор.) + 5 (Strength) = **15**",
+        "⚡ **Живи быстро, умирай молодым**: +1 Дым за победу",
+        "🩸 Bleed: Лилит takes 20 dmg",
+        "🧠 **Не теряя голову**: +1 Self-Control",
+        "🧪 **Roland**: +1 Smoke",
+        "👊 Atk Boost: +2",
+        "💥 **Roland**: [-12 Skin] [x1.8 Res] Hit 0 HP",
+        "🎲 Roll [2-3]: 2 = **0**",
+        "💀 **РЕШКА**: Слом... (Base 2)",
+        "💀 Отдача: -251 HP"
+      ]
+    },
+    {
+      "type": "clash",
+      "round": "Clash (2)",
+      "left": {
+        "unit": "Roland",
+        "card": "Длинный Выпад",
+        "dice": "BLUNT",
+        "val": 0,
+        "range": "1-2"
+      },
+      "right": {
+        "unit": "Лилит",
+        "card": "Выпустить пар",
+        "dice": "SLASH",
+        "val": 15,
+        "range": "1-3"
+      },
+      "outcome": "🏆 Лилит Win (Hit) 💥 **-9 HP**",
+      "details": [
+        "🎲 Roll [1-3]: 2 + 3 (Сила) + 5 (Среднее ор.) + 5 (Strength) = **15**",
+        "⚡ **Живи быстро, умирай молодым**: +1 Дым за победу",
+        "🩸 Bleed: Лилит takes 10 dmg",
+        "🧠 **Не теряя голову**: +1 Self-Control",
+        "🧪 **Roland**: +1 Smoke",
+        "👊 Atk Boost: +2",
+        "💥 **Roland**: [-12 Skin] [x1.8 Res] Hit 9 HP",
+        "🎲 Roll [1-2]: 2 = **0**",
+        "💀 **РЕШКА**: Слом... (Base 2)"
+      ]
+    },
+    {
+      "type": "clash",
+      "round": "Clash (3)",
+      "left": {
+        "unit": "Roland",
+        "card": "Длинный Выпад",
+        "dice": "Broken",
+        "val": 0,
         "range": "-"
       },
       "right": {
         "unit": "Лилит",
-        "card": "Stored",
-        "dice": "Broken (Cnt)",
-        "val": 21,
-        "range": "-"
+        "card": "Выпустить пар",
+        "dice": "SLASH",
+        "val": 14,
+        "range": "1-3"
       },
-      "outcome": "💥 Counter Broken 💥 **-23 HP**",
+      "outcome": "🚫 Roland Broken",
       "details": [
-        "🎲 Roll [12-25]: 22 = **25**",
-        "🎶 **JACKPOT**: Бессмертие и Бесконечная Удача!",
-        "💥 **Лилит**: [-2 Skin] [x1.0 Res] Hit 23 HP (DEAD! Overkill: 17)",
-        "🎲 Roll [7-10]: 10 + 7 (Ловкость) + 4 (Endurance) = **21**"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Comander Lucy",
-        "card": "блант",
-        "dice": "BLUNT",
-        "val": 99,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Roland",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected)",
-      "details": [
-        "🎲 Roll [99-99]: 99 = **99**",
-        "🚫 Roland Immune (ДЖЕКПОТ (Бессмертие))"
+        "🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 5 (Strength) = **14**"
       ]
     }
   ],
@@ -1000,7 +620,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": " Дна'хо",
+  "profile_unit": "Roland",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",

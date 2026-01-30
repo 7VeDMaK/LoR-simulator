@@ -449,3 +449,89 @@ class AzinoBeastStatus(StatusEffect):
         dmg_self = 6
         ctx.source.take_damage(dmg_self)
         ctx.log.append(f"😈 **666**: Урон усилен, получено {dmg_self} отдачи.")
+
+
+# logic/statuses/custom.py
+
+class LuckyCoinStatus(StatusEffect):
+    id = "lucky_coin_status"
+    name = "Подброшенная монета"
+    description = "Вся атака под влиянием Судьбы. Орел: Все кубики побеждают. Решка: Все кубики ломаются."
+
+    def prevents_specific_die_destruction(self, unit, die) -> bool:
+        return True
+
+    def on_roll(self, ctx: RollContext, stack: int):
+        """
+        Логика монетки для всей карты.
+        Результат (Орел/Решка) фиксируется при первом броске карты и действует до конца.
+        """
+        unit = ctx.source
+
+        # Ключ памяти для хранения результата текущей карты
+        # Мы используем ID карты, чтобы различать разные атаки
+        card_id = getattr(unit.current_card, 'id', 'unknown_card')
+        memory_key = f"lucky_coin_result_{card_id}"
+
+        # Проверяем, кидали ли мы уже монетку для этой карты
+        coin_result = unit.memory.get(memory_key)
+
+        if coin_result is None:
+            # Первый кубик карты: Бросаем монетку
+            import random
+            is_heads = random.choice([True, False])
+            coin_result = "HEADS" if is_heads else "TAILS"
+            unit.memory[memory_key] = coin_result
+
+            # Логируем сам факт броска
+            result_str = "ОРЕЛ (Победа)" if is_heads else "РЕШКА (Провал)"
+            logger.log(f"🪙 Lucky Coin Flip for {card_id}: {result_str}", LogLevel.NORMAL, "Status")
+
+        # === ПРИМЕНЕНИЕ РЕЗУЛЬТАТА К ТЕКУЩЕМУ КУБИКУ ===
+
+        real_roll = ctx.final_value
+        if real_roll <= 0: real_roll = 1
+
+        if coin_result == "HEADS":
+            # --- ОРЕЛ (ВСЕ КУБИКИ ПОБЕЖДАЮТ) ---
+            win_val = 9999
+            ctx.dice.value = win_val
+            ctx.final_value = win_val
+            ctx.is_critical = True
+
+            # Коррекция урона (чтобы не бить на 9999)
+            correction_factor = real_roll / win_val
+            ctx.damage_multiplier *= correction_factor
+
+            ctx.log.append(f"🪙 **ОРЕЛ**: Авто-победа (Base {real_roll})")
+
+        else:
+            # --- РЕШКА (ВСЕ КУБИКИ ПРОИГРЫВАЮТ) ---
+            ctx.dice.value = 0
+            ctx.final_value = 0
+            ctx.damage_multiplier = 0
+            ctx.dice.is_broken = True
+
+            ctx.log.append(f"💀 **РЕШКА**: Слом... (Base {real_roll})")
+
+            # Урон по себе (только 1 раз за карту или за каждый кубик?
+            # Если за каждый - это очень больно. Сделаем проверку, чтобы бил 1 раз)
+            dmg_key = f"lucky_coin_dmg_{card_id}"
+            if not unit.memory.get(dmg_key):
+                self_dmg = int(unit.max_hp * 0.15)
+                if self_dmg > 0:
+                    unit.heal_hp(-self_dmg)
+                    ctx.log.append(f"💀 Отдача: -{self_dmg} HP")
+                    unit.memory[dmg_key] = True  # Помечаем, что урон уже нанесен
+
+    def on_round_end(self, unit, log_func, **kwargs):
+        """Очистка в конце раунда"""
+        # Удаляем статус
+        unit.remove_status(self.id, 999)
+
+        # Очищаем память от результатов бросков
+        keys_to_remove = [k for k in unit.memory.keys() if k.startswith("lucky_coin_")]
+        for k in keys_to_remove:
+            unit.memory.pop(k)
+
+        return ["🪙 Монета вернулась в карман."]

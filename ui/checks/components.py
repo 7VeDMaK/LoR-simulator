@@ -44,11 +44,9 @@ def calculate_luck_cost(chosen_value, current_luck):
 
 def _has_talent(unit, talent_id):
     """Надежная проверка наличия таланта или пассивки по ID."""
-    # Проверяем таланты
     for t in getattr(unit, 'talents', []):
         t_id = t if isinstance(t, str) else getattr(t, 'id', '')
         if t_id == talent_id: return True
-    # Проверяем пассивки
     for p in getattr(unit, 'passives', []):
         p_id = p if isinstance(p, str) else getattr(p, 'id', '')
         if p_id == talent_id: return True
@@ -58,9 +56,24 @@ def _has_talent(unit, talent_id):
 def _get_max_golden_dice(unit):
     """Расчет максимума золотых костей (7.5 + улучшения)."""
     base = 2
-    if _has_talent(unit, "lucky_coin"): base += 1
-    if _has_talent(unit, "joker_talent"): base += 1
+    if _has_talent(unit, "lucky_coin"): base += 1  # Старый ID, оставил для совместимости
+    if _has_talent(unit, "azino_777"): base += 1
+    if _has_talent(unit, "ace_sleeve") or _has_talent(unit, "joker_talent"): base += 1
     return base
+
+
+def get_roll_formula(unit, key, f_type):
+    """Хелпер для получения формулы броска."""
+    val = unit.attributes.get(key, 0)
+    if f_type == "attr":
+        return 6, val // 3
+    elif f_type == "skill":
+        return 6, val
+    elif f_type == "d20":
+        return 20, val
+    elif f_type == "int":
+        return 6, 4 + val
+    return 6, 0
 
 
 def draw_luck_interface(unit):
@@ -69,16 +82,16 @@ def draw_luck_interface(unit):
 
     current_luck = unit.resources.get("luck", 0)
     c_cur, c_roll = st.columns([1, 1])
-    c_cur.metric("Текущая Удача (Ресурс)", current_luck)
+    c_cur.metric("Текущая Удача", current_luck)
 
     roll_key = f"luck_roll_val_{unit.name}"
 
     # === 1. КНОПКА БРОСКА ПОТЕНЦИАЛА ===
-    if c_roll.button("🎲 Ролл Потенциала (1d12 + Luck)", type="primary"):
+    # [FIX] Добавлен уникальный key на основе имени юнита
+    if c_roll.button("🎲 Ролл Потенциала (1d12 + Luck)", type="primary", key=f"btn_luck_pot_{unit.name}"):
         roll = random.randint(1, 12)
         total_roll = roll + current_luck
         st.session_state[roll_key] = total_roll
-
         # Сброс выбора
         if f"luck_choice_{unit.name}" in st.session_state:
             del st.session_state[f"luck_choice_{unit.name}"]
@@ -104,27 +117,32 @@ def draw_luck_interface(unit):
         st.markdown(f"**{msg}** (Новое: {new_luck})")
 
         if choice != 0:
-            if st.button("✅ Применить и сохранить", type="secondary"):
-                # Хук
+            # [FIX] Добавлен уникальный key
+            if st.button("✅ Применить и сохранить", type="secondary", key=f"btn_luck_apply_{unit.name}"):
                 if hasattr(unit, "trigger_hooks"):
                     unit.trigger_hooks("on_luck_check", result=choice)
-
                 unit.resources["luck"] = new_luck
-                UnitLibrary.save_unit(unit)  # <--- Сохранение
+                UnitLibrary.save_unit(unit)
                 del st.session_state[roll_key]
                 st.success("Удача обновлена!")
                 st.rerun()
 
 
-def draw_roll_interface(unit, selected_key, selected_label):
+def draw_roll_interface(unit, selected_key, selected_label, formula="skill"):
     st.divider()
     val = get_stat_value(unit, selected_key)
 
     c_val, c_dc, c_bonus = st.columns([1, 1, 1])
     c_val.metric(f"{selected_label}", val)
 
-    difficulty = c_dc.number_input("Сложность (DC)", 0, 100, 15, key=f"dc_{selected_key}")
-    bonus = c_bonus.number_input("Бонус", -20, 20, 0, key=f"bonus_{selected_key}")
+    # Уникальные ключи для инпутов
+    difficulty = c_dc.number_input("Сложность (DC)", 0, 100, 15, key=f"dc_{unit.name}_{selected_key}")
+    bonus = c_bonus.number_input("Бонус", -20, 20, 0, key=f"bonus_{unit.name}_{selected_key}")
+
+    # === [NEW] ТАЛАНТ 7.10: Невозможное возможно ===
+    if _has_talent(unit, "impossible_possible"):
+        bonus += 10
+        st.caption("✨ **+10** (Невозможное возможно)")
 
     chance, ev, final_dc = calculate_pre_roll_stats(unit, selected_key, val, difficulty, bonus)
     color = "green" if chance >= 80 else "orange" if chance >= 50 else "red"
@@ -132,10 +150,62 @@ def draw_roll_interface(unit, selected_key, selected_label):
 
     chk_key = f"last_check_{unit.name}_{selected_key}"
 
-    # === КНОПКА БРОСКА ===
-    if st.button("🎲 Бросить", type="primary", use_container_width=True, key=f"btn_{selected_key}"):
+    # === [NEW] МЕХАНИКА 7.8: СЧАСТЛИВАЯ МОНЕТКА ===
+    if _has_talent(unit, "blessed_by_fate"):
+        coins = unit.memory.get("lucky_coin_count", 0)
+
+        col_c1, col_c2 = st.columns([2, 1])
+        with col_c2:
+            st.caption(f"🪙 Монеты: {coins}")
+
+        with col_c1:
+            if coins > 0:
+                # [FIX] Добавлен уникальный key
+                if st.button(f"🪙 Подбросить монету (50/50)", help="Орел = Успех, Решка = 1.", type="primary",
+                             use_container_width=True, key=f"btn_coin_{unit.name}_{selected_key}"):
+
+                    unit.memory["lucky_coin_count"] -= 1
+                    is_heads = random.choice([True, False])
+
+                    max_die, base_bonus = get_roll_formula(unit, selected_key, formula)
+                    dc_val = difficulty
+
+                    if is_heads:
+                        # ОРЕЛ
+                        final_total = max(dc_val, dc_val + 2)
+                        roll_val = max(1, final_total - base_bonus - bonus)
+                        if roll_val > max_die: roll_val = max_die
+                        msg_toast = "ОРЕЛ! Судьба на вашей стороне."
+                        icon_toast = "🦅"
+                    else:
+                        # РЕШКА
+                        roll_val = 1
+                        final_total = 1 + base_bonus + bonus
+                        msg_toast = "РЕШКА! Критический провал."
+                        icon_toast = "💀"
+
+                    st.session_state[chk_key] = {
+                        "key": selected_key,
+                        "roll": roll_val,
+                        "die": f"d{max_die}",
+                        "max_die": max_die,
+                        "bonus": base_bonus + bonus,
+                        "total": final_total,
+                        "final_difficulty": dc_val,
+                        "formula_text": f"Coin({roll_val}) + {base_bonus + bonus}",
+                        "is_success": final_total >= dc_val,
+                        "is_crit": False,
+                        "golden_recovered": False
+                    }
+
+                    UnitLibrary.save_unit(unit)
+                    st.toast(msg_toast, icon=icon_toast)
+                    st.rerun()
+
+    # === ОБЫЧНАЯ КНОПКА БРОСКА ===
+    # [FIX] Добавлен уникальный key с именем юнита
+    if st.button("🎲 Бросить", type="primary", use_container_width=True, key=f"btn_roll_{unit.name}_{selected_key}"):
         res = perform_check_logic(unit, selected_key, val, difficulty, bonus)
-        # Инициализируем флаги для механик
         res["golden_recovered"] = False
         st.session_state[chk_key] = res
         st.rerun()
@@ -144,8 +214,7 @@ def draw_roll_interface(unit, selected_key, selected_label):
     if chk_key in st.session_state:
         res = st.session_state[chk_key]
 
-        # 1. Механика восстановления Золотых костей (Talent 7.5)
-        # Если выпала 1 и мы еще не восстанавливали в этом броске
+        # 1. Восстановление при крит провале (7.5)
         if res.get("roll") == 1 and _has_talent(unit, "not_luck_just_skill"):
             if not res.get("golden_recovered", False):
                 max_dice = _get_max_golden_dice(unit)
@@ -156,7 +225,7 @@ def draw_roll_interface(unit, selected_key, selected_label):
                     UnitLibrary.save_unit(unit)
                     st.toast("Критический провал (1)! Получена Золотая кость +1", icon="🎲")
 
-                res["golden_recovered"] = True  # Помечаем, чтобы не давать бесконечно при рефреше
+                res["golden_recovered"] = True
 
         is_success = res["total"] >= res["final_difficulty"]
         res_color = "green" if is_success else "red"
@@ -177,26 +246,35 @@ def draw_roll_interface(unit, selected_key, selected_label):
 
                 c_g1, c_g2 = st.columns(2)
 
+                def spend_golden_die(amount):
+                    # Эффект костей
+                    bonus_val = 0
+                    for _ in range(amount):
+                        bonus_val += (random.randint(1, 5) + 5)
+
+                    res["total"] += bonus_val
+                    res["formula_text"] += f" + {bonus_val}(Gold)"
+                    unit.memory["golden_dice_current"] -= amount
+
+                    # СИНЕРГИЯ 7.8: Трата кости дает Монетку
+                    if _has_talent(unit, "blessed_by_fate"):
+                        current_coins = unit.memory.get("lucky_coin_count", 0)
+                        unit.memory["lucky_coin_count"] = current_coins + 1
+                        st.toast("Судьба оценила риск: Получена Монетка!", icon="🪙")
+
+                    UnitLibrary.save_unit(unit)
+                    st.rerun()
+
                 # Кнопка: Потратить 1
                 if charges >= 1:
+                    # [FIX] Ключи уже были уникальны (chk_key), но для надежности оставил как есть, так как chk_key включает unit.name
                     if c_g1.button("🎲 +1 Кость (+1d5+5)", key=f"gold_1_{chk_key}"):
-                        boost = random.randint(1, 5) + 5
-                        res["total"] += boost
-                        # Обновляем текст формулы для наглядности
-                        res["formula_text"] += f" + {boost}(Gold)"
-                        unit.memory["golden_dice_current"] -= 1
-                        UnitLibrary.save_unit(unit)
-                        st.rerun()
+                        spend_golden_die(1)
 
                 # Кнопка: Потратить 2
                 if charges >= 2:
                     if c_g2.button("🎲🎲 +2 Кости (+2x)", key=f"gold_2_{chk_key}"):
-                        boost = (random.randint(1, 5) + 5) + (random.randint(1, 5) + 5)
-                        res["total"] += boost
-                        res["formula_text"] += f" + {boost}(Gold x2)"
-                        unit.memory["golden_dice_current"] -= 2
-                        UnitLibrary.save_unit(unit)
-                        st.rerun()
+                        spend_golden_die(2)
 
             # --- ИНТЕРФЕЙС "ПОСЛЕДОВАТЕЛЬНОЙ УДАЧИ" (Talent 7.3) ---
             # Показываем только при ПРОВАЛЕ
@@ -206,16 +284,13 @@ def draw_roll_interface(unit, selected_key, selected_label):
 
                 missing = res['final_difficulty'] - res['total']
                 cost = missing * 2  # Цена исправления
-
-                # Награда за принятие провала (20 - бросок, мин 0)
                 roll_val = res.get('roll', 0)
                 gain = max(0, 20 - roll_val)
-
                 current_luck = unit.resources.get("luck", 0)
 
                 c_fail, c_fix = st.columns(2)
 
-                # Опция 1: Принять провал и получить удачу
+                # Опция 1: Принять провал
                 with c_fail:
                     if st.button(f"📉 Принять провал\n(+{gain} Удачи)", key=f"fail_{chk_key}", use_container_width=True):
                         unit.resources["luck"] = current_luck + gain
@@ -224,7 +299,7 @@ def draw_roll_interface(unit, selected_key, selected_label):
                         st.toast(f"Провал принят. Удача: {unit.resources['luck']} (+{gain})")
                         st.rerun()
 
-                # Опция 2: Исправить за Удачу
+                # Опция 2: Исправить
                 with c_fix:
                     can_afford = current_luck >= cost
                     label_fix = f"🔥 Исправить (-{cost} Удачи)"
@@ -240,8 +315,7 @@ def draw_roll_interface(unit, selected_key, selected_label):
                         st.rerun()
 
             else:
-                # Если успех или нет талантов на провал
-                st.write("")  # Отступ
+                st.write("")
                 if st.button("Закрыть результат", key=f"close_{chk_key}", use_container_width=True):
                     del st.session_state[chk_key]
                     st.rerun()
