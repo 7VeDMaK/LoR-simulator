@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "👤 Profile",
+  "page": "🌳 Skill Tree",
   "team_left_data": [],
   "team_right_data": [],
   "phase": "roll",
@@ -12,9 +12,9 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Азгик",
+  "profile_unit": " Дна'хо",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
-  "checks_unit": " Дна'хо",
+  "checks_unit": "Зафиэль",
   "undo_stack": []
 }

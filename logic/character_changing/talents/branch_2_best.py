@@ -17,9 +17,10 @@ class TalentInnateTalent(BasePassive):
     id = "innate_talent"
     name = "Врожденный дар"
     description = (
-        "Прокачивая данный талант, персонаж вкладывает в данную ветку еще 4 таланта.\n"
-        "Эффект: Вы получаете бонус +1 ко всем характеристикам и +2 к навыкам.\n"
-        "Каждые 10 уровней персонажа этот бонус увеличивается (Максимум +4 / +8 на 40 уровне)."
+        "«Мир несправедлив. Одни рождаются, чтобы стать удобрением для асфальта Переулков, другие — чтобы сиять в Гнездах. Тебе не нужно стараться, чтобы быть лучше них. Ты просто... лучше.»\n\n"
+        "Пассивно: Вы получаете постоянный бонус ко всем Характеристикам и Навыкам.\n"
+        "Бонус: +1 к Характеристикам и +2 к Навыкам.\n"
+        "Масштабирование: Значение растет каждые 10 уровней (Максимум +5/+10)."
     )
     is_active_ability = False
 
@@ -50,12 +51,10 @@ class TalentCelestialEyes(BasePassive):
     id = "celestial_eyes"
     name = "Глаза Небожителя"
     description = (
-        "Активно (Цель - Враг): Проводит глубокий анализ цели.\n"
-        "Бросок: 1d20 + Мудрость против 1d20 + Мудрость цели.\n"
-        "Чем выше разница, тем больше информации раскрывается:\n"
-        "5+: Статус | 10+: Карты Т1 | 15+: Карты Т2 + Предметы\n"
-        "20+: Карты Т3 + Оружие | 25+: Карты Т4+ + Аугментации | 30+: Таланты | 35+: Пассивки.\n"
-        "Пассивно: +2 к проверкам навыков (Skill Checks)."
+        "«Оболочка лжива. Плоть скрывает слабость, а улыбка — нож за спиной. Но для этого взора не существует преград. Я вижу твою суть, твои страхи и карты в твоем рукаве.»\n\n"
+        "Пассивно: +2 ко всем проверкам навыков.\n"
+        "Активно: Просканировать цель (Бросок Мудрости vs Мудрость врага).\n"
+        "Эффект: Чем выше разница в броске, тем глубже анализ (от базового описания до скрытых пассивок и полной колоды)."
     )
     is_active_ability = True
     selection_type = "enemy"
@@ -216,20 +215,20 @@ class TalentVoidCleave(BasePassive):
     id = "void_cleave"
     name = "Разрез Пустоты"
     description = (
-        "Удар, который игнорирует плотность материи и стойкость духа.\n"
-        "При расчете урона к множителю сопротивления цели прибавляется +0.1.\n"
-        "(Пример: 0.5 (Endured) -> 0.6, цель получает больше урона)."
+        "«Броня — лишь иллюзия безопасности. Для клинка, рассекающего саму суть пространства, нет разницы между сталью и плотью.»\n\n"
+        "Пассивно: Ваши атаки игнорируют часть защиты цели.\n"
+        "Эффект: При расчете урона Множитель Сопротивления цели увеличивается на +0.1.\n"
+        "(Пример: Если у врага сопротивление 0.5 (Endured), оно станет 0.6, и он получит больше урона)."
     )
     is_active_ability = False
 
     def on_calculate_damage_multiplier(self, unit, multiplier, **kwargs):
         """
-        [FIX] Исправлена сигнатура метода.
         Аргументы: unit (attacker), multiplier (current_res), kwargs (attacker, target, dice...)
         """
         new_mult = multiplier + 0.1
         logger.log(
-            f"⚔️ {self.name}: Сопротивление цели изменено ({multiplier:.2f} -> {new_mult:.2f})",
+            f"⚔️ {self.name}: Сопротивление цели пробито ({multiplier:.2f} -> {new_mult:.2f})",
             LogLevel.VERBOSE,
             "Talent"
         )
@@ -243,9 +242,10 @@ class TalentGoldenReputation(BasePassive):
     id = "golden_reputation"
     name = "Золотая Репутация"
     description = (
-        "Ваше имя известно в высших кругах, а статус открывает многие двери.\n"
-        "Эффект: Вы получаете скидку 20% у торговцев и особые реплики в диалогах.\n"
-        "Дает +5 К красноречию"
+        "«В этом Городе имя может весить больше золота и резать острее меча. Перед тобой открываются двери, запертые для простых смертных.»\n\n"
+        "Пассивно: Ваша известность работает на вас.\n"
+        "Бонус: +5 к Красноречию.\n"
+        "Социальное: Скидка 20% у торговцев и доступ к уникальным диалогам высокого ранга."
     )
     is_active_ability = False
 
@@ -260,10 +260,10 @@ class TalentCopycatInsight(BasePassive):
     id = "copycat_insight"
     name = "Мгновенное Озарение"
     description = (
-        "Достаточно одного взгляда, чтобы превзойти чужую технику.\n"
-        "Активно (КД: 3 сцены): Выберите цель (Враг/Союзник) и одну из её доступных карт.\n"
-        "Вы получаете временную копию этой карты в руку на этот раунд.\n"
-        "Карта исчезает при использовании или в конце раунда."
+        "«Тебе потребовались годы, чтобы отточить эту технику? Какая трогательная трата времени. Мне достаточно одного взгляда.»\n\n"
+        "Активно (КД: 3 сцены): Выберите существо (Враг/Союзник) и одну его карту.\n"
+        "Эффект: Вы создаете временную копию этой техники в своей руке.\n"
+        "Ограничение: Карта исчезает после использования или в конце раунда."
     )
     is_active_ability = True
     selection_type = "all"
@@ -295,7 +295,6 @@ class TalentCopycatInsight(BasePassive):
         unit.memory["copycat_active_cards"] = []  # Очищаем список
 
         if removed_count > 0 and log_func:
-            # log_func здесь обычно нет (это пассивный хук), но для структуры оставим
             pass
 
     def activate(self, unit, log_func, **kwargs):
@@ -315,14 +314,12 @@ class TalentCopycatInsight(BasePassive):
         copied_card = copy.deepcopy(original_card)
 
         # 2. Настраиваем свойства "Одноразовости"
-        # exhaust_on_use удалит карту из руки ПОСЛЕ использования в бою
         copied_card.exhaust_on_use = True
-        copied_card.description = f"[Временная] {copied_card.description}"
+        copied_card.description = f"✨ [Копия] {copied_card.description}"
 
         # 3. Регистрируем уникальную временную карту
         temp_id = f"{card_id}_copy_{unit.name}_{len(unit.deck)}_{random.randint(100, 999)}"
 
-        # Используем метод регистрации (если добавлен) или обычный register + ручная установка ID
         copied_card.id = temp_id
         Library.register(copied_card)  # Регистрируем в памяти
 
@@ -335,17 +332,12 @@ class TalentCopycatInsight(BasePassive):
         unit.memory["copycat_active_cards"].append(temp_id)
 
         if log_func:
-            log_func(f"👁️ **Озарение**: Скопирована '{original_card.name}'!")
-            log_func(f"⏳ Карта исчезнет в конце раунда.")
+            log_func(f"👁️ **Озарение**: Техника '{original_card.name}' скопирована!")
 
         logger.log(f"👁️ Copycat: {unit.name} copied {card_id} as {temp_id}", LogLevel.NORMAL, "Talent")
 
         unit.cooldowns[self.id] = self.cooldown
         return True
-
-# ======================================================================================
-# РЕФЕРЕНСНЫЕ ТАЛАНТЫ (2.6 - 2.10)
-# ======================================================================================
 
 # ==========================================
 # 2.6 Пример для подражания!
@@ -354,10 +346,11 @@ class TalentIdealStandard(BasePassive):
     id = "ideal_standard"
     name = "Пример для подражания!"
     description = (
-        "В битвах с союзниками получаете баффы за каждого:\n"
-        "1-й союзник: +2 Endurance | 2-й: +2 Attack Power | 3-й: +2 Haste\n"
-        "4-й и 5-й: +1 к каждому баффу (макс 5 союзников).\n"
-        "При оглушении: союзники получают +3 Vulnerable, Attack Power Down, Bind на 2 хода."
+        "«Смотрите на меня. Я — знамя, под которым вы идете. Пока я стою, мы непобедимы. Но если я паду... что ж, постарайтесь не умереть от отчаяния.»\n\n"
+        "Пассивно: Вы даруете баффы союзникам в зависимости от их количества (Живые и не оглушенные):\n"
+        "1: +2 Стойкости | 2: +2 Силы | 3: +2 Спешки\n"
+        "4+: +1 ко всем эффектам за каждого (Макс 5).\n"
+        "Штраф: Если вы падаете (HP=0 или Stagger), союзники получают: +3 Уязвимости, -3 Силы, 3 Связывания."
     )
     is_active_ability = False
 
@@ -366,35 +359,35 @@ class TalentIdealStandard(BasePassive):
         try:
             from ui.simulator.logic.simulator_logic import get_teams
             l_team, r_team = get_teams()
-            
+
             # Определяем команду юнита
             my_team = None
             if unit in (l_team or []):
                 my_team = l_team
             elif unit in (r_team or []):
                 my_team = r_team
-            
+
             if not my_team:
                 logger.log(f"🔍 Ideal Standard: {unit.name} team not found", LogLevel.VERBOSE, "Talent")
                 return 0
-            
+
             # Подсчитываем активных союзников (не считая себя)
             active_allies = 0
             for ally in my_team:
                 # Пропускаем самого себя (проверяем по имени)
                 if ally.name == unit.name:
                     continue
-                
+
                 # Считаем союзника активным, если он жив и не оглушен
                 is_alive = ally.current_hp > 0
                 is_staggered = ally.is_staggered() if callable(getattr(ally, 'is_staggered', None)) else False
-                
+
                 if is_alive and not is_staggered:
                     active_allies += 1
-            
+
             # Максимум 5 союзников
             return min(active_allies, 5)
-            
+
         except Exception as e:
             logger.log(f"⚠️ Ideal Standard count error: {e}", LogLevel.VERBOSE, "Talent")
             return 0
@@ -404,31 +397,31 @@ class TalentIdealStandard(BasePassive):
         try:
             from ui.simulator.logic.simulator_logic import get_teams
             l_team, r_team = get_teams()
-            
+
             # Определяем команду юнита
             my_team = None
             if unit in (l_team or []):
                 my_team = l_team
             elif unit in (r_team or []):
                 my_team = r_team
-            
+
             if not my_team:
                 return []
-            
+
             # Собираем активных союзников
             allies = []
             for ally in my_team:
                 if ally.name == unit.name:
                     continue
-                
+
                 is_alive = ally.current_hp > 0
                 is_staggered = ally.is_staggered() if callable(getattr(ally, 'is_staggered', None)) else False
-                
+
                 if is_alive and not is_staggered:
                     allies.append(ally)
-            
+
             return allies
-            
+
         except Exception as e:
             logger.log(f"⚠️ Ideal Standard allies error: {e}", LogLevel.VERBOSE, "Talent")
             return []
@@ -440,36 +433,36 @@ class TalentIdealStandard(BasePassive):
         """
         # Сбрасываем флаг дебаффов (позволяет таланту срабатывать при каждом новом падении)
         unit.memory["ideal_standard_debuff_applied"] = False
-        
+
         alive_count = self._count_active_allies(unit)
-        
+
         if alive_count == 0:
             return
-        
+
         # Базовые баффы
         endurance_bonus = 0
         attack_power_bonus = 0
         haste_bonus = 0
-        
+
         # 1-й союзник: +2 Endurance
         if alive_count >= 1:
             endurance_bonus = 2
-        
+
         # 2-й союзник: +2 Attack Power
         if alive_count >= 2:
             attack_power_bonus = 2
-        
+
         # 3-й союзник: +2 Haste
         if alive_count >= 3:
             haste_bonus = 2
-        
+
         # 4-й и 5-й союзники: +1 к каждому баффу
         extra_allies = max(0, alive_count - 3)
         if extra_allies > 0:
             endurance_bonus += extra_allies
             attack_power_bonus += extra_allies
             haste_bonus += extra_allies
-        
+
         # Применяем статусы на раунд
         if endurance_bonus > 0:
             unit.add_status("endurance", endurance_bonus, duration=1)
@@ -477,7 +470,7 @@ class TalentIdealStandard(BasePassive):
             unit.add_status("strength", attack_power_bonus, duration=1)
         if haste_bonus > 0:
             unit.add_status("haste", haste_bonus, duration=1)
-        
+
         # Формируем описание баффов для лога
         buffs_desc = []
         if endurance_bonus > 0:
@@ -486,7 +479,7 @@ class TalentIdealStandard(BasePassive):
             buffs_desc.append(f"+{attack_power_bonus} Power")
         if haste_bonus > 0:
             buffs_desc.append(f"+{haste_bonus} Haste")
-        
+
         logger.log(
             f"👥 {self.name}: {unit.name} с {alive_count} союзниками -> {', '.join(buffs_desc)}",
             LogLevel.NORMAL,
@@ -502,13 +495,13 @@ class TalentIdealStandard(BasePassive):
         # Извлекаем аргументы
         unit = args[0] if len(args) > 0 else kwargs.get("unit")
         damage = args[1] if len(args) > 1 else kwargs.get("damage", 0)
-        
+
         if not unit:
             return damage
-        
+
         # Проверяем наличие статуса Сюжетной брони (талант 2.8)
         has_plot_armor = unit.get_status("main_character_shell") > 0
-        
+
         # УСЛОВИЕ АКТИВАЦИИ: Статуса main_character_shell НЕТ
         if has_plot_armor:
             # Сюжетная броня активна - дебаффы к союзникам НЕ применяются
@@ -518,18 +511,18 @@ class TalentIdealStandard(BasePassive):
                 "Talent"
             )
             return damage
-        
+
         # Сюжетной брони нет - проверяем условия для дебаффов
         # Проверяем, приведет ли урон к падению персонажа
         will_fall = unit.current_hp - damage <= 0
-        
+
         # Проверяем, не применяли ли мы уже дебаффы за это падение
         already_debuffed = unit.memory.get("ideal_standard_debuff_applied", False)
-        
+
         if will_fall and not already_debuffed:
             # Помечаем, что дебаффы будут применены
             unit.memory["ideal_standard_debuff_applied"] = True
-            
+
             # Получаем активных союзников и применяем дебаффы СРАЗУ
             allies = self._get_active_allies(unit)
             if allies:
@@ -540,7 +533,7 @@ class TalentIdealStandard(BasePassive):
                     ally.add_status("attack_power_down", 3, duration=2)
                     ally.add_status("bind", 3, duration=2)
                     debuffed_count += 1
-                
+
                 if debuffed_count > 0:
                     logger.log(
                         f"👥 {self.name}: {unit.name} получает летальный урон! "
@@ -548,10 +541,8 @@ class TalentIdealStandard(BasePassive):
                         LogLevel.NORMAL,
                         "Talent"
                     )
-        
+
         return damage
-
-
 
 
 # ==========================================
@@ -561,84 +552,70 @@ class TalentArrogantTaunt(BasePassive):
     id = "arrogant_taunt"
     name = "Насмешка"
     description = (
-        "+5 к Красноречию.\n"
-        "Активно: Выберите персонажа на поле боя.\n"
-        "Цель получает +2 Power и +4 Vulnerable на 1 ход.\n"
-        "(Можно использовать на себя или союзников/врагов)"
+        "«Подойди. Покажи мне всё, на что ты способен, чтобы я мог рассмеяться тебе в лицо.»\n\n"
+        "Пассивно: +5 к Красноречию.\n"
+        "Активно (КД: 1 ход): Выберите любого персонажа на поле боя (себя, союзника или врага).\n"
+        "Эффект: Цель получает +2 Мощи (Power), но +4 Уязвимости (Vulnerable) на этот раунд."
     )
     is_active_ability = True
-    cooldown = 1  # Кулдаун 1 ход
+    cooldown = 1
 
     def on_calculate_stats(self, unit) -> dict:
         return {"eloquence": 5}
 
     def _get_battle_targets(self):
-        """Получает всех юнитов на поле боя."""
+        """Получает список всех юнитов в текущей симуляции."""
         try:
+            # Ленивый импорт для предотвращения циклических зависимостей
             from ui.simulator.logic.simulator_logic import get_teams
             l_team, r_team = get_teams()
             return (l_team or []) + (r_team or [])
-        except Exception:
+        except ImportError:
+            return []
+        except Exception as e:
+            logger.log(f"⚠️ Arrogant Taunt target error: {e}", LogLevel.ERROR, "Talent")
             return []
 
     @property
     def conversion_options(self):
-        """Список всех доступных целей (включая себя)."""
+        """Динамический список целей для UI."""
         options = {}
-        for u in self._get_battle_targets():
-            if not u or not hasattr(u, "name"):
-                continue
-            # Показываем только живых персонажей
+        targets = self._get_battle_targets()
+        if not targets:
+            return {"none": "Нет целей (бой не идет)"}
+
+        for u in targets:
+            if not u or not hasattr(u, "name"): continue
+            # Показываем только живых
             if getattr(u, "current_hp", 0) > 0:
                 options[u.name] = f"{u.name} ({u.current_hp} HP)"
         return options
 
     def activate(self, unit, log_func, choice_key=None, **kwargs):
-        """
-        Накладывает +2 Power и +4 Vulnerable на выбранного персонажа на 1 ход.
-        """
-        # Если цель не выбрана
-        if not choice_key:
-            if log_func:
-                opts = ", ".join(self.conversion_options.values()) or "нет доступных целей"
-                log_func(f"⚠️ Выберите цель для {self.name}: {opts}")
+        if not choice_key or choice_key == "none":
+            if log_func: log_func("⚠️ Выберите цель для насмешки.")
             return False
 
-        # Ищем цель по имени
-        target = None
-        for u in self._get_battle_targets():
-            if u and getattr(u, "name", None) == choice_key:
-                target = u
-                break
+        # Поиск объекта цели по имени
+        target = next((u for u in self._get_battle_targets() if u.name == choice_key), None)
 
         if not target:
-            if log_func:
-                log_func(f"⚠️ Цель не найдена: {choice_key}")
+            if log_func: log_func(f"⚠️ Цель '{choice_key}' не найдена.")
             return False
 
-        # Проверяем, что цель жива
-        if getattr(target, "current_hp", 0) <= 0:
-            if log_func:
-                log_func(f"⚠️ {target.name} не может быть целью (HP <= 0)")
+        if target.current_hp <= 0:
+            if log_func: log_func(f"⚠️ {target.name} уже мертв.")
             return False
 
-        # Применяем баффы/дебаффы
+        # Применение эффектов
         target.add_status("strength", 2, duration=1)
         target.add_status("vulnerable", 4, duration=1)
-        
-        if log_func:
-            target_text = "себя" if target is unit else target.name
-            log_func(
-                f"😤 **{self.name}**: {unit.name} → {target_text}: "
-                f"+2 Power, +4 Vulnerable (1 ход)"
-            )
-        
-        logger.log(
-            f"😤 Arrogant Taunt: {unit.name} applied to {target.name} (+2 Power, +4 Vulnerable)",
-            LogLevel.NORMAL,
-            "Talent"
-        )
-        
+
+        msg = f"😤 **{self.name}**: {target.name} разъярён! (+2 Силы, но +4 Уязвимости)"
+        if log_func: log_func(msg)
+
+        logger.log(f"😤 Arrogant Taunt: {unit.name} buffed/debuffed {target.name}", LogLevel.NORMAL, "Talent")
+
         unit.cooldowns[self.id] = self.cooldown
         return True
 
@@ -650,79 +627,68 @@ class TalentMainCharacterShell(BasePassive):
     id = "main_character_shell"
     name = "Сюжетная броня"
     description = (
-        "+25% к значению Выдержки.\n"
-        "HP и Stagger не могут опуститься ниже 1 (одноразово на всю битву)."
+        "«Мир вращается вокруг меня. Сценарий не позволит главному герою умереть такой жалкой смертью в первом акте.»\n\n"
+        "Пассивно: +25% к сопротивлению Выдержки (Stagger Resist).\n"
+        "Эффект: Если вы получаете урон, который должен убить вас или сломать (Stagger), он снижается так, чтобы оставить вам 1 HP/Stagger.\n"
+        "Лимит: Срабатывает 1 раз за битву. После срабатывания защита исчезает."
     )
     is_active_ability = False
 
     def on_calculate_stats(self, unit) -> dict:
         return {"stagger_resist_pct": 25}
 
-    def on_combat_start(self, unit, *args, **kwargs):
-        """
-        Накладываем статус защиты в начале каждого боя.
-        """
-        # Сбрасываем флаг использования для нового боя
+    def on_combat_start(self, unit, log_func, **kwargs):
+        """Инициализация брони в начале боя."""
+        # Сбрасываем флаг использования
         unit.memory["main_character_shell_used"] = False
-        
-        # Накладываем защитный статус
+
+        # Выдаем статус-маркер
         unit.add_status("main_character_shell", 1, duration=999)
-        logger.log(
-            f"🛡️ Main Character Shell: {unit.name} activated plot armor",
-            LogLevel.NORMAL,
-            "Talent"
-        )
-    
-    def on_scene_start(self, unit, *args, **kwargs):
-        """
-        В начале каждой новой сцены проверяем, использовалась ли защита.
-        Если да - больше не восстанавливаем статус.
-        Если нет - восстанавливаем статус (он мог быть удален системой).
-        """
-        was_used = unit.memory.get("main_character_shell_used", False)
-        
-        if was_used:
-            # Защита уже использовалась - не восстанавливаем
-            logger.log(
-                f"🛡️ Main Character Shell: {unit.name} protection already consumed",
-                LogLevel.VERBOSE,
-                "Talent"
-            )
-        else:
-            # Защита еще не использовалась - восстанавливаем статус на случай, если он был удален
-            current_status = unit.get_status("main_character_shell")
-            if current_status == 0:
-                unit.add_status("main_character_shell", 1, duration=999)
-                logger.log(
-                    f"🛡️ Main Character Shell: {unit.name} protection restored at scene start",
-                    LogLevel.VERBOSE,
-                    "Talent"
-                )
-    
+
+        if log_func:
+            log_func(f"🛡️ **{self.name}**: Защита активирована.")
+
     def on_take_damage(self, *args, **kwargs):
         """
-        Отслеживаем момент срабатывания защиты.
-        Когда HP падает до 1 из-за защиты - помечаем, что защита была использована.
+        Перехват урона. Если урон летальный и броня есть — спасаем.
         """
+        # Разбор аргументов (поддержка разных вызовов)
         unit = args[0] if len(args) > 0 else kwargs.get("unit")
         damage = args[1] if len(args) > 1 else kwargs.get("damage", 0)
-        
-        if not unit:
+
+        if not unit: return damage
+
+        # 1. Проверяем наличие статуса и флага
+        has_status = unit.get_status("main_character_shell") > 0
+        already_used = unit.memory.get("main_character_shell_used", False)
+
+        if not has_status or already_used:
             return damage
-        
-        # Проверяем, есть ли активная защита
-        has_protection = unit.get_status("main_character_shell") > 0
-        
-        # Если защита активна и урон привел бы к смерти
-        if has_protection and unit.current_hp - damage <= 0:
-            # Помечаем, что защита использована (будет удалена в начале следующей сцены)
+
+        # 2. Проверяем летальность (HP)
+        hp_after = unit.current_hp - damage
+
+        # 3. Логика спасения
+        if hp_after <= 0:
+            # Считаем, сколько урона можно нанести, чтобы осталось 1 HP
+            safe_damage = max(0, unit.current_hp - 1)
+
+            # Помечаем как использованное
             unit.memory["main_character_shell_used"] = True
+            unit.remove_status("main_character_shell", 999)
+
+            # Логирование (через глобальный логгер, т.к. тут нет log_func)
             logger.log(
-                f"🛡️ Main Character Shell: {unit.name} protection triggered and will be removed next scene",
+                f"🛡️ Main Character Shell: {unit.name} survived fatal damage ({damage} -> {safe_damage})!",
                 LogLevel.NORMAL,
                 "Talent"
             )
-        
+
+            # Также восстанавливаем немного Stagger, чтобы не упасть сразу
+            unit.current_stagger = max(1, int(unit.max_stagger * 0.1))
+
+            return safe_damage
+
         return damage
 
 
@@ -731,7 +697,7 @@ class TalentMainCharacterShell(BasePassive):
 # ==========================================
 class TalentSilenceExecution(BasePassive):
     id = "silence_execution"
-    name = "Muted"
+    name = "Muted WIP"
     description = (
         "Активно (КД: 5 сцен): Выберите врага и кубик его скорости для уничтожения.\n"
         "Нельзя уничтожить кубики с картами 3+ уровня или массовыми атаками."
@@ -746,53 +712,57 @@ class TalentSilenceExecution(BasePassive):
 class TalentJustWarmingUp(BasePassive):
     id = "just_warming_up"
     name = "Да мы только начали!"
-    description = "За каждое проигранное столкновение: +1 к Силе (Strength) в следующей сцене на один ход."
+    description = (
+        "«Ты правда думал, что загнал меня в угол? Забавно. Я просто изучал твой ритм. Разминка окончена... теперь начнем по-настоящему.»\n\n"
+        "Пассивно: Каждое поражение делает вас сильнее.\n"
+        "Эффект: За каждое проигранное столкновение вы получаете +1 к Силе (Strength) в начале следующего раунда."
+    )
     is_active_ability = False
 
     def on_clash_lose(self, ctx, **kwargs):
         """
-        Считаем количество проигранных столкновений.
+        Считаем количество проигранных столкновений в текущем раунде.
         """
         unit = ctx.source
-        
-        # Увеличиваем счетчик проигрышей
-        if "lost_clashes" not in unit.memory:
-            unit.memory["lost_clashes"] = 0
-        
-        unit.memory["lost_clashes"] += 1
-        
-        ctx.log.append(
-            f"🔥 **{self.name}**: {unit.name} набирается опыта... (Проиграно: {unit.memory['lost_clashes']})"
-        )
-        
+
+        # Инициализируем счетчик, если его нет
+        if "lost_clashes_counter" not in unit.memory:
+            unit.memory["lost_clashes_counter"] = 0
+
+        unit.memory["lost_clashes_counter"] += 1
+        count = unit.memory["lost_clashes_counter"]
+
+        # Лог в контексте боя
+        if hasattr(ctx, 'log'):
+            ctx.log.append(f"🔥 **{self.name}**: Анализ противника... (Стек: {count})")
+
         logger.log(
-            f"🔥 Just Warming Up: {unit.name} lost clash, total losses = {unit.memory['lost_clashes']}",
+            f"🔥 Just Warming Up: {unit.name} lost clash, stack is now {count}",
             LogLevel.VERBOSE,
             "Talent"
         )
 
-    def on_scene_start(self, unit, log_func, **kwargs):
+    def on_round_start(self, unit, log_func, **kwargs):
         """
-        В начале новой сцены дает +Strength равный количеству проигранных столкновений.
+        В начале нового раунда конвертируем проигрыши в Силу.
         """
-        lost_count = unit.memory.get("lost_clashes", 0)
-        if lost_count <= 0:
-            return
-        
-        # Добавляем Strength (мощь атакующих кубов: Slash, Blunt, Pierce)
-        unit.add_status("strength", lost_count, duration=1)
-        
-        if log_func:
-            log_func(f"🔥 **{self.name}**: {unit.name} разогрелся! (+{lost_count} Strength на 1 ход)")
-        
-        logger.log(
-            f"🔥 Just Warming Up: {unit.name} gains +{lost_count} Strength for 1 turn",
-            LogLevel.NORMAL,
-            "Talent"
-        )
-        
-        # Сбрасываем счетчик проигрышей после использования
-        unit.memory["lost_clashes"] = 0
+        lost_count = unit.memory.get("lost_clashes_counter", 0)
+
+        if lost_count > 0:
+            # Выдаем бафф Силы
+            unit.add_status("strength", lost_count, duration=1)
+
+            if log_func:
+                log_func(f"🔥 **{self.name}**: Разминка окончена! Получено +{lost_count} Силы.")
+
+            logger.log(
+                f"🔥 Just Warming Up: {unit.name} gained +{lost_count} Strength based on lost clashes",
+                LogLevel.NORMAL,
+                "Talent"
+            )
+
+        # Сбрасываем счетчик для нового раунда
+        unit.memory["lost_clashes_counter"] = 0
 
 
 # ======================================================================================
@@ -804,7 +774,7 @@ class TalentJustWarmingUp(BasePassive):
 # ==========================================
 class TalentBlackFlashSpark(BasePassive):
     id = "black_flash_spark"
-    name = "Искра Сверхчеловека (Black Flash)"
+    name = "Искра Сверхчеловека (Black Flash) WIP"
     description = (
         "Когда концентрация достигает пика, каждый удар становится критическим.\n"
         "Мин. или Макс. базовое значение кубика наносит x1.5 урона."
@@ -837,7 +807,7 @@ class TalentBlackFlashSpark(BasePassive):
 # ==========================================
 class TalentBlueFlashStep(BasePassive):
     id = "blue_flash_step"
-    name = "Синяя Вспышка (Опц.)"
+    name = "Синяя Вспышка (Опц.) WIP"
     description = (
         "Разница скоростей >= 2: Помеха врагу на первый кубик.\n"
         "Разница скоростей >= 6: Первый кубик врага ломается (Break)."
@@ -855,3 +825,7 @@ class TalentBlueFlashStep(BasePassive):
             ctx.add_opponent_debuff("disadvantage")
             ctx.log.append("🔵 **Синяя Вспышка**: Враг не поспевает (Помеха).")
             logger.log(f"🔵 Blue Flash: Applied disadvantage (diff {diff})", LogLevel.VERBOSE, "Talent")
+
+
+
+#TODO Проверить 2.6-2.10 + опц дописать. Сделать для опц и 2.9 код и описание

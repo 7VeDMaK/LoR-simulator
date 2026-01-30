@@ -9,6 +9,7 @@ from logic.tree_logic import (
     can_forget_talent,
     get_talent_info
 )
+from ui.components.text_renderer import render_styled_description
 
 
 def render_skill_tree_page():
@@ -119,10 +120,12 @@ def render_skill_tree_page():
                 with st.container(border=True):
                     cols = st.columns([0.8, 0.2])
                     # Левая часть - Инфо
+                    # Левая часть - Инфо
                     with cols[0]:
                         st.markdown(f"{color_start}{title_text}]")
                         if obj:
-                            st.caption(obj.description)
+                            # Используем нашу красивую функцию
+                            render_styled_description(obj.description)
                         else:
                             st.caption("Этот талант еще не реализован в коде.")
 

@@ -84,9 +84,9 @@
         "armor_name": "Standard Fixer Suit",
         "armor_type": "Medium",
         "hp_resists": {
-            "slash": 0.75,
-            "pierce": 1.0,
-            "blunt": 1.2
+            "slash": 1.7999999999999998,
+            "pierce": 0.8,
+            "blunt": 0.30000000000000004
         },
         "stagger_resists": {
             "slash": 1.0,
