@@ -8,6 +8,25 @@ from ui.profile_new.tabs.build_parts.styles import inject_build_tab_css
 from ui.profile_new.tabs.build_parts.formatting import generate_card_html
 
 
+def get_max_deck_size(unit) -> int:
+    """
+    Вычисляет максимальный размер колоды на основе уровня персонажа.
+    
+    Правила:
+    - По умолчанию: 9 карт
+    - 30+ уровень: 12 карт
+    - 40+ уровень: 16 карт
+    """
+    level = getattr(unit, 'level', 1)
+    
+    if level >= 40:
+        return 16
+    elif level >= 30:
+        return 12
+    else:
+        return 9
+
+
 def render_build_tab(unit, is_edit_mode: bool):
     """
     Вкладка Колоды.
@@ -44,7 +63,10 @@ def render_build_tab(unit, is_edit_mode: bool):
                         UnitLibrary.save_unit(unit)
                         st.rerun()
 
-    st.markdown(f"**Всего карт: {len(deck_ids)}** / 9")
+    max_deck = get_max_deck_size(unit)
+    count_color = "green" if len(deck_ids) == max_deck else "red"
+    level_info = f" (Уровень {unit.level})" if hasattr(unit, 'level') else ""
+    st.markdown(f"**Всего карт: :{count_color}[{len(deck_ids)}]** / {max_deck}{level_info}")
     st.divider()
 
     if not counts:

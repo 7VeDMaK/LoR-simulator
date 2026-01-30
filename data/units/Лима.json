@@ -2,7 +2,7 @@
     "name": "Лима",
     "level": 28,
     "rank": 6,
-    "avatar": "data/avatars/Лима.png",
+    "avatar": "data/avatars\\Лима.png",
     "base_intellect": 8,
     "total_xp": 268424064,
     "pct_mods": {
@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 1001,
-    "current_sp": 1002,
-    "current_stagger": 1001,
+    "current_hp": 139,
+    "current_sp": 161,
+    "current_stagger": 73,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
@@ -67,9 +67,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 1001,
-        "current_sp": 1002,
-        "current_stagger": 1001
+        "current_hp": 139,
+        "current_sp": 161,
+        "current_stagger": 73
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",

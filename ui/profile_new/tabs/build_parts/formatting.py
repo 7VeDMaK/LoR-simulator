@@ -23,6 +23,7 @@ def _translate_script_effect(script_obj):
     if s_id == "apply_status":
         status = p.get("status", "Status").capitalize()
         dur = p.get("duration", 0)
+        dur = int(dur) if isinstance(dur, (str, float)) else dur
         dur_str = f"&nbsp;({dur}&nbsp;ход)" if dur > 0 else ""
         return f"Наложить&nbsp;{_hl(status + '&nbsp;' + val_str)}{tgt_str}{dur_str}"
     elif s_id == "restore_resource":

@@ -2,7 +2,7 @@
     "name": "Лилит",
     "level": 28,
     "rank": 7,
-    "avatar": "data/avatars/Лилит.png",
+    "avatar": "data/avatars\\Лилит.png",
     "base_intellect": 3,
     "total_xp": 152043520,
     "pct_mods": {
@@ -20,7 +20,7 @@
     },
     "current_hp": 111,
     "current_sp": 32,
-    "current_stagger": 67,
+    "current_stagger": 66,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
@@ -94,10 +94,10 @@
     "base_stats": {
         "current_hp": 111,
         "current_sp": 32,
-        "current_stagger": 67
+        "current_stagger": 66
     },
     "defense": {
-        "armor_name": "None",
+        "armor_name": "Без брони",
         "armor_type": "Medium",
         "hp_resists": {
             "slash": 1.0,

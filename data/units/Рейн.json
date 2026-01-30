@@ -20,9 +20,9 @@
     },
     "current_hp": 200,
     "current_sp": 202,
-    "current_stagger": 103,
+    "current_stagger": 100,
     "resources": {
-        "luck": 124
+        "luck": 138
     },
     "cooldowns": {},
     "card_cooldowns": {},
@@ -67,10 +67,10 @@
     "base_stats": {
         "current_hp": 200,
         "current_sp": 202,
-        "current_stagger": 103
+        "current_stagger": 100
     },
     "defense": {
-        "armor_name": "Standard Fixer Suit",
+        "armor_name": "Без брони",
         "armor_type": "Medium",
         "hp_resists": {
             "slash": 1.0,
@@ -85,21 +85,21 @@
         "weapon_id": "phantom_razors"
     },
     "attributes": {
-        "strength": 5,
+        "strength": 0,
         "endurance": 22,
-        "agility": 8,
+        "agility": 13,
         "wisdom": 0,
         "psych": 21
     },
     "skills": {
         "strike_power": 0,
-        "medicine": 15,
-        "willpower": 3,
-        "luck": 55,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 69,
         "acrobatics": 0,
         "shields": 0,
-        "tough_skin": 0,
-        "speed": 27,
+        "tough_skin": 1,
+        "speed": 30,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,
@@ -118,14 +118,14 @@
     "talents": [
         "keep_it_together",
         "center_of_balance",
-        "athleticism_shadow",
-        "not_great_attention",
-        "smashing_blade",
-        "fast_and_silent",
-        "step_into_shadow",
-        "cat_reflexes",
-        "eye_for_danger",
-        "covering_tracks"
+        "deal_with_fortune",
+        "second_chance",
+        "sequential_luck",
+        "lucky_bastard",
+        "not_luck_just_skill",
+        "raise_stakes",
+        "azino_777",
+        "blessed_by_fate"
     ],
     "augmentations": [],
     "level_rolls": {
