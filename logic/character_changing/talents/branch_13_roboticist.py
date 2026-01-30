@@ -15,7 +15,7 @@ class TalentBestFriendsForever(BasePassive):
     )
     is_active_ability = True
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"engineering": 2}
 
     def activate(self, unit, log_func, **kwargs):
@@ -72,7 +72,7 @@ class TalentBrightTalent(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"engineering": 3}
 
     def modify_check_parameters(self, unit, stat_key: str, params: dict) -> dict:
@@ -147,7 +147,7 @@ class TalentUpshotRobot(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"wisdom": 3}
 
 

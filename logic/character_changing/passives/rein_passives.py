@@ -29,7 +29,7 @@ class PassiveNewDiscovery(BasePassive):
     description = "Пассивно: Мудрость +10, Интеллект +2.\nАвтоматически открывает 'Тактический анализ'."
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {
             "wisdom": 10,
             "bonus_intellect": 2,
@@ -147,7 +147,7 @@ class TalentShadowOfMajesty(BasePassive):
     description = "Пассивно: +5 Красноречия. Аура на слабых врагов (-SP при атаке)."
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"eloquence": 5}
 
     def on_combat_start(self, unit, log_func, **kwargs):

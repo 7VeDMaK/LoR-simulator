@@ -18,7 +18,7 @@
         "imp_sp": 20,
         "imp_stg": 10
     },
-    "current_hp": 42,
+    "current_hp": 120,
     "current_sp": 109,
     "current_stagger": 51,
     "resources": {},
@@ -234,7 +234,7 @@
         }
     ],
     "base_stats": {
-        "current_hp": 42,
+        "current_hp": 120,
         "current_sp": 109,
         "current_stagger": 51
     },
@@ -242,9 +242,9 @@
         "armor_name": "Standard Fixer Suit",
         "armor_type": "Medium",
         "hp_resists": {
-            "slash": 1.0,
-            "pierce": 1.0,
-            "blunt": 1.0
+            "slash": 1.7999999999999998,
+            "pierce": 0.8,
+            "blunt": 0.30000000000000004
         },
         "stagger_resists": {
             "slash": 1.0,

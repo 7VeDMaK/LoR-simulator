@@ -1,7 +1,6 @@
 from core.logging import logger, LogLevel  # [NEW] Import
 from logic.character_changing.passives.base_passive import BasePassive
 
-
 # ==========================================
 # 8.1 Атлетичный
 # ==========================================
@@ -9,34 +8,43 @@ class TalentAthletic(BasePassive):
     id = "athletic"
     name = "Атлетичный"
     description = (
-        "8.1 haste +1.\n"
-        "Вы можете перенаправлять атаки при РАВНОЙ скорости (обычно нужно строго больше)."
+        "«Дисциплина превращает тело в оружие. Там, где другие видят патовую ситуацию, ты видишь возможность для удара. Твои рефлексы отточены до автоматизма.»\n\n"
+        "Пассивно: Вы постоянно поддерживаете высокий темп боя (+1 Спешка/Haste).\n"
+        "Тактическое преимущество: Вы можете перенаправлять атаки (Interception) при РАВНОЙ скорости.\n"
+        "(Обычно для перехвата требуется скорость строго выше, чем у цели)."
     )
     is_active_ability = False
 
     def on_round_start(self, unit, log_func, **kwargs):
-        unit.add_status("haste", 1, 1)
-        if log_func: log_func(f"🏃 **{self.name}**: +1 Haste")
+        # Постоянный бонус к скорости каждый раунд
+        unit.add_status("haste", 1, duration=1)
+
+        if log_func:
+            log_func(f"🏃 **{self.name}**: Боевая готовность (+1 Haste).")
+
         logger.log(f"🏃 Athletic: +1 Haste for {unit.name}", LogLevel.VERBOSE, "Talent")
 
     def can_redirect_on_equal_speed(self, unit) -> bool:
+        """
+        Хук для боевой системы. Разрешает перехват при speed == target_speed.
+        """
+        # Логируем на VERBOSE, чтобы не засорять основной лог частыми проверками
         logger.log(f"🏃 Athletic: {unit.name} allowed to redirect on equal speed", LogLevel.VERBOSE, "Talent")
         return True
-
 
 # ==========================================
 # 8.2 Быстрые руки
 # ==========================================
 class TalentFastHands(BasePassive):
     id = "fast_hands"
-    name = "Быстрые руки"
+    name = "Быстрые руки WIP"
     description = (
         "8.2 Огнестрельное оружие +3.\n"
         "Вы получаете карту 'Перезарядка' (без костей, действие). Мгновенная перезарядка."
     )
     is_active_ability = True
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"firearms": 3}
 
     def activate(self, unit, log_func, **kwargs):
@@ -71,7 +79,7 @@ class TalentLeader(BasePassive):
 # ==========================================
 class TalentAddiction(BasePassive):
     id = "addiction_is_a_bitch"
-    name = "Addiction is a bitch"
+    name = "Addiction is a bitch WIP"
     description = (
         "8.4 Активно (Потребление вещества): Восст. 10% SP/раунд (3 раунда).\n"
         "Баффы на 3 раунда: +1 Сила, +1 Скорость, Иммунитет к Параличу."
@@ -103,7 +111,7 @@ class TalentAddiction(BasePassive):
 # ==========================================
 class TalentRapidRetreat(BasePassive):
     id = "rapid_retreat"
-    name = "Быстрое отступление"
+    name = "Быстрое отступление WIP"
     description = "8.5 Если потеряно > 25% HP за раунд -> Статус 'Незаметный' на 1 раунд."
     is_active_ability = False
 
@@ -115,7 +123,7 @@ class TalentRapidRetreat(BasePassive):
 # ==========================================
 class TalentCombatReload(BasePassive):
     id = "combat_reload"
-    name = "Перезарядка (Боевая)"
+    name = "Перезарядка (Боевая) WIP"
     description = (
         "8.6 Вы получаете карту 'Перезарядка' (Блок + Уклонение).\n"
         "Использование мгновенно перезаряжает оружие."
@@ -129,7 +137,7 @@ class TalentCombatReload(BasePassive):
 # ==========================================
 class TalentFindVulnerability(BasePassive):
     id = "find_vulnerability"
-    name = "Найти уязвимость"
+    name = "Найти уязвимость WIP"
     description = (
         "8.7 Первая атака по врагу накладывает Метку.\n"
         "Метка: +25% урона по врагу на следующий раунд."
@@ -158,7 +166,7 @@ class TalentFindVulnerability(BasePassive):
 # ==========================================
 class TalentBorrowedTime(BasePassive):
     id = "borrowed_time"
-    name = "Одолженное время"
+    name = "Одолженное время WIP"
     description = (
         "8.8 Пассивно: Если союзник уходит в Stagger -> Восст. 25% Выдержки и отменяет Stagger.\n"
         "(1 раз на союзника в день)."
@@ -171,14 +179,14 @@ class TalentBorrowedTime(BasePassive):
 # ==========================================
 class TalentIronFormation(BasePassive):
     id = "iron_formation"
-    name = "Железный строй"
+    name = "Железный строй WIP"
     description = (
         "8.9 Весь отряд получает +3 ко всем навыкам.\n"
         "Общие рецепты и обмен талантами (до 5 уровня)."
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         # Пока даем бонус только владельцу (в сингл симуляторе)
         stats = {}
         for skill in unit.skills:

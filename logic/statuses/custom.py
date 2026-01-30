@@ -68,7 +68,7 @@ class RedLycorisStatus(StatusEffect):
         if not slot.get('source_effect'):
             slot['source_effect'] = "Lycoris 🩸"
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"initiative": 999, "damage_take": 9999}
 
     def on_round_end(self, unit, log_func, **kwargs):
@@ -173,7 +173,10 @@ class InvisibilityStatus(StatusEffect):
 class SatietyStatus(StatusEffect):
     id = "satiety"
 
-    def on_calculate_stats(self, unit, stack=0) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
+        stack = kwargs.get("stack")
+        if stack is None:
+            stack = 0
         if unit.get_status("ignore_satiety") > 0: return {}
         penalties = {}
         if stack >= 15:
@@ -204,7 +207,7 @@ class SatietyStatus(StatusEffect):
 class ArrestedStatus(StatusEffect):
     id = "arrested"
 
-    def on_calculate_stats(self, unit, stack=0) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         """-20 ко всем основным атрибутам (strength, endurance, agility, wisdom, psych)."""
         return {
             "strength": -20,
@@ -395,3 +398,54 @@ class MainCharacterShellStatus(StatusEffect):
             )
 
 
+# logic/statuses/custom.py
+
+class AzinoJackpotStatus(StatusEffect):
+    id = "azino_jackpot"
+    name = "ДЖЕКПОТ (Бессмертие)"
+    description = "Вы сорвали куш! HP не падает ниже 1. Иммунитет к эффектам. Все броски максимальны."
+
+    # === МЕХАНИКА БЕССМЕРТИЯ (Хакари) ===
+    prevents_death = True
+    prevents_stagger = True
+
+    def prevents_damage(self, unit, attacker_ctx) -> bool:
+        """Полный иммунитет к урону."""
+        return True
+
+    def on_roll(self, ctx: RollContext, stack: int):
+        """Музыка играет громче! Все броски максимальны."""
+        # Устанавливаем значение кубика на максимум
+        ctx.final_value = ctx.dice.max_val
+        ctx.is_critical = True  # Всегда крит
+        # Добавляем пафосное сообщение
+        if "jackpot_msg" not in ctx.source.memory:
+            ctx.log.append("🎶 **JACKPOT**: Бессмертие и Бесконечная Удача!")
+            ctx.source.memory["jackpot_msg"] = True
+
+    def on_round_end(self, unit, log_func, **kwargs):
+        unit.memory.pop("jackpot_msg", None)
+        return ["🎶 Музыка продолжает играть..."]
+
+
+class AzinoBeastStatus(StatusEffect):
+    id = "azino_beast"
+    name = "Число Зверя (666)"
+    description = "Сила Преисподней. Урон x1.66, но вы получаете 6 урона за каждую атаку."
+
+    def on_calculate_stats(self, unit, stack=0) -> dict:
+        # +6 ко всем статам
+        return {
+            "strength": 6,
+            "endurance": 6,
+            "agility": 6
+        }
+
+    def on_hit(self, ctx: RollContext, stack: int):
+        # Множитель урона 1.66
+        ctx.damage_multiplier *= 1.66
+
+        # Плата кровью
+        dmg_self = 6
+        ctx.source.take_damage(dmg_self)
+        ctx.log.append(f"😈 **666**: Урон усилен, получено {dmg_self} отдачи.")

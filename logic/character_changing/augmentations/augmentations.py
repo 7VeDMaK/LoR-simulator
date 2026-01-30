@@ -12,7 +12,7 @@ class AugBackSpeed(Augmentation):
     name = "Спинной ускоритель (MK-1)"
     description = "Кибернетический имплант позвоночника. Повышает скорость реакции.\nЭффект: +10 Скорости."
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"speed": 10}
 
 class AugBlessingOfWind(Augmentation):
@@ -44,7 +44,7 @@ class AugMerchantHysteria(Augmentation):
     name = "Тату 'Истерика Купца'"
     description = "Позволяет изменять голос Лилит куда эластичнее.\nЭффект: +5 Красноречия. Открывает карту 'Крик Демона'."
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"eloquence": 5}
 
     def on_combat_start(self, unit, log_func, **kwargs):
@@ -62,7 +62,7 @@ class StrizhAugmentation(Augmentation):
     name = "Легкий экзоскелет 'СТРИЖ'"
     description = " лёгкий экзоскелет СТРИЖ со шлемом и противогазом Акробатика +6 Даёт статус спешки +1 каждый ход"
 
-    def on_calculate_stats(self, unit):
+    def on_calculate_stats(self, unit, *args, **kwargs):
         return {"acrobatics": 6}
 
     def on_round_start(self, unit, log_func, **kwargs):
@@ -81,7 +81,7 @@ class AugStealthModule(Augmentation):
         "Аварийный режим: При HP <= 25% активирует Невидимость на 3 хода (1 раз за бой)."
     )
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {
             "speed": 10,
             "acrobatics": 10  # Навык, отвечающий за уворот

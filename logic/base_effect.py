@@ -124,7 +124,7 @@ class BaseEffect:
         """
         return 0
 
-    def on_calculate_stats(self, unit, stack=0) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         """
         Возвращает словарь модификаторов статов для пересчета.
         Пример: {'max_hp': 10, 'initiative': 2}

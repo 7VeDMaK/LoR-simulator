@@ -11,10 +11,14 @@ from logic.character_changing.passives.base_passive import BasePassive
 class TalentBigGuy(BasePassive):
     id = "big_guy"
     name = "Здоровяк"
-    description = "3.1 Увеличивает максимальное здоровье на 15%."
+    description = (
+        "«Чтобы выжить в Переулках, нужно быть либо быстрым, либо нерушимым. Ты выбрал быть горой, которую не сдвинет ни один шторм.»\n\n"
+        "Пассивно: Ваше тело становится крепче стали.\n"
+        "Эффект: Максимальное здоровье (HP) увеличено на 15%."
+    )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"max_hp_pct": 15}
 
 
@@ -25,74 +29,78 @@ class TalentDefense(BasePassive):
     id = "defense"
     name = "Оборона"
     description = (
-        "3.2 Каждый раунд вы получаете кость активного Блока (значение зависит от Уровня) в слот контр-атак.\n"
-        "3.5: +1 Кость. Победа блоком -> +1 Защита.\n"
-        "3.8: +1 Кость. Проигрыш блоком -> +1 Сила.\n"
-        "3.10: +1 Кость (Всего 4)."
+        "«Лучшая атака — это защита, которая ломает волю нападающего. Пусть они бьют, пока их руки не сотрутся в кровь; ты останешься стоять.»\n\n"
+        "Пассивно: В начале каждого раунда вы получаете Контр-кубики Блока (значение растет с уровнем).\n"
+        "База: 1 Кубик.\n"
+        "Апгрейды (другие таланты ветки):\n"
+        "• 'Вопреки всему' (3.5): +1 Кубик. Победа в блоке даёт Защиту.\n"
+        "• 'Выживший' (3.8): +1 Кубик. Проигрыш в блоке даёт Силу.\n"
+        "• 'Прилив сил' (3.10): +1 Кубик (Итого макс. 4)."
     )
     is_active_ability = False
 
     def on_speed_rolled(self, unit, log_func, **kwargs):
         """
-        Используем on_speed_rolled, чтобы добавить кубики.
+        Генерируем защитные кубики после броска скорости.
         """
-        # 1. Считаем количество кубиков (апгрейды ветки)
+        # 1. Считаем количество кубиков (проверяем наличие апгрейдов по ID)
         count = 1  # База (3.2)
 
-        if "despiteAdversities" in unit.talents: count += 1
-        if "survivor" in unit.talents: count += 1
-        if "surgeOfStrength" in unit.talents: count += 1
+        # Проверяем ID талантов (предполагаем snake_case для consistency)
+        if "despite_adversities" in unit.talents: count += 1  # 3.5
+        if "survivor" in unit.talents: count += 1  # 3.8
+        if "surge_of_strength" in unit.talents: count += 1  # 3.10
 
         # 2. Определяем силу кубика на основе уровня
         base_min, base_max = get_base_roll_by_level(unit.level)
 
-        # 3. Проверяем список (инициализация)
+        # 3. Инициализация списка контр-кубиков
         if not hasattr(unit, 'counter_dice'):
             unit.counter_dice = []
 
         # 4. Создаем и добавляем кубики
         for _ in range(count):
-            # Создаем кубик с динамическими значениями
+            # Создаем кубик Блока
             die = Dice(base_min, base_max, DiceType.BLOCK, is_counter=True)
 
-            # Флаг для работы других талантов (3.5, 3.8)
+            # Помечаем флагом для триггеров победы/поражения
             die.flags = ["talent_defense_die"]
 
             unit.counter_dice.append(die)
 
         if log_func:
-            log_func(f"🛡️ **{self.name}**: Добавлено {count} контр-кубиков Блока ({base_min}-{base_max}).")
+            log_func(f"🛡️ **{self.name}**: Сформировано {count} линий обороны ({base_min}-{base_max}).")
 
         logger.log(f"🛡️ Defense: Added {count} counter blocks ({base_min}-{base_max}) to {unit.name}", LogLevel.VERBOSE,
                    "Talent")
 
     def on_clash_win(self, ctx, **kwargs):
-        # ... (код без изменений) ...
-        stack = kwargs.get("stack", 0)
-        if ctx.dice:
-            flags = getattr(ctx.dice, "flags", [])
+        """Победа в столкновении (если есть талант 3.5)."""
+        if not ctx.dice: return
 
-            if "talent_defense_die" in flags:
-                # 3.5: Победа -> +1 Защита
-                if "despiteAdversities" in ctx.source.talents:
-                    ctx.source.add_status("protection", 1, duration=3)
-                    ctx.log.append(f"🛡️ **{self.name}**: Победа -> +1 Защита")
-                    logger.log(f"🛡️ Defense (Despite Adversities): +1 Protection on win for {ctx.source.name}",
-                               LogLevel.VERBOSE, "Talent")
+        flags = getattr(ctx.dice, "flags", [])
+        if "talent_defense_die" in flags:
+            # 3.5: Победа -> +1 Защита
+            if "despite_adversities" in ctx.source.talents:
+                ctx.source.add_status("protection", 1, duration=1)
+                if hasattr(ctx, 'log'):
+                    ctx.log.append(f"🛡️ **Оборона**: Блок успешен! (+1 Protection)")
+
+                logger.log(f"🛡️ Defense (Win): +1 Protection for {ctx.source.name}", LogLevel.VERBOSE, "Talent")
 
     def on_clash_lose(self, ctx, **kwargs):
-        # ... (код без изменений) ...
-        stack = kwargs.get("stack", 0)
-        if ctx.dice:
-            flags = getattr(ctx.dice, "flags", [])
+        """Проигрыш в столкновении (если есть талант 3.8)."""
+        if not ctx.dice: return
 
-            if "talent_defense_die" in flags:
-                # 3.8: Проигрыш -> +1 Сила
-                if "survivor" in ctx.source.talents:
-                    ctx.source.add_status("strength", 1, duration=3)
-                    ctx.log.append(f"💪 **{self.name}**: Проигрыш -> +1 Сила")
-                    logger.log(f"💪 Defense (Survivor): +1 Strength on lose for {ctx.source.name}", LogLevel.VERBOSE,
-                               "Talent")
+        flags = getattr(ctx.dice, "flags", [])
+        if "talent_defense_die" in flags:
+            # 3.8: Проигрыш -> +1 Сила (Ярость от удара)
+            if "survivor" in ctx.source.talents:
+                ctx.source.add_status("strength", 1, duration=1)
+                if hasattr(ctx, 'log'):
+                    ctx.log.append(f"💪 **Оборона**: Блок пробит! Ярость нарастает! (+1 Strength)")
+
+                logger.log(f"💪 Defense (Lose): +1 Strength for {ctx.source.name}", LogLevel.VERBOSE, "Talent")
 
 
 # ==========================================
@@ -102,38 +110,51 @@ class TalentCommendableConstitution(BasePassive):
     id = "commendable_constitution"
     name = "Похвальное телосложение"
     description = (
-        "3.3 Стойкость +3.\n"
-        "Пассивно в бою: +1 Стойкость (Endurance). Если есть 3.8 -> +2.\n"
-        "Активно (1 раз в день): Короткий отдых. Восстанавливает 20% HP (30%, если есть 3.7)."
+        "«Твое тело — это крепость. Даже когда стены трещат, фундамент держится. Сделай вдох, перевяжи рану и сражайся дальше.»\n\n"
+        "Пассивно: +3 к Стойкости (Attribute).\n"
+        "Бонус в бою: В начале раунда вы получаете +1 Защиту (Protection). (Если есть 'Выживший', то +2).\n"
+        "Активно (1 раз за бой): Короткий отдых. Восстанавливает 20% HP (30% при улучшении)."
     )
     is_active_ability = True
-    cooldown = 99  # 1 раз за бой/день
+    cooldown = 99  # Фактически 1 раз за бой
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"endurance": 3}
 
     def on_round_start(self, unit, log_func, **kwargs):
         amt = 1
-        if "survivor" in unit.talents:  # 3.8
+        # Синергия с 3.8 Survivor
+        if "survivor" in unit.talents:
             amt += 1
+
         unit.add_status("protection", amt, duration=1)
-        if log_func: log_func(f"🛡️ **{self.name}**: +{amt} protection")
+
+        if log_func:
+            log_func(f"🛡️ **{self.name}**: Кожа твердеет (+{amt} Protection).")
 
         logger.log(f"🛡️ Commendable Constitution: +{amt} Protection for {unit.name}", LogLevel.VERBOSE, "Talent")
 
     def activate(self, unit, log_func, **kwargs):
-        if unit.cooldowns.get(self.id, 0) > 0: return False
+        if unit.cooldowns.get(self.id, 0) > 0:
+            if log_func: log_func("❌ Вы уже отдыхали в этом бою.")
+            return False
 
+        # Синергия с 3.7 Tough as Steel
         pct = 0.20
-        if "tough_as_steel" in unit.talents:  # 3.7
+        msg_extra = ""
+        if "tough_as_steel" in unit.talents:
             pct = 0.30
+            msg_extra = "(Усилено: Крепкий как сталь)"
 
-        heal = int(unit.max_hp * pct)
-        actual = unit.heal_hp(heal)
+        heal_amount = int(unit.max_hp * pct)
+        actual_healed = unit.heal_hp(heal_amount)
+
         unit.cooldowns[self.id] = self.cooldown
 
-        if log_func: log_func(f"💤 **Отдых**: Восстановлено {actual} HP ({int(pct * 100)}%)")
-        logger.log(f"💤 Short Rest: Healed {actual} HP for {unit.name}", LogLevel.NORMAL, "Talent")
+        if log_func:
+            log_func(f"💤 **Отдых**: Раны затягиваются... +{actual_healed} HP {msg_extra}")
+
+        logger.log(f"💤 Short Rest: Healed {actual_healed} HP for {unit.name}", LogLevel.NORMAL, "Talent")
         return True
 
 
@@ -149,6 +170,7 @@ class TalentBigHeart(BasePassive):
     )
     is_active_ability = False
 
+#TODO опц 3.3
 
 # ==========================================
 # 3.4 Скала
@@ -157,43 +179,50 @@ class TalentRock(BasePassive):
     id = "rock"
     name = "Скала"
     description = (
-        "3.4 Если вы получаете 0 урона от атаки (благодаря резистам или статусам, но НЕ Блоку),\n"
-        "весь исходный урон отражается в атакующего."
+        "«Тот, кто бьёт гору, лишь ломает собственные кости. Твоя кожа стала тверже железа, и любой бессильный удар эхом отдается в теле врага.»\n\n"
+        "Пассивно: Если атака наносит вам 0 урона (из-за Сопротивлений или Защиты, но НЕ из-за кубика Блока):\n"
+        "Эффект: Весь исходный урон (до снижения) отражается обратно в атакующего как Чистый урон."
     )
     is_active_ability = False
 
     def on_take_damage(self, unit, amount, source, **kwargs):
         """
-        Срабатывает после расчета урона, когда HP уже (не) отнялось.
-        amount - это ИТОГОВЫЙ урон (который прошел через резисты).
+        Срабатывает после расчета урона.
+        amount - итоговый урон, который прошел в HP.
+        raw_amount - урон, который был нанесен кубиком до вычета резистов (должен передаваться в kwargs).
         """
-        # 1. Условие: Итоговый урон по здоровью должен быть 0 (мы танканули)
+        # 1. Условие: Итоговый урон по здоровью должен быть 0 (мы танканули телом)
         if amount > 0:
             return
 
-        # 2. Условие: Источник должен существовать и быть врагом
+        # 2. Условие: Источник должен существовать и быть врагом (не отражаем селф-дамп)
         if not source or source == unit:
             return
 
-        # 3. Условие: Это не должно быть благодаря Блоку
-        # [FIX] Безопасная проверка, чтобы не крашнулось, если current_die не задан
+        # 3. Условие: Это не должно быть благодаря активному Блоку (DiceType.BLOCK)
+        # Проверяем текущий кубик юнита, если он есть
         current_die = getattr(unit, "current_die", None)
         if current_die and current_die.dtype == DiceType.BLOCK:
             return
 
         # 4. Определяем, сколько урона отразить
-        # Берем "сырой" урон до резистов, который мы передали из damage.py
+        # raw_amount должен передаваться из системы боя
         reflect_amt = kwargs.get("raw_amount", 0)
 
         # 5. Отражаем урон (Pure Damage)
         if reflect_amt > 0:
-            # [FIX] Используем прямое вычитание HP, т.к. метода take_damage нет
-            source.current_hp = max(0, source.current_hp - reflect_amt)
+            # Наносим урон напрямую, или через take_damage с флагом 'reflected'
+            if hasattr(source, 'take_damage'):
+                # Вариант через метод (чтобы триггерить смерти и т.д.)
+                source.take_damage(reflect_amt)
+            else:
+                # Прямое вычитание (как в примере)
+                source.current_hp = max(0, source.current_hp - reflect_amt)
 
             # Логируем
             log_func = kwargs.get("log_func")
             if log_func:
-                log_func(f"🪨 **Скала**: Броня непробиваема! Отражено {reflect_amt} урона.")
+                log_func(f"🪨 **{self.name}**: Броня непробиваема! Враг получает {reflect_amt} урона отдачей.")
 
             logger.log(f"🪨 Rock: Reflected {reflect_amt} damage to {source.name}", LogLevel.NORMAL, "Talent")
 
@@ -202,49 +231,62 @@ class TalentRock(BasePassive):
 # 3.5 Не взирая на невзгоды
 # ==========================================
 class TalentDespiteAdversities(BasePassive):
-    id = "despiteAdversities"
+    id = "despite_adversities"
     name = "Не взирая на невзгоды"
     description = (
-        "3.5 В Оглушении входящий урон x1.5 (вместо x2.0).\n"
-        "Кости навыка 'Оборона' остаются активными даже в Оглушении.\n"
-        "Если есть 3.10 -> входящий урон x1.25."
+        "«Даже стоя на коленях, ты остаешься угрозой. Боль затуманивает разум, но инстинкты продолжают держать щит.»\n\n"
+        "Пассивно: Вы получаете меньше урона, находясь в состоянии Оглушения (Stagger).\n"
+        "Эффект: Множитель урона по оглушенным снижен с x2.0 до x1.5.\n"
+        "Бонус (при наличии таланта 'Прилив сил'): Множитель снижен до x1.25.\n"
+        "Особенность: Ваши защитные контр-кубики (от таланта 'Оборона') остаются активными даже в Оглушении."
     )
     is_active_ability = False
 
-    # === [NEW] Реализация хука ===
     def modify_stagger_damage_multiplier(self, unit, multiplier: float) -> float:
-        # Стандартный множитель x2.0. Мы меняем его.
-
-        # Если есть улучшение 3.10 (Прилив сил)
-        if "surgeOfStrength" in unit.talents:
-            logger.log(f"🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for {unit.name}",
-                       LogLevel.VERBOSE, "Talent")
+        """
+        Изменяет множитель входящего урона, когда юнит находится в Stagger.
+        Стандартное значение в системе обычно 2.0.
+        """
+        # Проверяем наличие синергии с талантом 3.10 (surge_of_strength)
+        if "surge_of_strength" in unit.talents:
+            logger.log(
+                f"🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for {unit.name}",
+                LogLevel.VERBOSE,
+                "Talent"
+            )
             return 1.25
 
-        # Иначе просто эффект этого таланта
-        logger.log(f"🛡️ Despite Adversities: Stagger multiplier set to 1.5 for {unit.name}", LogLevel.VERBOSE, "Talent")
+        # Базовый эффект таланта
+        logger.log(
+            f"🛡️ Despite Adversities: Stagger multiplier set to 1.5 for {unit.name}",
+            LogLevel.VERBOSE,
+            "Talent"
+        )
         return 1.5
 
+
+#TODO опц 3.5
 
 # ==========================================
 # 3.5 (Опционально) Термостойкий
 # ==========================================
 class TalentHeatResistant(BasePassive):
     id = "heat_resistant"
-    name = "Термостойкий"
+    name = "Термостойкий WIP"
     description = "3.5 Опц: Урон от Огня и Холода снижен на 33%."
     is_active_ability = False
 
 
 # ==========================================
-# 3.6 Адаптация (Тип 2)
+# 3.6 Адаптация
 # ==========================================
 class TalentAdaptationTireless(BasePassive):
     id = "adaptation_tireless"
     name = "Адаптация"
     description = (
-        "3.6 В конце раунда вы адаптируетесь к типу урона, полученному больше всего.\n"
-        "В следующем раунде получаемый урон этого типа снижен на 25%."
+        "«Боль — это лучший учитель. Единожды познав, как сталь режет плоть, тело само учится отвергать лезвие в следующий раз.»\n\n"
+        "Пассивно: В конце каждого раунда организм анализирует полученный урон.\n"
+        "Эффект: Вы получаете сопротивление (-25% урона) к тому типу физического урона (Р, К или Д), которого получили больше всего в прошлом раунде."
     )
     is_active_ability = False
 
@@ -319,12 +361,14 @@ class TalentToughAsSteel(BasePassive):
     id = "tough_as_steel"
     name = "Крепкий как сталь"
     description = (
-        "3.7 Макс. Здоровье +20%.\n"
-        "Победа костью блока -> накладывает 1 Хрупкость (Fragile)."
+        "«Бить железо голыми руками — глупость. Чем яростнее их удары, тем быстрее их собственные кости превратятся в пыль.»\n\n"
+        "Пассивно: +20% к Максимальному Здоровью.\n"
+        "Эффект: Успешная защита разрушает врага.\n"
+        "При победе кубиком Блока: Накладывает 1 Хрупкость (Fragile) на атакующего."
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"max_hp_pct": 20}
 
     def on_clash_win(self, ctx, **kwargs):
@@ -336,6 +380,7 @@ class TalentToughAsSteel(BasePassive):
                 ctx.log.append(f"🧱 **{self.name}**: Враг получил +1 Хрупкость")
                 logger.log(f"🧱 Tough As Steel: Applied Fragile to {target.name}", LogLevel.VERBOSE, "Talent")
 
+#TODO Opc 3.7
 
 # ==========================================
 # 3.7 (Опционально) Защитник
@@ -361,51 +406,55 @@ class TalentSurvivor(BasePassive):
     id = "survivor"
     name = "Выживший"
     description = (
-        "3.8 Проверки навыка Стойкости (Endurance) проходят с Преимуществом.\n"
-        "Пассивно: Если здоровье падает до 30% и ниже, вы восстанавливаете 10% HP в начале раунда.\n"
-        "Урон от Кровотечения снижен на 33%.\n"
+        "«Ты как таракан. Тебя бьют, режут, ломают, но ты всё равно ползешь вперед. Смерть просто устала гоняться за тобой.»\n\n"
+        "Пассивно: Проверки Стойкости (Endurance) всегда с Преимуществом.\n"
+        "Регенерация: Если HP <= 30%, в начале раунда восстанавливает 10% HP.\n"
+        "Свертываемость: Урон от Кровотечения снижен на 33%."
     )
-    is_active_ability = False  # Больше не активная способность
+    is_active_ability = False
 
     def on_round_start(self, unit, log_func, **kwargs):
         """
         Пассивная регенерация при низком здоровье.
         """
-        # Порог срабатывания (30%)
         low_hp_threshold = unit.max_hp * 0.30
 
         if unit.current_hp <= low_hp_threshold:
-            # Лечение (10%)
             heal_amount = int(unit.max_hp * 0.10)
             if heal_amount > 0:
                 actual = unit.heal_hp(heal_amount)
                 if log_func:
-                    log_func(f"❤️ **{self.name}**: Критическое состояние! Регенерация +{actual} HP.")
+                    log_func(f"❤️ **{self.name}**: Организм борется за жизнь! (+{actual} HP).")
                 logger.log(f"❤️ Survivor: Critical HP regen +{actual} HP for {unit.name}", LogLevel.NORMAL, "Talent")
 
     def modify_incoming_damage(self, unit, amount: int, damage_type, **kwargs) -> int:
-        active_type = unit.memory.get("adaptation_active_type")  # Это теперь строка
+        """
+        Снижение урона от кровотечения.
+        """
+        # Проверяем, является ли источник урона статусом "bleed"
+        status_id = kwargs.get("status_id") or kwargs.get("source_type")
 
-        # Приводим входящий тип к строке
-        incoming_type_str = str(damage_type).lower()
-        if hasattr(damage_type, 'name'):
-            incoming_type_str = damage_type.name.lower()
-
-        if active_type and incoming_type_str == active_type and amount > 0:
-            new_amount = int(amount * 0.75)
+        if status_id == "bleed" and amount > 0:
+            # Снижаем на 33% (оставляем 67%)
+            new_amount = int(amount * 0.67)
+            logger.log(
+                f"🩸 Survivor: Bleed damage reduced ({amount} -> {new_amount})",
+                LogLevel.VERBOSE,
+                "Talent"
+            )
             return new_amount
 
         return amount
 
     def on_check_roll(self, unit, attribute: str, context):
         """
-        Хук для системы проверок навыков (UI).
+        Дает преимущество на проверки Стойкости.
         """
         if attribute.lower() in ["endurance", "стойкость"]:
             context.is_advantage = True
             if hasattr(context, "log"):
-                context.log.append(f"🎲 **{self.name}**: Преимущество на Стойкость!")
-            from core.logging import logger, LogLevel
+                context.log.append(f"🎲 **{self.name}**: Тело выдержит (Преимущество).")
+
             logger.log(f"🎲 Survivor: Advantage on Endurance check for {unit.name}", LogLevel.VERBOSE, "Talent")
 
 
@@ -415,16 +464,67 @@ class TalentSurvivor(BasePassive):
 class TalentMuscleOverstrain(BasePassive):
     id = "muscle_overstrain"
     name = "Перенапряжение мышц"
-    description = "3.9 Активно: Потратить 5 HP или 10 Stagger -> +1 Мощь кубиков (2 раза/раунд)."
+    description = (
+        "«Мышцы рвутся с приятным хрустом. Боль — это цена за силу, которую они не смогут остановить.»\n\n"
+        "Активно (Макс 2 раза за раунд): Пожертвовать здоровьем или выдержкой ради силы.\n"
+        "Стоимость: 5 HP или 10 Stagger.\n"
+        "Эффект: +1 Мощь (Strength) на этот раунд."
+    )
     is_active_ability = True
 
-    def activate(self, unit, log_func, **kwargs):
-        # Тратим 5 HP
-        unit.current_hp = max(1, unit.current_hp - 5)
-        unit.add_status("strength", 1, duration=1)
-        if log_func: log_func("💪 **Перенапряжение**: -5 HP -> +1 Сила")
+    # Опции для UI выбора
+    conversion_options = {
+        "pay_hp": "Потратить 5 HP",
+        "pay_sp": "Потратить 10 Stagger"
+    }
 
-        logger.log(f"💪 Muscle Overstrain: -5 HP for +1 Strength for {unit.name}", LogLevel.NORMAL, "Talent")
+    def on_round_start(self, unit, *args, **kwargs):
+        """Сброс счетчика использований в начале раунда."""
+        unit.memory["muscle_overstrain_uses"] = 0
+
+    def activate(self, unit, log_func, choice_key="pay_hp", **kwargs):
+        # 1. Проверка лимита (2 раза в раунд)
+        uses = unit.memory.get("muscle_overstrain_uses", 0)
+        if uses >= 2:
+            if log_func: log_func("⚠️ Предел напряжения достигнут (макс. 2 раза за раунд).")
+            return False
+
+        # 2. Обработка выбора (HP или Stagger)
+        cost_hp = 0
+        cost_stagger = 0
+
+        if choice_key == "pay_sp":  # Используем ключ SP как Stagger в контексте UI, если так удобнее, или переименовать
+            cost_stagger = 10
+        else:
+            cost_hp = 5
+
+        # 3. Проверка ресурсов
+        if unit.current_hp <= cost_hp:
+            if log_func: log_func("❌ Недостаточно здоровья!")
+            return False
+
+        # Stagger технически может уйти в 0 (Staggered state), разрешаем, но предупреждаем
+        if unit.current_stagger < cost_stagger:
+            if log_func: log_func("❌ Недостаточно выдержки (Stagger)!")
+            return False
+
+        # 4. Списание ресурсов
+        if cost_hp > 0:
+            unit.current_hp -= cost_hp
+
+        if cost_stagger > 0:
+            unit.current_stagger -= cost_stagger
+
+        # 5. Применение эффекта
+        unit.add_status("strength", 1, duration=1)
+        unit.memory["muscle_overstrain_uses"] = uses + 1
+
+        if log_func:
+            res_name = "HP" if cost_hp > 0 else "Stagger"
+            val = cost_hp if cost_hp > 0 else cost_stagger
+            log_func(f"💪 **{self.name}**: Жертва {val} {res_name} -> +1 Сила (Использовано {uses + 1}/2).")
+
+        logger.log(f"💪 Muscle Overstrain: Paid cost for +1 Strength", LogLevel.NORMAL, "Talent")
         return True
 
 
@@ -433,7 +533,7 @@ class TalentMuscleOverstrain(BasePassive):
 # ==========================================
 class TalentIdolOath(BasePassive):
     id = "idol_oath"
-    name = "Клятва идола"
+    name = "Клятва идола WIP"
     description = (
         "3.9 Опц: Вы отказываетесь от лечения других WIP.\n"
         "Медицина +15.\n"
@@ -442,7 +542,7 @@ class TalentIdolOath(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         # Базовые бонусы
         mods = {"medicine": 15, "tough_skin": 15}
 
@@ -464,7 +564,7 @@ class TalentIdolOath(BasePassive):
 # ==========================================
 class TalentSurgeOfStrength(BasePassive):
     id = "surgeOfStrength"  # Связь с Обороной
-    name = "Прилив сил"
+    name = "Прилив сил WIP"
     description = (
         "3.10 HP < 25% -> Мгновенный выход из Оглушения и переброс инициативы.\n"
         "До конца раунда: +4 Силы, Стойкости, Спешки, Защиты.\n"
@@ -473,3 +573,5 @@ class TalentSurgeOfStrength(BasePassive):
     is_active_ability = False
 
     # Логика "HP < 25%" должна проверяться в on_take_damage или on_round_start
+
+#TODO 3.9 opc 3 10

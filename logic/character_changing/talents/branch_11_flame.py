@@ -21,7 +21,7 @@ class TalentStrikeWhileIronHot(BasePassive):
     )
     is_active_ability = False
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"blacksmithing": 3}  # Условно "ковка"
 
 
@@ -158,7 +158,7 @@ class TalentHot(BasePassive):
     )
     is_active_ability = True
 
-    def on_calculate_stats(self, unit) -> dict:
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"eloquence": 3}  # Речь
 
     def activate(self, unit, log_func, **kwargs):
