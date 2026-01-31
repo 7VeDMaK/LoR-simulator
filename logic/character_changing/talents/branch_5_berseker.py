@@ -21,7 +21,7 @@ class TalentNakedDefense(BasePassive):
 
     def on_combat_start(self, unit, log_func, **kwargs):
         # Список "пустых" названий брони
-        empty_armors = ["none", "нет", "empty", "naked", "clothes", "rag", "одежда"]
+        empty_armors = ["none", "Без брони", "empty", "naked", "clothes", "rag", "одежда"]
 
         current_armor = str(unit.armor_name).lower() if unit.armor_name else "none"
 

@@ -21,7 +21,7 @@ ARMOR_REGISTRY = {
         name="Без брони",
         rank=9,
         description="Нет защиты.",
-        hp_resists={"slash": 1.5, "pierce": 1.5, "blunt": 1.5},
+        hp_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0},
         stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
     ),
     
