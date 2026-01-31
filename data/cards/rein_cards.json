@@ -283,6 +283,138 @@
           "scripts": {}
         }
       ]
+    },
+    {
+      "id": "bad_coffee_img",
+      "name": "Плохое кофе... Нервирует.",
+      "tier": 4,
+      "type": "melee",
+      "description": "Пассивно: При использовании отнимает 50 SP, добавляет 7 Strength.",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "sp",
+              "base": -50,
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "strength",
+              "base": 7,
+              "duration": 1,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 27,
+          "base_max": 39,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "good_coffee_img",
+      "name": "Хорошее кофе... Вдохновляет.",
+      "tier": 4,
+      "type": "melee",
+      "description": "Пассивно: добавляет 10 Strength.",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "strength",
+              "base": 10,
+              "duration": 1,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 5,
+          "base_max": 5,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 5,
+          "base_max": 5,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 5,
+          "base_max": 5,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 5,
+          "base_max": 5,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "equivalent_exchange_img",
+      "name": "Равноценный Обмен",
+      "tier": 4,
+      "type": "melee",
+      "description": "Пассивно: При использовании карты отнимает 50 HP и прибавляет 25 Stagger.",
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "hp",
+              "base": -50,
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "stagger",
+              "base": 25,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 33,
+          "base_max": 33,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 11,
+          "base_max": 11,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ]
     }
   ]
 }

@@ -18,14 +18,24 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 200,
-    "current_sp": 202,
-    "current_stagger": 100,
+    "current_hp": 150,
+    "current_sp": 152,
+    "current_stagger": 103,
     "resources": {
         "luck": 138
     },
     "cooldowns": {},
-    "card_cooldowns": {},
+    "card_cooldowns": {
+        "equivalent_exchange_img": [
+            3
+        ],
+        "good_coffee_img": [
+            3
+        ],
+        "bad_coffee_img": [
+            3
+        ]
+    },
     "active_buffs": {},
     "_status_effects": {},
     "delayed_queue": [],
@@ -38,7 +48,10 @@
         "tale_of_twilight_img",
         "warp_img",
         "series_normal_strikes_img",
-        "not_the_limit_img"
+        "not_the_limit_img",
+        "bad_coffee_img",
+        "good_coffee_img",
+        "equivalent_exchange_img"
     ],
     "active_slots": [],
     "stored_dice": [],
@@ -48,9 +61,11 @@
         "start_of_battle_stats": {
             "hp": 200,
             "sp": 202,
-            "stagger": 103
+            "stagger": 100
         },
-        "cat_reflexes_triggered": false
+        "cat_reflexes_triggered": false,
+        "battle_initialized": true,
+        "smashing_blade_used": true
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -65,9 +80,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 200,
-        "current_sp": 202,
-        "current_stagger": 100
+        "current_hp": 150,
+        "current_sp": 152,
+        "current_stagger": 103
     },
     "defense": {
         "armor_name": "Без брони",
@@ -85,21 +100,21 @@
         "weapon_id": "phantom_razors"
     },
     "attributes": {
-        "strength": 0,
+        "strength": 5,
         "endurance": 22,
-        "agility": 13,
+        "agility": 8,
         "wisdom": 0,
         "psych": 21
     },
     "skills": {
         "strike_power": 0,
-        "medicine": 0,
-        "willpower": 0,
-        "luck": 69,
+        "medicine": 15,
+        "willpower": 3,
+        "luck": 55,
         "acrobatics": 0,
         "shields": 0,
-        "tough_skin": 1,
-        "speed": 30,
+        "tough_skin": 0,
+        "speed": 27,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,
@@ -118,14 +133,14 @@
     "talents": [
         "keep_it_together",
         "center_of_balance",
-        "deal_with_fortune",
-        "second_chance",
-        "sequential_luck",
-        "lucky_bastard",
-        "not_luck_just_skill",
-        "raise_stakes",
-        "azino_777",
-        "blessed_by_fate"
+        "athleticism_shadow",
+        "not_great_attention",
+        "smashing_blade",
+        "fast_and_silent",
+        "step_into_shadow",
+        "cat_reflexes",
+        "eye_for_danger",
+        "covering_tracks"
     ],
     "augmentations": [],
     "level_rolls": {
