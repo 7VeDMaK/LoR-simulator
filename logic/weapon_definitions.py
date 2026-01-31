@@ -130,4 +130,22 @@ WEAPON_REGISTRY = {
         stats={},
         weapon_type="medium"
     ),
+
+    "muramasa_blade": Weapon(
+    id="muramasa_blade",
+    name="ВЧ-Клинок 'Мурамаса'",
+    rank=4,
+    description=(
+        "Легендарный клинок кроваво-красного цвета.\n"
+        "Свойства:\n"
+        "• +3 к Рубящему (Slash).\n"
+        "• +7 ко всем броскам (All).\n"
+        "• Зандатсу: Восстановление HP при добивании или стаггере противника.\n"
+        "• ВЧ-Разрез: Игнорирование резистов (через пассивку)."
+    ),
+    # Статы: +3 Slash, +2 All (итого +5 Slash, +2 остальное)
+    stats={"power_slash": 3, "power_all": 7},
+    passive_id="weapon_muramasa",  # Ссылка на ID пассивки
+    weapon_type="medium"
+),
 }

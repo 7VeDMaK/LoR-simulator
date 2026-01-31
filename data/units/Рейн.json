@@ -18,23 +18,17 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 150,
-    "current_sp": 152,
+    "current_hp": 200,
+    "current_sp": 202,
     "current_stagger": 103,
     "resources": {
         "luck": 138
     },
     "cooldowns": {},
     "card_cooldowns": {
-        "equivalent_exchange_img": [
-            3
-        ],
-        "good_coffee_img": [
-            3
-        ],
-        "bad_coffee_img": [
-            3
-        ]
+        "equivalent_exchange_img": 0,
+        "good_coffee_img": 0,
+        "bad_coffee_img": 0
     },
     "active_buffs": {},
     "_status_effects": {},
@@ -59,9 +53,9 @@
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 200,
-            "sp": 202,
-            "stagger": 100
+            "hp": 150,
+            "sp": 152,
+            "stagger": 103
         },
         "cat_reflexes_triggered": false,
         "battle_initialized": true,
@@ -80,8 +74,8 @@
         }
     ],
     "base_stats": {
-        "current_hp": 150,
-        "current_sp": 152,
+        "current_hp": 200,
+        "current_sp": 202,
         "current_stagger": 103
     },
     "defense": {

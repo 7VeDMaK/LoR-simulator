@@ -78,7 +78,7 @@ class TalentCelestialEyes(BasePassive):
         if not target:
             if log_func: log_func("⚠️ Выберите врага для анализа.")
             return False
-
+#todo переделать, расчет идёт без учета бонусов
         # 2. Расчет бросков
         my_wis = unit.attributes.get("wisdom", 0)
         my_roll = random.randint(1, 20) + my_wis

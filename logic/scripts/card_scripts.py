@@ -10,6 +10,14 @@ from logic.scripts.statuses import (
     remove_all_positive, apply_status_by_roll, remove_random_status, apply_slot_debuff
 )
 
+# === НОВЫЕ ИМПОРТЫ (АДАМ) ===
+from logic.scripts.adam_card_scripts import (
+    adam_t1_cost, adam_t1_punish,
+    adam_t2_cost, adam_t2_punish, adam_t2_combo,
+    adam_t3_cost, adam_t3_punish, adam_t3_execution,
+    adam_t4_cost, adam_t4_wethermon_fail
+)
+
 # Реестр скриптов для использования в JSON карт
 SCRIPTS_REGISTRY = {
     # Combat
@@ -45,4 +53,19 @@ SCRIPTS_REGISTRY = {
     "apply_axis_team_buff": apply_axis_team_buff,
     "adaptive_damage_type": adaptive_damage_type,
     "summon_ally": summon_ally,
+
+    # === СКРИПТЫ АДАМА ===
+    "adam_t1_cost": adam_t1_cost,
+    "adam_t1_punish": adam_t1_punish,
+
+    "adam_t2_cost": adam_t2_cost,
+    "adam_t2_punish": adam_t2_punish,
+    "adam_t2_combo": adam_t2_combo,
+
+    "adam_t3_cost": adam_t3_cost,
+    "adam_t3_punish": adam_t3_punish,
+    "adam_t3_execution": adam_t3_execution,
+
+    "adam_t4_cost": adam_t4_cost,
+    "adam_t4_wethermon_fail": adam_t4_wethermon_fail,
 }

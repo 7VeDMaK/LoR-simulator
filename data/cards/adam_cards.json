@@ -1,0 +1,183 @@
+{
+  "cards": [
+    {
+      "id": "adam_quick_draw",
+      "name": "Мгновенный разрез (Setsuna)",
+      "tier": 1,
+      "type": "Melee",
+      "cost": 1,
+      "description": "5% HP Cost. Быстрый удар из ножен.",
+      "dice": [
+        {
+          "base_min": 12,
+          "base_max": 23,
+          "type": "slash",
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "adam_t1_punish"
+              }
+            ]
+          }
+        }
+      ],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "adam_t1_cost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "adam_flowing_water",
+      "name": "Течение воды (Sui-Ryu)",
+      "tier": 1,
+      "type": "Melee",
+      "cost": 1,
+      "description": "5% HP Cost. Парирование.",
+      "dice": [
+        {
+          "base_min": 5,
+          "base_max": 25,
+          "type": "evade",
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "adam_t1_punish"
+              }
+            ]
+          }
+        }
+      ],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "adam_t1_cost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "adam_binary_moon",
+      "name": "Двоичная Луна (Ni-Ren)",
+      "tier": 2,
+      "type": "Melee",
+      "cost": 2,
+      "description": "10% HP Cost. Двойной разрез.",
+      "dice": [
+        {
+          "base_min": 14,
+          "base_max": 18,
+          "type": "slash",
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "adam_t2_punish"
+              }
+            ]
+          }
+        },
+        {
+          "base_min": 14,
+          "base_max": 18,
+          "type": "slash",
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "adam_t2_punish"
+              }
+            ],
+            "on_hit": [
+              {
+                "script_id": "adam_t2_combo"
+              }
+            ]
+          }
+        }
+      ],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "adam_t2_cost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "adam_steel_break",
+      "name": "Разлом Стали (Hagane-Kudaki)",
+      "tier": 3,
+      "type": "Melee",
+      "cost": 3,
+      "description": "20% HP Cost. Ломает кубик при победе.",
+      "dice": [
+        {
+          "base_min": 20,
+          "base_max": 35,
+          "type": "slash",
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "adam_t3_punish"
+              }
+            ],
+            "on_clash_win": [
+              {
+                "script_id": "adam_t3_execution"
+              }
+            ]
+          }
+        }
+      ],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "adam_t3_cost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "adam_wethermon_ult",
+      "name": "Эпитафия: Конец Времен (Tenza)",
+      "tier": 4,
+      "type": "Mass Summation",
+      "description": "40% HP Cost. При проигрыше Адам получает Stagger.",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "adam_t4_cost"
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 45,
+          "base_max": 60,
+          "is_counter": false,
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "adam_t4_wethermon_fail"
+              },
+              {
+                "script_id": "restore_resource",
+                "params": {
+                  "type": "stagger",
+                  "base": -99999,
+                  "stat": "None",
+                  "scale_from_target": false,
+                  "factor": 0.5,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

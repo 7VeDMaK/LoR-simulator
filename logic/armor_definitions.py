@@ -70,4 +70,29 @@ ARMOR_REGISTRY = {
         hp_resists={"slash": 1.0, "pierce": 1.0, "blunt": 0.8},
         stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 0.85}
     ),
+
+"ghost_exoskeleton": Armor(
+        id="ghost_exoskeleton",
+        name="Экзо-костюм 'Призрак'",
+        rank=4,
+        description=(
+            "Высокотехнологичная броня Синдиката.\n"
+            "• Оптический камуфляж (-20% урона при высокой скорости).\n"
+            "• Нано-ремонт (реген HP/Stagger).\n"
+            "• Перегрузка (защита от первого ошеломления)."
+        ),
+        # Физика держит хорошо (0.3-0.7), но уязвим к менталу (1.5)
+        hp_resists={
+            "slash": 0.5,
+            "pierce": 0.5,
+            "blunt": 0.7,
+        },
+        # Стаггер резисты (заглушка 1.0)
+        stagger_resists={
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
+        },
+        stats={"speed": 3, "agility": 5},
+    ),
 }

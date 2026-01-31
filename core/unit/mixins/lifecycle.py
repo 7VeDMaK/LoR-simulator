@@ -27,6 +27,10 @@ class UnitLifecycleMixin:
 
         return amount
 
+    def take_damage(self, amount: int):
+        self.heal_hp(-amount)
+
+
     def restore_sp(self, amount: int) -> int:
         if amount <= 0: return 0
 

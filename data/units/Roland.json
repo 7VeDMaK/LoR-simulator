@@ -18,71 +18,50 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 1674,
+    "current_hp": 2964,
     "current_sp": 267,
-    "current_stagger": 837,
+    "current_stagger": 1482,
     "resources": {
-        "luck": 719
+        "luck": 439
     },
     "cooldowns": {},
     "card_cooldowns": {},
     "active_buffs": {},
-    "_status_effects": {},
+    "_status_effects": {
+        "azino_jackpot": [
+            {
+                "amount": 1,
+                "duration": 7
+            }
+        ]
+    },
     "delayed_queue": [],
     "deck": [],
-    "active_slots": [
-        {
-            "speed": 6,
-            "card": null,
-            "target_slot": null,
-            "is_aggro": false,
-            "target_unit_idx": -1,
-            "target_slot_idx": -1,
-            "force_clash": false,
-            "ui_status": {
-                "text": "НЕТ ЦЕЛИ",
-                "icon": "⛔",
-                "color": "gray"
-            },
-            "is_ally_target": false
-        },
-        {
-            "speed": 6,
-            "card": null,
-            "target_slot": null,
-            "is_aggro": false,
-            "target_unit_idx": -1,
-            "target_slot_idx": -1,
-            "force_clash": false,
-            "ui_status": {
-                "text": "НЕТ ЦЕЛИ",
-                "icon": "⛔",
-                "color": "gray"
-            },
-            "is_ally_target": false
-        }
-    ],
+    "active_slots": [],
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
         "status_rank": "2321321",
         "start_of_battle_stats": {
-            "hp": 1,
+            "hp": 1674,
             "sp": 267,
             "stagger": 837
         },
         "golden_dice_current": 0,
-        "azino_slots": [],
-        "battle_initialized": true,
+        "azino_slots": [
+            7,
+            7,
+            7
+        ],
         "lucky_coin_count": 0
     },
     "death_count": 0,
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 1674,
+        "current_hp": 2964,
         "current_sp": 267,
-        "current_stagger": 837
+        "current_stagger": 1482
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -102,7 +81,7 @@
     "attributes": {
         "strength": 0,
         "endurance": 30,
-        "agility": 0,
+        "agility": 1,
         "wisdom": 999,
         "psych": 0
     },
@@ -125,7 +104,8 @@
         "programming": 0
     },
     "passives": [
-        "axis_unity"
+        "axis_unity",
+        "hedonism"
     ],
     "talents": [
         "celestial_eyes",

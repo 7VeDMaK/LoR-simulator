@@ -580,8 +580,6 @@ class TalentAceSleeve(BasePassive):
     is_active_ability = False
 
     def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
-        # Получаем базовое значение ХАРАКТЕРИСТИКИ (Attribute)
-        # Используем attributes, чтобы избежать рекурсии и скалирования от бонусов
         current_luck = unit.skills.get("luck", 0)
 
         # Количество шагов усиления (10 удачи = 1 шаг)
@@ -597,11 +595,6 @@ class TalentAceSleeve(BasePassive):
             "wisdom": 0,
             "psych": 0
         }
-
-        # Циклическое распределение
-        # 0: Стойкость + Психика
-        # 1: Сила + Мудрость
-        # 2: Ловкость
 
         for i in range(steps):
             cycle_index = i % 3

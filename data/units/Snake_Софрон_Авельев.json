@@ -2,7 +2,7 @@
     "name": "Snake, Софрон Авельев ",
     "level": 36,
     "rank": 9,
-    "avatar": "data/avatars/Солидиус_Бледно-черная_Змея.jpg",
+    "avatar": "data/avatars\\Солидиус_Бледно-черная_Змея.jpg",
     "base_intellect": 7,
     "total_xp": 0,
     "pct_mods": {

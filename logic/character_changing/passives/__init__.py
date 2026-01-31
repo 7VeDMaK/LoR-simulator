@@ -1,3 +1,6 @@
+from logic.character_changing.passives.adam_passives import AugmentationCombatTrance, AugmentationOckhamsRazor, \
+    WeaknessSystemDissonance, WeaknessPhantomPain, AugmentationTitaniumSkin, PassiveRuthlessProtocol, \
+    AugmentationSandevistan, WeaponMuramasaPassive, ArmorGhostExoPassive
 from logic.character_changing.passives.asgick_passives import PassiveWitnessOfGroGoroth, PassivePovar, PassiveFoodLover, \
     PassiveDistortionGroGoroth
 from logic.character_changing.passives.equipment_passives import PassiveAnnihilator, PassiveBanganrang, PassiveGanitar, \
@@ -69,4 +72,15 @@ PASSIVE_REGISTRY = {
 "source_access": PassiveSourceAccess(),
 "meta_awareness": PassiveMetaAwareness(),
 "chthonic_nature": PassiveChthonic(),
+
+# Adam Gray Fox
+"sandevistan": AugmentationSandevistan(),
+"ruthless_protocol": PassiveRuthlessProtocol(),
+"titanium_skin": AugmentationTitaniumSkin(),
+"phantom_pain": WeaknessPhantomPain(),
+"system_dissonance": WeaknessSystemDissonance(),
+"ockhams_razor": AugmentationOckhamsRazor(),
+"combat_trance": AugmentationCombatTrance(),
+"weapon_muramasa": WeaponMuramasaPassive(),
+"armor_ghost_exo": ArmorGhostExoPassive(),
 }
