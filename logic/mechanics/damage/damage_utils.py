@@ -2,6 +2,10 @@ from core.logging import logger, LogLevel
 
 def _check_death_threshold(unit, current_val, max_val, resource_name):
     if current_val <= 0:
+        # Специальное исключение для Рейна - он не уходит в полусмерть
+        if hasattr(unit, 'name') and unit.name == "Рейн":
+            return 1  # Оставляем 1 HP/SP вместо смерти
+        
         overkill = abs(current_val)
         unit.overkill_damage = overkill
         return 0
