@@ -71,7 +71,16 @@ ARMOR_REGISTRY = {
         stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 0.85}
     ),
 
-"ghost_exoskeleton": Armor(
+    "armor_leila": Armor(
+        id="armor_leila",
+        name="Броня Лайлы",
+        rank=9,
+        description="Старая броня Лайлы... что получила от кого-то, всё ещё может держать удар.",
+        hp_resists={"slash": 0.8, "pierce": 1.0, "blunt": 1.2},
+        stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
+    ),
+
+    "ghost_exoskeleton": Armor(
         id="ghost_exoskeleton",
         name="Экзо-костюм 'Призрак'",
         rank=4,

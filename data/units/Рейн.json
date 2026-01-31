@@ -79,8 +79,9 @@
         "current_stagger": 103
     },
     "defense": {
-        "armor_name": "Без брони",
+        "armor_name": "Standard Fixer Suit",
         "armor_type": "Medium",
+        "armor_id": "standard_fixer_suit",
         "hp_resists": {
             "slash": 1.0,
             "pierce": 1.0,

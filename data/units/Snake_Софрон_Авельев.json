@@ -79,6 +79,7 @@
     },
     "defense": {
         "armor_name": "Unit_28",
+        "armor_id": "none",
         "armor_type": "Medium",
         "hp_resists": {
             "slash": 1.7999999999999998,

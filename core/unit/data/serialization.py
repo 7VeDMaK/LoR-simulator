@@ -97,6 +97,7 @@ class UnitSerializationMixin:
             },
             "defense": {
                 "armor_name": self.armor_name, "armor_type": self.armor_type,
+                "armor_id": getattr(self, 'armor_id', 'none'),
                 "hp_resists": self.hp_resists.to_dict(),
                 "stagger_resists": self.stagger_resists.to_dict(),
                 "weapon_id": self.weapon_id,
@@ -146,11 +147,27 @@ class UnitSerializationMixin:
 
         # RPG
         defense = data.get("defense", {})
+        u.armor_id = defense.get("armor_id", "none")
         u.armor_name = defense.get("armor_name", "Suit")
         u.armor_type = defense.get("armor_type", "Medium")
         u.hp_resists = Resistances.from_dict(defense.get("hp_resists", {}))
         u.stagger_resists = Resistances.from_dict(defense.get("stagger_resists", {}))
         u.weapon_id = defense.get("weapon_id", "none")
+        
+        # Применяем броню из реестра, если ID есть
+        try:
+            from logic.armor_definitions import ARMOR_REGISTRY
+            if u.armor_id and u.armor_id in ARMOR_REGISTRY:
+                armor = ARMOR_REGISTRY[u.armor_id]
+                u.armor_name = armor.name
+                u.hp_resists.slash = armor.hp_resists["slash"]
+                u.hp_resists.pierce = armor.hp_resists["pierce"]
+                u.hp_resists.blunt = armor.hp_resists["blunt"]
+                u.stagger_resists.slash = armor.stagger_resists["slash"]
+                u.stagger_resists.pierce = armor.stagger_resists["pierce"]
+                u.stagger_resists.blunt = armor.stagger_resists["blunt"]
+        except ImportError:
+            pass  # Если ARMOR_REGISTRY недоступен, используем сохраненные значения
 
         if "attributes" in data: u.attributes.update(data["attributes"])
         if "skills" in data: u.skills.update(data["skills"])

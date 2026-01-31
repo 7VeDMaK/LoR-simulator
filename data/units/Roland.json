@@ -66,10 +66,11 @@
     "defense": {
         "armor_name": "Standard Fixer Suit",
         "armor_type": "Medium",
+        "armor_id": "standard_fixer_suit",
         "hp_resists": {
-            "slash": 1.7999999999999998,
-            "pierce": 0.8,
-            "blunt": 0.30000000000000004
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
         },
         "stagger_resists": {
             "slash": 1.0,
@@ -79,7 +80,7 @@
         "weapon_id": "none"
     },
     "attributes": {
-        "strength": 0,
+        "strength": 10,
         "endurance": 30,
         "agility": 1,
         "wisdom": 999,

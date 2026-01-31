@@ -98,6 +98,7 @@
     },
     "defense": {
         "armor_name": "Без брони",
+        "armor_id": "none",
         "armor_type": "Medium",
         "hp_resists": {
             "slash": 1.0,

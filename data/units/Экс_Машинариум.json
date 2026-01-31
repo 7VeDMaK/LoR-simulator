@@ -56,6 +56,7 @@
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
+        "armor_id": "standard_fixer_suit",
         "armor_type": "Medium",
         "hp_resists": {
             "slash": 2.000000000000001,

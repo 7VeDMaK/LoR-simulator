@@ -2,7 +2,7 @@
     "name": "Comander Lucy",
     "level": 1,
     "rank": 9,
-    "avatar": "data/avatars/Comander_Lucy.png",
+    "avatar": "data/avatars\\Comander_Lucy.png",
     "base_intellect": 1,
     "total_xp": 0,
     "pct_mods": {
@@ -43,12 +43,13 @@
         "current_stagger": 10
     },
     "defense": {
-        "armor_name": "Unit_14",
+        "armor_name": "Без брони",
         "armor_type": "Medium",
+        "armor_id": "none",
         "hp_resists": {
-            "slash": 1.0,
-            "pierce": 1.0,
-            "blunt": 1.0
+            "slash": 1.5,
+            "pierce": 1.5,
+            "blunt": 1.5
         },
         "stagger_resists": {
             "slash": 1.0,

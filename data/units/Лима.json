@@ -74,10 +74,11 @@
     "defense": {
         "armor_name": "Standard Fixer Suit",
         "armor_type": "Medium",
+        "armor_id": "standard_fixer_suit",
         "hp_resists": {
             "slash": 1.0,
             "pierce": 1.0,
-            "blunt": 1.2
+            "blunt": 1.0
         },
         "stagger_resists": {
             "slash": 1.0,
@@ -87,9 +88,9 @@
         "weapon_id": "skalalaz_iceaxe"
     },
     "attributes": {
-        "strength": 2,
+        "strength": 10,
         "endurance": 5,
-        "agility": 30,
+        "agility": 6,
         "wisdom": 15,
         "psych": 9
     },

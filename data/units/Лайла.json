@@ -81,10 +81,11 @@
         "current_stagger": 13
     },
     "defense": {
-        "armor_name": "Standard Fixer Suit",
+        "armor_name": "Броня Лайлы",
         "armor_type": "Medium",
+        "armor_id": "armor_leila",
         "hp_resists": {
-            "slash": 0.75,
+            "slash": 0.8,
             "pierce": 1.0,
             "blunt": 1.2
         },
