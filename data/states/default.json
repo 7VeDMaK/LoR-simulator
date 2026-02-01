@@ -3,6 +3,528 @@
   "page": "⚔️ Simulator",
   "team_left_data": [
     {
+      "name": "Лима",
+      "level": 28,
+      "rank": 6,
+      "avatar": "data/avatars\\Лима.png",
+      "base_intellect": 8,
+      "total_xp": 268424064,
+      "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+      },
+      "current_hp": 139,
+      "current_sp": 161,
+      "current_stagger": 73,
+      "resources": {},
+      "cooldowns": {
+        "mech_magnetic_pickaxe": 4
+      },
+      "card_cooldowns": {},
+      "active_buffs": {},
+      "_status_effects": {
+        "haste": [
+          {
+            "amount": 1,
+            "duration": 1
+          }
+        ]
+      },
+      "delayed_queue": [],
+      "deck": [
+        "lima_little_tricks",
+        "lima_jump_shooting",
+        "lima_assorted_arrows",
+        "lima_hit_and_run",
+        "lima_inertia",
+        "lima_morphine_dart",
+        "lima_one_furious_shot",
+        "lima_ram",
+        "lima_purge_toxin"
+      ],
+      "active_slots": [
+        {
+          "speed": 13,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 15,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 14,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 11,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        }
+      ],
+      "stored_dice": [],
+      "counter_dice": [],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 139,
+          "sp": 161,
+          "stagger": 73
+        },
+        "mind_suppression_bonus": 15,
+        "smashing_blade_used": false,
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [
+        {
+          "amount": 5790000,
+          "reason": ""
+        },
+        {
+          "amount": -3700000,
+          "reason": "Шопинг, стрелы, гранаты"
+        },
+        {
+          "amount": -500000,
+          "reason": "украла Аксис"
+        }
+      ],
+      "base_stats": {
+        "current_hp": 139,
+        "current_sp": 161,
+        "current_stagger": 73
+      },
+      "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "armor_id": "standard_fixer_suit",
+        "hp_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "skalalaz_iceaxe"
+      },
+      "attributes": {
+        "strength": 10,
+        "endurance": 5,
+        "agility": 6,
+        "wisdom": 15,
+        "psych": 9
+      },
+      "skills": {
+        "strike_power": 2,
+        "medicine": 24,
+        "willpower": 0,
+        "luck": 2,
+        "acrobatics": 15,
+        "shields": 0,
+        "tough_skin": 8,
+        "speed": 30,
+        "light_weapon": 10,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 15,
+        "eloquence": 4,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [
+        "accelerated_learning",
+        "art_of_self_defense",
+        "lucky_streak",
+        "four_eyes",
+        "hunters_vedas",
+        "ship_of_theseus",
+        "wild_cityscape",
+        "mind_suppression"
+      ],
+      "talents": [
+        "innate_talent",
+        "celestial_eyes",
+        "void_cleave",
+        "golden_reputation",
+        "copycat_insight",
+        "athleticism_shadow",
+        "not_great_attention",
+        "smashing_blade",
+        "fast_and_silent"
+      ],
+      "augmentations": [
+        "aug_strizh"
+      ],
+      "level_rolls": {
+        "3": {
+          "hp": 3,
+          "sp": 3
+        },
+        "6": {
+          "hp": 4,
+          "sp": 4
+        },
+        "9": {
+          "hp": 4,
+          "sp": 1
+        },
+        "12": {
+          "hp": 2,
+          "sp": 2
+        },
+        "15": {
+          "hp": 2,
+          "sp": 3
+        },
+        "18": {
+          "hp": 1,
+          "sp": 4
+        },
+        "21": {
+          "hp": 2,
+          "sp": 1
+        },
+        "24": {
+          "hp": 2,
+          "sp": 1
+        },
+        "27": {
+          "hp": 4,
+          "sp": 4
+        }
+      },
+      "biography": "Броня - лёгкий экзоскелет \"СТРИЖ\" со шлемом и противогазом\nАкробатика +6\nДаёт статус спешки +1  :zHaste: каждый ход\n\nЛедоруб \"Скала Лаз\" х2 (6.5 ранг)\nПозволяет карабкаться по стенам, отвесным скалам. Иногда требуется проверка Ловкости / Акробатики для совершения действия\nПовышает значение куба :zAttackPowerUp: атаки на атакующих картами на 3\n\nСветошумовые гранаты 2шт B tier\n\nАПГРЕЙД КОСТЮМА: ПНВ B tier\nПозволяет видеть в темноте, не получает дебаффы в темноте. Возможны дебаффы при ярком свете/днём во включенном режиме \n",
+      "relationships": {},
+      "unit_type": "player"
+    },
+    {
+      "name": "Лилит",
+      "level": 28,
+      "rank": 7,
+      "avatar": "data/avatars\\Лилит.png",
+      "base_intellect": 3,
+      "total_xp": 152043520,
+      "pct_mods": {
+        "imp_hp": 6,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+      },
+      "current_hp": 132,
+      "current_sp": 77,
+      "current_stagger": 66,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {},
+      "active_buffs": {},
+      "_status_effects": {
+        "strength": [
+          {
+            "amount": 4,
+            "duration": 1
+          }
+        ],
+        "endurance": [
+          {
+            "amount": 4,
+            "duration": 1
+          }
+        ]
+      },
+      "delayed_queue": [],
+      "deck": [
+        "release_steam",
+        "prelude",
+        "puff",
+        "bad_habit",
+        "trip_up",
+        "inhale_exhale",
+        "smoke_arts",
+        "demon_scream",
+        "smoke_silhouette"
+      ],
+      "active_slots": [
+        {
+          "speed": 13,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 15,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 15,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 7,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        }
+      ],
+      "stored_dice": [],
+      "counter_dice": [
+        {
+          "type": "evade",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 132,
+          "sp": 77,
+          "stagger": 66
+        },
+        "smoke_is_defensive": true,
+        "smoke_limit_bonus": 5,
+        "vengeful_payback_chunks": 0,
+        "last_revive_attempt_round": 2,
+        "last_revive_log": {
+          "roll": 2,
+          "bonus": 0,
+          "penalty": 0,
+          "total": 2,
+          "dc": 1,
+          "success": true
+        },
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [
+        {
+          "amount": 280000,
+          "reason": ""
+        }
+      ],
+      "base_stats": {
+        "current_hp": 132,
+        "current_sp": 77,
+        "current_stagger": 66
+      },
+      "defense": {
+        "armor_name": "Без брони",
+        "armor_type": "Medium",
+        "armor_id": "none",
+        "hp_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "lilith_scythe"
+      },
+      "attributes": {
+        "strength": 18,
+        "endurance": 16,
+        "agility": 18,
+        "wisdom": 0,
+        "psych": 0
+      },
+      "skills": {
+        "strike_power": 7,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 15,
+        "shields": 0,
+        "tough_skin": 7,
+        "speed": 30,
+        "light_weapon": 3,
+        "medium_weapon": 15,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 15,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [
+        "wag_tail",
+        "backstreet_demon",
+        "daughter_of_backstreets",
+        "hedonism",
+        "live_fast_die_young"
+      ],
+      "talents": [
+        "naked_defense",
+        "vengeful_payback",
+        "berserker_rage",
+        "calm_mind",
+        "frenzy",
+        "hiding_in_smoke",
+        "smoke_universality",
+        "aerial_foot",
+        "recycling"
+      ],
+      "augmentations": [
+        "aug_blessing_of_wind",
+        "aug_merchant_hysteria"
+      ],
+      "level_rolls": {
+        "3": {
+          "hp": 2,
+          "sp": 4
+        },
+        "6": {
+          "hp": 1,
+          "sp": 3
+        },
+        "9": {
+          "hp": 1,
+          "sp": 2
+        },
+        "12": {
+          "hp": 2,
+          "sp": 3
+        },
+        "15": {
+          "hp": 5,
+          "sp": 4
+        },
+        "18": {
+          "hp": 4,
+          "sp": 5
+        },
+        "21": {
+          "hp": 1,
+          "sp": 1
+        }
+      },
+      "biography": "",
+      "relationships": {},
+      "unit_type": "player"
+    },
+    {
       "name": "Рейн",
       "level": 32,
       "rank": 6,
@@ -28,6 +550,7 @@
       "resources": {
         "luck": 138
       },
+<<<<<<< HEAD
       "cooldowns": {
         "step_into_shadow": 4
       },
@@ -39,6 +562,10 @@
           3
         ]
       },
+=======
+      "cooldowns": {},
+      "card_cooldowns": {},
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
       "active_buffs": {},
       "_status_effects": {},
       "delayed_queue": [],
@@ -58,22 +585,49 @@
       ],
       "active_slots": [
         {
+<<<<<<< HEAD
           "speed": 13,
+=======
+          "speed": 16,
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
           "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
+<<<<<<< HEAD
           "force_clash": false
         },
         {
           "speed": 13,
+=======
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 16,
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
           "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
+<<<<<<< HEAD
           "force_clash": false
+=======
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
         },
         {
           "speed": 11,
@@ -82,7 +636,17 @@
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
+<<<<<<< HEAD
           "force_clash": false
+=======
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
         }
       ],
       "stored_dice": [],
@@ -243,9 +807,15 @@
         "imp_sp": 50,
         "imp_stg": 13
       },
+<<<<<<< HEAD
       "current_hp": -98,
       "current_sp": 194,
       "current_stagger": 307,
+=======
+      "current_hp": 612,
+      "current_sp": 194,
+      "current_stagger": 360,
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {},
@@ -253,8 +823,33 @@
       "_status_effects": {
         "bleed": [
           {
+<<<<<<< HEAD
             "amount": 32,
             "duration": 1
+=======
+            "amount": 12,
+            "duration": 2
+          }
+        ],
+        "anti_charge": [
+          {
+            "amount": 2,
+            "duration": 98
+          },
+          {
+            "amount": 2,
+            "duration": 98
+          },
+          {
+            "amount": 2,
+            "duration": 98
+          }
+        ],
+        "fragile": [
+          {
+            "amount": 1,
+            "duration": 2
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
           }
         ],
         "paralysis": [
@@ -271,12 +866,15 @@
             "duration": 2
           }
         ],
+<<<<<<< HEAD
         "attack_power_up": [
           {
             "amount": 1,
             "duration": 2
           }
         ],
+=======
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
         "self_control": [
           {
             "amount": 5,
@@ -292,7 +890,98 @@
         "adam_quick_draw",
         "adam_flowing_water"
       ],
-      "active_slots": [],
+      "active_slots": [
+        {
+          "speed": 4,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 2,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 4,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 3,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 4,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 1,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        }
+      ],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -317,9 +1006,15 @@
       "overkill_damage": 0,
       "money_log": [],
       "base_stats": {
+<<<<<<< HEAD
         "current_hp": -98,
         "current_sp": 194,
         "current_stagger": 307
+=======
+        "current_hp": 612,
+        "current_sp": 194,
+        "current_stagger": 360
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
       },
       "defense": {
         "armor_name": "Экзо-костюм 'Призрак'",
@@ -455,7 +1150,11 @@
     }
   ],
   "phase": "planning",
+<<<<<<< HEAD
   "round_number": 5,
+=======
+  "round_number": 2,
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
   "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
   "battle_logs": [
     {
@@ -485,11 +1184,19 @@
       "type": "clash",
       "round": "Clash (1)",
       "left": {
+<<<<<<< HEAD
         "unit": "Рейн",
         "card": "Плохое кофе... Нервирует.",
         "dice": "SLASH",
         "val": 58.0,
         "range": "27-39"
+=======
+        "unit": "Лима",
+        "card": "Ассорти Стрел",
+        "dice": "PIERCE",
+        "val": 11,
+        "range": "-"
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
       },
       "right": {
         "unit": "Адам Серый Лис",
@@ -498,6 +1205,7 @@
         "val": 40.0,
         "range": "14-18"
       },
+<<<<<<< HEAD
       "outcome": "🏆 Рейн Win (Hit) 💥 **-22 HP**",
       "details": [
         "🩸 Плата: -62 HP",
@@ -545,12 +1253,80 @@
       "outcome": "🛡️ Рейн Stored Evade Die",
       "details": [
         "Die 11-11 saved."
+=======
+      "outcome": "Unopposed 💥 **-9 HP**",
+      "details": [
+        "🎲 Roll [3-4]: 4 + 5 (Сила) + 2 (Среднее ор.) = **11**",
+        "📉 **Помеха!** (4, 4) -> Base: 4",
+        "🗡️ **Sudden Attack**: x1.5 Dmg & 12 Bleed (>90% HP) [1/Round]",
+        "⚡ **Магнитный Разряд**: x1.5 Урона + 2 Анти-Заряда!",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.6 Res] Hit 9 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лима",
+        "card": "Ассорти Стрел",
+        "dice": "PIERCE",
+        "val": 11,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed 💥 **-4 HP**",
+      "details": [
+        "🎲 Roll [3-4]: 4 + 5 (Сила) + 2 (Среднее ор.) = **11**",
+        "📉 **Помеха!** (4, 4) -> Base: 4",
+        "⚡ **Магнитный Разряд**: x1.5 Урона + 2 Анти-Заряда!",
+        "🧪 **Адам Серый Лис**: +1 Fragile",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.6 Res] Hit 4 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лима",
+        "card": "Ассорти Стрел",
+        "dice": "PIERCE",
+        "val": 10,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed 💥 **-3 HP**",
+      "details": [
+        "🎲 Roll [3-4]: 3 + 5 (Сила) + 2 (Среднее ор.) = **10**",
+        "📉 **Помеха!** (4, 3) -> Base: 3",
+        "⚡ **Магнитный Разряд**: x1.5 Урона + 2 Анти-Заряда!",
+        "🧪 **Адам Серый Лис**: +1 Paralysis",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.6 Res] Hit 3 HP"
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
       ]
     },
     {
       "round": "Round Start",
       "rolls": "Event",
+<<<<<<< HEAD
       "details": "🔄 **Рейн**: 🧠 Центр у равновесия: Восстановлено 12 SP (1 союзникам)."
+=======
+      "details": "🔄 **Лима**: ⚡ **Лима**: Экзоскелет активирует сервоприводы (Спешка +1)."
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
     },
     {
       "round": "Round Start",
@@ -560,6 +1336,29 @@
     {
       "round": "Speed Roll",
       "rolls": "Passive",
+<<<<<<< HEAD
+=======
+      "details": "⚡ **Лилит**: 🐈 **Махнуть хвостиком**: +1 Counter Evade (7-10) added to pool."
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Лилит**: ⚡ **Живи быстро, умирай молодым**: +4 Силы и Стойкости (за 4 слота)"
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Лилит**: ⚔️ **Неистовство**: Лезвие (7-10)"
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Силуэт размыт. Добавлено 1 уклонений (Дым: 0)."
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
       "details": "⚡ **Рейн**: 🧬 S-клетки: 3 слотов x 10 = Восстановлено 30 HP"
     }
   ],
@@ -568,6 +1367,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
+<<<<<<< HEAD
   "profile_unit": " Дна'хо",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
@@ -2612,4 +3412,11 @@
       "executed_slots": []
     }
   ]
+=======
+  "profile_unit": "Аксис Мунди",
+  "leveling_unit": " Дна'хо",
+  "tree_unit": " Дна'хо",
+  "checks_unit": " Дна'хо",
+  "undo_stack": []
+>>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
 }

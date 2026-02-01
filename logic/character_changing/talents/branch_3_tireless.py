@@ -264,6 +264,12 @@ class TalentDespiteAdversities(BasePassive):
         )
         return 1.5
 
+    # def can_use_counter_die_while_staggered(self, unit):
+    #     """
+    #     Разрешает использование защитных (Counter) кубиков, даже если юнит в Stagger.
+    #     """
+    #     return True
+
 
 #TODO опц 3.5
 

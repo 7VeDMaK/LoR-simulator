@@ -38,11 +38,6 @@ def render_visuals_tab(unit, is_edit_mode: bool):
 
     st.markdown(f"### 💰 Финансы: :{money_color}[{formatted_total} Ан]")
 
-    # Панель добавления (Только в Edit Mode или всегда? Обычно финансы меняют часто, оставим доступным)
-    # Но раз это "профиль", логично разрешать менять только в Edit Mode,
-    # однако финансы часто нужны "на лету". Оставим как было в старом профиле (всегда доступно),
-    # или привяжем к is_edit_mode для чистоты. Давайте привяжем к is_edit_mode для безопасности.
-
     if is_edit_mode:
         with st.container(border=True):
             c_mon1, c_mon2, c_mon3 = st.columns([1, 2, 1])
@@ -69,20 +64,24 @@ def render_visuals_tab(unit, is_edit_mode: bool):
                 desc = item.get('reason', '...')
 
                 icon = "💸" if amt < 0 else "💰"
-                color = "red" if amt < 0 else "green"
                 sign = "+" if amt > 0 else ""
+
+                # Определяем HEX-цвет для CSS (такой же, как у вас в рамке)
+                css_color = "#ff4b4b" if amt < 0 else "#09ab3b"
 
                 fmt_amt = format_large_number(abs(amt))
 
                 st.markdown(f"""
                     <div style="
-                        border-left: 3px solid {'#ff4b4b' if amt < 0 else '#09ab3b'}; 
+                        border-left: 3px solid {css_color}; 
                         padding-left: 10px; 
                         margin-bottom: 8px; 
                         background-color: #262730; 
                         padding: 5px; 
                         border-radius: 4px;">
-                        <div style="font-weight: bold; font-size: 1.0em;">{icon} :{color}[{sign}{fmt_amt} Ан]</div>
+                        <div style="font-weight: bold; font-size: 1.0em;">
+                            {icon} <span style="color: {css_color};">{sign}{fmt_amt} Ан</span>
+                        </div>
                         <div style="color: #aaa; font-size: 0.9em;">{desc}</div>
                     </div>
                     """, unsafe_allow_html=True)

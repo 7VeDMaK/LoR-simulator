@@ -103,7 +103,6 @@ class PassiveLimagun(BasePassive):
     description = "+666% урона по целям с именем 'Лима'."
 
     def on_hit(self, ctx, **kwargs):
-        stack = kwargs.get("stack", 0)
         if not ctx.target: return
 
         name = ctx.target.name.lower()
@@ -166,3 +165,52 @@ class PassiveCoagulation(BasePassive):
 
         if hasattr(logger, 'log'):
             logger.log(f"🩸 Coagulation: Added bleed_resist to {unit.name}", LogLevel.VERBOSE, "Passive")
+
+
+class PassiveMagneticPickaxe(BasePassive):
+    id = "mech_magnetic_pickaxe"
+    name = "Магнитный разряд"
+    description = (
+        "Пассивно: Удары накладывают 1 'Анти-Заряд' (если не на КД).\n"
+        "Активно (КД 5): Заряжает ледорубы. Следующий удар нанесет x1.5 урона и 2 'Анти-Заряда'."
+    )
+    is_active_ability = True
+    cooldown = 5
+
+    def on_hit(self, ctx, **kwargs):
+        unit = ctx.source
+        target = ctx.target
+        if not target: return
+
+        # Проверяем, был ли активирован заряд (через статус)
+        has_charge = unit.get_status("magnetic_charge") > 0
+
+        # Если заряд есть (Активка была нажата)
+        if has_charge:
+            # 1. Усиленный эффект
+            target.add_status("anti_charge", 2, 99)
+            ctx.damage_multiplier *= 1.5
+
+            ctx.log.append("⚡ **Магнитный Разряд**: x1.5 Урона + 2 Анти-Заряда!")
+            if hasattr(logger, 'log'):
+                logger.log(f"⚡ Magnetic Burst on {target.name}", LogLevel.NORMAL, "Passive")
+
+    def activate(self, unit, *args, **kwargs):
+        log_func = kwargs.get("log_func")
+        # Проверка КД
+        if unit.cooldowns.get(self.id, 0) > 0:
+            return False
+
+        # Накладываем статус "Заряд", который усилит следующий on_hit
+        unit.add_status("magnetic_charge", 1, duration=1)  # Duration 2 чтобы точно хватило на удар
+
+        # Ставим КД
+        unit.cooldowns[self.id] = self.cooldown
+
+        if log_func:
+            log_func(f"🧲 **Магнит**: Ледорубы заряжены! Следующий удар будет сокрушительным.")
+
+        if hasattr(logger, 'log'):
+            logger.log(f"🧲 Magnetic Pickaxe activated by {unit.name}", LogLevel.NORMAL, "Passive")
+
+        return True

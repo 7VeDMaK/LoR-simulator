@@ -4,7 +4,7 @@ from logic.character_changing.passives.adam_passives import AugmentationCombatTr
 from logic.character_changing.passives.asgick_passives import PassiveWitnessOfGroGoroth, PassivePovar, PassiveFoodLover, \
     PassiveDistortionGroGoroth
 from logic.character_changing.passives.equipment_passives import PassiveAnnihilator, PassiveBanganrang, PassiveGanitar, \
-    PassiveLimagun, PassivePhantomRazors, PassiveCoagulation
+    PassiveLimagun, PassivePhantomRazors, PassiveCoagulation, PassiveMagneticPickaxe
 from logic.character_changing.passives.fanat_passives import PassiveFanatReflect, PassiveFanatMarkHunter, \
     PassiveFanatAntiDefense, PassiveFanatStaggerRecovery, PassiveFanatUnwavering
 from logic.character_changing.passives.lilith_passives import PassiveHedonism, PassiveWagTail, PassiveBackstreetDemon, \
@@ -83,4 +83,5 @@ PASSIVE_REGISTRY = {
 "combat_trance": AugmentationCombatTrance(),
 "weapon_muramasa": WeaponMuramasaPassive(),
 "armor_ghost_exo": ArmorGhostExoPassive(),
+"mech_magnetic_pickaxe": PassiveMagneticPickaxe(),
 }

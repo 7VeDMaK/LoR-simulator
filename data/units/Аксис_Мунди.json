@@ -1,6 +1,6 @@
 {
     "name": "Аксис Мунди",
-    "level": 10,
+    "level": 13,
     "rank": 9,
     "avatar": "data/avatars\\Аксис_Мунди.png",
     "base_intellect": 8,
@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 80,
-    "current_sp": 38,
-    "current_stagger": 40,
+    "current_hp": 117,
+    "current_sp": 56,
+    "current_stagger": 58,
     "resources": {
         "luck": 55
     },
@@ -78,17 +78,25 @@
         {
             "amount": 500000,
             "reason": "У Лимы отобрала"
+        },
+        {
+            "amount": 24000000,
+            "reason": "Это за талоны на бензин"
+        },
+        {
+            "amount": 100000,
+            "reason": "Это за кейс"
         }
     ],
     "base_stats": {
-        "current_hp": 80,
-        "current_sp": 38,
-        "current_stagger": 40
+        "current_hp": 117,
+        "current_sp": 56,
+        "current_stagger": 58
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
-        "armor_id": "standard_fixer_suit",
         "armor_type": "Medium",
+        "armor_id": "standard_fixer_suit",
         "hp_resists": {
             "slash": 1.0,
             "pierce": 1.0,
@@ -136,7 +144,8 @@
     "talents": [
         "deal_with_fortune",
         "second_chance",
-        "sequential_luck"
+        "sequential_luck",
+        "lucky_bastard"
     ],
     "augmentations": [],
     "level_rolls": {
@@ -146,6 +155,14 @@
         },
         "6": {
             "hp": 2,
+            "sp": 4
+        },
+        "9": {
+            "hp": 5,
+            "sp": 4
+        },
+        "12": {
+            "hp": 5,
             "sp": 4
         }
     },
