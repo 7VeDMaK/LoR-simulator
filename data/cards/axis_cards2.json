@@ -1,120 +1,549 @@
-[
-  {
-    "id": "axis_i_radiance",
-    "name": "Сияние",
-    "tier": 1,
-    "type": "Ranged",
-    "cost": 1,
-    "description": "При победе в столкновении накладывает 1 Win Condition (WinCon) на этот ход.",
-    "dice": [
-      {
-        "base_min": 1,
-        "base_max": 5,
-        "type": "evade",
-        "scripts": {
-          "on_clash_win": [
-            { "script_id": "axis_radiance_clash_win" }
-          ]
+{
+  "cards": [
+    {
+      "id": "axis_i_radiance",
+      "name": "Сияние",
+      "tier": 1,
+      "type": "Ranged",
+      "cost": 1,
+      "description": "I. Дальний. Уклонение.\n[On Clash Win] Накладывает 1 'Win Condition' на врага (1 ход).",
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 5,
+          "scripts": {
+            "on_clash_win": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "win_condition",
+                  "base": 1,
+                  "duration": 1,
+                  "target": "target"
+                }
+              }
+            ]
+          }
         }
-      }
-    ],
-    "scripts": {}
-  },
-  {
-    "id": "axis_proto_mcguffin",
-    "name": "Прототип МакГаффина",
-    "tier": 2,
-    "type": "Melee",
-    "cost": 2,
-    "description": "Все атаки при попадании накладывают 1 Перманентный Win Condition.",
-    "dice": [
-      {
-        "base_min": 4,
-        "base_max": 8,
-        "type": "blunt",
-        "scripts": {
-          "on_hit": [{ "script_id": "axis_mcguffin_on_hit" }]
-        }
+      ],
+      "scripts": {}
+    },
+    {
+      "id": "axis_minor_setbacks",
+      "name": "Мелкие неудачи",
+      "tier": 1,
+      "type": "Ranged",
+      "description": "I. Дальний бой. [Unity]\nOn Use: Дает Блок другим картам Unity в руке.\nOn Hit: Дебаффы.",
+      "flags": [
+        "unity"
+      ],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "axis_apply_unity"
+          }
+        ]
       },
-      {
-        "base_min": 4,
-        "base_max": 7,
-        "type": "slash",
-        "scripts": {
-          "on_hit": [{ "script_id": "axis_mcguffin_on_hit" }]
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "weakness",
+                  "base": 1,
+                  "duration": 1,
+                  "delay": 1,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "pierce",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "paralysis",
+                  "base": 1,
+                  "duration": 1,
+                  "delay": 1,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bind",
+                  "base": 1,
+                  "duration": 1,
+                  "delay": 1,
+                  "target": "target"
+                }
+              }
+            ]
+          }
         }
-      }
-    ],
-    "scripts": {}
-  },
-  {
-    "id": "axis_proto_plot_armor",
-    "name": "Прототип Сюжетной Брони",
-    "tier": 3,
-    "type": "Melee",
-    "cost": 3,
-    "description": "При столкновении: Снимает 1 WinCon у врага, чтобы наложить Слабость, Разоружение и Замедление (+2).",
-    "dice": [
-      {
-        "base_min": 5,
-        "base_max": 9,
-        "type": "block",
-        "scripts": {
-          "on_clash_lose": [{ "script_id": "axis_plot_armor_clash" }],
-          "on_clash_win": [{ "script_id": "axis_plot_armor_clash" }]
+      ]
+    },
+    {
+      "id": "axis_min_effort",
+      "name": "Минимум усилий",
+      "tier": 1,
+      "type": "Melee",
+      "description": "I. Ближний. On Clash Lose: Аксис получает бонусы на следующий ход.",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "attack_power_up",
+                  "base": 1,
+                  "duration": 1,
+                  "delay": 1,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "endurance",
+                  "base": 1,
+                  "duration": 1,
+                  "delay": 1,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "haste",
+                  "base": 1,
+                  "duration": 1,
+                  "delay": 1,
+                  "target": "self"
+                }
+              }
+            ]
+          }
         }
+      ]
+    },
+    {
+      "id": "axis_sword_glory",
+      "name": "Меч славы",
+      "tier": 2,
+      "type": "Melee",
+      "description": "II. Ближний. [Unity]\nOn Use: Дает этот Slash кубик картам Unity.\n1. Слабость врагу. 2. Сила себе.",
+      "flags": [
+        "unity"
+      ],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "weakness",
+              "base": 1,
+              "duration": 1,
+              "target": "target"
+            }
+          },
+          {
+            "script_id": "axis_apply_unity"
+          }
+        ]
       },
-      {
-        "base_min": 6,
-        "base_max": 10,
-        "type": "blunt",
-        "scripts": {
-           "on_clash_lose": [{ "script_id": "axis_plot_armor_clash" }],
-           "on_clash_win": [{ "script_id": "axis_plot_armor_clash" }]
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 2,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "attack_power_up",
+                  "base": 1,
+                  "duration": 2,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 2,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_axis_team_buff",
+                "params": {
+                  "status": "attack_power_up",
+                  "duration": 2
+                }
+              }
+            ]
+          }
         }
-      }
-    ],
-    "scripts": {}
-  },
-  {
-    "id": "axis_proto_ex_machina",
-    "name": "Прототип Экс Махины",
-    "tier": 3,
-    "type": "Melee",
-    "cost": 4,
-    "description": "При столкновении: Снимает 1 WinCon у врага, союзник получает +3 Силы, Стойкости и Скорости.",
-    "dice": [
-      {
-        "base_min": 8,
-        "base_max": 16,
-        "type": "slash",
-        "scripts": {
-           "on_clash_lose": [{ "script_id": "axis_ex_machina_clash" }],
-           "on_clash_win": [{ "script_id": "axis_ex_machina_clash" }]
+      ]
+    },
+    {
+      "id": "axis_spear_determination",
+      "name": "Копьё решимости",
+      "tier": 2,
+      "type": "Ranged",
+      "description": "II. Дальний. [Unity]\nOn Use: Дает этот Pierce кубик картам Unity.\n1. Замедление врагу. 2. Скорость себе.",
+      "flags": [
+        "unity"
+      ],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "bind",
+              "base": 1,
+              "duration": 1,
+              "target": "target"
+            }
+          },
+          {
+            "script_id": "axis_apply_unity"
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 1,
+          "base_max": 2,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "haste",
+                  "base": 1,
+                  "duration": 2,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "pierce",
+          "base_min": 1,
+          "base_max": 2,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_axis_team_buff",
+                "params": {
+                  "status": "haste",
+                  "duration": 2
+                }
+              }
+            ]
+          }
         }
-      }
-    ],
-    "scripts": {}
-  },
-  {
-    "id": "axis_small_failures",
-    "name": "Мелкие неудачи",
-    "tier": 4,
-    "type": "Melee",
-    "cost": 0,
-    "description": "Юнити. Получает дополнительные кубики Меча, Копья и Кулака при использовании.",
-    "dice": [
-      {
-        "base_min": 3,
-        "base_max": 6,
-        "type": "block",
-        "scripts": {}
-      }
-    ],
-    "scripts": {
-      "on_use": [
-        { "script_id": "axis_small_failures_use" }
+      ]
+    },
+    {
+      "id": "axis_fist_justice",
+      "name": "Кулак правосудия",
+      "tier": 2,
+      "type": "Melee",
+      "description": "II. Ближний. [Unity]\nOn Use: Дает этот Blunt кубик картам Unity.\n1. Обезоруживание врагу. 2. Стойкость себе.",
+      "flags": [
+        "unity"
+      ],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "paralysis",
+              "base": 1,
+              "duration": 1,
+              "target": "target"
+            }
+          },
+          {
+            "script_id": "axis_apply_unity"
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 2,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "endurance",
+                  "base": 1,
+                  "duration": 2,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 2,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_axis_team_buff",
+                "params": {
+                  "status": "endurance",
+                  "duration": 2
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "axis_mcguffin",
+      "name": "Прототип МакГаффина",
+      "tier": 3,
+      "type": "Ranged",
+      "cost": 3,
+      "description": "III. Дальний. [On Hit] Накладывает 1 Перманентный Win Condition.",
+      "dice": [
+        {
+          "base_min": 3,
+          "base_max": 7,
+          "type": "slash",
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "win_condition",
+                  "base": 1,
+                  "duration": 99,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "base_min": 3,
+          "base_max": 7,
+          "type": "slash",
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "win_condition",
+                  "base": 1,
+                  "duration": 99,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "base_min": 3,
+          "base_max": 7,
+          "type": "slash",
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "win_condition",
+                  "base": 1,
+                  "duration": 99,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "axis_plot_armor",
+      "name": "Прототип Сюжетной Брони",
+      "tier": 3,
+      "type": "Melee",
+      "cost": 3,
+      "description": "III. Ближний. [On Clash] Снимает 1 WinCon -> Враг получает +2 Слабости, Разоружения и Замедления.",
+      "dice": [
+        {
+          "base_min": 5,
+          "base_max": 9,
+          "type": "block",
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "axis_plot_armor_clash"
+              }
+            ],
+            "on_clash_win": [
+              {
+                "script_id": "axis_plot_armor_clash"
+              }
+            ]
+          }
+        },
+        {
+          "base_min": 5,
+          "base_max": 9,
+          "type": "block",
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "axis_plot_armor_clash"
+              }
+            ],
+            "on_clash_win": [
+              {
+                "script_id": "axis_plot_armor_clash"
+              }
+            ]
+          }
+        },
+        {
+          "base_min": 5,
+          "base_max": 9,
+          "type": "block",
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "axis_plot_armor_clash"
+              }
+            ],
+            "on_clash_win": [
+              {
+                "script_id": "axis_plot_armor_clash"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "axis_ex_machina",
+      "name": "Прототип Экс Махины",
+      "tier": 3,
+      "type": "Melee",
+      "cost": 4,
+      "description": "III. Ближний. [On Clash] Снимает 1 WinCon -> Союзник получает +3 Силы, Стойкости и Скорости.",
+      "dice": [
+        {
+          "base_min": 4,
+          "base_max": 10,
+          "type": "evade",
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "axis_ex_machina_clash"
+              }
+            ],
+            "on_clash_win": [
+              {
+                "script_id": "axis_ex_machina_clash"
+              }
+            ]
+          }
+        },
+        {
+          "base_min": 4,
+          "base_max": 10,
+          "type": "evade",
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "axis_ex_machina_clash"
+              }
+            ],
+            "on_clash_win": [
+              {
+                "script_id": "axis_ex_machina_clash"
+              }
+            ]
+          }
+        },
+        {
+          "base_min": 4,
+          "base_max": 10,
+          "type": "evade",
+          "scripts": {
+            "on_clash_lose": [
+              {
+                "script_id": "axis_ex_machina_clash"
+              }
+            ],
+            "on_clash_win": [
+              {
+                "script_id": "axis_ex_machina_clash"
+              }
+            ]
+          }
+        }
       ]
     }
-  }
-]
+  ]
+}

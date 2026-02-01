@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 from core.dice import Dice
 from core.enums import DiceType
 from core.logging import logger, LogLevel
@@ -111,3 +113,44 @@ def axis_weapon_synergy_use(ctx, params=None):
     """
     # Здесь можно реализовать проверку истории карт (executed_cards)
     pass
+
+
+def axis_apply_unity(ctx, params=None):
+    """
+    Механика Юнити:
+    При использовании карты с Юнити, она раздает свой первый кубик всем
+    другим картам с флагом 'unity', находящимся в руке.
+    """
+    source_unit = ctx.source
+    played_card = ctx.card
+
+    # 1. Определяем, какой кубик раздавать
+    die_to_share = None
+
+    if played_card.id == "axis_minor_setbacks":
+        # Мелкие неудачи дают чистый блок 3-6
+        die_to_share = Dice(3, 6, DiceType.BLOCK)
+        die_to_share.scripts = {}
+        log_msg = "🛡️ **Юнити (Неудачи)**: Раздан кубик Блока картам в руке!"
+
+    elif played_card.dice_list:
+        # Остальные карты отдают свой первый кубик (с эффектами)
+        die_to_share = deepcopy(played_card.dice_list[0])
+        log_msg = f"⚔️ **Юнити ({played_card.name})**: Кубик {die_to_share.dtype.name} добавлен картам в руке!"
+
+    if not die_to_share:
+        return
+
+    # 2. Ищем цели в руке
+    targets_found = False
+    if hasattr(source_unit, "hand"):
+        for card in source_unit.hand:
+            if card == played_card: continue  # Не даем кубик самой себе
+
+            if "unity" in getattr(card, "flags", []):
+                # Добавляем копию кубика
+                card.dice_list.append(deepcopy(die_to_share))
+                targets_found = True
+
+    if targets_found and hasattr(ctx, "log"):
+        ctx.log.append(log_msg)

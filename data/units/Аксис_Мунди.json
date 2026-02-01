@@ -20,39 +20,87 @@
     },
     "current_hp": 117,
     "current_sp": 56,
-    "current_stagger": 58,
+    "current_stagger": 64,
     "resources": {
         "luck": 55
     },
     "cooldowns": {},
-    "card_cooldowns": {},
+    "card_cooldowns": {
+        "axis_plot_armor": [
+            1
+        ],
+        "axis_mcguffin": [
+            1
+        ],
+        "axis_ex_machina": [
+            1
+        ],
+        "axis_sealing": [
+            2
+        ]
+    },
     "active_buffs": {},
     "_status_effects": {},
-    "delayed_queue": [],
+    "delayed_queue": [
+        {
+            "name": "bleed",
+            "amount": 10,
+            "duration": 5,
+            "delay": 2
+        }
+    ],
     "deck": [
+        "axis_i_radiance",
         "axis_minor_setbacks",
         "axis_min_effort",
-        "axis_pirouette",
         "axis_sword_glory",
         "axis_spear_determination",
         "axis_fist_justice",
         "axis_mcguffin",
         "axis_plot_armor",
-        "axis_ex_machina",
-        "item_heal_5",
-        "item_heal_35",
-        "item_heal_65",
-        "tea_coffee_vespo"
+        "axis_ex_machina"
     ],
-    "active_slots": [],
+    "active_slots": [
+        {
+            "speed": 8,
+            "card": "axis_spear_determination",
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false,
+            "destroy_on_speed": true
+        },
+        {
+            "speed": 4,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false
+        }
+    ],
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 80,
-            "sp": -15,
-            "stagger": 39
+            "hp": 117,
+            "sp": 56,
+            "stagger": 58
         },
         "last_revive_attempt_round": 1,
         "last_revive_log": {
@@ -62,7 +110,8 @@
             "total": 6,
             "dc": 0,
             "success": true
-        }
+        },
+        "battle_initialized": true
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -91,7 +140,7 @@
     "base_stats": {
         "current_hp": 117,
         "current_sp": 56,
-        "current_stagger": 58
+        "current_stagger": 64
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",

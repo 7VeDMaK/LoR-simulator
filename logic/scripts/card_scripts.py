@@ -1,6 +1,6 @@
 # logic/card_scripts.py
 from logic.scripts.axis_scripts import axis_radiance_clash_win, axis_plot_armor_clash, axis_ex_machina_clash, \
-    axis_mcguffin_on_hit, axis_small_failures_use
+    axis_mcguffin_on_hit, axis_small_failures_use, axis_apply_unity
 from logic.scripts.card_damage import deal_effect_damage, self_harm_percent, add_hp_damage, nullify_hp_damage
 from logic.scripts.card_dice import consume_evade_for_haste, repeat_dice_by_status, adaptive_damage_type
 from logic.scripts.card_power import modify_roll_power, convert_status_to_power, lima_ram_logic
@@ -76,4 +76,6 @@ SCRIPTS_REGISTRY = {
     "axis_plot_armor_clash": axis_plot_armor_clash,
     "axis_ex_machina_clash": axis_ex_machina_clash,
     "axis_small_failures_use": axis_small_failures_use,
+
+    "axis_apply_unity": axis_apply_unity,
 }
