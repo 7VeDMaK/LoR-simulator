@@ -97,7 +97,7 @@ class TalentDefense(BasePassive):
         if "talent_defense_die" in flags:
             # 3.8: Проигрыш -> +1 Сила (Ярость от удара)
             if "survivor" in ctx.source.talents:
-                ctx.source.add_status("strength", 1, duration=1)
+                ctx.source.add_status("attack_power_up", 1, duration=1)
                 if hasattr(ctx, 'log'):
                     ctx.log.append(f"💪 **Оборона**: Блок пробит! Ярость нарастает! (+1 Strength)")
 
@@ -524,7 +524,7 @@ class TalentMuscleOverstrain(BasePassive):
             unit.current_stagger -= cost_stagger
 
         # 5. Применение эффекта
-        unit.add_status("strength", 1, duration=1)
+        unit.add_status("attack_power_up", 1, duration=1)
         unit.memory["muscle_overstrain_uses"] = uses + 1
 
         if log_func:

@@ -3,7 +3,7 @@ from logic.statuses.status_definitions import STATUS_REGISTRY
 # Списки опций
 STATUS_LIST = sorted(list(STATUS_REGISTRY.keys()))
 TARGET_OPTS = ["self", "target", "all"]
-STAT_OPTS = ["None", "strength", "endurance", "agility", "intellect", "eloquence", "luck", "max_hp", "current_hp",
+STAT_OPTS = ["None", "attack_power_up", "endurance", "agility", "intellect", "eloquence", "luck", "max_hp", "current_hp",
              "max_sp", "current_sp", "charge", "smoke"]
 
 # Схемы скриптов

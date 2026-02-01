@@ -192,7 +192,7 @@ class TalentMachinaExDeo(BasePassive):
         if unit.cooldowns.get(self.id, 0) > 0: return False
 
         # Эмуляция слияния (мощные баффы)
-        unit.add_status("strength", 3, duration=3)
+        unit.add_status("attack_power_up", 3, duration=3)
         unit.add_status("endurance", 3, duration=3)
         unit.add_status("haste", 3, duration=3)
 

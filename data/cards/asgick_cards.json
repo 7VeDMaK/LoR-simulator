@@ -39,7 +39,7 @@
           {
             "script_id": "apply_status",
             "params": {
-              "status": "strength",
+              "status": "attack_power_up",
               "base": 6,
               "duration": 1,
               "target": "target"
@@ -196,7 +196,7 @@
       "name": "Разозлить",
       "tier": 2,
       "type": "melee",
-      "description": "🧪 Наложить 12 Strength",
+      "description": "🧪 Наложить 12 Усиления атаки",
       "flags": [
         "friendly",
         "offensive"
@@ -214,7 +214,7 @@
           {
             "script_id": "apply_status",
             "params": {
-              "status": "strength",
+              "status": "attack_power_up",
               "base": 12,
               "target": "target",
               "duration": 1,
@@ -277,7 +277,7 @@
           {
             "script_id": "apply_status",
             "params": {
-              "status": "strength",
+              "status": "attack_power_up",
               "base": 6,
               "duration": 1,
               "target": "target"

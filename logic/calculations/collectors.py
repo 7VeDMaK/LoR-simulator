@@ -3,7 +3,7 @@ from logic.character_changing.passives import PASSIVE_REGISTRY
 from logic.statuses.status_definitions import STATUS_REGISTRY
 from logic.weapon_definitions import WEAPON_REGISTRY
 
-ALL_ATTRIBUTES = ["strength", "endurance", "agility", "wisdom", "psych"]
+ALL_ATTRIBUTES = ["attack_power_up", "endurance", "agility", "wisdom", "psych"]
 ALL_SKILLS = [
     "strike_power", "medicine", "willpower", "luck", "acrobatics", "shields",
     "tough_skin", "speed", "light_weapon", "medium_weapon", "heavy_weapon",

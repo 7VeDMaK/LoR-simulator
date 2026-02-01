@@ -195,7 +195,7 @@ class TalentHearthOfPower(BasePassive):
         burn = unit.get_status("burn")
         bonus = min(3, burn // 5)
         if bonus > 0:
-            unit.add_status("strength", bonus, duration=1)
+            unit.add_status("attack_power_up", bonus, duration=1)
             if log_func: log_func(f"💪 **{self.name}**: {burn} Горения -> +{bonus} Сила.")
             logger.log(f"💪 Hearth of Power: +{bonus} Strength for {unit.name}", LogLevel.VERBOSE, "Talent")
 

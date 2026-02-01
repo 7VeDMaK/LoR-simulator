@@ -142,7 +142,7 @@ class EnrageTrackerStatus(StatusEffect):
     def on_take_damage(self, unit, amount, source, **kwargs):
         log_func = kwargs.get("log_func")
         if amount > 0:
-            unit.add_status("strength", amount, duration=2)
+            unit.add_status("attack_power_up", amount, duration=2)
             if log_func:
                 log_func(f"😡 **Разозлить**: Получено {amount} урона -> +{amount} Силы!")
             logger.log(f"😡 Enrage: {unit.name} gain +{amount} Strength from damage", LogLevel.VERBOSE, "Status")

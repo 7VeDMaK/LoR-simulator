@@ -86,7 +86,7 @@
               {
                 "script_id": "apply_status",
                 "params": {
-                  "status": "strength",
+                  "status": "attack_power_up",
                   "base": 1,
                   "duration": 1,
                   "delay": 1,
@@ -170,7 +170,7 @@
           "type": "slash", "base_min": 1, "base_max": 2,
           "scripts": {
             "on_hit": [
-              { "script_id": "apply_status", "params": { "status": "strength", "base": 1, "duration": 2, "target": "self" } }
+              { "script_id": "apply_status", "params": { "status": "attack_power_up", "base": 1, "duration": 2, "target": "self" } }
             ]
           }
         },
@@ -178,7 +178,7 @@
           "type": "slash", "base_min": 1, "base_max": 2,
           "scripts": {
             "on_hit": [
-               { "script_id": "apply_axis_team_buff", "params": { "status": "strength", "duration": 2 } }
+               { "script_id": "apply_axis_team_buff", "params": { "status": "attack_power_up", "duration": 2 } }
             ]
           }
         }
@@ -274,7 +274,7 @@
           {
             "script_id": "apply_status",
             "params": {
-              "status": "strength",
+              "status": "attack_power_up",
               "base": 3,
               "duration": 3,
               "target": "self"

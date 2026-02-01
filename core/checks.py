@@ -21,7 +21,7 @@ class CheckSystem:
 
     # Карта влияния статусов на характеристики: {stat: [(status, sign)]}
     STATUS_MAP = {
-        "strength": [("strength", 1)],
+        "strength": [("attack_power_up", 1)],
         "endurance": [("endurance", 1)],
         "agility": [("haste", 1), ("bind", -1)],
         "speed": [("haste", 1), ("bind", -1)]

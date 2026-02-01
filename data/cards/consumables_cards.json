@@ -60,7 +60,7 @@
       {
         "script_id": "apply_status",
         "params": {
-          "status": "strength",
+          "status": "attack_power_up",
           "base": 3,
           "duration": 3,
           "target": "self"

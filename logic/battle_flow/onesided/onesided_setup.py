@@ -9,6 +9,14 @@ def setup_onesided_parameters(engine, source, target, spd_atk, spd_d, intent_atk
     # 1. On Use Scripts
     on_use_logs = []
     engine._process_card_self_scripts("on_use", source, target, custom_log_list=on_use_logs)
+    
+    # === [FIX] АКТИВАЦИЯ ON_USE ДЛЯ ЗАЩИТНИКА (если есть защитная карта) ===
+    if target.current_card:
+        defender_on_use_logs = []
+        engine._process_card_self_scripts("on_use", target, source, custom_log_list=defender_on_use_logs)
+        if defender_on_use_logs:
+            on_use_logs.extend(defender_on_use_logs)
+            logger.log(f"Defender On Use: {' | '.join(defender_on_use_logs)}", LogLevel.VERBOSE, "OneSided")
 
     # 2. Расчет скорости
     adv_atk, adv_def, _, destroy_def = calculate_speed_advantage(spd_atk, spd_d, intent_atk, True)

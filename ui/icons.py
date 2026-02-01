@@ -40,7 +40,7 @@ ICON_FILES = {
     "charge": "Charge.webp",  # Charge (Заряд)
 
     # --- Статусы (Buffs/Debuffs) ---
-    "strength": "AttackPowerUp.webp",  # Сила (обычно это Power Up)
+    "attack_power_up": "AttackPowerUp.webp",  # Усиление атаки
     "endurance": "Endurance.webp",
     "haste": "Haste.webp",
     "protection": "Protection.webp",  # Или Protection, если есть
@@ -135,7 +135,7 @@ FALLBACK_EMOJIS = {
     "blunt": "🔨",
     "block": "🛡️",
     "evade": "💨",
-    "strength": "💪",
+    "attack_power_up": "💪",
     "endurance": "🧱",
     "haste": "👟",
     "protection": "🛡️",

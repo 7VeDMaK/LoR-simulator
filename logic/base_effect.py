@@ -294,7 +294,7 @@ class BaseEffect:
         Args:
             unit: юнит, совершивший проверку
             check_result: ИТОГОВОЕ значение броска (после всех модификаторов)
-            stat_key: название навыка: "strength", "medicine" и т.д.
+            stat_key: название навыка: "attack_power_up", "medicine" и т.д.
         
         ШАБЛОН ИСПОЛЬЗОВАНИЯ:
         ```python
@@ -317,7 +317,7 @@ class BaseEffect:
         
         Args:
             unit: юнит, совершающий проверку
-            stat_key: название навыка: "strength", "medicine", "luck" и т.д.
+            stat_key: название навыка: "attack_power_up", "medicine", "luck" и т.д.
             current_result: текущий результат (бросок + модификатор стата + бонус)
         
         Returns:
@@ -353,7 +353,7 @@ class BaseEffect:
         
         Args:
             unit: юнит, совершающий проверку
-            attribute: название навыка (строка): "strength", "medicine", "eloquence" и т.д.
+            attribute: название навыка (строка): "attack_power_up", "medicine", "eloquence" и т.д.
             context: объект CheckContext с флагами is_advantage / is_disadvantage
             **kwargs: дополнительные параметры (например, stack для статусов)
         
@@ -363,7 +363,7 @@ class BaseEffect:
             if attribute == "medicine":  # Проверка конкретного навыка
                 context.is_advantage = True  # Даем преимущество
             
-            if attribute in ["strength", "endurance"]:  # Несколько навыков
+            if attribute in ["attack_power_up", "endurance"]:  # Несколько навыков
                 context.is_disadvantage = True  # Даем помеху
         ```
         """

@@ -125,7 +125,7 @@ def render_unit_stats(unit: Unit):
 
             if name in ["bleed", "burn", "paralysis", "fragile", "vulnerability", "weakness", "bind", "tremor"]:
                 border_color = "#ef233c"
-            elif name in ["strength", "endurance", "haste", "protection", "barrier", "regen_hp"]:
+            elif name in ["attack_power_up", "endurance", "haste", "protection", "barrier", "regen_hp"]:
                 border_color = "#2ec4b6"
 
             value_text = f"<b>{amt}</b>"

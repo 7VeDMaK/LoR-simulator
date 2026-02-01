@@ -26,7 +26,7 @@ class AugmentationSandevistan(BasePassive):
     def on_clash_win(self, ctx, **kwargs):
         # Если выиграл столкновение, баффаем Силу
         unit = ctx.source
-        unit.add_status("strength", 1, duration=3)
+        unit.add_status("attack_power_up", 1, duration=3)
         ctx.log.append("⚡ Sandevistan: Strength Boost")
 
 

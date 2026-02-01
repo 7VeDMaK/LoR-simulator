@@ -141,7 +141,7 @@ class PassiveLiveFastDieYoung(BasePassive):
         slots_count = len(unit.active_slots) if unit.active_slots else 0
 
         if slots_count > 0:
-            unit.add_status("strength", slots_count, duration=1)
+            unit.add_status("attack_power_up", slots_count, duration=1)
             unit.add_status("endurance", slots_count, duration=1)
 
             if log_func:

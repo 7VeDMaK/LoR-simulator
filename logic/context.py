@@ -95,7 +95,7 @@ class RollContext:
 
         if self.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
             # Атака -> Сила + Мод. Атаки
-            base_str = self.source.stats.get("strength", 0)
+            base_str = self.source.stats.get("attack_power_up", 0)
             mod_atk = self.source.modifiers.get("power_attack", {}).get("flat", 0)
             stat_bonus = base_str + mod_atk
             reason = "Strength"

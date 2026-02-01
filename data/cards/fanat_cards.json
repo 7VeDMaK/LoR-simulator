@@ -172,7 +172,7 @@
           },
           {
             "script_id": "apply_status",
-            "params": { "status": "strength", "base": 5, "duration": 1, "target": "self" }
+            "params": { "status": "attack_power_up", "base": 5, "duration": 1, "target": "self" }
           }
         ]
       },

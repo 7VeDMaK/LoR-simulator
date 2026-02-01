@@ -323,7 +323,7 @@ class TalentTasteOfVictory(BasePassive):
         # Заглушка (нужен труп)
         heal = int(unit.max_hp * 0.15)
         unit.heal_hp(heal)
-        unit.add_status("strength", 1, duration=5)
+        unit.add_status("attack_power_up", 1, duration=5)
         unit.add_status("haste", 1, duration=5)
         if log_func: log_func(f"🍖 **Вкус победы**: +{heal} HP, баффы получены.")
         logger.log(f"🍖 Taste of Victory activated for {unit.name}", LogLevel.NORMAL, "Talent")
@@ -373,7 +373,7 @@ class TalentCatReflexes(BasePassive):
                 ctx.source.memory["cat_reflexes_triggered"] = True
 
                 # Даем +2 Силы (Strength) до конца раунда
-                ctx.source.add_status("strength", 2, duration=3)
+                ctx.source.add_status("attack_power_up", 2, duration=3)
                 ctx.log.append("🐱 **Кошачьи рефлексы**: Успешное уклонение! +2 Силы.")
                 logger.log(f"🐱 Cat Reflexes triggered: +2 Strength for {ctx.source.name}", LogLevel.VERBOSE, "Talent")
 
@@ -501,7 +501,7 @@ class TalentCompetentAdrenaline(BasePassive):
     def activate(self, unit, log_func, **kwargs):
         if unit.cooldowns.get(self.id, 0) > 0: return False
 
-        unit.add_status("strength", 3, duration=3)
+        unit.add_status("attack_power_up", 3, duration=3)
         unit.add_status("endurance", 3, duration=3)
         unit.cooldowns[self.id] = self.cooldown
         if log_func: log_func(f"💉 **Адреналин**: Система разогнана (+3 Str/End).")

@@ -301,7 +301,7 @@ class TalentRaiseStakes(BasePassive):
             unit.resources["luck"] = current_luck + roll
 
             # 2. Баффы
-            unit.add_status("strength", multiplier, duration=3)
+            unit.add_status("attack_power_up", multiplier, duration=3)
             unit.add_status("endurance", multiplier, duration=3)
             unit.add_status("haste", multiplier, duration=3) # Speed
 
@@ -315,7 +315,7 @@ class TalentRaiseStakes(BasePassive):
         # === ВАРИАНТ 3: ОБЫЧНЫЙ УСПЕХ ===
         else:
             # Случайный бафф
-            buff = random.choice(["strength", "endurance", "haste"])
+            buff = random.choice(["attack_power_up", "endurance", "haste"])
             unit.add_status(buff, 1, duration=3)
 
             if log_func:
@@ -394,7 +394,7 @@ class TalentAzino777(BasePassive):
                 effects_applied.append(f"[1] Paralysis +{magnitude}")
 
             elif num == 2:  # Сила
-                unit.add_status("strength", magnitude, duration=3)
+                unit.add_status("attack_power_up", magnitude, duration=3)
                 effects_applied.append(f"[2] Strength +{magnitude}")
 
             elif num == 3:  # Скорость

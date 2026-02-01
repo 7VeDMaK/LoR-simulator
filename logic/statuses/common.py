@@ -9,12 +9,13 @@ from logic.statuses.base_status import StatusEffect
 # 1. МОДИФИКАТОРЫ СИЛЫ КУБИКОВ
 # ==========================================
 
-class StrengthStatus(StatusEffect):
-    id = "strength"
+class AttackPowerUpStatus(StatusEffect):
+    id = "attack_power_up"
+    name = "Усиление атаки"
     def on_roll(self, ctx: RollContext, **kwargs):
         stack = kwargs.get('stack', 0)
         if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
-            ctx.modify_power(stack, "Strength")
+            ctx.modify_power(stack, "Attack Power Up")
 
 class EnduranceStatus(StatusEffect):
     id = "endurance"

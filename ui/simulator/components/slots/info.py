@@ -49,7 +49,7 @@ def render_card_info(unit, slot):
                 t_key = f"power_{d.dtype.name.lower()}"
                 bonus += int(mods.get(t_key, {}).get("flat", 0))
 
-                bonus += unit.get_status("strength")
+                bonus += unit.get_status("attack_power_up")
                 bonus += unit.get_status("power_up")
                 bonus -= unit.get_status("weakness")
 
