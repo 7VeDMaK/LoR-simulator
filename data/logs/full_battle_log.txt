@@ -8383,3 +8383,1120 @@
 [17:04:43.123] [VERBOSE] [Stats] Персонаж получает дополнительные 30 ❤️ здоровья
 [17:04:43.125] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
 [17:04:43.125] [VERBOSE] [Stats] ✅ Stats updated for Адам Серый Лис. HP: 628, SP: 194, Speed: [(19, 22), (19, 22), (19, 22), (19, 22), (19, 22), (14, 17)]
+[17:05:20.370] [VERBOSE] [Stats] Recalculating stats for Лилит
+[17:05:20.372] [VERBOSE] [Stats] 🔄 Recalculating stats for Лилит
+[17:05:20.373] [VERBOSE] [Stats] 🧬 Тату 'Истерика Купца': eloquence +5
+[17:05:20.375] [VERBOSE] [Stats] ⚔️ Weapon equipped: Коса 'Sinfoil'
+[17:05:20.376] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:20.378] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 3
+[17:05:20.381] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[17:05:20.382] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 6
+[17:05:20.383] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 3
+[17:05:20.386] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:20.389] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:20.391] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[17:05:20.393] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:20.396] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[17:05:20.398] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 20
+[17:05:20.400] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 32% от основного
+[17:05:20.401] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[17:05:20.404] [VERBOSE] [Stats] ✅ Stats updated for Лилит. HP: 132, SP: 77, Speed: [(12, 15), (12, 15), (12, 15), (7, 10)]
+[17:05:20.407] [VERBOSE] [Stats] Recalculating stats for Рейн
+[17:05:20.410] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[17:05:20.413] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[17:05:20.413] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[17:05:20.416] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[17:05:20.418] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[17:05:20.420] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:20.422] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:20.423] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[17:05:20.425] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[17:05:20.425] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[17:05:20.428] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[17:05:20.429] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[17:05:20.429] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[17:05:20.430] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:20.431] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[17:05:20.432] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[17:05:20.433] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:20.434] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[17:05:20.434] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[17:05:20.436] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[17:05:20.437] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[17:05:20.438] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 44% от основного
+[17:05:20.440] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[17:05:20.440] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[17:05:20.441] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[17:05:20.442] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[17:05:20.443] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 200, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[17:05:20.444] [VERBOSE] [Stats] Recalculating stats for Лима
+[17:05:20.445] [VERBOSE] [Stats] 🔄 Recalculating stats for Лима
+[17:05:20.446] [VERBOSE] [Stats] 🛡️ Полоса удач: luck +7
+[17:05:20.447] [VERBOSE] [Stats] 🛡️ Охотничьи веды: wisdom +15
+[17:05:20.448] [VERBOSE] [Stats] 🛡️ Подавление разумом: eloquence +15
+[17:05:20.450] [VERBOSE] [Talent] 🧬 Врожденный дар: Уровень 28 -> Бонус Характеристик +3, Навыков +6
+[17:05:20.451] [VERBOSE] [Stats] 🌟 Врожденный дар: attack_power_up +3
+[17:05:20.451] [VERBOSE] [Stats] 🌟 Врожденный дар: endurance +3
+[17:05:20.453] [VERBOSE] [Stats] 🌟 Врожденный дар: agility +3
+[17:05:20.454] [VERBOSE] [Stats] 🌟 Врожденный дар: wisdom +3
+[17:05:20.456] [VERBOSE] [Stats] 🌟 Врожденный дар: psych +3
+[17:05:20.457] [VERBOSE] [Stats] 🌟 Врожденный дар: strike_power +6
+[17:05:20.458] [VERBOSE] [Stats] 🌟 Врожденный дар: medicine +6
+[17:05:20.459] [VERBOSE] [Stats] 🌟 Врожденный дар: willpower +6
+[17:05:20.460] [VERBOSE] [Stats] 🌟 Врожденный дар: luck +6
+[17:05:20.461] [VERBOSE] [Stats] 🌟 Врожденный дар: acrobatics +6
+[17:05:20.463] [VERBOSE] [Stats] 🌟 Врожденный дар: shields +6
+[17:05:20.464] [VERBOSE] [Stats] 🌟 Врожденный дар: tough_skin +6
+[17:05:20.465] [VERBOSE] [Stats] 🌟 Врожденный дар: speed +6
+[17:05:20.466] [VERBOSE] [Stats] 🌟 Врожденный дар: light_weapon +6
+[17:05:20.468] [VERBOSE] [Stats] 🌟 Врожденный дар: medium_weapon +6
+[17:05:20.469] [VERBOSE] [Stats] 🌟 Врожденный дар: heavy_weapon +6
+[17:05:20.470] [VERBOSE] [Stats] 🌟 Врожденный дар: firearms +6
+[17:05:20.471] [VERBOSE] [Stats] 🌟 Врожденный дар: eloquence +6
+[17:05:20.471] [VERBOSE] [Stats] 🌟 Врожденный дар: forging +6
+[17:05:20.472] [VERBOSE] [Stats] 🌟 Врожденный дар: engineering +6
+[17:05:20.473] [VERBOSE] [Stats] 🌟 Врожденный дар: programming +6
+[17:05:20.473] [VERBOSE] [Stats] 🌟 Золотая Репутация: eloquence +5
+[17:05:20.473] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:20.476] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:20.477] [VERBOSE] [Stats] 🧬 Легкий экзоскелет 'СТРИЖ': acrobatics +6
+[17:05:20.477] [VERBOSE] [Stats] ⚔️ Weapon equipped: Ледоруб 'Скала Лаз'
+[17:05:20.479] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[17:05:20.479] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:20.481] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:20.481] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:20.482] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 4
+[17:05:20.483] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:20.484] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 10, эффективность лечения — 100%
+[17:05:20.485] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7 (Акробатика)
+[17:05:20.487] [VERBOSE] [Stats] Повышает значение куба 🛡️ щита на 1
+[17:05:20.488] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 5
+[17:05:20.488] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 2
+[17:05:20.489] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами тяжёлого оружия на 2
+[17:05:20.491] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами огнестрельного оружия на 7
+[17:05:20.492] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 4
+[17:05:20.493] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 30
+[17:05:20.493] [VERBOSE] [Stats] Повышает бросок качества создаваемого предмета на 6
+[17:05:20.494] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 6
+[17:05:20.495] [VERBOSE] [Stats] Повышает успешность взлома и контроля механизмов на 6
+[17:05:20.495] [VERBOSE] [Stats] 🎓 Ускоренное обучение: +10 HP/SP за каждые 3 уровня
+[17:05:20.497] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 16% от основного
+[17:05:20.497] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[17:05:20.498] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 24% от основного
+[17:05:20.500] [VERBOSE] [Stats] Персонаж получает дополнительные 20 🧠 рассудка
+[17:05:20.501] [VERBOSE] [Stats] Повышает 😵 выдержку на 6%
+[17:05:20.501] [VERBOSE] [Stats] ✅ Stats updated for Лима. HP: 139, SP: 161, Speed: [(19, 22), (19, 22), (19, 22), (17, 20)]
+[17:05:20.502] [VERBOSE] [Stats] Recalculating stats for Адам Серый Лис
+[17:05:20.504] [VERBOSE] [Stats] 🔄 Recalculating stats for Адам Серый Лис
+[17:05:20.505] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): speed +20
+[17:05:20.505] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): agility +10
+[17:05:20.507] [VERBOSE] [Stats] 🛡️ Титановая Дерма: tough_skin +20
+[17:05:20.508] [VERBOSE] [Stats] ⚔️ Weapon equipped: ВЧ-Клинок 'Мурамаса'
+[17:05:20.509] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:20.510] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 4
+[17:05:20.511] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:20.513] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:20.514] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:20.514] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 10
+[17:05:20.515] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:20.516] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:20.516] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 13
+[17:05:20.517] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 40% от основного
+[17:05:20.519] [VERBOSE] [Stats] Персонаж получает дополнительные 30 ❤️ здоровья
+[17:05:20.520] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[17:05:20.520] [VERBOSE] [Stats] ✅ Stats updated for Адам Серый Лис. HP: 628, SP: 194, Speed: [(19, 22), (19, 22), (19, 22), (19, 22), (19, 22), (14, 17)]
+[17:05:20.527] [NORMAL ] [System] >>> RESOLVE TURN START <<<
+[17:05:20.528] [NORMAL ] [Phase] 🔄 Preparing Turn: Collecting Actions...
+[17:05:20.529] [VERBOSE] [Flow] Redirections calculated.
+[17:05:20.530] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Лилит -> Адам Серый Лис
+[17:05:20.531] [VERBOSE] [Flow] ➕ Action Queued: Лилит -> Адам Серый Лис (Выпустить пар, Spd: 15, Score: 1015)
+[17:05:20.532] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Лилит -> Адам Серый Лис
+[17:05:20.533] [VERBOSE] [Flow] ➕ Action Queued: Лилит -> Адам Серый Лис (Прелюдия, Spd: 12, Score: 1012)
+[17:05:20.534] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Лилит -> Адам Серый Лис
+[17:05:20.535] [VERBOSE] [Flow] ➕ Action Queued: Лилит -> Адам Серый Лис (Вдох-выдох, Spd: 14, Score: 1014)
+[17:05:20.535] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Лилит -> Адам Серый Лис
+[17:05:20.537] [VERBOSE] [Flow] ➕ Action Queued: Лилит -> Адам Серый Лис (Затяг, Spd: 10, Score: 1010)
+[17:05:20.538] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Рейн -> Адам Серый Лис
+[17:05:20.539] [VERBOSE] [Flow] ➕ Action Queued: Рейн -> Адам Серый Лис (Изничтожение, Spd: 13, Score: 1013)
+[17:05:20.539] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Рейн -> Адам Серый Лис
+[17:05:20.540] [VERBOSE] [Flow] ➕ Action Queued: Рейн -> Адам Серый Лис (Обычный удар, Spd: 14, Score: 1014)
+[17:05:20.541] [VERBOSE] [Flow] 🚫 Лима slot 0 is stunned, action skipped.
+[17:05:20.543] [NORMAL ] [Phase] ✅ Turn Prepared. Total Actions: 6
+[17:05:20.543] [NORMAL ] [Cooldown] ⏳ Лилит: Cooldown applied to 'Выпустить пар' (1 turns)
+[17:05:20.544] [NORMAL ] [Combat] 🏹 One-Sided: Лилит -> Адам Серый Лис (Direct)
+[17:05:20.544] [VERBOSE] [Flow] Resolving One-Sided: Лилит -> Адам Серый Лис (Spd: 15/1)
+[17:05:20.545] [VERBOSE] [OneSided] One-Sided: Лилит vs Адам Серый Лис (Spd: 15 vs 1, Redir=False)
+[17:05:20.545] [VERBOSE] [Speed] Speed Calc: 15 vs 1 (Diff 14) -> Break(A:False, D:True), Adv(A:False, D:False)
+[17:05:20.546] [VERBOSE] [OneSided] Speed Advantage: Лилит breaks Адам Серый Лис's defense die
+[17:05:20.547] [VERBOSE] [OneSided] Destruction Prevented for Адам Серый Лис (Immunity)
+[17:05:20.549] [VERBOSE] [Roll] 📉 Лилит: Disadvantage (1, 3) -> 1
+[17:05:20.551] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[17:05:20.552] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[17:05:20.553] [VERBOSE] [Roll] 🎲 Final: 14 (🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 5 (Attack Power Up) = **14**)
+[17:05:20.555] [NORMAL ] [OneSided] ⚔️ Direct Hit! 14 Dmg
+[17:05:20.555] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[17:05:20.557] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[17:05:20.561] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[17:05:20.563] [VERBOSE] [Scripts] 📜 Dice Script Trigger (on_hit): apply_status
+[17:05:20.563] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 smoke (99t)
+[17:05:20.565] [VERBOSE] [Scripts] 🧪 Applied 1 smoke to Адам Серый Лис
+[17:05:20.566] [VERBOSE] [Filter] Filter change by fragile: 16 -> 17
+[17:05:20.568] [MINIMAL] [Damage] 💥 Адам Серый Лис took 2 HP Damage
+[17:05:20.570] [VERBOSE] [Filter] Filter change by fragile: 16 -> 17
+[17:05:20.571] [MINIMAL] [Damage] 😵 Адам Серый Лис took 2 Stagger Side-Damage (Res: 0.50)
+[17:05:20.572] [VERBOSE] [Roll] 📉 Лилит: Disadvantage (1, 2) -> 1
+[17:05:20.574] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[17:05:20.575] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[17:05:20.576] [VERBOSE] [Roll] 🎲 Final: 14 (🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 5 (Attack Power Up) = **14**)
+[17:05:20.576] [NORMAL ] [OneSided] ⚔️ Direct Hit! 14 Dmg
+[17:05:20.577] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[17:05:20.578] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[17:05:20.578] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[17:05:20.579] [VERBOSE] [Scripts] 📜 Dice Script Trigger (on_hit): apply_status
+[17:05:20.581] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 smoke (99t)
+[17:05:20.582] [VERBOSE] [Scripts] 🧪 Applied 1 smoke to Адам Серый Лис
+[17:05:20.583] [VERBOSE] [Filter] Filter change by fragile: 16 -> 17
+[17:05:20.583] [MINIMAL] [Damage] 💥 Адам Серый Лис took 2 HP Damage
+[17:05:20.585] [VERBOSE] [Filter] Filter change by fragile: 16 -> 17
+[17:05:20.586] [MINIMAL] [Damage] 😵 Адам Серый Лис took 2 Stagger Side-Damage (Res: 0.50)
+[17:05:20.587] [VERBOSE] [Roll] 📉 Лилит: Disadvantage (1, 3) -> 1
+[17:05:20.588] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[17:05:20.589] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[17:05:20.589] [VERBOSE] [Roll] 🎲 Final: 14 (🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 5 (Attack Power Up) = **14**)
+[17:05:20.591] [NORMAL ] [OneSided] ⚔️ Direct Hit! 14 Dmg
+[17:05:20.591] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[17:05:20.593] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[17:05:20.593] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[17:05:20.595] [VERBOSE] [Scripts] 📜 Dice Script Trigger (on_hit): apply_status
+[17:05:20.596] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 smoke (99t)
+[17:05:20.596] [VERBOSE] [Scripts] 🧪 Applied 1 smoke to Адам Серый Лис
+[17:05:20.598] [VERBOSE] [Filter] Filter change by fragile: 16 -> 17
+[17:05:20.599] [MINIMAL] [Damage] 💥 Адам Серый Лис took 2 HP Damage
+[17:05:20.601] [VERBOSE] [Filter] Filter change by fragile: 16 -> 17
+[17:05:20.601] [MINIMAL] [Damage] 😵 Адам Серый Лис took 2 Stagger Side-Damage (Res: 0.50)
+[17:05:20.603] [NORMAL ] [Cooldown] ⏳ Лилит: Cooldown applied to 'Вдох-выдох' (2 turns)
+[17:05:20.606] [NORMAL ] [Combat] 🏹 One-Sided: Лилит -> Адам Серый Лис (Direct)
+[17:05:20.607] [VERBOSE] [Flow] Resolving One-Sided: Лилит -> Адам Серый Лис (Spd: 14/1)
+[17:05:20.608] [VERBOSE] [OneSided] One-Sided: Лилит vs Адам Серый Лис (Spd: 14 vs 1, Redir=False)
+[17:05:20.610] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[17:05:20.611] [NORMAL ] [Status] 🧪 Лилит: +3 smoke (99t)
+[17:05:20.611] [VERBOSE] [Scripts] 🧪 Applied 3 smoke to Лилит
+[17:05:20.612] [VERBOSE] [Speed] Speed Calc: 14 vs 1 (Diff 13) -> Break(A:False, D:True), Adv(A:False, D:False)
+[17:05:20.613] [VERBOSE] [OneSided] Speed Advantage: Лилит breaks Адам Серый Лис's defense die
+[17:05:20.615] [VERBOSE] [OneSided] Destruction Prevented for Адам Серый Лис (Immunity)
+[17:05:20.616] [VERBOSE] [Roll] 📉 Лилит: Disadvantage (7, 7) -> 7
+[17:05:20.617] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[17:05:20.617] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[17:05:20.621] [VERBOSE] [Roll] 🎲 Final: 21 (🎲 Roll [6-8]: 7 + 3 (Сила) + 5 (Среднее ор.) + 5 (Attack Power Up) + 1 (Blessing (5)) = **21**)
+[17:05:20.622] [NORMAL ] [OneSided] ⚔️ Direct Hit! 21 Dmg
+[17:05:20.624] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[17:05:20.625] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[17:05:20.626] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[17:05:20.627] [VERBOSE] [Filter] Filter change by fragile: 23 -> 24
+[17:05:20.631] [MINIMAL] [Damage] 💥 Адам Серый Лис took 7 HP Damage
+[17:05:20.633] [VERBOSE] [Filter] Filter change by fragile: 23 -> 24
+[17:05:20.640] [MINIMAL] [Damage] 😵 Адам Серый Лис took 7 Stagger Side-Damage (Res: 0.70)
+[17:05:20.641] [VERBOSE] [Roll] 📉 Лилит: Disadvantage (4, 6) -> 4
+[17:05:20.643] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[17:05:20.645] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[17:05:20.647] [VERBOSE] [Roll] 🎲 Final: 18 (🎲 Roll [4-7]: 4 + 3 (Сила) + 5 (Среднее ор.) + 5 (Attack Power Up) + 1 (Blessing (5)) = **18**)
+[17:05:20.648] [NORMAL ] [OneSided] ⚔️ Direct Hit! 18 Dmg
+[17:05:20.649] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[17:05:20.650] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[17:05:20.651] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[17:05:20.653] [VERBOSE] [Filter] Filter change by fragile: 20 -> 21
+[17:05:20.655] [MINIMAL] [Damage] 💥 Адам Серый Лис took 4 HP Damage
+[17:05:20.656] [VERBOSE] [Filter] Filter change by fragile: 20 -> 21
+[17:05:20.657] [MINIMAL] [Damage] 😵 Адам Серый Лис took 4 Stagger Side-Damage (Res: 0.50)
+[17:05:20.658] [NORMAL ] [Cooldown] ⏳ Рейн: Cooldown applied to 'Обычный удар' (1 turns)
+[17:05:20.659] [NORMAL ] [Combat] 🏹 One-Sided: Рейн -> Адам Серый Лис (Direct)
+[17:05:20.660] [VERBOSE] [Flow] Resolving One-Sided: Рейн -> Адам Серый Лис (Spd: 14/1)
+[17:05:20.661] [VERBOSE] [OneSided] One-Sided: Рейн vs Адам Серый Лис (Spd: 14 vs 1, Redir=False)
+[17:05:20.661] [VERBOSE] [Speed] Speed Calc: 14 vs 1 (Diff 13) -> Break(A:False, D:True), Adv(A:False, D:False)
+[17:05:20.662] [VERBOSE] [OneSided] Speed Advantage: Рейн breaks Адам Серый Лис's defense die
+[17:05:20.663] [VERBOSE] [OneSided] Destruction Prevented for Адам Серый Лис (Immunity)
+[17:05:20.664] [VERBOSE] [Roll] 📉 Рейн: Disadvantage (11, 11) -> 11
+[17:05:20.664] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[17:05:20.665] [VERBOSE] [Roll] 🎲 Final: 14.0 (🎲 Roll [5-12]: 11 + 1 (Сила) + 2.0 (Power All) = **14.0**)
+[17:05:20.666] [NORMAL ] [OneSided] ⚔️ Direct Hit! 14.0 Dmg
+[17:05:20.668] [VERBOSE] [Mechanics] Apply Damage Flow: Рейн -> Адам Серый Лис
+[17:05:20.669] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 paralysis (3t)
+[17:05:20.670] [VERBOSE] [Passive] 🧪 Neurotoxin applied to Адам Серый Лис
+[17:05:20.670] [VERBOSE] [Filter] Filter change by fragile: 14.0 -> 15.0
+[17:05:20.672] [MINIMAL] [Damage] 💥 Адам Серый Лис took 1 HP Damage
+[17:05:20.673] [VERBOSE] [Filter] Filter change by fragile: 14.0 -> 15.0
+[17:05:20.675] [MINIMAL] [Damage] 😵 Адам Серый Лис took 1 Stagger Side-Damage (Res: 0.70)
+[17:05:20.676] [NORMAL ] [Cooldown] ⏳ Рейн: Cooldown applied to 'Изничтожение' (2 turns)
+[17:05:20.678] [NORMAL ] [Combat] 🏹 One-Sided: Рейн -> Адам Серый Лис (Direct)
+[17:05:20.679] [VERBOSE] [Flow] Resolving One-Sided: Рейн -> Адам Серый Лис (Spd: 13/1)
+[17:05:20.680] [VERBOSE] [OneSided] One-Sided: Рейн vs Адам Серый Лис (Spd: 13 vs 1, Redir=False)
+[17:05:20.680] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): restore_resource
+[17:05:20.682] [VERBOSE] [Scripts] 💔 Drained Рейн for 7 HP
+[17:05:20.683] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[17:05:20.683] [NORMAL ] [Status] 🧪 Рейн: +3 attack_power_up (2t)
+[17:05:20.684] [VERBOSE] [Scripts] 🧪 Applied 3 attack_power_up to Рейн
+[17:05:20.685] [VERBOSE] [Speed] Speed Calc: 13 vs 1 (Diff 12) -> Break(A:False, D:True), Adv(A:False, D:False)
+[17:05:20.687] [VERBOSE] [OneSided] Speed Advantage: Рейн breaks Адам Серый Лис's defense die
+[17:05:20.689] [VERBOSE] [OneSided] Destruction Prevented for Адам Серый Лис (Immunity)
+[17:05:20.689] [VERBOSE] [Roll] 📉 Рейн: Disadvantage (11, 13) -> 11
+[17:05:20.690] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[17:05:20.691] [VERBOSE] [Roll] 🎲 Final: 17.0 (🎲 Roll [9-13]: 11 + 1 (Сила) + 2.0 (Power All) + 3 (Attack Power Up) = **17.0**)
+[17:05:20.693] [NORMAL ] [OneSided] ⚔️ Direct Hit! 17.0 Dmg
+[17:05:20.693] [VERBOSE] [Mechanics] Apply Damage Flow: Рейн -> Адам Серый Лис
+[17:05:20.695] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 paralysis (3t)
+[17:05:20.695] [VERBOSE] [Passive] 🧪 Neurotoxin applied to Адам Серый Лис
+[17:05:20.697] [VERBOSE] [Filter] Filter change by fragile: 17.0 -> 18.0
+[17:05:20.698] [MINIMAL] [Damage] 💥 Адам Серый Лис took 2 HP Damage
+[17:05:20.700] [VERBOSE] [Filter] Filter change by fragile: 17.0 -> 18.0
+[17:05:20.700] [MINIMAL] [Damage] 😵 Адам Серый Лис took 2 Stagger Side-Damage (Res: 0.50)
+[17:05:20.701] [VERBOSE] [Roll] 📉 Рейн: Disadvantage (8, 7) -> 7
+[17:05:20.703] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[17:05:20.704] [VERBOSE] [Roll] 🎲 Final: 13.0 (🎲 Roll [5-8]: 7 + 1 (Сила) + 2.0 (Power All) + 3 (Attack Power Up) = **13.0**)
+[17:05:20.705] [NORMAL ] [OneSided] ⚔️ Direct Hit! 13.0 Dmg
+[17:05:20.706] [VERBOSE] [Mechanics] Apply Damage Flow: Рейн -> Адам Серый Лис
+[17:05:20.707] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 paralysis (3t)
+[17:05:20.707] [VERBOSE] [Passive] 🧪 Neurotoxin applied to Адам Серый Лис
+[17:05:20.709] [VERBOSE] [Filter] Filter change by fragile: 13.0 -> 14.0
+[17:05:20.710] [MINIMAL] [Damage] 💥 Адам Серый Лис took 0 HP Damage
+[17:05:20.711] [VERBOSE] [Filter] Filter change by fragile: 13.0 -> 14.0
+[17:05:20.711] [MINIMAL] [Damage] 😵 Адам Серый Лис took 0 Stagger Side-Damage (Res: 0.50)
+[17:05:20.713] [VERBOSE] [Roll] 📉 Рейн: Disadvantage (4, 5) -> 4
+[17:05:20.714] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[17:05:20.715] [VERBOSE] [Roll] 🎲 Final: 10.0 (🎲 Roll [4-5]: 4 + 1 (Сила) + 2.0 (Power All) + 3 (Attack Power Up) = **10.0**)
+[17:05:20.715] [NORMAL ] [OneSided] ⚔️ Direct Hit! 10.0 Dmg
+[17:05:20.717] [VERBOSE] [Mechanics] Apply Damage Flow: Рейн -> Адам Серый Лис
+[17:05:20.718] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 paralysis (3t)
+[17:05:20.719] [VERBOSE] [Passive] 🧪 Neurotoxin applied to Адам Серый Лис
+[17:05:20.720] [VERBOSE] [Filter] Filter change by fragile: 10.0 -> 11.0
+[17:05:20.722] [MINIMAL] [Damage] 💥 Адам Серый Лис took 0 HP Damage
+[17:05:20.723] [VERBOSE] [Filter] Filter change by fragile: 10.0 -> 11.0
+[17:05:20.723] [MINIMAL] [Damage] 😵 Адам Серый Лис took 0 Stagger Side-Damage (Res: 0.50)
+[17:05:20.724] [NORMAL ] [Cooldown] ⏳ Лилит: Cooldown applied to 'Прелюдия' (1 turns)
+[17:05:20.725] [NORMAL ] [Combat] 🏹 One-Sided: Лилит -> Адам Серый Лис (Direct)
+[17:05:20.725] [VERBOSE] [Flow] Resolving One-Sided: Лилит -> Адам Серый Лис (Spd: 12/1)
+[17:05:20.727] [VERBOSE] [OneSided] One-Sided: Лилит vs Адам Серый Лис (Spd: 12 vs 1, Redir=False)
+[17:05:20.728] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[17:05:20.728] [NORMAL ] [Status] 🧪 Лилит: +2 smoke (99t)
+[17:05:20.730] [VERBOSE] [Scripts] 🧪 Applied 2 smoke to Лилит
+[17:05:20.731] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[17:05:20.732] [NORMAL ] [Status] 🧪 Адам Серый Лис: +2 smoke (99t)
+[17:05:20.733] [VERBOSE] [Scripts] 🧪 Applied 2 smoke to Адам Серый Лис
+[17:05:20.734] [VERBOSE] [Speed] Speed Calc: 12 vs 1 (Diff 11) -> Break(A:False, D:True), Adv(A:False, D:False)
+[17:05:20.735] [VERBOSE] [OneSided] Speed Advantage: Лилит breaks Адам Серый Лис's defense die
+[17:05:20.736] [VERBOSE] [OneSided] Destruction Prevented for Адам Серый Лис (Immunity)
+[17:05:20.739] [VERBOSE] [Roll] 📉 Лилит: Disadvantage (4, 3) -> 3
+[17:05:20.739] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[17:05:20.741] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[17:05:20.742] [VERBOSE] [Roll] 🎲 Final: 17 (🎲 Roll [3-4]: 3 + 3 (Сила) + 5 (Среднее ор.) + 5 (Attack Power Up) + 1 (Blessing (7)) = **17**)
+[17:05:20.743] [NORMAL ] [OneSided] ⚔️ Direct Hit! 17 Dmg
+[17:05:20.744] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[17:05:20.745] [VERBOSE] [Status] 💨 SelfControl Crit: Лилит (Chance 25%) -> x2 Dmg
+[17:05:20.745] [NORMAL ] [Status] 🧹 Лилит: Removed 5 self_control
+[17:05:20.745] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[17:05:20.747] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[17:05:20.749] [VERBOSE] [Filter] Filter change by fragile: 38 -> 39
+[17:05:20.749] [MINIMAL] [Damage] 💥 Адам Серый Лис took 18 HP Damage
+[17:05:20.750] [VERBOSE] [Filter] Filter change by fragile: 38 -> 39
+[17:05:20.750] [MINIMAL] [Damage] 😵 Адам Серый Лис took 18 Stagger Side-Damage (Res: 0.70)
+[17:05:20.752] [VERBOSE] [Roll] 📉 Лилит: Disadvantage (3, 4) -> 3
+[17:05:20.753] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[17:05:20.754] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[17:05:20.757] [VERBOSE] [Roll] 🎲 Final: 17 (🎲 Roll [3-4]: 3 + 3 (Сила) + 5 (Среднее ор.) + 5 (Attack Power Up) + 1 (Blessing (7)) = **17**)
+[17:05:20.757] [NORMAL ] [OneSided] ⚔️ Direct Hit! 17 Dmg
+[17:05:20.758] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[17:05:20.758] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[17:05:20.759] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[17:05:20.760] [VERBOSE] [Filter] Filter change by fragile: 19 -> 20
+[17:05:20.763] [MINIMAL] [Damage] 💥 Адам Серый Лис took 4 HP Damage
+[17:05:20.763] [VERBOSE] [Filter] Filter change by fragile: 19 -> 20
+[17:05:20.765] [MINIMAL] [Damage] 😵 Адам Серый Лис took 4 Stagger Side-Damage (Res: 0.70)
+[17:05:20.765] [NORMAL ] [Cooldown] ⏳ Лилит: Cooldown applied to 'Затяг' (1 turns)
+[17:05:20.765] [NORMAL ] [Combat] 🏹 One-Sided: Лилит -> Адам Серый Лис (Direct)
+[17:05:20.767] [VERBOSE] [Flow] Resolving One-Sided: Лилит -> Адам Серый Лис (Spd: 10/1)
+[17:05:20.767] [VERBOSE] [OneSided] One-Sided: Лилит vs Адам Серый Лис (Spd: 10 vs 1, Redir=False)
+[17:05:20.770] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): steal_status
+[17:05:20.771] [NORMAL ] [Status] 🧹 Адам Серый Лис: Removed 5 smoke
+[17:05:20.772] [NORMAL ] [Status] 🧪 Лилит: +5 smoke (99t)
+[17:05:20.773] [VERBOSE] [Scripts] ✋ Лилит stole 5 smoke from Адам Серый Лис
+[17:05:20.774] [VERBOSE] [Speed] Speed Calc: 10 vs 1 (Diff 9) -> Break(A:False, D:True), Adv(A:False, D:False)
+[17:05:20.774] [VERBOSE] [OneSided] Speed Advantage: Лилит breaks Адам Серый Лис's defense die
+[17:05:20.776] [VERBOSE] [OneSided] Destruction Prevented for Адам Серый Лис (Immunity)
+[17:05:20.777] [VERBOSE] [Roll] 📉 Лилит: Disadvantage (6, 6) -> 6
+[17:05:20.778] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[17:05:20.779] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[17:05:20.779] [VERBOSE] [Roll] 🎲 Final: 22 (🎲 Roll [6-8]: 6 + 3 (Сила) + 5 (Среднее ор.) + 1 (Smoke (Base)) + 5 (Attack Power Up) + 2 (Blessing (12)) = **22**)
+[17:05:20.780] [NORMAL ] [OneSided] ⚔️ Direct Hit! 22 Dmg
+[17:05:20.782] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[17:05:20.782] [VERBOSE] [Status] 💨 SelfControl Crit: Лилит (Chance 10%) -> x2 Dmg
+[17:05:20.783] [NORMAL ] [Status] 🧹 Лилит: Removed 2 self_control
+[17:05:20.783] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[17:05:20.785] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[17:05:20.785] [VERBOSE] [Filter] Filter change by fragile: 48 -> 49
+[17:05:20.788] [MINIMAL] [Damage] 💥 Адам Серый Лис took 18 HP Damage
+[17:05:20.788] [VERBOSE] [Filter] Filter change by fragile: 48 -> 49
+[17:05:20.790] [MINIMAL] [Damage] 😵 Адам Серый Лис took 18 Stagger Side-Damage (Res: 0.50)
+[17:05:20.790] [VERBOSE] [Phase] 🏁 Finalizing Turn...
+[17:05:20.791] [NORMAL ] [System] >>> RESOLVE TURN END <<<
+[17:05:20.793] [NORMAL ] [Status] 🧹 Лилит: Removed 1 smoke
+[17:05:20.794] [NORMAL ] [Status] 🧹 Лилит: Removed 1 self_control
+[17:05:20.795] [VERBOSE] [Passive] 🏙️ Daughter of Backstreets: Regen +1 HP/SP/Stg for Лилит
+[17:05:20.797] [VERBOSE] [Status] 📉 Status Expired: endurance on Лилит
+[17:05:20.798] [VERBOSE] [System] Лилит cooldowns ticked.
+[17:05:20.799] [VERBOSE] [System] Рейн cooldowns ticked.
+[17:05:20.800] [VERBOSE] [Status] 📉 Status Expired: haste on Лима
+[17:05:20.801] [VERBOSE] [System] Лима cooldowns ticked.
+[17:05:20.801] [NORMAL ] [Status] 🧹 Адам Серый Лис: Removed 1 anti_charge
+[17:05:20.801] [NORMAL ] [Status] 🧹 Адам Серый Лис: Removed 5 self_control
+[17:05:20.804] [VERBOSE] [System] Адам Серый Лис cooldowns ticked.
+[17:05:20.938] [VERBOSE] [Stats] Recalculating stats for Лилит
+[17:05:20.940] [VERBOSE] [Stats] 🔄 Recalculating stats for Лилит
+[17:05:20.941] [VERBOSE] [Stats] 🧬 Тату 'Истерика Купца': eloquence +5
+[17:05:20.942] [VERBOSE] [Stats] ⚔️ Weapon equipped: Коса 'Sinfoil'
+[17:05:20.943] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:20.945] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 3
+[17:05:20.945] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[17:05:20.947] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 6
+[17:05:20.949] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 3
+[17:05:20.950] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:20.951] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:20.951] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[17:05:20.953] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:20.953] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[17:05:20.955] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 20
+[17:05:20.955] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 32% от основного
+[17:05:20.958] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[17:05:20.959] [VERBOSE] [Stats] ✅ Stats updated for Лилит. HP: 132, SP: 77, Speed: [(12, 15), (12, 15), (12, 15), (7, 10)]
+[17:05:20.960] [VERBOSE] [Stats] Recalculating stats for Рейн
+[17:05:20.960] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[17:05:20.962] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[17:05:20.963] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[17:05:20.963] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[17:05:20.964] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[17:05:20.965] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:20.965] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:20.966] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[17:05:20.967] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[17:05:20.967] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[17:05:20.969] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[17:05:20.969] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[17:05:20.970] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[17:05:20.971] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:20.973] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[17:05:20.974] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[17:05:20.974] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:20.975] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[17:05:20.977] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[17:05:20.977] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[17:05:20.978] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[17:05:20.980] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 44% от основного
+[17:05:20.981] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[17:05:20.981] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[17:05:20.982] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[17:05:20.983] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[17:05:20.983] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 200, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[17:05:20.985] [VERBOSE] [Stats] Recalculating stats for Лима
+[17:05:20.986] [VERBOSE] [Stats] 🔄 Recalculating stats for Лима
+[17:05:20.988] [VERBOSE] [Stats] 🛡️ Полоса удач: luck +7
+[17:05:20.989] [VERBOSE] [Stats] 🛡️ Охотничьи веды: wisdom +15
+[17:05:20.990] [VERBOSE] [Stats] 🛡️ Подавление разумом: eloquence +15
+[17:05:20.991] [VERBOSE] [Talent] 🧬 Врожденный дар: Уровень 28 -> Бонус Характеристик +3, Навыков +6
+[17:05:20.991] [VERBOSE] [Stats] 🌟 Врожденный дар: attack_power_up +3
+[17:05:20.993] [VERBOSE] [Stats] 🌟 Врожденный дар: endurance +3
+[17:05:20.994] [VERBOSE] [Stats] 🌟 Врожденный дар: agility +3
+[17:05:20.995] [VERBOSE] [Stats] 🌟 Врожденный дар: wisdom +3
+[17:05:20.995] [VERBOSE] [Stats] 🌟 Врожденный дар: psych +3
+[17:05:20.997] [VERBOSE] [Stats] 🌟 Врожденный дар: strike_power +6
+[17:05:20.998] [VERBOSE] [Stats] 🌟 Врожденный дар: medicine +6
+[17:05:20.999] [VERBOSE] [Stats] 🌟 Врожденный дар: willpower +6
+[17:05:21.000] [VERBOSE] [Stats] 🌟 Врожденный дар: luck +6
+[17:05:21.000] [VERBOSE] [Stats] 🌟 Врожденный дар: acrobatics +6
+[17:05:21.001] [VERBOSE] [Stats] 🌟 Врожденный дар: shields +6
+[17:05:21.002] [VERBOSE] [Stats] 🌟 Врожденный дар: tough_skin +6
+[17:05:21.003] [VERBOSE] [Stats] 🌟 Врожденный дар: speed +6
+[17:05:21.004] [VERBOSE] [Stats] 🌟 Врожденный дар: light_weapon +6
+[17:05:21.005] [VERBOSE] [Stats] 🌟 Врожденный дар: medium_weapon +6
+[17:05:21.007] [VERBOSE] [Stats] 🌟 Врожденный дар: heavy_weapon +6
+[17:05:21.007] [VERBOSE] [Stats] 🌟 Врожденный дар: firearms +6
+[17:05:21.008] [VERBOSE] [Stats] 🌟 Врожденный дар: eloquence +6
+[17:05:21.008] [VERBOSE] [Stats] 🌟 Врожденный дар: forging +6
+[17:05:21.010] [VERBOSE] [Stats] 🌟 Врожденный дар: engineering +6
+[17:05:21.011] [VERBOSE] [Stats] 🌟 Врожденный дар: programming +6
+[17:05:21.013] [VERBOSE] [Stats] 🌟 Золотая Репутация: eloquence +5
+[17:05:21.013] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:21.015] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:21.015] [VERBOSE] [Stats] 🧬 Легкий экзоскелет 'СТРИЖ': acrobatics +6
+[17:05:21.016] [VERBOSE] [Stats] ⚔️ Weapon equipped: Ледоруб 'Скала Лаз'
+[17:05:21.017] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[17:05:21.017] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:21.020] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:21.021] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:21.022] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 4
+[17:05:21.023] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:21.024] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 10, эффективность лечения — 100%
+[17:05:21.025] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7 (Акробатика)
+[17:05:21.027] [VERBOSE] [Stats] Повышает значение куба 🛡️ щита на 1
+[17:05:21.028] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 5
+[17:05:21.028] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 2
+[17:05:21.029] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами тяжёлого оружия на 2
+[17:05:21.030] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами огнестрельного оружия на 7
+[17:05:21.031] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 4
+[17:05:21.033] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 30
+[17:05:21.033] [VERBOSE] [Stats] Повышает бросок качества создаваемого предмета на 6
+[17:05:21.034] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 6
+[17:05:21.035] [VERBOSE] [Stats] Повышает успешность взлома и контроля механизмов на 6
+[17:05:21.038] [VERBOSE] [Stats] 🎓 Ускоренное обучение: +10 HP/SP за каждые 3 уровня
+[17:05:21.039] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 16% от основного
+[17:05:21.040] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[17:05:21.041] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 24% от основного
+[17:05:21.041] [VERBOSE] [Stats] Персонаж получает дополнительные 20 🧠 рассудка
+[17:05:21.042] [VERBOSE] [Stats] Повышает 😵 выдержку на 6%
+[17:05:21.043] [VERBOSE] [Stats] ✅ Stats updated for Лима. HP: 139, SP: 161, Speed: [(19, 22), (19, 22), (19, 22), (17, 20)]
+[17:05:21.043] [VERBOSE] [Stats] Recalculating stats for Адам Серый Лис
+[17:05:21.044] [VERBOSE] [Stats] 🔄 Recalculating stats for Адам Серый Лис
+[17:05:21.045] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): speed +20
+[17:05:21.045] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): agility +10
+[17:05:21.047] [VERBOSE] [Stats] 🛡️ Титановая Дерма: tough_skin +20
+[17:05:21.048] [VERBOSE] [Stats] ⚔️ Weapon equipped: ВЧ-Клинок 'Мурамаса'
+[17:05:21.048] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:21.050] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 4
+[17:05:21.051] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:21.051] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:21.052] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:21.054] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 10
+[17:05:21.054] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:21.056] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:21.057] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 13
+[17:05:21.057] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 40% от основного
+[17:05:21.058] [VERBOSE] [Stats] Персонаж получает дополнительные 30 ❤️ здоровья
+[17:05:21.060] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[17:05:21.060] [VERBOSE] [Stats] ✅ Stats updated for Адам Серый Лис. HP: 628, SP: 194, Speed: [(19, 22), (19, 22), (19, 22), (19, 22), (19, 22), (14, 17)]
+[17:05:48.616] [VERBOSE] [Stats] Recalculating stats for Лилит
+[17:05:48.617] [VERBOSE] [Stats] 🔄 Recalculating stats for Лилит
+[17:05:48.618] [VERBOSE] [Stats] 🧬 Тату 'Истерика Купца': eloquence +5
+[17:05:48.619] [VERBOSE] [Stats] ⚔️ Weapon equipped: Коса 'Sinfoil'
+[17:05:48.621] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:48.622] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 3
+[17:05:48.623] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[17:05:48.625] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 6
+[17:05:48.627] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 3
+[17:05:48.629] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:48.630] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:48.630] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[17:05:48.631] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:48.633] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[17:05:48.634] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 20
+[17:05:48.635] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 32% от основного
+[17:05:48.638] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[17:05:48.640] [VERBOSE] [Stats] ✅ Stats updated for Лилит. HP: 132, SP: 77, Speed: [(12, 15), (12, 15), (12, 15), (7, 10)]
+[17:05:48.641] [VERBOSE] [Stats] Recalculating stats for Рейн
+[17:05:48.642] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[17:05:48.643] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[17:05:48.643] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[17:05:48.644] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[17:05:48.645] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[17:05:48.646] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:48.647] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:48.648] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[17:05:48.649] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[17:05:48.651] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[17:05:48.651] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[17:05:48.652] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[17:05:48.653] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[17:05:48.655] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:48.656] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[17:05:48.657] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[17:05:48.658] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:48.658] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[17:05:48.659] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[17:05:48.661] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[17:05:48.662] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[17:05:48.663] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 44% от основного
+[17:05:48.664] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[17:05:48.665] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[17:05:48.665] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[17:05:48.666] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[17:05:48.667] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 200, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[17:05:48.669] [VERBOSE] [Stats] Recalculating stats for Лима
+[17:05:48.671] [VERBOSE] [Stats] 🔄 Recalculating stats for Лима
+[17:05:48.672] [VERBOSE] [Stats] 🛡️ Полоса удач: luck +7
+[17:05:48.672] [VERBOSE] [Stats] 🛡️ Охотничьи веды: wisdom +15
+[17:05:48.674] [VERBOSE] [Stats] 🛡️ Подавление разумом: eloquence +15
+[17:05:48.675] [VERBOSE] [Talent] 🧬 Врожденный дар: Уровень 28 -> Бонус Характеристик +3, Навыков +6
+[17:05:48.676] [VERBOSE] [Stats] 🌟 Врожденный дар: attack_power_up +3
+[17:05:48.676] [VERBOSE] [Stats] 🌟 Врожденный дар: endurance +3
+[17:05:48.677] [VERBOSE] [Stats] 🌟 Врожденный дар: agility +3
+[17:05:48.678] [VERBOSE] [Stats] 🌟 Врожденный дар: wisdom +3
+[17:05:48.680] [VERBOSE] [Stats] 🌟 Врожденный дар: psych +3
+[17:05:48.680] [VERBOSE] [Stats] 🌟 Врожденный дар: strike_power +6
+[17:05:48.681] [VERBOSE] [Stats] 🌟 Врожденный дар: medicine +6
+[17:05:48.682] [VERBOSE] [Stats] 🌟 Врожденный дар: willpower +6
+[17:05:48.683] [VERBOSE] [Stats] 🌟 Врожденный дар: luck +6
+[17:05:48.684] [VERBOSE] [Stats] 🌟 Врожденный дар: acrobatics +6
+[17:05:48.686] [VERBOSE] [Stats] 🌟 Врожденный дар: shields +6
+[17:05:48.688] [VERBOSE] [Stats] 🌟 Врожденный дар: tough_skin +6
+[17:05:48.689] [VERBOSE] [Stats] 🌟 Врожденный дар: speed +6
+[17:05:48.690] [VERBOSE] [Stats] 🌟 Врожденный дар: light_weapon +6
+[17:05:48.692] [VERBOSE] [Stats] 🌟 Врожденный дар: medium_weapon +6
+[17:05:48.692] [VERBOSE] [Stats] 🌟 Врожденный дар: heavy_weapon +6
+[17:05:48.693] [VERBOSE] [Stats] 🌟 Врожденный дар: firearms +6
+[17:05:48.695] [VERBOSE] [Stats] 🌟 Врожденный дар: eloquence +6
+[17:05:48.696] [VERBOSE] [Stats] 🌟 Врожденный дар: forging +6
+[17:05:48.696] [VERBOSE] [Stats] 🌟 Врожденный дар: engineering +6
+[17:05:48.697] [VERBOSE] [Stats] 🌟 Врожденный дар: programming +6
+[17:05:48.699] [VERBOSE] [Stats] 🌟 Золотая Репутация: eloquence +5
+[17:05:48.700] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:48.701] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:48.702] [VERBOSE] [Stats] 🧬 Легкий экзоскелет 'СТРИЖ': acrobatics +6
+[17:05:48.703] [VERBOSE] [Stats] ⚔️ Weapon equipped: Ледоруб 'Скала Лаз'
+[17:05:48.704] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[17:05:48.706] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:48.706] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:48.708] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:48.708] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 4
+[17:05:48.709] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:48.710] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 10, эффективность лечения — 100%
+[17:05:48.711] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7 (Акробатика)
+[17:05:48.712] [VERBOSE] [Stats] Повышает значение куба 🛡️ щита на 1
+[17:05:48.713] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 5
+[17:05:48.714] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 2
+[17:05:48.715] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами тяжёлого оружия на 2
+[17:05:48.716] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами огнестрельного оружия на 7
+[17:05:48.717] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 4
+[17:05:48.717] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 30
+[17:05:48.719] [VERBOSE] [Stats] Повышает бросок качества создаваемого предмета на 6
+[17:05:48.720] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 6
+[17:05:48.721] [VERBOSE] [Stats] Повышает успешность взлома и контроля механизмов на 6
+[17:05:48.723] [VERBOSE] [Stats] 🎓 Ускоренное обучение: +10 HP/SP за каждые 3 уровня
+[17:05:48.724] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 16% от основного
+[17:05:48.724] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[17:05:48.725] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 24% от основного
+[17:05:48.726] [VERBOSE] [Stats] Персонаж получает дополнительные 20 🧠 рассудка
+[17:05:48.726] [VERBOSE] [Stats] Повышает 😵 выдержку на 6%
+[17:05:48.728] [VERBOSE] [Stats] ✅ Stats updated for Лима. HP: 139, SP: 161, Speed: [(19, 22), (19, 22), (19, 22), (17, 20)]
+[17:05:48.730] [VERBOSE] [Stats] Recalculating stats for Адам Серый Лис
+[17:05:48.730] [VERBOSE] [Stats] 🔄 Recalculating stats for Адам Серый Лис
+[17:05:48.731] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): speed +20
+[17:05:48.732] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): agility +10
+[17:05:48.733] [VERBOSE] [Stats] 🛡️ Титановая Дерма: tough_skin +20
+[17:05:48.735] [VERBOSE] [Stats] ⚔️ Weapon equipped: ВЧ-Клинок 'Мурамаса'
+[17:05:48.737] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:48.738] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 4
+[17:05:48.738] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:48.741] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:48.741] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:48.742] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 10
+[17:05:48.743] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:48.744] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:48.744] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 13
+[17:05:48.745] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 40% от основного
+[17:05:48.746] [VERBOSE] [Stats] Персонаж получает дополнительные 30 ❤️ здоровья
+[17:05:48.746] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[17:05:48.748] [VERBOSE] [Stats] ✅ Stats updated for Адам Серый Лис. HP: 628, SP: 194, Speed: [(19, 22), (19, 22), (19, 22), (19, 22), (19, 22), (14, 17)]
+[17:05:48.751] [VERBOSE] [Stats] Recalculating stats for Лилит
+[17:05:48.752] [VERBOSE] [Stats] 🔄 Recalculating stats for Лилит
+[17:05:48.753] [VERBOSE] [Stats] 🧬 Тату 'Истерика Купца': eloquence +5
+[17:05:48.756] [VERBOSE] [Stats] ⚔️ Weapon equipped: Коса 'Sinfoil'
+[17:05:48.757] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:48.758] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 3
+[17:05:48.759] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[17:05:48.759] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 6
+[17:05:48.760] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 3
+[17:05:48.760] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:48.763] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:48.763] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[17:05:48.765] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:48.765] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[17:05:48.765] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 20
+[17:05:48.767] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 32% от основного
+[17:05:48.769] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[17:05:48.770] [VERBOSE] [Stats] ✅ Stats updated for Лилит. HP: 132, SP: 77, Speed: [(12, 15), (12, 15), (12, 15), (7, 10)]
+[17:05:48.771] [VERBOSE] [Stats] Recalculating stats for Рейн
+[17:05:48.772] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[17:05:48.773] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[17:05:48.774] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[17:05:48.774] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[17:05:48.775] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[17:05:48.775] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:48.777] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:48.777] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[17:05:48.778] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[17:05:48.778] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[17:05:48.779] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[17:05:48.779] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[17:05:48.781] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[17:05:48.781] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:48.782] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[17:05:48.783] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[17:05:48.783] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:48.785] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[17:05:48.785] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[17:05:48.787] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[17:05:48.787] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[17:05:48.788] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 44% от основного
+[17:05:48.790] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[17:05:48.790] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[17:05:48.791] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[17:05:48.792] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[17:05:48.792] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 200, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[17:05:48.793] [VERBOSE] [Stats] Recalculating stats for Лима
+[17:05:48.793] [VERBOSE] [Stats] 🔄 Recalculating stats for Лима
+[17:05:48.793] [VERBOSE] [Stats] 🛡️ Полоса удач: luck +7
+[17:05:48.795] [VERBOSE] [Stats] 🛡️ Охотничьи веды: wisdom +15
+[17:05:48.795] [VERBOSE] [Stats] 🛡️ Подавление разумом: eloquence +15
+[17:05:48.795] [VERBOSE] [Talent] 🧬 Врожденный дар: Уровень 28 -> Бонус Характеристик +3, Навыков +6
+[17:05:48.797] [VERBOSE] [Stats] 🌟 Врожденный дар: attack_power_up +3
+[17:05:48.798] [VERBOSE] [Stats] 🌟 Врожденный дар: endurance +3
+[17:05:48.798] [VERBOSE] [Stats] 🌟 Врожденный дар: agility +3
+[17:05:48.800] [VERBOSE] [Stats] 🌟 Врожденный дар: wisdom +3
+[17:05:48.800] [VERBOSE] [Stats] 🌟 Врожденный дар: psych +3
+[17:05:48.801] [VERBOSE] [Stats] 🌟 Врожденный дар: strike_power +6
+[17:05:48.801] [VERBOSE] [Stats] 🌟 Врожденный дар: medicine +6
+[17:05:48.802] [VERBOSE] [Stats] 🌟 Врожденный дар: willpower +6
+[17:05:48.804] [VERBOSE] [Stats] 🌟 Врожденный дар: luck +6
+[17:05:48.805] [VERBOSE] [Stats] 🌟 Врожденный дар: acrobatics +6
+[17:05:48.805] [VERBOSE] [Stats] 🌟 Врожденный дар: shields +6
+[17:05:48.805] [VERBOSE] [Stats] 🌟 Врожденный дар: tough_skin +6
+[17:05:48.806] [VERBOSE] [Stats] 🌟 Врожденный дар: speed +6
+[17:05:48.807] [VERBOSE] [Stats] 🌟 Врожденный дар: light_weapon +6
+[17:05:48.807] [VERBOSE] [Stats] 🌟 Врожденный дар: medium_weapon +6
+[17:05:48.809] [VERBOSE] [Stats] 🌟 Врожденный дар: heavy_weapon +6
+[17:05:48.810] [VERBOSE] [Stats] 🌟 Врожденный дар: firearms +6
+[17:05:48.810] [VERBOSE] [Stats] 🌟 Врожденный дар: eloquence +6
+[17:05:48.811] [VERBOSE] [Stats] 🌟 Врожденный дар: forging +6
+[17:05:48.812] [VERBOSE] [Stats] 🌟 Врожденный дар: engineering +6
+[17:05:48.813] [VERBOSE] [Stats] 🌟 Врожденный дар: programming +6
+[17:05:48.813] [VERBOSE] [Stats] 🌟 Золотая Репутация: eloquence +5
+[17:05:48.814] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:48.814] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:48.815] [VERBOSE] [Stats] 🧬 Легкий экзоскелет 'СТРИЖ': acrobatics +6
+[17:05:48.815] [VERBOSE] [Stats] ⚔️ Weapon equipped: Ледоруб 'Скала Лаз'
+[17:05:48.817] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[17:05:48.818] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:48.820] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:48.820] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:48.821] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 4
+[17:05:48.821] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:48.823] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 10, эффективность лечения — 100%
+[17:05:48.824] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7 (Акробатика)
+[17:05:48.825] [VERBOSE] [Stats] Повышает значение куба 🛡️ щита на 1
+[17:05:48.825] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 5
+[17:05:48.826] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 2
+[17:05:48.827] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами тяжёлого оружия на 2
+[17:05:48.827] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами огнестрельного оружия на 7
+[17:05:48.828] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 4
+[17:05:48.829] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 30
+[17:05:48.829] [VERBOSE] [Stats] Повышает бросок качества создаваемого предмета на 6
+[17:05:48.829] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 6
+[17:05:48.831] [VERBOSE] [Stats] Повышает успешность взлома и контроля механизмов на 6
+[17:05:48.832] [VERBOSE] [Stats] 🎓 Ускоренное обучение: +10 HP/SP за каждые 3 уровня
+[17:05:48.832] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 16% от основного
+[17:05:48.833] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[17:05:48.833] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 24% от основного
+[17:05:48.835] [VERBOSE] [Stats] Персонаж получает дополнительные 20 🧠 рассудка
+[17:05:48.837] [VERBOSE] [Stats] Повышает 😵 выдержку на 6%
+[17:05:48.838] [VERBOSE] [Stats] ✅ Stats updated for Лима. HP: 139, SP: 161, Speed: [(19, 22), (19, 22), (19, 22), (17, 20)]
+[17:05:48.839] [NORMAL ] [Status] 🧪 Лима: +1 haste (1t)
+[17:05:48.841] [VERBOSE] [Stats] Recalculating stats for Адам Серый Лис
+[17:05:48.841] [VERBOSE] [Stats] 🔄 Recalculating stats for Адам Серый Лис
+[17:05:48.842] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): speed +20
+[17:05:48.842] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): agility +10
+[17:05:48.843] [VERBOSE] [Stats] 🛡️ Титановая Дерма: tough_skin +20
+[17:05:48.843] [VERBOSE] [Stats] ⚔️ Weapon equipped: ВЧ-Клинок 'Мурамаса'
+[17:05:48.844] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:48.846] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 4
+[17:05:48.847] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:48.847] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:48.848] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:48.848] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 10
+[17:05:48.849] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:48.851] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:48.851] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 13
+[17:05:48.852] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 40% от основного
+[17:05:48.856] [VERBOSE] [Stats] Персонаж получает дополнительные 30 ❤️ здоровья
+[17:05:48.857] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[17:05:48.858] [VERBOSE] [Stats] ✅ Stats updated for Адам Серый Лис. HP: 628, SP: 194, Speed: [(19, 22), (19, 22), (19, 22), (19, 22), (19, 22), (14, 17)]
+[17:05:48.859] [NORMAL ] [Status] 🧪 Адам Серый Лис: +5 self_control (99t)
+[17:05:48.860] [MINIMAL] [Resource] 💚 Адам Серый Лис healed +31 HP
+[17:05:48.861] [MINIMAL] [Resource] 🛡️ Адам Серый Лис restored +37 Stagger
+[17:05:48.862] [VERBOSE] [Stats] Recalculating stats for Лилит
+[17:05:48.863] [VERBOSE] [Stats] 🔄 Recalculating stats for Лилит
+[17:05:48.865] [VERBOSE] [Stats] 🧬 Тату 'Истерика Купца': eloquence +5
+[17:05:48.866] [VERBOSE] [Stats] ⚔️ Weapon equipped: Коса 'Sinfoil'
+[17:05:48.868] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:48.869] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 3
+[17:05:48.871] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[17:05:48.872] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 6
+[17:05:48.873] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 3
+[17:05:48.875] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:48.876] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:48.877] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[17:05:48.877] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:48.878] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[17:05:48.878] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 20
+[17:05:48.880] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 32% от основного
+[17:05:48.880] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[17:05:48.881] [VERBOSE] [Stats] ✅ Stats updated for Лилит. HP: 132, SP: 77, Speed: [(12, 15), (12, 15), (12, 15), (7, 10)]
+[17:05:48.882] [VERBOSE] [System] 🎲 Rolling Speed Dice for Лилит
+[17:05:48.882] [NORMAL ] [Speed] Лилит speed rolls: [12, 13, 15, 10] (Mod: 0)
+[17:05:48.884] [VERBOSE] [Stats] Recalculating stats for Рейн
+[17:05:48.884] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[17:05:48.887] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[17:05:48.888] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[17:05:48.890] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[17:05:48.891] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[17:05:48.892] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:48.892] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:48.893] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[17:05:48.894] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[17:05:48.895] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[17:05:48.897] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[17:05:48.897] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[17:05:48.898] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[17:05:48.899] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:48.900] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[17:05:48.900] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[17:05:48.901] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:48.902] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[17:05:48.904] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[17:05:48.905] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[17:05:48.905] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[17:05:48.907] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 44% от основного
+[17:05:48.908] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[17:05:48.908] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[17:05:48.910] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[17:05:48.911] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[17:05:48.913] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 200, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[17:05:48.913] [VERBOSE] [System] 🎲 Rolling Speed Dice for Рейн
+[17:05:48.915] [NORMAL ] [Speed] Рейн speed rolls: [14, 16, 14] (Mod: 0)
+[17:05:48.917] [VERBOSE] [Stats] Recalculating stats for Лима
+[17:05:48.917] [VERBOSE] [Stats] 🔄 Recalculating stats for Лима
+[17:05:48.918] [VERBOSE] [Stats] 🛡️ Полоса удач: luck +7
+[17:05:48.918] [VERBOSE] [Stats] 🛡️ Охотничьи веды: wisdom +15
+[17:05:48.919] [VERBOSE] [Stats] 🛡️ Подавление разумом: eloquence +15
+[17:05:48.921] [VERBOSE] [Talent] 🧬 Врожденный дар: Уровень 28 -> Бонус Характеристик +3, Навыков +6
+[17:05:48.923] [VERBOSE] [Stats] 🌟 Врожденный дар: attack_power_up +3
+[17:05:48.924] [VERBOSE] [Stats] 🌟 Врожденный дар: endurance +3
+[17:05:48.926] [VERBOSE] [Stats] 🌟 Врожденный дар: agility +3
+[17:05:48.927] [VERBOSE] [Stats] 🌟 Врожденный дар: wisdom +3
+[17:05:48.928] [VERBOSE] [Stats] 🌟 Врожденный дар: psych +3
+[17:05:48.929] [VERBOSE] [Stats] 🌟 Врожденный дар: strike_power +6
+[17:05:48.931] [VERBOSE] [Stats] 🌟 Врожденный дар: medicine +6
+[17:05:48.932] [VERBOSE] [Stats] 🌟 Врожденный дар: willpower +6
+[17:05:48.933] [VERBOSE] [Stats] 🌟 Врожденный дар: luck +6
+[17:05:48.934] [VERBOSE] [Stats] 🌟 Врожденный дар: acrobatics +6
+[17:05:48.935] [VERBOSE] [Stats] 🌟 Врожденный дар: shields +6
+[17:05:48.937] [VERBOSE] [Stats] 🌟 Врожденный дар: tough_skin +6
+[17:05:48.939] [VERBOSE] [Stats] 🌟 Врожденный дар: speed +6
+[17:05:48.940] [VERBOSE] [Stats] 🌟 Врожденный дар: light_weapon +6
+[17:05:48.941] [VERBOSE] [Stats] 🌟 Врожденный дар: medium_weapon +6
+[17:05:48.942] [VERBOSE] [Stats] 🌟 Врожденный дар: heavy_weapon +6
+[17:05:48.943] [VERBOSE] [Stats] 🌟 Врожденный дар: firearms +6
+[17:05:48.943] [VERBOSE] [Stats] 🌟 Врожденный дар: eloquence +6
+[17:05:48.945] [VERBOSE] [Stats] 🌟 Врожденный дар: forging +6
+[17:05:48.945] [VERBOSE] [Stats] 🌟 Врожденный дар: engineering +6
+[17:05:48.946] [VERBOSE] [Stats] 🌟 Врожденный дар: programming +6
+[17:05:48.946] [VERBOSE] [Stats] 🌟 Золотая Репутация: eloquence +5
+[17:05:48.947] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:48.949] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:48.949] [VERBOSE] [Stats] 🧬 Легкий экзоскелет 'СТРИЖ': acrobatics +6
+[17:05:48.950] [VERBOSE] [Stats] ⚔️ Weapon equipped: Ледоруб 'Скала Лаз'
+[17:05:48.951] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[17:05:48.951] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:48.952] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:48.953] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:48.953] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 4
+[17:05:48.953] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:48.955] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 10, эффективность лечения — 100%
+[17:05:48.957] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7 (Акробатика)
+[17:05:48.957] [VERBOSE] [Stats] Повышает значение куба 🛡️ щита на 1
+[17:05:48.958] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 5
+[17:05:48.958] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 2
+[17:05:48.959] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами тяжёлого оружия на 2
+[17:05:48.959] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами огнестрельного оружия на 7
+[17:05:48.960] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 4
+[17:05:48.962] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 30
+[17:05:48.963] [VERBOSE] [Stats] Повышает бросок качества создаваемого предмета на 6
+[17:05:48.965] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 6
+[17:05:48.967] [VERBOSE] [Stats] Повышает успешность взлома и контроля механизмов на 6
+[17:05:48.967] [VERBOSE] [Stats] 🎓 Ускоренное обучение: +10 HP/SP за каждые 3 уровня
+[17:05:48.969] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 16% от основного
+[17:05:48.970] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[17:05:48.971] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 24% от основного
+[17:05:48.972] [VERBOSE] [Stats] Персонаж получает дополнительные 20 🧠 рассудка
+[17:05:48.973] [VERBOSE] [Stats] Повышает 😵 выдержку на 6%
+[17:05:48.974] [VERBOSE] [Stats] ✅ Stats updated for Лима. HP: 139, SP: 161, Speed: [(19, 22), (19, 22), (19, 22), (17, 20)]
+[17:05:48.974] [VERBOSE] [System] 🎲 Rolling Speed Dice for Лима
+[17:05:48.976] [NORMAL ] [Speed] Лима speed rolls: [23, 21, 20, 20] (Mod: 1)
+[17:05:48.977] [VERBOSE] [Stats] Recalculating stats for Адам Серый Лис
+[17:05:48.977] [VERBOSE] [Stats] 🔄 Recalculating stats for Адам Серый Лис
+[17:05:48.978] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): speed +20
+[17:05:48.979] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): agility +10
+[17:05:48.980] [VERBOSE] [Stats] 🛡️ Титановая Дерма: tough_skin +20
+[17:05:48.980] [VERBOSE] [Stats] ⚔️ Weapon equipped: ВЧ-Клинок 'Мурамаса'
+[17:05:48.982] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:48.982] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 4
+[17:05:48.983] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:48.983] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:48.985] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:48.985] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 10
+[17:05:48.987] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:48.988] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:48.989] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 13
+[17:05:48.989] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 40% от основного
+[17:05:48.990] [VERBOSE] [Stats] Персонаж получает дополнительные 30 ❤️ здоровья
+[17:05:48.991] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[17:05:48.992] [VERBOSE] [Stats] ✅ Stats updated for Адам Серый Лис. HP: 628, SP: 194, Speed: [(19, 22), (19, 22), (19, 22), (19, 22), (19, 22), (14, 17)]
+[17:05:48.992] [VERBOSE] [System] 🎲 Rolling Speed Dice for Адам Серый Лис
+[17:05:48.994] [NORMAL ] [Speed] Адам Серый Лис speed rolls: [3, 2, 3, 2, 3, 1] (Mod: -18)
+[17:05:48.995] [VERBOSE] [Passive] 🐈 Wag Tail: Added Counter Evade (7-10) to Лилит
+[17:05:48.996] [NORMAL ] [Status] 🧪 Лилит: +4 attack_power_up (1t)
+[17:05:48.996] [NORMAL ] [Status] 🧪 Лилит: +4 endurance (1t)
+[17:05:48.997] [VERBOSE] [Passive] ⚡ Live Fast Die Young: +4 Str/End for Лилит
+[17:05:48.998] [VERBOSE] [Talent] ⚔️ Frenzy: Added counter dice for Лилит (Lvl 28)
+[17:05:48.999] [VERBOSE] [Talent] 🦶 Aerial Foot: Added 3 evade counters to Лилит (Lvl 28)
+[17:05:49.000] [MINIMAL] [Resource] 💚 Рейн healed +7 HP
+[17:05:49.000] [VERBOSE] [Passive] 🧬 S-Cells: Healed 30 HP for Рейн
+[17:05:49.001] [VERBOSE] [Stats] Recalculating stats for Лилит
+[17:05:49.002] [VERBOSE] [Stats] 🔄 Recalculating stats for Лилит
+[17:05:49.003] [VERBOSE] [Stats] 🧬 Тату 'Истерика Купца': eloquence +5
+[17:05:49.004] [VERBOSE] [Stats] ⚔️ Weapon equipped: Коса 'Sinfoil'
+[17:05:49.005] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:49.007] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 3
+[17:05:49.007] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[17:05:49.008] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 6
+[17:05:49.008] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 3
+[17:05:49.009] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:49.010] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:49.011] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[17:05:49.011] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:49.012] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[17:05:49.013] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 20
+[17:05:49.014] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 32% от основного
+[17:05:49.014] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[17:05:49.015] [VERBOSE] [Stats] ✅ Stats updated for Лилит. HP: 132, SP: 77, Speed: [(12, 15), (12, 15), (12, 15), (7, 10)]
+[17:05:49.016] [VERBOSE] [Stats] Recalculating stats for Рейн
+[17:05:49.016] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[17:05:49.018] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[17:05:49.018] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[17:05:49.019] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[17:05:49.020] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[17:05:49.021] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:49.022] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:49.022] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[17:05:49.023] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[17:05:49.023] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[17:05:49.025] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[17:05:49.025] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[17:05:49.027] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[17:05:49.027] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:49.028] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[17:05:49.028] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[17:05:49.030] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:49.031] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[17:05:49.031] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[17:05:49.032] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[17:05:49.033] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[17:05:49.034] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 44% от основного
+[17:05:49.034] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[17:05:49.035] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[17:05:49.038] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[17:05:49.039] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[17:05:49.040] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 200, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[17:05:49.041] [VERBOSE] [Stats] Recalculating stats for Лима
+[17:05:49.042] [VERBOSE] [Stats] 🔄 Recalculating stats for Лима
+[17:05:49.042] [VERBOSE] [Stats] 🛡️ Полоса удач: luck +7
+[17:05:49.043] [VERBOSE] [Stats] 🛡️ Охотничьи веды: wisdom +15
+[17:05:49.043] [VERBOSE] [Stats] 🛡️ Подавление разумом: eloquence +15
+[17:05:49.044] [VERBOSE] [Talent] 🧬 Врожденный дар: Уровень 28 -> Бонус Характеристик +3, Навыков +6
+[17:05:49.045] [VERBOSE] [Stats] 🌟 Врожденный дар: attack_power_up +3
+[17:05:49.045] [VERBOSE] [Stats] 🌟 Врожденный дар: endurance +3
+[17:05:49.047] [VERBOSE] [Stats] 🌟 Врожденный дар: agility +3
+[17:05:49.048] [VERBOSE] [Stats] 🌟 Врожденный дар: wisdom +3
+[17:05:49.050] [VERBOSE] [Stats] 🌟 Врожденный дар: psych +3
+[17:05:49.051] [VERBOSE] [Stats] 🌟 Врожденный дар: strike_power +6
+[17:05:49.051] [VERBOSE] [Stats] 🌟 Врожденный дар: medicine +6
+[17:05:49.052] [VERBOSE] [Stats] 🌟 Врожденный дар: willpower +6
+[17:05:49.053] [VERBOSE] [Stats] 🌟 Врожденный дар: luck +6
+[17:05:49.055] [VERBOSE] [Stats] 🌟 Врожденный дар: acrobatics +6
+[17:05:49.056] [VERBOSE] [Stats] 🌟 Врожденный дар: shields +6
+[17:05:49.057] [VERBOSE] [Stats] 🌟 Врожденный дар: tough_skin +6
+[17:05:49.058] [VERBOSE] [Stats] 🌟 Врожденный дар: speed +6
+[17:05:49.059] [VERBOSE] [Stats] 🌟 Врожденный дар: light_weapon +6
+[17:05:49.060] [VERBOSE] [Stats] 🌟 Врожденный дар: medium_weapon +6
+[17:05:49.061] [VERBOSE] [Stats] 🌟 Врожденный дар: heavy_weapon +6
+[17:05:49.061] [VERBOSE] [Stats] 🌟 Врожденный дар: firearms +6
+[17:05:49.062] [VERBOSE] [Stats] 🌟 Врожденный дар: eloquence +6
+[17:05:49.063] [VERBOSE] [Stats] 🌟 Врожденный дар: forging +6
+[17:05:49.063] [VERBOSE] [Stats] 🌟 Врожденный дар: engineering +6
+[17:05:49.065] [VERBOSE] [Stats] 🌟 Врожденный дар: programming +6
+[17:05:49.065] [VERBOSE] [Stats] 🌟 Золотая Репутация: eloquence +5
+[17:05:49.066] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:49.067] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:49.068] [VERBOSE] [Stats] 🧬 Легкий экзоскелет 'СТРИЖ': acrobatics +6
+[17:05:49.069] [VERBOSE] [Stats] ⚔️ Weapon equipped: Ледоруб 'Скала Лаз'
+[17:05:49.070] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[17:05:49.071] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:49.072] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:49.073] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:49.073] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 4
+[17:05:49.074] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:49.075] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 10, эффективность лечения — 100%
+[17:05:49.076] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7 (Акробатика)
+[17:05:49.077] [VERBOSE] [Stats] Повышает значение куба 🛡️ щита на 1
+[17:05:49.077] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 5
+[17:05:49.078] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 2
+[17:05:49.078] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами тяжёлого оружия на 2
+[17:05:49.080] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами огнестрельного оружия на 7
+[17:05:49.081] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 4
+[17:05:49.082] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 30
+[17:05:49.083] [VERBOSE] [Stats] Повышает бросок качества создаваемого предмета на 6
+[17:05:49.084] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 6
+[17:05:49.085] [VERBOSE] [Stats] Повышает успешность взлома и контроля механизмов на 6
+[17:05:49.086] [VERBOSE] [Stats] 🎓 Ускоренное обучение: +10 HP/SP за каждые 3 уровня
+[17:05:49.087] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 16% от основного
+[17:05:49.088] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[17:05:49.090] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 24% от основного
+[17:05:49.091] [VERBOSE] [Stats] Персонаж получает дополнительные 20 🧠 рассудка
+[17:05:49.091] [VERBOSE] [Stats] Повышает 😵 выдержку на 6%
+[17:05:49.092] [VERBOSE] [Stats] ✅ Stats updated for Лима. HP: 139, SP: 161, Speed: [(19, 22), (19, 22), (19, 22), (17, 20)]
+[17:05:49.093] [VERBOSE] [Stats] Recalculating stats for Адам Серый Лис
+[17:05:49.093] [VERBOSE] [Stats] 🔄 Recalculating stats for Адам Серый Лис
+[17:05:49.094] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): speed +20
+[17:05:49.095] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): agility +10
+[17:05:49.097] [VERBOSE] [Stats] 🛡️ Титановая Дерма: tough_skin +20
+[17:05:49.097] [VERBOSE] [Stats] ⚔️ Weapon equipped: ВЧ-Клинок 'Мурамаса'
+[17:05:49.097] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:49.098] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 4
+[17:05:49.099] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:49.100] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:49.100] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:49.103] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 10
+[17:05:49.103] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:49.105] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:49.106] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 13
+[17:05:49.106] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 40% от основного
+[17:05:49.107] [VERBOSE] [Stats] Персонаж получает дополнительные 30 ❤️ здоровья
+[17:05:49.108] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[17:05:49.109] [VERBOSE] [Stats] ✅ Stats updated for Адам Серый Лис. HP: 628, SP: 194, Speed: [(19, 22), (19, 22), (19, 22), (19, 22), (19, 22), (14, 17)]
+[17:05:49.271] [VERBOSE] [Stats] Recalculating stats for Лилит
+[17:05:49.272] [VERBOSE] [Stats] 🔄 Recalculating stats for Лилит
+[17:05:49.274] [VERBOSE] [Stats] 🧬 Тату 'Истерика Купца': eloquence +5
+[17:05:49.275] [VERBOSE] [Stats] ⚔️ Weapon equipped: Коса 'Sinfoil'
+[17:05:49.281] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:49.281] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 3
+[17:05:49.283] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[17:05:49.283] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 6
+[17:05:49.284] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 3
+[17:05:49.285] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:49.287] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:49.287] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[17:05:49.288] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:49.289] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[17:05:49.289] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 20
+[17:05:49.291] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 32% от основного
+[17:05:49.292] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[17:05:49.294] [VERBOSE] [Stats] ✅ Stats updated for Лилит. HP: 132, SP: 77, Speed: [(12, 15), (12, 15), (12, 15), (7, 10)]
+[17:05:49.296] [VERBOSE] [Stats] Recalculating stats for Рейн
+[17:05:49.298] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[17:05:49.299] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[17:05:49.300] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[17:05:49.301] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[17:05:49.302] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[17:05:49.303] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:49.305] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:49.306] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[17:05:49.307] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[17:05:49.310] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[17:05:49.311] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[17:05:49.312] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[17:05:49.313] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[17:05:49.314] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:49.316] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[17:05:49.317] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[17:05:49.318] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:49.319] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[17:05:49.320] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[17:05:49.320] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[17:05:49.321] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[17:05:49.322] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 44% от основного
+[17:05:49.325] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[17:05:49.325] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[17:05:49.325] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[17:05:49.327] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[17:05:49.328] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 200, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[17:05:49.329] [VERBOSE] [Stats] Recalculating stats for Лима
+[17:05:49.329] [VERBOSE] [Stats] 🔄 Recalculating stats for Лима
+[17:05:49.330] [VERBOSE] [Stats] 🛡️ Полоса удач: luck +7
+[17:05:49.331] [VERBOSE] [Stats] 🛡️ Охотничьи веды: wisdom +15
+[17:05:49.332] [VERBOSE] [Stats] 🛡️ Подавление разумом: eloquence +15
+[17:05:49.334] [VERBOSE] [Talent] 🧬 Врожденный дар: Уровень 28 -> Бонус Характеристик +3, Навыков +6
+[17:05:49.335] [VERBOSE] [Stats] 🌟 Врожденный дар: attack_power_up +3
+[17:05:49.337] [VERBOSE] [Stats] 🌟 Врожденный дар: endurance +3
+[17:05:49.338] [VERBOSE] [Stats] 🌟 Врожденный дар: agility +3
+[17:05:49.339] [VERBOSE] [Stats] 🌟 Врожденный дар: wisdom +3
+[17:05:49.340] [VERBOSE] [Stats] 🌟 Врожденный дар: psych +3
+[17:05:49.341] [VERBOSE] [Stats] 🌟 Врожденный дар: strike_power +6
+[17:05:49.342] [VERBOSE] [Stats] 🌟 Врожденный дар: medicine +6
+[17:05:49.344] [VERBOSE] [Stats] 🌟 Врожденный дар: willpower +6
+[17:05:49.345] [VERBOSE] [Stats] 🌟 Врожденный дар: luck +6
+[17:05:49.345] [VERBOSE] [Stats] 🌟 Врожденный дар: acrobatics +6
+[17:05:49.346] [VERBOSE] [Stats] 🌟 Врожденный дар: shields +6
+[17:05:49.348] [VERBOSE] [Stats] 🌟 Врожденный дар: tough_skin +6
+[17:05:49.348] [VERBOSE] [Stats] 🌟 Врожденный дар: speed +6
+[17:05:49.349] [VERBOSE] [Stats] 🌟 Врожденный дар: light_weapon +6
+[17:05:49.350] [VERBOSE] [Stats] 🌟 Врожденный дар: medium_weapon +6
+[17:05:49.350] [VERBOSE] [Stats] 🌟 Врожденный дар: heavy_weapon +6
+[17:05:49.353] [VERBOSE] [Stats] 🌟 Врожденный дар: firearms +6
+[17:05:49.354] [VERBOSE] [Stats] 🌟 Врожденный дар: eloquence +6
+[17:05:49.355] [VERBOSE] [Stats] 🌟 Врожденный дар: forging +6
+[17:05:49.357] [VERBOSE] [Stats] 🌟 Врожденный дар: engineering +6
+[17:05:49.358] [VERBOSE] [Stats] 🌟 Врожденный дар: programming +6
+[17:05:49.358] [VERBOSE] [Stats] 🌟 Золотая Репутация: eloquence +5
+[17:05:49.359] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[17:05:49.361] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[17:05:49.362] [VERBOSE] [Stats] 🧬 Легкий экзоскелет 'СТРИЖ': acrobatics +6
+[17:05:49.363] [VERBOSE] [Stats] ⚔️ Weapon equipped: Ледоруб 'Скала Лаз'
+[17:05:49.364] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[17:05:49.365] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:49.366] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:49.367] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[17:05:49.367] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 4
+[17:05:49.369] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[17:05:49.370] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 10, эффективность лечения — 100%
+[17:05:49.372] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7 (Акробатика)
+[17:05:49.373] [VERBOSE] [Stats] Повышает значение куба 🛡️ щита на 1
+[17:05:49.374] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 5
+[17:05:49.375] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 2
+[17:05:49.375] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами тяжёлого оружия на 2
+[17:05:49.377] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами огнестрельного оружия на 7
+[17:05:49.378] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 4
+[17:05:49.378] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 30
+[17:05:49.379] [VERBOSE] [Stats] Повышает бросок качества создаваемого предмета на 6
+[17:05:49.380] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 6
+[17:05:49.380] [VERBOSE] [Stats] Повышает успешность взлома и контроля механизмов на 6
+[17:05:49.381] [VERBOSE] [Stats] 🎓 Ускоренное обучение: +10 HP/SP за каждые 3 уровня
+[17:05:49.382] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 16% от основного
+[17:05:49.383] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[17:05:49.383] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 24% от основного
+[17:05:49.384] [VERBOSE] [Stats] Персонаж получает дополнительные 20 🧠 рассудка
+[17:05:49.385] [VERBOSE] [Stats] Повышает 😵 выдержку на 6%
+[17:05:49.388] [VERBOSE] [Stats] ✅ Stats updated for Лима. HP: 139, SP: 161, Speed: [(19, 22), (19, 22), (19, 22), (17, 20)]
+[17:05:49.388] [VERBOSE] [Stats] Recalculating stats for Адам Серый Лис
+[17:05:49.389] [VERBOSE] [Stats] 🔄 Recalculating stats for Адам Серый Лис
+[17:05:49.390] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): speed +20
+[17:05:49.391] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): agility +10
+[17:05:49.392] [VERBOSE] [Stats] 🛡️ Титановая Дерма: tough_skin +20
+[17:05:49.393] [VERBOSE] [Stats] ⚔️ Weapon equipped: ВЧ-Клинок 'Мурамаса'
+[17:05:49.393] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[17:05:49.395] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 4
+[17:05:49.395] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[17:05:49.397] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[17:05:49.398] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[17:05:49.398] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 10
+[17:05:49.400] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[17:05:49.400] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[17:05:49.401] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 13
+[17:05:49.402] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 40% от основного
+[17:05:49.404] [VERBOSE] [Stats] Персонаж получает дополнительные 30 ❤️ здоровья
+[17:05:49.405] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[17:05:49.406] [VERBOSE] [Stats] ✅ Stats updated for Адам Серый Лис. HP: 628, SP: 194, Speed: [(19, 22), (19, 22), (19, 22), (19, 22), (19, 22), (14, 17)]
