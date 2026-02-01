@@ -103,5 +103,6 @@ ARMOR_REGISTRY = {
             "blunt": 1.0
         },
         stats={"speed": 3, "agility": 5},
+        passive_id="armor_ghost_exo",
     ),
 }

@@ -573,3 +573,19 @@ class StatusAntiCharge(StatusEffect):
         # Или через юнит (если класс stateless)
         elif hasattr(unit, "add_status"):
             unit.add_status(self.id, -1)
+
+
+class StatusWinCondition(StatusEffect):
+    id = "win_condition"
+    name = "Win Condition"
+    description = "Особый статус Аксис. Сам по себе ничего не делает, но взаимодействует с её картами."
+    is_debuff = True  # Считаем дебаффом, так как висит на враге и вредит ему при взаимодействии
+
+    # Можно попробовать найти иконку контракта, если она есть в ассетах,
+    # или движок подставит дефолтную по названию.
+
+    # Если нужно, чтобы он не спадал сам по себе (для перманентного):
+    def on_round_end(self, unit):
+        # Если длительность > 50, считаем перманентным и не снижаем (или снижаем, но медленно)
+        if self.duration < 50:
+            self.reduce_stack(1)

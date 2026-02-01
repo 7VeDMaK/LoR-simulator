@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 139,
+    "current_hp": 56,
     "current_sp": 161,
-    "current_stagger": 73,
+    "current_stagger": 1,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
@@ -67,9 +67,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 139,
+        "current_hp": 56,
         "current_sp": 161,
-        "current_stagger": 73
+        "current_stagger": 1
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -88,9 +88,9 @@
         "weapon_id": "skalalaz_iceaxe"
     },
     "attributes": {
-        "strength": 10,
+        "strength": 2,
         "endurance": 5,
-        "agility": 6,
+        "agility": 30,
         "wisdom": 15,
         "psych": 9
     },

@@ -319,7 +319,6 @@ class BarrierStatus(StatusEffect):
 
         absorbed = min(stack, amount)
 
-        # Удаляем потраченные стаки барьера
         unit.remove_status(self.id, absorbed)
 
         if log_list is not None:

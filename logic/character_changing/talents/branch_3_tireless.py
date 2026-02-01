@@ -39,7 +39,8 @@ class TalentDefense(BasePassive):
     )
     is_active_ability = False
 
-    def on_speed_rolled(self, unit, log_func, **kwargs):
+    def on_speed_rolled(self, unit, *args, **kwargs):
+        log_func = kwargs.get("log_func")
         """
         Генерируем защитные кубики после броска скорости.
         """
@@ -121,7 +122,8 @@ class TalentCommendableConstitution(BasePassive):
     def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
         return {"endurance": 3}
 
-    def on_round_start(self, unit, log_func, **kwargs):
+    def on_round_start(self, unit, *args, **kwargs):
+        log_func = kwargs.get("log_func")
         amt = 1
         # Синергия с 3.8 Survivor
         if "survivor" in unit.talents:
@@ -134,7 +136,8 @@ class TalentCommendableConstitution(BasePassive):
 
         logger.log(f"🛡️ Commendable Constitution: +{amt} Protection for {unit.name}", LogLevel.VERBOSE, "Talent")
 
-    def activate(self, unit, log_func, **kwargs):
+    def activate(self, unit, *args, **kwargs):
+        log_func = kwargs.get("log_func")
         if unit.cooldowns.get(self.id, 0) > 0:
             if log_func: log_func("❌ Вы уже отдыхали в этом бою.")
             return False
@@ -297,7 +300,6 @@ class TalentAdaptationTireless(BasePassive):
     is_active_ability = False
 
     def on_round_start(self, unit, log_func, **kwargs):
-        # ИСПОЛЬЗУЕМ СТРОКИ ВМЕСТО DiceType
         unit.memory["adaptation_stats"] = {
             "slash": 0,
             "pierce": 0,
