@@ -115,7 +115,7 @@ class UnitSerializationMixin:
 
     @classmethod
     def from_dict(cls, data: dict):
-        # Создаем экземпляр (name обязателен)
+        # Создаем экземпляр
         u = cls(name=data.get("name", "Unknown"))
 
         # Base
@@ -126,6 +126,7 @@ class UnitSerializationMixin:
         u.total_xp = data.get("total_xp", 0)
         u.biography = data.get("biography", "")
         u.unit_type = data.get("unit_type", "fixer")
+
         # Stats & Mods
         pct = data.get("pct_mods", {})
         u.implants_hp_pct = pct.get("imp_hp", 0)
@@ -145,7 +146,19 @@ class UnitSerializationMixin:
         u.current_sp = data.get("current_sp", base.get("current_sp", 20))
         u.current_stagger = data.get("current_stagger", base.get("current_stagger", 10))
 
-        # RPG
+        # === [STEP 1] СНАЧАЛА ЗАГРУЖАЕМ СПИСКИ ИЗ ФАЙЛА ===
+        if "attributes" in data: u.attributes.update(data["attributes"])
+        if "skills" in data: u.skills.update(data["skills"])
+        if "intellect" in u.attributes: del u.attributes["intellect"]
+
+        u.passives = data.get("passives", [])  # <--- Загружаем список ДО обработки брони
+        u.talents = data.get("talents", [])
+        u.augmentations = data.get("augmentations", [])
+        u.level_rolls = data.get("level_rolls", {})
+        u.relationships = data.get("relationships", {})
+
+        # === [STEP 2] ТЕПЕРЬ ОБРАБАТЫВАЕМ БРОНЮ ===
+        # RPG Defense Data
         defense = data.get("defense", {})
         u.armor_id = defense.get("armor_id", "none")
         u.armor_name = defense.get("armor_name", "Suit")
@@ -153,8 +166,8 @@ class UnitSerializationMixin:
         u.hp_resists = Resistances.from_dict(defense.get("hp_resists", {}))
         u.stagger_resists = Resistances.from_dict(defense.get("stagger_resists", {}))
         u.weapon_id = defense.get("weapon_id", "none")
-        
-        # Применяем броню из реестра, если ID есть
+
+        # Применяем реестр брони поверх загруженных данных
         try:
             from logic.armor_definitions import ARMOR_REGISTRY
             if u.armor_id and u.armor_id in ARMOR_REGISTRY:
@@ -166,18 +179,13 @@ class UnitSerializationMixin:
                 u.stagger_resists.slash = armor.stagger_resists["slash"]
                 u.stagger_resists.pierce = armor.stagger_resists["pierce"]
                 u.stagger_resists.blunt = armor.stagger_resists["blunt"]
+
+                # [FIX] Теперь это сработает корректно, т.к. u.passives уже загружен
+                if getattr(armor, 'passive_id', None) and armor.passive_id not in u.passives:
+                    u.passives.append(armor.passive_id)
+
         except ImportError:
-            pass  # Если ARMOR_REGISTRY недоступен, используем сохраненные значения
-
-        if "attributes" in data: u.attributes.update(data["attributes"])
-        if "skills" in data: u.skills.update(data["skills"])
-        if "intellect" in u.attributes: del u.attributes["intellect"]  # Legacy cleanup
-
-        u.passives = data.get("passives", [])
-        u.talents = data.get("talents", [])
-        u.augmentations = data.get("augmentations", [])
-        u.level_rolls = data.get("level_rolls", {})
-        u.relationships = data.get("relationships", {})
+            pass
 
         # Dynamic apply
         u.apply_dynamic_state(data)
