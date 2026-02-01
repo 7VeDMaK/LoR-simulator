@@ -124,7 +124,7 @@
         },
         {
           "speed": 7,
-          "card": null,
+          "card": "puff",
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
@@ -135,7 +135,8 @@
             "icon": "⛔",
             "color": "gray"
           },
-          "is_ally_target": false
+          "is_ally_target": false,
+          "destroy_on_speed": true
         }
       ],
       "stored_dice": [],
@@ -584,7 +585,8 @@
       "current_stagger": 1,
       "resources": {},
       "cooldowns": {
-        "copycat_insight": 3
+        "copycat_insight": 3,
+        "mech_magnetic_pickaxe": 5
       },
       "card_cooldowns": {
         "lima_hit_and_run": [
@@ -613,6 +615,12 @@
             "amount": 1,
             "duration": 1
           }
+        ],
+        "magnetic_charge": [
+          {
+            "amount": 1,
+            "duration": 1
+          }
         ]
       },
       "delayed_queue": [],
@@ -632,67 +640,71 @@
       "active_slots": [
         {
           "speed": 21,
-          "card": null,
+          "card": "lima_assorted_arrows",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 5,
+          "force_clash": true,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "CLASH vs Адам Серый Лис [S6] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true
+          "destroy_on_speed": true,
+          "force_onesided": false
         },
         {
           "speed": 23,
-          "card": null,
+          "card": "release_steam_copy_Лима_10_912",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 1,
+          "force_clash": true,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "CLASH vs Адам Серый Лис [S2] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true
+          "destroy_on_speed": true,
+          "force_onesided": false
         },
         {
           "speed": 23,
-          "card": null,
+          "card": "lima_little_tricks",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
+          "force_clash": true,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "CLASH vs Адам Серый Лис [S1] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true
+          "destroy_on_speed": true,
+          "force_onesided": false
         },
         {
           "speed": 20,
-          "card": null,
+          "card": "lima_jump_shooting",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 3,
+          "force_clash": true,
           "ui_status": {
-            "text": "CLASH vs Адам Серый Лис [S4] | Перехвачен (20 < 22)",
-            "icon": "⚠️",
-            "color": "orange"
+            "text": "CLASH vs Адам Серый Лис [S4] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true
+          "destroy_on_speed": true,
+          "force_onesided": false
         }
       ],
       "stored_dice": [],
@@ -905,8 +917,8 @@
           "target_slot_idx": 3,
           "force_clash": false,
           "ui_status": {
-            "text": "ONE SIDED (Провал) -> Лима | Слаб",
-            "icon": "🐌",
+            "text": "CLASH vs Лима [S3] | Перехвачен (21 < 23)",
+            "icon": "⚠️",
             "color": "orange"
           },
           "is_ally_target": false,
@@ -922,9 +934,9 @@
           "target_slot_idx": -1,
           "force_clash": false,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "CLASH vs Лима [S2] | Перехвачен (19 < 23)",
+            "icon": "⚠️",
+            "color": "orange"
           },
           "is_ally_target": false
         },
@@ -984,9 +996,9 @@
           "target_slot_idx": -1,
           "force_clash": false,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "CLASH vs Лима [S1] | Перехвачен (16 < 21)",
+            "icon": "⚠️",
+            "color": "orange"
           },
           "is_ally_target": false
         }
