@@ -28,27 +28,24 @@
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {
-        "bad_habit": [
-          1
-        ],
-        "trip_up": [
-          1
-        ],
-        "inhale_exhale": [
-          1
-        ],
         "smoke_arts": [
-          2
+          1
         ],
         "demon_scream": [
-          2
+          1
         ],
         "smoke_silhouette": [
-          2
+          1
         ]
       },
       "active_buffs": {},
       "_status_effects": {
+        "smoke": [
+          {
+            "amount": 6,
+            "duration": 98
+          }
+        ],
         "attack_power_up": [
           {
             "amount": 4,
@@ -76,67 +73,40 @@
       ],
       "active_slots": [
         {
-          "speed": 13,
-          "card": "prelude",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 13,
+          "speed": 15,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
+          "force_clash": false
+        },
+        {
+          "speed": 12,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
         },
         {
           "speed": 14,
-          "card": "release_steam",
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
+          "force_clash": false
         },
         {
-          "speed": 7,
-          "card": "puff",
+          "speed": 10,
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
+          "force_clash": false
         }
       ],
       "stored_dice": [],
@@ -150,6 +120,13 @@
         },
         {
           "type": "slash",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
           "base_min": 7,
           "base_max": 10,
           "is_counter": true,
@@ -322,43 +299,27 @@
       },
       "cooldowns": {},
       "card_cooldowns": {
-        "тяжкое_бремя_img4": [
-          1
-        ],
-        "изничтожение_img5": [
-          1
-        ],
-        "tale_of_twilight_img": [
-          1
-        ],
         "warp_img": [
-          2
+          1
         ],
         "series_normal_strikes_img": [
-          2
+          1
         ],
         "not_the_limit_img": [
-          2
+          1
         ],
         "bad_coffee_img": [
-          3
+          2
         ],
         "good_coffee_img": [
-          3
+          2
         ],
         "equivalent_exchange_img": [
-          3
+          2
         ]
       },
       "active_buffs": {},
-      "_status_effects": {
-        "invisibility": [
-          {
-            "amount": 1,
-            "duration": 1
-          }
-        ]
-      },
+      "_status_effects": {},
       "delayed_queue": [],
       "deck": [
         "обычный_удар_726c",
@@ -376,52 +337,31 @@
       ],
       "active_slots": [
         {
-          "speed": 14,
-          "card": "не_беспокойство_img3",
+          "speed": 13,
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
+          "force_clash": false
         },
         {
-          "speed": 16,
-          "card": "обычный_удар_726c",
+          "speed": 14,
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
+          "force_clash": false
         },
         {
           "speed": 11,
-          "card": "удачное_стечение_img2",
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
+          "force_clash": false
         }
       ],
       "stored_dice": [],
@@ -580,43 +520,18 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 56,
+      "current_hp": 0,
       "current_sp": 161,
-      "current_stagger": 1,
+      "current_stagger": 0,
       "resources": {},
       "cooldowns": {
-        "copycat_insight": 3,
-        "mech_magnetic_pickaxe": 5
+        "copycat_insight": 2,
+        "mech_magnetic_pickaxe": 4
       },
-      "card_cooldowns": {
-        "lima_hit_and_run": [
-          1
-        ],
-        "lima_inertia": [
-          1
-        ],
-        "lima_morphine_dart": [
-          1
-        ],
-        "lima_one_furious_shot": [
-          2
-        ],
-        "lima_ram": [
-          2
-        ],
-        "lima_purge_toxin": [
-          2
-        ]
-      },
+      "card_cooldowns": {},
       "active_buffs": {},
       "_status_effects": {
         "haste": [
-          {
-            "amount": 1,
-            "duration": 1
-          }
-        ],
-        "magnetic_charge": [
           {
             "amount": 1,
             "duration": 1
@@ -633,78 +548,16 @@
         "lima_morphine_dart",
         "lima_one_furious_shot",
         "lima_ram",
-        "lima_purge_toxin",
-        "release_steam_copy_Лима_9_123",
-        "release_steam_copy_Лима_10_912"
+        "lima_purge_toxin"
       ],
       "active_slots": [
         {
-          "speed": 21,
-          "card": "lima_assorted_arrows",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 5,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs Адам Серый Лис [S6] | Перехват!",
-            "icon": "⚡",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        },
-        {
-          "speed": 23,
-          "card": "release_steam_copy_Лима_10_912",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 1,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs Адам Серый Лис [S2] | Перехват!",
-            "icon": "⚡",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        },
-        {
-          "speed": 23,
-          "card": "lima_little_tricks",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs Адам Серый Лис [S1] | Перехват!",
-            "icon": "⚡",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        },
-        {
-          "speed": 20,
-          "card": "lima_jump_shooting",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 3,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs Адам Серый Лис [S4] | Перехват!",
-            "icon": "⚡",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
+          "speed": 0,
+          "card": null,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "stunned": true,
+          "is_aggro": false
         }
       ],
       "stored_dice": [],
@@ -718,14 +571,11 @@
         },
         "mind_suppression_bonus": 15,
         "smashing_blade_used": false,
-        "copycat_active_cards": [
-          "release_steam_copy_Лима_9_123",
-          "release_steam_copy_Лима_10_912"
-        ],
+        "copycat_active_cards": [],
         "battle_initialized": true
       },
       "death_count": 0,
-      "overkill_damage": 0,
+      "overkill_damage": 16,
       "money_log": [
         {
           "amount": 5790000,
@@ -741,9 +591,9 @@
         }
       ],
       "base_stats": {
-        "current_hp": 56,
+        "current_hp": 0,
         "current_sp": 161,
-        "current_stagger": 1
+        "current_stagger": 0
       },
       "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -874,24 +724,71 @@
         "imp_sp": 50,
         "imp_stg": 13
       },
-      "current_hp": 628,
+      "current_hp": 470,
       "current_sp": 194,
-      "current_stagger": 376,
+      "current_stagger": 361,
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {
         "adam_wethermon_ult": [
-          3
-        ],
-        "adam_steel_break": [
           2
         ],
-        "adam_binary_moon": [
+        "adam_steel_break": [
           1
         ]
       },
       "active_buffs": {},
       "_status_effects": {
+        "bleed": [
+          {
+            "amount": 7,
+            "duration": 2
+          },
+          {
+            "amount": 31,
+            "duration": 2
+          }
+        ],
+        "anti_charge": [
+          {
+            "amount": 1,
+            "duration": 98
+          },
+          {
+            "amount": 2,
+            "duration": 98
+          },
+          {
+            "amount": 2,
+            "duration": 98
+          },
+          {
+            "amount": 2,
+            "duration": 98
+          }
+        ],
+        "fragile": [
+          {
+            "amount": 1,
+            "duration": 2
+          }
+        ],
+        "attack_power_up": [
+          {
+            "amount": 1,
+            "duration": 2
+          }
+        ],
+        "paralysis": [
+          {
+            "amount": 1,
+            "duration": 2
+          },
+          {
+            "amount": 1,
+            "duration": 2
+          }
+        ],
         "self_control": [
           {
             "amount": 5,
@@ -909,98 +806,58 @@
       ],
       "active_slots": [
         {
-          "speed": 21,
-          "card": "adam_quick_draw",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 2,
-          "target_slot_idx": 3,
-          "force_clash": false,
-          "ui_status": {
-            "text": "CLASH vs Лима [S3] | Перехвачен (21 < 23)",
-            "icon": "⚠️",
-            "color": "orange"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
-        },
-        {
-          "speed": 19,
+          "speed": 1,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "CLASH vs Лима [S2] | Перехвачен (19 < 23)",
-            "icon": "⚠️",
-            "color": "orange"
-          },
-          "is_ally_target": false
+          "force_clash": false
         },
         {
-          "speed": 20,
+          "speed": 1,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
+          "force_clash": false
         },
         {
-          "speed": 22,
-          "card": "adam_flowing_water",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 2,
-          "target_slot_idx": 3,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs Лима [S4] | Перехват!",
-            "icon": "⚡",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        },
-        {
-          "speed": 21,
+          "speed": 1,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
+          "force_clash": false
         },
         {
-          "speed": 16,
+          "speed": 1,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "CLASH vs Лима [S1] | Перехвачен (16 < 21)",
-            "icon": "⚠️",
-            "color": "orange"
-          },
-          "is_ally_target": false
+          "force_clash": false
+        },
+        {
+          "speed": 1,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
+        },
+        {
+          "speed": 1,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
         }
       ],
       "stored_dice": [],
@@ -1018,9 +875,9 @@
       "overkill_damage": 0,
       "money_log": [],
       "base_stats": {
-        "current_hp": 628,
+        "current_hp": 470,
         "current_sp": 194,
-        "current_stagger": 376
+        "current_stagger": 361
       },
       "defense": {
         "armor_name": "Экзо-костюм 'Призрак'",
@@ -1157,38 +1014,434 @@
     }
   ],
   "phase": "planning",
-  "round_number": 1,
+  "round_number": 2,
   "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
   "battle_logs": [
     {
-      "round": "Start",
-      "rolls": "Event",
-      "details": "🚩 **Лилит**: 🚬 **Скрываюсь в дыму**: Легкие адаптировались. Дым стал щитом."
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лима",
+        "card": "Ассорти Стрел",
+        "dice": "PIERCE",
+        "val": 8,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-5 HP**",
+      "details": [
+        "🎲 Roll [3-4]: 3 + 3 (Сила) + 2 (Среднее ор.) = **8**",
+        "🗡️ **Sudden Attack**: x1.5 Dmg & 13 Bleed (>90% HP) [1/Round]",
+        "⚡ **Магнитный Разряд**: x1.5 Урона + 2 Анти-Заряда!",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.6 Res] Hit 5 HP"
+      ]
     },
     {
-      "round": "Start",
-      "rolls": "Event",
-      "details": "🚩 **Лилит**: 🌬️ **Тату 'Благословение Ветра'**: Лимит дыма увеличен до 15"
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лима",
+        "card": "Ассорти Стрел",
+        "dice": "PIERCE",
+        "val": 8,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-1 HP**",
+      "details": [
+        "🎲 Roll [3-4]: 3 + 3 (Сила) + 2 (Среднее ор.) = **8**",
+        "⚡ **Магнитный Разряд**: x1.5 Урона + 2 Анти-Заряда!",
+        "🧪 **Адам Серый Лис**: +1 Fragile",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.6 Res] Hit 1 HP"
+      ]
     },
     {
-      "round": "Start",
-      "rolls": "Event",
-      "details": "🚩 **Рейн**: 👁️ Новое открытие (Сенсоры 2%): Сенсоры активны."
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лима",
+        "card": "Ассорти Стрел",
+        "dice": "PIERCE",
+        "val": 8,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-1 HP**",
+      "details": [
+        "🎲 Roll [3-4]: 3 + 3 (Сила) + 2 (Среднее ор.) = **8**",
+        "⚡ **Магнитный Разряд**: x1.5 Урона + 2 Анти-Заряда!",
+        "🧪 **Адам Серый Лис**: +1 Paralysis",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.6 Res] Hit 1 HP"
+      ]
     },
     {
-      "round": "Start",
-      "rolls": "Event",
-      "details": "🚩 **Рейн**: 🛡️ Тень Величия: Адам Серый Лис (Lvl 40) сопротивляется Ауре"
+      "type": "clash",
+      "round": "Clash (1)",
+      "left": {
+        "unit": "Лима",
+        "card": "Стрельба в Прыжке",
+        "dice": "EVADE",
+        "val": 22,
+        "range": "6-9"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "Течение воды (Sui-Ryu)",
+        "dice": "EVADE",
+        "val": 18.0,
+        "range": "5-25"
+      },
+      "outcome": "🛡️ Defensive Clash (Both Spent)",
+      "details": [
+        "🩸 Плата: -31 HP",
+        "🎲 Roll [6-9]: 7 + 15 (Ловкость) = **22**",
+        "🎲 Roll [5-25]: 24 + 12 (Ловкость) + 7.0 (Power All) - 18 (Anti-Charge (6)) - 19 (Paralysis (Min)) + 12 (Ockham (4 free)) = **18.0**",
+        "💀 Ruthless: +50% DMG"
+      ]
     },
     {
-      "round": "Start",
-      "rolls": "Event",
-      "details": "🚩 **Рейн**: 👣 **Заметая следы**: Тени укрывают вас (Невидимость)."
+      "type": "clash",
+      "round": "Clash (2)",
+      "left": {
+        "unit": "Лима",
+        "card": "Стрельба в Прыжке",
+        "dice": "PIERCE",
+        "val": 7,
+        "range": "2-5"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "Течение воды (Sui-Ryu)",
+        "dice": "Broken",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🚫 Адам Серый Лис Broken",
+      "details": [
+        "🎲 Roll [2-5]: 2 + 3 (Сила) + 2 (Среднее ор.) = **7**"
+      ]
     },
     {
-      "round": "Start",
-      "rolls": "Event",
-      "details": "🚩 **Лима**: 🧠 **Подавление разумом**: Интеллект 19 vs 4. Бонус +15 к Красноречию."
+      "type": "clash",
+      "round": "Clash (1)",
+      "left": {
+        "unit": "Лима",
+        "card": "Маленькие Хитрости",
+        "dice": "EVADE",
+        "val": 22,
+        "range": "2-2"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "Мгновенный разрез (Setsuna)",
+        "dice": "SLASH",
+        "val": 24.0,
+        "range": "12-23"
+      },
+      "outcome": "💥 Evade Failed 💥 **-72 HP**",
+      "details": [
+        "🩸 Плата: -31 HP",
+        "🎲 Roll [2-2]: 2 + 15 (Ловкость) + 5 (Total_Intellect scale) = **22**",
+        "🎲 Roll [12-23]: 17 + 4 (Сила) + 5 (Среднее ор.) + 3 (Bonus SLASH) + 7.0 (Power All) - 24 (Anti-Charge (8)) + 12 (Ockham (4 free)) = **24.0**",
+        "💀 Ruthless: +50% DMG",
+        "⚡ Sandevistan: Strength Boost",
+        "🩸 Bleed: Адам Серый Лис takes 13 dmg",
+        "🛡️ **ВЧ-Лезвие**: Пробив [Res 1.0 + 0.5 -> 1.5]",
+        "👊 Atk Boost: +10.0",
+        "💥 **Лима**: [-4 Skin] [x1.0 Res] Hit 72 HP (DEAD! Overkill: 16)"
+      ]
+    },
+    {
+      "type": "info",
+      "outcome": "🛡️ Лима Stored Evade Die",
+      "details": [
+        "Die 2-2 saved."
+      ]
+    },
+    {
+      "type": "info",
+      "outcome": "🛡️ Лима Stored Evade Die",
+      "details": [
+        "Die 2-2 saved."
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Рейн",
+        "card": "Обычный удар",
+        "dice": "BLUNT",
+        "val": 19.0,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-18 HP**",
+      "details": [
+        "🎲 Roll [5-12]: 11 + 1 (Сила) + 2.0 (Power All) + 5 (Fast & Silent (Invis)) = **19.0**",
+        "📉 **Помеха!** (12, 11) -> Base: 11",
+        "🗡️ **Sudden Attack**: x2 Dmg & 31 Bleed (Invisible, >75% HP) [1/Round]",
+        "👻 **Невидимость**: Раскрыт после удара!",
+        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.7 Res] Hit 18 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Рейн",
+        "card": "Не Беспокойство",
+        "dice": "BLOCK",
+        "val": 11.0,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🛡️ Block (Ignored)",
+      "details": [
+        "🎲 Roll [5-8]: 5 + 4 (Стойкость) + 2.0 (Power All) = **11.0**",
+        "📉 **Помеха!** (5, 6) -> Base: 5"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Рейн",
+        "card": "Не Беспокойство",
+        "dice": "SLASH",
+        "val": 8.0,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected)",
+      "details": [
+        "🎲 Roll [3-6]: 3 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) = **8.0**",
+        "📉 **Помеха!** (3, 5) -> Base: 3",
+        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.5 Res] Hit 0 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лилит",
+        "card": "Выпустить пар",
+        "dice": "SLASH",
+        "val": 13,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-1 HP**",
+      "details": [
+        "🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **13**",
+        "📉 **Помеха!** (3, 1) -> Base: 1",
+        "🧠 **Не теряя голову**: +1 Self-Control",
+        "🧪 **Адам Серый Лис**: +1 Smoke",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.5 Res] Hit 1 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лилит",
+        "card": "Выпустить пар",
+        "dice": "SLASH",
+        "val": 13,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-1 HP**",
+      "details": [
+        "🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **13**",
+        "📉 **Помеха!** (1, 3) -> Base: 1",
+        "🧠 **Не теряя голову**: +1 Self-Control",
+        "🧪 **Адам Серый Лис**: +1 Smoke",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.5 Res] Hit 1 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лилит",
+        "card": "Выпустить пар",
+        "dice": "SLASH",
+        "val": 13,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-1 HP**",
+      "details": [
+        "🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **13**",
+        "📉 **Помеха!** (1, 2) -> Base: 1",
+        "🧠 **Не теряя голову**: +1 Self-Control",
+        "🧪 **Адам Серый Лис**: +1 Smoke",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.5 Res] Hit 1 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лилит",
+        "card": "Прелюдия",
+        "dice": "BLUNT",
+        "val": 15,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-15 HP**",
+      "details": [
+        "🧪 **Лилит**: +2 Smoke",
+        "🧪 **Адам Серый Лис**: +2 Smoke",
+        "🎲 Roll [3-4]: 3 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **15**",
+        "💨 CRIT! (15%) x2 DMG",
+        "🧠 **Не теряя голову**: +1 Self-Control",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.7 Res] Hit 15 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лилит",
+        "card": "Прелюдия",
+        "dice": "BLUNT",
+        "val": 16,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-4 HP**",
+      "details": [
+        "🎲 Roll [3-4]: 4 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **16**",
+        "🧠 **Не теряя голову**: +1 Self-Control",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.7 Res] Hit 4 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Рейн",
+        "card": "Удачное стечение обстоятельств",
+        "dice": "EVADE",
+        "val": 19.0,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🏃 Evade Stored",
+      "details": [
+        "🎲 Roll [7-15]: 11 + 4 (Ловкость) + 2.0 (Power All) + 2 (Cat Reflexes) = **19.0**"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Лилит",
+        "card": "Затяг",
+        "dice": "SLASH",
+        "val": 20,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Адам Серый Лис",
+        "card": "-",
+        "dice": "Busy",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-5 HP**",
+      "details": [
+        "✋ **Лилит** stole 5 smoke",
+        "🎲 Roll [6-8]: 7 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) + 1 (Blessing (7)) = **20**",
+        "🧠 **Не теряя голову**: +1 Self-Control",
+        "👊 Atk Boost: +2",
+        "💥 **Адам Серый Лис**: [-13 Skin] [x0.5 Res] Hit 5 HP"
+      ]
     },
     {
       "round": "Round Start",
@@ -1223,17 +1476,12 @@
     {
       "round": "Speed Roll",
       "rolls": "Passive",
-      "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Силуэт размыт. Добавлено 1 уклонений (Дым: 0)."
+      "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Силуэт размыт. Добавлено 2 уклонений (Дым: 6)."
     },
     {
       "round": "Speed Roll",
       "rolls": "Passive",
       "details": "⚡ **Рейн**: 🧬 S-клетки: 3 слотов x 10 = Восстановлено 30 HP"
-    },
-    {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "👁️ **Озарение**: Техника 'Выпустить пар' скопирована!"
     }
   ],
   "script_logs": "",
@@ -2362,6 +2610,961 @@
       "leveling_unit": " Дна'хо",
       "tree_unit": " Дна'хо",
       "checks_unit": " Дна'хо"
+    },
+    {
+      "type": "dynamic",
+      "team_left_dyn": [
+        {
+          "current_hp": 132,
+          "current_sp": 77,
+          "current_stagger": 66,
+          "resources": {},
+          "cooldowns": {},
+          "card_cooldowns": {
+            "smoke_arts": [
+              1
+            ],
+            "demon_scream": [
+              1
+            ],
+            "smoke_silhouette": [
+              1
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {
+            "smoke": [
+              {
+                "amount": 6,
+                "duration": 98
+              }
+            ],
+            "attack_power_up": [
+              {
+                "amount": 4,
+                "duration": 1
+              }
+            ],
+            "endurance": [
+              {
+                "amount": 4,
+                "duration": 1
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "release_steam",
+            "prelude",
+            "puff",
+            "bad_habit",
+            "trip_up",
+            "inhale_exhale",
+            "smoke_arts",
+            "demon_scream",
+            "smoke_silhouette"
+          ],
+          "active_slots": [
+            {
+              "speed": 15,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 12,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 14,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 10,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [
+            {
+              "type": "evade",
+              "base_min": 7,
+              "base_max": 10,
+              "is_counter": true,
+              "scripts": {}
+            },
+            {
+              "type": "slash",
+              "base_min": 7,
+              "base_max": 10,
+              "is_counter": true,
+              "scripts": {}
+            },
+            {
+              "type": "evade",
+              "base_min": 7,
+              "base_max": 10,
+              "is_counter": true,
+              "scripts": {}
+            },
+            {
+              "type": "evade",
+              "base_min": 7,
+              "base_max": 10,
+              "is_counter": true,
+              "scripts": {}
+            }
+          ],
+          "memory": {
+            "status_rank": "9 (Fixer)",
+            "start_of_battle_stats": {
+              "hp": 132,
+              "sp": 77,
+              "stagger": 66
+            },
+            "smoke_is_defensive": true,
+            "smoke_limit_bonus": 5,
+            "vengeful_payback_chunks": 0,
+            "last_revive_attempt_round": 2,
+            "last_revive_log": {
+              "roll": 2,
+              "bonus": 0,
+              "penalty": 0,
+              "total": 2,
+              "dc": 1,
+              "success": true
+            },
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": [
+            {
+              "amount": 280000,
+              "reason": ""
+            }
+          ]
+        },
+        {
+          "current_hp": 200,
+          "current_sp": 202,
+          "current_stagger": 103,
+          "resources": {
+            "luck": 138
+          },
+          "cooldowns": {},
+          "card_cooldowns": {
+            "warp_img": [
+              1
+            ],
+            "series_normal_strikes_img": [
+              1
+            ],
+            "not_the_limit_img": [
+              1
+            ],
+            "bad_coffee_img": [
+              2
+            ],
+            "good_coffee_img": [
+              2
+            ],
+            "equivalent_exchange_img": [
+              2
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {},
+          "delayed_queue": [],
+          "deck": [
+            "обычный_удар_726c",
+            "удачное_стечение_img2",
+            "не_беспокойство_img3",
+            "тяжкое_бремя_img4",
+            "изничтожение_img5",
+            "tale_of_twilight_img",
+            "warp_img",
+            "series_normal_strikes_img",
+            "not_the_limit_img",
+            "bad_coffee_img",
+            "good_coffee_img",
+            "equivalent_exchange_img"
+          ],
+          "active_slots": [
+            {
+              "speed": 13,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 14,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 11,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "9 (Fixer)",
+            "start_of_battle_stats": {
+              "hp": 200,
+              "sp": 202,
+              "stagger": 103
+            },
+            "cat_reflexes_triggered": false,
+            "smashing_blade_used": false,
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": [
+            {
+              "amount": 7889000,
+              "reason": ""
+            },
+            {
+              "amount": 250000,
+              "reason": "Собачка Макимы"
+            }
+          ]
+        },
+        {
+          "current_hp": 0,
+          "current_sp": 161,
+          "current_stagger": 0,
+          "resources": {},
+          "cooldowns": {
+            "copycat_insight": 2,
+            "mech_magnetic_pickaxe": 4
+          },
+          "card_cooldowns": {},
+          "active_buffs": {},
+          "_status_effects": {
+            "haste": [
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "lima_little_tricks",
+            "lima_jump_shooting",
+            "lima_assorted_arrows",
+            "lima_hit_and_run",
+            "lima_inertia",
+            "lima_morphine_dart",
+            "lima_one_furious_shot",
+            "lima_ram",
+            "lima_purge_toxin"
+          ],
+          "active_slots": [
+            {
+              "speed": 0,
+              "card": null,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "stunned": true,
+              "is_aggro": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "9 (Fixer)",
+            "start_of_battle_stats": {
+              "hp": 56,
+              "sp": 161,
+              "stagger": 1
+            },
+            "mind_suppression_bonus": 15,
+            "smashing_blade_used": false,
+            "copycat_active_cards": [],
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 16,
+          "money_log": [
+            {
+              "amount": 5790000,
+              "reason": ""
+            },
+            {
+              "amount": -3700000,
+              "reason": "Шопинг, стрелы, гранаты"
+            },
+            {
+              "amount": -500000,
+              "reason": "украла Аксис"
+            }
+          ]
+        }
+      ],
+      "team_right_dyn": [
+        {
+          "current_hp": 470,
+          "current_sp": 194,
+          "current_stagger": 361,
+          "resources": {},
+          "cooldowns": {},
+          "card_cooldowns": {
+            "adam_wethermon_ult": [
+              2
+            ],
+            "adam_steel_break": [
+              1
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {
+            "bleed": [
+              {
+                "amount": 7,
+                "duration": 2
+              },
+              {
+                "amount": 31,
+                "duration": 2
+              }
+            ],
+            "anti_charge": [
+              {
+                "amount": 1,
+                "duration": 98
+              },
+              {
+                "amount": 2,
+                "duration": 98
+              },
+              {
+                "amount": 2,
+                "duration": 98
+              },
+              {
+                "amount": 2,
+                "duration": 98
+              }
+            ],
+            "fragile": [
+              {
+                "amount": 1,
+                "duration": 2
+              }
+            ],
+            "attack_power_up": [
+              {
+                "amount": 1,
+                "duration": 2
+              }
+            ],
+            "paralysis": [
+              {
+                "amount": 1,
+                "duration": 2
+              },
+              {
+                "amount": 1,
+                "duration": 2
+              }
+            ],
+            "self_control": [
+              {
+                "amount": 5,
+                "duration": 99
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "adam_wethermon_ult",
+            "adam_steel_break",
+            "adam_binary_moon",
+            "adam_quick_draw",
+            "adam_flowing_water"
+          ],
+          "active_slots": [
+            {
+              "speed": 1,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 1,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 1,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 1,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 1,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 1,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "Убийца Бардо",
+            "start_of_battle_stats": {
+              "hp": 628,
+              "sp": 194,
+              "stagger": 376
+            },
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": []
+        }
+      ],
+      "phase": "planning",
+      "round_number": 2,
+      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
+      "battle_logs": [
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лима",
+            "card": "Ассорти Стрел",
+            "dice": "PIERCE",
+            "val": 8,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-5 HP**",
+          "details": [
+            "🎲 Roll [3-4]: 3 + 3 (Сила) + 2 (Среднее ор.) = **8**",
+            "🗡️ **Sudden Attack**: x1.5 Dmg & 13 Bleed (>90% HP) [1/Round]",
+            "⚡ **Магнитный Разряд**: x1.5 Урона + 2 Анти-Заряда!",
+            "👊 Atk Boost: +2",
+            "💥 **Адам Серый Лис**: [-13 Skin] [x0.6 Res] Hit 5 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лима",
+            "card": "Ассорти Стрел",
+            "dice": "PIERCE",
+            "val": 8,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-1 HP**",
+          "details": [
+            "🎲 Roll [3-4]: 3 + 3 (Сила) + 2 (Среднее ор.) = **8**",
+            "⚡ **Магнитный Разряд**: x1.5 Урона + 2 Анти-Заряда!",
+            "🧪 **Адам Серый Лис**: +1 Fragile",
+            "👊 Atk Boost: +2",
+            "💥 **Адам Серый Лис**: [-13 Skin] [x0.6 Res] Hit 1 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лима",
+            "card": "Ассорти Стрел",
+            "dice": "PIERCE",
+            "val": 8,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-1 HP**",
+          "details": [
+            "🎲 Roll [3-4]: 3 + 3 (Сила) + 2 (Среднее ор.) = **8**",
+            "⚡ **Магнитный Разряд**: x1.5 Урона + 2 Анти-Заряда!",
+            "🧪 **Адам Серый Лис**: +1 Paralysis",
+            "👊 Atk Boost: +2",
+            "💥 **Адам Серый Лис**: [-13 Skin] [x0.6 Res] Hit 1 HP"
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "Clash (1)",
+          "left": {
+            "unit": "Лима",
+            "card": "Стрельба в Прыжке",
+            "dice": "EVADE",
+            "val": 22,
+            "range": "6-9"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "Течение воды (Sui-Ryu)",
+            "dice": "EVADE",
+            "val": 18.0,
+            "range": "5-25"
+          },
+          "outcome": "🛡️ Defensive Clash (Both Spent)",
+          "details": [
+            "🩸 Плата: -31 HP",
+            "🎲 Roll [6-9]: 7 + 15 (Ловкость) = **22**",
+            "🎲 Roll [5-25]: 24 + 12 (Ловкость) + 7.0 (Power All) - 18 (Anti-Charge (6)) - 19 (Paralysis (Min)) + 12 (Ockham (4 free)) = **18.0**",
+            "💀 Ruthless: +50% DMG"
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "Clash (2)",
+          "left": {
+            "unit": "Лима",
+            "card": "Стрельба в Прыжке",
+            "dice": "PIERCE",
+            "val": 7,
+            "range": "2-5"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "Течение воды (Sui-Ryu)",
+            "dice": "Broken",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "🚫 Адам Серый Лис Broken",
+          "details": [
+            "🎲 Roll [2-5]: 2 + 3 (Сила) + 2 (Среднее ор.) = **7**"
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "Clash (1)",
+          "left": {
+            "unit": "Лима",
+            "card": "Маленькие Хитрости",
+            "dice": "EVADE",
+            "val": 22,
+            "range": "2-2"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "Мгновенный разрез (Setsuna)",
+            "dice": "SLASH",
+            "val": 24.0,
+            "range": "12-23"
+          },
+          "outcome": "💥 Evade Failed 💥 **-72 HP**",
+          "details": [
+            "🩸 Плата: -31 HP",
+            "🎲 Roll [2-2]: 2 + 15 (Ловкость) + 5 (Total_Intellect scale) = **22**",
+            "🎲 Roll [12-23]: 17 + 4 (Сила) + 5 (Среднее ор.) + 3 (Bonus SLASH) + 7.0 (Power All) - 24 (Anti-Charge (8)) + 12 (Ockham (4 free)) = **24.0**",
+            "💀 Ruthless: +50% DMG",
+            "⚡ Sandevistan: Strength Boost",
+            "🩸 Bleed: Адам Серый Лис takes 13 dmg",
+            "🛡️ **ВЧ-Лезвие**: Пробив [Res 1.0 + 0.5 -> 1.5]",
+            "👊 Atk Boost: +10.0",
+            "💥 **Лима**: [-4 Skin] [x1.0 Res] Hit 72 HP (DEAD! Overkill: 16)"
+          ]
+        },
+        {
+          "type": "info",
+          "outcome": "🛡️ Лима Stored Evade Die",
+          "details": [
+            "Die 2-2 saved."
+          ]
+        },
+        {
+          "type": "info",
+          "outcome": "🛡️ Лима Stored Evade Die",
+          "details": [
+            "Die 2-2 saved."
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Рейн",
+            "card": "Обычный удар",
+            "dice": "BLUNT",
+            "val": 19.0,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-18 HP**",
+          "details": [
+            "🎲 Roll [5-12]: 11 + 1 (Сила) + 2.0 (Power All) + 5 (Fast & Silent (Invis)) = **19.0**",
+            "📉 **Помеха!** (12, 11) -> Base: 11",
+            "🗡️ **Sudden Attack**: x2 Dmg & 31 Bleed (Invisible, >75% HP) [1/Round]",
+            "👻 **Невидимость**: Раскрыт после удара!",
+            "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
+            "💥 **Адам Серый Лис**: [-13 Skin] [x0.7 Res] Hit 18 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Рейн",
+            "card": "Не Беспокойство",
+            "dice": "BLOCK",
+            "val": 11.0,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "🛡️ Block (Ignored)",
+          "details": [
+            "🎲 Roll [5-8]: 5 + 4 (Стойкость) + 2.0 (Power All) = **11.0**",
+            "📉 **Помеха!** (5, 6) -> Base: 5"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Рейн",
+            "card": "Не Беспокойство",
+            "dice": "SLASH",
+            "val": 8.0,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected)",
+          "details": [
+            "🎲 Roll [3-6]: 3 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) = **8.0**",
+            "📉 **Помеха!** (3, 5) -> Base: 3",
+            "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
+            "💥 **Адам Серый Лис**: [-13 Skin] [x0.5 Res] Hit 0 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лилит",
+            "card": "Выпустить пар",
+            "dice": "SLASH",
+            "val": 13,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-1 HP**",
+          "details": [
+            "🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **13**",
+            "📉 **Помеха!** (3, 1) -> Base: 1",
+            "🧠 **Не теряя голову**: +1 Self-Control",
+            "🧪 **Адам Серый Лис**: +1 Smoke",
+            "👊 Atk Boost: +2",
+            "💥 **Адам Серый Лис**: [-13 Skin] [x0.5 Res] Hit 1 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лилит",
+            "card": "Выпустить пар",
+            "dice": "SLASH",
+            "val": 13,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-1 HP**",
+          "details": [
+            "🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **13**",
+            "📉 **Помеха!** (1, 3) -> Base: 1",
+            "🧠 **Не теряя голову**: +1 Self-Control",
+            "🧪 **Адам Серый Лис**: +1 Smoke",
+            "👊 Atk Boost: +2",
+            "💥 **Адам Серый Лис**: [-13 Skin] [x0.5 Res] Hit 1 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лилит",
+            "card": "Выпустить пар",
+            "dice": "SLASH",
+            "val": 13,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-1 HP**",
+          "details": [
+            "🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **13**",
+            "📉 **Помеха!** (1, 2) -> Base: 1",
+            "🧠 **Не теряя голову**: +1 Self-Control",
+            "🧪 **Адам Серый Лис**: +1 Smoke",
+            "👊 Atk Boost: +2",
+            "💥 **Адам Серый Лис**: [-13 Skin] [x0.5 Res] Hit 1 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лилит",
+            "card": "Прелюдия",
+            "dice": "BLUNT",
+            "val": 15,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-15 HP**",
+          "details": [
+            "🧪 **Лилит**: +2 Smoke",
+            "🧪 **Адам Серый Лис**: +2 Smoke",
+            "🎲 Roll [3-4]: 3 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **15**",
+            "💨 CRIT! (15%) x2 DMG",
+            "🧠 **Не теряя голову**: +1 Self-Control",
+            "👊 Atk Boost: +2",
+            "💥 **Адам Серый Лис**: [-13 Skin] [x0.7 Res] Hit 15 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лилит",
+            "card": "Прелюдия",
+            "dice": "BLUNT",
+            "val": 16,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-4 HP**",
+          "details": [
+            "🎲 Roll [3-4]: 4 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **16**",
+            "🧠 **Не теряя голову**: +1 Self-Control",
+            "👊 Atk Boost: +2",
+            "💥 **Адам Серый Лис**: [-13 Skin] [x0.7 Res] Hit 4 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Рейн",
+            "card": "Удачное стечение обстоятельств",
+            "dice": "EVADE",
+            "val": 19.0,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "🏃 Evade Stored",
+          "details": [
+            "🎲 Roll [7-15]: 11 + 4 (Ловкость) + 2.0 (Power All) + 2 (Cat Reflexes) = **19.0**"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Лилит",
+            "card": "Затяг",
+            "dice": "SLASH",
+            "val": 20,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Адам Серый Лис",
+            "card": "-",
+            "dice": "Busy",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-5 HP**",
+          "details": [
+            "✋ **Лилит** stole 5 smoke",
+            "🎲 Roll [6-8]: 7 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) + 1 (Blessing (7)) = **20**",
+            "🧠 **Не теряя голову**: +1 Self-Control",
+            "👊 Atk Boost: +2",
+            "💥 **Адам Серый Лис**: [-13 Skin] [x0.5 Res] Hit 5 HP"
+          ]
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Лима**: ⚡ **Лима**: Экзоскелет активирует сервоприводы (Спешка +1)."
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Адам Серый Лис**: 🧘 **Транс**: Адам фокусируется (+5 Самообладания)"
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Адам Серый Лис**: ⚙️ **Нано-ремонт**: +31 HP, +37 Stagger"
+        },
+        {
+          "round": "Speed Roll",
+          "rolls": "Passive",
+          "details": "⚡ **Лилит**: 🐈 **Махнуть хвостиком**: +1 Counter Evade (7-10) added to pool."
+        },
+        {
+          "round": "Speed Roll",
+          "rolls": "Passive",
+          "details": "⚡ **Лилит**: ⚡ **Живи быстро, умирай молодым**: +4 Силы и Стойкости (за 4 слота)"
+        },
+        {
+          "round": "Speed Roll",
+          "rolls": "Passive",
+          "details": "⚡ **Лилит**: ⚔️ **Неистовство**: Лезвие (7-10)"
+        },
+        {
+          "round": "Speed Roll",
+          "rolls": "Passive",
+          "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Силуэт размыт. Добавлено 2 уклонений (Дым: 6)."
+        },
+        {
+          "round": "Speed Roll",
+          "rolls": "Passive",
+          "details": "⚡ **Рейн**: 🧬 S-клетки: 3 слотов x 10 = Восстановлено 30 HP"
+        }
+      ],
+      "turn_actions": [],
+      "turn_phase": "done",
+      "action_idx": 0,
+      "executed_slots": []
     }
   ]
 }
