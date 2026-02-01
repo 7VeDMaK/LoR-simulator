@@ -78,6 +78,14 @@
         {
             "amount": 500000,
             "reason": "У Лимы отобрала"
+        },
+        {
+            "amount": 24000000,
+            "reason": "Это за талоны на бензин"
+        },
+        {
+            "amount": 100000,
+            "reason": "Это за кейс"
         }
     ],
     "base_stats": {
@@ -87,8 +95,8 @@
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
-        "armor_id": "standard_fixer_suit",
         "armor_type": "Medium",
+        "armor_id": "standard_fixer_suit",
         "hp_resists": {
             "slash": 1.0,
             "pierce": 1.0,
