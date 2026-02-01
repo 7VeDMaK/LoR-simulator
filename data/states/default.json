@@ -373,34 +373,32 @@
           "card": "тяжкое_бремя_img4",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
           "force_clash": false,
           "ui_status": {
-            "text": "✨ SPEED BREAK -> Адам Серый Лис | Уничтожение (14 >> 3)",
-            "icon": "⚡",
-            "color": "green"
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
+          "destroy_on_speed": true
         },
         {
           "speed": 16,
           "card": "tale_of_twilight_img",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
           "force_clash": false,
           "ui_status": {
-            "text": "✨ SPEED BREAK -> Адам Серый Лис | Уничтожение (16 >> 3)",
-            "icon": "⚡",
-            "color": "green"
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
+          "destroy_on_speed": true
         },
         {
           "speed": 14,
@@ -627,17 +625,16 @@
           "card": "lima_hit_and_run",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": true,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
           "ui_status": {
-            "text": "✨ SPEED BREAK -> Адам Серый Лис | Уничтожение (21 >> 3)",
-            "icon": "⚡",
-            "color": "green"
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
+          "destroy_on_speed": true
         },
         {
           "speed": 20,
@@ -646,7 +643,7 @@
           "is_aggro": false,
           "target_unit_idx": 0,
           "target_slot_idx": 0,
-          "force_clash": false,
+          "force_clash": true,
           "ui_status": {
             "text": "✨ SPEED BREAK -> Адам Серый Лис | Уничтожение (20 >> 3)",
             "icon": "⚡",
@@ -654,7 +651,7 @@
           },
           "is_ally_target": false,
           "destroy_on_speed": true,
-          "force_onesided": true
+          "force_onesided": false
         },
         {
           "speed": 20,
@@ -944,7 +941,7 @@
           "target_slot_idx": -1,
           "force_clash": false,
           "ui_status": {
-            "text": "🚫 BROKEN vs Лима [S2] | Speed Gap 18",
+            "text": "🚫 BROKEN vs Лима [S3] | Speed Gap 17",
             "icon": "💥",
             "color": "red"
           },
