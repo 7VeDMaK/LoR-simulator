@@ -535,3 +535,41 @@ class LuckyCoinStatus(StatusEffect):
             unit.memory.pop(k)
 
         return ["🪙 Монета вернулась в карман."]
+
+
+class StatusAntiCharge(StatusEffect):
+    id = "anti_charge"
+    name = "Анти-Заряд"
+    description = "-3 к Мощи и -3 к Скорости за стак. Спадает на 1 в конце раунда."
+    is_debuff = True
+
+    # 1. Механика силы (как в StrengthStatus)
+    def on_roll(self, ctx, **kwargs):
+        # Получаем текущие стаки (передаются системой)
+        stack = kwargs.get('stack', 0)
+        if stack == 0 and hasattr(self, 'stack'):
+            stack = self.stack
+
+        if stack > 0:
+            # -3 за каждый стак
+            penalty = -3 * stack
+            # Применяем ко всем кубикам (Атака и Защита)
+            ctx.modify_power(penalty, f"Anti-Charge ({stack})")
+
+    # 2. Механика скорости (как в HasteStatus)
+    def get_speed_dice_value_modifier(self, unit, stack=0) -> int:
+        if stack == 0:
+            # Если стак не передали, пробуем взять из юнита или себя
+            stack = unit.get_status(self.id) if hasattr(unit, "get_status") else getattr(self, "stack", 0)
+
+        # -3 за каждый стак
+        return -3 * stack
+
+    # 3. Спад стаков
+    def on_round_end(self, unit, *args, **kwargs):
+        # Используем встроенный метод уменьшения (если класс stateful)
+        if hasattr(self, "reduce_stack"):
+            self.reduce_stack(1)
+        # Или через юнит (если класс stateless)
+        elif hasattr(unit, "add_status"):
+            unit.add_status(self.id, -1)

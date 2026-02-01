@@ -18,8 +18,8 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 111,
-    "current_sp": 32,
+    "current_hp": 132,
+    "current_sp": 77,
     "current_stagger": 66,
     "resources": {},
     "cooldowns": {},
@@ -92,8 +92,8 @@
         }
     ],
     "base_stats": {
-        "current_hp": 111,
-        "current_sp": 32,
+        "current_hp": 132,
+        "current_sp": 77,
         "current_stagger": 66
     },
     "defense": {

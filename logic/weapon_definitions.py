@@ -82,7 +82,8 @@ WEAPON_REGISTRY = {
         rank=7,
         description="medium. Позволяет карабкаться по стенам, отвесным скалам. Иногда требуется проверка Ловкости / Акробатики для совершения действия. +3 к кубам Атаке.",
         stats={"power_attack": 3},
-        weapon_type="medium"
+        weapon_type="medium",
+        passive_id="mech_magnetic_pickaxe",
     ),
     "lilith_scythe": Weapon(
         id="lilith_scythe",

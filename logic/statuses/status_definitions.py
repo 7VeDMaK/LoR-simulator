@@ -11,7 +11,7 @@ from logic.statuses.custom import (
     SatietyStatus, MentalProtectionStatus, RegenGanacheStatus, BleedResistStatus,
     IgnoreSatietyStatus, RevengeDmgUpStatus, TauntStatus, FanatMarkStatus, ArrestedStatus,
     SlashResistDownStatus, PierceResistDownStatus, BluntResistDownStatus,
-    MainCharacterShellStatus, AzinoBeastStatus, AzinoJackpotStatus, LuckyCoinStatus
+    MainCharacterShellStatus, AzinoBeastStatus, AzinoJackpotStatus, LuckyCoinStatus, StatusAntiCharge
 )
 
 # === РЕГИСТРАЦИЯ ===
@@ -70,4 +70,5 @@ STATUS_REGISTRY = {
     "azino_jackpot": AzinoJackpotStatus(),
     "azino_beast": AzinoBeastStatus(),
     "lucky_coin_status": LuckyCoinStatus(),
+    "anti_charge": StatusAntiCharge(),
 }
