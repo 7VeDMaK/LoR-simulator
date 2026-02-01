@@ -1,6 +1,6 @@
 {
     "name": "Аксис Мунди",
-    "level": 10,
+    "level": 13,
     "rank": 9,
     "avatar": "data/avatars\\Аксис_Мунди.png",
     "base_intellect": 8,
@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 80,
-    "current_sp": 38,
-    "current_stagger": 40,
+    "current_hp": 117,
+    "current_sp": 56,
+    "current_stagger": 58,
     "resources": {
         "luck": 55
     },
@@ -89,9 +89,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 80,
-        "current_sp": 38,
-        "current_stagger": 40
+        "current_hp": 117,
+        "current_sp": 56,
+        "current_stagger": 58
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -144,7 +144,8 @@
     "talents": [
         "deal_with_fortune",
         "second_chance",
-        "sequential_luck"
+        "sequential_luck",
+        "lucky_bastard"
     ],
     "augmentations": [],
     "level_rolls": {
@@ -154,6 +155,14 @@
         },
         "6": {
             "hp": 2,
+            "sp": 4
+        },
+        "9": {
+            "hp": 5,
+            "sp": 4
+        },
+        "12": {
+            "hp": 5,
             "sp": 4
         }
     },
