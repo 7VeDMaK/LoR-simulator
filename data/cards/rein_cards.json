@@ -323,15 +323,15 @@
       "dice": [
         {
           "type": "slash",
-          "base_min": 27,
-          "base_max": 39,
+          "base_min": 23,
+          "base_max": 33,
           "is_counter": false,
           "scripts": {}
         },
         {
           "type": "slash",
-          "base_min": 9,
-          "base_max": 13,
+          "base_min": 6,
+          "base_max": 12,
           "is_counter": true,
           "scripts": {}
         }
