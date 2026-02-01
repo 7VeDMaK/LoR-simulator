@@ -5466,3 +5466,581 @@
 [16:52:06.655] [VERBOSE] [Targeting] 🏹 Forced One-Sided: Лима vs Адам Серый Лис (Outsped by ally)
 [16:52:06.656] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Адам Серый Лис intercepts Лима (Slot 3)
 [16:52:06.657] [VERBOSE] [Targeting] 🏹 Forced One-Sided: Адам Серый Лис vs Лима (Outsped by ally)
+[16:54:28.213] [VERBOSE] [Stats] Recalculating stats for Лилит
+[16:54:28.214] [VERBOSE] [Stats] 🔄 Recalculating stats for Лилит
+[16:54:28.216] [VERBOSE] [Stats] 🧬 Тату 'Истерика Купца': eloquence +5
+[16:54:28.217] [VERBOSE] [Stats] ⚔️ Weapon equipped: Коса 'Sinfoil'
+[16:54:28.219] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[16:54:28.221] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 3
+[16:54:28.221] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[16:54:28.223] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 6
+[16:54:28.225] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 3
+[16:54:28.226] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[16:54:28.227] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[16:54:28.228] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[16:54:28.229] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[16:54:28.230] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[16:54:28.232] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 20
+[16:54:28.234] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 32% от основного
+[16:54:28.235] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[16:54:28.236] [VERBOSE] [Stats] ✅ Stats updated for Лилит. HP: 132, SP: 77, Speed: [(12, 15), (12, 15), (12, 15), (7, 10)]
+[16:54:28.237] [VERBOSE] [Stats] Recalculating stats for Рейн
+[16:54:28.240] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[16:54:28.241] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[16:54:28.244] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[16:54:28.244] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[16:54:28.245] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[16:54:28.247] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[16:54:28.248] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[16:54:28.249] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[16:54:28.249] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[16:54:28.251] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[16:54:28.252] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[16:54:28.253] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[16:54:28.254] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[16:54:28.254] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[16:54:28.256] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[16:54:28.256] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[16:54:28.258] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[16:54:28.259] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[16:54:28.259] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[16:54:28.261] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[16:54:28.262] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[16:54:28.262] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 44% от основного
+[16:54:28.263] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[16:54:28.264] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[16:54:28.265] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[16:54:28.265] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[16:54:28.266] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 200, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[16:54:28.267] [VERBOSE] [Stats] Recalculating stats for Лима
+[16:54:28.268] [VERBOSE] [Stats] 🔄 Recalculating stats for Лима
+[16:54:28.269] [VERBOSE] [Stats] 🛡️ Полоса удач: luck +7
+[16:54:28.270] [VERBOSE] [Stats] 🛡️ Охотничьи веды: wisdom +15
+[16:54:28.271] [VERBOSE] [Stats] 🛡️ Подавление разумом: eloquence +15
+[16:54:28.271] [VERBOSE] [Talent] 🧬 Врожденный дар: Уровень 28 -> Бонус Характеристик +3, Навыков +6
+[16:54:28.272] [VERBOSE] [Stats] 🌟 Врожденный дар: attack_power_up +3
+[16:54:28.273] [VERBOSE] [Stats] 🌟 Врожденный дар: endurance +3
+[16:54:28.274] [VERBOSE] [Stats] 🌟 Врожденный дар: agility +3
+[16:54:28.275] [VERBOSE] [Stats] 🌟 Врожденный дар: wisdom +3
+[16:54:28.276] [VERBOSE] [Stats] 🌟 Врожденный дар: psych +3
+[16:54:28.278] [VERBOSE] [Stats] 🌟 Врожденный дар: strike_power +6
+[16:54:28.278] [VERBOSE] [Stats] 🌟 Врожденный дар: medicine +6
+[16:54:28.279] [VERBOSE] [Stats] 🌟 Врожденный дар: willpower +6
+[16:54:28.279] [VERBOSE] [Stats] 🌟 Врожденный дар: luck +6
+[16:54:28.281] [VERBOSE] [Stats] 🌟 Врожденный дар: acrobatics +6
+[16:54:28.282] [VERBOSE] [Stats] 🌟 Врожденный дар: shields +6
+[16:54:28.283] [VERBOSE] [Stats] 🌟 Врожденный дар: tough_skin +6
+[16:54:28.285] [VERBOSE] [Stats] 🌟 Врожденный дар: speed +6
+[16:54:28.286] [VERBOSE] [Stats] 🌟 Врожденный дар: light_weapon +6
+[16:54:28.286] [VERBOSE] [Stats] 🌟 Врожденный дар: medium_weapon +6
+[16:54:28.288] [VERBOSE] [Stats] 🌟 Врожденный дар: heavy_weapon +6
+[16:54:28.289] [VERBOSE] [Stats] 🌟 Врожденный дар: firearms +6
+[16:54:28.290] [VERBOSE] [Stats] 🌟 Врожденный дар: eloquence +6
+[16:54:28.291] [VERBOSE] [Stats] 🌟 Врожденный дар: forging +6
+[16:54:28.293] [VERBOSE] [Stats] 🌟 Врожденный дар: engineering +6
+[16:54:28.293] [VERBOSE] [Stats] 🌟 Врожденный дар: programming +6
+[16:54:28.295] [VERBOSE] [Stats] 🌟 Золотая Репутация: eloquence +5
+[16:54:28.296] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[16:54:28.297] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[16:54:28.298] [VERBOSE] [Stats] 🧬 Легкий экзоскелет 'СТРИЖ': acrobatics +6
+[16:54:28.299] [VERBOSE] [Stats] ⚔️ Weapon equipped: Ледоруб 'Скала Лаз'
+[16:54:28.300] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[16:54:28.301] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[16:54:28.302] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[16:54:28.302] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[16:54:28.304] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 4
+[16:54:28.305] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[16:54:28.305] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 10, эффективность лечения — 100%
+[16:54:28.307] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7 (Акробатика)
+[16:54:28.308] [VERBOSE] [Stats] Повышает значение куба 🛡️ щита на 1
+[16:54:28.309] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 5
+[16:54:28.311] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 2
+[16:54:28.312] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами тяжёлого оружия на 2
+[16:54:28.313] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами огнестрельного оружия на 7
+[16:54:28.313] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 4
+[16:54:28.315] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 30
+[16:54:28.316] [VERBOSE] [Stats] Повышает бросок качества создаваемого предмета на 6
+[16:54:28.317] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 6
+[16:54:28.318] [VERBOSE] [Stats] Повышает успешность взлома и контроля механизмов на 6
+[16:54:28.319] [VERBOSE] [Stats] 🎓 Ускоренное обучение: +10 HP/SP за каждые 3 уровня
+[16:54:28.321] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 16% от основного
+[16:54:28.322] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[16:54:28.323] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 24% от основного
+[16:54:28.324] [VERBOSE] [Stats] Персонаж получает дополнительные 20 🧠 рассудка
+[16:54:28.326] [VERBOSE] [Stats] Повышает 😵 выдержку на 6%
+[16:54:28.327] [VERBOSE] [Stats] ✅ Stats updated for Лима. HP: 139, SP: 161, Speed: [(19, 22), (19, 22), (19, 22), (17, 20)]
+[16:54:28.328] [VERBOSE] [Stats] Recalculating stats for Адам Серый Лис
+[16:54:28.329] [VERBOSE] [Stats] 🔄 Recalculating stats for Адам Серый Лис
+[16:54:28.330] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): speed +20
+[16:54:28.332] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): agility +10
+[16:54:28.332] [VERBOSE] [Stats] 🛡️ Титановая Дерма: tough_skin +20
+[16:54:28.334] [VERBOSE] [Stats] ⚔️ Weapon equipped: ВЧ-Клинок 'Мурамаса'
+[16:54:28.335] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[16:54:28.336] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 4
+[16:54:28.338] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[16:54:28.338] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[16:54:28.345] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[16:54:28.352] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 10
+[16:54:28.354] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[16:54:28.356] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[16:54:28.357] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 13
+[16:54:28.360] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 40% от основного
+[16:54:28.362] [VERBOSE] [Stats] Персонаж получает дополнительные 30 ❤️ здоровья
+[16:54:28.363] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[16:54:28.364] [VERBOSE] [Stats] ✅ Stats updated for Адам Серый Лис. HP: 628, SP: 194, Speed: [(19, 22), (19, 22), (19, 22), (19, 22), (19, 22), (14, 17)]
+[16:54:28.372] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Лима intercepts Адам Серый Лис (Slot 0)
+[16:54:28.374] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Лима intercepts Адам Серый Лис (Slot 3)
+[16:54:28.378] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Лима intercepts Адам Серый Лис (Slot 5)
+[16:54:28.379] [VERBOSE] [Targeting] 🏹 Forced One-Sided: Лима vs Адам Серый Лис (Outsped by ally)
+[16:54:28.381] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Адам Серый Лис intercepts Лима (Slot 3)
+[16:54:28.382] [VERBOSE] [Targeting] 🏹 Forced One-Sided: Адам Серый Лис vs Лима (Outsped by ally)
+[16:54:28.385] [NORMAL ] [System] >>> RESOLVE TURN START <<<
+[16:54:28.386] [NORMAL ] [Phase] 🔄 Preparing Turn: Collecting Actions...
+[16:54:28.387] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Лима intercepts Адам Серый Лис (Slot 0)
+[16:54:28.388] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Лима intercepts Адам Серый Лис (Slot 3)
+[16:54:28.390] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Лима intercepts Адам Серый Лис (Slot 5)
+[16:54:28.391] [VERBOSE] [Targeting] 🏹 Forced One-Sided: Лима vs Адам Серый Лис (Outsped by ally)
+[16:54:28.393] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Адам Серый Лис intercepts Лима (Slot 3)
+[16:54:28.394] [VERBOSE] [Targeting] 🏹 Forced One-Sided: Адам Серый Лис vs Лима (Outsped by ally)
+[16:54:28.396] [VERBOSE] [Flow] Redirections calculated.
+[16:54:28.397] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Лилит -> Адам Серый Лис
+[16:54:28.399] [VERBOSE] [Flow] ➕ Action Queued: Лилит -> Адам Серый Лис (Прелюдия, Spd: 13, Score: 1013)
+[16:54:28.399] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Лилит -> Адам Серый Лис
+[16:54:28.400] [VERBOSE] [Flow] ➕ Action Queued: Лилит -> Адам Серый Лис (Выпустить пар, Spd: 14, Score: 1014)
+[16:54:28.400] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Лилит -> Адам Серый Лис
+[16:54:28.402] [VERBOSE] [Flow] ➕ Action Queued: Лилит -> Адам Серый Лис (Затяг, Spd: 7, Score: 1007)
+[16:54:28.403] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Рейн -> Адам Серый Лис
+[16:54:28.404] [VERBOSE] [Flow] ➕ Action Queued: Рейн -> Адам Серый Лис (Не Беспокойство, Spd: 14, Score: 1014)
+[16:54:28.405] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Рейн -> Адам Серый Лис
+[16:54:28.405] [VERBOSE] [Flow] ➕ Action Queued: Рейн -> Адам Серый Лис (Обычный удар, Spd: 16, Score: 1016)
+[16:54:28.407] [VERBOSE] [Targeting] 🤖 Auto-Target (Default): Рейн -> Адам Серый Лис
+[16:54:28.407] [VERBOSE] [Flow] ➕ Action Queued: Рейн -> Адам Серый Лис (Удачное стечение обстоятельств, Spd: 11, Score: 1011)
+[16:54:28.409] [VERBOSE] [Flow] ➕ Action Queued: Лима -> Адам Серый Лис (Ассорти Стрел, Spd: 21, Score: 3021)
+[16:54:28.410] [VERBOSE] [Flow] ➕ Action Queued: Лима -> Адам Серый Лис (Выпустить пар, Spd: 23, Score: 1023)
+[16:54:28.410] [VERBOSE] [Flow] ➕ Action Queued: Лима -> Адам Серый Лис (Маленькие Хитрости, Spd: 23, Score: 1023)
+[16:54:28.412] [VERBOSE] [Flow] ➕ Action Queued: Лима -> Адам Серый Лис (Стрельба в Прыжке, Spd: 20, Score: 3020)
+[16:54:28.413] [VERBOSE] [Flow] ➕ Action Queued: Адам Серый Лис -> Лима (Мгновенный разрез (Setsuna), Spd: 21, Score: 1021)
+[16:54:28.414] [VERBOSE] [Flow] ➕ Action Queued: Адам Серый Лис -> Лима (Течение воды (Sui-Ryu), Spd: 22, Score: 1022)
+[16:54:28.415] [NORMAL ] [Phase] ✅ Turn Prepared. Total Actions: 12
+[16:54:28.417] [NORMAL ] [Cooldown] ⏳ Лима: Cooldown applied to 'Ассорти Стрел' (1 turns)
+[16:54:28.419] [NORMAL ] [Combat] 🏹 One-Sided: Лима -> Адам Серый Лис (Redirected)
+[16:54:28.420] [VERBOSE] [Flow] Resolving One-Sided: Лима -> Адам Серый Лис (Spd: 21/16)
+[16:54:28.422] [VERBOSE] [OneSided] One-Sided: Лима vs Адам Серый Лис (Spd: 21 vs 16, Redir=True)
+[16:54:28.424] [VERBOSE] [Speed] Speed Calc: 21 vs 16 (Diff 5) -> Break(A:False, D:False), Adv(A:False, D:True)
+[16:54:28.425] [VERBOSE] [Roll] 🎲 Лима: Rolled 3 [3-4]
+[16:54:28.425] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[16:54:28.427] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +2
+[16:54:28.427] [NORMAL ] [Status] 🧪 Адам Серый Лис: +13 bleed (3t)
+[16:54:28.428] [NORMAL ] [Talent] 🗡️ Smashing Blade: Sudden Attack x1.5 on Адам Серый Лис
+[16:54:28.429] [VERBOSE] [Roll] 🎲 Final: 8 (🎲 Roll [3-4]: 3 + 3 (Сила) + 2 (Среднее ор.) = **8**)
+[16:54:28.431] [NORMAL ] [OneSided] ⚔️ Direct Hit! 8 Dmg
+[16:54:28.432] [VERBOSE] [Mechanics] Apply Damage Flow: Лима -> Адам Серый Лис
+[16:54:28.433] [NORMAL ] [Status] 🧪 Адам Серый Лис: +2 anti_charge (99t)
+[16:54:28.434] [NORMAL ] [Passive] ⚡ Magnetic Burst on Адам Серый Лис
+[16:54:28.434] [VERBOSE] [Talent] ⚔️ Разрез Пустоты: Сопротивление цели пробито (0.50 -> 0.60)
+[16:54:28.435] [VERBOSE] [Filter] Filter change by void_cleave: 0.5 -> 0.6
+[16:54:28.436] [MINIMAL] [Damage] 💥 Адам Серый Лис took 5 HP Damage
+[16:54:28.438] [VERBOSE] [Talent] ⚔️ Разрез Пустоты: Сопротивление цели пробито (0.50 -> 0.60)
+[16:54:28.439] [VERBOSE] [Filter] Filter change by void_cleave: 0.5 -> 0.6
+[16:54:28.439] [MINIMAL] [Damage] 😵 Адам Серый Лис took 5 Stagger Side-Damage (Res: 0.60)
+[16:54:28.440] [VERBOSE] [Roll] 🎲 Лима: Rolled 3 [3-4]
+[16:54:28.440] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[16:54:28.441] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +2
+[16:54:28.443] [VERBOSE] [Roll] 🎲 Final: 8 (🎲 Roll [3-4]: 3 + 3 (Сила) + 2 (Среднее ор.) = **8**)
+[16:54:28.443] [NORMAL ] [OneSided] ⚔️ Direct Hit! 8 Dmg
+[16:54:28.445] [VERBOSE] [Mechanics] Apply Damage Flow: Лима -> Адам Серый Лис
+[16:54:28.446] [NORMAL ] [Status] 🧪 Адам Серый Лис: +2 anti_charge (99t)
+[16:54:28.446] [NORMAL ] [Passive] ⚡ Magnetic Burst on Адам Серый Лис
+[16:54:28.447] [VERBOSE] [Scripts] 📜 Dice Script Trigger (on_hit): apply_status
+[16:54:28.447] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 fragile (3t)
+[16:54:28.448] [VERBOSE] [Scripts] 🧪 Applied 1 fragile to Адам Серый Лис
+[16:54:28.450] [VERBOSE] [Filter] Filter change by fragile: 15 -> 16
+[16:54:28.451] [VERBOSE] [Talent] ⚔️ Разрез Пустоты: Сопротивление цели пробито (0.50 -> 0.60)
+[16:54:28.452] [VERBOSE] [Filter] Filter change by void_cleave: 0.5 -> 0.6
+[16:54:28.453] [MINIMAL] [Damage] 💥 Адам Серый Лис took 1 HP Damage
+[16:54:28.454] [VERBOSE] [Talent] ⚔️ Разрез Пустоты: Сопротивление цели пробито (0.50 -> 0.60)
+[16:54:28.454] [VERBOSE] [Filter] Filter change by void_cleave: 0.5 -> 0.6
+[16:54:28.455] [VERBOSE] [Filter] Filter change by fragile: 15 -> 16
+[16:54:28.457] [MINIMAL] [Damage] 😵 Адам Серый Лис took 1 Stagger Side-Damage (Res: 0.60)
+[16:54:28.459] [VERBOSE] [Roll] 🎲 Лима: Rolled 3 [3-4]
+[16:54:28.460] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[16:54:28.460] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +2
+[16:54:28.461] [VERBOSE] [Roll] 🎲 Final: 8 (🎲 Roll [3-4]: 3 + 3 (Сила) + 2 (Среднее ор.) = **8**)
+[16:54:28.461] [NORMAL ] [OneSided] ⚔️ Direct Hit! 8 Dmg
+[16:54:28.462] [VERBOSE] [Mechanics] Apply Damage Flow: Лима -> Адам Серый Лис
+[16:54:28.463] [NORMAL ] [Status] 🧪 Адам Серый Лис: +2 anti_charge (99t)
+[16:54:28.464] [NORMAL ] [Passive] ⚡ Magnetic Burst on Адам Серый Лис
+[16:54:28.465] [VERBOSE] [Scripts] 📜 Dice Script Trigger (on_hit): apply_status
+[16:54:28.466] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 paralysis (3t)
+[16:54:28.467] [VERBOSE] [Scripts] 🧪 Applied 1 paralysis to Адам Серый Лис
+[16:54:28.468] [VERBOSE] [Filter] Filter change by fragile: 15 -> 16
+[16:54:28.469] [VERBOSE] [Talent] ⚔️ Разрез Пустоты: Сопротивление цели пробито (0.50 -> 0.60)
+[16:54:28.470] [VERBOSE] [Filter] Filter change by void_cleave: 0.5 -> 0.6
+[16:54:28.471] [MINIMAL] [Damage] 💥 Адам Серый Лис took 1 HP Damage
+[16:54:28.472] [VERBOSE] [Talent] ⚔️ Разрез Пустоты: Сопротивление цели пробито (0.50 -> 0.60)
+[16:54:28.472] [VERBOSE] [Filter] Filter change by void_cleave: 0.5 -> 0.6
+[16:54:28.472] [VERBOSE] [Filter] Filter change by fragile: 15 -> 16
+[16:54:28.474] [MINIMAL] [Damage] 😵 Адам Серый Лис took 1 Stagger Side-Damage (Res: 0.60)
+[16:54:28.475] [NORMAL ] [Cooldown] ⏳ Лима: Cooldown applied to 'Стрельба в Прыжке' (1 turns)
+[16:54:28.475] [NORMAL ] [Cooldown] ⏳ Адам Серый Лис: Cooldown applied to 'Течение воды (Sui-Ryu)' (1 turns)
+[16:54:28.477] [NORMAL ] [Combat] ⚔️ Clash: Лима vs Адам Серый Лис
+[16:54:28.478] [VERBOSE] [Flow] Resolving Clash: Лима vs Адам Серый Лис (Spd: 20/22)
+[16:54:28.479] [NORMAL ] [Clash] ⚔️ Clash Start: Лима vs Адам Серый Лис (Spd: 20 vs 22)
+[16:54:28.479] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): adam_t1_cost
+[16:54:28.480] [VERBOSE] [Script] On Use: 🩸 Плата: -31 HP
+[16:54:28.481] [VERBOSE] [Roll] 🎲 Лима: Rolled 7 [6-9]
+[16:54:28.482] [VERBOSE] [Roll] 💨 Evade Bonus: +15
+[16:54:28.483] [VERBOSE] [Roll] 🎲 Final: 22 (🎲 Roll [6-9]: 7 + 15 (Ловкость) = **22**)
+[16:54:28.483] [VERBOSE] [Roll] 🎲 Адам Серый Лис: Rolled 24 [5-25]
+[16:54:28.484] [VERBOSE] [Roll] 💨 Evade Bonus: +12
+[16:54:28.485] [VERBOSE] [Status] ⚡ Paralysis: Адам Серый Лис roll reduced by 19
+[16:54:28.486] [NORMAL ] [Status] 🧹 Адам Серый Лис: Removed 1 paralysis
+[16:54:28.486] [VERBOSE] [Roll] 🎲 Final: 18.0 (🎲 Roll [5-25]: 24 + 12 (Ловкость) + 7.0 (Power All) - 18 (Anti-Charge (6)) - 19 (Paralysis (Min)) + 12 (Ockham (4 free)) = **18.0**)
+[16:54:28.488] [VERBOSE] [Clash] Clash 1: Лима(22) vs Адам Серый Лис(18.0)
+[16:54:28.488] [VERBOSE] [Roll] 🎲 Лима: Rolled 2 [2-5]
+[16:54:28.489] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[16:54:28.490] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +2
+[16:54:28.490] [VERBOSE] [Roll] 🎲 Final: 7 (🎲 Roll [2-5]: 2 + 3 (Сила) + 2 (Среднее ор.) = **7**)
+[16:54:28.492] [VERBOSE] [Clash] Clash 2: Лима(7) vs Адам Серый Лис(0)
+[16:54:28.493] [VERBOSE] [Mechanics] Apply Damage Flow: Лима -> Адам Серый Лис
+[16:54:28.494] [NORMAL ] [Status] 🧪 Адам Серый Лис: +2 anti_charge (99t)
+[16:54:28.495] [NORMAL ] [Passive] ⚡ Magnetic Burst on Адам Серый Лис
+[16:54:28.496] [VERBOSE] [Filter] Filter change by fragile: 13 -> 14
+[16:54:28.496] [VERBOSE] [Talent] ⚔️ Разрез Пустоты: Сопротивление цели пробито (0.50 -> 0.60)
+[16:54:28.497] [VERBOSE] [Filter] Filter change by void_cleave: 0.5 -> 0.6
+[16:54:28.499] [MINIMAL] [Damage] 💥 Адам Серый Лис took 0 HP Damage
+[16:54:28.500] [VERBOSE] [Talent] ⚔️ Разрез Пустоты: Сопротивление цели пробито (0.50 -> 0.60)
+[16:54:28.501] [VERBOSE] [Filter] Filter change by void_cleave: 0.5 -> 0.6
+[16:54:28.501] [VERBOSE] [Filter] Filter change by fragile: 13 -> 14
+[16:54:28.502] [MINIMAL] [Damage] 😵 Адам Серый Лис took 0 Stagger Side-Damage (Res: 0.60)
+[16:54:28.503] [NORMAL ] [Cooldown] ⏳ Лима: Cooldown applied to 'Маленькие Хитрости' (1 turns)
+[16:54:28.504] [NORMAL ] [Cooldown] ⏳ Адам Серый Лис: Cooldown applied to 'Мгновенный разрез (Setsuna)' (1 turns)
+[16:54:28.505] [NORMAL ] [Combat] ⚔️ Clash: Лима vs Адам Серый Лис
+[16:54:28.505] [VERBOSE] [Flow] Resolving Clash: Лима vs Адам Серый Лис (Spd: 23/21)
+[16:54:28.508] [NORMAL ] [Clash] ⚔️ Clash Start: Лима vs Адам Серый Лис (Spd: 23 vs 21)
+[16:54:28.509] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): adam_t1_cost
+[16:54:28.510] [VERBOSE] [Script] On Use: 🩸 Плата: -31 HP
+[16:54:28.511] [VERBOSE] [Roll] 🎲 Лима: Rolled 2 [2-2]
+[16:54:28.512] [VERBOSE] [Roll] 💨 Evade Bonus: +15
+[16:54:28.512] [VERBOSE] [Scripts] 📜 Dice Script Trigger (on_roll): modify_roll_power
+[16:54:28.513] [VERBOSE] [Scripts] Modify Power: 5 (Total_Intellect scale) for Лима
+[16:54:28.514] [VERBOSE] [Roll] 🎲 Final: 22 (🎲 Roll [2-2]: 2 + 15 (Ловкость) + 5 (Total_Intellect scale) = **22**)
+[16:54:28.515] [VERBOSE] [Roll] 🎲 Адам Серый Лис: Rolled 17 [12-23]
+[16:54:28.515] [VERBOSE] [Roll] 💪 Power Atk Bonus: +4
+[16:54:28.516] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[16:54:28.517] [VERBOSE] [Roll] ⚔️ Type Bonus (SLASH): +3
+[16:54:28.519] [VERBOSE] [Roll] 🎲 Final: 24.0 (🎲 Roll [12-23]: 17 + 4 (Сила) + 5 (Среднее ор.) + 3 (Bonus SLASH) + 7.0 (Power All) - 24 (Anti-Charge (8)) + 12 (Ockham (4 free)) = **24.0**)
+[16:54:28.519] [VERBOSE] [Clash] Clash 1: Лима(22) vs Адам Серый Лис(24.0)
+[16:54:28.520] [VERBOSE] [Mechanics] 🏆 Clash Win Hook: Адам Серый Лис
+[16:54:28.520] [VERBOSE] [Scripts] ⚔️ Clash Outcome Trigger (on_clash_win) for Адам Серый Лис
+[16:54:28.521] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 attack_power_up (3t)
+[16:54:28.521] [VERBOSE] [Mechanics] 🏳️ Clash Lose Hook: Лима
+[16:54:28.521] [VERBOSE] [Scripts] ⚔️ Clash Outcome Trigger (on_clash_lose) for Лима
+[16:54:28.523] [NORMAL ] [Clash] Адам Серый Лис wins clash (24.0 vs 22)
+[16:54:28.523] [VERBOSE] [Flow] Resolving Interaction: Winner Адам Серый Лис (Diff: 24.0)
+[16:54:28.525] [VERBOSE] [Interaction] 💥 Interaction: Адам Серый Лис (Atk) catches Лима (Evade) -> Full Damage
+[16:54:28.526] [VERBOSE] [Mechanics] Apply Damage Flow: Адам Серый Лис -> Лима
+[16:54:28.527] [NORMAL ] [Status] 🧹 Адам Серый Лис: Removed 6 bleed
+[16:54:28.528] [MINIMAL] [Status] 🩸 Bleed: Адам Серый Лис took 13 damage (Stack: 13->7)
+[16:54:28.528] [NORMAL ] [Status] 🧪 Адам Серый Лис: +2 self_control (99t)
+[16:54:28.530] [MINIMAL] [Damage] 💥 Лима took 72 HP Damage
+[16:54:28.530] [MINIMAL] [Damage] 😵 Лима took 72 Stagger Side-Damage (Res: 1.00)
+[16:54:28.532] [NORMAL ] [Clash] Лима stored unused evade
+[16:54:28.532] [NORMAL ] [Clash] Лима stored unused evade
+[16:54:28.534] [VERBOSE] [Executor] 🚫 Лима action skipped (Dead or Staggered)
+[16:54:28.535] [NORMAL ] [Cooldown] ⏳ Рейн: Cooldown applied to 'Обычный удар' (1 turns)
+[16:54:28.535] [NORMAL ] [Combat] 🏹 One-Sided: Рейн -> Адам Серый Лис (Direct)
+[16:54:28.536] [VERBOSE] [Flow] Resolving One-Sided: Рейн -> Адам Серый Лис (Spd: 16/21)
+[16:54:28.536] [VERBOSE] [OneSided] One-Sided: Рейн vs Адам Серый Лис (Spd: 16 vs 21, Redir=True)
+[16:54:28.537] [VERBOSE] [Speed] Speed Calc: 16 vs 21 (Diff 5) -> Break(A:False, D:False), Adv(A:True, D:False)
+[16:54:28.538] [VERBOSE] [Roll] 📉 Рейн: Disadvantage (12, 11) -> 11
+[16:54:28.538] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[16:54:28.539] [NORMAL ] [Status] 🧪 Адам Серый Лис: +31 bleed (3t)
+[16:54:28.541] [NORMAL ] [Talent] 🗡️ Smashing Blade: Sudden Attack x2 on Адам Серый Лис
+[16:54:28.542] [VERBOSE] [Roll] 🎲 Final: 19.0 (🎲 Roll [5-12]: 11 + 1 (Сила) + 2.0 (Power All) + 5 (Fast & Silent (Invis)) = **19.0**)
+[16:54:28.544] [NORMAL ] [OneSided] ⚔️ Direct Hit! 19.0 Dmg
+[16:54:28.545] [VERBOSE] [Mechanics] Apply Damage Flow: Рейн -> Адам Серый Лис
+[16:54:28.545] [NORMAL ] [Status] 🧹 Рейн: Removed 1 invisibility
+[16:54:28.546] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Рейн
+[16:54:28.547] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 paralysis (3t)
+[16:54:28.547] [VERBOSE] [Passive] 🧪 Neurotoxin applied to Адам Серый Лис
+[16:54:28.548] [VERBOSE] [Filter] Filter change by fragile: 38 -> 39
+[16:54:28.549] [MINIMAL] [Damage] 💥 Адам Серый Лис took 18 HP Damage
+[16:54:28.551] [VERBOSE] [Filter] Filter change by fragile: 38 -> 39
+[16:54:28.552] [MINIMAL] [Damage] 😵 Адам Серый Лис took 18 Stagger Side-Damage (Res: 0.70)
+[16:54:28.553] [NORMAL ] [Cooldown] ⏳ Рейн: Cooldown applied to 'Не Беспокойство' (1 turns)
+[16:54:28.554] [NORMAL ] [Combat] 🏹 One-Sided: Рейн -> Адам Серый Лис (Direct)
+[16:54:28.555] [VERBOSE] [Flow] Resolving One-Sided: Рейн -> Адам Серый Лис (Spd: 14/21)
+[16:54:28.556] [VERBOSE] [OneSided] One-Sided: Рейн vs Адам Серый Лис (Spd: 14 vs 21, Redir=True)
+[16:54:28.556] [VERBOSE] [Speed] Speed Calc: 14 vs 21 (Diff 7) -> Break(A:False, D:False), Adv(A:True, D:False)
+[16:54:28.558] [VERBOSE] [Roll] 📉 Рейн: Disadvantage (5, 6) -> 5
+[16:54:28.559] [VERBOSE] [Roll] 🛡️ Block Bonus: +4
+[16:54:28.560] [VERBOSE] [Roll] 🎲 Final: 11.0 (🎲 Roll [5-8]: 5 + 4 (Стойкость) + 2.0 (Power All) = **11.0**)
+[16:54:28.560] [VERBOSE] [OneSided] 🛡️ Offensive Block ignored
+[16:54:28.562] [VERBOSE] [Roll] 📉 Рейн: Disadvantage (3, 5) -> 3
+[16:54:28.563] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[16:54:28.564] [VERBOSE] [Roll] ⚔️ Type Bonus (SLASH): +2
+[16:54:28.564] [VERBOSE] [Roll] 🎲 Final: 8.0 (🎲 Roll [3-6]: 3 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) = **8.0**)
+[16:54:28.565] [NORMAL ] [OneSided] ⚔️ Direct Hit! 8.0 Dmg
+[16:54:28.565] [VERBOSE] [Mechanics] Apply Damage Flow: Рейн -> Адам Серый Лис
+[16:54:28.567] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 paralysis (3t)
+[16:54:28.567] [VERBOSE] [Passive] 🧪 Neurotoxin applied to Адам Серый Лис
+[16:54:28.568] [VERBOSE] [Filter] Filter change by fragile: 8.0 -> 9.0
+[16:54:28.569] [MINIMAL] [Damage] 💥 Адам Серый Лис took 0 HP Damage
+[16:54:28.571] [VERBOSE] [Filter] Filter change by fragile: 8.0 -> 9.0
+[16:54:28.571] [MINIMAL] [Damage] 😵 Адам Серый Лис took 0 Stagger Side-Damage (Res: 0.50)
+[16:54:28.572] [NORMAL ] [Cooldown] ⏳ Лилит: Cooldown applied to 'Выпустить пар' (1 turns)
+[16:54:28.572] [NORMAL ] [Combat] 🏹 One-Sided: Лилит -> Адам Серый Лис (Direct)
+[16:54:28.572] [VERBOSE] [Flow] Resolving One-Sided: Лилит -> Адам Серый Лис (Spd: 14/21)
+[16:54:28.573] [VERBOSE] [OneSided] One-Sided: Лилит vs Адам Серый Лис (Spd: 14 vs 21, Redir=True)
+[16:54:28.574] [VERBOSE] [Speed] Speed Calc: 14 vs 21 (Diff 7) -> Break(A:False, D:False), Adv(A:True, D:False)
+[16:54:28.575] [VERBOSE] [Roll] 📉 Лилит: Disadvantage (3, 1) -> 1
+[16:54:28.576] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[16:54:28.577] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[16:54:28.578] [VERBOSE] [Roll] 🎲 Final: 13 (🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **13**)
+[16:54:28.578] [NORMAL ] [OneSided] ⚔️ Direct Hit! 13 Dmg
+[16:54:28.579] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[16:54:28.580] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[16:54:28.580] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[16:54:28.582] [VERBOSE] [Scripts] 📜 Dice Script Trigger (on_hit): apply_status
+[16:54:28.583] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 smoke (99t)
+[16:54:28.583] [VERBOSE] [Scripts] 🧪 Applied 1 smoke to Адам Серый Лис
+[16:54:28.583] [VERBOSE] [Filter] Filter change by fragile: 15 -> 16
+[16:54:28.585] [MINIMAL] [Damage] 💥 Адам Серый Лис took 1 HP Damage
+[16:54:28.586] [VERBOSE] [Filter] Filter change by fragile: 15 -> 16
+[16:54:28.587] [MINIMAL] [Damage] 😵 Адам Серый Лис took 1 Stagger Side-Damage (Res: 0.50)
+[16:54:28.587] [VERBOSE] [Roll] 📉 Лилит: Disadvantage (1, 3) -> 1
+[16:54:28.588] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[16:54:28.589] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[16:54:28.589] [VERBOSE] [Roll] 🎲 Final: 13 (🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **13**)
+[16:54:28.590] [NORMAL ] [OneSided] ⚔️ Direct Hit! 13 Dmg
+[16:54:28.591] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[16:54:28.591] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[16:54:28.593] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[16:54:28.594] [VERBOSE] [Scripts] 📜 Dice Script Trigger (on_hit): apply_status
+[16:54:28.595] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 smoke (99t)
+[16:54:28.595] [VERBOSE] [Scripts] 🧪 Applied 1 smoke to Адам Серый Лис
+[16:54:28.597] [VERBOSE] [Filter] Filter change by fragile: 15 -> 16
+[16:54:28.598] [MINIMAL] [Damage] 💥 Адам Серый Лис took 1 HP Damage
+[16:54:28.599] [VERBOSE] [Filter] Filter change by fragile: 15 -> 16
+[16:54:28.599] [MINIMAL] [Damage] 😵 Адам Серый Лис took 1 Stagger Side-Damage (Res: 0.50)
+[16:54:28.600] [VERBOSE] [Roll] 📉 Лилит: Disadvantage (1, 2) -> 1
+[16:54:28.601] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[16:54:28.602] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[16:54:28.602] [VERBOSE] [Roll] 🎲 Final: 13 (🎲 Roll [1-3]: 1 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **13**)
+[16:54:28.603] [NORMAL ] [OneSided] ⚔️ Direct Hit! 13 Dmg
+[16:54:28.605] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[16:54:28.605] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[16:54:28.606] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[16:54:28.607] [VERBOSE] [Scripts] 📜 Dice Script Trigger (on_hit): apply_status
+[16:54:28.608] [NORMAL ] [Status] 🧪 Адам Серый Лис: +1 smoke (99t)
+[16:54:28.609] [VERBOSE] [Scripts] 🧪 Applied 1 smoke to Адам Серый Лис
+[16:54:28.610] [VERBOSE] [Filter] Filter change by fragile: 15 -> 16
+[16:54:28.611] [MINIMAL] [Damage] 💥 Адам Серый Лис took 1 HP Damage
+[16:54:28.612] [VERBOSE] [Filter] Filter change by fragile: 15 -> 16
+[16:54:28.613] [MINIMAL] [Damage] 😵 Адам Серый Лис took 1 Stagger Side-Damage (Res: 0.50)
+[16:54:28.613] [NORMAL ] [Cooldown] ⏳ Лилит: Cooldown applied to 'Прелюдия' (1 turns)
+[16:54:28.613] [NORMAL ] [Combat] 🏹 One-Sided: Лилит -> Адам Серый Лис (Direct)
+[16:54:28.613] [VERBOSE] [Flow] Resolving One-Sided: Лилит -> Адам Серый Лис (Spd: 13/21)
+[16:54:28.615] [VERBOSE] [OneSided] One-Sided: Лилит vs Адам Серый Лис (Spd: 13 vs 21, Redir=True)
+[16:54:28.616] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[16:54:28.617] [NORMAL ] [Status] 🧪 Лилит: +2 smoke (99t)
+[16:54:28.618] [VERBOSE] [Scripts] 🧪 Applied 2 smoke to Лилит
+[16:54:28.619] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[16:54:28.619] [NORMAL ] [Status] 🧪 Адам Серый Лис: +2 smoke (99t)
+[16:54:28.620] [VERBOSE] [Scripts] 🧪 Applied 2 smoke to Адам Серый Лис
+[16:54:28.621] [VERBOSE] [Speed] Speed Calc: 13 vs 21 (Diff 8) -> Break(A:True, D:False), Adv(A:False, D:False)
+[16:54:28.621] [VERBOSE] [Roll] 🎲 Лилит: Rolled 3 [3-4]
+[16:54:28.622] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[16:54:28.624] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[16:54:28.625] [VERBOSE] [Roll] 🎲 Final: 15 (🎲 Roll [3-4]: 3 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **15**)
+[16:54:28.625] [NORMAL ] [OneSided] ⚔️ Direct Hit! 15 Dmg
+[16:54:28.626] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[16:54:28.627] [VERBOSE] [Status] 💨 SelfControl Crit: Лилит (Chance 15%) -> x2 Dmg
+[16:54:28.628] [NORMAL ] [Status] 🧹 Лилит: Removed 3 self_control
+[16:54:28.629] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[16:54:28.629] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[16:54:28.630] [VERBOSE] [Filter] Filter change by fragile: 34 -> 35
+[16:54:28.631] [MINIMAL] [Damage] 💥 Адам Серый Лис took 15 HP Damage
+[16:54:28.632] [VERBOSE] [Filter] Filter change by fragile: 34 -> 35
+[16:54:28.633] [MINIMAL] [Damage] 😵 Адам Серый Лис took 15 Stagger Side-Damage (Res: 0.70)
+[16:54:28.634] [VERBOSE] [Roll] 🎲 Лилит: Rolled 4 [3-4]
+[16:54:28.634] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[16:54:28.635] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[16:54:28.635] [VERBOSE] [Roll] 🎲 Final: 16 (🎲 Roll [3-4]: 4 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) = **16**)
+[16:54:28.637] [NORMAL ] [OneSided] ⚔️ Direct Hit! 16 Dmg
+[16:54:28.638] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[16:54:28.639] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[16:54:28.639] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[16:54:28.641] [VERBOSE] [Filter] Filter change by fragile: 18 -> 19
+[16:54:28.642] [MINIMAL] [Damage] 💥 Адам Серый Лис took 4 HP Damage
+[16:54:28.643] [VERBOSE] [Filter] Filter change by fragile: 18 -> 19
+[16:54:28.643] [MINIMAL] [Damage] 😵 Адам Серый Лис took 4 Stagger Side-Damage (Res: 0.70)
+[16:54:28.644] [NORMAL ] [Cooldown] ⏳ Рейн: Cooldown applied to 'Удачное стечение обстоятельств' (1 turns)
+[16:54:28.645] [NORMAL ] [Combat] 🏹 One-Sided: Рейн -> Адам Серый Лис (Direct)
+[16:54:28.645] [VERBOSE] [Flow] Resolving One-Sided: Рейн -> Адам Серый Лис (Spd: 11/21)
+[16:54:28.647] [VERBOSE] [OneSided] One-Sided: Рейн vs Адам Серый Лис (Spd: 11 vs 21, Redir=True)
+[16:54:28.648] [VERBOSE] [Speed] Speed Calc: 11 vs 21 (Diff 10) -> Break(A:True, D:False), Adv(A:False, D:False)
+[16:54:28.649] [VERBOSE] [Roll] 🎲 Рейн: Rolled 11 [7-15]
+[16:54:28.649] [VERBOSE] [Roll] 💨 Evade Bonus: +4
+[16:54:28.651] [VERBOSE] [Roll] 🎲 Final: 19.0 (🎲 Roll [7-15]: 11 + 4 (Ловкость) + 2.0 (Power All) + 2 (Cat Reflexes) = **19.0**)
+[16:54:28.651] [VERBOSE] [OneSided] 🏃 Evade die stored (Unopposed)
+[16:54:28.652] [NORMAL ] [Cooldown] ⏳ Лилит: Cooldown applied to 'Затяг' (1 turns)
+[16:54:28.652] [NORMAL ] [Combat] 🏹 One-Sided: Лилит -> Адам Серый Лис (Direct)
+[16:54:28.653] [VERBOSE] [Flow] Resolving One-Sided: Лилит -> Адам Серый Лис (Spd: 7/21)
+[16:54:28.654] [VERBOSE] [OneSided] One-Sided: Лилит vs Адам Серый Лис (Spd: 7 vs 21, Redir=True)
+[16:54:28.654] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): steal_status
+[16:54:28.656] [NORMAL ] [Status] 🧹 Адам Серый Лис: Removed 5 smoke
+[16:54:28.656] [NORMAL ] [Status] 🧪 Лилит: +5 smoke (99t)
+[16:54:28.658] [VERBOSE] [Scripts] ✋ Лилит stole 5 smoke from Адам Серый Лис
+[16:54:28.659] [VERBOSE] [Speed] Speed Calc: 7 vs 21 (Diff 14) -> Break(A:True, D:False), Adv(A:False, D:False)
+[16:54:28.659] [VERBOSE] [Roll] 🎲 Лилит: Rolled 7 [6-8]
+[16:54:28.661] [VERBOSE] [Roll] 💪 Power Atk Bonus: +3
+[16:54:28.661] [VERBOSE] [Roll] ⚔️ Weapon Bonus (medium): +5
+[16:54:28.662] [VERBOSE] [Roll] 🎲 Final: 20 (🎲 Roll [6-8]: 7 + 3 (Сила) + 5 (Среднее ор.) + 4 (Attack Power Up) + 1 (Blessing (7)) = **20**)
+[16:54:28.663] [NORMAL ] [OneSided] ⚔️ Direct Hit! 20 Dmg
+[16:54:28.663] [VERBOSE] [Mechanics] Apply Damage Flow: Лилит -> Адам Серый Лис
+[16:54:28.664] [NORMAL ] [Status] 🧪 Лилит: +1 self_control (99t)
+[16:54:28.664] [VERBOSE] [Talent] 🧠 Calm Mind: +1 Self-Control on hit for Лилит
+[16:54:28.665] [VERBOSE] [Filter] Filter change by fragile: 22 -> 23
+[16:54:28.667] [MINIMAL] [Damage] 💥 Адам Серый Лис took 5 HP Damage
+[16:54:28.668] [VERBOSE] [Filter] Filter change by fragile: 22 -> 23
+[16:54:28.669] [MINIMAL] [Damage] 😵 Адам Серый Лис took 5 Stagger Side-Damage (Res: 0.50)
+[16:54:28.669] [VERBOSE] [Phase] 🏁 Finalizing Turn...
+[16:54:28.670] [NORMAL ] [System] >>> RESOLVE TURN END <<<
+[16:54:28.670] [NORMAL ] [Status] 🧹 Лилит: Removed 1 smoke
+[16:54:28.670] [NORMAL ] [Status] 🧹 Лилит: Removed 3 self_control
+[16:54:28.671] [VERBOSE] [Passive] 🏙️ Daughter of Backstreets: Regen +1 HP/SP/Stg for Лилит
+[16:54:28.673] [VERBOSE] [Status] 📉 Status Expired: attack_power_up on Лилит
+[16:54:28.674] [VERBOSE] [Status] 📉 Status Expired: endurance on Лилит
+[16:54:28.675] [VERBOSE] [System] Лилит cooldowns ticked.
+[16:54:28.676] [VERBOSE] [System] Рейн cooldowns ticked.
+[16:54:28.704] [VERBOSE] [Status] 📉 Status Expired: haste on Лима
+[16:54:28.705] [VERBOSE] [Status] 📉 Status Expired: magnetic_charge on Лима
+[16:54:28.706] [NORMAL ] [System] Лима died, Cooldowns/Buffs cleared.
+[16:54:28.707] [VERBOSE] [System] Лима cooldowns ticked.
+[16:54:28.707] [NORMAL ] [Status] 🧹 Адам Серый Лис: Removed 7 self_control
+[16:54:28.708] [NORMAL ] [Status] 🧹 Адам Серый Лис: Removed 1 anti_charge
+[16:54:28.709] [VERBOSE] [System] Адам Серый Лис cooldowns ticked.
+[16:54:28.814] [VERBOSE] [Stats] Recalculating stats for Лилит
+[16:54:28.815] [VERBOSE] [Stats] 🔄 Recalculating stats for Лилит
+[16:54:28.816] [VERBOSE] [Stats] 🧬 Тату 'Истерика Купца': eloquence +5
+[16:54:28.816] [VERBOSE] [Stats] ⚔️ Weapon equipped: Коса 'Sinfoil'
+[16:54:28.817] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[16:54:28.818] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 3
+[16:54:28.818] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[16:54:28.819] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 6
+[16:54:28.820] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 3
+[16:54:28.820] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[16:54:28.820] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[16:54:28.822] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[16:54:28.823] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[16:54:28.823] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[16:54:28.825] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 20
+[16:54:28.826] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 32% от основного
+[16:54:28.827] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[16:54:28.828] [VERBOSE] [Stats] ✅ Stats updated for Лилит. HP: 132, SP: 77, Speed: [(12, 15), (12, 15), (12, 15), (7, 10)]
+[16:54:28.828] [VERBOSE] [Stats] Recalculating stats for Рейн
+[16:54:28.829] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[16:54:28.830] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[16:54:28.831] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[16:54:28.832] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[16:54:28.832] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[16:54:28.833] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[16:54:28.834] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[16:54:28.836] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[16:54:28.836] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[16:54:28.837] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[16:54:28.838] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[16:54:28.839] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[16:54:28.840] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[16:54:28.842] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[16:54:28.843] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[16:54:28.844] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[16:54:28.845] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[16:54:28.846] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[16:54:28.848] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[16:54:28.849] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[16:54:28.850] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[16:54:28.851] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 44% от основного
+[16:54:28.852] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[16:54:28.852] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[16:54:28.854] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[16:54:28.854] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[16:54:28.856] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 200, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[16:54:28.856] [VERBOSE] [Stats] Recalculating stats for Лима
+[16:54:28.857] [VERBOSE] [Stats] 🔄 Recalculating stats for Лима
+[16:54:28.858] [VERBOSE] [Stats] 🛡️ Полоса удач: luck +7
+[16:54:28.859] [VERBOSE] [Stats] 🛡️ Охотничьи веды: wisdom +15
+[16:54:28.860] [VERBOSE] [Stats] 🛡️ Подавление разумом: eloquence +15
+[16:54:28.862] [VERBOSE] [Talent] 🧬 Врожденный дар: Уровень 28 -> Бонус Характеристик +3, Навыков +6
+[16:54:28.863] [VERBOSE] [Stats] 🌟 Врожденный дар: attack_power_up +3
+[16:54:28.863] [VERBOSE] [Stats] 🌟 Врожденный дар: endurance +3
+[16:54:28.865] [VERBOSE] [Stats] 🌟 Врожденный дар: agility +3
+[16:54:28.866] [VERBOSE] [Stats] 🌟 Врожденный дар: wisdom +3
+[16:54:28.867] [VERBOSE] [Stats] 🌟 Врожденный дар: psych +3
+[16:54:28.868] [VERBOSE] [Stats] 🌟 Врожденный дар: strike_power +6
+[16:54:28.868] [VERBOSE] [Stats] 🌟 Врожденный дар: medicine +6
+[16:54:28.869] [VERBOSE] [Stats] 🌟 Врожденный дар: willpower +6
+[16:54:28.870] [VERBOSE] [Stats] 🌟 Врожденный дар: luck +6
+[16:54:28.871] [VERBOSE] [Stats] 🌟 Врожденный дар: acrobatics +6
+[16:54:28.872] [VERBOSE] [Stats] 🌟 Врожденный дар: shields +6
+[16:54:28.872] [VERBOSE] [Stats] 🌟 Врожденный дар: tough_skin +6
+[16:54:28.874] [VERBOSE] [Stats] 🌟 Врожденный дар: speed +6
+[16:54:28.875] [VERBOSE] [Stats] 🌟 Врожденный дар: light_weapon +6
+[16:54:28.875] [VERBOSE] [Stats] 🌟 Врожденный дар: medium_weapon +6
+[16:54:28.877] [VERBOSE] [Stats] 🌟 Врожденный дар: heavy_weapon +6
+[16:54:28.878] [VERBOSE] [Stats] 🌟 Врожденный дар: firearms +6
+[16:54:28.879] [VERBOSE] [Stats] 🌟 Врожденный дар: eloquence +6
+[16:54:28.881] [VERBOSE] [Stats] 🌟 Врожденный дар: forging +6
+[16:54:28.882] [VERBOSE] [Stats] 🌟 Врожденный дар: engineering +6
+[16:54:28.882] [VERBOSE] [Stats] 🌟 Врожденный дар: programming +6
+[16:54:28.883] [VERBOSE] [Stats] 🌟 Золотая Репутация: eloquence +5
+[16:54:28.884] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[16:54:28.884] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[16:54:28.886] [VERBOSE] [Stats] 🧬 Легкий экзоскелет 'СТРИЖ': acrobatics +6
+[16:54:28.887] [VERBOSE] [Stats] ⚔️ Weapon equipped: Ледоруб 'Скала Лаз'
+[16:54:28.887] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[16:54:28.888] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[16:54:28.890] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[16:54:28.890] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[16:54:28.891] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 4
+[16:54:28.892] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 2
+[16:54:28.894] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 10, эффективность лечения — 100%
+[16:54:28.895] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7 (Акробатика)
+[16:54:28.896] [VERBOSE] [Stats] Повышает значение куба 🛡️ щита на 1
+[16:54:28.897] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 5
+[16:54:28.897] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 2
+[16:54:28.899] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами тяжёлого оружия на 2
+[16:54:28.900] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами огнестрельного оружия на 7
+[16:54:28.901] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 4
+[16:54:28.902] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 30
+[16:54:28.903] [VERBOSE] [Stats] Повышает бросок качества создаваемого предмета на 6
+[16:54:28.904] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 6
+[16:54:28.905] [VERBOSE] [Stats] Повышает успешность взлома и контроля механизмов на 6
+[16:54:28.905] [VERBOSE] [Stats] 🎓 Ускоренное обучение: +10 HP/SP за каждые 3 уровня
+[16:54:28.907] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 16% от основного
+[16:54:28.908] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[16:54:28.909] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 24% от основного
+[16:54:28.910] [VERBOSE] [Stats] Персонаж получает дополнительные 20 🧠 рассудка
+[16:54:28.912] [VERBOSE] [Stats] Повышает 😵 выдержку на 6%
+[16:54:28.912] [VERBOSE] [Stats] ✅ Stats updated for Лима. HP: 139, SP: 161, Speed: [(19, 22), (19, 22), (19, 22), (17, 20)]
+[16:54:28.914] [VERBOSE] [Stats] Recalculating stats for Адам Серый Лис
+[16:54:28.914] [VERBOSE] [Stats] 🔄 Recalculating stats for Адам Серый Лис
+[16:54:28.915] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): speed +20
+[16:54:28.916] [VERBOSE] [Stats] 🛡️ Сандевистан (Mk.V): agility +10
+[16:54:28.917] [VERBOSE] [Stats] 🛡️ Титановая Дерма: tough_skin +20
+[16:54:28.917] [VERBOSE] [Stats] ⚔️ Weapon equipped: ВЧ-Клинок 'Мурамаса'
+[16:54:28.918] [VERBOSE] [Stats] Повышает значение броска силы на 6
+[16:54:28.919] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 4
+[16:54:28.919] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[16:54:28.920] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 13
+[16:54:28.921] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8
+[16:54:28.922] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 10
+[16:54:28.923] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4 (Акробатика)
+[16:54:28.923] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 5
+[16:54:28.924] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 13
+[16:54:28.926] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 40% от основного
+[16:54:28.927] [VERBOSE] [Stats] Персонаж получает дополнительные 30 ❤️ здоровья
+[16:54:28.928] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[16:54:28.929] [VERBOSE] [Stats] ✅ Stats updated for Адам Серый Лис. HP: 628, SP: 194, Speed: [(19, 22), (19, 22), (19, 22), (19, 22), (19, 22), (14, 17)]
