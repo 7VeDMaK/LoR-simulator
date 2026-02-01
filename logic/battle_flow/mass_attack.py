@@ -125,7 +125,6 @@ def process_mass_attack(engine, action, opposing_team, round_label, executed_slo
             atk_sum = 0
             atk_rolls = []
             for d in card.dice_list:
-                # [FIX] Теперь source уже имеет баффы от on_use
                 ctx = engine._create_roll_context(source, target, d)
                 atk_sum += ctx.final_value
                 atk_rolls.append(str(ctx.final_value))
