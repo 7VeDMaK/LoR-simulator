@@ -42,7 +42,7 @@
       "_status_effects": {
         "smoke": [
           {
-            "amount": 6,
+            "amount": 2,
             "duration": 98
           }
         ],
@@ -50,6 +50,10 @@
           {
             "amount": 4,
             "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 3
           }
         ],
         "endurance": [
@@ -74,30 +78,51 @@
       "active_slots": [
         {
           "speed": 15,
-          "card": null,
+          "card": "release_steam",
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
         },
         {
           "speed": 12,
-          "card": null,
+          "card": "prelude",
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
         },
         {
           "speed": 14,
-          "card": null,
+          "card": "inhale_exhale",
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
         },
         {
           "speed": 10,
@@ -106,7 +131,13 @@
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
         }
       ],
       "stored_dice": [],
@@ -338,21 +369,35 @@
       "active_slots": [
         {
           "speed": 13,
-          "card": null,
+          "card": "изничтожение_img5",
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
         },
         {
           "speed": 14,
-          "card": null,
+          "card": "обычный_удар_726c",
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
         },
         {
           "speed": 11,
@@ -361,7 +406,13 @@
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
         }
       ],
       "stored_dice": [],
@@ -520,7 +571,7 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 0,
+      "current_hp": 27,
       "current_sp": 161,
       "current_stagger": 0,
       "resources": {},
@@ -557,7 +608,12 @@
           "target_unit_idx": -1,
           "target_slot_idx": -1,
           "stunned": true,
-          "is_aggro": false
+          "is_aggro": false,
+          "ui_status": {
+            "text": "ОГЛУШЕН",
+            "icon": "❌",
+            "color": "gray"
+          }
         }
       ],
       "stored_dice": [],
@@ -572,10 +628,19 @@
         "mind_suppression_bonus": 15,
         "smashing_blade_used": false,
         "copycat_active_cards": [],
-        "battle_initialized": true
+        "battle_initialized": true,
+        "last_revive_attempt_round": 2,
+        "last_revive_log": {
+          "roll": 2,
+          "bonus": 0,
+          "penalty": 0,
+          "total": 2,
+          "dc": 1,
+          "success": true
+        }
       },
-      "death_count": 0,
-      "overkill_damage": 16,
+      "death_count": 1,
+      "overkill_damage": 0,
       "money_log": [
         {
           "amount": 5790000,
@@ -591,7 +656,7 @@
         }
       ],
       "base_stats": {
-        "current_hp": 0,
+        "current_hp": 27,
         "current_sp": 161,
         "current_stagger": 0
       },
@@ -812,7 +877,13 @@
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
         },
         {
           "speed": 1,
@@ -821,7 +892,13 @@
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
         },
         {
           "speed": 1,
@@ -830,7 +907,13 @@
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
         },
         {
           "speed": 1,
@@ -839,7 +922,13 @@
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
         },
         {
           "speed": 1,
@@ -848,7 +937,13 @@
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
         },
         {
           "speed": 1,
@@ -857,7 +952,13 @@
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
         }
       ],
       "stored_dice": [],
@@ -1482,6 +1583,11 @@
       "round": "Speed Roll",
       "rolls": "Passive",
       "details": "⚡ **Рейн**: 🧬 S-клетки: 3 слотов x 10 = Восстановлено 30 HP"
+    },
+    {
+      "round": "Skill",
+      "rolls": "Activate",
+      "details": "🌫️➡️✨ **Универсальность дыма**: Дым переработан (-4) -> +1 Attack Power Up!"
     }
   ],
   "script_logs": "",
@@ -3559,6 +3665,11 @@
           "round": "Speed Roll",
           "rolls": "Passive",
           "details": "⚡ **Рейн**: 🧬 S-клетки: 3 слотов x 10 = Восстановлено 30 HP"
+        },
+        {
+          "round": "Skill",
+          "rolls": "Activate",
+          "details": "🌫️➡️✨ **Универсальность дыма**: Дым переработан (-4) -> +1 Attack Power Up!"
         }
       ],
       "turn_actions": [],
