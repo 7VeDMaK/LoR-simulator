@@ -70,11 +70,8 @@ STATUS_REGISTRY = {
     "azino_jackpot": AzinoJackpotStatus(),
     "azino_beast": AzinoBeastStatus(),
     "lucky_coin_status": LuckyCoinStatus(),
-<<<<<<< HEAD
     
     # Алиасы для обратной совместимости
     "strength": AttackPowerUpStatus(),  # Старое название -> attack_power_up
-=======
     "anti_charge": StatusAntiCharge(),
->>>>>>> 291a09daaf9b1078bb1d9bf2402e48509cb4316c
 }
