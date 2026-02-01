@@ -17,7 +17,9 @@ class MockUnit:
         self.attributes = {}
         self.statuses = {}
         self.counter_dice = []
-        self.passives = []
+        self.memory = {}  # [NEW] Для Smoke, Adaptation
+        self.current_sp = 100  # [NEW] Для Sinister Aura
+        self.passives = []  # [NEW] Список строк (ID) или объектов
         self.talents = []
         self.hp_resists = MockResists()
 
@@ -34,6 +36,10 @@ class MockUnit:
 
     def get_status(self, status_id):
         return self.statuses.get(status_id, 0)
+
+    def take_sanity_damage(self, amount):
+        """[NEW] Получение урона по рассудку."""
+        self.current_sp = max(0, self.current_sp - amount)
 
     def remove_status(self, status_id, amount):
         current = self.statuses.get(status_id, 0)

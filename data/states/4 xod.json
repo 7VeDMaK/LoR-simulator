@@ -3,12 +3,289 @@
   "page": "⚔️ Simulator",
   "team_left_data": [
     {
-      "name": "Лайла",
-      "level": 29,
-      "rank": 9,
-      "avatar": "data/avatars\\Лайла.jpg",
-      "base_intellect": 10,
-      "total_xp": 0,
+      "name": "Лилит",
+      "level": 28,
+      "rank": 7,
+      "avatar": "data/avatars\\Лилит.png",
+      "base_intellect": 3,
+      "total_xp": 152043520,
+      "pct_mods": {
+        "imp_hp": 6,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+      },
+      "current_hp": 132,
+      "current_sp": 77,
+      "current_stagger": 66,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {
+        "bad_habit": 0,
+        "trip_up": 0,
+        "inhale_exhale": 0,
+        "smoke_arts": 0,
+        "demon_scream": 0,
+        "smoke_silhouette": 0
+      },
+      "active_buffs": {},
+      "_status_effects": {
+        "attack_power_up": [
+          {
+            "amount": 4,
+            "duration": 1
+          }
+        ],
+        "endurance": [
+          {
+            "amount": 4,
+            "duration": 1
+          }
+        ]
+      },
+      "delayed_queue": [],
+      "deck": [
+        "release_steam",
+        "prelude",
+        "puff",
+        "bad_habit",
+        "trip_up",
+        "inhale_exhale",
+        "smoke_arts",
+        "demon_scream",
+        "smoke_silhouette"
+      ],
+      "active_slots": [
+        {
+          "speed": 15,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 12,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 14,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 7,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        }
+      ],
+      "stored_dice": [],
+      "counter_dice": [
+        {
+          "type": "evade",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 132,
+          "sp": 77,
+          "stagger": 66
+        },
+        "smoke_is_defensive": true,
+        "smoke_limit_bonus": 5,
+        "vengeful_payback_chunks": 0,
+        "last_revive_attempt_round": 2,
+        "last_revive_log": {
+          "roll": 2,
+          "bonus": 0,
+          "penalty": 0,
+          "total": 2,
+          "dc": 1,
+          "success": true
+        },
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [
+        {
+          "amount": 280000,
+          "reason": ""
+        }
+      ],
+      "base_stats": {
+        "current_hp": 132,
+        "current_sp": 77,
+        "current_stagger": 66
+      },
+      "defense": {
+        "armor_name": "Без брони",
+        "armor_type": "Medium",
+        "armor_id": "none",
+        "hp_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "lilith_scythe"
+      },
+      "attributes": {
+        "strength": 18,
+        "endurance": 16,
+        "agility": 18,
+        "wisdom": 0,
+        "psych": 0
+      },
+      "skills": {
+        "strike_power": 7,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 15,
+        "shields": 0,
+        "tough_skin": 7,
+        "speed": 30,
+        "light_weapon": 3,
+        "medium_weapon": 15,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 15,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [
+        "wag_tail",
+        "backstreet_demon",
+        "daughter_of_backstreets",
+        "hedonism",
+        "live_fast_die_young"
+      ],
+      "talents": [
+        "naked_defense",
+        "vengeful_payback",
+        "berserker_rage",
+        "calm_mind",
+        "frenzy",
+        "hiding_in_smoke",
+        "smoke_universality",
+        "aerial_foot",
+        "recycling"
+      ],
+      "augmentations": [
+        "aug_blessing_of_wind",
+        "aug_merchant_hysteria"
+      ],
+      "level_rolls": {
+        "3": {
+          "hp": 2,
+          "sp": 4
+        },
+        "6": {
+          "hp": 1,
+          "sp": 3
+        },
+        "9": {
+          "hp": 1,
+          "sp": 2
+        },
+        "12": {
+          "hp": 2,
+          "sp": 3
+        },
+        "15": {
+          "hp": 5,
+          "sp": 4
+        },
+        "18": {
+          "hp": 4,
+          "sp": 5
+        },
+        "21": {
+          "hp": 1,
+          "sp": 1
+        }
+      },
+      "biography": "",
+      "relationships": {},
+      "unit_type": "player"
+    },
+    {
+      "name": "Лима",
+      "level": 28,
+      "rank": 6,
+      "avatar": "data/avatars\\Лима.png",
+      "base_intellect": 8,
+      "total_xp": 268424064,
       "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -22,74 +299,44 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 27,
-      "current_sp": 27,
-      "current_stagger": 13,
+      "current_hp": 56,
+      "current_sp": 161,
+      "current_stagger": 1,
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {
-        "perfect_cut": [
-          2
-        ],
-        "time_cant_turn_back": [
-          2
-        ]
+        "lima_hit_and_run": 0,
+        "lima_inertia": 0,
+        "lima_morphine_dart": 0,
+        "lima_one_furious_shot": 0,
+        "lima_ram": 0,
+        "lima_purge_toxin": 0
       },
       "active_buffs": {},
       "_status_effects": {
-        "stance_slash": [
-          {
-            "amount": 1,
-            "duration": 97
-          }
-        ],
-        "bind": [
-          {
-            "amount": 2,
-            "duration": 98
-          }
-        ],
-        "attack_power_down": [
-          {
-            "amount": 2,
-            "duration": 98
-          }
-        ],
-        "strength": [
-          {
-            "amount": 2,
-            "duration": 1
-          }
-        ],
         "haste": [
           {
-            "amount": 2,
-            "duration": 1
-          }
-        ],
-        "endurance": [
-          {
-            "amount": 2,
+            "amount": 1,
             "duration": 1
           }
         ]
       },
       "delayed_queue": [],
       "deck": [
-        "short_lunge",
-        "long_lunge",
-        "draw_sword",
-        "long_edge",
-        "tale_of_rebirth",
-        "double_strike",
-        "time_cant_turn_back",
-        "still_alive",
-        "perfect_cut"
+        "lima_little_tricks",
+        "lima_jump_shooting",
+        "lima_assorted_arrows",
+        "lima_hit_and_run",
+        "lima_inertia",
+        "lima_morphine_dart",
+        "lima_one_furious_shot",
+        "lima_ram",
+        "lima_purge_toxin"
       ],
       "active_slots": [
         {
-          "speed": 11,
-          "card": "draw_sword",
+          "speed": 15,
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
@@ -100,11 +347,40 @@
             "icon": "⛔",
             "color": "gray"
           },
-          "is_ally_target": false,
-          "destroy_on_speed": true
+          "is_ally_target": false
         },
         {
-          "speed": 9,
+          "speed": 13,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 13,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 12,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
@@ -124,79 +400,85 @@
       "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-          "hp": 27,
-          "sp": 27,
-          "stagger": 13
+          "hp": 56,
+          "sp": 161,
+          "stagger": 1
         },
-        "last_revive_attempt_round": 2,
-        "last_revive_log": {
-          "roll": 3,
-          "bonus": 0,
-          "penalty": 0,
-          "total": 3,
-          "dc": 0,
-          "success": true
-        },
+        "mind_suppression_bonus": 16,
         "battle_initialized": true,
-        "ideal_standard_debuff_applied": false
+        "smashing_blade_used": false
       },
       "death_count": 0,
       "overkill_damage": 0,
-      "money_log": [],
+      "money_log": [
+        {
+          "amount": 5790000,
+          "reason": ""
+        },
+        {
+          "amount": -3700000,
+          "reason": "Шопинг, стрелы, гранаты"
+        },
+        {
+          "amount": -500000,
+          "reason": "украла Аксис"
+        }
+      ],
       "base_stats": {
-        "current_hp": 27,
-        "current_sp": 27,
-        "current_stagger": 13
+        "current_hp": 56,
+        "current_sp": 161,
+        "current_stagger": 1
       },
       "defense": {
         "armor_name": "Standard Fixer Suit",
         "armor_type": "Medium",
+        "armor_id": "standard_fixer_suit",
         "hp_resists": {
-          "slash": 1.7999999999999998,
-          "pierce": 0.8,
-          "blunt": 0.30000000000000004
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
         },
         "stagger_resists": {
           "slash": 1.0,
           "pierce": 1.0,
           "blunt": 1.0
         },
-        "weapon_id": "two_handed_sword"
+        "weapon_id": "skalalaz_iceaxe"
       },
       "attributes": {
         "strength": 10,
         "endurance": 5,
         "agility": 6,
-        "wisdom": 0,
-        "psych": 4
+        "wisdom": 15,
+        "psych": 9
       },
       "skills": {
-        "strike_power": 3,
-        "medicine": 0,
+        "strike_power": 2,
+        "medicine": 24,
         "willpower": 0,
-        "luck": 0,
-        "acrobatics": 3,
-        "shields": 3,
-        "tough_skin": 0,
-        "speed": 10,
-        "light_weapon": 0,
-        "medium_weapon": 6,
+        "luck": 2,
+        "acrobatics": 15,
+        "shields": 0,
+        "tough_skin": 8,
+        "speed": 30,
+        "light_weapon": 10,
+        "medium_weapon": 0,
         "heavy_weapon": 0,
-        "firearms": 3,
-        "eloquence": 0,
-        "forging": 10,
+        "firearms": 15,
+        "eloquence": 4,
+        "forging": 0,
         "engineering": 0,
         "programming": 0
       },
       "passives": [
-        "social_phobia",
-        "not_economically_minded",
-        "sharp_mind",
-        "low_endurance",
-        "topographic_cretinism",
-        "fear_of_healing",
-        "stances",
-        "hardened_by_solitude"
+        "accelerated_learning",
+        "art_of_self_defense",
+        "lucky_streak",
+        "four_eyes",
+        "hunters_vedas",
+        "ship_of_theseus",
+        "wild_cityscape",
+        "mind_suppression"
       ],
       "talents": [
         "innate_talent",
@@ -204,31 +486,67 @@
         "void_cleave",
         "golden_reputation",
         "copycat_insight",
-        "ideal_standard",
-        "black_flash_spark",
-        "arrogant_taunt",
-        "main_character_shell",
-        "silence_execution",
-        "blue_flash_step",
-        "just_warming_up"
+        "athleticism_shadow",
+        "not_great_attention",
+        "smashing_blade",
+        "fast_and_silent"
       ],
-      "augmentations": [],
-      "level_rolls": {},
-      "biography": "",
+      "augmentations": [
+        "aug_strizh"
+      ],
+      "level_rolls": {
+        "3": {
+          "hp": 3,
+          "sp": 3
+        },
+        "6": {
+          "hp": 4,
+          "sp": 4
+        },
+        "9": {
+          "hp": 4,
+          "sp": 1
+        },
+        "12": {
+          "hp": 2,
+          "sp": 2
+        },
+        "15": {
+          "hp": 2,
+          "sp": 3
+        },
+        "18": {
+          "hp": 1,
+          "sp": 4
+        },
+        "21": {
+          "hp": 2,
+          "sp": 1
+        },
+        "24": {
+          "hp": 2,
+          "sp": 1
+        },
+        "27": {
+          "hp": 4,
+          "sp": 4
+        }
+      },
+      "biography": "Броня - лёгкий экзоскелет \"СТРИЖ\" со шлемом и противогазом\nАкробатика +6\nДаёт статус спешки +1  :zHaste: каждый ход\n\nЛедоруб \"Скала Лаз\" х2 (6.5 ранг)\nПозволяет карабкаться по стенам, отвесным скалам. Иногда требуется проверка Ловкости / Акробатики для совершения действия\nПовышает значение куба :zAttackPowerUp: атаки на атакующих картами на 3\n\nСветошумовые гранаты 2шт B tier\n\nАПГРЕЙД КОСТЮМА: ПНВ B tier\nПозволяет видеть в темноте, не получает дебаффы в темноте. Возможны дебаффы при ярком свете/днём во включенном режиме \n",
       "relationships": {},
       "unit_type": "player"
     }
   ],
   "team_right_data": [
     {
-      "name": "Павучел",
-      "level": 11,
-      "rank": 8,
-      "avatar": "data/avatars/Павучел.jpg",
-      "base_intellect": 1,
-      "total_xp": 0,
+      "name": "Лилит 2",
+      "level": 28,
+      "rank": 7,
+      "avatar": "data/avatars\\Лилит.png",
+      "base_intellect": 3,
+      "total_xp": 152043520,
       "pct_mods": {
-        "imp_hp": 0,
+        "imp_hp": 6,
         "imp_sp": 0,
         "imp_stg": 0,
         "tal_hp": 0,
@@ -240,38 +558,45 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 91,
-      "current_sp": 40,
-      "current_stagger": 53,
+      "current_hp": 132,
+      "current_sp": 77,
+      "current_stagger": 66,
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {
-        "pavuchel_eight_eyes": [
-          2
-        ],
-        "pavuchel_venom_bite": [
-          1,
-          1
-        ],
-        "pavuchel_silk_cocoon": [
-          1,
-          1,
-          1
-        ]
+        "bad_habit": 0,
+        "trip_up": 0,
+        "inhale_exhale": 0,
+        "smoke_arts": 0,
+        "demon_scream": 0,
+        "smoke_silhouette": 0
       },
       "active_buffs": {},
-      "_status_effects": {},
+      "_status_effects": {
+        "attack_power_up": [
+          {
+            "amount": 4,
+            "duration": 1
+          }
+        ],
+        "endurance": [
+          {
+            "amount": 4,
+            "duration": 1
+          }
+        ]
+      },
       "delayed_queue": [],
       "deck": [
-        "pavuchel_web_trap",
-        "pavuchel_web_trap",
-        "pavuchel_web_trap",
-        "pavuchel_eight_eyes",
-        "pavuchel_venom_bite",
-        "pavuchel_venom_bite",
-        "pavuchel_silk_cocoon",
-        "pavuchel_silk_cocoon",
-        "pavuchel_silk_cocoon"
+        "release_steam",
+        "prelude",
+        "puff",
+        "bad_habit",
+        "trip_up",
+        "inhale_exhale",
+        "smoke_arts",
+        "demon_scream",
+        "smoke_silhouette"
       ],
       "active_slots": [
         {
@@ -290,7 +615,37 @@
           "is_ally_target": false
         },
         {
-          "speed": 9,
+          "speed": 13,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 15,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 8,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
@@ -306,1591 +661,244 @@
         }
       ],
       "stored_dice": [],
-      "counter_dice": [],
+      "counter_dice": [
+        {
+          "type": "evade",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 7,
+          "base_max": 10,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ],
       "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-          "hp": 91,
-          "sp": 40,
-          "stagger": 53
+          "hp": 132,
+          "sp": 77,
+          "stagger": 66
+        },
+        "smoke_is_defensive": true,
+        "smoke_limit_bonus": 5,
+        "vengeful_payback_chunks": 0,
+        "last_revive_attempt_round": 2,
+        "last_revive_log": {
+          "roll": 2,
+          "bonus": 0,
+          "penalty": 0,
+          "total": 2,
+          "dc": 1,
+          "success": true
         },
         "battle_initialized": true
       },
       "death_count": 0,
       "overkill_damage": 0,
-      "money_log": [],
+      "money_log": [
+        {
+          "amount": 280000,
+          "reason": ""
+        }
+      ],
       "base_stats": {
-        "current_hp": 91,
-        "current_sp": 40,
-        "current_stagger": 53
+        "current_hp": 132,
+        "current_sp": 77,
+        "current_stagger": 66
       },
       "defense": {
-        "armor_name": "Unit_13",
+        "armor_name": "Без брони",
         "armor_type": "Medium",
+        "armor_id": "none",
         "hp_resists": {
-          "slash": 0.7,
-          "pierce": 0.7,
-          "blunt": 2.0
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
         },
         "stagger_resists": {
           "slash": 1.0,
           "pierce": 1.0,
           "blunt": 1.0
         },
-        "weapon_id": "none"
+        "weapon_id": "lilith_scythe"
       },
       "attributes": {
-        "strength": 0,
-        "endurance": 15,
-        "agility": 20,
+        "strength": 18,
+        "endurance": 16,
+        "agility": 18,
         "wisdom": 0,
         "psych": 0
       },
       "skills": {
-        "strike_power": 0,
-        "medicine": 30,
-        "willpower": 18,
+        "strike_power": 7,
+        "medicine": 0,
+        "willpower": 0,
         "luck": 0,
-        "acrobatics": 0,
+        "acrobatics": 15,
         "shields": 0,
-        "tough_skin": 0,
-        "speed": 10,
-        "light_weapon": 0,
-        "medium_weapon": 0,
+        "tough_skin": 7,
+        "speed": 30,
+        "light_weapon": 3,
+        "medium_weapon": 15,
         "heavy_weapon": 0,
         "firearms": 0,
-        "eloquence": 0,
+        "eloquence": 15,
         "forging": 0,
         "engineering": 0,
         "programming": 0
       },
-      "passives": [],
-      "talents": [],
-      "augmentations": [],
+      "passives": [
+        "wag_tail",
+        "backstreet_demon",
+        "daughter_of_backstreets",
+        "hedonism",
+        "live_fast_die_young"
+      ],
+      "talents": [
+        "naked_defense",
+        "vengeful_payback",
+        "berserker_rage",
+        "calm_mind",
+        "frenzy",
+        "hiding_in_smoke",
+        "smoke_universality",
+        "aerial_foot",
+        "recycling"
+      ],
+      "augmentations": [
+        "aug_blessing_of_wind",
+        "aug_merchant_hysteria"
+      ],
       "level_rolls": {
         "3": {
-          "hp": 3,
-          "sp": 1
+          "hp": 2,
+          "sp": 4
         },
         "6": {
-          "hp": 2,
-          "sp": 2
+          "hp": 1,
+          "sp": 3
         },
         "9": {
-          "hp": 5,
+          "hp": 1,
           "sp": 2
+        },
+        "12": {
+          "hp": 2,
+          "sp": 3
+        },
+        "15": {
+          "hp": 5,
+          "sp": 4
+        },
+        "18": {
+          "hp": 4,
+          "sp": 5
+        },
+        "21": {
+          "hp": 1,
+          "sp": 1
         }
       },
       "biography": "",
       "relationships": {},
-      "unit_type": "mob"
+      "unit_type": "player"
     }
   ],
   "phase": "planning",
-  "round_number": 7,
+  "round_number": 1,
   "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-  "battle_logs": [],
+  "battle_logs": [
+    {
+      "round": "Start",
+      "rolls": "Event",
+      "details": "🚩 **Лилит**: 🚬 **Скрываюсь в дыму**: Легкие адаптировались. Дым стал щитом."
+    },
+    {
+      "round": "Start",
+      "rolls": "Event",
+      "details": "🚩 **Лилит**: 🌬️ **Тату 'Благословение Ветра'**: Лимит дыма увеличен до 15"
+    },
+    {
+      "round": "Start",
+      "rolls": "Event",
+      "details": "🚩 **Лима**: 🧠 **Подавление разумом**: Интеллект 19 vs 3. Бонус +16 к Красноречию."
+    },
+    {
+      "round": "Round Start",
+      "rolls": "Event",
+      "details": "🔄 **Лима**: ⚡ **Лима**: Экзоскелет активирует сервоприводы (Спешка +1)."
+    },
+    {
+      "round": "Start",
+      "rolls": "Event",
+      "details": "🚩 **Лилит 2**: 🚬 **Скрываюсь в дыму**: Легкие адаптировались. Дым стал щитом."
+    },
+    {
+      "round": "Start",
+      "rolls": "Event",
+      "details": "🚩 **Лилит 2**: 🌬️ **Тату 'Благословение Ветра'**: Лимит дыма увеличен до 15"
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Лилит**: 🐈 **Махнуть хвостиком**: +1 Counter Evade (7-10) added to pool."
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Лилит**: ⚡ **Живи быстро, умирай молодым**: +4 Силы и Стойкости (за 4 слота)"
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Лилит**: ⚔️ **Неистовство**: Лезвие (7-10)"
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Лилит**: 🦶 **Воздушная стопа**: Силуэт размыт. Добавлено 1 уклонений (Дым: 0)."
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Лилит 2**: 🐈 **Махнуть хвостиком**: +1 Counter Evade (7-10) added to pool."
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Лилит 2**: ⚡ **Живи быстро, умирай молодым**: +4 Силы и Стойкости (за 4 слота)"
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Лилит 2**: ⚔️ **Неистовство**: Лезвие (7-10)"
+    },
+    {
+      "round": "Speed Roll",
+      "rolls": "Passive",
+      "details": "⚡ **Лилит 2**: 🦶 **Воздушная стопа**: Силуэт размыт. Добавлено 1 уклонений (Дым: 0)."
+    }
+  ],
   "script_logs": "",
   "turn_phase": "done",
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Roland",
+  "profile_unit": "Лима",
   "leveling_unit": "Roland",
   "tree_unit": "Roland",
-  "checks_unit": null,
-  "undo_stack": [
-    {
-      "type": "full",
-      "page": "⚔️ Simulator",
-      "team_left_data": [
-        {
-          "name": "Аксис Мунди",
-          "level": 10,
-          "rank": 9,
-          "avatar": "data/avatars\\Аксис_Мунди.png",
-          "base_intellect": 8,
-          "total_xp": 666,
-          "pct_mods": {
-            "imp_hp": 0,
-            "imp_sp": 0,
-            "imp_stg": 0,
-            "tal_hp": 0,
-            "tal_sp": 0,
-            "tal_stg": 0
-          },
-          "flat_mods": {
-            "imp_hp": 0,
-            "imp_sp": 0,
-            "imp_stg": 0
-          },
-          "current_hp": 80,
-          "current_sp": 38,
-          "current_stagger": 40,
-          "resources": {
-            "luck": 55
-          },
-          "cooldowns": {},
-          "card_cooldowns": {
-            "axis_sword_glory": [
-              1
-            ],
-            "axis_spear_determination": [
-              1
-            ],
-            "axis_fist_justice": [
-              1
-            ],
-            "axis_mcguffin": [
-              2
-            ],
-            "axis_plot_armor": [
-              2
-            ],
-            "axis_ex_machina": [
-              2
-            ]
-          },
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [
-            "axis_minor_setbacks",
-            "axis_min_effort",
-            "axis_pirouette",
-            "axis_sword_glory",
-            "axis_spear_determination",
-            "axis_fist_justice",
-            "axis_mcguffin",
-            "axis_plot_armor",
-            "axis_ex_machina",
-            "item_heal_5",
-            "item_heal_35",
-            "item_heal_65",
-            "tea_coffee_vespo"
-          ],
-          "active_slots": [
-            {
-              "speed": 9,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 1,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 80,
-              "sp": 38,
-              "stagger": 40
-            },
-            "last_revive_attempt_round": 1,
-            "last_revive_log": {
-              "roll": 6,
-              "bonus": 0,
-              "penalty": 0,
-              "total": 6,
-              "dc": 0,
-              "success": true
-            },
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": [
-            {
-              "amount": 1500000,
-              "reason": "Первое задание Фемя"
-            },
-            {
-              "amount": -540000,
-              "reason": "Платье + ампулы "
-            },
-            {
-              "amount": 500000,
-              "reason": "У Лимы отобрала"
-            }
-          ],
-          "base_stats": {
-            "current_hp": 80,
-            "current_sp": 38,
-            "current_stagger": 40
-          },
-          "defense": {
-            "armor_name": "Standard Fixer Suit",
-            "armor_type": "Medium",
-            "hp_resists": {
-              "slash": 1.0,
-              "pierce": 1.0,
-              "blunt": 1.0
-            },
-            "stagger_resists": {
-              "slash": 1.0,
-              "pierce": 1.0,
-              "blunt": 1.0
-            },
-            "weapon_id": "none"
-          },
-          "attributes": {
-            "strength": 0,
-            "endurance": 19,
-            "agility": 0,
-            "wisdom": 15,
-            "psych": 0
-          },
-          "skills": {
-            "strike_power": 0,
-            "medicine": 0,
-            "willpower": 0,
-            "luck": 46,
-            "acrobatics": 0,
-            "shields": 0,
-            "tough_skin": 0,
-            "speed": 10,
-            "light_weapon": 0,
-            "medium_weapon": 0,
-            "heavy_weapon": 0,
-            "firearms": 0,
-            "eloquence": 0,
-            "forging": 0,
-            "engineering": 0,
-            "programming": 0
-          },
-          "passives": [
-            "axis_unity",
-            "pseudo_protagonist",
-            "source_access",
-            "meta_awareness",
-            "chthonic_nature"
-          ],
-          "talents": [
-            "deal_with_fortune",
-            "second_chance",
-            "sequential_luck"
-          ],
-          "augmentations": [],
-          "level_rolls": {
-            "3": {
-              "hp": 3,
-              "sp": 4
-            },
-            "6": {
-              "hp": 2,
-              "sp": 4
-            }
-          },
-          "biography": "Очки (крутые)\nВеревка (неудачливая)\n3 карточки хилок и платье (5, 30, 65. 3 бинда 0 2 3 сытости)\nплатье 500к\nстарый лук, немного приколов и стрел Лимы, но не все, еë шампунь, сами волосы Л, а также взяла у неë карандаш, бумагу, и оставила Лиме записку",
-          "relationships": {},
-          "unit_type": "player"
-        }
-      ],
-      "team_right_data": [
-        {
-          "name": "Roland 2",
-          "level": 90,
-          "rank": 9,
-          "avatar": "data/avatars/Roland.jpg",
-          "base_intellect": 1,
-          "total_xp": 618970019642690137449562112,
-          "pct_mods": {
-            "imp_hp": 200,
-            "imp_sp": 0,
-            "imp_stg": 0,
-            "tal_hp": 200,
-            "tal_sp": 0,
-            "tal_stg": 0
-          },
-          "flat_mods": {
-            "imp_hp": 0,
-            "imp_sp": 0,
-            "imp_stg": 0
-          },
-          "current_hp": 1674,
-          "current_sp": 20,
-          "current_stagger": 10,
-          "resources": {
-            "luck": 0
-          },
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [],
-          "active_slots": [
-            {
-              "speed": 6,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 4,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 1674,
-              "sp": 20,
-              "stagger": 10
-            },
-            "axis_debuff_triad_active": false,
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": [],
-          "base_stats": {
-            "current_hp": 1674,
-            "current_sp": 20,
-            "current_stagger": 10
-          },
-          "defense": {
-            "armor_name": "Standard Fixer Suit",
-            "armor_type": "Medium",
-            "hp_resists": {
-              "slash": 1.7999999999999998,
-              "pierce": 0.8,
-              "blunt": 0.30000000000000004
-            },
-            "stagger_resists": {
-              "slash": 1.0,
-              "pierce": 1.0,
-              "blunt": 1.0
-            },
-            "weapon_id": "none"
-          },
-          "attributes": {
-            "strength": 0,
-            "endurance": 30,
-            "agility": 0,
-            "wisdom": 0,
-            "psych": 0
-          },
-          "skills": {
-            "strike_power": 0,
-            "medicine": 0,
-            "willpower": 0,
-            "luck": 0,
-            "acrobatics": 0,
-            "shields": 15,
-            "tough_skin": 30,
-            "speed": 15,
-            "light_weapon": 0,
-            "medium_weapon": 0,
-            "heavy_weapon": 0,
-            "firearms": 0,
-            "eloquence": 0,
-            "forging": 0,
-            "engineering": 0,
-            "programming": 0
-          },
-          "passives": [],
-          "talents": [],
-          "augmentations": [],
-          "level_rolls": {
-            "3": {
-              "hp": 3,
-              "sp": 5
-            },
-            "6": {
-              "hp": 4,
-              "sp": 4
-            },
-            "9": {
-              "hp": 1,
-              "sp": 2
-            },
-            "12": {
-              "hp": 1,
-              "sp": 1
-            },
-            "15": {
-              "hp": 2,
-              "sp": 2
-            },
-            "18": {
-              "hp": 3,
-              "sp": 5
-            },
-            "21": {
-              "hp": 3,
-              "sp": 4
-            },
-            "24": {
-              "hp": 5,
-              "sp": 3
-            },
-            "27": {
-              "hp": 3,
-              "sp": 1
-            },
-            "30": {
-              "hp": 5,
-              "sp": 4
-            },
-            "33": {
-              "hp": 2,
-              "sp": 5
-            },
-            "36": {
-              "hp": 1,
-              "sp": 3
-            },
-            "39": {
-              "hp": 5,
-              "sp": 3
-            },
-            "42": {
-              "hp": 4,
-              "sp": 5
-            },
-            "45": {
-              "hp": 1,
-              "sp": 4
-            },
-            "48": {
-              "hp": 2,
-              "sp": 5
-            },
-            "51": {
-              "hp": 1,
-              "sp": 2
-            },
-            "54": {
-              "hp": 4,
-              "sp": 1
-            },
-            "57": {
-              "hp": 3,
-              "sp": 5
-            },
-            "60": {
-              "hp": 1,
-              "sp": 2
-            },
-            "63": {
-              "hp": 3,
-              "sp": 1
-            },
-            "66": {
-              "hp": 2,
-              "sp": 5
-            },
-            "69": {
-              "hp": 1,
-              "sp": 1
-            },
-            "72": {
-              "hp": 2,
-              "sp": 3
-            },
-            "75": {
-              "hp": 2,
-              "sp": 2
-            },
-            "78": {
-              "hp": 2,
-              "sp": 4
-            },
-            "81": {
-              "hp": 2,
-              "sp": 3
-            },
-            "84": {
-              "hp": 5,
-              "sp": 4
-            },
-            "87": {
-              "hp": 4,
-              "sp": 4
-            },
-            "90": {
-              "hp": 2,
-              "sp": 4
-            }
-          },
-          "biography": "",
-          "relationships": {},
-          "unit_type": "fixer"
-        }
-      ],
-      "phase": "planning",
-      "round_number": 1,
-      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-      "battle_logs": [],
-      "script_logs": "",
-      "turn_phase": "done",
-      "action_idx": 0,
-      "executed_slots": [],
-      "turn_actions": [],
-      "profile_unit": "Roland",
-      "leveling_unit": "Roland",
-      "tree_unit": "Roland",
-      "checks_unit": null
-    },
-    {
-      "type": "dynamic",
-      "team_left_dyn": [
-        {
-          "current_hp": 80,
-          "current_sp": 38,
-          "current_stagger": 40,
-          "resources": {
-            "luck": 55
-          },
-          "cooldowns": {},
-          "card_cooldowns": {
-            "axis_mcguffin": [
-              1
-            ],
-            "axis_plot_armor": [
-              1
-            ],
-            "axis_ex_machina": [
-              1
-            ]
-          },
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [
-            "axis_minor_setbacks",
-            "axis_min_effort",
-            "axis_pirouette",
-            "axis_sword_glory",
-            "axis_spear_determination",
-            "axis_fist_justice",
-            "axis_mcguffin",
-            "axis_plot_armor",
-            "axis_ex_machina",
-            "item_heal_5",
-            "item_heal_35",
-            "item_heal_65",
-            "tea_coffee_vespo"
-          ],
-          "active_slots": [
-            {
-              "speed": 8,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 3,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 80,
-              "sp": 38,
-              "stagger": 40
-            },
-            "last_revive_attempt_round": 1,
-            "last_revive_log": {
-              "roll": 6,
-              "bonus": 0,
-              "penalty": 0,
-              "total": 6,
-              "dc": 0,
-              "success": true
-            },
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": [
-            {
-              "amount": 1500000,
-              "reason": "Первое задание Фемя"
-            },
-            {
-              "amount": -540000,
-              "reason": "Платье + ампулы "
-            },
-            {
-              "amount": 500000,
-              "reason": "У Лимы отобрала"
-            }
-          ]
-        }
-      ],
-      "team_right_dyn": [
-        {
-          "current_hp": 1674,
-          "current_sp": 20,
-          "current_stagger": 10,
-          "resources": {
-            "luck": 0
-          },
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [],
-          "active_slots": [
-            {
-              "speed": 7,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 4,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 1674,
-              "sp": 20,
-              "stagger": 10
-            },
-            "axis_debuff_triad_active": false,
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "phase": "planning",
-      "round_number": 2,
-      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-      "battle_logs": [],
-      "turn_actions": [],
-      "turn_phase": "done",
-      "action_idx": 0,
-      "executed_slots": []
-    },
-    {
-      "type": "dynamic",
-      "team_left_dyn": [
-        {
-          "current_hp": 80,
-          "current_sp": 38,
-          "current_stagger": 40,
-          "resources": {
-            "luck": 55
-          },
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [
-            "axis_minor_setbacks",
-            "axis_min_effort",
-            "axis_pirouette",
-            "axis_sword_glory",
-            "axis_spear_determination",
-            "axis_fist_justice",
-            "axis_mcguffin",
-            "axis_plot_armor",
-            "axis_ex_machina",
-            "item_heal_5",
-            "item_heal_35",
-            "item_heal_65",
-            "tea_coffee_vespo"
-          ],
-          "active_slots": [
-            {
-              "speed": 7,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 1,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 80,
-              "sp": 38,
-              "stagger": 40
-            },
-            "last_revive_attempt_round": 1,
-            "last_revive_log": {
-              "roll": 6,
-              "bonus": 0,
-              "penalty": 0,
-              "total": 6,
-              "dc": 0,
-              "success": true
-            },
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": [
-            {
-              "amount": 1500000,
-              "reason": "Первое задание Фемя"
-            },
-            {
-              "amount": -540000,
-              "reason": "Платье + ампулы "
-            },
-            {
-              "amount": 500000,
-              "reason": "У Лимы отобрала"
-            }
-          ]
-        }
-      ],
-      "team_right_dyn": [
-        {
-          "current_hp": 1674,
-          "current_sp": 20,
-          "current_stagger": 10,
-          "resources": {
-            "luck": 0
-          },
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [],
-          "active_slots": [
-            {
-              "speed": 6,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 6,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 1674,
-              "sp": 20,
-              "stagger": 10
-            },
-            "axis_debuff_triad_active": false,
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "phase": "planning",
-      "round_number": 3,
-      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-      "battle_logs": [],
-      "turn_actions": [],
-      "turn_phase": "done",
-      "action_idx": 0,
-      "executed_slots": []
-    },
-    {
-      "type": "dynamic",
-      "team_left_dyn": [
-        {
-          "current_hp": 27,
-          "current_sp": 27,
-          "current_stagger": 13,
-          "resources": {},
-          "cooldowns": {
-            "stances": 1
-          },
-          "card_cooldowns": {
-            "time_cant_turn_back_blunt": 0,
-            "still_alive_blunt": 0,
-            "perfect_strike_blunt": 0
-          },
-          "active_buffs": {},
-          "_status_effects": {
-            "stance_slash": [
-              {
-                "amount": 1,
-                "duration": 98
-              }
-            ],
-            "strength": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ],
-            "haste": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ],
-            "endurance": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ]
-          },
-          "delayed_queue": [],
-          "deck": [
-            "short_lunge_blunt",
-            "long_lunge_blunt",
-            "draw_sword_blunt",
-            "long_edge_blunt",
-            "tale_of_rebirth_blunt",
-            "double_strike_blunt",
-            "time_cant_turn_back_blunt",
-            "still_alive_blunt",
-            "perfect_cut"
-          ],
-          "active_slots": [
-            {
-              "speed": 11,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 12,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 27,
-              "sp": 27,
-              "stagger": 13
-            },
-            "last_revive_attempt_round": 2,
-            "last_revive_log": {
-              "roll": 3,
-              "bonus": 0,
-              "penalty": 0,
-              "total": 3,
-              "dc": 0,
-              "success": true
-            },
-            "battle_initialized": true,
-            "ideal_standard_debuff_applied": false
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "team_right_dyn": [
-        {
-          "current_hp": 1674,
-          "current_sp": 267,
-          "current_stagger": 10,
-          "resources": {
-            "luck": 0
-          },
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [],
-          "active_slots": [
-            {
-              "speed": 7,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 3,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "2321321",
-            "start_of_battle_stats": {
-              "hp": 1674,
-              "sp": 267,
-              "stagger": 10
-            },
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "phase": "planning",
-      "round_number": 4,
-      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-      "battle_logs": [],
-      "turn_actions": [],
-      "turn_phase": "done",
-      "action_idx": 0,
-      "executed_slots": []
-    },
-    {
-      "type": "dynamic",
-      "team_left_dyn": [
-        {
-          "current_hp": 27,
-          "current_sp": 27,
-          "current_stagger": 13,
-          "resources": {},
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {
-            "stance_slash": [
-              {
-                "amount": 1,
-                "duration": 97
-              }
-            ],
-            "strength": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ],
-            "haste": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ],
-            "endurance": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ]
-          },
-          "delayed_queue": [],
-          "deck": [
-            "short_lunge_blunt",
-            "long_lunge_blunt",
-            "draw_sword_blunt",
-            "long_edge_blunt",
-            "tale_of_rebirth_blunt",
-            "double_strike_blunt",
-            "time_cant_turn_back_blunt",
-            "still_alive_blunt",
-            "perfect_cut"
-          ],
-          "active_slots": [
-            {
-              "speed": 13,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 10,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 27,
-              "sp": 27,
-              "stagger": 13
-            },
-            "last_revive_attempt_round": 2,
-            "last_revive_log": {
-              "roll": 3,
-              "bonus": 0,
-              "penalty": 0,
-              "total": 3,
-              "dc": 0,
-              "success": true
-            },
-            "battle_initialized": true,
-            "ideal_standard_debuff_applied": false
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "team_right_dyn": [
-        {
-          "current_hp": 1673,
-          "current_sp": 267,
-          "current_stagger": 9,
-          "resources": {
-            "luck": 0
-          },
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [],
-          "active_slots": [
-            {
-              "speed": 7,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 5,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "2321321",
-            "start_of_battle_stats": {
-              "hp": 1674,
-              "sp": 267,
-              "stagger": 10
-            },
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "phase": "planning",
-      "round_number": 5,
-      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-      "battle_logs": [
-        {
-          "type": "onesided",
-          "round": "L Hit (Hit)",
-          "left": {
-            "unit": "Лайла",
-            "card": "Выхватить Меч",
-            "dice": "BLUNT",
-            "val": 12,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Roland",
-            "card": "-",
-            "dice": "None",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed 💥 **-1 HP**",
-          "details": [
-            "🎲 Roll [2-6]: 6 + 2 (Сила) + 4 (Среднее ор.) = **12**",
-            "👊 Atk Boost: +3",
-            "💥 **Roland**: [-12 Skin] [x0.4 Res] Hit 1 HP"
-          ]
-        },
-        {
-          "round": "Skill",
-          "rolls": "Activate",
-          "details": "⚔️ **Боевые Стойки**: Активирована 🔪 Режущая стойка! (+1 мощность, колода сменена)"
-        }
-      ],
-      "turn_actions": [],
-      "turn_phase": "done",
-      "action_idx": 0,
-      "executed_slots": []
-    },
-    {
-      "type": "dynamic",
-      "team_left_dyn": [
-        {
-          "current_hp": 27,
-          "current_sp": 27,
-          "current_stagger": 13,
-          "resources": {},
-          "cooldowns": {
-            "stances": 1
-          },
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {
-            "stance_slash": [
-              {
-                "amount": 1,
-                "duration": 98
-              }
-            ],
-            "bind": [
-              {
-                "amount": 2,
-                "duration": 99
-              }
-            ],
-            "attack_power_down": [
-              {
-                "amount": 2,
-                "duration": 99
-              }
-            ],
-            "strength": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ],
-            "haste": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ],
-            "endurance": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ]
-          },
-          "delayed_queue": [],
-          "deck": [
-            "short_lunge",
-            "long_lunge",
-            "draw_sword",
-            "long_edge",
-            "tale_of_rebirth",
-            "double_strike",
-            "time_cant_turn_back",
-            "still_alive",
-            "perfect_cut"
-          ],
-          "active_slots": [
-            {
-              "speed": 12,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 10,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 27,
-              "sp": 27,
-              "stagger": 13
-            },
-            "last_revive_attempt_round": 2,
-            "last_revive_log": {
-              "roll": 3,
-              "bonus": 0,
-              "penalty": 0,
-              "total": 3,
-              "dc": 0,
-              "success": true
-            },
-            "battle_initialized": true,
-            "ideal_standard_debuff_applied": false
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "team_right_dyn": [
-        {
-          "current_hp": 1666,
-          "current_sp": 267,
-          "current_stagger": 2,
-          "resources": {
-            "luck": 0
-          },
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [],
-          "active_slots": [
-            {
-              "speed": 9,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 4,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "2321321",
-            "start_of_battle_stats": {
-              "hp": 1674,
-              "sp": 267,
-              "stagger": 10
-            },
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "phase": "planning",
-      "round_number": 6,
-      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-      "battle_logs": [
-        {
-          "type": "onesided",
-          "round": "L Hit (Hit)",
-          "left": {
-            "unit": "Лайла",
-            "card": "Выхватить Меч",
-            "dice": "SLASH",
-            "val": 13,
-            "range": "-"
-          },
-          "right": {
-            "unit": "Roland",
-            "card": "-",
-            "dice": "None",
-            "val": 0,
-            "range": "-"
-          },
-          "outcome": "Unopposed 💥 **-7 HP**",
-          "details": [
-            "🎲 Roll [2-6]: 6 + 2 (Сила) + 4 (Среднее ор.) + 1 (Боевые Стойки: Slash) = **13**",
-            "👊 Atk Boost: +3",
-            "💥 **Roland**: [-12 Skin] [x1.9 Res] Hit 7 HP"
-          ]
-        }
-      ],
-      "turn_actions": [],
-      "turn_phase": "done",
-      "action_idx": 0,
-      "executed_slots": []
-    },
-    {
-      "type": "dynamic",
-      "team_left_dyn": [
-        {
-          "current_hp": 27,
-          "current_sp": 27,
-          "current_stagger": 13,
-          "resources": {},
-          "cooldowns": {},
-          "card_cooldowns": {
-            "perfect_cut": [
-              2
-            ],
-            "time_cant_turn_back": [
-              2
-            ]
-          },
-          "active_buffs": {},
-          "_status_effects": {
-            "stance_slash": [
-              {
-                "amount": 1,
-                "duration": 97
-              }
-            ],
-            "bind": [
-              {
-                "amount": 2,
-                "duration": 98
-              }
-            ],
-            "attack_power_down": [
-              {
-                "amount": 2,
-                "duration": 98
-              }
-            ],
-            "strength": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ],
-            "haste": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ],
-            "endurance": [
-              {
-                "amount": 2,
-                "duration": 1
-              }
-            ]
-          },
-          "delayed_queue": [],
-          "deck": [
-            "short_lunge",
-            "long_lunge",
-            "draw_sword",
-            "long_edge",
-            "tale_of_rebirth",
-            "double_strike",
-            "time_cant_turn_back",
-            "still_alive",
-            "perfect_cut"
-          ],
-          "active_slots": [
-            {
-              "speed": 11,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 9,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 27,
-              "sp": 27,
-              "stagger": 13
-            },
-            "last_revive_attempt_round": 2,
-            "last_revive_log": {
-              "roll": 3,
-              "bonus": 0,
-              "penalty": 0,
-              "total": 3,
-              "dc": 0,
-              "success": true
-            },
-            "battle_initialized": true,
-            "ideal_standard_debuff_applied": false
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "team_right_dyn": [
-        {
-          "current_hp": 91,
-          "current_sp": 40,
-          "current_stagger": 53,
-          "resources": {},
-          "cooldowns": {},
-          "card_cooldowns": {
-            "pavuchel_eight_eyes": [
-              2
-            ],
-            "pavuchel_venom_bite": [
-              1,
-              1
-            ],
-            "pavuchel_silk_cocoon": [
-              1,
-              1,
-              1
-            ]
-          },
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [
-            "pavuchel_web_trap",
-            "pavuchel_web_trap",
-            "pavuchel_web_trap",
-            "pavuchel_eight_eyes",
-            "pavuchel_venom_bite",
-            "pavuchel_venom_bite",
-            "pavuchel_silk_cocoon",
-            "pavuchel_silk_cocoon",
-            "pavuchel_silk_cocoon"
-          ],
-          "active_slots": [
-            {
-              "speed": 13,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 9,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 91,
-              "sp": 40,
-              "stagger": 53
-            },
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "phase": "planning",
-      "round_number": 7,
-      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-      "battle_logs": [],
-      "turn_actions": [],
-      "turn_phase": "done",
-      "action_idx": 0,
-      "executed_slots": []
-    }
-  ]
+  "checks_unit": " Дна'хо",
+  "undo_stack": []
 }

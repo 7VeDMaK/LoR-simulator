@@ -88,9 +88,9 @@
         "weapon_id": "skalalaz_iceaxe"
     },
     "attributes": {
-        "strength": 10,
+        "strength": 2,
         "endurance": 5,
-        "agility": 6,
+        "agility": 30,
         "wisdom": 15,
         "psych": 9
     },
