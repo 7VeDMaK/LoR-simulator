@@ -545,7 +545,6 @@ class StatusAntiCharge(StatusEffect):
 
     # 1. Механика силы (как в StrengthStatus)
     def on_roll(self, ctx, **kwargs):
-        # Получаем текущие стаки (передаются системой)
         stack = kwargs.get('stack', 0)
         if stack == 0 and hasattr(self, 'stack'):
             stack = self.stack
@@ -566,13 +565,9 @@ class StatusAntiCharge(StatusEffect):
         return -3 * stack
 
     # 3. Спад стаков
-    def on_round_end(self, unit, *args, **kwargs):
-        # Используем встроенный метод уменьшения (если класс stateful)
-        if hasattr(self, "reduce_stack"):
-            self.reduce_stack(1)
-        # Или через юнит (если класс stateless)
-        elif hasattr(unit, "add_status"):
-            unit.add_status(self.id, -1)
+    def on_round_end(self, unit, log_func, **kwargs):
+        unit.remove_status("anti_charge", 1)
+
 
 
 class StatusWinCondition(StatusEffect):
