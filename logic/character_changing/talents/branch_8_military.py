@@ -91,7 +91,7 @@ class TalentAddiction(BasePassive):
         if unit.cooldowns.get(self.id, 0) > 0: return False
 
         duration = 3
-        unit.add_status("strength", 1, duration=duration)
+        unit.add_status("attack_power_up", 1, duration=duration)
         unit.add_status("haste", 1, duration=duration)  # Скорость
         # Иммунитет к параличу сложно реализовать без спец. статуса "immune_paralysis"
 

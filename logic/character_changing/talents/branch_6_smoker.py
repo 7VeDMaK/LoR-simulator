@@ -49,7 +49,7 @@ class TalentSmokeUniversality(BasePassive):
     is_active_ability = True
 
     conversion_options = {
-        "str": {"label": "4 Smoke -> 1 Strength", "cost": 4, "stat": "strength", "amt": 1, "dur": 3},
+        "str": {"label": "4 Smoke -> 1 Strength", "cost": 4, "stat": "attack_power_up", "amt": 1, "dur": 3},
         "hst": {"label": "3 Smoke -> 1 Haste", "cost": 3, "stat": "haste", "amt": 1, "dur": 3},
         "end": {"label": "4 Smoke -> 1 Endurance", "cost": 4, "stat": "endurance", "amt": 1, "dur": 3},
         "self": {"label": "3 Smoke -> 5 Self-Control", "cost": 3, "stat": "self_control", "amt": 5, "dur": 99},

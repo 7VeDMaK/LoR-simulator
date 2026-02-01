@@ -467,7 +467,7 @@ class TalentIdealStandard(BasePassive):
         if endurance_bonus > 0:
             unit.add_status("endurance", endurance_bonus, duration=1)
         if attack_power_bonus > 0:
-            unit.add_status("strength", attack_power_bonus, duration=1)
+            unit.add_status("attack_power_up", attack_power_bonus, duration=1)
         if haste_bonus > 0:
             unit.add_status("haste", haste_bonus, duration=1)
 
@@ -608,7 +608,7 @@ class TalentArrogantTaunt(BasePassive):
             return False
 
         # Применение эффектов
-        target.add_status("strength", 2, duration=1)
+        target.add_status("attack_power_up", 2, duration=1)
         target.add_status("vulnerable", 4, duration=1)
 
         msg = f"😤 **{self.name}**: {target.name} разъярён! (+2 Силы, но +4 Уязвимости)"
@@ -750,7 +750,7 @@ class TalentJustWarmingUp(BasePassive):
 
         if lost_count > 0:
             # Выдаем бафф Силы
-            unit.add_status("strength", lost_count, duration=1)
+            unit.add_status("attack_power_up", lost_count, duration=1)
 
             if log_func:
                 log_func(f"🔥 **{self.name}**: Разминка окончена! Получено +{lost_count} Силы.")

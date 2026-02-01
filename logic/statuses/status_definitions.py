@@ -1,6 +1,6 @@
 # Импортируем классы из новых модулей
 from logic.statuses.common import (
-    StrengthStatus, EnduranceStatus, BleedStatus, ParalysisStatus,
+    AttackPowerUpStatus, EnduranceStatus, BleedStatus, ParalysisStatus,
     ProtectionStatus, FragileStatus, VulnerableStatus, BarrierStatus, BindStatus, DeepWoundStatus,
     HasteStatus, BurnStatus, WeaknessStatus, WeakStatus, StaggerResistStatus, DmgUpStatus, DmgDownStatus, RuptureStatus,
     AttackPowerDownStatus
@@ -17,7 +17,7 @@ from logic.statuses.custom import (
 # === РЕГИСТРАЦИЯ ===
 STATUS_REGISTRY = {
     # Common
-    "strength": StrengthStatus(),
+    "attack_power_up": AttackPowerUpStatus(),
     "endurance": EnduranceStatus(),
     "bleed": BleedStatus(),
     "paralysis": ParalysisStatus(),
@@ -70,4 +70,7 @@ STATUS_REGISTRY = {
     "azino_jackpot": AzinoJackpotStatus(),
     "azino_beast": AzinoBeastStatus(),
     "lucky_coin_status": LuckyCoinStatus(),
+    
+    # Алиасы для обратной совместимости
+    "strength": AttackPowerUpStatus(),  # Старое название -> attack_power_up
 }

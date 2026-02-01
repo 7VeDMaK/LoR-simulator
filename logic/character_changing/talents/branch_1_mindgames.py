@@ -143,7 +143,7 @@ class TalentMindPower(BasePassive):
             return False
 
         unit.current_sp -= cost
-        unit.add_status("strength", amount, duration=1)
+        unit.add_status("attack_power_up", amount, duration=1)
 
         if log_func:
             log_func(f"🧠 **{self.name}**: Пожертвовано {cost} SP -> Получено +{amount} Силы!")
@@ -343,11 +343,11 @@ class TalentEmotionalStorm(BasePassive):
                 unit.add_status("protection", 2, duration=1)
                 buffs.append("Protection")
             if lvl >= 4:
-                unit.add_status("strength", 2, duration=1)
+                unit.add_status("attack_power_up", 2, duration=1)
                 buffs.append("Strength")
             if lvl >= 5:
                 unit.add_status("haste", 2, duration=1)
-                unit.add_status("strength", 2, duration=1)
+                unit.add_status("attack_power_up", 2, duration=1)
                 buffs.append("MAX POWER")
 
             if log_func:

@@ -416,7 +416,7 @@ class TalentGrounding(BasePassive):
         # Текст: "Если имеете... можете сбросить". Обычно такие мощные эффекты тратят ресурс.
 
         unit.add_status("haste", 2, duration=1)
-        unit.add_status("strength", 2, duration=1)
+        unit.add_status("attack_power_up", 2, duration=1)
         # Очистка дебаффов (заглушка)
 
         unit.cooldowns[self.id] = self.cooldown

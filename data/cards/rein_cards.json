@@ -110,6 +110,19 @@
               "base": -7,
               "target": "self"
             }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "attack_power_up",
+              "base": 3,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 2,
+              "delay": 0,
+              "target": "self"
+            }
           }
         ]
       },
@@ -119,28 +132,19 @@
           "base_min": 9,
           "base_max": 13,
           "is_counter": false,
-          "scripts": {
-            "on_roll": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "strength",
-                  "base": 3,
-                  "stat": "None",
-                  "scale_from_target": false,
-                  "factor": 1.0,
-                  "duration": 2,
-                  "delay": 0,
-                  "target": "self"
-                }
-              }
-            ]
-          }
+          "scripts": {}
         },
         {
-          "type": "slash",
-          "base_min": 9,
-          "base_max": 13,
+          "type": "pierce",
+          "base_min": 5,
+          "base_max": 8,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "pierce",
+          "base_min": 4,
+          "base_max": 5,
           "is_counter": false,
           "scripts": {}
         }
@@ -288,8 +292,9 @@
       "id": "bad_coffee_img",
       "name": "Плохое кофе... Нервирует.",
       "tier": 4,
-      "type": "melee",
-      "description": "Пассивно: При использовании отнимает 50 SP, добавляет 7 Strength.",
+      "type": "Melee",
+      "description": "Пассивно: При использовании отнимает 50 SP, добавляет 7 Усиления атаки.",
+      "flags": [],
       "scripts": {
         "on_use": [
           {
@@ -303,9 +308,13 @@
           {
             "script_id": "apply_status",
             "params": {
-              "status": "strength",
+              "status": "attack_power_up",
               "base": 7,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
               "duration": 1,
+              "delay": 0,
               "target": "self"
             }
           }
@@ -316,6 +325,7 @@
           "type": "slash",
           "base_min": 27,
           "base_max": 39,
+          "is_counter": false,
           "scripts": {}
         },
         {
@@ -331,16 +341,21 @@
       "id": "good_coffee_img",
       "name": "Хорошее кофе... Вдохновляет.",
       "tier": 4,
-      "type": "melee",
-      "description": "Пассивно: добавляет 10 Strength.",
+      "type": "Melee",
+      "description": "Пассивно: добавляет 10 Усиления атаки.",
+      "flags": [],
       "scripts": {
         "on_use": [
           {
             "script_id": "apply_status",
             "params": {
-              "status": "strength",
+              "status": "attack_power_up",
               "base": 10,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
               "duration": 1,
+              "delay": 0,
               "target": "self"
             }
           }
@@ -351,24 +366,28 @@
           "type": "slash",
           "base_min": 5,
           "base_max": 5,
+          "is_counter": false,
           "scripts": {}
         },
         {
           "type": "slash",
           "base_min": 5,
           "base_max": 5,
+          "is_counter": false,
           "scripts": {}
         },
         {
           "type": "slash",
           "base_min": 5,
           "base_max": 5,
+          "is_counter": false,
           "scripts": {}
         },
         {
           "type": "slash",
           "base_min": 5,
           "base_max": 5,
+          "is_counter": false,
           "scripts": {}
         }
       ]
@@ -377,8 +396,9 @@
       "id": "equivalent_exchange_img",
       "name": "Равноценный Обмен",
       "tier": 4,
-      "type": "melee",
+      "type": "Melee",
       "description": "Пассивно: При использовании карты отнимает 50 HP и прибавляет 25 Stagger.",
+      "flags": [],
       "scripts": {
         "on_use": [
           {

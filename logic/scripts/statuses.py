@@ -126,7 +126,7 @@ def remove_all_positive(context: 'RollContext', params: dict):
 
     # Список положительных статусов
     POSITIVE_BUFFS = [
-        "strength", "endurance", "haste", "protection", "barrier",
+        "attack_power_up", "endurance", "haste", "protection", "barrier",
         "regen_hp", "regen_ganache", "mental_protection", "clarity",
         "dmg_up", "power_up", "clash_power_up", "stagger_resist",
         "bleed_resist", "ignore_satiety"

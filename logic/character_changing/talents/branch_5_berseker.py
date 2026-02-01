@@ -73,7 +73,7 @@ class TalentVengefulPayback(BasePassive):
         bonus = current_chunks - previous_chunks
 
         if bonus > 0:
-            unit.add_status("strength", bonus, duration=3)
+            unit.add_status("attack_power_up", bonus, duration=3)
 
             msg = f"🩸 **{self.name}**: Кровь закипает! (Порог {previous_chunks * 10} -> {current_chunks * 10} урона) -> +{bonus} Силы"
             if log_func: log_func(msg)
@@ -115,7 +115,7 @@ class TalentBerserkerRage(BasePassive):
 
         if is_raging:
             # Моментальные баффы характеристик
-            unit.add_status("strength", 2, duration=3)
+            unit.add_status("attack_power_up", 2, duration=3)
             unit.add_status("dmg_up", 2, duration=3)
 
             if log_func:

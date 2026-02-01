@@ -105,6 +105,18 @@ def process_mass_attack(engine, action, opposing_team, round_label, executed_slo
 
         if target_slot and not is_undefended:
             target_dice_list = target_slot['card'].dice_list
+            # === [FIX] АКТИВАЦИЯ ON_USE ДЛЯ ЗАЩИТНИКА ===
+            # Временно устанавливаем карту защитника для активации скриптов
+            old_defender_card = target.current_card
+            target.current_card = target_slot['card']
+            
+            defender_on_use_logs = []
+            engine._process_card_self_scripts("on_use", target, source, custom_log_list=defender_on_use_logs)
+            if defender_on_use_logs:
+                logger.log(f"Defender On Use: {' | '.join(defender_on_use_logs)}", LogLevel.VERBOSE, "MassAtk")
+            
+            # Восстанавливаем оригинальную карту
+            target.current_card = old_defender_card
         else:
             target_dice_list = []
 

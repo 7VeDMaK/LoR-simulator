@@ -9,7 +9,7 @@
       "scripts": {
         "on_use": [
           { "script_id": "restore_resource", "params": { "type": "hp", "base": 0, "stat": "max_hp", "factor": 0.20, "target": "self" } },
-          { "script_id": "apply_status", "params": { "status": "strength", "base": 2, "duration": 3, "target": "self" } },
+          { "script_id": "apply_status", "params": { "status": "attack_power_up", "base": 2, "duration": 3, "target": "self" } },
           { "script_id": "apply_status", "params": { "status": "endurance", "base": 2, "duration": 3, "target": "self" } },
           { "script_id": "apply_status", "params": { "status": "haste", "base": 2, "duration": 3, "target": "self" } },
           { "script_id": "apply_status", "params": { "status": "protection", "base": 2, "duration": 3, "target": "self" } },

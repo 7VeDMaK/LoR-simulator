@@ -57,7 +57,7 @@ class PassiveWitnessOfGroGoroth(BasePassive):
     def on_status_applied(self, unit, status_id, amount, duration=100, **kwargs):
         # Список распространяемых баффов
         POSITIVE_BUFFS = [
-            "strength", "endurance", "haste", "protection", "barrier",
+            "attack_power_up", "endurance", "haste", "protection", "barrier",
             "dmg_up", "power_up", "clash_power_up", "revenge_dmg_up",
             "self_control", "invisibility", "bullet_time", "adaptation", "clarity",
             "mental_protection", "stagger_resist", "bleed_resist", "regen_ganache", "ignore_satiety",

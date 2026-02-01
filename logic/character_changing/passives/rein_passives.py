@@ -61,11 +61,7 @@ class TalentRedLycoris(BasePassive):
         if unit.cooldowns.get(self.id, 0) > 0:
             return False
 
-        # Проверка Stagger < 50%
-        stagger_pct = unit.current_stagger / unit.max_stagger
-        if stagger_pct > 0.5:
-            if log_func: log_func(f"❌ {self.name}: Выдержка слишком высока ({int(stagger_pct * 100)}%)")
-            return False
+
 
         removed_list = []
         current_statuses = list(unit.statuses.keys())

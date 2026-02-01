@@ -1268,7 +1268,7 @@
           {
             "script_id": "apply_status",
             "params": {
-              "status": "strength",
+              "status": "attack_power_up",
               "stack": 12,
               "target": "target",
               "duration": 1,

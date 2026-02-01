@@ -463,7 +463,7 @@ class PassiveHardenedBySolitude(BasePassive):
         """Применяет бонусы в начале раунда, если нет активных союзников."""
         if not self._has_active_allies(unit):
             # Применяем статусы на весь раунд
-            unit.add_status("strength", 2, duration=1)
+            unit.add_status("attack_power_up", 2, duration=1)
             unit.add_status("haste", 2, duration=1)
             unit.add_status("endurance", 2, duration=1)
             

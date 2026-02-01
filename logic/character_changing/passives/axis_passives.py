@@ -25,7 +25,7 @@ class PassiveAxisUnity(BasePassive):
         if not target: return
 
         # === 1. ПОЛОЖИТЕЛЬНАЯ ТРИАДА (Strength, Endurance, Haste) ===
-        cur_str = target.get_status("strength")
+        cur_str = target.get_status("attack_power_up")
         cur_end = target.get_status("endurance")
         cur_haste = target.get_status("haste")
 
@@ -68,7 +68,7 @@ class PassiveAxisUnity(BasePassive):
 
                 # Накладываем разницу
                 if diff_str > 0:
-                    target.add_status("strength", diff_str, duration=d_str, trigger_events=False)
+                    target.add_status("attack_power_up", diff_str, duration=d_str, trigger_events=False)
                     target.memory[mem_key_str] = target_bonus_str
 
                 if diff_end > 0:
