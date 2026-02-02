@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 === BATTLE LOG CLEARED: 2026-02-01 12:00:57.867164 ===
 [12:00:57.867] [VERBOSE] [Stats] Recalculating stats for Лилит
 [12:00:57.867] [VERBOSE] [Stats] 🔄 Recalculating stats for Лилит
@@ -98,3 +99,9 @@
 [14:36:18.288] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
 [14:36:18.291] [VERBOSE] [Stats] ✅ Stats updated for Адам Серый Лис. HP: 628, SP: 194, Speed: [(19, 22), (19, 22), (19, 22), (19, 22), (19, 22), (14, 17)]
 >>>>>>> 744d36b318a71a99c6798a127ca5bc21fd829b7e
+=======
+=== BATTLE LOG CLEARED: 2026-02-01 15:21:06.715569 ===
+[15:21:06.727] [VERBOSE] [Stats] Recalculating stats for  Дна'хо
+[15:21:06.728] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо
+[15:21:06.730] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо. HP: 20, SP: 20, Speed: [(1, 4)]
+>>>>>>> 50815993f88e4fc792eeb11c113ccc36e7527be0
