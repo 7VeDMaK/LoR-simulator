@@ -5,6 +5,18 @@ from ui.simulator.logic.simulator_logic import sync_state_from_widgets
 from ui.simulator.logic.step_func import roll_phase, execute_combat_auto
 
 
+def _ensure_stats_calculated(units):
+    """Пересчитывает статы только если они еще не посчитаны в этом раунде"""
+    current_round = st.session_state.get('round_number', 1)
+    
+    for u in units:
+        # Проверяем, были ли статы уже пересчитаны в этом раунде
+        last_calc_round = getattr(u, '_last_stats_calc_round', -1)
+        if last_calc_round != current_round:
+            u.recalculate_stats()
+            u._last_stats_calc_round = current_round
+
+
 def render_top_controls(team_left, team_right):
     col_counter, col_ctrl = st.columns([1, 4])
 
@@ -21,8 +33,8 @@ def render_top_controls(team_left, team_right):
             st.warning("⚠️ Команды пусты. Добавьте персонажей в боковом меню.")
             return
 
-        for u in team_left + team_right:
-            u.recalculate_stats()
+        # Оптимизация: пересчитываем только если нужно
+        _ensure_stats_calculated(team_left + team_right)
 
         btn_col1, _ = st.columns([3, 1])
 

@@ -4,6 +4,56 @@ from ui.icons import get_icon_html
 from ui.simulator.components.slots.utils import save_cb
 
 
+def _build_target_options_cached(opposing_team, my_team, unit, selected_card, show_allies, show_enemies):
+    """
+    Кэшированное построение списка целей для минимизации пересчетов.
+    Возвращает список опций для selectbox.
+    """
+    # Создаем уникальный ключ для кэша на основе состояния команд
+    cache_key = f"targets_{id(opposing_team)}_{id(my_team)}_{unit.name}_{show_allies}_{show_enemies}"
+    
+    # Проверяем, есть ли кэш для текущего раунда
+    current_round = st.session_state.get('round_number', 1)
+    cache_round_key = f"{cache_key}_round"
+    
+    if cache_round_key in st.session_state and st.session_state[cache_round_key] == current_round:
+        if cache_key in st.session_state:
+            return st.session_state[cache_key]
+    
+    # Строим список целей
+    target_options = ["None"]
+    
+    if show_enemies:
+        alive_enemies = [u for u in opposing_team if not u.is_dead()]
+        has_taunt = any(u.get_status("taunt") > 0 for u in alive_enemies)
+        am_i_invisible = unit.get_status("invisibility") > 0
+
+        for t_idx, target_unit in enumerate(opposing_team):
+            if target_unit.is_dead(): continue
+            is_target_invisible = target_unit.get_status("invisibility") > 0
+            if is_target_invisible and not am_i_invisible: continue
+            if has_taunt and target_unit.get_status("taunt") <= 0: continue
+
+            for s_i, slot_obj in enumerate(target_unit.active_slots):
+                t_spd = slot_obj['speed']
+                extra = "😵" if slot_obj.get('stunned') else f"Spd {t_spd}"
+                target_options.append(f"E|{t_idx}:{s_i} | ⚔️ {target_unit.name} S{s_i + 1} ({extra})")
+
+    if show_allies:
+        for t_idx, target_unit in enumerate(my_team):
+            if target_unit.is_dead(): continue
+            for s_i, slot_obj in enumerate(target_unit.active_slots):
+                t_spd = slot_obj['speed']
+                extra = "😵" if slot_obj.get('stunned') else f"Spd {t_spd}"
+                target_options.append(f"A|{t_idx}:{s_i} | 🛡️ {target_unit.name} S{s_i + 1} ({extra})")
+    
+    # Сохраняем в кэш
+    st.session_state[cache_key] = target_options
+    st.session_state[cache_round_key] = current_round
+    
+    return target_options
+
+
 def render_target_selector(c_tgt, c_mass, unit, slot, slot_idx, opposing_team, my_team, key_prefix):
     """
     Отрисовывает выбор цели (обычный или массовый) и опции Aggro/Break.
@@ -39,7 +89,6 @@ def render_target_selector(c_tgt, c_mass, unit, slot, slot_idx, opposing_team, m
                 slot['mass_defenses'][str(e_idx)] = new_val
     else:
         # --- NORMAL ATTACK LOGIC ---
-        target_options = ["None"]
         show_allies = False
         show_enemies = True
 
@@ -55,30 +104,8 @@ def render_target_selector(c_tgt, c_mass, unit, slot, slot_idx, opposing_team, m
             else:
                 show_allies = False; show_enemies = True
 
-        # Генерация списка целей
-        if show_enemies:
-            alive_enemies = [u for u in opposing_team if not u.is_dead()]
-            has_taunt = any(u.get_status("taunt") > 0 for u in alive_enemies)
-            am_i_invisible = unit.get_status("invisibility") > 0
-
-            for t_idx, target_unit in enumerate(opposing_team):
-                if target_unit.is_dead(): continue
-                is_target_invisible = target_unit.get_status("invisibility") > 0
-                if is_target_invisible and not am_i_invisible: continue
-                if has_taunt and target_unit.get_status("taunt") <= 0: continue
-
-                for s_i, slot_obj in enumerate(target_unit.active_slots):
-                    t_spd = slot_obj['speed']
-                    extra = "😵" if slot_obj.get('stunned') else f"Spd {t_spd}"
-                    target_options.append(f"E|{t_idx}:{s_i} | ⚔️ {target_unit.name} S{s_i + 1} ({extra})")
-
-        if show_allies:
-            for t_idx, target_unit in enumerate(my_team):
-                if target_unit.is_dead(): continue
-                for s_i, slot_obj in enumerate(target_unit.active_slots):
-                    t_spd = slot_obj['speed']
-                    extra = "😵" if slot_obj.get('stunned') else f"Spd {t_spd}"
-                    target_options.append(f"A|{t_idx}:{s_i} | 🛡️ {target_unit.name} S{s_i + 1} ({extra})")
+        # Используем кэшированное построение списка целей
+        target_options = _build_target_options_cached(opposing_team, my_team, unit, selected_card, show_allies, show_enemies)
 
         # Восстановление текущего выбора
         cur_t_unit = slot.get('target_unit_idx', -1)

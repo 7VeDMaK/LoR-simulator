@@ -62,5 +62,34 @@ def inject_simulator_styles():
             .lvl-NORMAL { color: #e9ecef; }
             .lvl-MINIMAL { color: #ffffff; font-weight: bold; border-left: 2px solid #fff; padding-left: 5px; }
             .lvl-VERBOSE { color: #636e72; font-style: italic; }
+
+            /* Game Master Panel Styles */
+            .gm-panel-container {
+                background: linear-gradient(135deg, rgba(20, 20, 30, 0.95) 0%, rgba(10, 10, 15, 0.95) 100%);
+                border: 2px solid rgba(255, 215, 0, 0.3);
+                border-radius: 10px;
+                padding: 15px;
+                margin-top: 15px;
+                box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+            }
+            
+            .gm-panel-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            }
+            
+            .gm-warning {
+                background: rgba(255, 193, 7, 0.1);
+                border-left: 3px solid #ffc107;
+                padding: 8px 12px;
+                margin: 10px 0;
+                border-radius: 4px;
+                font-size: 0.9em;
+                color: #ffc107;
+            }
         </style>
     """, unsafe_allow_html=True)

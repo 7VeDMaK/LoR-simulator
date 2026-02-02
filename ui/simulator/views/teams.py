@@ -9,6 +9,11 @@ from ui.simulator.components.slots import render_slot_strip
 
 def render_team_column(team, label, key_prefix, opposing_team):
     st.markdown(f"### {label} ({len(team)})")
+    
+    # Оптимизация: кэшируем фазу чтобы не проверять каждый раз
+    current_phase = st.session_state.get('phase', 'roll')
+    is_planning = current_phase == 'planning'
+    
     for i, unit in enumerate(team):
         with st.container(border=True):
             # Шапка
@@ -23,7 +28,7 @@ def render_team_column(team, label, key_prefix, opposing_team):
             render_active_abilities(unit, f"{key_prefix}_abil_{i}")
             render_inventory(unit, f"{key_prefix}_inv_{i}")
 
-            if st.session_state['phase'] == 'planning':
+            if is_planning:
                 st.divider()
 
                 # Проверка смерти
