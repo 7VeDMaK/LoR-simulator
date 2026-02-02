@@ -1,6 +1,7 @@
 import streamlit as st
 
 from ui.simulator.views.controls import render_top_controls
+from ui.simulator.views.gm_panel import render_gm_panel
 from ui.simulator.views.logs import render_logs
 from ui.simulator.views.sidebar import render_sidebar
 # Импорты новых представлений
@@ -34,3 +35,6 @@ def render_simulator_page():
 
     # 6. Логи
     render_logs(log_level, log_mode_label)
+
+    # 7. Game Master Panel
+    render_gm_panel()
