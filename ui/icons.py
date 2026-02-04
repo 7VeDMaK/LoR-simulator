@@ -54,6 +54,7 @@ ICON_FILES = {
     "vulnerable": "Vulnerable.webp",  # Рассредоточенность - снижает защитные кубы
     "weakness": "AttackPowerDown.webp",  # Weakness = снижение силы атаки
     "weak": "Weak.webp",  # Weak = получает +25% урона
+    "under_crosshairs": "UnderCrosshairsStatus_Light.png",  # Под Прицелом (8 ветка)
 
     # Resist Up/Down (Ахиллесова пята и защиты)
     "slash_resist_down": "achilles_heel.png",
@@ -61,6 +62,7 @@ ICON_FILES = {
     "blunt_resist_down": "achilles_heel.png",
     "bleed_resist": "BleedResist.webp",
     "stagger_resist": "StaggerResist.webp",
+    "stagger_immune": "StaggerImmune.png",
 
     "bind": "Bind.webp",
     "tremor": "Tremor.webp",

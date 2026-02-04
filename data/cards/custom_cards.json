@@ -1248,6 +1248,99 @@
           }
         }
       ]
+    },
+    {
+      "id": "пустышкаатакабуст_dea0",
+      "name": "ПустышкаАтакабуст",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "attack_power_up",
+              "base": 5,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 1,
+              "delay": 0,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": []
+    },
+    {
+      "id": "reload_ammo",
+      "name": "Перезарядка",
+      "tier": 1,
+      "type": "Ranged",
+      "description": "Мгновенная перезарядка оружия. Восстанавливает боеприпасы.",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "ammo",
+              "base": 2,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 99,
+              "delay": 0,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": []
+    },
+    {
+      "id": "combat_reload",
+      "name": "Боевая перезарядка",
+      "tier": 1,
+      "type": "Ranged",
+      "description": "Перезарядка под огнём противника. Восстанавливает боеприпасы и позволяет защититься.",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "ammo",
+              "base": 6,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 99,
+              "delay": 0,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 13,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 13,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
     }
   ]
 }

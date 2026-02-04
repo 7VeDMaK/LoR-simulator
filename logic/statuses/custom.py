@@ -589,3 +589,97 @@ class StatusWinCondition(StatusEffect):
         # Если длительность > 50, считаем перманентным и не снижаем (или снижаем, но медленно)
         if self.duration < 50:
             self.reduce_stack(1)
+
+
+class UnderCrosshairsStatus(StatusEffect):
+    id = "under_crosshairs"
+    name = "Под Прицелом"
+    description = "Получает на 25% больше урона за каждый стак (складывается). Статус от 8 ветки (Военная)."
+    is_debuff = True
+
+    def modify_incoming_damage(self, unit, amount, damage_type, stack=0, **kwargs):
+        if damage_type == "hp":
+            if stack == 0: stack = unit.get_status(self.id)
+            if stack > 0:
+                # Каждый стак добавляет 25% урона (складывается)
+                multiplier = 1.0 + (0.25 * stack)
+                new_amount = int(amount * multiplier)
+                logger.log(
+                    f"🎯 Under Crosshairs: {unit.name} takes increased damage: {amount} -> {new_amount} (stack: {stack}, x{multiplier:.2f})",
+                    LogLevel.VERBOSE, "Status"
+                )
+                return new_amount
+        return amount
+
+
+# ==========================================
+# AMMO STATUS - Боеприпасы для оружия типа "gun"
+# ==========================================
+class AmmoStatus(StatusEffect):
+    id = "ammo"
+    name = "Боеприпасы"
+    description = "Боеприпасы. Каждый кубик оружия типа 'gun' тратит 1 Ammo и получает усиление. Если Ammo недостаточно, кубик не усиливается."
+
+    def on_roll(self, ctx: RollContext, **kwargs):
+        """
+        Вызывается при каждом броске кубика.
+        Если оружие типа 'gun' - тратим 1 Ammo и баффаем кубик.
+        """
+        # Получаем количество Ammo напрямую из юнита (не из kwargs!)
+        unit = ctx.source
+        ammo_count = unit.get_status("ammo")
+        
+        if ammo_count <= 0:
+            return  # Нет патронов - ничего не делаем
+
+        # Проверяем, является ли оружие источника типом "gun"
+        weapon_id = getattr(unit, 'weapon_id', 'none')
+        
+        # Получаем объект оружия из реестра
+        from logic.weapon_definitions import WEAPON_REGISTRY
+        weapon = WEAPON_REGISTRY.get(weapon_id)
+        
+        if weapon and hasattr(weapon, 'weapon_type') and weapon.weapon_type == "gun":
+            # Тратим 1 патрон
+            unit.remove_status("ammo", 1)
+            
+            # Баффаем кубик (например, +2 к мощности)
+            bonus = 2
+            ctx.modify_power(bonus, "Ammo 🔫")
+            
+            ctx.log.append(f"🔫 Ammo: +{bonus} мощи (-1 патрон)")
+            logger.log(
+                f"🔫 Ammo consumed: {unit.name} spent 1 ammo, gained +{bonus} power",
+                LogLevel.VERBOSE, "Status"
+            )
+
+    def on_round_end(self, unit, log_func, **kwargs):
+        """Патроны не тратятся сами по себе в конце раунда"""
+        return []
+
+
+# ==========================================
+# STAGGER IMMUNE - Иммунитет к урону по выдержке
+# ==========================================
+class StaggerImmuneStatus(StatusEffect):
+    id = "stagger_immune"
+    name = "Иммунитет к урону по Стаггеру"
+    description = "Персонаж не получает урон по Выдержке (Stagger). Полная защита от потери выдержки."
+
+    def modify_incoming_damage(self, unit, amount, damage_type, stack=0, log_list=None, **kwargs):
+        """Блокирует весь урон по стаггеру"""
+        if damage_type == "stagger":
+            if log_list is not None:
+                log_list.append(f"🛡️ **Stagger Immune**: Blocked {amount} Stagger dmg")
+            
+            logger.log(
+                f"🛡️ Stagger Immune: {unit.name} blocked {amount} stagger damage",
+                LogLevel.VERBOSE, "Status"
+            )
+            return 0  # Урон по стаггеру обнуляется
+        
+        return amount
+
+    def on_round_end(self, unit, log_func, **kwargs):
+        """Статус постоянный, не спадает сам по себе"""
+        return []

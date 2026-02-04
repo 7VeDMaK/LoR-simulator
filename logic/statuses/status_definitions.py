@@ -3,7 +3,7 @@ from logic.statuses.common import (
     AttackPowerUpStatus, EnduranceStatus, BleedStatus, ParalysisStatus,
     ProtectionStatus, FragileStatus, VulnerableStatus, BarrierStatus, BindStatus, DeepWoundStatus,
     HasteStatus, BurnStatus, WeaknessStatus, WeakStatus, StaggerResistStatus, DmgUpStatus, DmgDownStatus, RuptureStatus,
-    AttackPowerDownStatus
+    AttackPowerDownStatus, ImmuneParalysisStatus
 )
 from logic.statuses.custom import (
     SelfControlStatus, SmokeStatus, RedLycorisStatus, SinisterAuraStatus,
@@ -11,7 +11,8 @@ from logic.statuses.custom import (
     SatietyStatus, MentalProtectionStatus, RegenGanacheStatus, BleedResistStatus,
     IgnoreSatietyStatus, RevengeDmgUpStatus, TauntStatus, FanatMarkStatus, ArrestedStatus,
     SlashResistDownStatus, PierceResistDownStatus, BluntResistDownStatus,
-    MainCharacterShellStatus, AzinoBeastStatus, AzinoJackpotStatus, LuckyCoinStatus, StatusAntiCharge
+    MainCharacterShellStatus, AzinoBeastStatus, AzinoJackpotStatus, LuckyCoinStatus, StatusAntiCharge, UnderCrosshairsStatus,
+    AmmoStatus, StaggerImmuneStatus,  # НОВЫЕ ИМПОРТЫ
 )
 
 # === РЕГИСТРАЦИЯ ===
@@ -63,6 +64,10 @@ STATUS_REGISTRY = {
     "dmg_up":DmgUpStatus(),
     "dmg_down":DmgDownStatus(),
     
+    # Иммунитеты
+    "immune_paralysis": ImmuneParalysisStatus(),
+    "stagger_immune": StaggerImmuneStatus(),
+    
     # Talent statuses
     "main_character_shell": MainCharacterShellStatus(),
     "weak": WeakStatus(),
@@ -70,6 +75,10 @@ STATUS_REGISTRY = {
     "azino_jackpot": AzinoJackpotStatus(),
     "azino_beast": AzinoBeastStatus(),
     "lucky_coin_status": LuckyCoinStatus(),
+    "under_crosshairs": UnderCrosshairsStatus(),
+    
+    # Новый статус Ammo
+    "ammo": AmmoStatus(),
     
     # Алиасы для обратной совместимости
     "strength": AttackPowerUpStatus(),  # Старое название -> attack_power_up

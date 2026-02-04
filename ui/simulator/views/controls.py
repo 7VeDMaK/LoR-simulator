@@ -33,7 +33,7 @@ def render_top_controls(team_left, team_right):
             st.warning("⚠️ Команды пусты. Добавьте персонажей в боковом меню.")
             return
 
-        # Оптимизация: пересчитываем только если нужно
+        # Пересчитываем статы один раз за раунд
         _ensure_stats_calculated(team_left + team_right)
 
         btn_col1, _ = st.columns([3, 1])
@@ -42,6 +42,9 @@ def render_top_controls(team_left, team_right):
             if st.session_state['phase'] == 'roll':
                 st.info("🎲 Фаза: **Бросок Инициативы**. Определите скорость персонажей.")
                 if st.button("🎲 БРОСИТЬ КУБИКИ СКОРОСТИ", type="primary", width='stretch'):
+                    # Пересчитываем статы перед броском кубиков
+                    for u in team_left + team_right:
+                        u.recalculate_stats()
                     roll_phase()
                     st.rerun()
             else:
@@ -50,5 +53,8 @@ def render_top_controls(team_left, team_right):
                 precalculate_interactions(team_left, team_right)
 
                 if st.button("⚔️ НАЧАТЬ РАУНД (FIGHT)", type="primary", width='stretch'):
+                    # Пересчитываем статы перед началом боя
+                    for u in team_left + team_right:
+                        u.recalculate_stats()
                     execute_combat_auto()
                     st.rerun()

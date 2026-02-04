@@ -16,6 +16,7 @@ class AttackPowerUpStatus(StatusEffect):
         stack = kwargs.get('stack', 0)
         if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
             ctx.modify_power(stack, "Attack Power Up")
+            logger.log(f"⚔️ Attack Power Up: +{stack} power to {ctx.source.name}", LogLevel.NORMAL, "Status")
 
 class EnduranceStatus(StatusEffect):
     id = "endurance"
@@ -40,6 +41,11 @@ class AttackPowerDownStatus(StatusEffect):
 class ParalysisStatus(StatusEffect):
     id = "paralysis"
     def on_roll(self, ctx: RollContext, **kwargs):
+        # Проверка иммунитета к параличу
+        if ctx.source.get_status("immune_paralysis") > 0:
+            logger.log(f"🛡️ {ctx.source.name} is immune to Paralysis", LogLevel.VERBOSE, "Status")
+            return
+        
         if ctx.dice:
             diff = ctx.dice.min_val - ctx.base_value
             if diff < 0:
@@ -67,6 +73,20 @@ class BindStatus(StatusEffect):
     def get_speed_dice_value_modifier(self, unit, stack=0) -> int:
         if stack == 0: stack = unit.get_status(self.id)
         return -stack
+
+
+# ==========================================
+# ИММУНИТЕТЫ
+# ==========================================
+
+class ImmuneParalysisStatus(StatusEffect):
+    id = "immune_paralysis"
+    name = "Иммунитет к параличу"
+    description = "Блокирует эффект Паралича, пока активен."
+
+    def on_round_end(self, unit, *args, **kwargs):
+        """Иммунитет не тратится сам по себе, только через duration"""
+        return []
 
 
 # ==========================================
@@ -138,13 +158,20 @@ class WeaknessStatus(_IncomingDamageIncreaseStatus):
 class WeakStatus(StatusEffect):
     id = "weak"
     name = "Слабость"
-    description = "Получает на 25% больше урона"
+    description = "Получает на 25% больше урона за каждый стак (складывается)"
 
     def modify_incoming_damage(self, unit, amount, damage_type, stack=0, **kwargs):
         if damage_type == "hp":
             if stack == 0: stack = unit.get_status(self.id)
             if stack > 0:
-                return int(amount * 1.25)
+                # Каждый стак добавляет 25% урона (складывается)
+                multiplier = 1.0 + (0.25 * stack)
+                new_amount = int(amount * multiplier)
+                logger.log(
+                    f"💢 Weak: {unit.name} takes increased damage: {amount} -> {new_amount} (stack: {stack}, x{multiplier:.2f})",
+                    LogLevel.VERBOSE, "Status"
+                )
+                return new_amount
         return amount
 
 class StaggerResistStatus(StatusEffect):

@@ -14,13 +14,13 @@
         "tal_stg": 0
     },
     "flat_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0
+        "imp_hp": 300,
+        "imp_sp": 300,
+        "imp_stg": 300
     },
-    "current_hp": 27,
-    "current_sp": 27,
-    "current_stagger": 13,
+    "current_hp": 357,
+    "current_sp": 351,
+    "current_stagger": 492,
     "resources": {},
     "cooldowns": {
         "stances": 1
@@ -49,7 +49,8 @@
         "double_strike_blunt",
         "time_cant_turn_back_blunt",
         "still_alive_blunt",
-        "perfect_cut"
+        "perfect_cut",
+        "boom_6233"
     ],
     "active_slots": [],
     "stored_dice": [],
@@ -57,9 +58,9 @@
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 27,
-            "sp": 27,
-            "stagger": 13
+            "hp": 357,
+            "sp": 351,
+            "stagger": 492
         },
         "last_revive_attempt_round": 2,
         "last_revive_log": {
@@ -76,9 +77,9 @@
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 27,
-        "current_sp": 27,
-        "current_stagger": 13
+        "current_hp": 357,
+        "current_sp": 351,
+        "current_stagger": 492
     },
     "defense": {
         "armor_name": "Броня Лайлы",
@@ -94,7 +95,7 @@
             "pierce": 1.0,
             "blunt": 1.0
         },
-        "weapon_id": "two_handed_sword"
+        "weapon_id": "old_musket"
     },
     "attributes": {
         "strength": 10,
@@ -128,23 +129,19 @@
         "low_endurance",
         "topographic_cretinism",
         "fear_of_healing",
-        "stances",
         "hardened_by_solitude"
     ],
     "talents": [
-        "pain_points",
-        "pain_shock",
-        "entering_rhythm",
-        "dirty_tricks",
-        "playing_on_nerves",
-        "with_caution",
-        "sharp_eye",
-        "arrest",
-        "feint",
-        "weak_point_energy",
-        "rupture_application",
-        "achilles_heel",
-        "no_mistakes"
+        "athletic",
+        "fast_hands",
+        "leader",
+        "addiction_is_a_bitch",
+        "rapid_retreat",
+        "combat_reload",
+        "find_vulnerability",
+        "borrowed_time",
+        "iron_formation",
+        "last_hope"
     ],
     "augmentations": [],
     "level_rolls": {},
