@@ -154,7 +154,7 @@ class RollContext:
             if amount > 0 and status_id in STATUS_REGISTRY:
                 st_obj = STATUS_REGISTRY[status_id]
                 if hasattr(st_obj, "on_roll"):
-                    st_obj.on_roll(self, stack=stack)
+                    st_obj.on_roll(self, stack=amount)  # FIX: передаём amount статуса, а не stack из аргумента
 
     # =========================================================================
     # ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ

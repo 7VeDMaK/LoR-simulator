@@ -14,7 +14,11 @@ class AttackPowerUpStatus(StatusEffect):
     name = "Усиление атаки"
     def on_roll(self, ctx: RollContext, **kwargs):
         stack = kwargs.get('stack', 0)
-        if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
+        logger.log(
+            f"🔍 Attack Power Up on_roll: unit={ctx.source.name}, stack={stack}, dice_type={ctx.dice.dtype if ctx.dice else 'None'}",
+            LogLevel.VERBOSE, "Status"
+        )
+        if ctx.dice and ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
             ctx.modify_power(stack, "Attack Power Up")
             logger.log(f"⚔️ Attack Power Up: +{stack} power to {ctx.source.name}", LogLevel.NORMAL, "Status")
 
@@ -22,8 +26,9 @@ class EnduranceStatus(StatusEffect):
     id = "endurance"
     def on_roll(self, ctx: RollContext, **kwargs):
         stack = kwargs.get('stack', 0)
-        if ctx.dice.dtype == DiceType.BLOCK or ctx.dice.dtype == DiceType.EVADE:
+        if ctx.dice and (ctx.dice.dtype == DiceType.BLOCK or ctx.dice.dtype == DiceType.EVADE):
             ctx.modify_power(stack, "Endurance")
+            logger.log(f"🛡️ Endurance: +{stack} power to {ctx.source.name}", LogLevel.VERBOSE, "Status")
 
 class AttackPowerDownStatus(StatusEffect):
     id = "attack_power_down"
@@ -31,11 +36,15 @@ class AttackPowerDownStatus(StatusEffect):
     
     def on_roll(self, ctx: RollContext, **kwargs):
         stack = kwargs.get('stack', 0)
-        if ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
+        logger.log(
+            f"🔍 Attack Power Down on_roll: unit={ctx.source.name}, stack={stack}, dice_type={ctx.dice.dtype if ctx.dice else 'None'}",
+            LogLevel.VERBOSE, "Status"
+        )
+        if ctx.dice and ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
             ctx.modify_power(-stack, "Attack Power Down")
             logger.log(
                 f"⬇️ Attack Power Down: {ctx.source.name} attack power reduced by {stack}",
-                LogLevel.VERBOSE, "Status"
+                LogLevel.NORMAL, "Status"
             )
 
 class ParalysisStatus(StatusEffect):

@@ -122,6 +122,7 @@ ICON_FILES = {
     "liquid_blood": "LiquidBlood.webp",
     "tremor_burst": "TremorBurst.webp",
     "tremor_conversion": "TremorConversion.webp",
+    "immune_paralysis": "Immune_Paralysis.png",
 
     # --- Таланты ветки 10: Ахиллесова пята ---
     "achilles_heel": "achilles_heel.png",

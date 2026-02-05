@@ -396,12 +396,19 @@ class TalentIronFormation(BasePassive):
             for ally in my_team:
                 if ally.current_hp <= 0:
                     continue
-                    
+                
+                # Сохраняем базовые значения навыков при самом первом применении (один раз за всё время)
+                if not ally.memory.get("iron_formation_base_saved", False):
+                    ally.memory["iron_formation_base_skills"] = {}
+                    for skill in all_skills:
+                        ally.memory["iron_formation_base_skills"][skill] = ally.skills.get(skill, 0)
+                    ally.memory["iron_formation_base_saved"] = True
+                    logger.log(f"⚔️ Iron Formation: Saved base skills for {ally.name}", LogLevel.VERBOSE, "Talent")
+                
+                # ВСЕГДА пересчитываем навыки от базовых значений (предотвращает накопление)
                 for skill in all_skills:
-                    if skill in ally.skills:
-                        ally.skills[skill] += total_bonus
-                    else:
-                        ally.skills[skill] = total_bonus
+                    base_value = ally.memory["iron_formation_base_skills"].get(skill, 0)
+                    ally.skills[skill] = base_value + total_bonus
                 
                 logger.log(
                     f"⚔️ Iron Formation: {ally.name} receives +{total_bonus} to all skills ({formation_count} leaders)",

@@ -34,7 +34,6 @@
     "_status_effects": {},
     "delayed_queue": [],
     "deck": [
-        "обычный_удар_726c",
         "удачное_стечение_img2",
         "не_беспокойство_img3",
         "тяжкое_бремя_img4",
@@ -46,7 +45,7 @@
         "bad_coffee_img",
         "good_coffee_img",
         "equivalent_exchange_img",
-        "пустышкаатакабуст_dea0"
+        "обычный_удар_img1"
     ],
     "active_slots": [],
     "stored_dice": [],
