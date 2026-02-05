@@ -96,7 +96,8 @@ def apply_roll_modifiers(ctx, source, die):
             "light": "power_light",
             "medium": "power_medium",
             "heavy": "power_heavy",
-            "ranged": "power_ranged"
+            "ranged": "power_ranged",
+            "gun": "power_ranged"  # gun использует тот же модификатор что и ranged
         }
 
         target_mod_key = type_to_mod.get(weapon_type, "power_light")
@@ -107,7 +108,8 @@ def apply_roll_modifiers(ctx, source, die):
                 "light": "Легкое ор.",
                 "medium": "Среднее ор.",
                 "heavy": "Тяжелое ор.",
-                "ranged": "Огнестрел"
+                "ranged": "Огнестрел",
+                "gun": "Огнестрел"  # gun отображается как Огнестрел
             }
             reason = ru_names.get(weapon_type, "Оружие")
             ctx.modify_power(w_bonus, reason)

@@ -22,27 +22,27 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 108,
-      "current_sp": 109,
-      "current_stagger": 44,
+      "current_hp": 97,
+      "current_sp": 202,
+      "current_stagger": 0,
       "resources": {
         "luck": 138
       },
       "cooldowns": {},
-      "card_cooldowns": {
-        "тяжкое_бремя_img4": 0,
-        "изничтожение_img5": 0,
-        "tale_of_twilight_img": 0,
-        "warp_img": 0,
-        "series_normal_strikes_img": 0,
-        "not_the_limit_img": 0,
-        "bad_coffee_img": 0,
-        "good_coffee_img": 0,
-        "equivalent_exchange_img": 0
-      },
+      "card_cooldowns": {},
       "active_buffs": {},
       "_status_effects": {
-        "invisibility": [
+        "rupture": [
+          {
+            "amount": 2,
+            "duration": 93
+          },
+          {
+            "amount": 10,
+            "duration": 99
+          }
+        ],
+        "under_crosshairs": [
           {
             "amount": 1,
             "duration": 1
@@ -51,7 +51,6 @@
       },
       "delayed_queue": [],
       "deck": [
-        "обычный_удар_726c",
         "удачное_стечение_img2",
         "не_беспокойство_img3",
         "тяжкое_бремя_img4",
@@ -62,24 +61,22 @@
         "not_the_limit_img",
         "bad_coffee_img",
         "good_coffee_img",
-        "equivalent_exchange_img"
+        "equivalent_exchange_img",
+        "обычный_удар_img1"
       ],
       "active_slots": [
         {
-          "speed": 8,
-          "card": "обычный_удар_726c",
-          "target_slot": null,
-          "is_aggro": false,
+          "speed": 0,
+          "card": null,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
+          "stunned": true,
+          "is_aggro": false,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
+            "text": "ОГЛУШЕН",
+            "icon": "❌",
             "color": "gray"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true
+          }
         }
       ],
       "stored_dice": [],
@@ -108,9 +105,9 @@
         }
       ],
       "base_stats": {
-        "current_hp": 108,
-        "current_sp": 109,
-        "current_stagger": 44
+        "current_hp": 97,
+        "current_sp": 202,
+        "current_stagger": 0
       },
       "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -224,7 +221,7 @@
       "name": "Лайла",
       "level": 40,
       "rank": 9,
-      "avatar": "data/avatars\\Лайла.png",
+      "avatar": "data/avatars\\Лайла.jpg",
       "base_intellect": 8,
       "total_xp": 0,
       "pct_mods": {
@@ -236,28 +233,67 @@
         "tal_stg": 0
       },
       "flat_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0
+        "imp_hp": 300,
+        "imp_sp": 300,
+        "imp_stg": 300
       },
-      "current_hp": 27,
-      "current_sp": 27,
-      "current_stagger": 13,
+      "current_hp": 357,
+      "current_sp": 351,
+      "current_stagger": 478,
       "resources": {},
       "cooldowns": {},
-      "card_cooldowns": {
-        "long_edge": 0,
-        "tale_of_rebirth": 0,
-        "double_strike": 0,
-        "time_cant_turn_back": 0,
-        "still_alive": 0,
-        "perfect_cut": 0
-      },
+      "card_cooldowns": {},
       "active_buffs": {},
       "_status_effects": {
+        "ammo": [
+          {
+            "amount": 3,
+            "duration": 94
+          },
+          {
+            "amount": 3,
+            "duration": 95
+          },
+          {
+            "amount": 3,
+            "duration": 96
+          },
+          {
+            "amount": 3,
+            "duration": 96
+          },
+          {
+            "amount": 3,
+            "duration": 97
+          },
+          {
+            "amount": 3,
+            "duration": 98
+          },
+          {
+            "amount": 3,
+            "duration": 99
+          }
+        ],
+        "bind": [
+          {
+            "amount": 2,
+            "duration": 97
+          }
+        ],
+        "attack_power_down": [
+          {
+            "amount": 2,
+            "duration": 97
+          }
+        ],
         "attack_power_up": [
           {
             "amount": 2,
+            "duration": 1
+          },
+          {
+            "amount": 3,
             "duration": 1
           }
         ],
@@ -265,30 +301,47 @@
           {
             "amount": 2,
             "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
           }
         ],
         "endurance": [
           {
             "amount": 2,
             "duration": 1
+          },
+          {
+            "amount": 3,
+            "duration": 1
+          }
+        ],
+        "protection": [
+          {
+            "amount": 3,
+            "duration": 1
           }
         ]
       },
       "delayed_queue": [],
       "deck": [
-        "short_lunge",
-        "long_lunge",
-        "draw_sword",
-        "long_edge",
-        "tale_of_rebirth",
-        "double_strike",
-        "time_cant_turn_back",
-        "still_alive",
-        "perfect_cut"
+        "short_lunge_blunt",
+        "long_lunge_blunt",
+        "draw_sword_blunt",
+        "long_edge_blunt",
+        "tale_of_rebirth_blunt",
+        "double_strike_blunt",
+        "time_cant_turn_back_blunt",
+        "still_alive_blunt",
+        "perfect_cut",
+        "boom_6233",
+        "reload_ammo",
+        "combat_reload"
       ],
       "active_slots": [
         {
-          "speed": 11,
+          "speed": 10,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
@@ -303,7 +356,7 @@
           "is_ally_target": false
         },
         {
-          "speed": 5,
+          "speed": 10,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
@@ -323,9 +376,9 @@
       "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-          "hp": 27,
-          "sp": 27,
-          "stagger": 13
+          "hp": 357,
+          "sp": 351,
+          "stagger": 478
         },
         "last_revive_attempt_round": 2,
         "last_revive_log": {
@@ -336,15 +389,37 @@
           "dc": 0,
           "success": true
         },
+        "borrowed_time_saved": [],
+        "rapid_retreat_damage_taken": 0,
+        "rapid_retreat_activated": false,
+        "iron_formation_base_skills": {
+          "power_attack": 3,
+          "acrobatics": 6,
+          "speed": 13,
+          "heavy_weapon": 3,
+          "smithing": 3,
+          "medicine": 3,
+          "shields": 6,
+          "light_weapon": 3,
+          "firearms": 6,
+          "engineering": 3,
+          "willpower": 3,
+          "tough_skin": 3,
+          "medium_weapon": 9,
+          "persuasion": 3,
+          "programming": 3
+        },
+        "iron_formation_base_saved": true,
+        "iron_formation_applied_Лайла": true,
         "battle_initialized": true
       },
       "death_count": 0,
       "overkill_damage": 0,
       "money_log": [],
       "base_stats": {
-        "current_hp": 27,
-        "current_sp": 27,
-        "current_stagger": 13
+        "current_hp": 357,
+        "current_sp": 351,
+        "current_stagger": 478
       },
       "defense": {
         "armor_name": "Броня Лайлы",
@@ -360,7 +435,7 @@
           "pierce": 1.0,
           "blunt": 1.0
         },
-        "weapon_id": "two_handed_sword"
+        "weapon_id": "old_musket"
       },
       "attributes": {
         "strength": 10,
@@ -371,21 +446,24 @@
       },
       "skills": {
         "strike_power": 3,
-        "medicine": 0,
-        "willpower": 0,
+        "medicine": 6,
+        "willpower": 6,
         "luck": 0,
-        "acrobatics": 3,
-        "shields": 3,
-        "tough_skin": 0,
-        "speed": 10,
-        "light_weapon": 0,
-        "medium_weapon": 6,
-        "heavy_weapon": 0,
-        "firearms": 3,
+        "acrobatics": 9,
+        "shields": 9,
+        "tough_skin": 6,
+        "speed": 16,
+        "light_weapon": 6,
+        "medium_weapon": 12,
+        "heavy_weapon": 6,
+        "firearms": 9,
         "eloquence": 0,
         "forging": 10,
-        "engineering": 0,
-        "programming": 0
+        "engineering": 6,
+        "programming": 6,
+        "power_attack": 6,
+        "smithing": 6,
+        "persuasion": 6
       },
       "passives": [
         "social_phobia",
@@ -394,23 +472,19 @@
         "low_endurance",
         "topographic_cretinism",
         "fear_of_healing",
-        "stances",
         "hardened_by_solitude"
       ],
       "talents": [
-        "pain_points",
-        "pain_shock",
-        "entering_rhythm",
-        "dirty_tricks",
-        "playing_on_nerves",
-        "with_caution",
-        "sharp_eye",
-        "arrest",
-        "feint",
-        "weak_point_energy",
-        "rupture_application",
-        "achilles_heel",
-        "no_mistakes"
+        "athletic",
+        "fast_hands",
+        "leader",
+        "addiction_is_a_bitch",
+        "rapid_retreat",
+        "combat_reload",
+        "find_vulnerability",
+        "borrowed_time",
+        "iron_formation",
+        "last_hope"
       ],
       "augmentations": [],
       "level_rolls": {},
@@ -420,38 +494,107 @@
     }
   ],
   "phase": "planning",
-  "round_number": 1,
+  "round_number": 8,
   "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
   "battle_logs": [
     {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "⛓️ **Арест (Б)**: Наручники надеты на Рейн! (-20 к атрибутам, длит. 99)"
+      "type": "onesided",
+      "round": "R Hit (Hit)",
+      "left": {
+        "unit": "Лайла",
+        "card": "Boom",
+        "dice": "PIERCE",
+        "val": 15,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Рейн",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed 💥 **-20 HP**",
+      "details": [
+        "🎲 Roll [1-1]: 1 + 8 (Сила) + 4 (Огнестрел) + 2 (Ammo 🔫) = **15**",
+        "📉 **Помеха!** (1, 1) -> Base: 1",
+        "🔫 Ammo: +2 мощи (-1 патрон)",
+        "🎯 **Найти уязвимость**: Цель помечена (Уязвимость)!",
+        "👊 Atk Boost: +1",
+        "💥 **Рейн**: [x1.0 Res] Hit 20 HP",
+        "⚡ **Разрыв**: Рейн взрывается! -10 урона (Rupture 10->5)"
+      ]
     },
     {
-      "round": "Start",
-      "rolls": "Event",
-      "details": "🚩 **Рейн**: 👁️ Новое открытие (Сенсоры 2%): Сенсоры активны."
+      "type": "onesided",
+      "round": "R Hit (Hit)",
+      "left": {
+        "unit": "Лайла",
+        "card": "Boom",
+        "dice": "PIERCE",
+        "val": 19,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Рейн",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed 💥 **-25 HP**",
+      "details": [
+        "🎲 Roll [5-5]: 5 + 8 (Сила) + 4 (Огнестрел) + 2 (Ammo 🔫) = **19**",
+        "📉 **Помеха!** (5, 5) -> Base: 5",
+        "🔫 Ammo: +2 мощи (-1 патрон)",
+        "🧪 **Рейн**: +10 Dmg_down",
+        "👊 Atk Boost: +1",
+        "💥 **Рейн**: [x1.0 Res] Hit 25 HP",
+        "⚡ **Разрыв**: Рейн взрывается! -5 урона (Rupture 5->3)"
+      ]
     },
     {
-      "round": "Start",
-      "rolls": "Event",
-      "details": "🚩 **Рейн**: 🛡️ Тень Величия: Лайла (Lvl 40) сопротивляется Ауре"
+      "type": "onesided",
+      "round": "R Hit (Hit)",
+      "left": {
+        "unit": "Лайла",
+        "card": "Boom",
+        "dice": "PIERCE",
+        "val": 19,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Рейн",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed 💥 **-50 HP**",
+      "details": [
+        "🎲 Roll [5-5]: 5 + 8 (Сила) + 4 (Огнестрел) + 2 (Ammo 🔫) = **19**",
+        "📉 **Помеха!** (5, 5) -> Base: 5",
+        "🔫 Ammo: +2 мощи (-1 патрон)",
+        "⏰ **Рейн**: Rupture (Delayed 1 turns)",
+        "👊 Atk Boost: +1",
+        "💥 **Рейн**: [x2.0 Res] Hit 50 HP (Staggered)",
+        "⚡ **Разрыв**: Рейн взрывается! -3 урона (Rupture 3->2)"
+      ]
     },
     {
-      "round": "Start",
+      "round": "Round Start",
       "rolls": "Event",
-      "details": "🚩 **Рейн**: 👣 **Заметая следы**: Тени укрывают вас (Невидимость)."
+      "details": "🔄 **Лайла**: 🏃 **Атлетичный**: Боевая готовность (+1 Haste)."
+    },
+    {
+      "round": "Round Start",
+      "rolls": "Event",
+      "details": "🔄 **Лайла**: ⚔️💀 **Последняя надежда**: Лайла - последний выживший! (+3 Сила/Выносливость/Защита, +3 Патрона)"
     },
     {
       "round": "Speed Roll",
       "rolls": "Passive",
       "details": "⚡ **Рейн**: 🧬 S-клетки: 1 слотов x 10 = Восстановлено 10 HP"
-    },
-    {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "⛓️ **Арест (Б)**: Наручники сняты с Рейн."
     }
   ],
   "script_logs": "",
@@ -459,7 +602,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Акаги",
+  "profile_unit": " Дна'хо",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",

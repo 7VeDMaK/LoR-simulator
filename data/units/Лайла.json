@@ -2,7 +2,7 @@
     "name": "Лайла",
     "level": 40,
     "rank": 9,
-    "avatar": "data/avatars\\Лайла.png",
+    "avatar": "data/avatars\\Лайла.jpg",
     "base_intellect": 8,
     "total_xp": 0,
     "pct_mods": {
@@ -14,31 +14,28 @@
         "tal_stg": 0
     },
     "flat_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0
+        "imp_hp": 300,
+        "imp_sp": 300,
+        "imp_stg": 300
     },
-    "current_hp": 27,
-    "current_sp": 27,
-    "current_stagger": 13,
+    "current_hp": 357,
+    "current_sp": 351,
+    "current_stagger": 478,
     "resources": {},
-    "cooldowns": {
-        "stances": 1
-    },
+    "cooldowns": {},
     "card_cooldowns": {
-        "time_cant_turn_back_blunt": 0,
-        "still_alive_blunt": 0,
-        "perfect_strike_blunt": 0
-    },
-    "active_buffs": {},
-    "_status_effects": {
-        "stance_slash": [
-            {
-                "amount": 1,
-                "duration": 98
-            }
+        "time_cant_turn_back_blunt": [
+            1
+        ],
+        "still_alive_blunt": [
+            1
+        ],
+        "perfect_cut": [
+            1
         ]
     },
+    "active_buffs": {},
+    "_status_effects": {},
     "delayed_queue": [],
     "deck": [
         "short_lunge_blunt",
@@ -49,7 +46,10 @@
         "double_strike_blunt",
         "time_cant_turn_back_blunt",
         "still_alive_blunt",
-        "perfect_cut"
+        "perfect_cut",
+        "boom_6233",
+        "reload_ammo",
+        "combat_reload"
     ],
     "active_slots": [],
     "stored_dice": [],
@@ -57,9 +57,9 @@
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 27,
-            "sp": 27,
-            "stagger": 13
+            "hp": 357,
+            "sp": 351,
+            "stagger": 478
         },
         "last_revive_attempt_round": 2,
         "last_revive_log": {
@@ -70,15 +70,19 @@
             "dc": 0,
             "success": true
         },
-        "battle_initialized": true
+        "battle_initialized": true,
+        "borrowed_time_saved": [],
+        "rapid_retreat_damage_taken": 0,
+        "marked_target_Лайла_Рейн": true,
+        "rapid_retreat_activated": false
     },
     "death_count": 0,
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 27,
-        "current_sp": 27,
-        "current_stagger": 13
+        "current_hp": 357,
+        "current_sp": 351,
+        "current_stagger": 478
     },
     "defense": {
         "armor_name": "Броня Лайлы",
@@ -94,7 +98,7 @@
             "pierce": 1.0,
             "blunt": 1.0
         },
-        "weapon_id": "two_handed_sword"
+        "weapon_id": "old_musket"
     },
     "attributes": {
         "strength": 10,
@@ -105,21 +109,24 @@
     },
     "skills": {
         "strike_power": 3,
-        "medicine": 0,
-        "willpower": 0,
+        "medicine": 3,
+        "willpower": 3,
         "luck": 0,
-        "acrobatics": 3,
-        "shields": 3,
-        "tough_skin": 0,
-        "speed": 10,
-        "light_weapon": 0,
-        "medium_weapon": 6,
-        "heavy_weapon": 0,
-        "firearms": 3,
+        "acrobatics": 6,
+        "shields": 6,
+        "tough_skin": 3,
+        "speed": 13,
+        "light_weapon": 3,
+        "medium_weapon": 9,
+        "heavy_weapon": 3,
+        "firearms": 6,
         "eloquence": 0,
         "forging": 10,
-        "engineering": 0,
-        "programming": 0
+        "engineering": 3,
+        "programming": 3,
+        "power_attack": 3,
+        "smithing": 3,
+        "persuasion": 3
     },
     "passives": [
         "social_phobia",
@@ -128,23 +135,19 @@
         "low_endurance",
         "topographic_cretinism",
         "fear_of_healing",
-        "stances",
         "hardened_by_solitude"
     ],
     "talents": [
-        "pain_points",
-        "pain_shock",
-        "entering_rhythm",
-        "dirty_tricks",
-        "playing_on_nerves",
-        "with_caution",
-        "sharp_eye",
-        "arrest",
-        "feint",
-        "weak_point_energy",
-        "rupture_application",
-        "achilles_heel",
-        "no_mistakes"
+        "athletic",
+        "fast_hands",
+        "leader",
+        "addiction_is_a_bitch",
+        "rapid_retreat",
+        "combat_reload",
+        "find_vulnerability",
+        "borrowed_time",
+        "iron_formation",
+        "last_hope"
     ],
     "augmentations": [],
     "level_rolls": {},

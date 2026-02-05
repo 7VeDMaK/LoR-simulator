@@ -7,7 +7,7 @@ class Weapon:
         self.description = description
         self.stats = stats
         self.passive_id = passive_id
-        self.weapon_type = weapon_type  # "light", "medium", "heavy", "ranged"
+        self.weapon_type = weapon_type  # "light", "medium", "heavy", "ranged", "gun"
 
 
 # === РЕЕСТР ОРУЖИЯ ===
@@ -149,4 +149,13 @@ WEAPON_REGISTRY = {
     passive_id="weapon_muramasa",  # Ссылка на ID пассивки
     weapon_type="medium"
 ),
+
+    "old_musket": Weapon(
+        id="old_musket",
+        name="Старый Мушкет",
+        rank=9,
+        description="Дальнобойное оружие. Использует боеприпасы (Ammo).",
+        stats={},
+        weapon_type="gun"  # Новый тип оружия - пушка/огнестрел с патронами
+    ),
 }

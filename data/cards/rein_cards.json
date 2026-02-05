@@ -32,24 +32,40 @@
     },
     {
       "id": "не_беспокойство_img3",
-      "name": "Не Беспокойство",
+      "name": "Спустить Кровь",
       "tier": 1,
-      "type": "melee",
+      "type": "Melee",
       "description": "",
-      "dice": [
-        {
-          "type": "block",
-          "base_min": 5,
-          "base_max": 8,
-          "scripts": {}
-        },
-        {
-          "type": "slash",
-          "base_min": 3,
-          "base_max": 6,
-          "scripts": {}
-        }
-      ]
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "attack_power_up",
+              "base": 5,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 2,
+              "delay": 0,
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "hp",
+              "base": -10,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 0.5,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": []
     },
     {
       "id": "тяжкое_бремя_img4",
@@ -99,7 +115,7 @@
       "name": "Изничтожение",
       "tier": 2,
       "type": "Melee",
-      "description": "Пассивное: при использовании отнимается 7 HP, но все кубики получают +3 к мощи.",
+      "description": "Пассивное: при использовании отнимается 40 HP, но все кубики получают +6 к мощи.",
       "flags": [],
       "scripts": {
         "on_use": [
@@ -107,7 +123,10 @@
             "script_id": "restore_resource",
             "params": {
               "type": "hp",
-              "base": -7,
+              "base": -40,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 0.5,
               "target": "self"
             }
           },
@@ -115,7 +134,7 @@
             "script_id": "apply_status",
             "params": {
               "status": "attack_power_up",
-              "base": 3,
+              "base": 6,
               "stat": "None",
               "scale_from_target": false,
               "factor": 1.0,
@@ -128,22 +147,22 @@
       },
       "dice": [
         {
-          "type": "pierce",
-          "base_min": 9,
-          "base_max": 13,
+          "type": "blunt",
+          "base_min": 6,
+          "base_max": 10,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 6,
+          "base_max": 10,
           "is_counter": false,
           "scripts": {}
         },
         {
           "type": "pierce",
-          "base_min": 5,
-          "base_max": 8,
-          "is_counter": false,
-          "scripts": {}
-        },
-        {
-          "type": "pierce",
-          "base_min": 4,
+          "base_min": 3,
           "base_max": 5,
           "is_counter": false,
           "scripts": {}
@@ -193,52 +212,35 @@
     },
     {
       "id": "warp_img",
-      "name": "Варп",
+      "name": "Пучина",
       "tier": 3,
-      "type": "melee",
+      "type": "Melee",
       "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "endurance",
+              "base": 10,
+              "stat": "None",
+              "scale_from_target": false,
+              "factor": 1.0,
+              "duration": 2,
+              "delay": 0,
+              "target": "self"
+            }
+          }
+        ]
+      },
       "dice": [
-        {
-          "type": "evade",
-          "base_min": 8,
-          "base_max": 12,
-          "scripts": {}
-        },
         {
           "type": "block",
           "base_min": 8,
           "base_max": 12,
-          "scripts": {
-            "on_clash_win": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "fragile",
-                  "base": 3,
-                  "duration": 1,
-                  "target": "target"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "slash",
-          "base_min": 1,
-          "base_max": 4,
-          "scripts": {
-            "on_hit": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "paralysis",
-                  "base": 2,
-                  "duration": 1,
-                  "target": "target"
-                }
-              }
-            ]
-          }
+          "is_counter": true,
+          "scripts": {}
         }
       ]
     },
