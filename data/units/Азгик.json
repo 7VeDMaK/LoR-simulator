@@ -18,47 +18,17 @@
         "imp_sp": 20,
         "imp_stg": 10
     },
-    "current_hp": 120,
-    "current_sp": 109,
-    "current_stagger": 51,
+    "current_hp": 100,
+    "current_sp": 91,
+    "current_stagger": 43,
     "resources": {},
     "cooldowns": {},
-    "card_cooldowns": {},
-    "active_buffs": {},
-    "_status_effects": {
-        "satiety": [
-            {
-                "amount": 20,
-                "duration": 93
-            }
-        ],
-        "clarity": [
-            {
-                "amount": 1,
-                "duration": 90
-            },
-            {
-                "amount": 1,
-                "duration": 94
-            }
-        ],
-        "haste": [
-            {
-                "amount": 2,
-                "duration": 1
-            },
-            {
-                "amount": 1,
-                "duration": 1
-            }
-        ],
-        "endurance": [
-            {
-                "amount": 2,
-                "duration": 1
-            }
-        ]
+    "card_cooldowns": {
+        "azgick_rule_2": 0,
+        "azgick_rule_3": 0
     },
+    "active_buffs": {},
+    "_status_effects": {},
     "delayed_queue": [],
     "deck": [
         "pat_right_shoulder",
@@ -92,101 +62,26 @@
         "candy_fudge",
         "candy_waffles"
     ],
-    "active_slots": [
-        {
-            "speed": 23,
-            "card": null,
-            "target_slot": null,
-            "is_aggro": false,
-            "target_unit_idx": -1,
-            "target_slot_idx": -1,
-            "force_clash": false,
-            "ui_status": {
-                "text": "НЕТ ЦЕЛИ",
-                "icon": "⛔",
-                "color": "gray"
-            },
-            "is_ally_target": false
-        },
-        {
-            "speed": 21,
-            "card": null,
-            "target_slot": null,
-            "is_aggro": false,
-            "target_unit_idx": -1,
-            "target_slot_idx": -1,
-            "force_clash": false,
-            "ui_status": {
-                "text": "НЕТ ЦЕЛИ",
-                "icon": "⛔",
-                "color": "gray"
-            },
-            "is_ally_target": false
-        },
-        {
-            "speed": 21,
-            "card": null,
-            "target_slot": null,
-            "is_aggro": false,
-            "target_unit_idx": -1,
-            "target_slot_idx": -1,
-            "force_clash": false,
-            "ui_status": {
-                "text": "НЕТ ЦЕЛИ",
-                "icon": "⛔",
-                "color": "gray"
-            },
-            "is_ally_target": false
-        },
-        {
-            "speed": 23,
-            "card": null,
-            "target_slot": null,
-            "is_aggro": false,
-            "target_unit_idx": -1,
-            "target_slot_idx": -1,
-            "force_clash": false,
-            "ui_status": {
-                "text": "НЕТ ЦЕЛИ",
-                "icon": "⛔",
-                "color": "gray"
-            },
-            "is_ally_target": false
-        },
-        {
-            "speed": 17,
-            "card": null,
-            "target_slot": null,
-            "is_aggro": false,
-            "target_unit_idx": -1,
-            "target_slot_idx": -1,
-            "force_clash": false,
-            "ui_status": {
-                "text": "НЕТ ЦЕЛИ",
-                "icon": "⛔",
-                "color": "gray"
-            },
-            "is_ally_target": false
-        }
-    ],
+    "active_slots": [],
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
             "hp": 100,
-            "sp": 109,
+            "sp": 91,
             "stagger": 43
         },
-        "cached_allies_names": [],
-        "clarity_cooldown_counter": 0,
+        "cached_allies_names": [
+            "Рейн"
+        ],
+        "clarity_cooldown_counter": 1,
         "peak_sanity_initialized": true,
         "emotional_storm_initialized": true,
         "emo_level": 2,
-        "emo_progress": 7,
-        "emo_coins_pos": 6,
+        "emo_progress": 8,
+        "emo_coins_pos": 7,
         "emo_coins_neg": 1,
-        "battle_initialized": true,
         "last_revive_attempt_round": 5,
         "last_revive_log": {
             "roll": 3,
@@ -195,9 +90,10 @@
             "total": 7,
             "dc": 1,
             "success": true
-        }
+        },
+        "battle_initialized": true
     },
-    "death_count": 1,
+    "death_count": 0,
     "overkill_damage": 0,
     "money_log": [
         {
@@ -234,25 +130,25 @@
         }
     ],
     "base_stats": {
-        "current_hp": 120,
-        "current_sp": 109,
-        "current_stagger": 51
+        "current_hp": 100,
+        "current_sp": 91,
+        "current_stagger": 43
     },
     "defense": {
-        "armor_name": "Standard Fixer Suit",
-        "armor_id": "standard_fixer_suit",
+        "armor_name": "FURR SUT",
         "armor_type": "Medium",
+        "armor_id": "armor_leila2",
         "hp_resists": {
-            "slash": 1.7999999999999998,
-            "pierce": 0.8,
-            "blunt": 0.30000000000000004
+            "slash": 0.7,
+            "pierce": 0.7,
+            "blunt": 0.7
         },
         "stagger_resists": {
             "slash": 1.0,
             "pierce": 1.0,
             "blunt": 1.0
         },
-        "weapon_id": "dual_blades"
+        "weapon_id": "banganrang"
     },
     "attributes": {
         "strength": 6,

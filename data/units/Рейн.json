@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 200,
+    "current_hp": 197,
     "current_sp": 202,
-    "current_stagger": 103,
+    "current_stagger": 100,
     "resources": {
         "luck": 138
     },
@@ -53,8 +53,8 @@
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 150,
-            "sp": 152,
+            "hp": 200,
+            "sp": 202,
             "stagger": 103
         },
         "cat_reflexes_triggered": false,
@@ -74,9 +74,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 200,
+        "current_hp": 197,
         "current_sp": 202,
-        "current_stagger": 103
+        "current_stagger": 100
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -95,8 +95,8 @@
         "weapon_id": "phantom_razors"
     },
     "attributes": {
-        "strength": 5,
-        "endurance": 22,
+        "strength": 6,
+        "endurance": 21,
         "agility": 8,
         "wisdom": 0,
         "psych": 21

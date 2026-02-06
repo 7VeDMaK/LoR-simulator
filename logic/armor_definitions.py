@@ -80,6 +80,15 @@ ARMOR_REGISTRY = {
         stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
     ),
 
+    "armor_leila2": Armor(
+        id="armor_leila",
+        name="FURR SUT",
+        rank=9,
+        description="Старая броня fursut... что получила от кого-то, всё ещё может держать удар.",
+        hp_resists={"slash": 0.7, "pierce": 0.7, "blunt": 0.7},
+        stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
+    ),
+
     "ghost_exoskeleton": Armor(
         id="ghost_exoskeleton",
         name="Экзо-костюм 'Призрак'",
