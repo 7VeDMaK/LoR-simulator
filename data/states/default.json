@@ -23,26 +23,36 @@
         "imp_stg": 10
       },
       "current_hp": 100,
-      "current_sp": 109,
-      "current_stagger": 43,
+      "current_sp": 94,
+      "current_stagger": 36,
       "resources": {},
       "cooldowns": {
         "mind_power": 1
       },
       "card_cooldowns": {
         "tea_green": [
-          4
+          3
         ],
         "tea_fruit": [
-          4
+          3
         ],
         "tea_berry": [
-          4
+          3
         ],
         "tea_red": [
-          4
+          3
         ],
         "tea_ginger": [
+          3
+        ],
+        "azgick_smile": [
+          1,
+          1
+        ],
+        "azgick_enrage": [
+          1
+        ],
+        "tea_dark": [
           4
         ]
       },
@@ -51,19 +61,19 @@
         "haste": [
           {
             "amount": 2,
-            "duration": 2
+            "duration": 1
           },
           {
             "amount": 3,
-            "duration": 2
+            "duration": 1
+          },
+          {
+            "amount": 2,
+            "duration": 1
           },
           {
             "amount": 2,
             "duration": 2
-          },
-          {
-            "amount": 2,
-            "duration": 3
           },
           {
             "amount": 2,
@@ -77,15 +87,15 @@
         "endurance": [
           {
             "amount": 2,
-            "duration": 2
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
           },
           {
             "amount": 1,
             "duration": 2
-          },
-          {
-            "amount": 1,
-            "duration": 3
           },
           {
             "amount": 2,
@@ -95,7 +105,11 @@
         "attack_power_up": [
           {
             "amount": 2,
-            "duration": 2
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
           },
           {
             "amount": 1,
@@ -104,52 +118,62 @@
           {
             "amount": 5,
             "duration": 1
-          },
-          {
-            "amount": 1,
-            "duration": 3
           }
         ],
         "protection": [
           {
             "amount": 2,
-            "duration": 2
+            "duration": 1
           },
           {
             "amount": 5,
-            "duration": 2
+            "duration": 1
+          },
+          {
+            "amount": 2,
+            "duration": 1
           }
         ],
         "satiety": [
           {
-            "amount": 18,
-            "duration": 98
+            "amount": 17,
+            "duration": 97
           }
         ],
         "stagger_resist": [
           {
             "amount": 1,
-            "duration": 2
+            "duration": 1
           }
         ],
         "barrier": [
           {
             "amount": 20,
-            "duration": 2
+            "duration": 1
           },
           {
             "amount": 24,
-            "duration": 3
+            "duration": 2
           }
         ],
         "clarity": [
           {
             "amount": 1,
-            "duration": 98
+            "duration": 97
           },
           {
             "amount": 1,
-            "duration": 99
+            "duration": 98
+          }
+        ],
+        "invisibility": [
+          {
+            "amount": 1,
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
           }
         ]
       },
@@ -188,44 +212,12 @@
       ],
       "active_slots": [
         {
-          "speed": 32,
-          "card": "pat_left_shoulder",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 1,
-          "target_slot_idx": 0,
-          "force_clash": false,
-          "ui_status": {
-            "text": "BUFF -> Рейн",
-            "icon": "✨",
-            "color": "green"
-          },
-          "is_ally_target": true,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 30,
-          "card": "pat_left_shoulder",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 1,
-          "target_slot_idx": 0,
-          "force_clash": false,
-          "ui_status": {
-            "text": "BUFF -> Рейн",
-            "icon": "✨",
-            "color": "green"
-          },
-          "is_ally_target": true,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 30,
-          "card": "azgick_smile",
+          "speed": 31,
+          "card": "pat_right_shoulder",
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": 0,
-          "target_slot_idx": 2,
+          "target_slot_idx": 0,
           "force_clash": false,
           "ui_status": {
             "text": "BUFF -> Азгик",
@@ -236,15 +228,15 @@
           "destroy_on_speed": true
         },
         {
-          "speed": 30,
-          "card": "azgick_enrage",
+          "speed": 31,
+          "card": "azgick_rule_2",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": 1,
+          "target_unit_idx": 0,
           "target_slot_idx": 0,
           "force_clash": false,
           "ui_status": {
-            "text": "BUFF -> Рейн",
+            "text": "BUFF -> Азгик",
             "icon": "✨",
             "color": "green"
           },
@@ -252,17 +244,49 @@
           "destroy_on_speed": true
         },
         {
-          "speed": 27,
-          "card": "pat_right_shoulder",
+          "speed": 32,
+          "card": "pat_left_shoulder",
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
           "force_clash": false,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
+            "text": "BUFF -> Азгик",
+            "icon": "✨",
+            "color": "green"
+          },
+          "is_ally_target": true,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 32,
+          "card": "pat_left_shoulder",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
+          "force_clash": false,
+          "ui_status": {
+            "text": "BUFF -> Азгик",
+            "icon": "✨",
+            "color": "green"
+          },
+          "is_ally_target": true,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 25,
+          "card": "debate_red_eye",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
+          "force_clash": false,
+          "ui_status": {
+            "text": "✨ SPEED BREAK -> Генри Фаэнон | Уничтожение (25 >> 0)",
+            "icon": "⚡",
+            "color": "green"
           },
           "is_ally_target": false,
           "destroy_on_speed": true
@@ -283,10 +307,10 @@
         "clarity_cooldown_counter": 2,
         "peak_sanity_initialized": true,
         "emotional_storm_initialized": true,
-        "emo_level": 2,
-        "emo_progress": 8,
-        "emo_coins_pos": 7,
-        "emo_coins_neg": 1,
+        "emo_level": 3,
+        "emo_progress": 11,
+        "emo_coins_pos": 9,
+        "emo_coins_neg": 2,
         "last_revive_attempt_round": 5,
         "last_revive_log": {
           "roll": 3,
@@ -336,8 +360,8 @@
       ],
       "base_stats": {
         "current_hp": 100,
-        "current_sp": 109,
-        "current_stagger": 43
+        "current_sp": 94,
+        "current_stagger": 36
       },
       "defense": {
         "armor_name": "FURR SUT",
@@ -465,35 +489,42 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 121,
+      "current_hp": 89,
       "current_sp": 202,
       "current_stagger": 16,
       "resources": {
         "luck": 138
       },
       "cooldowns": {
-        "red_lycoris": 7,
-        "mech_phantom_razors": 3
+        "red_lycoris": 6,
+        "mech_phantom_razors": 2
       },
-      "card_cooldowns": {},
+      "card_cooldowns": {
+        "изничтожение_img5": [
+          1
+        ],
+        "tale_of_twilight_img": [
+          1
+        ]
+      },
       "active_buffs": {},
       "_status_effects": {
         "haste": [
           {
             "amount": 2,
-            "duration": 2
+            "duration": 1
           },
           {
             "amount": 3,
-            "duration": 2
+            "duration": 1
+          },
+          {
+            "amount": 2,
+            "duration": 1
           },
           {
             "amount": 2,
             "duration": 2
-          },
-          {
-            "amount": 2,
-            "duration": 3
           },
           {
             "amount": 2,
@@ -507,15 +538,15 @@
         "endurance": [
           {
             "amount": 2,
-            "duration": 2
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
           },
           {
             "amount": 1,
             "duration": 2
-          },
-          {
-            "amount": 1,
-            "duration": 3
           },
           {
             "amount": 2,
@@ -525,7 +556,11 @@
         "attack_power_up": [
           {
             "amount": 2,
-            "duration": 2
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
           },
           {
             "amount": 1,
@@ -536,56 +571,54 @@
             "duration": 1
           },
           {
-            "amount": 5,
+            "amount": 6,
             "duration": 1
           },
           {
-            "amount": 1,
-            "duration": 3
+            "amount": 5,
+            "duration": 1
           }
         ],
         "protection": [
           {
             "amount": 2,
-            "duration": 2
+            "duration": 1
           },
           {
             "amount": 5,
-            "duration": 2
+            "duration": 1
+          },
+          {
+            "amount": 2,
+            "duration": 1
           }
         ],
         "stagger_resist": [
           {
             "amount": 1,
-            "duration": 2
+            "duration": 1
           }
         ],
         "clarity": [
           {
             "amount": 1,
-            "duration": 98
+            "duration": 97
           },
           {
             "amount": 1,
-            "duration": 99
+            "duration": 98
           }
         ],
-        "red_lycoris": [
+        "barrier": [
           {
-            "amount": 1,
-            "duration": 1
+            "amount": 24,
+            "duration": 2
           }
         ],
         "invisibility": [
           {
             "amount": 1,
             "duration": 1
-          }
-        ],
-        "barrier": [
-          {
-            "amount": 24,
-            "duration": 3
           }
         ]
       },
@@ -606,61 +639,52 @@
       ],
       "active_slots": [
         {
-          "speed": 1026,
-          "card": "не_беспокойство_img3",
+          "speed": 27,
+          "card": "series_normal_strikes_img",
           "target_slot": null,
           "is_aggro": false,
-          "prevent_redirection": true,
-          "source_effect": "Lycoris 🩸",
-          "target_unit_idx": 0,
-          "target_slot_idx": 1,
-          "force_clash": true,
-          "ui_status": {
-            "text": "✨ SPEED BREAK -> Генри Фаэнон | Уничтожение (1026 >> 14)",
-            "icon": "⚡",
-            "color": "green"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        },
-        {
-          "speed": 1024,
-          "card": "изничтожение_img5",
-          "target_slot": null,
-          "is_aggro": false,
-          "prevent_redirection": true,
-          "source_effect": "Lycoris 🩸",
-          "target_unit_idx": 0,
-          "target_slot_idx": 1,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
           "force_clash": false,
           "ui_status": {
-            "text": "✨ SPEED BREAK -> Генри Фаэнон | Уничтожение (1024 >> 14)",
-            "icon": "⚡",
-            "color": "green"
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
+          "destroy_on_speed": true
         },
         {
-          "speed": 1022,
-          "card": "tale_of_twilight_img",
+          "speed": 25,
+          "card": "not_the_limit_img",
           "target_slot": null,
           "is_aggro": false,
-          "prevent_redirection": true,
-          "source_effect": "Lycoris 🩸",
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": true,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
           "ui_status": {
-            "text": "✨ SPEED BREAK -> Генри Фаэнон | Уничтожение (1022 >> 18)",
-            "icon": "⚡",
-            "color": "green"
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
           },
           "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 25,
+          "card": "удачное_стечение_img2",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
         }
       ],
       "stored_dice": [],
@@ -689,7 +713,7 @@
         }
       ],
       "base_stats": {
-        "current_hp": 121,
+        "current_hp": 89,
         "current_sp": 202,
         "current_stagger": 16
       },
@@ -821,29 +845,74 @@
         "imp_sp": 10,
         "imp_stg": 0
       },
-      "current_hp": 254,
-      "current_sp": 98,
-      "current_stagger": 138,
+      "current_hp": 110,
+      "current_sp": 96,
+      "current_stagger": 0,
       "resources": {},
       "cooldowns": {
-        "mech_phantom_razors": 3
+        "mech_phantom_razors": 2,
+        "step_into_shadow": 7
       },
-      "card_cooldowns": {},
+      "card_cooldowns": {
+        "masochism": [
+          1
+        ]
+      },
       "active_buffs": {},
       "_status_effects": {
         "bleed": [
           {
             "amount": 2,
+            "duration": 1
+          },
+          {
+            "amount": 24,
             "duration": 2
           }
         ],
-        "bleed_resist": [
+        "paralysis": [
+          {
+            "amount": 1,
+            "duration": 2
+          },
+          {
+            "amount": 1,
+            "duration": 2
+          },
+          {
+            "amount": 1,
+            "duration": 2
+          }
+        ],
+        "revenge_dmg_up": [
+          {
+            "amount": 1,
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
+          },
           {
             "amount": 1,
             "duration": 1
           }
         ],
         "invisibility": [
+          {
+            "amount": 1,
+            "duration": 3
+          }
+        ],
+        "bleed_resist": [
           {
             "amount": 1,
             "duration": 1
@@ -864,38 +933,17 @@
       ],
       "active_slots": [
         {
-          "speed": 18,
-          "card": "masochism",
-          "target_slot": null,
+          "speed": 0,
+          "card": null,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "stunned": true,
           "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": false,
           "ui_status": {
-            "text": "🚫 BROKEN vs Рейн [S3] | Speed Gap 1004",
-            "icon": "💥",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
-        },
-        {
-          "speed": 14,
-          "card": "open_veins",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": false,
-          "ui_status": {
-            "text": "🚫 BROKEN vs Рейн [S1] | Speed Gap 1012",
-            "icon": "💥",
-            "color": "red"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": true
+            "text": "ОГЛУШЕН",
+            "icon": "❌",
+            "color": "gray"
+          }
         }
       ],
       "stored_dice": [],
@@ -920,9 +968,9 @@
         }
       ],
       "base_stats": {
-        "current_hp": 254,
-        "current_sp": 98,
-        "current_stagger": 138
+        "current_hp": 110,
+        "current_sp": 96,
+        "current_stagger": 0
       },
       "defense": {
         "armor_name": "FURR SUT",
@@ -1058,38 +1106,114 @@
     }
   ],
   "phase": "planning",
-  "round_number": 2,
+  "round_number": 3,
   "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
   "battle_logs": [
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Рейн",
+        "card": "Изничтожение",
+        "dice": "BLUNT",
+        "val": 41.0,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Генри Фаэнон",
+        "card": "-",
+        "dice": "🚫 Broken",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-55 HP**",
+      "details": [
+        "💔 **Рейн**: -40 HP",
+        "🧪 **Рейн**: +6 Attack_power_up",
+        "🎲 Roll [6-10]: 8 + 1 (Сила) + 2.0 (Power All) + 25 (Attack Power Up) + 5 (Fast & Silent (Invis)) = **41.0**",
+        "🗡️ **Sudden Attack**: x2 Dmg & 24 Bleed (Invisible) [1/Round]",
+        "👻 **Невидимость**: Раскрыт после удара!",
+        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
+        "💥 **Генри Фаэнон**: [-3 Skin] [x0.7 Res] Hit 55 HP",
+        "🩸 **Месть (Б)**: Получен урон! След. атака усилена (x1.5)."
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Рейн",
+        "card": "Изничтожение",
+        "dice": "SLASH",
+        "val": 39.0,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Генри Фаэнон",
+        "card": "-",
+        "dice": "🚫 Broken",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-25 HP**",
+      "details": [
+        "🎲 Roll [6-10]: 9 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) + 25 (Attack Power Up) = **39.0**",
+        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
+        "💥 **Генри Фаэнон**: [-3 Skin] [x0.7 Res] Hit 25 HP",
+        "🩸 **Месть (Б)**: Получен урон! След. атака усилена (x1.5)."
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Рейн",
+        "card": "Изничтожение",
+        "dice": "PIERCE",
+        "val": 32.0,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Генри Фаэнон",
+        "card": "-",
+        "dice": "🚫 Broken",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Redirected) 💥 **-20 HP**",
+      "details": [
+        "🎲 Roll [3-5]: 4 + 1 (Сила) + 2.0 (Power All) + 25 (Attack Power Up) = **32.0**",
+        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
+        "💥 **Генри Фаэнон**: [-3 Skin] [x0.7 Res] Hit 20 HP",
+        "🩸 **Месть (Б)**: Получен урон! След. атака усилена (x1.5)."
+      ]
+    },
     {
       "type": "clash",
       "round": "Clash (1)",
       "left": {
         "unit": "Рейн",
-        "card": "Обычный удар",
+        "card": "Повесть о Сумерках",
         "dice": "SLASH",
-        "val": 44.0,
-        "range": "7-15"
+        "val": 36.0,
+        "range": "5-7"
       },
       "right": {
         "unit": "Генри Фаэнон",
-        "card": "Вскрыть вены",
-        "dice": "SLASH",
-        "val": 25.0,
-        "range": "1-3"
+        "card": "Мазохизм",
+        "dice": "EVADE",
+        "val": 23.0,
+        "range": "5-11"
       },
-      "outcome": "🏆 Рейн Win (Hit) 💥 **-59 HP**",
+      "outcome": "💥 Evade Failed 💥 **-23 HP**",
       "details": [
-        "🎲 Roll [1-3]: 2 + 6 (Сила) + 8 (Легкое ор.) + 2 (Bonus SLASH) + 2.0 (Power All) + 5 (Fast & Silent (Invis)) = **25.0**",
-        "🗡️ **Sudden Attack**: x2 Dmg & 37 Bleed (Invisible, >75% HP) [1/Round]",
-        "👻 **Невидимость**: Раскрыт (перехвачен)!",
-        "🎲 Roll [7-15]: 9 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) + 25 (Attack Power Up) + 5 (Fast & Silent (Invis)) = **44.0**",
-        "🗡️ **Sudden Attack**: x2 Dmg & 26 Bleed (Invisible, >75% HP) [1/Round]",
-        "👻 **Невидимость**: Раскрыт после удара!",
-        "🩸 Bleed: Рейн takes 37 dmg",
+        "⏰ **Рейн**: Invisibility (Delayed 1 turns)",
+        "🎲 Roll [5-7]: 6 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) + 25 (Attack Power Up) = **36.0**",
         "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
-        "💥 **Генри Фаэнон**: [-3 Skin] [x0.7 Res] Hit 59 HP",
-        "🩸 **Месть (Б)**: Получен урон! След. атака усилена (x1.5)."
+        "💥 **Генри Фаэнон**: [-3 Skin] [x0.7 Res] Hit 23 HP",
+        "🩸 **Месть (Б)**: Получен урон! След. атака усилена (x1.5).",
+        "🎲 Roll [5-11]: 9 + 14 (Ловкость) + 2.0 (Power All) - 4 (Paralysis (Min)) + 2 (Cat Reflexes) = **23.0**",
+        "🗡️ **Sudden Attack**: x2 Dmg & 54 Bleed (Invisible) [1/Round]"
       ]
     },
     {
@@ -1097,21 +1221,22 @@
       "round": "Clash (2)",
       "left": {
         "unit": "Рейн",
-        "card": "Обычный удар",
-        "dice": "Broken",
-        "val": 0,
-        "range": "-"
+        "card": "Повесть о Сумерках",
+        "dice": "EVADE",
+        "val": 18.0,
+        "range": "4-6"
       },
       "right": {
         "unit": "Генри Фаэнон",
-        "card": "Вскрыть вены",
-        "dice": "SLASH",
-        "val": 19.0,
-        "range": "1-3"
+        "card": "Мазохизм",
+        "dice": "EVADE",
+        "val": 22.0,
+        "range": "4-9"
       },
-      "outcome": "🚫 Рейн Broken",
+      "outcome": "🛡️ Defensive Clash (Both Spent)",
       "details": [
-        "🎲 Roll [1-3]: 2 + 6 (Сила) + 8 (Легкое ор.) + 2 (Bonus SLASH) + 2.0 (Power All) - 1 (Paralysis (Min)) = **19.0**"
+        "🎲 Roll [4-6]: 4 + 4 (Ловкость) + 2.0 (Power All) + 6 (Endurance) + 2 (Cat Reflexes) = **18.0**",
+        "🎲 Roll [4-9]: 7 + 14 (Ловкость) + 2.0 (Power All) - 3 (Paralysis (Min)) + 2 (Cat Reflexes) = **22.0**"
       ]
     },
     {
@@ -1119,91 +1244,53 @@
       "round": "Clash (3)",
       "left": {
         "unit": "Рейн",
-        "card": "Обычный удар",
+        "card": "Повесть о Сумерках",
+        "dice": "SLASH",
+        "val": 34.0,
+        "range": "4-6"
+      },
+      "right": {
+        "unit": "Генри Фаэнон",
+        "card": "Мазохизм",
         "dice": "Broken",
         "val": 0,
         "range": "-"
       },
-      "right": {
-        "unit": "Генри Фаэнон",
-        "card": "Вскрыть вены",
+      "outcome": "🚫 Генри Фаэнон Broken",
+      "details": [
+        "🎲 Roll [4-6]: 4 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) + 25 (Attack Power Up) = **34.0**"
+      ]
+    },
+    {
+      "type": "clash",
+      "round": "Clash (1)",
+      "left": {
+        "unit": "Азгик",
+        "card": "Ослепительная гнилозубая улыбка",
         "dice": "SLASH",
-        "val": 19.0,
-        "range": "1-3"
-      },
-      "outcome": "🚫 Рейн Broken",
-      "details": [
-        "🎲 Roll [1-3]: 1 + 6 (Сила) + 8 (Легкое ор.) + 2 (Bonus SLASH) + 2.0 (Power All) = **19.0**"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Генри Фаэнон",
-        "card": "Кровавая увертюра",
-        "dice": "BLUNT",
-        "val": 21.0,
-        "range": "-"
+        "val": 19,
+        "range": "2-5"
       },
       "right": {
-        "unit": "Рейн",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
+        "unit": "Азгик",
+        "card": "Ослепительная гнилозубая улыбка",
+        "dice": "SLASH",
+        "val": 20,
+        "range": "2-5"
       },
-      "outcome": "Unopposed (Redirected) 💥 **-26 HP**",
+      "outcome": "🏆 Азгик Win (Hit) 💥 **-20 HP**",
       "details": [
-        "🧪 **Рейн**: +3 Bleed",
-        "🎲 Roll [3-6]: 5 + 6 (Сила) + 8 (Легкое ор.) + 2.0 (Power All) = **21.0**",
-        "🩸 Bleed: Генри Фаэнон takes 4 dmg",
-        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
-        "🧪 **Рейн**: +1 Fragile",
-        "👊 Atk Boost: +6.0",
-        "💥 **Рейн**: [x1.0 Res] Hit 26 HP"
+        "⏰ **Азгик**: Invisibility (Delayed 1 turns)",
+        "⏰ **Азгик**: Invisibility (Delayed 1 turns)",
+        "🎲 Roll [2-5]: 3 + 6 (Сила) + 9 (Attack Power Up) + 1 (Peak Sanity (Min+2)) = **19**",
+        "🔴 **Эмоции**: +1 Негативная монета",
+        "🎲 Roll [2-5]: 5 + 6 (Сила) + 9 (Attack Power Up) = **20**",
+        "🟢 **Эмоции**: +1 Позитивная монета",
+        "🟢 **Эмоции**: +1 Позитивная монета",
+        "🧠 **Психическая нагрузка**: +4 SP Dmg (Белый урон)",
+        "🎵 **Банганранг**: Тип урона изменен на Белый (SP).",
+        "🧠 **White Dmg**: 20 SP"
       ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Генри Фаэнон",
-        "card": "Кровавая увертюра",
-        "dice": "BLUNT",
-        "val": 20.0,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Рейн",
-        "card": "-",
-        "dice": "Busy",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Redirected) 💥 **-25 HP**",
-      "details": [
-        "🎲 Roll [1-4]: 4 + 6 (Сила) + 8 (Легкое ор.) + 2.0 (Power All) = **20.0**",
-        "🩸 Bleed: Генри Фаэнон takes 2 dmg",
-        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
-        "👊 Atk Boost: +6.0",
-        "💥 **Рейн**: [x1.0 Res] Hit 25 HP"
-      ]
-    },
-    {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "✨ Ликорис: Сожжены негативные эффекты (bleed, fragile, paralysis)"
-    },
-    {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "🩸 Красный Ликорис: Активирован! Иммунитет к негативу и синхронизация."
-    },
-    {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "👻 **Фантомный удар**: Активирована маскировка! Следующая атака будет Внезапной."
     },
     {
       "round": "Skill",
@@ -1211,49 +1298,22 @@
       "details": "🧠 **Умопомрачительная сила**: Пожертвовано 50 SP -> Получено +5 Силы!"
     },
     {
-      "round": "Item",
-      "rolls": "Consumable",
-      "details": [
-        "💊 **Азгик** uses **Особый зелёный чай**!",
-        "🧠 **Азгик**: +26 SP",
-        "🧪 **Азгик**: +24 Barrier"
-      ]
+      "round": "Skill",
+      "rolls": "Activate",
+      "details": "👻 **Шаг в тень**: Растворился в тени (Невидимость на 3 х.)"
     },
     {
       "round": "Item",
       "rolls": "Consumable",
       "details": [
-        "💊 **Азгик** uses **Особый Фруктовый чай**!",
-        "🧠 **Азгик**: +16 SP",
-        "🧪 **Азгик**: +2 Haste"
+        "💊 **Азгик** uses **Особый тёмный чай**!",
+        "🧠 **Азгик**: +16 SP"
       ]
     },
     {
-      "round": "Item",
-      "rolls": "Consumable",
-      "details": [
-        "💊 **Азгик** uses **Ягодный Чай**!",
-        "🧠 **Азгик**: +14 SP",
-        "🧪 **Азгик**: +1 Endurance"
-      ]
-    },
-    {
-      "round": "Item",
-      "rolls": "Consumable",
-      "details": [
-        "💊 **Азгик** uses **Красный чай**!",
-        "🧠 **Азгик**: +0 SP",
-        "🧪 **Азгик**: +1 Attack_power_up"
-      ]
-    },
-    {
-      "round": "Item",
-      "rolls": "Consumable",
-      "details": [
-        "💊 **Азгик** uses **Имбирный чай**!",
-        "🧠 **Азгик**: +0 SP",
-        "🧪 **Азгик**: +1 Clarity"
-      ]
+      "round": "Round Start",
+      "rolls": "Event",
+      "details": "🔄 **Азгик**: 🧠 Центр у равновесия: Восстановлено 7 SP (1 союзникам)."
     },
     {
       "round": "Round Start",
@@ -1263,12 +1323,17 @@
     {
       "round": "Round Start",
       "rolls": "Event",
-      "details": "🔄 **Азгик**: 🌪️ **Эмоции (Ур. 2)**: Резонанс души (Haste, Endurance)."
+      "details": "🔄 **Азгик**: 🌪️ **Эмоции (Ур. 3)**: Резонанс души (Haste, Endurance, Protection)."
     },
     {
       "round": "Round Start",
       "rolls": "Event",
       "details": "🔄 **Азгик**: 🏃 **Атлетичный**: Боевая готовность (+1 Haste)."
+    },
+    {
+      "round": "Round Start",
+      "rolls": "Event",
+      "details": "🔄 **Рейн**: 🧠 Центр у равновесия: Восстановлено 12 SP (1 союзникам)."
     },
     {
       "round": "Round Start",
@@ -1279,16 +1344,6 @@
       "round": "Speed Roll",
       "rolls": "Passive",
       "details": "⚡ **Рейн**: 🧬 S-клетки: 3 слотов x 10 = Восстановлено 30 HP"
-    },
-    {
-      "round": "Speed Roll",
-      "rolls": "Passive",
-      "details": "⚡ **Рейн**: 🩸 Ликорис (3 д.): Восстановлено 15% (30 HP, 31 SP, 16 Stg)"
-    },
-    {
-      "round": "Skill",
-      "rolls": "Activate",
-      "details": "👻 **Фантомный удар**: Активирована маскировка! Следующая атака будет Внезапной."
     }
   ],
   "script_logs": "",
@@ -2520,6 +2575,884 @@
       "leveling_unit": " Дна'хо",
       "tree_unit": " Дна'хо",
       "checks_unit": " Дна'хо"
+    },
+    {
+      "type": "dynamic",
+      "team_left_dyn": [
+        {
+          "current_hp": 100,
+          "current_sp": 94,
+          "current_stagger": 36,
+          "resources": {},
+          "cooldowns": {
+            "mind_power": 1
+          },
+          "card_cooldowns": {
+            "tea_green": [
+              3
+            ],
+            "tea_fruit": [
+              3
+            ],
+            "tea_berry": [
+              3
+            ],
+            "tea_red": [
+              3
+            ],
+            "tea_ginger": [
+              3
+            ],
+            "azgick_smile": [
+              1,
+              1
+            ],
+            "azgick_enrage": [
+              1
+            ],
+            "tea_dark": [
+              4
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {
+            "haste": [
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 3,
+                "duration": 1
+              },
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 2,
+                "duration": 2
+              },
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ],
+            "endurance": [
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 2
+              },
+              {
+                "amount": 2,
+                "duration": 1
+              }
+            ],
+            "attack_power_up": [
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 2
+              },
+              {
+                "amount": 5,
+                "duration": 1
+              }
+            ],
+            "protection": [
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 5,
+                "duration": 1
+              },
+              {
+                "amount": 2,
+                "duration": 1
+              }
+            ],
+            "satiety": [
+              {
+                "amount": 17,
+                "duration": 97
+              }
+            ],
+            "stagger_resist": [
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ],
+            "barrier": [
+              {
+                "amount": 20,
+                "duration": 1
+              },
+              {
+                "amount": 24,
+                "duration": 2
+              }
+            ],
+            "clarity": [
+              {
+                "amount": 1,
+                "duration": 97
+              },
+              {
+                "amount": 1,
+                "duration": 98
+              }
+            ],
+            "invisibility": [
+              {
+                "amount": 1,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "pat_right_shoulder",
+            "pat_right_shoulder",
+            "pat_left_shoulder",
+            "pat_left_shoulder",
+            "debate_red_eye",
+            "azgick_smile",
+            "azgick_rule_2",
+            "azgick_rule_3",
+            "azgick_enrage",
+            "tea_dark",
+            "tea_green",
+            "tea_fruit",
+            "tea_sakura",
+            "tea_berry",
+            "tea_red",
+            "tea_ginger",
+            "tea_coffee",
+            "cheese_parmesan",
+            "cheese_edam",
+            "cheese_cheddar",
+            "cheese_gouda",
+            "cheese_maasdam",
+            "cheese_emmental",
+            "candy_praline",
+            "candy_marzipan",
+            "candy_souffle",
+            "candy_grillage",
+            "candy_ganache",
+            "candy_fudge",
+            "candy_waffles"
+          ],
+          "active_slots": [
+            {
+              "speed": 31,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 31,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 32,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 32,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 25,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "9 (Fixer)",
+            "start_of_battle_stats": {
+              "hp": 100,
+              "sp": 91,
+              "stagger": 43
+            },
+            "cached_allies_names": [
+              "Рейн"
+            ],
+            "clarity_cooldown_counter": 2,
+            "peak_sanity_initialized": true,
+            "emotional_storm_initialized": true,
+            "emo_level": 3,
+            "emo_progress": 11,
+            "emo_coins_pos": 9,
+            "emo_coins_neg": 2,
+            "last_revive_attempt_round": 5,
+            "last_revive_log": {
+              "roll": 3,
+              "bonus": 4,
+              "penalty": 0,
+              "total": 7,
+              "dc": 1,
+              "success": true
+            },
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": [
+            {
+              "amount": 999999,
+              "reason": ""
+            },
+            {
+              "amount": 900000000,
+              "reason": ""
+            },
+            {
+              "amount": 90000000,
+              "reason": ""
+            },
+            {
+              "amount": 9000000,
+              "reason": ""
+            },
+            {
+              "amount": 1,
+              "reason": ""
+            },
+            {
+              "amount": -1,
+              "reason": ""
+            },
+            {
+              "amount": -900000000,
+              "reason": ""
+            },
+            {
+              "amount": -15000000,
+              "reason": "ЛХ закупка + долги"
+            }
+          ]
+        },
+        {
+          "current_hp": 89,
+          "current_sp": 202,
+          "current_stagger": 16,
+          "resources": {
+            "luck": 138
+          },
+          "cooldowns": {
+            "red_lycoris": 6,
+            "mech_phantom_razors": 2
+          },
+          "card_cooldowns": {
+            "изничтожение_img5": [
+              1
+            ],
+            "tale_of_twilight_img": [
+              1
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {
+            "haste": [
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 3,
+                "duration": 1
+              },
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 2,
+                "duration": 2
+              },
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ],
+            "endurance": [
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 2
+              },
+              {
+                "amount": 2,
+                "duration": 1
+              }
+            ],
+            "attack_power_up": [
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 2
+              },
+              {
+                "amount": 5,
+                "duration": 1
+              },
+              {
+                "amount": 6,
+                "duration": 1
+              },
+              {
+                "amount": 5,
+                "duration": 1
+              }
+            ],
+            "protection": [
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 5,
+                "duration": 1
+              },
+              {
+                "amount": 2,
+                "duration": 1
+              }
+            ],
+            "stagger_resist": [
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ],
+            "clarity": [
+              {
+                "amount": 1,
+                "duration": 97
+              },
+              {
+                "amount": 1,
+                "duration": 98
+              }
+            ],
+            "barrier": [
+              {
+                "amount": 24,
+                "duration": 2
+              }
+            ],
+            "invisibility": [
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "удачное_стечение_img2",
+            "не_беспокойство_img3",
+            "тяжкое_бремя_img4",
+            "изничтожение_img5",
+            "tale_of_twilight_img",
+            "warp_img",
+            "series_normal_strikes_img",
+            "not_the_limit_img",
+            "bad_coffee_img",
+            "good_coffee_img",
+            "equivalent_exchange_img",
+            "обычный_удар_img1"
+          ],
+          "active_slots": [
+            {
+              "speed": 27,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 25,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 25,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "9 (Fixer)",
+            "start_of_battle_stats": {
+              "hp": 200,
+              "sp": 202,
+              "stagger": 103
+            },
+            "cat_reflexes_triggered": false,
+            "smashing_blade_used": false,
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": [
+            {
+              "amount": 7889000,
+              "reason": ""
+            },
+            {
+              "amount": 250000,
+              "reason": "Собачка Макимы"
+            }
+          ]
+        }
+      ],
+      "team_right_dyn": [
+        {
+          "current_hp": 110,
+          "current_sp": 96,
+          "current_stagger": 0,
+          "resources": {},
+          "cooldowns": {
+            "mech_phantom_razors": 2,
+            "step_into_shadow": 7
+          },
+          "card_cooldowns": {
+            "masochism": [
+              1
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {
+            "bleed": [
+              {
+                "amount": 2,
+                "duration": 1
+              },
+              {
+                "amount": 24,
+                "duration": 2
+              }
+            ],
+            "paralysis": [
+              {
+                "amount": 1,
+                "duration": 2
+              },
+              {
+                "amount": 1,
+                "duration": 2
+              },
+              {
+                "amount": 1,
+                "duration": 2
+              }
+            ],
+            "revenge_dmg_up": [
+              {
+                "amount": 1,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ],
+            "invisibility": [
+              {
+                "amount": 1,
+                "duration": 3
+              }
+            ],
+            "bleed_resist": [
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "open_veins",
+            "bloody_overture",
+            "transfusion",
+            "masochism",
+            "tendon_cut",
+            "blood_circulation",
+            "art_of_slaughter",
+            "blood_mist",
+            "crimson_trail"
+          ],
+          "active_slots": [
+            {
+              "speed": 0,
+              "card": null,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "stunned": true,
+              "is_aggro": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "9 (Fixer)",
+            "start_of_battle_stats": {
+              "hp": 344,
+              "sp": 102,
+              "stagger": 197
+            },
+            "smashing_blade_used": false,
+            "cat_reflexes_triggered": false,
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": [
+            {
+              "amount": 7500000,
+              "reason": ""
+            }
+          ]
+        }
+      ],
+      "phase": "planning",
+      "round_number": 3,
+      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
+      "battle_logs": [
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Рейн",
+            "card": "Изничтожение",
+            "dice": "BLUNT",
+            "val": 41.0,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Генри Фаэнон",
+            "card": "-",
+            "dice": "🚫 Broken",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-55 HP**",
+          "details": [
+            "💔 **Рейн**: -40 HP",
+            "🧪 **Рейн**: +6 Attack_power_up",
+            "🎲 Roll [6-10]: 8 + 1 (Сила) + 2.0 (Power All) + 25 (Attack Power Up) + 5 (Fast & Silent (Invis)) = **41.0**",
+            "🗡️ **Sudden Attack**: x2 Dmg & 24 Bleed (Invisible) [1/Round]",
+            "👻 **Невидимость**: Раскрыт после удара!",
+            "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
+            "💥 **Генри Фаэнон**: [-3 Skin] [x0.7 Res] Hit 55 HP",
+            "🩸 **Месть (Б)**: Получен урон! След. атака усилена (x1.5)."
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Рейн",
+            "card": "Изничтожение",
+            "dice": "SLASH",
+            "val": 39.0,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Генри Фаэнон",
+            "card": "-",
+            "dice": "🚫 Broken",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-25 HP**",
+          "details": [
+            "🎲 Roll [6-10]: 9 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) + 25 (Attack Power Up) = **39.0**",
+            "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
+            "💥 **Генри Фаэнон**: [-3 Skin] [x0.7 Res] Hit 25 HP",
+            "🩸 **Месть (Б)**: Получен урон! След. атака усилена (x1.5)."
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Рейн",
+            "card": "Изничтожение",
+            "dice": "PIERCE",
+            "val": 32.0,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Генри Фаэнон",
+            "card": "-",
+            "dice": "🚫 Broken",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed (Redirected) 💥 **-20 HP**",
+          "details": [
+            "🎲 Roll [3-5]: 4 + 1 (Сила) + 2.0 (Power All) + 25 (Attack Power Up) = **32.0**",
+            "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
+            "💥 **Генри Фаэнон**: [-3 Skin] [x0.7 Res] Hit 20 HP",
+            "🩸 **Месть (Б)**: Получен урон! След. атака усилена (x1.5)."
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "Clash (1)",
+          "left": {
+            "unit": "Рейн",
+            "card": "Повесть о Сумерках",
+            "dice": "SLASH",
+            "val": 36.0,
+            "range": "5-7"
+          },
+          "right": {
+            "unit": "Генри Фаэнон",
+            "card": "Мазохизм",
+            "dice": "EVADE",
+            "val": 23.0,
+            "range": "5-11"
+          },
+          "outcome": "💥 Evade Failed 💥 **-23 HP**",
+          "details": [
+            "⏰ **Рейн**: Invisibility (Delayed 1 turns)",
+            "🎲 Roll [5-7]: 6 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) + 25 (Attack Power Up) = **36.0**",
+            "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
+            "💥 **Генри Фаэнон**: [-3 Skin] [x0.7 Res] Hit 23 HP",
+            "🩸 **Месть (Б)**: Получен урон! След. атака усилена (x1.5).",
+            "🎲 Roll [5-11]: 9 + 14 (Ловкость) + 2.0 (Power All) - 4 (Paralysis (Min)) + 2 (Cat Reflexes) = **23.0**",
+            "🗡️ **Sudden Attack**: x2 Dmg & 54 Bleed (Invisible) [1/Round]"
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "Clash (2)",
+          "left": {
+            "unit": "Рейн",
+            "card": "Повесть о Сумерках",
+            "dice": "EVADE",
+            "val": 18.0,
+            "range": "4-6"
+          },
+          "right": {
+            "unit": "Генри Фаэнон",
+            "card": "Мазохизм",
+            "dice": "EVADE",
+            "val": 22.0,
+            "range": "4-9"
+          },
+          "outcome": "🛡️ Defensive Clash (Both Spent)",
+          "details": [
+            "🎲 Roll [4-6]: 4 + 4 (Ловкость) + 2.0 (Power All) + 6 (Endurance) + 2 (Cat Reflexes) = **18.0**",
+            "🎲 Roll [4-9]: 7 + 14 (Ловкость) + 2.0 (Power All) - 3 (Paralysis (Min)) + 2 (Cat Reflexes) = **22.0**"
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "Clash (3)",
+          "left": {
+            "unit": "Рейн",
+            "card": "Повесть о Сумерках",
+            "dice": "SLASH",
+            "val": 34.0,
+            "range": "4-6"
+          },
+          "right": {
+            "unit": "Генри Фаэнон",
+            "card": "Мазохизм",
+            "dice": "Broken",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "🚫 Генри Фаэнон Broken",
+          "details": [
+            "🎲 Roll [4-6]: 4 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) + 25 (Attack Power Up) = **34.0**"
+          ]
+        },
+        {
+          "type": "clash",
+          "round": "Clash (1)",
+          "left": {
+            "unit": "Азгик",
+            "card": "Ослепительная гнилозубая улыбка",
+            "dice": "SLASH",
+            "val": 19,
+            "range": "2-5"
+          },
+          "right": {
+            "unit": "Азгик",
+            "card": "Ослепительная гнилозубая улыбка",
+            "dice": "SLASH",
+            "val": 20,
+            "range": "2-5"
+          },
+          "outcome": "🏆 Азгик Win (Hit) 💥 **-20 HP**",
+          "details": [
+            "⏰ **Азгик**: Invisibility (Delayed 1 turns)",
+            "⏰ **Азгик**: Invisibility (Delayed 1 turns)",
+            "🎲 Roll [2-5]: 3 + 6 (Сила) + 9 (Attack Power Up) + 1 (Peak Sanity (Min+2)) = **19**",
+            "🔴 **Эмоции**: +1 Негативная монета",
+            "🎲 Roll [2-5]: 5 + 6 (Сила) + 9 (Attack Power Up) = **20**",
+            "🟢 **Эмоции**: +1 Позитивная монета",
+            "🟢 **Эмоции**: +1 Позитивная монета",
+            "🧠 **Психическая нагрузка**: +4 SP Dmg (Белый урон)",
+            "🎵 **Банганранг**: Тип урона изменен на Белый (SP).",
+            "🧠 **White Dmg**: 20 SP"
+          ]
+        },
+        {
+          "round": "Skill",
+          "rolls": "Activate",
+          "details": "🧠 **Умопомрачительная сила**: Пожертвовано 50 SP -> Получено +5 Силы!"
+        },
+        {
+          "round": "Skill",
+          "rolls": "Activate",
+          "details": "👻 **Шаг в тень**: Растворился в тени (Невидимость на 3 х.)"
+        },
+        {
+          "round": "Item",
+          "rolls": "Consumable",
+          "details": [
+            "💊 **Азгик** uses **Особый тёмный чай**!",
+            "🧠 **Азгик**: +16 SP"
+          ]
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Азгик**: 🧠 Центр у равновесия: Восстановлено 7 SP (1 союзникам)."
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Азгик**: 👁️ **Невыносимое присутствие**: 1 врагов подавлены аурой (-2 SP)"
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Азгик**: 🌪️ **Эмоции (Ур. 3)**: Резонанс души (Haste, Endurance, Protection)."
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Азгик**: 🏃 **Атлетичный**: Боевая готовность (+1 Haste)."
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Рейн**: 🧠 Центр у равновесия: Восстановлено 12 SP (1 союзникам)."
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Генри Фаэнон**: 🩸 **Свертываемость**: Кровь густеет (Resistance applied)."
+        },
+        {
+          "round": "Speed Roll",
+          "rolls": "Passive",
+          "details": "⚡ **Рейн**: 🧬 S-клетки: 3 слотов x 10 = Восстановлено 30 HP"
+        }
+      ],
+      "turn_actions": [],
+      "turn_phase": "done",
+      "action_idx": 0,
+      "executed_slots": []
     }
   ]
 }

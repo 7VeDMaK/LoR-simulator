@@ -6321,3 +6321,809 @@
 [19:25:05.464] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Рейн intercepts Генри Фаэнон (Slot 0)
 [19:25:05.465] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Рейн intercepts Генри Фаэнон (Slot 1)
 [19:25:05.466] [VERBOSE] [Targeting] 🏹 Forced One-Sided: Рейн vs Генри Фаэнон (Outsped by ally)
+[19:25:22.345] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Рейн intercepts Генри Фаэнон (Slot 0)
+[19:25:22.346] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Рейн intercepts Генри Фаэнон (Slot 1)
+[19:25:22.349] [VERBOSE] [Targeting] 🏹 Forced One-Sided: Рейн vs Генри Фаэнон (Outsped by ally)
+[19:25:22.351] [VERBOSE] [Stats] Recalculating stats for Азгик
+[19:25:22.352] [VERBOSE] [Stats] 🔄 Recalculating stats for Азгик
+[19:25:22.353] [VERBOSE] [Stats] 🛡️ Поваренок: TALENT_SLOTS +2
+[19:25:22.354] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: eloquence +20
+[19:25:22.355] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: luck -15
+[19:25:22.356] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: HP -50
+[19:25:22.358] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: SP -50
+[19:25:22.359] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: STAGGER -50%
+[19:25:22.360] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: TALENT_SLOTS +2
+[19:25:22.361] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: THREAT_LEVEL -1
+[19:25:22.362] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DAMAGE_TAKE +20%
+[19:25:22.364] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_BLOCK +1
+[19:25:22.365] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_EVADE +1
+[19:25:22.366] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:25:22.367] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:25:22.368] [VERBOSE] [Stats] 🧬 Спинной ускоритель (MK-1): speed +10
+[19:25:22.369] [VERBOSE] [Stats] ⚔️ Weapon equipped: Банганранг
+[19:25:22.370] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:25:22.370] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:25:22.372] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[19:25:22.373] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 11
+[19:25:22.373] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7
+[19:25:22.374] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:25:22.375] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 2
+[19:25:22.375] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[19:25:22.376] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 35
+[19:25:22.376] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 14% от основного
+[19:25:22.378] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[19:25:22.379] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 12% от основного
+[19:25:22.380] [VERBOSE] [Stats] Персонаж получает дополнительные 10 🧠 рассудка
+[19:25:22.381] [VERBOSE] [Stats] Повышает 😵 выдержку на 13%
+[19:25:22.382] [VERBOSE] [Stats] ✅ Stats updated for Азгик. HP: 120, SP: 109, Speed: [(17, 20), (17, 20), (17, 20), (17, 20), (12, 15)]
+[19:25:22.383] [VERBOSE] [Stats] Recalculating stats for Рейн
+[19:25:22.383] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[19:25:22.384] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[19:25:22.385] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[19:25:22.385] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[19:25:22.386] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:25:22.386] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:25:22.388] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:25:22.389] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:25:22.389] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:25:22.390] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:25:22.390] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:25:22.391] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:25:22.392] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:25:22.394] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[19:25:22.394] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[19:25:22.396] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[19:25:22.397] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:25:22.398] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[19:25:22.400] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[19:25:22.401] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[19:25:22.402] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:25:22.402] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 42% от основного
+[19:25:22.404] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[19:25:22.406] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[19:25:22.407] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[19:25:22.408] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[19:25:22.409] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 197, SP: 202, Speed: [(1012, 1015), (1012, 1015), (1010, 1013)]
+[19:25:22.410] [VERBOSE] [Stats] Recalculating stats for Генри Фаэнон
+[19:25:22.410] [VERBOSE] [Stats] 🔄 Recalculating stats for Генри Фаэнон
+[19:25:22.413] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:25:22.414] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:25:22.415] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:25:22.417] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:25:22.418] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:25:22.419] [VERBOSE] [Stats] 🌟 Грозная персона (Б): eloquence +5
+[19:25:22.420] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': speed +10
+[19:25:22.421] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': acrobatics +10
+[19:25:22.422] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:25:22.423] [VERBOSE] [Stats] Повышает значение броска силы на 10
+[19:25:22.424] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 6
+[19:25:22.425] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[19:25:22.426] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 10
+[19:25:22.427] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 6
+[19:25:22.428] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 6
+[19:25:22.428] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8 (Акробатика)
+[19:25:22.429] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 8
+[19:25:22.430] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 3
+[19:25:22.432] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 25
+[19:25:22.433] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:25:22.433] [VERBOSE] [Stats] 🏋️ Суровые тренировки: +10 HP / +5 SP за уровень
+[19:25:22.434] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 30% от основного
+[19:25:22.435] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[19:25:22.436] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[19:25:22.436] [VERBOSE] [Stats] ✅ Stats updated for Генри Фаэнон. HP: 344, SP: 102, Speed: [(16, 19), (13, 16)]
+[19:25:22.436] [NORMAL ] [System] >>> RESOLVE TURN START <<<
+[19:25:22.438] [NORMAL ] [Phase] 🔄 Preparing Turn: Collecting Actions...
+[19:25:22.438] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Рейн intercepts Генри Фаэнон (Slot 0)
+[19:25:22.440] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Рейн intercepts Генри Фаэнон (Slot 1)
+[19:25:22.440] [VERBOSE] [Targeting] 🏹 Forced One-Sided: Рейн vs Генри Фаэнон (Outsped by ally)
+[19:25:22.441] [VERBOSE] [Flow] Redirections calculated.
+[19:25:22.442] [VERBOSE] [Flow] ➕ Action Queued: Азгик -> Рейн (Похлопать по левому плечу, Spd: 32, Score: 1032)
+[19:25:22.443] [VERBOSE] [Flow] ➕ Action Queued: Азгик -> Рейн (Похлопать по левому плечу, Spd: 30, Score: 1030)
+[19:25:22.443] [VERBOSE] [Flow] ➕ Action Queued: Азгик -> Азгик (Ослепительная гнилозубая улыбка, Spd: 30, Score: 1030)
+[19:25:22.444] [VERBOSE] [Flow] ➕ Action Queued: Азгик -> Рейн (Разозлить, Spd: 30, Score: 1030)
+[19:25:22.445] [VERBOSE] [Flow] ➕ Action Queued: Азгик -> Рейн (Похлопать по правому плечу, Spd: 27, Score: 1027)
+[19:25:22.447] [VERBOSE] [Flow] ➕ Action Queued: Рейн -> Генри Фаэнон (Спустить Кровь, Spd: 1026, Score: 2026)
+[19:25:22.447] [VERBOSE] [Flow] ➕ Action Queued: Рейн -> Генри Фаэнон (Изничтожение, Spd: 1024, Score: 2024)
+[19:25:22.449] [VERBOSE] [Flow] ➕ Action Queued: Рейн -> Генри Фаэнон (Повесть о Сумерках, Spd: 1022, Score: 2022)
+[19:25:22.450] [VERBOSE] [Flow] ➕ Action Queued: Генри Фаэнон -> Азгик (Мазохизм, Spd: 18, Score: 1018)
+[19:25:22.450] [VERBOSE] [Flow] ➕ Action Queued: Генри Фаэнон -> Азгик (Вскрыть вены, Spd: 14, Score: 1014)
+[19:25:22.452] [NORMAL ] [Phase] ✅ Turn Prepared. Total Actions: 10
+[19:25:22.452] [NORMAL ] [Cooldown] ⏳ Рейн: Cooldown applied to 'Спустить Кровь' (1 turns)
+[19:25:22.453] [NORMAL ] [Cooldown] ⏳ Генри Фаэнон: Cooldown applied to 'Вскрыть вены' (1 turns)
+[19:25:22.454] [NORMAL ] [Combat] ⚔️ Clash: Рейн vs Генри Фаэнон
+[19:25:22.455] [VERBOSE] [Flow] Resolving Clash: Рейн vs Генри Фаэнон (Spd: 1026/14)
+[19:25:22.456] [NORMAL ] [Clash] ⚔️ Clash Start: Рейн vs Генри Фаэнон (Spd: 1026 vs 14)
+[19:25:22.456] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[19:25:22.457] [NORMAL ] [Status] 🧪 Рейн: +5 attack_power_up (2t)
+[19:25:22.458] [VERBOSE] [Scripts] 🧪 Applied 5 attack_power_up to Рейн
+[19:25:22.459] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): restore_resource
+[19:25:22.459] [VERBOSE] [Scripts] 💔 Drained Рейн for 10 HP
+[19:25:22.460] [VERBOSE] [Script] On Use: 🧪 **Рейн**: +5 Attack_power_up
+[19:25:22.462] [VERBOSE] [Script] On Use: 💔 **Рейн**: -10 HP
+[19:25:22.463] [VERBOSE] [Speed] Speed Calc: 1026 vs 14 (Diff 1012) -> Break(A:False, D:True), Adv(A:False, D:False)
+[19:25:22.464] [VERBOSE] [Clash] Speed Break: Рейн destroy=False, Генри Фаэнон destroy=True
+[19:25:22.465] [NORMAL ] [Cooldown] ⏳ Рейн: Cooldown applied to 'Изничтожение' (2 turns)
+[19:25:22.466] [NORMAL ] [Combat] 🏹 One-Sided: Рейн -> Генри Фаэнон (Redirected)
+[19:25:22.467] [VERBOSE] [Flow] Resolving One-Sided: Рейн -> Генри Фаэнон (Spd: 1024/14)
+[19:25:22.467] [VERBOSE] [OneSided] One-Sided: Рейн vs Генри Фаэнон (Spd: 1024 vs 14, Redir=True)
+[19:25:22.468] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): restore_resource
+[19:25:22.469] [VERBOSE] [Scripts] 💔 Drained Рейн for 40 HP
+[19:25:22.469] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[19:25:22.470] [NORMAL ] [Status] 🧪 Рейн: +6 attack_power_up (2t)
+[19:25:22.472] [VERBOSE] [Scripts] 🧪 Applied 6 attack_power_up to Рейн
+[19:25:22.473] [VERBOSE] [Speed] Speed Calc: 1024 vs 14 (Diff 1010) -> Break(A:False, D:True), Adv(A:False, D:False)
+[19:25:22.473] [VERBOSE] [OneSided] Speed Advantage: Рейн breaks Генри Фаэнон's defense die
+[19:25:22.474] [VERBOSE] [Roll] 🎲 Рейн: Rolled 8 [6-10]
+[19:25:22.475] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[19:25:22.476] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Рейн, stack=25, dice_type=DiceType.BLUNT
+[19:25:22.476] [NORMAL ] [Status] ⚔️ Attack Power Up: +25 power to Рейн
+[19:25:22.478] [NORMAL ] [Status] 🧪 Генри Фаэнон: +24 bleed (3t)
+[19:25:22.479] [NORMAL ] [Talent] 🗡️ Smashing Blade: Sudden Attack x2 on Генри Фаэнон
+[19:25:22.480] [VERBOSE] [Roll] 🎲 Final: 41.0 (🎲 Roll [6-10]: 8 + 1 (Сила) + 2.0 (Power All) + 25 (Attack Power Up) + 5 (Fast & Silent (Invis)) = **41.0**)
+[19:25:22.482] [NORMAL ] [OneSided] ⚔️ Direct Hit! 41.0 Dmg
+[19:25:22.483] [VERBOSE] [Mechanics] Apply Damage Flow: Рейн -> Генри Фаэнон
+[19:25:22.484] [NORMAL ] [Status] 🧹 Рейн: Removed 1 invisibility
+[19:25:22.488] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Рейн
+[19:25:22.489] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 paralysis (3t)
+[19:25:22.491] [VERBOSE] [Passive] 🧪 Neurotoxin applied to Генри Фаэнон
+[19:25:22.492] [MINIMAL] [Damage] 💥 Генри Фаэнон took 55 HP Damage
+[19:25:22.493] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 revenge_dmg_up (2t)
+[19:25:22.494] [VERBOSE] [Talent] 🩸 Revenge: Triggered by 55 damage on Генри Фаэнон
+[19:25:22.496] [MINIMAL] [Damage] 😵 Генри Фаэнон took 55 Stagger Side-Damage (Res: 0.70)
+[19:25:22.498] [VERBOSE] [Roll] 🎲 Рейн: Rolled 9 [6-10]
+[19:25:22.500] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[19:25:22.501] [VERBOSE] [Roll] ⚔️ Type Bonus (SLASH): +2
+[19:25:22.502] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Рейн, stack=25, dice_type=DiceType.SLASH
+[19:25:22.502] [NORMAL ] [Status] ⚔️ Attack Power Up: +25 power to Рейн
+[19:25:22.503] [VERBOSE] [Roll] 🎲 Final: 39.0 (🎲 Roll [6-10]: 9 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) + 25 (Attack Power Up) = **39.0**)
+[19:25:22.505] [NORMAL ] [OneSided] ⚔️ Direct Hit! 39.0 Dmg
+[19:25:22.506] [VERBOSE] [Mechanics] Apply Damage Flow: Рейн -> Генри Фаэнон
+[19:25:22.506] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 paralysis (3t)
+[19:25:22.508] [VERBOSE] [Passive] 🧪 Neurotoxin applied to Генри Фаэнон
+[19:25:22.509] [MINIMAL] [Damage] 💥 Генри Фаэнон took 25 HP Damage
+[19:25:22.511] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 revenge_dmg_up (2t)
+[19:25:22.512] [VERBOSE] [Talent] 🩸 Revenge: Triggered by 25 damage on Генри Фаэнон
+[19:25:22.513] [MINIMAL] [Damage] 😵 Генри Фаэнон took 25 Stagger Side-Damage (Res: 0.70)
+[19:25:22.514] [VERBOSE] [Roll] 🎲 Рейн: Rolled 4 [3-5]
+[19:25:22.515] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[19:25:22.516] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Рейн, stack=25, dice_type=DiceType.PIERCE
+[19:25:22.516] [NORMAL ] [Status] ⚔️ Attack Power Up: +25 power to Рейн
+[19:25:22.518] [VERBOSE] [Roll] 🎲 Final: 32.0 (🎲 Roll [3-5]: 4 + 1 (Сила) + 2.0 (Power All) + 25 (Attack Power Up) = **32.0**)
+[19:25:22.519] [NORMAL ] [OneSided] ⚔️ Direct Hit! 32.0 Dmg
+[19:25:22.520] [VERBOSE] [Mechanics] Apply Damage Flow: Рейн -> Генри Фаэнон
+[19:25:22.520] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 paralysis (3t)
+[19:25:22.522] [VERBOSE] [Passive] 🧪 Neurotoxin applied to Генри Фаэнон
+[19:25:22.524] [MINIMAL] [Damage] 💥 Генри Фаэнон took 20 HP Damage
+[19:25:22.524] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 revenge_dmg_up (2t)
+[19:25:22.526] [VERBOSE] [Talent] 🩸 Revenge: Triggered by 20 damage on Генри Фаэнон
+[19:25:22.527] [MINIMAL] [Damage] 😵 Генри Фаэнон took 20 Stagger Side-Damage (Res: 0.70)
+[19:25:22.528] [NORMAL ] [Cooldown] ⏳ Рейн: Cooldown applied to 'Повесть о Сумерках' (2 turns)
+[19:25:22.528] [NORMAL ] [Cooldown] ⏳ Генри Фаэнон: Cooldown applied to 'Мазохизм' (2 turns)
+[19:25:22.530] [NORMAL ] [Combat] ⚔️ Clash: Рейн vs Генри Фаэнон
+[19:25:22.532] [VERBOSE] [Flow] Resolving Clash: Рейн vs Генри Фаэнон (Spd: 1022/18)
+[19:25:22.533] [NORMAL ] [Clash] ⚔️ Clash Start: Рейн vs Генри Фаэнон (Spd: 1022 vs 18)
+[19:25:22.535] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[19:25:22.535] [NORMAL ] [Status] ⏰ Рейн: invisibility delayed for 1 turns
+[19:25:22.537] [VERBOSE] [Scripts] ⏰ Status Delayed: invisibility on Рейн for 1t
+[19:25:22.537] [VERBOSE] [Script] On Use: ⏰ **Рейн**: Invisibility (Delayed 1 turns)
+[19:25:22.539] [VERBOSE] [Speed] Speed Calc: 1022 vs 18 (Diff 1004) -> Break(A:False, D:True), Adv(A:False, D:False)
+[19:25:22.540] [VERBOSE] [Clash] Speed Break: Рейн destroy=False, Генри Фаэнон destroy=True
+[19:25:22.541] [VERBOSE] [Clash] Генри Фаэнон: Die #1 saved from destruction
+[19:25:22.542] [VERBOSE] [Roll] 🎲 Рейн: Rolled 6 [5-7]
+[19:25:22.543] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[19:25:22.543] [VERBOSE] [Roll] ⚔️ Type Bonus (SLASH): +2
+[19:25:22.544] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Рейн, stack=25, dice_type=DiceType.SLASH
+[19:25:22.545] [NORMAL ] [Status] ⚔️ Attack Power Up: +25 power to Рейн
+[19:25:22.547] [VERBOSE] [Roll] 🎲 Final: 36.0 (🎲 Roll [5-7]: 6 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) + 25 (Attack Power Up) = **36.0**)
+[19:25:22.547] [VERBOSE] [Roll] 🎲 Генри Фаэнон: Rolled 9 [5-11]
+[19:25:22.549] [VERBOSE] [Roll] 💨 Evade Bonus: +14
+[19:25:22.550] [VERBOSE] [Status] ⚡ Paralysis: Генри Фаэнон roll reduced by 4
+[19:25:22.552] [NORMAL ] [Status] 🧹 Генри Фаэнон: Removed 1 paralysis
+[19:25:22.553] [VERBOSE] [Passive] 🩸 Red Lycoris blocked status bleed for Рейн
+[19:25:22.554] [VERBOSE] [Status] 🚫 Рейн: Status bleed blocked (🩸 Lycoris blocked bleed)
+[19:25:22.555] [NORMAL ] [Talent] 🗡️ Smashing Blade: Sudden Attack x2 on Рейн
+[19:25:22.557] [VERBOSE] [Roll] 🎲 Final: 23.0 (🎲 Roll [5-11]: 9 + 14 (Ловкость) + 2.0 (Power All) - 4 (Paralysis (Min)) + 2 (Cat Reflexes) = **23.0**)
+[19:25:22.557] [VERBOSE] [Clash] Clash 1: Рейн(36.0) vs Генри Фаэнон(23.0)
+[19:25:22.557] [VERBOSE] [Mechanics] 🏆 Clash Win Hook: Рейн
+[19:25:22.558] [VERBOSE] [Scripts] ⚔️ Clash Outcome Trigger (on_clash_win) for Рейн
+[19:25:22.559] [VERBOSE] [Mechanics] 🏳️ Clash Lose Hook: Генри Фаэнон
+[19:25:22.560] [VERBOSE] [Scripts] ⚔️ Clash Outcome Trigger (on_clash_lose) for Генри Фаэнон
+[19:25:22.562] [NORMAL ] [Clash] Рейн wins clash (36.0 vs 23.0)
+[19:25:22.562] [VERBOSE] [Flow] Resolving Interaction: Winner Рейн (Diff: 36.0)
+[19:25:22.563] [VERBOSE] [Interaction] 💥 Interaction: Рейн (Atk) catches Генри Фаэнон (Evade) -> Full Damage
+[19:25:22.564] [VERBOSE] [Mechanics] Apply Damage Flow: Рейн -> Генри Фаэнон
+[19:25:22.565] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 paralysis (3t)
+[19:25:22.567] [VERBOSE] [Passive] 🧪 Neurotoxin applied to Генри Фаэнон
+[19:25:22.569] [MINIMAL] [Damage] 💥 Генри Фаэнон took 23 HP Damage
+[19:25:22.570] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 revenge_dmg_up (2t)
+[19:25:22.571] [VERBOSE] [Talent] 🩸 Revenge: Triggered by 23 damage on Генри Фаэнон
+[19:25:22.572] [MINIMAL] [Damage] 😵 Генри Фаэнон took 23 Stagger Side-Damage (Res: 0.70)
+[19:25:22.572] [VERBOSE] [Clash] Генри Фаэнон: Die #2 saved from destruction
+[19:25:22.573] [VERBOSE] [Roll] 🎲 Рейн: Rolled 4 [4-6]
+[19:25:22.574] [VERBOSE] [Roll] 💨 Evade Bonus: +4
+[19:25:22.575] [VERBOSE] [Status] 🛡️ Endurance: +6 power to Рейн
+[19:25:22.575] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Рейн, stack=25, dice_type=DiceType.EVADE
+[19:25:22.576] [VERBOSE] [Roll] 🎲 Final: 18.0 (🎲 Roll [4-6]: 4 + 4 (Ловкость) + 2.0 (Power All) + 6 (Endurance) + 2 (Cat Reflexes) = **18.0**)
+[19:25:22.576] [VERBOSE] [Roll] 🎲 Генри Фаэнон: Rolled 7 [4-9]
+[19:25:22.578] [VERBOSE] [Roll] 💨 Evade Bonus: +14
+[19:25:22.579] [VERBOSE] [Status] ⚡ Paralysis: Генри Фаэнон roll reduced by 3
+[19:25:22.581] [NORMAL ] [Status] 🧹 Генри Фаэнон: Removed 1 paralysis
+[19:25:22.582] [VERBOSE] [Roll] 🎲 Final: 22.0 (🎲 Roll [4-9]: 7 + 14 (Ловкость) + 2.0 (Power All) - 3 (Paralysis (Min)) + 2 (Cat Reflexes) = **22.0**)
+[19:25:22.582] [VERBOSE] [Clash] Clash 2: Рейн(18.0) vs Генри Фаэнон(22.0)
+[19:25:22.583] [VERBOSE] [Roll] 🎲 Рейн: Rolled 4 [4-6]
+[19:25:22.584] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[19:25:22.586] [VERBOSE] [Roll] ⚔️ Type Bonus (SLASH): +2
+[19:25:22.587] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Рейн, stack=25, dice_type=DiceType.SLASH
+[19:25:22.587] [NORMAL ] [Status] ⚔️ Attack Power Up: +25 power to Рейн
+[19:25:22.588] [VERBOSE] [Roll] 🎲 Final: 34.0 (🎲 Roll [4-6]: 4 + 1 (Сила) + 2 (Bonus SLASH) + 2.0 (Power All) + 25 (Attack Power Up) = **34.0**)
+[19:25:22.589] [VERBOSE] [Clash] Clash 3: Рейн(34.0) vs Генри Фаэнон(0)
+[19:25:22.590] [VERBOSE] [Mechanics] Apply Damage Flow: Рейн -> Генри Фаэнон
+[19:25:22.590] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 paralysis (3t)
+[19:25:22.592] [VERBOSE] [Passive] 🧪 Neurotoxin applied to Генри Фаэнон
+[19:25:22.593] [MINIMAL] [Damage] 💥 Генри Фаэнон took 21 HP Damage
+[19:25:22.594] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 revenge_dmg_up (2t)
+[19:25:22.597] [VERBOSE] [Talent] 🩸 Revenge: Triggered by 21 damage on Генри Фаэнон
+[19:25:22.600] [MINIMAL] [Damage] 😵 Генри Фаэнон took 21 Stagger Side-Damage (Res: 0.70)
+[19:25:22.600] [NORMAL ] [Cooldown] ⏳ Азгик: Cooldown applied to 'Похлопать по левому плечу' (1 turns)
+[19:25:22.603] [NORMAL ] [Combat] 🏹 One-Sided: Азгик -> Рейн (Direct)
+[19:25:22.604] [VERBOSE] [Flow] Resolving One-Sided: Азгик -> Рейн (Spd: 32/1026)
+[19:25:22.605] [VERBOSE] [OneSided] One-Sided: Азгик vs Рейн (Spd: 32 vs 1026, Redir=True)
+[19:25:22.606] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[19:25:22.609] [NORMAL ] [Status] 🧪 Рейн: +6 attack_power_up (1t)
+[19:25:22.610] [VERBOSE] [Scripts] 🧪 Applied 6 attack_power_up to Рейн
+[19:25:22.610] [VERBOSE] [Speed] Speed Calc: 32 vs 1026 (Diff 994) -> Break(A:True, D:False), Adv(A:False, D:False)
+[19:25:22.612] [NORMAL ] [Cooldown] ⏳ Азгик: Cooldown applied to 'Ослепительная гнилозубая улыбка' (2 turns)
+[19:25:22.613] [NORMAL ] [Cooldown] ⏳ Азгик: Cooldown applied to 'Ослепительная гнилозубая улыбка' (2 turns)
+[19:25:22.615] [NORMAL ] [Combat] ⚔️ Clash: Азгик vs Азгик
+[19:25:22.615] [VERBOSE] [Flow] Resolving Clash: Азгик vs Азгик (Spd: 30/30)
+[19:25:22.616] [NORMAL ] [Clash] ⚔️ Clash Start: Азгик vs Азгик (Spd: 30 vs 30)
+[19:25:22.617] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[19:25:22.619] [NORMAL ] [Status] ⏰ Азгик: invisibility delayed for 1 turns
+[19:25:22.620] [VERBOSE] [Scripts] ⏰ Status Delayed: invisibility on Азгик for 1t
+[19:25:22.621] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[19:25:22.622] [NORMAL ] [Status] ⏰ Азгик: invisibility delayed for 1 turns
+[19:25:22.623] [VERBOSE] [Scripts] ⏰ Status Delayed: invisibility on Азгик for 1t
+[19:25:22.624] [VERBOSE] [Script] On Use: ⏰ **Азгик**: Invisibility (Delayed 1 turns)
+[19:25:22.625] [VERBOSE] [Script] On Use: ⏰ **Азгик**: Invisibility (Delayed 1 turns)
+[19:25:22.626] [VERBOSE] [Roll] 🎲 Азгик: Rolled 3 [2-5]
+[19:25:22.627] [VERBOSE] [Roll] 💪 Power Atk Bonus: +6
+[19:25:22.627] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Азгик, stack=9, dice_type=DiceType.SLASH
+[19:25:22.630] [NORMAL ] [Status] ⚔️ Attack Power Up: +9 power to Азгик
+[19:25:22.631] [VERBOSE] [Roll] 🎲 Final: 19 (🎲 Roll [2-5]: 3 + 6 (Сила) + 9 (Attack Power Up) + 1 (Peak Sanity (Min+2)) = **19**)
+[19:25:22.632] [VERBOSE] [Roll] 🎲 Азгик: Rolled 5 [2-5]
+[19:25:22.633] [VERBOSE] [Roll] 💪 Power Atk Bonus: +6
+[19:25:22.634] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Азгик, stack=9, dice_type=DiceType.SLASH
+[19:25:22.634] [NORMAL ] [Status] ⚔️ Attack Power Up: +9 power to Азгик
+[19:25:22.635] [VERBOSE] [Roll] 🎲 Final: 20 (🎲 Roll [2-5]: 5 + 6 (Сила) + 9 (Attack Power Up) = **20**)
+[19:25:22.636] [VERBOSE] [Clash] Clash 1: Азгик(19) vs Азгик(20)
+[19:25:22.636] [VERBOSE] [Mechanics] 🏆 Clash Win Hook: Азгик
+[19:25:22.637] [VERBOSE] [Scripts] ⚔️ Clash Outcome Trigger (on_clash_win) for Азгик
+[19:25:22.637] [VERBOSE] [Mechanics] 🏳️ Clash Lose Hook: Азгик
+[19:25:22.638] [VERBOSE] [Scripts] ⚔️ Clash Outcome Trigger (on_clash_lose) for Азгик
+[19:25:22.639] [NORMAL ] [Clash] Азгик wins clash (20 vs 19)
+[19:25:22.639] [VERBOSE] [Flow] Resolving Interaction: Winner Азгик (Diff: 1)
+[19:25:22.640] [VERBOSE] [Interaction] ⚔️ Interaction: Азгик (Atk) wins vs Азгик (Atk) -> Full Damage
+[19:25:22.640] [VERBOSE] [Mechanics] Apply Damage Flow: Азгик -> Азгик
+[19:25:22.642] [MINIMAL] [Damage] 🤯 Азгик took 4 SP damage
+[19:25:22.642] [VERBOSE] [Talent] 🧠 Psychic Strain: Dealt 4 SP damage to Азгик
+[19:25:22.643] [VERBOSE] [Passive] 🎵 Banganrang: Converted HP dmg to SP dmg for Азгик
+[19:25:22.644] [MINIMAL] [Damage] 🧠 Азгик took 20 SP Damage (White)
+[19:25:22.644] [VERBOSE] [Filter] Filter change by protection: 20 -> 13
+[19:25:22.645] [MINIMAL] [Damage] 😵 Азгик took 7 Stagger Side-Damage (Res: 0.70)
+[19:25:22.646] [NORMAL ] [Cooldown] ⏳ Азгик: Cooldown applied to 'Похлопать по левому плечу' (1 turns)
+[19:25:22.647] [NORMAL ] [Combat] 🏹 One-Sided: Азгик -> Рейн (Direct)
+[19:25:22.648] [VERBOSE] [Flow] Resolving One-Sided: Азгик -> Рейн (Spd: 30/1026)
+[19:25:22.649] [VERBOSE] [OneSided] One-Sided: Азгик vs Рейн (Spd: 30 vs 1026, Redir=True)
+[19:25:22.650] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[19:25:22.650] [NORMAL ] [Status] 🧪 Рейн: +6 attack_power_up (1t)
+[19:25:22.651] [VERBOSE] [Scripts] 🧪 Applied 6 attack_power_up to Рейн
+[19:25:22.651] [VERBOSE] [Speed] Speed Calc: 30 vs 1026 (Diff 996) -> Break(A:True, D:False), Adv(A:False, D:False)
+[19:25:22.652] [NORMAL ] [Cooldown] ⏳ Азгик: Cooldown applied to 'Разозлить' (2 turns)
+[19:25:22.652] [NORMAL ] [Combat] 🏹 One-Sided: Азгик -> Рейн (Direct)
+[19:25:22.652] [VERBOSE] [Flow] Resolving One-Sided: Азгик -> Рейн (Spd: 30/1026)
+[19:25:22.654] [VERBOSE] [OneSided] One-Sided: Азгик vs Рейн (Spd: 30 vs 1026, Redir=True)
+[19:25:22.654] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): restore_resource
+[19:25:22.655] [VERBOSE] [Scripts] 💔 Drained Рейн for 12 HP
+[19:25:22.655] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[19:25:22.656] [NORMAL ] [Status] 🧪 Рейн: +12 attack_power_up (1t)
+[19:25:22.657] [VERBOSE] [Scripts] 🧪 Applied 12 attack_power_up to Рейн
+[19:25:22.657] [VERBOSE] [Speed] Speed Calc: 30 vs 1026 (Diff 996) -> Break(A:True, D:False), Adv(A:False, D:False)
+[19:25:22.658] [NORMAL ] [Cooldown] ⏳ Азгик: Cooldown applied to 'Похлопать по правому плечу' (1 turns)
+[19:25:22.658] [NORMAL ] [Combat] 🏹 One-Sided: Азгик -> Рейн (Direct)
+[19:25:22.659] [VERBOSE] [Flow] Resolving One-Sided: Азгик -> Рейн (Spd: 27/1026)
+[19:25:22.659] [VERBOSE] [OneSided] One-Sided: Азгик vs Рейн (Spd: 27 vs 1026, Redir=True)
+[19:25:22.660] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): apply_status
+[19:25:22.660] [NORMAL ] [Status] 🧪 Рейн: +6 endurance (1t)
+[19:25:22.662] [VERBOSE] [Scripts] 🧪 Applied 6 endurance to Рейн
+[19:25:22.662] [VERBOSE] [Speed] Speed Calc: 27 vs 1026 (Diff 999) -> Break(A:True, D:False), Adv(A:False, D:False)
+[19:25:22.663] [VERBOSE] [Phase] 🏁 Finalizing Turn...
+[19:25:22.665] [NORMAL ] [System] >>> RESOLVE TURN END <<<
+[19:25:22.666] [NORMAL ] [Status] 🧹 Азгик: Removed 1 satiety
+[19:25:22.667] [NORMAL ] [Talent] ⚡ Emotional Level Up: Азгик reached level 3
+[19:25:22.667] [NORMAL ] [Status] 🧪 Азгик: +1 invisibility (1t)
+[19:25:22.667] [NORMAL ] [Status] 🧪 Рейн: +1 invisibility (1t)
+[19:25:22.667] [VERBOSE] [Passive] 👁️ Witness: Shared 1 invisibility with Рейн
+[19:25:22.669] [VERBOSE] [Status] ⏰ Delayed Status Activated: invisibility on Азгик
+[19:25:22.670] [NORMAL ] [Status] 🧪 Азгик: +1 invisibility (1t)
+[19:25:22.670] [NORMAL ] [Status] 🧪 Рейн: +1 invisibility (1t)
+[19:25:22.671] [VERBOSE] [Passive] 👁️ Witness: Shared 1 invisibility with Рейн
+[19:25:22.672] [VERBOSE] [Status] ⏰ Delayed Status Activated: invisibility on Азгик
+[19:25:22.673] [VERBOSE] [System] Азгик cooldowns ticked.
+[19:25:22.673] [VERBOSE] [Status] 📉 Status Expired: red_lycoris on Рейн
+[19:25:22.674] [VERBOSE] [Status] 📉 Status Expired: invisibility on Рейн
+[19:25:22.674] [NORMAL ] [Status] 🧪 Рейн: +1 invisibility (1t)
+[19:25:22.675] [VERBOSE] [Status] ⏰ Delayed Status Activated: invisibility on Рейн
+[19:25:22.675] [VERBOSE] [System] Рейн cooldowns ticked.
+[19:25:22.676] [VERBOSE] [Status] 📉 Status Expired: bleed_resist on Генри Фаэнон
+[19:25:22.677] [VERBOSE] [Status] 📉 Status Expired: invisibility on Генри Фаэнон
+[19:25:22.677] [VERBOSE] [System] Генри Фаэнон cooldowns ticked.
+[19:25:22.768] [VERBOSE] [Stats] Recalculating stats for Азгик
+[19:25:22.769] [VERBOSE] [Stats] 🔄 Recalculating stats for Азгик
+[19:25:22.770] [VERBOSE] [Stats] 🛡️ Поваренок: TALENT_SLOTS +2
+[19:25:22.770] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: eloquence +20
+[19:25:22.772] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: luck -15
+[19:25:22.773] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: HP -50
+[19:25:22.773] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: SP -50
+[19:25:22.774] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: STAGGER -50%
+[19:25:22.775] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: TALENT_SLOTS +2
+[19:25:22.775] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: THREAT_LEVEL -1
+[19:25:22.776] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DAMAGE_TAKE +20%
+[19:25:22.776] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_BLOCK +1
+[19:25:22.777] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_EVADE +1
+[19:25:22.777] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:25:22.778] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:25:22.779] [VERBOSE] [Stats] 🧬 Спинной ускоритель (MK-1): speed +10
+[19:25:22.780] [VERBOSE] [Stats] ⚔️ Weapon equipped: Банганранг
+[19:25:22.781] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:25:22.782] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:25:22.782] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[19:25:22.783] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 11
+[19:25:22.784] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7
+[19:25:22.785] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:25:22.786] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 2
+[19:25:22.787] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[19:25:22.787] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 35
+[19:25:22.788] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 14% от основного
+[19:25:22.790] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[19:25:22.791] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 12% от основного
+[19:25:22.792] [VERBOSE] [Stats] Персонаж получает дополнительные 10 🧠 рассудка
+[19:25:22.792] [VERBOSE] [Stats] Повышает 😵 выдержку на 13%
+[19:25:22.793] [VERBOSE] [Stats] ✅ Stats updated for Азгик. HP: 120, SP: 109, Speed: [(17, 20), (17, 20), (17, 20), (17, 20), (12, 15)]
+[19:25:22.794] [VERBOSE] [Stats] Recalculating stats for Рейн
+[19:25:22.794] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[19:25:22.797] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[19:25:22.799] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[19:25:22.799] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[19:25:22.800] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:25:22.800] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:25:22.800] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:25:22.802] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:25:22.803] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:25:22.803] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:25:22.804] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:25:22.804] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:25:22.805] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:25:22.806] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[19:25:22.807] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[19:25:22.808] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[19:25:22.808] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:25:22.809] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[19:25:22.809] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[19:25:22.810] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[19:25:22.810] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:25:22.812] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 42% от основного
+[19:25:22.813] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[19:25:22.814] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[19:25:22.815] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[19:25:22.816] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[19:25:22.817] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 197, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[19:25:22.818] [VERBOSE] [Stats] Recalculating stats for Генри Фаэнон
+[19:25:22.820] [VERBOSE] [Stats] 🔄 Recalculating stats for Генри Фаэнон
+[19:25:22.820] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:25:22.821] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:25:22.822] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:25:22.823] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:25:22.824] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:25:22.824] [VERBOSE] [Stats] 🌟 Грозная персона (Б): eloquence +5
+[19:25:22.825] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': speed +10
+[19:25:22.826] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': acrobatics +10
+[19:25:22.826] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:25:22.828] [VERBOSE] [Stats] Повышает значение броска силы на 10
+[19:25:22.828] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 6
+[19:25:22.830] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[19:25:22.832] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 10
+[19:25:22.832] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 6
+[19:25:22.833] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 6
+[19:25:22.834] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8 (Акробатика)
+[19:25:22.835] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 8
+[19:25:22.835] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 3
+[19:25:22.836] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 25
+[19:25:22.836] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:25:22.836] [VERBOSE] [Stats] 🏋️ Суровые тренировки: +10 HP / +5 SP за уровень
+[19:25:22.839] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 30% от основного
+[19:25:22.840] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[19:25:22.841] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[19:25:22.842] [VERBOSE] [Stats] ✅ Stats updated for Генри Фаэнон. HP: 344, SP: 102, Speed: [(16, 19), (13, 16)]
+[19:25:50.752] [NORMAL ] [Status] 🧪 Азгик: +5 attack_power_up (1t)
+[19:25:50.753] [NORMAL ] [Status] 🧪 Рейн: +5 attack_power_up (1t)
+[19:25:50.755] [VERBOSE] [Passive] 👁️ Witness: Shared 5 attack_power_up with Рейн
+[19:25:50.756] [NORMAL ] [Talent] 🧠 Mind Power: Азгик spent 50 SP for +5 Strength
+[19:26:02.808] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 invisibility (3t)
+[19:26:02.809] [NORMAL ] [Talent] 👻 Step Into Shadow activated for Генри Фаэнон
+[19:26:08.448] [VERBOSE] [Scripts] 📜 Card Script Trigger (on_use): restore_resource
+[19:26:08.449] [MINIMAL] [Resource] 🧠 Азгик restored +16 SP
+[19:26:08.451] [VERBOSE] [Scripts] 🧠 Restored Азгик for 16 SP
+[19:26:23.840] [VERBOSE] [Stats] Recalculating stats for Азгик
+[19:26:23.842] [VERBOSE] [Stats] 🔄 Recalculating stats for Азгик
+[19:26:23.843] [VERBOSE] [Stats] 🛡️ Поваренок: TALENT_SLOTS +2
+[19:26:23.844] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: eloquence +20
+[19:26:23.846] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: luck -15
+[19:26:23.847] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: HP -50
+[19:26:23.850] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: SP -50
+[19:26:23.851] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: STAGGER -50%
+[19:26:23.851] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: TALENT_SLOTS +2
+[19:26:23.852] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: THREAT_LEVEL -1
+[19:26:23.853] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DAMAGE_TAKE +20%
+[19:26:23.854] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_BLOCK +1
+[19:26:23.855] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_EVADE +1
+[19:26:23.856] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:26:23.857] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:23.858] [VERBOSE] [Stats] 🧬 Спинной ускоритель (MK-1): speed +10
+[19:26:23.859] [VERBOSE] [Stats] ⚔️ Weapon equipped: Банганранг
+[19:26:23.860] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:26:23.860] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:26:23.864] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[19:26:23.865] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 11
+[19:26:23.866] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7
+[19:26:23.866] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:26:23.867] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 2
+[19:26:23.867] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[19:26:23.868] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 35
+[19:26:23.869] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 14% от основного
+[19:26:23.869] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[19:26:23.870] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 12% от основного
+[19:26:23.871] [VERBOSE] [Stats] Персонаж получает дополнительные 10 🧠 рассудка
+[19:26:23.872] [VERBOSE] [Stats] Повышает 😵 выдержку на 13%
+[19:26:23.873] [VERBOSE] [Stats] ✅ Stats updated for Азгик. HP: 120, SP: 109, Speed: [(17, 20), (17, 20), (17, 20), (17, 20), (12, 15)]
+[19:26:23.873] [VERBOSE] [Stats] Recalculating stats for Рейн
+[19:26:23.874] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[19:26:23.875] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[19:26:23.876] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[19:26:23.876] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[19:26:23.876] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:26:23.878] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:23.879] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:26:23.879] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:26:23.880] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:26:23.880] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:26:23.882] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:26:23.883] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:26:23.884] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:26:23.884] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[19:26:23.885] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[19:26:23.886] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[19:26:23.887] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:26:23.887] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[19:26:23.888] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[19:26:23.888] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[19:26:23.889] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:26:23.891] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 42% от основного
+[19:26:23.891] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[19:26:23.891] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[19:26:23.892] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[19:26:23.893] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[19:26:23.893] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 197, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[19:26:23.894] [VERBOSE] [Stats] Recalculating stats for Генри Фаэнон
+[19:26:23.894] [VERBOSE] [Stats] 🔄 Recalculating stats for Генри Фаэнон
+[19:26:23.896] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:23.897] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:26:23.897] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:26:23.898] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:26:23.898] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:26:23.899] [VERBOSE] [Stats] 🌟 Грозная персона (Б): eloquence +5
+[19:26:23.900] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': speed +10
+[19:26:23.900] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': acrobatics +10
+[19:26:23.902] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:26:23.902] [VERBOSE] [Stats] Повышает значение броска силы на 10
+[19:26:23.903] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 6
+[19:26:23.904] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[19:26:23.904] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 10
+[19:26:23.905] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 6
+[19:26:23.906] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 6
+[19:26:23.906] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8 (Акробатика)
+[19:26:23.907] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 8
+[19:26:23.907] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 3
+[19:26:23.909] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 25
+[19:26:23.909] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:26:23.910] [VERBOSE] [Stats] 🏋️ Суровые тренировки: +10 HP / +5 SP за уровень
+[19:26:23.910] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 30% от основного
+[19:26:23.912] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[19:26:23.912] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[19:26:23.914] [VERBOSE] [Stats] ✅ Stats updated for Генри Фаэнон. HP: 344, SP: 102, Speed: [(16, 19), (13, 16)]
+[19:26:23.914] [VERBOSE] [Stats] Recalculating stats for Азгик
+[19:26:23.916] [VERBOSE] [Stats] 🔄 Recalculating stats for Азгик
+[19:26:23.917] [VERBOSE] [Stats] 🛡️ Поваренок: TALENT_SLOTS +2
+[19:26:23.917] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: eloquence +20
+[19:26:23.919] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: luck -15
+[19:26:23.920] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: HP -50
+[19:26:23.921] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: SP -50
+[19:26:23.921] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: STAGGER -50%
+[19:26:23.923] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: TALENT_SLOTS +2
+[19:26:23.923] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: THREAT_LEVEL -1
+[19:26:23.924] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DAMAGE_TAKE +20%
+[19:26:23.925] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_BLOCK +1
+[19:26:23.926] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_EVADE +1
+[19:26:23.927] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:26:23.928] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:23.930] [VERBOSE] [Stats] 🧬 Спинной ускоритель (MK-1): speed +10
+[19:26:23.930] [VERBOSE] [Stats] ⚔️ Weapon equipped: Банганранг
+[19:26:23.932] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:26:23.933] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:26:23.934] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[19:26:23.934] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 11
+[19:26:23.936] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7
+[19:26:23.937] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:26:23.938] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 2
+[19:26:23.939] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[19:26:23.939] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 35
+[19:26:23.940] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 14% от основного
+[19:26:23.942] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[19:26:23.942] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 12% от основного
+[19:26:23.943] [VERBOSE] [Stats] Персонаж получает дополнительные 10 🧠 рассудка
+[19:26:23.944] [VERBOSE] [Stats] Повышает 😵 выдержку на 13%
+[19:26:23.946] [VERBOSE] [Stats] ✅ Stats updated for Азгик. HP: 120, SP: 109, Speed: [(17, 20), (17, 20), (17, 20), (17, 20), (12, 15)]
+[19:26:23.947] [VERBOSE] [Talent] 🧠 Center of Balance: Healed 7 SP for 1 allies
+[19:26:23.949] [MINIMAL] [Damage] 🤯 Генри Фаэнон took 2 SP damage
+[19:26:23.950] [VERBOSE] [Talent] 👁️ Unbearable Presence: 1 enemies took 2 SP damage
+[19:26:23.951] [NORMAL ] [Status] 🧪 Азгик: +2 haste (1t)
+[19:26:23.953] [NORMAL ] [Status] 🧪 Рейн: +2 haste (1t)
+[19:26:23.954] [VERBOSE] [Passive] 👁️ Witness: Shared 2 haste with Рейн
+[19:26:23.954] [NORMAL ] [Status] 🧪 Азгик: +2 endurance (1t)
+[19:26:23.955] [NORMAL ] [Status] 🧪 Рейн: +2 endurance (1t)
+[19:26:23.956] [VERBOSE] [Passive] 👁️ Witness: Shared 2 endurance with Рейн
+[19:26:23.957] [NORMAL ] [Status] 🧪 Азгик: +2 protection (1t)
+[19:26:23.959] [NORMAL ] [Status] 🧪 Рейн: +2 protection (1t)
+[19:26:23.959] [VERBOSE] [Passive] 👁️ Witness: Shared 2 protection with Рейн
+[19:26:23.959] [VERBOSE] [Talent] 🌪️ Emotional Storm Lvl 3: Applied buffs ['Haste', 'Endurance', 'Protection']
+[19:26:23.960] [NORMAL ] [Status] 🧪 Азгик: +1 haste (1t)
+[19:26:23.962] [NORMAL ] [Status] 🧪 Рейн: +1 haste (1t)
+[19:26:23.963] [VERBOSE] [Passive] 👁️ Witness: Shared 1 haste with Рейн
+[19:26:23.965] [VERBOSE] [Talent] 🏃 Athletic: +1 Haste for Азгик
+[19:26:23.965] [VERBOSE] [Stats] Recalculating stats for Рейн
+[19:26:23.966] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[19:26:23.966] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[19:26:23.967] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[19:26:23.969] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[19:26:23.969] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:26:23.970] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:23.970] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:26:23.972] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:26:23.972] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:26:23.972] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:26:23.973] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:26:23.974] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:26:23.974] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:26:23.976] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[19:26:23.976] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[19:26:23.977] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[19:26:23.977] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:26:23.979] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[19:26:23.979] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[19:26:23.981] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[19:26:23.982] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:26:23.982] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 42% от основного
+[19:26:23.984] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[19:26:23.984] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[19:26:23.985] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[19:26:23.985] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[19:26:23.986] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 197, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[19:26:23.986] [VERBOSE] [Talent] 🧠 Center of Balance: Healed 12 SP for 1 allies
+[19:26:23.986] [VERBOSE] [Stats] Recalculating stats for Генри Фаэнон
+[19:26:23.989] [VERBOSE] [Stats] 🔄 Recalculating stats for Генри Фаэнон
+[19:26:23.989] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:23.990] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:26:23.990] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:26:23.992] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:26:23.993] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:26:23.994] [VERBOSE] [Stats] 🌟 Грозная персона (Б): eloquence +5
+[19:26:23.994] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': speed +10
+[19:26:23.995] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': acrobatics +10
+[19:26:23.996] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:26:23.997] [VERBOSE] [Stats] Повышает значение броска силы на 10
+[19:26:23.998] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 6
+[19:26:23.999] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[19:26:24.000] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 10
+[19:26:24.000] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 6
+[19:26:24.002] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 6
+[19:26:24.002] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8 (Акробатика)
+[19:26:24.003] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 8
+[19:26:24.004] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 3
+[19:26:24.004] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 25
+[19:26:24.005] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:26:24.005] [VERBOSE] [Stats] 🏋️ Суровые тренировки: +10 HP / +5 SP за уровень
+[19:26:24.006] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 30% от основного
+[19:26:24.007] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[19:26:24.007] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[19:26:24.009] [VERBOSE] [Stats] ✅ Stats updated for Генри Фаэнон. HP: 344, SP: 102, Speed: [(16, 19), (13, 16)]
+[19:26:24.009] [NORMAL ] [Status] 🧪 Генри Фаэнон: +1 bleed_resist (1t)
+[19:26:24.010] [VERBOSE] [Passive] 🩸 Coagulation: Added bleed_resist to Генри Фаэнон
+[19:26:24.010] [VERBOSE] [Stats] Recalculating stats for Азгик
+[19:26:24.011] [VERBOSE] [Stats] 🔄 Recalculating stats for Азгик
+[19:26:24.012] [VERBOSE] [Stats] 🛡️ Поваренок: TALENT_SLOTS +2
+[19:26:24.013] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: eloquence +20
+[19:26:24.014] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: luck -15
+[19:26:24.015] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: HP -50
+[19:26:24.016] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: SP -50
+[19:26:24.016] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: STAGGER -50%
+[19:26:24.017] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: TALENT_SLOTS +2
+[19:26:24.018] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: THREAT_LEVEL -1
+[19:26:24.018] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DAMAGE_TAKE +20%
+[19:26:24.019] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_BLOCK +1
+[19:26:24.019] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_EVADE +1
+[19:26:24.020] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:26:24.021] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:24.021] [VERBOSE] [Stats] 🧬 Спинной ускоритель (MK-1): speed +10
+[19:26:24.022] [VERBOSE] [Stats] ⚔️ Weapon equipped: Банганранг
+[19:26:24.022] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:26:24.023] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:26:24.024] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[19:26:24.024] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 11
+[19:26:24.025] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7
+[19:26:24.025] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:26:24.026] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 2
+[19:26:24.026] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[19:26:24.026] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 35
+[19:26:24.028] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 14% от основного
+[19:26:24.029] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[19:26:24.030] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 12% от основного
+[19:26:24.030] [VERBOSE] [Stats] Персонаж получает дополнительные 10 🧠 рассудка
+[19:26:24.030] [VERBOSE] [Stats] Повышает 😵 выдержку на 13%
+[19:26:24.032] [VERBOSE] [Stats] ✅ Stats updated for Азгик. HP: 120, SP: 109, Speed: [(17, 20), (17, 20), (17, 20), (17, 20), (12, 15)]
+[19:26:24.033] [VERBOSE] [System] 🎲 Rolling Speed Dice for Азгик
+[19:26:24.034] [NORMAL ] [Speed] Азгик speed rolls: [31, 31, 32, 32, 25] (Mod: 12)
+[19:26:24.034] [VERBOSE] [Stats] Recalculating stats for Рейн
+[19:26:24.035] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[19:26:24.036] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[19:26:24.036] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[19:26:24.038] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[19:26:24.039] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:26:24.039] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:24.040] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:26:24.040] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:26:24.042] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:26:24.042] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:26:24.043] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:26:24.043] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:26:24.044] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:26:24.045] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[19:26:24.045] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[19:26:24.046] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[19:26:24.046] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:26:24.049] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[19:26:24.049] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[19:26:24.050] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[19:26:24.051] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:26:24.051] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 42% от основного
+[19:26:24.052] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[19:26:24.052] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[19:26:24.053] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[19:26:24.053] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[19:26:24.054] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 197, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[19:26:24.054] [VERBOSE] [System] 🎲 Rolling Speed Dice for Рейн
+[19:26:24.055] [NORMAL ] [Speed] Рейн speed rolls: [27, 25, 25] (Mod: 12)
+[19:26:24.056] [VERBOSE] [Stats] Recalculating stats for Генри Фаэнон
+[19:26:24.056] [VERBOSE] [Stats] 🔄 Recalculating stats for Генри Фаэнон
+[19:26:24.056] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:24.058] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:26:24.059] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:26:24.059] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:26:24.060] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:26:24.060] [VERBOSE] [Stats] 🌟 Грозная персона (Б): eloquence +5
+[19:26:24.060] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': speed +10
+[19:26:24.062] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': acrobatics +10
+[19:26:24.062] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:26:24.063] [VERBOSE] [Stats] Повышает значение броска силы на 10
+[19:26:24.064] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 6
+[19:26:24.064] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[19:26:24.065] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 10
+[19:26:24.065] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 6
+[19:26:24.066] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 6
+[19:26:24.067] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8 (Акробатика)
+[19:26:24.068] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 8
+[19:26:24.068] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 3
+[19:26:24.069] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 25
+[19:26:24.069] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:26:24.071] [VERBOSE] [Stats] 🏋️ Суровые тренировки: +10 HP / +5 SP за уровень
+[19:26:24.072] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 30% от основного
+[19:26:24.072] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[19:26:24.073] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[19:26:24.073] [VERBOSE] [Stats] ✅ Stats updated for Генри Фаэнон. HP: 344, SP: 102, Speed: [(16, 19), (13, 16)]
+[19:26:24.074] [MINIMAL] [Resource] 💚 Рейн healed +30 HP
+[19:26:24.074] [VERBOSE] [Passive] 🧬 S-Cells: Healed 30 HP for Рейн
+[19:26:24.075] [VERBOSE] [Stats] Recalculating stats for Азгик
+[19:26:24.075] [VERBOSE] [Stats] 🔄 Recalculating stats for Азгик
+[19:26:24.076] [VERBOSE] [Stats] 🛡️ Поваренок: TALENT_SLOTS +2
+[19:26:24.076] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: eloquence +20
+[19:26:24.078] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: luck -15
+[19:26:24.078] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: HP -50
+[19:26:24.079] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: SP -50
+[19:26:24.080] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: STAGGER -50%
+[19:26:24.080] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: TALENT_SLOTS +2
+[19:26:24.081] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: THREAT_LEVEL -1
+[19:26:24.082] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DAMAGE_TAKE +20%
+[19:26:24.083] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_BLOCK +1
+[19:26:24.084] [VERBOSE] [Stats] 🛡️ Свидетель Гро-Горота: DISABLE_EVADE +1
+[19:26:24.084] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:26:24.085] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:24.085] [VERBOSE] [Stats] 🧬 Спинной ускоритель (MK-1): speed +10
+[19:26:24.086] [VERBOSE] [Stats] ⚔️ Weapon equipped: Банганранг
+[19:26:24.087] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:26:24.087] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:26:24.088] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[19:26:24.088] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 11
+[19:26:24.089] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 7
+[19:26:24.091] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:26:24.091] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 2
+[19:26:24.092] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 2
+[19:26:24.093] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 35
+[19:26:24.094] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 14% от основного
+[19:26:24.094] [VERBOSE] [Stats] Персонаж получает дополнительные 10 ❤️ здоровья
+[19:26:24.096] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 12% от основного
+[19:26:24.097] [VERBOSE] [Stats] Персонаж получает дополнительные 10 🧠 рассудка
+[19:26:24.097] [VERBOSE] [Stats] Повышает 😵 выдержку на 13%
+[19:26:24.098] [VERBOSE] [Stats] ✅ Stats updated for Азгик. HP: 120, SP: 109, Speed: [(17, 20), (17, 20), (17, 20), (17, 20), (12, 15)]
+[19:26:24.098] [VERBOSE] [Stats] Recalculating stats for Рейн
+[19:26:24.100] [VERBOSE] [Stats] 🔄 Recalculating stats for Рейн
+[19:26:24.100] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): wisdom +10
+[19:26:24.101] [VERBOSE] [Stats] 🛡️ Новое открытие (Сенсоры 2%): BONUS_INTELLECT +2
+[19:26:24.102] [VERBOSE] [Stats] 🛡️ Тень Величия: eloquence +5
+[19:26:24.103] [VERBOSE] [Stats] 🌟 Держать себя в руках: SP +20%
+[19:26:24.104] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:24.104] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:26:24.105] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:26:24.106] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:26:24.107] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:26:24.108] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:26:24.109] [VERBOSE] [Stats] Повышает значение броска силы на 2
+[19:26:24.110] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[19:26:24.110] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 4
+[19:26:24.112] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 7
+[19:26:24.113] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 4
+[19:26:24.114] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[19:26:24.114] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 7
+[19:26:24.116] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 5, эффективность лечения — 50%
+[19:26:24.116] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 5
+[19:26:24.118] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:26:24.119] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 42% от основного
+[19:26:24.120] [VERBOSE] [Stats] Персонаж получает дополнительные 35 ❤️ здоровья
+[19:26:24.121] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 42% от основного
+[19:26:24.121] [VERBOSE] [Stats] Персонаж получает дополнительные 35 🧠 рассудка
+[19:26:24.122] [VERBOSE] [Stats] Повышает 😵 выдержку на 3%
+[19:26:24.122] [VERBOSE] [Stats] ✅ Stats updated for Рейн. HP: 197, SP: 202, Speed: [(13, 16), (13, 16), (11, 14)]
+[19:26:24.123] [VERBOSE] [Stats] Recalculating stats for Генри Фаэнон
+[19:26:24.124] [VERBOSE] [Stats] 🔄 Recalculating stats for Генри Фаэнон
+[19:26:24.125] [VERBOSE] [Stats] 🌟 Атлетичность (А): agility +5
+[19:26:24.126] [VERBOSE] [Stats] 🌟 Невеликое внимание (А): agility +3
+[19:26:24.126] [VERBOSE] [Stats] 🌟 Глаз на опасность: acrobatics +5
+[19:26:24.128] [VERBOSE] [Stats] 🌟 Глаз на опасность: engineering +10
+[19:26:24.130] [VERBOSE] [Stats] 🌟 Заметая следы: agility +7
+[19:26:24.130] [VERBOSE] [Stats] 🌟 Грозная персона (Б): eloquence +5
+[19:26:24.132] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': speed +10
+[19:26:24.133] [VERBOSE] [Stats] 🧬 Стелс-модуль 'Призрак': acrobatics +10
+[19:26:24.134] [VERBOSE] [Stats] ⚔️ Weapon equipped: Фантомные Бритвы
+[19:26:24.135] [VERBOSE] [Stats] Повышает значение броска силы на 10
+[19:26:24.136] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 6
+[19:26:24.136] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 3
+[19:26:24.137] [VERBOSE] [Stats] Повышает значение броска ловкости и 👢 инициативу на 10
+[19:26:24.138] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 6
+[19:26:24.139] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 6
+[19:26:24.139] [VERBOSE] [Stats] Повышает значение куба 💨 уклонения на 8 (Акробатика)
+[19:26:24.140] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 8
+[19:26:24.141] [VERBOSE] [Stats] Понижает 🧱 получаемый урон на 3
+[19:26:24.141] [VERBOSE] [Stats] Повышает значение броска при убеждении/торговле на 25
+[19:26:24.142] [VERBOSE] [Stats] Повышает качество предметов и бросок инженерии на 10
+[19:26:24.142] [VERBOSE] [Stats] 🏋️ Суровые тренировки: +10 HP / +5 SP за уровень
+[19:26:24.143] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 30% от основного
+[19:26:24.143] [VERBOSE] [Stats] Персонаж получает дополнительные 25 ❤️ здоровья
+[19:26:24.144] [VERBOSE] [Stats] Повышает 😵 выдержку на 15%
+[19:26:24.146] [VERBOSE] [Stats] ✅ Stats updated for Генри Фаэнон. HP: 344, SP: 102, Speed: [(16, 19), (13, 16)]
