@@ -1,0 +1,5 @@
+[12:18:29.266] [VERBOSE] [System] Created directory: data/cards
+[12:18:29.272] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (1-3) to Test Dummy
+[12:18:29.273] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (1-3) to Test Dummy
+[12:18:29.273] [VERBOSE] [Talent] 🛡️ Defense (Win): +1 Protection for Test Dummy
+[12:18:29.273] [VERBOSE] [Talent] 💪 Defense (Lose): +1 Strength for Test Dummy

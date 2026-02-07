@@ -19,6 +19,7 @@ from logic.scripts.adam_card_scripts import (
     adam_t3_cost, adam_t3_punish, adam_t3_execution,
     adam_t4_cost, adam_t4_wethermon_fail
 )
+from logic.scripts.vivian_scripts import damage_self_by_roll, damage_self_clash_diff, heal_self_by_roll
 
 # Реестр скриптов для использования в JSON карт
 SCRIPTS_REGISTRY = {
@@ -78,4 +79,8 @@ SCRIPTS_REGISTRY = {
     "axis_small_failures_use": axis_small_failures_use,
 
     "axis_apply_unity": axis_apply_unity,
+
+"damage_self_by_roll": damage_self_by_roll,
+    "heal_self_by_roll": heal_self_by_roll,
+    "damage_self_clash_diff": damage_self_clash_diff,
 }

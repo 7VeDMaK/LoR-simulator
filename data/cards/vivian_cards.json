@@ -1,0 +1,176 @@
+[
+  {
+    "id": "vivian_headbutt",
+    "name": "Удар головой",
+    "tier": 1,
+    "type": "Melee",
+    "description": "On Hit: Вивьен получает урон, равный значению этого кубика.",
+    "cost": 0,
+    "dice": [
+      {
+        "type": "blunt",
+        "base_min": 4,
+        "base_max": 6,
+        "scripts": {
+          "on_hit": [
+            { "script_id": "damage_self_by_roll" }
+          ]
+        }
+      }
+    ],
+    "scripts": {}
+  },
+  {
+    "id": "vivian_masochism",
+    "name": "Мазохизм",
+    "tier": 1,
+    "type": "Melee",
+    "description": "On Clash Lose: Восстанавливает 5 HP.",
+    "cost": 0,
+    "dice": [
+      {
+        "type": "block", "base_min": 1, "base_max": 1,
+        "scripts": {
+          "on_clash_lose": [{ "script_id": "restore_resource", "params": { "type": "hp", "base": 5, "target": "self" } }]
+        }
+      },
+      {
+        "type": "block", "base_min": 1, "base_max": 1,
+        "scripts": {
+          "on_clash_lose": [{ "script_id": "restore_resource", "params": { "type": "hp", "base": 5, "target": "self" } }]
+        }
+      },
+      {
+        "type": "block", "base_min": 1, "base_max": 1,
+        "scripts": {
+          "on_clash_lose": [{ "script_id": "restore_resource", "params": { "type": "hp", "base": 5, "target": "self" } }]
+        }
+      }
+    ],
+    "scripts": {}
+  },
+  {
+    "id": "vivian_claws",
+    "name": "Вцепилась когтями",
+    "tier": 1,
+    "type": "Melee",
+    "description": "Базовая атака.",
+    "cost": 1,
+    "dice": [
+      { "type": "pierce", "base_min": 2, "base_max": 3, "scripts": {} },
+      { "type": "slash", "base_min": 1, "base_max": 2, "scripts": {} }
+    ],
+    "scripts": {}
+  },
+  {
+    "id": "vivian_bite",
+    "name": "Откусила!",
+    "tier": 2,
+    "type": "Melee",
+    "description": "Второй кубик лечит Вивьен на значение броска.",
+    "cost": 2,
+    "dice": [
+      { "type": "pierce", "base_min": 2, "base_max": 4, "scripts": {} },
+      { 
+        "type": "slash", "base_min": 2, "base_max": 4, 
+        "scripts": {
+          "on_hit": [{ "script_id": "heal_self_by_roll" }]
+        }
+      }
+    ],
+    "scripts": {}
+  },
+  {
+    "id": "vivian_sore_spot",
+    "name": "Давит на больное",
+    "tier": 2,
+    "type": "Melee",
+    "description": "Сильный колющий удар.",
+    "cost": 2,
+    "dice": [
+      { "type": "pierce", "base_min": 4, "base_max": 7, "scripts": {} }
+    ],
+    "scripts": {}
+  },
+  {
+    "id": "vivian_bloodletting",
+    "name": "Кровопускание",
+    "tier": 2,
+    "type": "Melee",
+    "description": "On Hit: Накладывает 1 Кровотечение на себя (след. ход).",
+    "cost": 2,
+    "dice": [
+      {
+        "type": "slash", "base_min": 2, "base_max": 3,
+        "scripts": {
+          "on_hit": [{ "script_id": "apply_status", "params": { "status": "bleed", "base": 1, "duration": 1, "delay": 1, "target": "self" } }]
+        }
+      },
+      {
+        "type": "slash", "base_min": 2, "base_max": 3,
+        "scripts": {
+          "on_hit": [{ "script_id": "apply_status", "params": { "status": "bleed", "base": 1, "duration": 1, "delay": 1, "target": "self" } }]
+        }
+      },
+      {
+        "type": "slash", "base_min": 2, "base_max": 3,
+        "scripts": {
+          "on_hit": [{ "script_id": "apply_status", "params": { "status": "bleed", "base": 1, "duration": 1, "delay": 1, "target": "self" } }]
+        }
+      }
+    ],
+    "scripts": {}
+  },
+  {
+    "id": "vivian_bloody_fists",
+    "name": "Кулаки в кровь",
+    "tier": 3,
+    "type": "Melee",
+    "description": "On Hit: Наносит урон себе, равный броску.",
+    "cost": 3,
+    "dice": [
+      {
+        "type": "blunt", "base_min": 4, "base_max": 6,
+        "scripts": { "on_hit": [{ "script_id": "damage_self_by_roll" }] }
+      },
+      {
+        "type": "blunt", "base_min": 4, "base_max": 6,
+        "scripts": { "on_hit": [{ "script_id": "damage_self_by_roll" }] }
+      },
+      {
+        "type": "blunt", "base_min": 4, "base_max": 6,
+        "scripts": { "on_hit": [{ "script_id": "damage_self_by_roll" }] }
+      }
+    ],
+    "scripts": {}
+  },
+  {
+    "id": "vivian_scar_collection",
+    "name": "Коллекция шрамов",
+    "tier": 3,
+    "type": "Melee",
+    "description": "Мощный блок. On Clash Win: Получает урон, равный разнице бросков.",
+    "cost": 3,
+    "dice": [
+      {
+        "type": "block", "base_min": 8, "base_max": 12,
+        "scripts": {
+          "on_clash_win": [{ "script_id": "damage_self_clash_diff" }]
+        }
+      }
+    ],
+    "scripts": {}
+  },
+  {
+    "id": "vivian_bonebreaker",
+    "name": "Костолом",
+    "tier": 3,
+    "type": "Melee",
+    "description": "Тяжелый дробящий удар.",
+    "cost": 3,
+    "dice": [
+      { "type": "blunt", "base_min": 6, "base_max": 10, "scripts": {} }
+    ],
+    "scripts": {}
+  }
+]
