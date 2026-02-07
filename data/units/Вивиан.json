@@ -2,7 +2,7 @@
     "name": "Вивиан",
     "level": 1,
     "rank": 9,
-    "avatar": "data/avatars/Вивиан.png",
+    "avatar": "data/avatars\\Вивиан.png",
     "base_intellect": 1,
     "total_xp": 0,
     "pct_mods": {
