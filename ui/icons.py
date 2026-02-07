@@ -129,20 +129,77 @@ ICON_FILES = {
 }
 
 # Эмодзи по умолчанию (если картинки нет или ошибка)
+# --- РАСШИРЕННЫЙ СПИСОК ЭМОДЗИ ДЛЯ UI ---
 FALLBACK_EMOJIS = {
+    # Ресурсы
     "hp": "💚",
     "sp": "🧠",
     "stagger": "😵",
+    "light": "💡",
+    "charge": "⚡",
+    "smoke": "🌫️",
+    "ammo": "🔫",
+
+    # Типы кубиков
     "slash": "🗡️",
     "pierce": "🏹",
     "blunt": "🔨",
     "block": "🛡️",
     "evade": "💨",
+    "counter": "🔄",
+
+    # Статусы (Buffs)
     "attack_power_up": "💪",
+    "strength": "💪",
     "endurance": "🧱",
     "haste": "👟",
     "protection": "🛡️",
-    "vulnerability": "🎯"
+    "dmg_up": "⚔️",
+    "revenge_dmg_up": "🩸",
+    "stagger_resist": "🦾",
+    "immune_paralysis": "💉",
+    "stagger_immune": "🗿",
+    "satiety": "🍖",
+    "mental_protection": "🧘",
+    "barrier": "🛑",
+    "regeneration": "💊",
+    "stealth": "🥷",
+    "invisibility": "👻",
+    "adaptation": "🦎",
+    "bullet_time": "⏱️",
+    "clarity": "👁️",
+    "self_control": "🎮",
+    "enrage_tracker": "😡",
+    "fanat_mark": "🎯",
+    "taunt": "📢",
+    "lucky_coin_status": "🪙",
+    "azino_jackpot": "🎰",
+    "azino_beast": "🦁",
+    "main_character_shell": "👑",
+
+    # Статусы (Debuffs)
+    "bleed": "🩸",
+    "burn": "🔥",
+    "paralysis": "⚡",
+    "vulnerable": "💔",
+    "fragile": "🦴",
+    "weak": "🥀",
+    "weakness": "🥀",
+    "bind": "⛓️",
+    "deep_wound": "🔪",
+    "rupture": "💥",
+    "dmg_down": "📉",
+    "attack_power_down": "📉",
+    "disarm": "🚫",
+    "arrested": "👮",
+    "red_lycoris": "🌺",
+    "sinister_aura": "😈",
+    "under_crosshairs": "🎯",
+
+    # Резисты (Down)
+    "slash_resist_down": "🗡️⏬",
+    "pierce_resist_down": "🏹⏬",
+    "blunt_resist_down": "🔨⏬",
 }
 
 

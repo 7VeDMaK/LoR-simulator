@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "👤 Profile",
+  "page": "🛠️ Card Editor",
   "team_left_data": [
     {
       "name": "Азгик",
@@ -38,13 +38,8 @@
         "azgick_smile": 0,
         "azgick_enrage": 0,
         "tea_dark": 0,
-        "pat_left_shoulder": [
-          1,
-          1
-        ],
-        "pat_right_shoulder": [
-          1
-        ]
+        "pat_left_shoulder": 0,
+        "pat_right_shoulder": 0
       },
       "active_buffs": {},
       "_status_effects": {

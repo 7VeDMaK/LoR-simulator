@@ -1,7 +1,6 @@
 import streamlit as st
 
 from ui.editor.config import SCRIPT_SCHEMAS, STATUS_LIST
-# [NEW] Импортируем утилиты для иконок
 from ui.icons import get_icon_html, FALLBACK_EMOJIS
 
 
@@ -16,8 +15,14 @@ def render_dynamic_form(prefix: str, schema_name: str) -> dict:
     params_def = schema["params"]
     result_params = {}
 
+    # === [NEW] ОТОБРАЖЕНИЕ ОПИСАНИЯ ===
+    description = schema.get("description", "")
+    if description:
+        st.info(description, icon="ℹ️")
+    # ===================================
+
     if not params_def:
-        st.caption("Нет настроек.")
+        st.caption("Нет дополнительных настроек.")
         return {}
 
     cols = st.columns(3)
@@ -53,20 +58,16 @@ def render_dynamic_form(prefix: str, schema_name: str) -> dict:
                                    help=help_text)
                 result_params[key] = val
 
-            # === [ИЗМЕНЕНИЕ] Улучшенный выбор статуса ===
             elif p_type == "status_select":
                 idx = STATUS_LIST.index(default) if default in STATUS_LIST else 0
 
-                # Функция для красивого отображения в списке (Эмодзи + Название)
                 def format_status_option(s_key):
-                    # Берем эмодзи из fallback, если есть, или знак вопроса
                     emoji = FALLBACK_EMOJIS.get(s_key, "🔹")
                     return f"{emoji} {s_key.capitalize()}"
 
                 val = st.selectbox(label, STATUS_LIST, index=idx, format_func=format_status_option, key=widget_key,
                                    help=help_text)
 
-                # Показываем реальную картинку (WebP/PNG) под селектором для наглядности
                 icon_html = get_icon_html(val, width=24)
                 st.caption(f"Превью: {icon_html}", unsafe_allow_html=True)
 
