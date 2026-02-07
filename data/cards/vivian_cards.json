@@ -8,12 +8,10 @@
     "cost": 0,
     "dice": [
       {
-        "type": "blunt",
-        "base_min": 4,
-        "base_max": 6,
+        "type": "blunt", "base_min": 4, "base_max": 6,
         "scripts": {
           "on_hit": [
-            { "script_id": "damage_self_by_roll" }
+            { "script_id": "deal_damage_by_roll", "params": { "target": "self" } }
           ]
         }
       }
@@ -71,10 +69,10 @@
     "cost": 2,
     "dice": [
       { "type": "pierce", "base_min": 2, "base_max": 4, "scripts": {} },
-      { 
-        "type": "slash", "base_min": 2, "base_max": 4, 
+      {
+        "type": "slash", "base_min": 2, "base_max": 4,
         "scripts": {
-          "on_hit": [{ "script_id": "heal_self_by_roll" }]
+          "on_hit": [{ "script_id": "restore_resource_by_roll", "params": { "type": "hp", "target": "self" } }]
         }
       }
     ],
@@ -131,15 +129,15 @@
     "dice": [
       {
         "type": "blunt", "base_min": 4, "base_max": 6,
-        "scripts": { "on_hit": [{ "script_id": "damage_self_by_roll" }] }
+        "scripts": { "on_hit": [{ "script_id": "deal_damage_by_roll", "params": { "target": "self" } }] }
       },
       {
         "type": "blunt", "base_min": 4, "base_max": 6,
-        "scripts": { "on_hit": [{ "script_id": "damage_self_by_roll" }] }
+        "scripts": { "on_hit": [{ "script_id": "deal_damage_by_roll", "params": { "target": "self" } }] }
       },
       {
         "type": "blunt", "base_min": 4, "base_max": 6,
-        "scripts": { "on_hit": [{ "script_id": "damage_self_by_roll" }] }
+        "scripts": { "on_hit": [{ "script_id": "deal_damage_by_roll", "params": { "target": "self" } }] }
       }
     ],
     "scripts": {}
@@ -155,7 +153,7 @@
       {
         "type": "block", "base_min": 8, "base_max": 12,
         "scripts": {
-          "on_clash_win": [{ "script_id": "damage_self_clash_diff" }]
+          "on_clash_win": [{ "script_id": "deal_damage_by_clash_diff", "params": { "target": "self" } }]
         }
       }
     ],

@@ -2627,3 +2627,82 @@
 [19:45:32.271] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
 [19:45:32.274] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
 [19:45:32.275] [VERBOSE] [Scripts] 🛡️ Restored Healer for 0 Stagger
+[19:50:47.228] [VERBOSE] [Scripts] 💚 Healed Healer for 0 HP
+[19:50:47.232] [VERBOSE] [Scripts] 💚 Healed Healer for 0 HP
+[19:50:47.236] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[19:50:47.239] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[19:50:47.241] [VERBOSE] [Scripts] 🛡️ Restored Healer for 0 Stagger
+[20:01:27.111] [VERBOSE] [Scripts] Modify Power: 3 (Combo) for Adam
+[20:01:27.113] [MINIMAL] [Scripts] 🩸 Self Harm: Adam takes 10 HP
+[20:01:27.114] [MINIMAL] [Scripts] 🩸 Self Harm: Adam takes 40 HP
+[20:01:27.115] [VERBOSE] [Scripts] 💥 Target Dice Broken by Adam
+[20:01:56.864] [VERBOSE] [Scripts] Modify Power: 3 (Combo) for Adam
+[20:01:56.868] [MINIMAL] [Scripts] 🩸 Self Harm: Adam takes 10 HP
+[20:01:56.869] [MINIMAL] [Scripts] 🩸 Self Harm: Adam takes 40 HP
+[20:02:03.515] [VERBOSE] [Scripts] 💥 Target Dice Broken by Adam
+[20:02:07.523] [VERBOSE] [Scripts] 💥 Target Dice Broken by Adam
+[20:02:17.971] [VERBOSE] [Scripts] Modify Power: 3 (Combo) for Adam
+[20:02:17.974] [MINIMAL] [Scripts] 🩸 Self Harm: Adam takes 10 HP
+[20:02:17.974] [MINIMAL] [Scripts] 🩸 Self Harm: Adam takes 40 HP
+[20:02:21.498] [VERBOSE] [Scripts] 💥 Target Dice Broken by Adam
+[20:02:44.894] [VERBOSE] [Scripts] Modify Power: 3 (Combo) for Adam
+[20:02:44.895] [MINIMAL] [Scripts] 🩸 Self Harm: Adam takes 10 HP
+[20:02:44.895] [MINIMAL] [Scripts] 🩸 Self Harm: Adam takes 40 HP
+[20:02:44.896] [VERBOSE] [Scripts] 💥 Target Dice Broken by Adam
+[20:04:03.796] [VERBOSE] [Scripts] Modify Power: 3 (Combo) for Adam
+[20:04:03.797] [MINIMAL] [Scripts] 🩸 Self Harm: Adam takes 10 HP
+[20:04:03.797] [MINIMAL] [Scripts] 🩸 Self Harm: Adam takes 40 HP
+[20:04:03.798] [VERBOSE] [Scripts] 💥 Target Dice Broken by Adam
+[20:07:33.762] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[20:07:33.764] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[20:07:33.764] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[20:07:33.765] [VERBOSE] [Scripts] 🚩 Memory: Set combo_count=5 for Caster
+[20:07:33.766] [VERBOSE] [Scripts] 🚩 Memory: Set wethermon_failed=True for Caster
+[20:07:33.769] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[20:07:33.770] [NORMAL ] [Summon] 🤖 Summoned Minion (92b7) for Caster
+[20:08:09.584] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[20:08:09.584] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[20:08:09.585] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[20:08:09.585] [VERBOSE] [Scripts] 🚩 Memory: Set combo_count=5 for Caster
+[20:08:09.586] [VERBOSE] [Scripts] 🚩 Memory: Set wethermon_failed=True for Caster
+[20:08:09.591] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[20:08:09.592] [NORMAL ] [Summon] 🤖 Summoned Minion (147d) for Caster
+[20:08:18.390] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[20:08:18.391] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[20:08:18.392] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[20:08:18.392] [VERBOSE] [Scripts] 🚩 Memory: Set combo_count=5 for Caster
+[20:08:18.396] [VERBOSE] [Scripts] 🚩 Memory: Set wethermon_failed=True for Caster
+[20:08:30.835] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[20:08:30.839] [NORMAL ] [Summon] 🤖 Summoned Minion (a392) for Caster
+[20:08:52.739] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[20:08:52.739] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[20:08:52.740] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[20:08:52.740] [VERBOSE] [Scripts] 🚩 Memory: Set combo_count=5 for Caster
+[20:08:52.743] [VERBOSE] [Scripts] 🚩 Memory: Set wethermon_failed=True for Caster
+[20:08:52.747] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[20:08:52.748] [NORMAL ] [Summon] 🤖 Summoned Minion (9c4a) for Caster
+[20:09:09.031] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[20:09:09.032] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[20:09:09.034] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[20:09:09.035] [VERBOSE] [Scripts] 🚩 Memory: Set combo_count=5 for Caster
+[20:09:09.037] [VERBOSE] [Scripts] 🚩 Memory: Set wethermon_failed=True for Caster
+[20:09:25.172] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[20:09:25.176] [NORMAL ] [Summon] 🤖 Summoned Minion (ddf8) for Caster
+[20:09:40.898] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[20:09:40.899] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[20:09:40.899] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[20:09:40.900] [VERBOSE] [Scripts] 🚩 Memory: Set combo_count=5 for Caster
+[20:09:40.901] [VERBOSE] [Scripts] 🚩 Memory: Set wethermon_failed=True for Caster
+[20:09:40.902] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[20:09:40.904] [NORMAL ] [Summon] 🤖 Summoned Minion (8043) for Caster
+[20:14:01.391] [VERBOSE] [Scripts] Conditional Effect: win_condition -> fragile
+[20:35:11.492] [VERBOSE] [Scripts] Conditional Effect: win_condition -> fragile
+[20:35:11.494] [VERBOSE] [Scripts] Conditional Effect: win_condition -> fragile
+[20:35:11.494] [VERBOSE] [Scripts] Conditional Effect: win_condition -> bind
+[20:35:11.496] [VERBOSE] [Scripts] 🧪 Applied 1 win_condition to Enemy
+[20:44:37.637] [VERBOSE] [Scripts] Conditional Effect: win_condition -> fragile
+[20:44:37.638] [VERBOSE] [Scripts] Conditional Effect: win_condition -> fragile
+[20:44:37.639] [VERBOSE] [Scripts] Conditional Effect: win_condition -> bind
+[20:44:37.642] [VERBOSE] [Scripts] 🧪 Applied 1 win_condition to Enemy
+[20:48:42.374] [VERBOSE] [Scripts] ⏰ Status Delayed: bleed on Vivian for 1t
+[20:48:42.376] [VERBOSE] [Scripts] 💚 Healed Vivian for 5 HP

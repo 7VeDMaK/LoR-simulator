@@ -205,3 +205,51 @@ def apply_slot_debuff(ctx: 'RollContext', params: dict):
     if ctx.log:
         ctx.log.append(f"🔒 **Purge**: {target.name} will lose 1 Slot next turn")
         logger.log(f"🔒 Slot Lock applied to {target.name} for {duration} turns", LogLevel.NORMAL, "Scripts")
+
+
+def consume_status_apply(ctx: 'RollContext', params: dict):
+    """
+    Если у цели есть статус X, снимает его и накладывает статус Y на выбранную цель.
+    Params:
+      - consume_status: имя статуса для снятия (напр. "win_condition")
+      - consume_amount: сколько снять (def: 1)
+      - apply_status: имя статуса для наложения (напр. "fragile")
+      - apply_amount: сколько наложить
+      - apply_target: на кого наложить ("target", "self", "all_allies")
+    """
+    target = ctx.target
+    if not target: return
+
+    req_status = params.get("consume_status")
+    req_amount = int(params.get("consume_amount", 1))
+
+    current_val = target.get_status(req_status)
+
+    if current_val >= req_amount:
+        # 1. Снимаем статус
+        target.remove_status(req_status, req_amount)
+        if ctx.log:
+            ctx.log.append(f"🌀 Consumed {req_amount} {req_status} from {target.name}")
+
+        # 2. Накладываем эффект
+        apply_stat = params.get("apply_status")
+        apply_amt = int(params.get("apply_amount", 1))
+        apply_dur = int(params.get("duration", 1))
+
+        # Используем существующую утилиту для выбора целей
+        from logic.scripts.utils import _get_targets
+        dest_mode = params.get("apply_target", "target")
+
+        destinations = _get_targets(ctx, dest_mode)
+
+        # Фильтр для 'all_allies': исключаем себя, если это подразумевается логикой баффа команды
+        if dest_mode == "all_allies":
+            destinations = [u for u in destinations if u != ctx.source]
+
+        for u in destinations:
+            u.add_status(apply_stat, apply_amt, duration=apply_dur)
+            if ctx.log:
+                ctx.log.append(f"✨ Effect: +{apply_amt} {apply_stat} to {u.name}")
+
+        from core.logging import logger, LogLevel
+        logger.log(f"Conditional Effect: {req_status} -> {apply_stat}", LogLevel.VERBOSE, "Scripts")

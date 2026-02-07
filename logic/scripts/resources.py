@@ -41,3 +41,28 @@ def restore_resource(ctx: 'RollContext', params: dict):
             diff = u.current_stagger - old
             ctx.log.append(f"🛡️ **{u.name}**: +{diff} Stagger")
             logger.log(f"🛡️ Restored {u.name} for {diff} Stagger", LogLevel.VERBOSE, "Scripts")
+
+
+def restore_resource_by_roll(ctx: 'RollContext', params: dict):
+    """
+    Восстанавливает ресурс в зависимости от значения броска.
+    params: { "type": "hp", "target": "self", "factor": 1.0 }
+    """
+    from logic.scripts.utils import _get_targets
+
+    res_type = params.get("type", "hp")
+    factor = float(params.get("factor", 1.0))
+    targets = _get_targets(ctx, params.get("target", "self"))
+
+    amount = int(ctx.final_value * factor)
+    if amount <= 0: return
+
+    for u in targets:
+        if res_type == "hp":
+            healed = u.heal_hp(amount)
+            if ctx.log is not None:
+                ctx.log.append(f"💚 **Roll Heal**: {u.name} +{healed} HP")
+        elif res_type == "sp":
+            recovered = u.restore_sp(amount)
+            if ctx.log is not None:
+                ctx.log.append(f"🧠 **Roll SP**: {u.name} +{recovered} SP")

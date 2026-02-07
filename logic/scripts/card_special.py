@@ -106,3 +106,15 @@ def summon_ally(ctx: 'RollContext', params: dict):
     msg = f"🤖 **Summon**: {new_unit.name} прибыл!"
     if ctx.log is not None: ctx.log.append(msg)
     logger.log(f"🤖 Summoned {new_unit.name} for {source.name}", LogLevel.NORMAL, "Summon")
+
+def set_memory_flag(ctx: 'RollContext', params: dict):
+    """
+    Устанавливает флаг в память юнита (для пассивок или проверок).
+    params: { "flag": "wethermon_failed", "value": true }
+    """
+    flag = params.get("flag")
+    value = params.get("value", True)
+    if flag:
+        ctx.source.memory[flag] = value
+        # Для удобства отладки можно писать и в ctx.log, но сейчас пишем только в logger
+        logger.log(f"🚩 Memory: Set {flag}={value} for {ctx.source.name}", LogLevel.VERBOSE, "Scripts")

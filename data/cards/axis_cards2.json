@@ -27,147 +27,73 @@
           }
         }
       ],
-      "scripts": {}
+      "flags": ["unity"],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "share_dice_with_hand",
+            "params": { "flag": "unity" }
+          }
+        ]
+      }
     },
     {
       "id": "axis_minor_setbacks",
       "name": "Мелкие неудачи",
       "tier": 1,
       "type": "Ranged",
-      "description": "I. Дальний бой. [Unity]\nOn Use: Дает Блок другим картам Unity в руке.\nOn Hit: Дебаффы.",
-      "flags": [
-        "unity"
+      "description": "I. Дальний бой. [Unity]\nOn Use: Создает 3 доп. кубика и раздает Блок картам Unity в руке.",
+      "flags": ["unity"],
+      "dice": [
+        { "type": "block", "base_min": 3, "base_max": 6 }
       ],
       "scripts": {
         "on_use": [
           {
-            "script_id": "axis_apply_unity"
+            "script_id": "add_preset_dice",
+            "params": {
+              "dice": [
+                { "min": 4, "max": 8, "type": "Slash" },
+                { "min": 4, "max": 8, "type": "Pierce" },
+                { "min": 4, "max": 8, "type": "Blunt" }
+              ]
+            }
+          },
+          {
+            "script_id": "share_dice_with_hand",
+            "params": { "flag": "unity" }
           }
         ]
-      },
-      "dice": [
-        {
-          "type": "slash",
-          "base_min": 1,
-          "base_max": 1,
-          "scripts": {
-            "on_hit": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "weakness",
-                  "base": 1,
-                  "duration": 1,
-                  "delay": 1,
-                  "target": "target"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "pierce",
-          "base_min": 1,
-          "base_max": 1,
-          "scripts": {
-            "on_hit": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "paralysis",
-                  "base": 1,
-                  "duration": 1,
-                  "delay": 1,
-                  "target": "target"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "blunt",
-          "base_min": 1,
-          "base_max": 1,
-          "scripts": {
-            "on_hit": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "bind",
-                  "base": 1,
-                  "duration": 1,
-                  "delay": 1,
-                  "target": "target"
-                }
-              }
-            ]
-          }
-        }
-      ]
+      }
     },
     {
       "id": "axis_min_effort",
       "name": "Минимум усилий",
       "tier": 1,
       "type": "Melee",
-      "description": "I. Ближний. On Clash Lose: Аксис получает бонусы на следующий ход.",
-      "flags": [],
-      "scripts": {},
+      "description": "I. Ближний. On Clash Lose: Аксис получает бонусы.",
       "dice": [
         {
-          "type": "block",
-          "base_min": 1,
-          "base_max": 1,
+          "type": "block", "base_min": 1, "base_max": 1,
           "scripts": {
             "on_clash_lose": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "attack_power_up",
-                  "base": 1,
-                  "duration": 1,
-                  "delay": 1,
-                  "target": "self"
-                }
-              }
+              { "script_id": "apply_status", "params": { "status": "attack_power_up", "base": 1, "duration": 1, "target": "self" } }
             ]
           }
         },
         {
-          "type": "block",
-          "base_min": 1,
-          "base_max": 1,
+          "type": "block", "base_min": 1, "base_max": 1,
           "scripts": {
             "on_clash_lose": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "endurance",
-                  "base": 1,
-                  "duration": 1,
-                  "delay": 1,
-                  "target": "self"
-                }
-              }
+              { "script_id": "apply_status", "params": { "status": "endurance", "base": 1, "duration": 1, "target": "self" } }
             ]
           }
         },
         {
-          "type": "block",
-          "base_min": 1,
-          "base_max": 1,
+          "type": "block", "base_min": 1, "base_max": 1,
           "scripts": {
             "on_clash_lose": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "haste",
-                  "base": 1,
-                  "duration": 1,
-                  "delay": 1,
-                  "target": "self"
-                }
-              }
+              { "script_id": "apply_status", "params": { "status": "haste", "base": 1, "duration": 1, "target": "self" } }
             ]
           }
         }
@@ -178,58 +104,28 @@
       "name": "Меч славы",
       "tier": 2,
       "type": "Melee",
-      "description": "II. Ближний. [Unity]\nOn Use: Дает этот Slash кубик картам Unity.\n1. Слабость врагу. 2. Сила себе.",
-      "flags": [
-        "unity"
-      ],
+      "description": "II. Ближний. [Unity]\nOn Use: Дает этот Slash кубик картам Unity.",
+      "flags": ["unity"],
       "scripts": {
         "on_use": [
-          {
-            "script_id": "apply_status",
-            "params": {
-              "status": "weakness",
-              "base": 1,
-              "duration": 1,
-              "target": "target"
-            }
-          },
-          {
-            "script_id": "axis_apply_unity"
-          }
+          { "script_id": "apply_status", "params": { "status": "weakness", "base": 1, "duration": 1, "target": "target" } },
+          { "script_id": "share_dice_with_hand", "params": { "flag": "unity" } }
         ]
       },
       "dice": [
         {
-          "type": "slash",
-          "base_min": 1,
-          "base_max": 2,
+          "type": "slash", "base_min": 1, "base_max": 2,
           "scripts": {
             "on_hit": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "attack_power_up",
-                  "base": 1,
-                  "duration": 2,
-                  "target": "self"
-                }
-              }
+              { "script_id": "apply_status", "params": { "status": "attack_power_up", "base": 1, "duration": 2, "target": "self" } }
             ]
           }
         },
         {
-          "type": "slash",
-          "base_min": 1,
-          "base_max": 2,
+          "type": "slash", "base_min": 1, "base_max": 2,
           "scripts": {
             "on_hit": [
-              {
-                "script_id": "apply_axis_team_buff",
-                "params": {
-                  "status": "attack_power_up",
-                  "duration": 2
-                }
-              }
+              { "script_id": "apply_axis_team_buff", "params": { "status": "attack_power_up", "duration": 2 } }
             ]
           }
         }
@@ -240,58 +136,28 @@
       "name": "Копьё решимости",
       "tier": 2,
       "type": "Ranged",
-      "description": "II. Дальний. [Unity]\nOn Use: Дает этот Pierce кубик картам Unity.\n1. Замедление врагу. 2. Скорость себе.",
-      "flags": [
-        "unity"
-      ],
+      "description": "II. Дальний. [Unity]\nOn Use: Дает этот Pierce кубик картам Unity.",
+      "flags": ["unity"],
       "scripts": {
         "on_use": [
-          {
-            "script_id": "apply_status",
-            "params": {
-              "status": "bind",
-              "base": 1,
-              "duration": 1,
-              "target": "target"
-            }
-          },
-          {
-            "script_id": "axis_apply_unity"
-          }
+          { "script_id": "apply_status", "params": { "status": "bind", "base": 1, "duration": 1, "target": "target" } },
+          { "script_id": "share_dice_with_hand", "params": { "flag": "unity" } }
         ]
       },
       "dice": [
         {
-          "type": "pierce",
-          "base_min": 1,
-          "base_max": 2,
+          "type": "pierce", "base_min": 1, "base_max": 2,
           "scripts": {
             "on_hit": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "haste",
-                  "base": 1,
-                  "duration": 2,
-                  "target": "self"
-                }
-              }
+              { "script_id": "apply_status", "params": { "status": "haste", "base": 1, "duration": 2, "target": "self" } }
             ]
           }
         },
         {
-          "type": "pierce",
-          "base_min": 1,
-          "base_max": 2,
+          "type": "pierce", "base_min": 1, "base_max": 2,
           "scripts": {
             "on_hit": [
-              {
-                "script_id": "apply_axis_team_buff",
-                "params": {
-                  "status": "haste",
-                  "duration": 2
-                }
-              }
+              { "script_id": "apply_axis_team_buff", "params": { "status": "haste", "duration": 2 } }
             ]
           }
         }
@@ -302,58 +168,28 @@
       "name": "Кулак правосудия",
       "tier": 2,
       "type": "Melee",
-      "description": "II. Ближний. [Unity]\nOn Use: Дает этот Blunt кубик картам Unity.\n1. Обезоруживание врагу. 2. Стойкость себе.",
-      "flags": [
-        "unity"
-      ],
+      "description": "II. Ближний. [Unity]\nOn Use: Дает этот Blunt кубик картам Unity.",
+      "flags": ["unity"],
       "scripts": {
         "on_use": [
-          {
-            "script_id": "apply_status",
-            "params": {
-              "status": "paralysis",
-              "base": 1,
-              "duration": 1,
-              "target": "target"
-            }
-          },
-          {
-            "script_id": "axis_apply_unity"
-          }
+          { "script_id": "apply_status", "params": { "status": "paralysis", "base": 1, "duration": 1, "target": "target" } },
+          { "script_id": "share_dice_with_hand", "params": { "flag": "unity" } }
         ]
       },
       "dice": [
         {
-          "type": "blunt",
-          "base_min": 1,
-          "base_max": 2,
+          "type": "blunt", "base_min": 1, "base_max": 2,
           "scripts": {
             "on_hit": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "endurance",
-                  "base": 1,
-                  "duration": 2,
-                  "target": "self"
-                }
-              }
+              { "script_id": "apply_status", "params": { "status": "endurance", "base": 1, "duration": 2, "target": "self" } }
             ]
           }
         },
         {
-          "type": "blunt",
-          "base_min": 1,
-          "base_max": 2,
+          "type": "blunt", "base_min": 1, "base_max": 2,
           "scripts": {
             "on_hit": [
-              {
-                "script_id": "apply_axis_team_buff",
-                "params": {
-                  "status": "endurance",
-                  "duration": 2
-                }
-              }
+              { "script_id": "apply_axis_team_buff", "params": { "status": "endurance", "duration": 2 } }
             ]
           }
         }
@@ -368,56 +204,26 @@
       "description": "III. Дальний. [On Hit] Накладывает 1 Перманентный Win Condition.",
       "dice": [
         {
-          "base_min": 3,
-          "base_max": 7,
-          "type": "slash",
+          "base_min": 3, "base_max": 7, "type": "slash",
           "scripts": {
             "on_hit": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "win_condition",
-                  "base": 1,
-                  "duration": 99,
-                  "target": "target"
-                }
-              }
+              { "script_id": "apply_status", "params": { "status": "win_condition", "base": 1, "duration": 99, "target": "target" } }
             ]
           }
         },
         {
-          "base_min": 3,
-          "base_max": 7,
-          "type": "slash",
+          "base_min": 3, "base_max": 7, "type": "slash",
           "scripts": {
             "on_hit": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "win_condition",
-                  "base": 1,
-                  "duration": 99,
-                  "target": "target"
-                }
-              }
+              { "script_id": "apply_status", "params": { "status": "win_condition", "base": 1, "duration": 99, "target": "target" } }
             ]
           }
         },
         {
-          "base_min": 3,
-          "base_max": 7,
-          "type": "slash",
+          "base_min": 3, "base_max": 7, "type": "slash",
           "scripts": {
             "on_hit": [
-              {
-                "script_id": "apply_status",
-                "params": {
-                  "status": "win_condition",
-                  "base": 1,
-                  "duration": 99,
-                  "target": "target"
-                }
-              }
+              { "script_id": "apply_status", "params": { "status": "win_condition", "base": 1, "duration": 99, "target": "target" } }
             ]
           }
         }
@@ -429,55 +235,67 @@
       "tier": 3,
       "type": "Melee",
       "cost": 3,
-      "description": "III. Ближний. [On Clash] Снимает 1 WinCon -> Враг получает +2 Слабости, Разоружения и Замедления.",
+      "description": "III. Ближний. [On Clash] Снимает 1 WinCon -> Враг получает дебаффы (Fragile, Bind).",
+      "flags": ["unity"],
+      "scripts": {
+        "on_use": [
+          { "script_id": "share_dice_with_hand", "params": { "flag": "unity" } }
+        ]
+      },
       "dice": [
         {
-          "base_min": 5,
-          "base_max": 9,
-          "type": "block",
+          "base_min": 5, "base_max": 9, "type": "block",
           "scripts": {
-            "on_clash_lose": [
+            "on_clash": [
               {
-                "script_id": "axis_plot_armor_clash"
-              }
-            ],
-            "on_clash_win": [
+                "script_id": "consume_status_apply",
+                "params": {
+                  "consume_status": "win_condition",
+                  "apply_status": "fragile",
+                  "apply_amount": 2,
+                  "apply_target": "target"
+                }
+              },
               {
-                "script_id": "axis_plot_armor_clash"
+                "script_id": "consume_status_apply",
+                "params": {
+                  "consume_status": "win_condition",
+                  "apply_status": "bind",
+                  "apply_amount": 2,
+                  "apply_target": "target"
+                }
               }
             ]
           }
         },
         {
-          "base_min": 5,
-          "base_max": 9,
-          "type": "block",
+          "base_min": 5, "base_max": 9, "type": "block",
           "scripts": {
-            "on_clash_lose": [
+            "on_clash": [
               {
-                "script_id": "axis_plot_armor_clash"
-              }
-            ],
-            "on_clash_win": [
-              {
-                "script_id": "axis_plot_armor_clash"
+                "script_id": "consume_status_apply",
+                "params": {
+                  "consume_status": "win_condition",
+                  "apply_status": "fragile",
+                  "apply_amount": 2,
+                  "apply_target": "target"
+                }
               }
             ]
           }
         },
         {
-          "base_min": 5,
-          "base_max": 9,
-          "type": "block",
+          "base_min": 5, "base_max": 9, "type": "block",
           "scripts": {
-            "on_clash_lose": [
+            "on_clash": [
               {
-                "script_id": "axis_plot_armor_clash"
-              }
-            ],
-            "on_clash_win": [
-              {
-                "script_id": "axis_plot_armor_clash"
+                "script_id": "consume_status_apply",
+                "params": {
+                  "consume_status": "win_condition",
+                  "apply_status": "fragile",
+                  "apply_amount": 2,
+                  "apply_target": "target"
+                }
               }
             ]
           }
@@ -490,55 +308,56 @@
       "tier": 3,
       "type": "Melee",
       "cost": 4,
-      "description": "III. Ближний. [On Clash] Снимает 1 WinCon -> Союзник получает +3 Силы, Стойкости и Скорости.",
+      "description": "III. Ближний. [On Clash] Снимает 1 WinCon -> Союзники получают бафф.",
+      "flags": ["unity"],
       "dice": [
         {
-          "base_min": 4,
-          "base_max": 10,
-          "type": "evade",
+          "base_min": 4, "base_max": 10, "type": "evade",
           "scripts": {
-            "on_clash_lose": [
+            "on_clash": [
               {
-                "script_id": "axis_ex_machina_clash"
-              }
-            ],
-            "on_clash_win": [
-              {
-                "script_id": "axis_ex_machina_clash"
+                "script_id": "consume_status_apply",
+                "params": {
+                  "consume_status": "win_condition",
+                  "apply_status": "strength",
+                  "apply_amount": 3,
+                  "apply_target": "all_allies",
+                  "duration": 2
+                }
               }
             ]
           }
         },
         {
-          "base_min": 4,
-          "base_max": 10,
-          "type": "evade",
+          "base_min": 4, "base_max": 10, "type": "evade",
           "scripts": {
-            "on_clash_lose": [
+            "on_clash": [
               {
-                "script_id": "axis_ex_machina_clash"
-              }
-            ],
-            "on_clash_win": [
-              {
-                "script_id": "axis_ex_machina_clash"
+                "script_id": "consume_status_apply",
+                "params": {
+                  "consume_status": "win_condition",
+                  "apply_status": "strength",
+                  "apply_amount": 3,
+                  "apply_target": "all_allies",
+                  "duration": 2
+                }
               }
             ]
           }
         },
         {
-          "base_min": 4,
-          "base_max": 10,
-          "type": "evade",
+          "base_min": 4, "base_max": 10, "type": "evade",
           "scripts": {
-            "on_clash_lose": [
+            "on_clash": [
               {
-                "script_id": "axis_ex_machina_clash"
-              }
-            ],
-            "on_clash_win": [
-              {
-                "script_id": "axis_ex_machina_clash"
+                "script_id": "consume_status_apply",
+                "params": {
+                  "consume_status": "win_condition",
+                  "apply_status": "strength",
+                  "apply_amount": 3,
+                  "apply_target": "all_allies",
+                  "duration": 2
+                }
               }
             ]
           }

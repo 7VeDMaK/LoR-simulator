@@ -1,26 +1,24 @@
 # logic/card_scripts.py
-from logic.scripts.axis_scripts import axis_radiance_clash_win, axis_plot_armor_clash, axis_ex_machina_clash, \
-    axis_mcguffin_on_hit, axis_small_failures_use, axis_apply_unity
-from logic.scripts.card_damage import deal_effect_damage, self_harm_percent, add_hp_damage, nullify_hp_damage
-from logic.scripts.card_dice import consume_evade_for_haste, repeat_dice_by_status, adaptive_damage_type
+
+# === УДАЛЕНЫ ИМПОРТЫ AXIS_SCRIPTS ===
+
+from logic.scripts.card_damage import deal_effect_damage, self_harm_percent, add_hp_damage, nullify_hp_damage, \
+    deal_damage_by_roll, deal_damage_by_clash_diff
+from logic.scripts.card_dice import (
+    consume_evade_for_haste, repeat_dice_by_status, adaptive_damage_type,
+    break_target_dice, add_preset_dice, share_dice_with_hand # <--- НОВЫЕ ИМПОРТЫ
+)
 from logic.scripts.card_power import modify_roll_power, convert_status_to_power, lima_ram_logic
-from logic.scripts.card_special import apply_axis_team_buff, summon_ally
+from logic.scripts.card_special import apply_axis_team_buff, summon_ally, set_memory_flag
 from logic.scripts.luck import add_luck_bonus_roll, scale_roll_by_luck, add_power_by_luck, repeat_dice_by_luck
-from logic.scripts.resources import restore_resource
+from logic.scripts.resources import restore_resource, restore_resource_by_roll
 from logic.scripts.statuses import (
     apply_status, steal_status, multiply_status, remove_status_script,
-    remove_all_positive, apply_status_by_roll, remove_random_status, apply_slot_debuff
+    remove_all_positive, apply_status_by_roll, remove_random_status,
+    apply_slot_debuff, consume_status_apply # <--- НОВЫЙ ИМПОРТ
 )
 
-# === НОВЫЕ ИМПОРТЫ (АДАМ) ===
-from logic.scripts.adam_card_scripts import (
-    adam_t1_cost, adam_t1_punish,
-    adam_t2_cost, adam_t2_punish, adam_t2_combo,
-    adam_t3_cost, adam_t3_punish, adam_t3_execution,
-    adam_t4_cost, adam_t4_wethermon_fail
-)
 from logic.scripts.utils import _resolve_value, _get_targets, _check_conditions
-from logic.scripts.vivian_scripts import damage_self_by_roll, damage_self_clash_diff, heal_self_by_roll
 
 # Реестр скриптов для использования в JSON карт
 SCRIPTS_REGISTRY = {
@@ -41,8 +39,9 @@ SCRIPTS_REGISTRY = {
     "remove_status": remove_status_script,
     "remove_all_positive": remove_all_positive,
     "apply_status_by_roll": apply_status_by_roll,
+    "consume_status_apply": consume_status_apply, # <--- НОВОЕ
 
-    # Luck
+    # Luck & Dice Manipulation
     "add_luck_bonus_roll": add_luck_bonus_roll,
     "scale_roll_by_luck": scale_roll_by_luck,
     "add_power_by_luck": add_power_by_luck,
@@ -53,38 +52,22 @@ SCRIPTS_REGISTRY = {
     "lima_ram_logic": lima_ram_logic,
     "remove_random_status": remove_random_status,
     "apply_slot_debuff": apply_slot_debuff,
-
-    "apply_axis_team_buff": apply_axis_team_buff,
     "adaptive_damage_type": adaptive_damage_type,
+    "break_target_dice": break_target_dice,
+    "add_preset_dice": add_preset_dice,       # <--- НОВОЕ
+    "share_dice_with_hand": share_dice_with_hand, # <--- НОВОЕ
+
+    # Special & Summons
+    "apply_axis_team_buff": apply_axis_team_buff,
     "summon_ally": summon_ally,
+    "set_memory_flag": set_memory_flag,
 
-    # === СКРИПТЫ АДАМА ===
-    "adam_t1_cost": adam_t1_cost,
-    "adam_t1_punish": adam_t1_punish,
-
-    "adam_t2_cost": adam_t2_cost,
-    "adam_t2_punish": adam_t2_punish,
-    "adam_t2_combo": adam_t2_combo,
-
-    "adam_t3_cost": adam_t3_cost,
-    "adam_t3_punish": adam_t3_punish,
-    "adam_t3_execution": adam_t3_execution,
-
-    "adam_t4_cost": adam_t4_cost,
-    "adam_t4_wethermon_fail": adam_t4_wethermon_fail,
-
-    "axis_radiance_clash_win": axis_radiance_clash_win,
-    "axis_mcguffin_on_hit": axis_mcguffin_on_hit,
-    "axis_plot_armor_clash": axis_plot_armor_clash,
-    "axis_ex_machina_clash": axis_ex_machina_clash,
-    "axis_small_failures_use": axis_small_failures_use,
-
-    "axis_apply_unity": axis_apply_unity,
-
-"damage_self_by_roll": damage_self_by_roll,
-    "heal_self_by_roll": heal_self_by_roll,
-    "damage_self_clash_diff": damage_self_clash_diff,
+    # Utils (редко вызываются напрямую из JSON, но оставим)
     "_resolve_value": _resolve_value,
     "_get_targets": _get_targets,
-    "_check_conditions": _check_conditions
+    "_check_conditions": _check_conditions,
+
+    "deal_damage_by_roll": deal_damage_by_roll,
+    "deal_damage_by_clash_diff": deal_damage_by_clash_diff,
+    "restore_resource_by_roll": restore_resource_by_roll,
 }

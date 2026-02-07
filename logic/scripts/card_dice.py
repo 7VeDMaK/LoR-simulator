@@ -1,6 +1,7 @@
 import copy
 from typing import TYPE_CHECKING
 
+from core.dice import Dice
 from core.enums import DiceType
 from core.logging import logger, LogLevel
 
@@ -82,3 +83,75 @@ def adaptive_damage_type(ctx: 'RollContext', params: dict):
         if ctx.log is not None:
             ctx.log.append(msg)
         logger.log(f"🔄 Adaptive: Switched to {best_type.name} vs {ctx.target.name}", LogLevel.VERBOSE, "Scripts")
+
+
+def break_target_dice(ctx: 'RollContext', params: dict):
+    """
+    Ломает текущий кубик оппонента (например, при победе в Clash).
+    params:
+        "probability": 1.0 (шанс срабатывания)
+    """
+    # Проверяем, есть ли контекст оппонента (это бывает только в Clash)
+    if ctx.opponent_ctx and ctx.opponent_ctx.dice:
+        ctx.opponent_ctx.dice.is_broken = True
+        ctx.log.append("💥 **Break**: Кубик врага сломан!")
+        logger.log(f"💥 Target Dice Broken by {ctx.source.name}", LogLevel.VERBOSE, "Scripts")
+
+
+def add_preset_dice(ctx: 'RollContext', params: dict):
+    """
+    Добавляет в карту новые кубики, описанные в JSON.
+    Params:
+      - dice: list of dicts [{"min": 4, "max": 8, "type": "Slash"}, ...]
+    """
+    card = ctx.source.current_card
+    if not card: return
+
+    dice_defs = params.get("dice", [])
+
+    added_count = 0
+    for d_def in dice_defs:
+        min_v = d_def.get("min", 1)
+        max_v = d_def.get("max", 1)
+        dtype_str = d_def.get("type", "Slash").upper()
+
+        # Преобразуем строку в Enum
+        try:
+            dtype = DiceType[dtype_str]
+        except KeyError:
+            dtype = DiceType.SLASH
+
+        new_die = Dice(min_v, max_v, dtype)
+        card.dice_list.append(new_die)
+        added_count += 1
+
+    if added_count > 0 and ctx.log:
+        ctx.log.append(f"🎲 **Bonus**: Added {added_count} extra dice!")
+
+
+def share_dice_with_hand(ctx: 'RollContext', params: dict):
+    """
+    Unity: Раздает копию первого кубика этой карты всем картам в руке с указанным флагом.
+    Params:
+      - flag: "unity"
+    """
+    unit = ctx.source
+    card = unit.current_card
+    if not card or not card.dice_list: return
+
+    target_flag = params.get("flag", "unity")
+
+    # Берем первый кубик как образец
+    template_die = card.dice_list[0]
+
+    count = 0
+    if hasattr(unit, "hand"):
+        for hand_card in unit.hand:
+            # Не даем самой себе и проверяем флаг
+            if hand_card is not card and target_flag in getattr(hand_card, "flags", []):
+                new_die = copy.deepcopy(template_die)
+                hand_card.dice_list.append(new_die)
+                count += 1
+
+    if count > 0 and ctx.log:
+        ctx.log.append(f"🤝 **Unity**: Shared die with {count} cards in hand!")

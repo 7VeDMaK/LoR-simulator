@@ -15,7 +15,8 @@
           "scripts": {
             "on_clash_lose": [
               {
-                "script_id": "adam_t1_punish"
+                "script_id": "self_harm_percent",
+                "params": { "percent": 0.05 }
               }
             ]
           }
@@ -24,7 +25,8 @@
       "scripts": {
         "on_use": [
           {
-            "script_id": "adam_t1_cost"
+            "script_id": "self_harm_percent",
+            "params": { "percent": 0.05 }
           }
         ]
       }
@@ -44,7 +46,8 @@
           "scripts": {
             "on_clash_lose": [
               {
-                "script_id": "adam_t1_punish"
+                "script_id": "self_harm_percent",
+                "params": { "percent": 0.05 }
               }
             ]
           }
@@ -53,7 +56,8 @@
       "scripts": {
         "on_use": [
           {
-            "script_id": "adam_t1_cost"
+            "script_id": "self_harm_percent",
+            "params": { "percent": 0.05 }
           }
         ]
       }
@@ -73,7 +77,8 @@
           "scripts": {
             "on_clash_lose": [
               {
-                "script_id": "adam_t2_punish"
+                "script_id": "self_harm_percent",
+                "params": { "percent": 0.10 }
               }
             ]
           }
@@ -85,12 +90,14 @@
           "scripts": {
             "on_clash_lose": [
               {
-                "script_id": "adam_t2_punish"
+                "script_id": "self_harm_percent",
+                "params": { "percent": 0.10 }
               }
             ],
             "on_hit": [
               {
-                "script_id": "adam_t2_combo"
+                "script_id": "modify_roll_power",
+                "params": { "base": 3, "reason": "Combo" }
               }
             ]
           }
@@ -99,7 +106,8 @@
       "scripts": {
         "on_use": [
           {
-            "script_id": "adam_t2_cost"
+            "script_id": "self_harm_percent",
+            "params": { "percent": 0.10 }
           }
         ]
       }
@@ -119,12 +127,14 @@
           "scripts": {
             "on_clash_lose": [
               {
-                "script_id": "adam_t3_punish"
+                "script_id": "self_harm_percent",
+                "params": { "percent": 0.10 }
               }
             ],
             "on_clash_win": [
               {
-                "script_id": "adam_t3_execution"
+                "script_id": "break_target_dice",
+                "params": {}
               }
             ]
           }
@@ -133,7 +143,8 @@
       "scripts": {
         "on_use": [
           {
-            "script_id": "adam_t3_cost"
+            "script_id": "self_harm_percent",
+            "params": { "percent": 0.20 }
           }
         ]
       }
@@ -148,7 +159,8 @@
       "scripts": {
         "on_use": [
           {
-            "script_id": "adam_t4_cost"
+            "script_id": "self_harm_percent",
+            "params": { "percent": 0.40 }
           }
         ]
       },
@@ -161,16 +173,14 @@
           "scripts": {
             "on_clash_lose": [
               {
-                "script_id": "adam_t4_wethermon_fail"
+                "script_id": "set_memory_flag",
+                "params": { "flag": "wethermon_failed", "value": true }
               },
               {
                 "script_id": "restore_resource",
                 "params": {
                   "type": "stagger",
                   "base": -99999,
-                  "stat": "None",
-                  "scale_from_target": false,
-                  "factor": 0.5,
                   "target": "self"
                 }
               }

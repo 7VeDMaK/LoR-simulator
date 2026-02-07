@@ -80,3 +80,51 @@ def add_hp_damage(ctx: 'RollContext', params: dict):
         target.current_hp = max(0, target.current_hp - damage)
         ctx.log.append(f"💔 **Decay**: -{damage} HP ({percent * 100}%)")
         logger.log(f"💔 Decay: {target.name} takes {damage} HP", LogLevel.MINIMAL, "Scripts")
+
+
+def deal_damage_by_roll(ctx: 'RollContext', params: dict):
+    """
+    Наносит урон (HP/Stagger) равный значению броска.
+    params: { "target": "self", "type": "hp" }
+    """
+    from logic.scripts.utils import _get_targets
+
+    target_mode = params.get("target", "self")
+    dmg_type = params.get("type", "hp")
+    targets = _get_targets(ctx, target_mode)
+    amount = ctx.final_value  # Значение броска
+
+    if amount <= 0: return
+
+    for u in targets:
+        if dmg_type == "hp":
+            u.take_damage(amount)
+            if ctx.log is not None:
+                ctx.log.append(f"🩸 **Roll Dmg**: {u.name} takes {amount} HP")
+        elif dmg_type == "stagger":
+            u.take_damage(amount, damage_type="stagger")  # Предполагаем наличие метода или меняем поле напрямую
+            # Если метода нет: u.current_stagger = max(0, u.current_stagger - amount)
+            if ctx.log is not None:
+                ctx.log.append(f"😵 **Roll Stagger**: {u.name} takes {amount} Stagger")
+
+
+def deal_damage_by_clash_diff(ctx: 'RollContext', params: dict):
+    """
+    Наносит урон, равный разнице в клэше.
+    params: { "target": "self" }
+    """
+    from logic.scripts.utils import _get_targets
+
+    # 1. Вычисляем разницу
+    diff = getattr(ctx, "clash_diff", 0)
+    if diff == 0 and hasattr(ctx, "target_die_result"):
+        diff = max(0, ctx.final_value - ctx.target_die_result)
+
+    if diff <= 0: return
+
+    # 2. Наносим урон
+    targets = _get_targets(ctx, params.get("target", "self"))
+    for u in targets:
+        u.take_damage(diff)
+        if ctx.log is not None:
+            ctx.log.append(f"⚖️ **Clash Diff**: {u.name} takes {diff} damage!")
