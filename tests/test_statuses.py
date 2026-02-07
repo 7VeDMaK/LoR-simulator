@@ -14,7 +14,7 @@ from core.enums import DiceType
 # Импортируем классы статусов (предполагаем, что они в logic/statuses/common.py или custom.py)
 # Если вы еще не разнесли их по файлам, сохраните код статусов в logic/statuses/common.py
 from logic.statuses.common import (
-    StrengthStatus, EnduranceStatus, AttackPowerDownStatus, ParalysisStatus,
+    AttackPowerUpStatus, EnduranceStatus, AttackPowerDownStatus, ParalysisStatus,
     HasteStatus, BindStatus,
     DmgUpStatus, DmgDownStatus,
     ProtectionStatus, FragileStatus, VulnerableStatus, WeaknessStatus, WeakStatus, StaggerResistStatus,
@@ -33,9 +33,9 @@ class TestStatuses(unittest.TestCase):
     # 1. МОДИФИКАТОРЫ СИЛЫ КУБИКОВ
     # ==========================================
 
-    def test_strength(self):
+    def test_attack_power_up(self):
         """Сила должна увеличивать атакующие броски."""
-        status = StrengthStatus()
+        status = AttackPowerUpStatus()
         dice = MockDice(DiceType.SLASH)
         ctx = MockContext(self.unit, dice=dice)
 
