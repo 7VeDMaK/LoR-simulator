@@ -18,18 +18,27 @@ def setup_test_environment():
     except ImportError:
         pass
 
-    # Добавляем корень проекта в sys.path
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+    # Определяем корень проекта (на уровень выше папки tests)
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    if project_root not in sys.path:
+        sys.path.insert(0, project_root)
+    return project_root
 
 
 def run_suite():
-    setup_test_environment()
+    project_root = setup_test_environment()
 
     loader = unittest.TestLoader()
-    # Указываем директорию с тестами относительно этого файла
-    start_dir = os.path.dirname(__file__)
+    # Папка, в которой ищем тесты
+    start_dir = os.path.join(project_root, 'tests')
 
-    suite = loader.discover(start_dir, pattern='test_*.py')
+    # Чтобы unittest заходил в подпапки, start_dir должен быть импортируемым.
+    # Мы указываем top_level_dir как корень проекта.
+    suite = loader.discover(
+        start_dir=start_dir,
+        pattern='test_*.py',
+        top_level_dir=project_root
+    )
 
     runner = unittest.TextTestRunner(verbosity=2)
     result = runner.run(suite)

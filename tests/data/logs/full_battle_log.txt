@@ -46,3 +46,794 @@
 [18:25:28.944] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
 [18:25:28.944] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
 [18:25:28.945] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[18:38:57.033] [VERBOSE] [System] --- Loading cards from data/cards ---
+[18:38:57.044] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[18:38:57.044] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[18:38:57.045] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[18:38:57.045] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[18:38:57.047] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[18:38:57.047] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[18:38:57.048] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[18:38:57.048] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[18:38:57.048] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[18:38:57.050] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[18:38:57.050] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[18:38:57.051] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[18:38:57.051] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[18:38:57.051] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[18:38:57.052] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[18:38:57.052] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[18:38:57.053] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[18:38:57.053] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[18:38:57.054] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[18:38:57.054] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[18:38:57.055] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[18:38:57.055] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[18:38:57.055] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[18:38:57.056] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[18:38:57.056] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[18:38:57.057] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[18:38:57.057] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[18:38:57.057] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[18:38:57.058] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[18:38:57.058] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[18:38:57.059] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[18:38:57.059] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[18:38:57.059] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[18:38:57.060] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[18:38:57.060] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[18:38:57.061] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[18:38:57.061] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[18:38:57.061] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[18:38:57.061] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[18:38:57.063] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[18:38:57.063] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[18:38:57.063] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[18:39:49.132] [VERBOSE] [System] --- Loading cards from data/cards ---
+[18:39:49.142] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[18:39:49.143] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[18:39:49.144] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[18:39:49.144] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[18:39:49.145] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[18:39:49.145] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[18:39:49.145] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[18:39:49.147] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[18:39:49.147] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[18:39:49.148] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[18:39:49.148] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[18:39:49.149] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[18:39:49.149] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[18:39:49.149] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[18:39:49.149] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[18:39:49.150] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[18:39:49.151] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[18:39:49.151] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[18:39:49.151] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[18:39:49.152] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[18:39:49.152] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[18:39:49.153] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[18:39:49.153] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[18:39:49.155] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[18:39:49.155] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[18:39:49.155] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[18:39:49.155] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[18:39:49.156] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[18:39:49.156] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[18:39:49.156] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[18:39:49.157] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[18:39:49.157] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[18:39:49.157] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[18:39:49.158] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[18:39:49.158] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[18:39:49.158] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[18:39:49.159] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[18:39:49.159] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[18:39:49.159] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[18:39:49.160] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[18:39:49.160] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[18:39:49.160] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[18:44:51.083] [VERBOSE] [System] --- Loading cards from data/cards ---
+[18:44:51.102] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[18:44:51.104] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[18:44:51.105] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[18:44:51.105] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[18:44:51.106] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[18:44:51.106] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[18:44:51.106] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[18:44:51.107] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[18:44:51.107] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[18:44:51.109] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[18:44:51.109] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[18:44:51.110] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[18:44:51.110] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[18:44:51.110] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[18:44:51.111] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[18:44:51.111] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[18:44:51.112] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[18:44:51.112] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[18:44:51.112] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[18:44:51.112] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[18:44:51.114] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[18:44:51.114] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[18:44:51.114] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[18:44:51.115] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[18:44:51.115] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[18:44:51.116] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[18:44:51.116] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[18:44:51.116] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[18:44:51.117] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[18:44:51.118] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[18:44:51.118] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[18:44:51.118] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[18:44:51.119] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[18:44:51.119] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[18:44:51.119] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[18:44:51.120] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[18:44:51.120] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[18:44:51.120] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[18:44:51.121] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[18:44:51.121] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[18:44:51.121] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[18:44:51.122] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[18:45:27.835] [VERBOSE] [System] --- Loading cards from data/cards ---
+[18:45:27.858] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[18:45:27.859] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[18:45:27.859] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[18:45:27.860] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[18:45:27.860] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[18:45:27.860] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[18:45:27.861] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[18:45:27.861] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[18:45:27.862] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[18:45:27.862] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[18:45:27.862] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[18:45:27.864] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[18:45:27.864] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[18:45:27.864] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[18:45:27.865] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[18:45:27.865] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[18:45:27.865] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[18:45:27.866] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[18:45:27.866] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[18:45:27.866] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[18:45:27.867] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[18:45:27.867] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[18:45:27.868] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[18:45:27.868] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[18:45:27.868] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[18:45:27.869] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[18:45:27.869] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[18:45:27.869] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[18:45:27.870] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[18:45:27.871] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[18:45:27.871] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[18:45:27.871] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[18:45:27.873] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[18:45:27.873] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[18:45:27.873] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[18:45:27.873] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[18:45:27.874] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[18:45:27.874] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[18:45:27.874] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[18:45:27.876] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[18:45:27.876] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[18:45:27.876] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[19:31:21.827] [VERBOSE] [System] --- Loading cards from data/cards ---
+[19:31:21.874] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[19:31:21.875] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[19:31:21.876] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[19:31:21.876] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[19:31:21.876] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[19:31:21.877] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[19:31:21.877] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[19:31:21.877] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[19:31:21.878] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[19:31:21.880] [MINIMAL] [Scripts] 💔 Decay: Defender takes 40 HP
+[19:31:21.882] [MINIMAL] [Scripts] 💔 Effect Dmg: Defender takes 15 HP
+[19:31:21.883] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 20
+[19:31:21.884] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 10
+[19:31:21.884] [MINIMAL] [Scripts] 😵 Effect Stagger: Defender takes 7
+[19:31:21.885] [VERBOSE] [Scripts] 🚫 HP Damage Nullified for Attacker
+[19:31:21.885] [MINIMAL] [Scripts] 🩸 Self Harm: Attacker takes 10 HP
+[19:31:21.885] [VERBOSE] [Scripts] 🔋 Converted 10 smoke -> +5 Power
+[19:31:21.886] [VERBOSE] [Scripts] 🔋 Converted 5 charge -> +5 Power
+[19:31:21.886] [VERBOSE] [Scripts] 📉 Ram Logic: 2 Power, Haste Consumed
+[19:31:21.886] [VERBOSE] [Scripts] 📉 Ram Logic: 15 Power, Haste Consumed
+[19:31:21.886] [VERBOSE] [Scripts] 📉 Ram Logic: 0 Power, Haste Consumed
+[19:31:21.887] [VERBOSE] [Scripts] Modify Power: 5 (Test Bonus) for Striker
+[19:31:21.888] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[19:31:21.888] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[19:31:21.888] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[19:31:21.888] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[19:31:21.889] [NORMAL ] [Summon] 🤖 Summoned Minion (130e) for Caster
+[19:31:21.889] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 100)
+[19:31:21.890] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 55)
+[19:31:21.890] [VERBOSE] [Scripts] 🍀 Fortune Power: +5
+[19:31:21.890] [NORMAL ] [Scripts] 🍀 Luck Series: Added 2 dice to card Luck Card
+[19:31:21.891] [VERBOSE] [Scripts] 🍀 Luck Scaling: x3 (Total: +24)
+[19:31:21.929] [VERBOSE] [Scripts] 🎲 Applied 8 poise (Roll-based) to Caster
+[19:31:21.930] [VERBOSE] [Scripts] Apply Status haste failed: Roll 5 < 10
+[19:31:21.931] [VERBOSE] [Scripts] ✖️ Multiplied burn on Target by 2.0
+[19:31:21.932] [VERBOSE] [Scripts] 🧪 Random Purge: Removed 2 burn from Target
+[19:31:21.932] [VERBOSE] [Scripts] 🧹 Removed 5 bind from Target
+[19:31:21.932] [VERBOSE] [Scripts] ✋ Caster stole 3 power_up from Target
+[19:31:21.934] [VERBOSE] [Scripts] 🎲 Script chance failed (0.5)
+[19:31:21.934] [VERBOSE] [Scripts] 🚫 Script requirement failed: strength 12 < 20
+[19:31:21.937] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[19:31:21.937] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[19:31:21.938] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[19:31:21.938] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[19:31:21.938] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:31:21.938] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:31:21.939] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[19:31:21.939] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[19:31:21.940] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[19:31:21.940] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[19:31:21.941] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[19:31:21.941] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[19:31:21.941] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[19:31:21.942] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[19:31:21.943] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[19:31:21.943] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[19:31:21.943] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[19:31:21.944] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[19:31:21.944] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[19:31:21.945] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[19:31:21.946] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[19:31:21.946] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[19:31:21.946] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[19:31:21.947] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[19:31:21.947] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[19:31:21.947] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[19:31:21.948] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[19:31:21.948] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:31:21.950] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:31:21.950] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[19:31:21.951] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[19:31:21.951] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[19:31:21.951] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[19:34:54.562] [VERBOSE] [System] --- Loading cards from data/cards ---
+[19:34:54.588] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[19:34:54.589] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[19:34:54.590] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[19:34:54.591] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[19:34:54.591] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[19:34:54.592] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[19:34:54.592] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[19:34:54.592] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[19:34:54.593] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[19:34:54.594] [MINIMAL] [Scripts] 💔 Decay: Defender takes 40 HP
+[19:34:54.595] [MINIMAL] [Scripts] 💔 Effect Dmg: Defender takes 15 HP
+[19:34:54.596] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 20
+[19:34:54.597] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 10
+[19:34:54.597] [MINIMAL] [Scripts] 😵 Effect Stagger: Defender takes 7
+[19:34:54.598] [VERBOSE] [Scripts] 🚫 HP Damage Nullified for Attacker
+[19:34:54.599] [MINIMAL] [Scripts] 🩸 Self Harm: Attacker takes 10 HP
+[19:34:54.599] [VERBOSE] [Scripts] 🔋 Converted 10 smoke -> +5 Power
+[19:34:54.599] [VERBOSE] [Scripts] 🔋 Converted 5 charge -> +5 Power
+[19:34:54.599] [VERBOSE] [Scripts] 📉 Ram Logic: 2 Power, Haste Consumed
+[19:34:54.601] [VERBOSE] [Scripts] 📉 Ram Logic: 15 Power, Haste Consumed
+[19:34:54.601] [VERBOSE] [Scripts] 📉 Ram Logic: 0 Power, Haste Consumed
+[19:34:54.602] [VERBOSE] [Scripts] Modify Power: 5 (Test Bonus) for Striker
+[19:34:54.602] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[19:34:54.603] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[19:34:54.603] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[19:34:54.603] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[19:34:54.604] [NORMAL ] [Summon] 🤖 Summoned Minion (f3b2) for Caster
+[19:34:54.604] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 100)
+[19:34:54.604] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 55)
+[19:34:54.605] [VERBOSE] [Scripts] 🍀 Fortune Power: +5
+[19:34:54.605] [NORMAL ] [Scripts] 🍀 Luck Series: Added 2 dice to card Luck Card
+[19:34:54.605] [VERBOSE] [Scripts] 🍀 Luck Scaling: x3 (Total: +24)
+[19:34:54.609] [VERBOSE] [Scripts] 🎲 Applied 8 poise (Roll-based) to Caster
+[19:34:54.609] [VERBOSE] [Scripts] Apply Status haste failed: Roll 5 < 10
+[19:34:54.610] [VERBOSE] [Scripts] ✖️ Multiplied burn on Target by 2.0
+[19:34:54.611] [VERBOSE] [Scripts] 🧪 Random Purge: Removed 2 burn from Target
+[19:34:54.611] [VERBOSE] [Scripts] 🧹 Removed 5 bind from Target
+[19:34:54.612] [VERBOSE] [Scripts] ✋ Caster stole 3 power_up from Target
+[19:34:54.612] [VERBOSE] [Scripts] 🎲 Script chance failed (0.5)
+[19:34:54.612] [VERBOSE] [Scripts] 🚫 Script requirement failed: strength 12 < 20
+[19:34:54.613] [VERBOSE] [Script] 🩸 Self-Damage (Roll): Vivien took 15
+[19:34:54.615] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[19:34:54.615] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[19:34:54.615] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[19:34:54.616] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[19:34:54.616] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:34:54.616] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:34:54.616] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[19:34:54.617] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[19:34:54.617] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[19:34:54.617] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[19:34:54.618] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[19:34:54.619] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[19:34:54.619] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[19:34:54.620] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[19:34:54.621] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[19:34:54.621] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[19:34:54.621] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[19:34:54.622] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[19:34:54.622] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[19:34:54.623] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[19:34:54.623] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[19:34:54.624] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[19:34:54.624] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[19:34:54.624] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[19:34:54.625] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[19:34:54.625] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[19:34:54.625] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[19:34:54.626] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:34:54.626] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:34:54.627] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[19:34:54.627] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[19:34:54.627] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[19:34:54.628] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[19:37:54.340] [VERBOSE] [System] --- Loading cards from data/cards ---
+[19:37:54.367] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[19:37:54.368] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[19:37:54.368] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[19:37:54.368] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[19:37:54.369] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[19:37:54.369] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[19:37:54.370] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[19:37:54.370] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[19:37:54.370] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[19:37:54.373] [MINIMAL] [Scripts] 💔 Decay: Defender takes 40 HP
+[19:37:54.374] [MINIMAL] [Scripts] 💔 Effect Dmg: Defender takes 15 HP
+[19:37:54.375] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 20
+[19:37:54.375] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 10
+[19:37:54.376] [MINIMAL] [Scripts] 😵 Effect Stagger: Defender takes 7
+[19:37:54.376] [VERBOSE] [Scripts] 🚫 HP Damage Nullified for Attacker
+[19:37:54.377] [MINIMAL] [Scripts] 🩸 Self Harm: Attacker takes 10 HP
+[19:37:54.377] [VERBOSE] [Scripts] 🔋 Converted 10 smoke -> +5 Power
+[19:37:54.378] [VERBOSE] [Scripts] 🔋 Converted 5 charge -> +5 Power
+[19:37:54.378] [VERBOSE] [Scripts] 📉 Ram Logic: 2 Power, Haste Consumed
+[19:37:54.379] [VERBOSE] [Scripts] 📉 Ram Logic: 15 Power, Haste Consumed
+[19:37:54.379] [VERBOSE] [Scripts] 📉 Ram Logic: 0 Power, Haste Consumed
+[19:37:54.380] [VERBOSE] [Scripts] Modify Power: 5 (Test Bonus) for Striker
+[19:37:54.380] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[19:37:54.380] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[19:37:54.380] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[19:37:54.380] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[19:37:54.381] [NORMAL ] [Summon] 🤖 Summoned Minion (5686) for Caster
+[19:37:54.381] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 100)
+[19:37:54.382] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 55)
+[19:37:54.382] [VERBOSE] [Scripts] 🍀 Fortune Power: +5
+[19:37:54.382] [NORMAL ] [Scripts] 🍀 Luck Series: Added 2 dice to card Luck Card
+[19:37:54.383] [VERBOSE] [Scripts] 🍀 Luck Scaling: x3 (Total: +24)
+[19:37:54.387] [VERBOSE] [Scripts] 🎲 Applied 8 poise (Roll-based) to Caster
+[19:37:54.388] [VERBOSE] [Scripts] Apply Status haste failed: Roll 5 < 10
+[19:37:54.389] [VERBOSE] [Scripts] ✖️ Multiplied burn on Target by 2.0
+[19:37:54.389] [VERBOSE] [Scripts] 🧪 Random Purge: Removed 2 burn from Target
+[19:37:54.390] [VERBOSE] [Scripts] 🧹 Removed 5 bind from Target
+[19:37:54.390] [VERBOSE] [Scripts] ✋ Caster stole 3 power_up from Target
+[19:37:54.391] [VERBOSE] [Scripts] 🎲 Script chance failed (0.5)
+[19:37:54.391] [VERBOSE] [Scripts] 🚫 Script requirement failed: strength 12 < 20
+[19:37:54.392] [VERBOSE] [Script] 🩸 Self-Damage (Roll): Vivien took 15
+[19:37:54.393] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[19:37:54.393] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[19:37:54.393] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[19:37:54.393] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[19:37:54.393] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:37:54.395] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:37:54.395] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[19:37:54.395] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[19:37:54.396] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[19:37:54.396] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[19:37:54.397] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[19:37:54.397] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[19:37:54.397] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[19:37:54.398] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[19:37:54.398] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[19:37:54.398] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[19:37:54.399] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[19:37:54.399] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[19:37:54.399] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[19:37:54.401] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[19:37:54.402] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[19:37:54.402] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[19:37:54.402] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[19:37:54.402] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[19:37:54.403] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[19:37:54.403] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[19:37:54.403] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[19:37:54.404] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:37:54.404] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:37:54.404] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[19:37:54.405] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[19:37:54.405] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[19:37:54.405] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[19:40:20.712] [VERBOSE] [System] --- Loading cards from data/cards ---
+[19:40:20.737] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[19:40:20.737] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[19:40:20.738] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[19:40:20.739] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[19:40:20.739] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[19:40:20.740] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[19:40:20.740] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[19:40:20.740] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[19:40:20.742] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[19:40:20.743] [MINIMAL] [Scripts] 💔 Decay: Defender takes 40 HP
+[19:40:20.744] [MINIMAL] [Scripts] 💔 Effect Dmg: Defender takes 15 HP
+[19:40:20.745] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 20
+[19:40:20.745] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 10
+[19:40:20.746] [MINIMAL] [Scripts] 😵 Effect Stagger: Defender takes 7
+[19:40:20.747] [VERBOSE] [Scripts] 🚫 HP Damage Nullified for Attacker
+[19:40:20.747] [MINIMAL] [Scripts] 🩸 Self Harm: Attacker takes 10 HP
+[19:40:20.748] [VERBOSE] [Scripts] 🔋 Converted 10 smoke -> +5 Power
+[19:40:20.748] [VERBOSE] [Scripts] 🔋 Converted 5 charge -> +5 Power
+[19:40:20.749] [VERBOSE] [Scripts] 📉 Ram Logic: 2 Power, Haste Consumed
+[19:40:20.749] [VERBOSE] [Scripts] 📉 Ram Logic: 15 Power, Haste Consumed
+[19:40:20.749] [VERBOSE] [Scripts] 📉 Ram Logic: 0 Power, Haste Consumed
+[19:40:20.750] [VERBOSE] [Scripts] Modify Power: 5 (Test Bonus) for Striker
+[19:40:20.751] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[19:40:20.751] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[19:40:20.751] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[19:40:20.751] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[19:40:20.752] [NORMAL ] [Summon] 🤖 Summoned Minion (e5b2) for Caster
+[19:40:20.752] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 100)
+[19:40:20.752] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 55)
+[19:40:20.753] [VERBOSE] [Scripts] 🍀 Fortune Power: +5
+[19:40:20.753] [NORMAL ] [Scripts] 🍀 Luck Series: Added 2 dice to card Luck Card
+[19:40:20.753] [VERBOSE] [Scripts] 🍀 Luck Scaling: x3 (Total: +24)
+[19:40:20.757] [VERBOSE] [Scripts] 🧪 Applied 5 burn to Target
+[19:40:20.757] [VERBOSE] [Scripts] 🎲 Applied 8 poise (Roll-based) to Caster
+[19:40:20.758] [VERBOSE] [Scripts] Apply Status haste failed: Roll 5 < 10
+[19:40:20.759] [VERBOSE] [Scripts] ✖️ Multiplied burn on Target by 2.0
+[19:40:20.759] [NORMAL ] [Scripts] 🧹 Removed positive buffs from Target: ['protection']
+[19:40:20.760] [VERBOSE] [Scripts] 🧪 Random Purge: Removed 2 burn from Target
+[19:40:20.760] [VERBOSE] [Scripts] 🧹 Removed 5 bind from Target
+[19:40:20.760] [VERBOSE] [Scripts] ✋ Caster stole 3 power_up from Target
+[19:40:20.760] [VERBOSE] [Scripts] 🎲 Script chance failed (0.5)
+[19:40:20.761] [VERBOSE] [Scripts] 🚫 Script requirement failed: strength 12 < 20
+[19:40:20.762] [VERBOSE] [Script] 🩸 Self-Damage (Roll): Vivien took 15
+[19:40:20.762] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[19:40:20.764] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[19:40:20.764] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[19:40:20.764] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[19:40:20.765] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:40:20.765] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:40:20.765] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[19:40:20.765] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[19:40:20.766] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[19:40:20.766] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[19:40:20.767] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[19:40:20.767] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[19:40:20.767] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[19:40:20.768] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[19:40:20.769] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[19:40:20.769] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[19:40:20.769] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[19:40:20.769] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[19:40:20.770] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[19:40:20.770] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[19:40:20.771] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[19:40:20.771] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[19:40:20.771] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[19:40:20.772] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[19:40:20.772] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[19:40:20.772] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[19:40:20.773] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[19:40:20.773] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:40:20.774] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:40:20.774] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[19:40:20.774] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[19:40:20.775] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[19:40:20.775] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[19:41:53.289] [VERBOSE] [System] --- Loading cards from data/cards ---
+[19:41:53.316] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[19:41:53.316] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[19:41:53.317] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[19:41:53.318] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[19:41:53.318] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[19:41:53.318] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[19:41:53.318] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[19:41:53.318] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[19:41:53.320] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[19:41:53.321] [MINIMAL] [Scripts] 💔 Decay: Defender takes 40 HP
+[19:41:53.322] [MINIMAL] [Scripts] 💔 Effect Dmg: Defender takes 15 HP
+[19:41:53.323] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 20
+[19:41:53.323] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 10
+[19:41:53.324] [MINIMAL] [Scripts] 😵 Effect Stagger: Defender takes 7
+[19:41:53.324] [VERBOSE] [Scripts] 🚫 HP Damage Nullified for Attacker
+[19:41:53.325] [MINIMAL] [Scripts] 🩸 Self Harm: Attacker takes 10 HP
+[19:41:53.325] [VERBOSE] [Scripts] 🔋 Converted 10 smoke -> +5 Power
+[19:41:53.327] [VERBOSE] [Scripts] 🔋 Converted 5 charge -> +5 Power
+[19:41:53.327] [VERBOSE] [Scripts] 📉 Ram Logic: 2 Power, Haste Consumed
+[19:41:53.327] [VERBOSE] [Scripts] 📉 Ram Logic: 15 Power, Haste Consumed
+[19:41:53.327] [VERBOSE] [Scripts] 📉 Ram Logic: 0 Power, Haste Consumed
+[19:41:53.328] [VERBOSE] [Scripts] Modify Power: 5 (Test Bonus) for Striker
+[19:41:53.328] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[19:41:53.329] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[19:41:53.329] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[19:41:53.329] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[19:41:53.329] [NORMAL ] [Summon] 🤖 Summoned Minion (c286) for Caster
+[19:41:53.330] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 100)
+[19:41:53.330] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 55)
+[19:41:53.330] [VERBOSE] [Scripts] 🍀 Fortune Power: +5
+[19:41:53.331] [NORMAL ] [Scripts] 🍀 Luck Series: Added 2 dice to card Luck Card
+[19:41:53.331] [VERBOSE] [Scripts] 🍀 Luck Scaling: x3 (Total: +24)
+[19:41:53.334] [VERBOSE] [Scripts] 🧪 Applied 5 burn to Target
+[19:41:53.335] [VERBOSE] [Scripts] 🎲 Applied 8 poise (Roll-based) to Caster
+[19:41:53.335] [VERBOSE] [Scripts] Apply Status haste failed: Roll 5 < 10
+[19:41:53.337] [VERBOSE] [Scripts] ✖️ Multiplied burn on Target by 2.0
+[19:41:53.337] [NORMAL ] [Scripts] 🧹 Removed positive buffs from Target: ['protection']
+[19:41:53.338] [VERBOSE] [Scripts] 🧪 Random Purge: Removed 2 burn from Target
+[19:41:53.338] [VERBOSE] [Scripts] 🧹 Removed 5 bind from Target
+[19:41:53.338] [VERBOSE] [Scripts] ✋ Caster stole 3 power_up from Target
+[19:41:53.339] [VERBOSE] [Scripts] 🎲 Script chance failed (0.5)
+[19:41:53.339] [VERBOSE] [Scripts] 🚫 Script requirement failed: strength 12 < 20
+[19:41:53.340] [VERBOSE] [Script] 🩸 Self-Damage (Roll): Vivien took 15
+[19:41:53.341] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[19:41:53.341] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[19:41:53.341] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[19:41:53.341] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[19:41:53.342] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:41:53.342] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:41:53.342] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[19:41:53.342] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[19:41:53.343] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[19:41:53.343] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[19:41:53.343] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[19:41:53.343] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[19:41:53.343] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[19:41:53.345] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[19:41:53.346] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[19:41:53.346] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[19:41:53.346] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[19:41:53.347] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[19:41:53.347] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[19:41:53.347] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[19:41:53.348] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[19:41:53.348] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[19:41:53.348] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[19:41:53.349] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[19:41:53.349] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[19:41:53.349] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[19:41:53.349] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[19:41:53.350] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:41:53.350] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:41:53.351] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[19:41:53.351] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[19:41:53.351] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[19:41:53.351] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[19:42:07.794] [VERBOSE] [System] --- Loading cards from data/cards ---
+[19:42:07.821] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[19:42:07.823] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[19:42:07.824] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[19:42:07.824] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[19:42:07.825] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[19:42:07.825] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[19:42:07.825] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[19:42:07.825] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[19:42:07.826] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[19:42:07.827] [MINIMAL] [Scripts] 💔 Decay: Defender takes 40 HP
+[19:42:07.828] [MINIMAL] [Scripts] 💔 Effect Dmg: Defender takes 15 HP
+[19:42:07.829] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 20
+[19:42:07.829] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 10
+[19:42:07.830] [MINIMAL] [Scripts] 😵 Effect Stagger: Defender takes 7
+[19:42:07.830] [VERBOSE] [Scripts] 🚫 HP Damage Nullified for Attacker
+[19:42:07.830] [MINIMAL] [Scripts] 🩸 Self Harm: Attacker takes 10 HP
+[19:42:07.831] [VERBOSE] [Scripts] 🔋 Converted 10 smoke -> +5 Power
+[19:42:07.832] [VERBOSE] [Scripts] 🔋 Converted 5 charge -> +5 Power
+[19:42:07.832] [VERBOSE] [Scripts] 📉 Ram Logic: 2 Power, Haste Consumed
+[19:42:07.832] [VERBOSE] [Scripts] 📉 Ram Logic: 15 Power, Haste Consumed
+[19:42:07.832] [VERBOSE] [Scripts] 📉 Ram Logic: 0 Power, Haste Consumed
+[19:42:07.833] [VERBOSE] [Scripts] Modify Power: 5 (Test Bonus) for Striker
+[19:42:07.834] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[19:42:07.834] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[19:42:07.834] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[19:42:07.834] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[19:42:07.835] [NORMAL ] [Summon] 🤖 Summoned Minion (5385) for Caster
+[19:42:07.835] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 100)
+[19:42:07.836] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 55)
+[19:42:07.836] [VERBOSE] [Scripts] 🍀 Fortune Power: +5
+[19:42:07.836] [NORMAL ] [Scripts] 🍀 Luck Series: Added 2 dice to card Luck Card
+[19:42:07.836] [VERBOSE] [Scripts] 🍀 Luck Scaling: x3 (Total: +24)
+[19:42:07.841] [VERBOSE] [Scripts] 🧪 Applied 5 burn to Target
+[19:42:07.841] [VERBOSE] [Scripts] 🎲 Applied 8 poise (Roll-based) to Caster
+[19:42:07.842] [VERBOSE] [Scripts] Apply Status haste failed: Roll 5 < 10
+[19:42:07.843] [VERBOSE] [Scripts] ✖️ Multiplied burn on Target by 2.0
+[19:42:07.843] [NORMAL ] [Scripts] 🧹 Removed positive buffs from Target: ['protection']
+[19:42:07.843] [VERBOSE] [Scripts] 🧪 Random Purge: Removed 2 burn from Target
+[19:42:07.844] [VERBOSE] [Scripts] 🧹 Removed 5 bind from Target
+[19:42:07.844] [VERBOSE] [Scripts] ✋ Caster stole 3 power_up from Target
+[19:42:07.845] [VERBOSE] [Scripts] 🎲 Script chance failed (0.5)
+[19:42:07.845] [VERBOSE] [Scripts] 🚫 Script requirement failed: strength 12 < 20
+[19:42:07.846] [VERBOSE] [Script] 🩸 Self-Damage (Roll): Vivien took 15
+[19:42:07.846] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[19:42:07.847] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[19:42:07.847] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[19:42:07.847] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[19:42:07.848] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:42:07.848] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:42:07.848] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[19:42:07.848] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[19:42:07.849] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[19:42:07.849] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[19:42:07.849] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[19:42:07.850] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[19:42:07.850] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[19:42:07.850] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[19:42:07.851] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[19:42:07.851] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[19:42:07.851] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[19:42:07.852] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[19:42:07.852] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[19:42:07.852] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[19:42:07.853] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[19:42:07.853] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[19:42:07.854] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[19:42:07.854] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[19:42:07.854] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[19:42:07.854] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[19:42:07.856] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[19:42:07.856] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:42:07.856] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:42:07.857] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[19:42:07.857] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[19:42:07.857] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[19:42:07.858] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[19:42:30.005] [VERBOSE] [System] --- Loading cards from data/cards ---
+[19:42:30.032] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[19:42:30.033] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[19:42:30.034] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[19:42:30.034] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[19:42:30.034] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[19:42:30.034] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[19:42:30.036] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[19:42:30.036] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[19:42:30.036] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[19:42:30.038] [MINIMAL] [Scripts] 💔 Decay: Defender takes 40 HP
+[19:42:30.039] [MINIMAL] [Scripts] 💔 Effect Dmg: Defender takes 15 HP
+[19:42:30.040] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 20
+[19:42:30.040] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 10
+[19:42:30.040] [MINIMAL] [Scripts] 😵 Effect Stagger: Defender takes 7
+[19:42:30.041] [VERBOSE] [Scripts] 🚫 HP Damage Nullified for Attacker
+[19:42:30.041] [MINIMAL] [Scripts] 🩸 Self Harm: Attacker takes 10 HP
+[19:42:30.042] [VERBOSE] [Scripts] 🔋 Converted 10 smoke -> +5 Power
+[19:42:30.042] [VERBOSE] [Scripts] 🔋 Converted 5 charge -> +5 Power
+[19:42:30.042] [VERBOSE] [Scripts] 📉 Ram Logic: 2 Power, Haste Consumed
+[19:42:30.042] [VERBOSE] [Scripts] 📉 Ram Logic: 15 Power, Haste Consumed
+[19:42:30.043] [VERBOSE] [Scripts] 📉 Ram Logic: 0 Power, Haste Consumed
+[19:42:30.043] [VERBOSE] [Scripts] Modify Power: 5 (Test Bonus) for Striker
+[19:42:30.044] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[19:42:30.044] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[19:42:30.044] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[19:42:30.044] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[19:42:30.045] [NORMAL ] [Summon] 🤖 Summoned Minion (4a83) for Caster
+[19:42:30.045] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 100)
+[19:42:30.046] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 55)
+[19:42:30.046] [VERBOSE] [Scripts] 🍀 Fortune Power: +5
+[19:42:30.046] [NORMAL ] [Scripts] 🍀 Luck Series: Added 2 dice to card Luck Card
+[19:42:30.047] [VERBOSE] [Scripts] 🍀 Luck Scaling: x3 (Total: +24)
+[19:42:30.047] [VERBOSE] [Scripts] 💚 Healed Healer for 0 HP
+[19:42:30.048] [VERBOSE] [Scripts] 💚 Healed Healer for 0 HP
+[19:42:30.051] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[19:42:30.052] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[19:42:30.052] [VERBOSE] [Scripts] 🛡️ Restored Healer for 0 Stagger
+[19:42:30.054] [VERBOSE] [Scripts] 🧪 Applied 5 burn to Target
+[19:42:30.054] [VERBOSE] [Scripts] 🎲 Applied 8 poise (Roll-based) to Caster
+[19:42:30.055] [VERBOSE] [Scripts] Apply Status haste failed: Roll 5 < 10
+[19:42:30.056] [VERBOSE] [Scripts] ✖️ Multiplied burn on Target by 2.0
+[19:42:30.056] [NORMAL ] [Scripts] 🧹 Removed positive buffs from Target: ['protection']
+[19:42:30.057] [VERBOSE] [Scripts] 🧪 Random Purge: Removed 2 burn from Target
+[19:42:30.057] [VERBOSE] [Scripts] 🧹 Removed 5 bind from Target
+[19:42:30.058] [VERBOSE] [Scripts] ✋ Caster stole 3 power_up from Target
+[19:42:30.058] [VERBOSE] [Scripts] 🎲 Script chance failed (0.5)
+[19:42:30.059] [VERBOSE] [Scripts] 🚫 Script requirement failed: strength 12 < 20
+[19:42:30.060] [VERBOSE] [Script] 🩸 Self-Damage (Roll): Vivien took 15
+[19:42:30.061] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[19:42:30.061] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[19:42:30.061] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[19:42:30.062] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[19:42:30.062] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:42:30.062] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:42:30.062] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[19:42:30.063] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[19:42:30.063] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[19:42:30.063] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[19:42:30.064] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[19:42:30.064] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[19:42:30.064] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[19:42:30.065] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[19:42:30.066] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[19:42:30.066] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[19:42:30.066] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[19:42:30.066] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[19:42:30.067] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[19:42:30.067] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[19:42:30.068] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[19:42:30.068] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[19:42:30.069] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[19:42:30.069] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[19:42:30.069] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[19:42:30.069] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[19:42:30.069] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[19:42:30.070] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:42:30.070] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:42:30.070] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[19:42:30.071] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[19:42:30.071] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[19:42:30.071] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[19:46:16.587] [VERBOSE] [System] --- Loading cards from data/cards ---
+[19:46:16.613] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[19:46:16.613] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[19:46:16.615] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[19:46:16.615] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[19:46:16.616] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[19:46:16.616] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[19:46:16.616] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[19:46:16.616] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[19:46:16.617] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[19:46:16.618] [MINIMAL] [Scripts] 💔 Decay: Defender takes 40 HP
+[19:46:16.620] [MINIMAL] [Scripts] 💔 Effect Dmg: Defender takes 15 HP
+[19:46:16.621] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 20
+[19:46:16.621] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 10
+[19:46:16.621] [MINIMAL] [Scripts] 😵 Effect Stagger: Defender takes 7
+[19:46:16.622] [VERBOSE] [Scripts] 🚫 HP Damage Nullified for Attacker
+[19:46:16.622] [MINIMAL] [Scripts] 🩸 Self Harm: Attacker takes 10 HP
+[19:46:16.622] [VERBOSE] [Scripts] 🔋 Converted 10 smoke -> +5 Power
+[19:46:16.623] [VERBOSE] [Scripts] 🔋 Converted 5 charge -> +5 Power
+[19:46:16.623] [VERBOSE] [Scripts] 📉 Ram Logic: 2 Power, Haste Consumed
+[19:46:16.623] [VERBOSE] [Scripts] 📉 Ram Logic: 15 Power, Haste Consumed
+[19:46:16.623] [VERBOSE] [Scripts] 📉 Ram Logic: 0 Power, Haste Consumed
+[19:46:16.624] [VERBOSE] [Scripts] Modify Power: 5 (Test Bonus) for Striker
+[19:46:16.625] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[19:46:16.625] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[19:46:16.625] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[19:46:16.626] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[19:46:16.626] [NORMAL ] [Summon] 🤖 Summoned Minion (f8c8) for Caster
+[19:46:16.626] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 100)
+[19:46:16.627] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 55)
+[19:46:16.627] [VERBOSE] [Scripts] 🍀 Fortune Power: +5
+[19:46:16.627] [NORMAL ] [Scripts] 🍀 Luck Series: Added 2 dice to card Luck Card
+[19:46:16.628] [VERBOSE] [Scripts] 🍀 Luck Scaling: x3 (Total: +24)
+[19:46:16.628] [VERBOSE] [Scripts] 💚 Healed Healer for 0 HP
+[19:46:16.629] [VERBOSE] [Scripts] 💚 Healed Healer for 0 HP
+[19:46:16.631] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[19:46:16.632] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[19:46:16.633] [VERBOSE] [Scripts] 🛡️ Restored Healer for 0 Stagger
+[19:46:16.634] [VERBOSE] [Scripts] 🧪 Applied 5 burn to Target
+[19:46:16.634] [VERBOSE] [Scripts] 🎲 Applied 8 poise (Roll-based) to Caster
+[19:46:16.635] [VERBOSE] [Scripts] Apply Status haste failed: Roll 5 < 10
+[19:46:16.636] [VERBOSE] [Scripts] ✖️ Multiplied burn on Target by 2.0
+[19:46:16.636] [NORMAL ] [Scripts] 🧹 Removed positive buffs from Target: ['protection']
+[19:46:16.637] [VERBOSE] [Scripts] 🧪 Random Purge: Removed 2 burn from Target
+[19:46:16.637] [VERBOSE] [Scripts] 🧹 Removed 5 bind from Target
+[19:46:16.638] [VERBOSE] [Scripts] ✋ Caster stole 3 power_up from Target
+[19:46:16.638] [VERBOSE] [Scripts] 🎲 Script chance failed (0.5)
+[19:46:16.639] [VERBOSE] [Scripts] 🚫 Script requirement failed: strength 12 < 20
+[19:46:16.639] [VERBOSE] [Script] 🩸 Self-Damage (Roll): Vivien took 15
+[19:46:16.639] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[19:46:16.640] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[19:46:16.640] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[19:46:16.640] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[19:46:16.640] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:46:16.640] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:46:16.642] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[19:46:16.642] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[19:46:16.642] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[19:46:16.642] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[19:46:16.642] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[19:46:16.643] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[19:46:16.643] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[19:46:16.644] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[19:46:16.644] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[19:46:16.645] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[19:46:16.645] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[19:46:16.645] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[19:46:16.645] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[19:46:16.646] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[19:46:16.646] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[19:46:16.647] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[19:46:16.647] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[19:46:16.647] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[19:46:16.649] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[19:46:16.649] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[19:46:16.649] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[19:46:16.650] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:46:16.650] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:46:16.651] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[19:46:16.651] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[19:46:16.651] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[19:46:16.651] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)

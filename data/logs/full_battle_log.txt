@@ -2613,3 +2613,17 @@
 [18:23:55.567] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
 [18:23:55.568] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
 [18:23:55.568] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[19:06:20.164] [MINIMAL] [Scripts] 💔 Decay: Defender takes 40 HP
+[19:06:20.165] [MINIMAL] [Scripts] 💔 Effect Dmg: Defender takes 15 HP
+[19:06:20.166] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 20
+[19:06:20.167] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 10
+[19:06:20.168] [MINIMAL] [Scripts] 😵 Effect Stagger: Defender takes 7
+[19:06:20.169] [VERBOSE] [Scripts] 🚫 HP Damage Nullified for Attacker
+[19:06:20.169] [MINIMAL] [Scripts] 🩸 Self Harm: Attacker takes 10 HP
+[19:34:48.021] [VERBOSE] [Script] 🩸 Self-Damage (Roll): Vivien took 15
+[19:34:51.707] [VERBOSE] [Script] 🩸 Self-Damage (Roll): Vivien took 15
+[19:45:32.265] [VERBOSE] [Scripts] 💚 Healed Healer for 0 HP
+[19:45:32.269] [VERBOSE] [Scripts] 💚 Healed Healer for 0 HP
+[19:45:32.271] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[19:45:32.274] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[19:45:32.275] [VERBOSE] [Scripts] 🛡️ Restored Healer for 0 Stagger
