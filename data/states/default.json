@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "🛠️ Card Editor",
+  "page": "👤 Profile",
   "team_left_data": [
     {
       "name": "Азгик",
@@ -39,7 +39,8 @@
         "azgick_enrage": 0,
         "tea_dark": 0,
         "pat_left_shoulder": 0,
-        "pat_right_shoulder": 0
+        "pat_right_shoulder": 0,
+        "azgick_rule_2": 0
       },
       "active_buffs": {},
       "_status_effects": {
@@ -84,6 +85,14 @@
           },
           {
             "amount": 2,
+            "duration": 1
+          },
+          {
+            "amount": 6,
+            "duration": 1
+          },
+          {
+            "amount": 6,
             "duration": 1
           },
           {
@@ -238,18 +247,18 @@
         },
         {
           "speed": 32,
-          "card": "pat_left_shoulder",
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
           "force_clash": false,
           "ui_status": {
-            "text": "BUFF -> Азгик",
-            "icon": "✨",
-            "color": "green"
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
           },
-          "is_ally_target": true,
+          "is_ally_target": false,
           "destroy_on_speed": true
         },
         {
@@ -539,6 +548,14 @@
           },
           {
             "amount": 2,
+            "duration": 1
+          },
+          {
+            "amount": 6,
+            "duration": 1
+          },
+          {
+            "amount": 6,
             "duration": 1
           },
           {
@@ -1346,9 +1363,9 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Вивиан",
+  "profile_unit": "Лайла",
   "leveling_unit": " Дна'хо",
-  "tree_unit": " Дна'хо",
+  "tree_unit": null,
   "checks_unit": " Дна'хо",
   "undo_stack": []
 }

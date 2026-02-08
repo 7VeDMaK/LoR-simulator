@@ -1,6 +1,6 @@
 {
     "name": "Лайла",
-    "level": 40,
+    "level": 1,
     "rank": 9,
     "avatar": "data/avatars\\Лайла.jpg",
     "base_intellect": 8,
@@ -14,25 +14,19 @@
         "tal_stg": 0
     },
     "flat_mods": {
-        "imp_hp": 300,
-        "imp_sp": 300,
-        "imp_stg": 300
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
     },
-    "current_hp": 357,
-    "current_sp": 351,
-    "current_stagger": 478,
+    "current_hp": 27,
+    "current_sp": 27,
+    "current_stagger": 13,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {
-        "time_cant_turn_back_blunt": [
-            1
-        ],
-        "still_alive_blunt": [
-            1
-        ],
-        "perfect_cut": [
-            1
-        ]
+        "time_cant_turn_back_blunt": 0,
+        "still_alive_blunt": 0,
+        "perfect_cut": 0
     },
     "active_buffs": {},
     "_status_effects": {},
@@ -46,10 +40,7 @@
         "double_strike_blunt",
         "time_cant_turn_back_blunt",
         "still_alive_blunt",
-        "perfect_cut",
-        "boom_6233",
-        "reload_ammo",
-        "combat_reload"
+        "perfect_cut"
     ],
     "active_slots": [],
     "stored_dice": [],
@@ -80,9 +71,9 @@
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 357,
-        "current_sp": 351,
-        "current_stagger": 478
+        "current_hp": 27,
+        "current_sp": 27,
+        "current_stagger": 13
     },
     "defense": {
         "armor_name": "Броня Лайлы",
@@ -108,25 +99,22 @@
         "psych": 4
     },
     "skills": {
-        "strike_power": 3,
-        "medicine": 3,
-        "willpower": 3,
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 0,
         "luck": 0,
         "acrobatics": 6,
-        "shields": 6,
-        "tough_skin": 3,
-        "speed": 13,
-        "light_weapon": 3,
+        "shields": 3,
+        "tough_skin": 6,
+        "speed": 9,
+        "light_weapon": 0,
         "medium_weapon": 9,
-        "heavy_weapon": 3,
-        "firearms": 6,
+        "heavy_weapon": 0,
+        "firearms": 0,
         "eloquence": 0,
-        "forging": 10,
-        "engineering": 3,
-        "programming": 3,
-        "power_attack": 3,
-        "smithing": 3,
-        "persuasion": 3
+        "forging": 5,
+        "engineering": 0,
+        "programming": 0
     },
     "passives": [
         "social_phobia",
@@ -137,18 +125,7 @@
         "fear_of_healing",
         "hardened_by_solitude"
     ],
-    "talents": [
-        "athletic",
-        "fast_hands",
-        "leader",
-        "addiction_is_a_bitch",
-        "rapid_retreat",
-        "combat_reload",
-        "find_vulnerability",
-        "borrowed_time",
-        "iron_formation",
-        "last_hope"
-    ],
+    "talents": [],
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
