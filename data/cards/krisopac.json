@@ -1,0 +1,79 @@
+{
+  "cards": [
+    {
+      "id": "элементарный_удар_32369fc",
+      "name": "Тройное рассечение",
+      "tier": 3,
+      "type": "Melee",
+      "description": "Учись!",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 10,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 7,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 3,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "элементарный_удар_69fc",
+      "name": "Бросок монетки",
+      "tier": 2,
+      "type": "Offensive",
+      "description": "и бьём кулаком",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 3,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "blunt",
+          "base_min": 3,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "элементарный_удар_692fc",
+      "name": "Элементарный удар",
+      "tier": 1,
+      "type": "Melee",
+      "description": "хех лол...",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 3,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    }
+  ]
+}
