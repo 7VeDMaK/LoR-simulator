@@ -1,5 +1,6 @@
 import streamlit as st
 
+from core.library import Library
 from core.unit.unit import Unit
 from core.unit.unit_library import UnitLibrary
 from logic.state.state_manager import StateManager
@@ -63,6 +64,10 @@ def load_initial_state():
     """
     Загружает состояние из файла при старте или смене профиля.
     """
+    # 0. Загрузка библиотеки карт
+    if not Library.get_cards_dict():
+        Library.load_all()
+    
     # 1. Инициализация Ростера
     if 'roster' not in st.session_state:
         st.session_state['roster'] = UnitLibrary.load_all() or {"Roland": Unit("Roland")}

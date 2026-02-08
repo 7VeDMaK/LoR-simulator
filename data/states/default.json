@@ -215,7 +215,7 @@
       "active_slots": [
         {
           "speed": 31,
-          "card": "pat_right_shoulder",
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": 0,
@@ -231,7 +231,7 @@
         },
         {
           "speed": 31,
-          "card": "azgick_rule_2",
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": 0,
@@ -263,7 +263,7 @@
         },
         {
           "speed": 32,
-          "card": "pat_left_shoulder",
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": 0,
@@ -279,7 +279,7 @@
         },
         {
           "speed": 25,
-          "card": "debate_red_eye",
+          "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": 0,
@@ -1363,9 +1363,9 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Лайла",
+  "profile_unit": "Masked Torturer (Fortuna)",
   "leveling_unit": " Дна'хо",
-  "tree_unit": null,
+  "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",
   "undo_stack": []
 }
