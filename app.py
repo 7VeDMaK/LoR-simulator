@@ -28,7 +28,7 @@ load_initial_state()
 pages = [
     "⚔️ Simulator",
     "👤 Profile",
-    "👤 Brofile",
+    # "👤 Brofile",
     "🌳 Skill Tree",
     "📈 Leveling",
     "🛠️ Card Editor",
@@ -50,8 +50,8 @@ elif "Profile" in page:
     # render_profile_page()
     render_profile_page_v2()
 
-elif "Brofile" in page:
-    render_profile_page()
+# elif "Brofile" in page:
+#     render_profile_page()
     # render_profile_page_v2()
 
 elif "Checks" in page:

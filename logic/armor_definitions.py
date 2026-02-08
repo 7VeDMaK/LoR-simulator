@@ -24,6 +24,15 @@ ARMOR_REGISTRY = {
         hp_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0},
         stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
     ),
+
+    "standard_fixer_kriser": Armor(
+        id="aboba",
+        name="Набор крысы",
+        rank=9,
+        description="Нет защиты.",
+        hp_resists={"slash": 1.5, "pierce": 1.5, "blunt": 1.5},
+        stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
+    ),
     
     "standard_fixer_suit": Armor(
         id="standard_fixer_suit",

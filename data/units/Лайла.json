@@ -1,10 +1,10 @@
 {
     "name": "Лайла",
-    "level": 1,
+    "level": 3,
     "rank": 9,
     "avatar": "data/avatars\\Лайла.jpg",
     "base_intellect": 8,
-    "total_xp": 0,
+    "total_xp": 4,
     "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -89,12 +89,12 @@
             "pierce": 1.0,
             "blunt": 1.0
         },
-        "weapon_id": "old_musket"
+        "weapon_id": "zweihander_swite"
     },
     "attributes": {
-        "strength": 10,
-        "endurance": 5,
-        "agility": 6,
+        "strength": 8,
+        "endurance": 7,
+        "agility": 8,
         "wisdom": 0,
         "psych": 4
     },
@@ -106,9 +106,9 @@
         "acrobatics": 6,
         "shields": 3,
         "tough_skin": 6,
-        "speed": 9,
+        "speed": 11,
         "light_weapon": 0,
-        "medium_weapon": 9,
+        "medium_weapon": 11,
         "heavy_weapon": 0,
         "firearms": 0,
         "eloquence": 0,
@@ -126,7 +126,9 @@
         "hardened_by_solitude",
         "stances"
     ],
-    "talents": [],
+    "talents": [
+        "pain_points"
+    ],
     "augmentations": [],
     "level_rolls": {},
     "biography": "",

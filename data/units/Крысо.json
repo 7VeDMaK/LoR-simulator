@@ -23,15 +23,52 @@
     "current_stagger": 13,
     "resources": {},
     "cooldowns": {},
-    "card_cooldowns": {},
+    "card_cooldowns": {
+        "элементарный_удар_32369fc": 0,
+        "элементарный_удар_69fc": 0
+    },
     "active_buffs": {},
     "_status_effects": {},
     "delayed_queue": [],
-    "deck": [],
-    "active_slots": [],
+    "deck": [
+        "элементарный_удар_32369fc",
+        "элементарный_удар_32369fc",
+        "элементарный_удар_32369fc",
+        "элементарный_удар_692fc",
+        "элементарный_удар_692fc",
+        "элементарный_удар_692fc",
+        "элементарный_удар_69fc",
+        "элементарный_удар_69fc",
+        "элементарный_удар_69fc"
+    ],
+    "active_slots": [
+        {
+            "speed": 6,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false
+        }
+    ],
     "stored_dice": [],
     "counter_dice": [],
-    "memory": {},
+    "memory": {
+        "start_of_battle_stats": {
+            "hp": 27,
+            "sp": 27,
+            "stagger": 13
+        },
+        "status_rank": "9 (Fixer)",
+        "battle_initialized": true
+    },
     "death_count": 0,
     "overkill_damage": 0,
     "money_log": [],
@@ -41,13 +78,13 @@
         "current_stagger": 13
     },
     "defense": {
-        "armor_name": "Standard Fixer Suit",
+        "armor_name": "Набор крысы",
         "armor_type": "Medium",
-        "armor_id": "standard_fixer_suit",
+        "armor_id": "standard_fixer_kriser",
         "hp_resists": {
-            "slash": 1.0,
-            "pierce": 1.0,
-            "blunt": 1.0
+            "slash": 1.5,
+            "pierce": 1.5,
+            "blunt": 1.5
         },
         "stagger_resists": {
             "slash": 1.0,

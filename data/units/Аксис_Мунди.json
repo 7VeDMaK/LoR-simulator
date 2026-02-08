@@ -1,6 +1,6 @@
 {
     "name": "Аксис Мунди",
-    "level": 13,
+    "level": 21,
     "rank": 9,
     "avatar": "data/avatars\\Аксис_Мунди.png",
     "base_intellect": 8,
@@ -22,22 +22,14 @@
     "current_sp": 56,
     "current_stagger": 64,
     "resources": {
-        "luck": 55
+        "luck": 0
     },
     "cooldowns": {},
     "card_cooldowns": {
-        "axis_plot_armor": [
-            1
-        ],
-        "axis_mcguffin": [
-            1
-        ],
-        "axis_ex_machina": [
-            1
-        ],
-        "axis_sealing": [
-            2
-        ]
+        "axis_plot_armor": 0,
+        "axis_mcguffin": 0,
+        "axis_ex_machina": 0,
+        "axis_sealing": 0
     },
     "active_buffs": {},
     "_status_effects": {},
@@ -135,6 +127,10 @@
         {
             "amount": 100000,
             "reason": "Это за кейс"
+        },
+        {
+            "amount": -5000000,
+            "reason": "Ателье купила плохое "
         }
     ],
     "base_stats": {
@@ -160,7 +156,7 @@
     },
     "attributes": {
         "strength": 0,
-        "endurance": 22,
+        "endurance": 30,
         "agility": 0,
         "wisdom": 15,
         "psych": 0
@@ -169,11 +165,11 @@
         "strike_power": 0,
         "medicine": 0,
         "willpower": 0,
-        "luck": 49,
+        "luck": 57,
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,
-        "speed": 13,
+        "speed": 21,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,
@@ -194,7 +190,10 @@
         "deal_with_fortune",
         "second_chance",
         "sequential_luck",
-        "lucky_bastard"
+        "lucky_bastard",
+        "not_luck_just_skill",
+        "raise_stakes",
+        "azino_777"
     ],
     "augmentations": [],
     "level_rolls": {
