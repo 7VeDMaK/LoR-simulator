@@ -4,10 +4,29 @@ from ui.editor.config import SCRIPT_SCHEMAS, STATUS_LIST
 from ui.icons import get_icon_html, FALLBACK_EMOJIS
 
 
+def clean_editor_params(params: dict) -> dict:
+    """
+    Удаляет из параметров значения, которые совпадают с дефолтными.
+    Помогает не засорять JSON лишними данными (probability: 1.0 и т.д.).
+    """
+    defaults = {
+        "probability": 1.0,
+        "req_stat": "None",
+        "req_val": 0,
+        "delay": 0,
+        "duration": 1,  # Часто 1 это дефолт, но тут аккуратно, иногда важно явно указать
+    }
+
+    cleaned = params.copy()
+    for key, def_val in defaults.items():
+        if key in cleaned and cleaned[key] == def_val:
+            del cleaned[key]
+
+    return cleaned
+
+
 def render_dynamic_form(prefix: str, schema_name: str) -> dict:
-    """
-    Рисует инпуты на основе выбранной схемы и возвращает готовый словарь params.
-    """
+    # ... (код функции render_dynamic_form оставляем без изменений) ...
     if schema_name not in SCRIPT_SCHEMAS:
         return {}
 
@@ -15,11 +34,9 @@ def render_dynamic_form(prefix: str, schema_name: str) -> dict:
     params_def = schema["params"]
     result_params = {}
 
-    # === [NEW] ОТОБРАЖЕНИЕ ОПИСАНИЯ ===
     description = schema.get("description", "")
     if description:
         st.info(description, icon="ℹ️")
-    # ===================================
 
     if not params_def:
         st.caption("Нет дополнительных настроек.")

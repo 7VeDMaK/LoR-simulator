@@ -3,31 +3,40 @@ import streamlit as st
 from core.library import Library
 
 
-def reset_editor_state():
+def reset_editor_state(default_file=None):
     """
-    Сбрасывает все поля редактора в дефолтные значения.
-    Чистит старые ключи сессии, чтобы при создании новой карты не вылезали данные старой.
+    Сбрасывает редактор.
+    :param default_file: Если указан, новая карта будет привязана к этому файлу.
     """
-    # 1. Очищаем ключи, относящиеся к редактору
-    # ed_ = общие поля
-    # d_ = поля кубиков (dice)
-    # de_ = старые ключи эффектов (dice effects), чистим на всякий случай
+    # 1. Очистка (как было)
     keys_to_clear = [k for k in st.session_state.keys() if k.startswith(("ed_", "d_", "de_"))]
     for k in keys_to_clear:
         del st.session_state[k]
 
-    # 2. Устанавливаем дефолтные значения
+    # 2. Дефолтные значения
     st.session_state["ed_name"] = "New Card"
     st.session_state["ed_desc"] = ""
     st.session_state["ed_tier"] = 1
     st.session_state["ed_type"] = "Melee"
-    st.session_state["ed_num_dice"] = 2
+    st.session_state["ed_num_dice"] = 1
     st.session_state["ed_flags"] = []
-    st.session_state["ed_source_file"] = "custom_cards.json"
-    # Список глобальных скриптов (пустой)
+
+    # [FIX] Логика выбора файла
+    if default_file:
+        st.session_state["ed_source_file"] = default_file
+    else:
+        # Пытаемся взять первый попавшийся или custom
+        all_files = Library.get_all_source_files()
+        if "custom_cards.json" in all_files:
+            st.session_state["ed_source_file"] = "custom_cards.json"
+        elif all_files:
+            st.session_state["ed_source_file"] = all_files[0]
+        else:
+            st.session_state["ed_source_file"] = "default.json"
+
     st.session_state["ed_script_list"] = []
 
-    # Сбрасываем ID загруженной карты (чтобы при сохранении создалась новая, если мы нажали Reset)
+    # ID не должно быть при создании новой
     if "ed_loaded_id" in st.session_state:
         del st.session_state["ed_loaded_id"]
 
