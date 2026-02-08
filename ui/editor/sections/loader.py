@@ -6,8 +6,8 @@ from ui.editor.editor_loader import load_card_to_state, reset_editor_state
 def render_editor_loader():
     st.info("📂 Управление Паками и Загрузка", icon="📂")
 
-    # Инициализация библиотеки, если вдруг пустая (первый запуск)
-    if not Library.get_all_source_files():
+    # [FIX] Проверяем, загружены ли карты в память, а не просто наличие файлов
+    if not Library.get_cards_dict():
         Library.load_all()
 
     # --- 1. Создание нового пака ---
@@ -19,8 +19,8 @@ def render_editor_loader():
                 if Library.create_new_pack(new_pack_name):
                     st.success(f"Пак {new_pack_name}.json создан!")
                     # Сразу выбираем его
-                    st.session_state["loader_selected_file"] = f"{new_pack_name}.json" if not new_pack_name.endswith(
-                        ".json") else new_pack_name
+                    fname = f"{new_pack_name}.json" if not new_pack_name.endswith(".json") else new_pack_name
+                    st.session_state["loader_selected_file"] = fname
                     st.rerun()
                 else:
                     st.error("Ошибка создания (возможно, файл существует).")
@@ -62,7 +62,7 @@ def render_editor_loader():
 
     # Формируем список опций
     # Format: "Имя Карты (ID)"
-    card_map = {f"{c.name} ({c.id})": c for c in filtered_cards}
+    card_map = {f"{c.tier}. {c.name}": c for c in filtered_cards}
     options = ["(Создать новую карту)"] + list(card_map.keys())
 
     # Пытаемся восстановить выбор карты

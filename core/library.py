@@ -20,24 +20,50 @@ class Library:
         cls._cards[key] = card
 
     @classmethod
+    def register_temp_card(cls, new_id, card_obj):
+        """Регистрирует модифицированную временную карту под новым ID."""
+        card_obj.id = new_id
+        cls._cards[new_id] = card_obj
+
+    # === [FIX] ВОЗВРАЩЕНЫ ПРОПАВШИЕ МЕТОДЫ ===
+    @classmethod
+    def get_card(cls, key: str) -> Card:
+        """Возвращает копию карты по ID или имени."""
+        if key in cls._cards:
+            return copy.deepcopy(cls._cards[key])
+        for card in cls._cards.values():
+            if card.name == key:
+                return copy.deepcopy(card)
+
+        # Если карты нет, возвращаем заглушку, чтобы не крашить UI
+        return Card(name=str(key), dice_list=[], description="Unknown Card", id="unknown")
+
+    @classmethod
+    def get_all_cards(cls) -> List[Card]:
+        """Возвращает список всех загруженных карт."""
+        return list(cls._cards.values())
+
+    # ==========================================
+
+    @classmethod
     def get_cards_dict(cls) -> Dict[str, Card]:
+        """Возвращает словарь всех карт {id: Card}."""
         return cls._cards
 
     @classmethod
     def get_source(cls, card_id: str) -> str:
+        """Возвращает имя файла, откуда карта была загружена."""
         return cls._sources.get(card_id)
 
     @classmethod
     def load_cards_from_file(cls, filename: str) -> List[Card]:
         """Возвращает список карт, привязанных к конкретному файлу."""
-        # Убедимся, что filename это только имя файла, а не путь
         filename = os.path.basename(filename)
         return [c for c in cls._cards.values() if cls._sources.get(c.id) == filename]
 
     @classmethod
     def load_all(cls, path="data/cards"):
         """Полная перезагрузка всех карт."""
-        # Очищаем старое, чтобы не дублировать при перезагрузке
         cls._cards.clear()
         cls._sources.clear()
 
@@ -83,7 +109,6 @@ class Library:
 
         current_data = {"cards": []}
 
-        # Читаем текущий файл, если есть
         if os.path.exists(filepath):
             try:
                 with open(filepath, 'r', encoding='utf-8') as f:
@@ -98,7 +123,6 @@ class Library:
         card_dict = card.to_dict()
         found = False
 
-        # Обновляем или добавляем
         for i, existing in enumerate(current_data["cards"]):
             if existing.get("id") == card.id:
                 current_data["cards"][i] = card_dict
@@ -114,7 +138,6 @@ class Library:
 
             logger.log(f"💾 Card '{card.name}' saved to {filename}", LogLevel.NORMAL, "System")
 
-            # Обновляем память
             cls.register(card)
             cls._sources[card.id] = filename
         except Exception as e:
@@ -122,8 +145,6 @@ class Library:
 
     @classmethod
     def delete_card(cls, card_id):
-        # ... (код удаления оставляем как был, он вроде корректный) ...
-        # Для краткости не дублирую, если он у вас работает
         if card_id in cls._cards:
             del cls._cards[card_id]
         if card_id in cls._sources:
@@ -168,7 +189,6 @@ class Library:
 
         path = os.path.join(CARDS_DIR, filename)
         if os.path.exists(path):
-            # [FIX] Используем log вместо warning
             logger.log(f"Файл {filename} уже существует.", LogLevel.NORMAL, "System")
             return False
 
@@ -178,7 +198,6 @@ class Library:
                 json.dump(empty_data, f, ensure_ascii=False, indent=2)
 
             logger.log(f"Создан новый пак: {filename}", LogLevel.NORMAL, "System")
-            # [FIX] Перечитываем библиотеку, чтобы новый файл появился в списках
             cls.reload()
             return True
         except Exception as e:
