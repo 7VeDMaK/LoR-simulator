@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 27,
+    "current_hp": 34,
     "current_sp": 27,
-    "current_stagger": 13,
+    "current_stagger": 17,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {
@@ -71,9 +71,9 @@
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 27,
+        "current_hp": 34,
         "current_sp": 27,
-        "current_stagger": 13
+        "current_stagger": 17
     },
     "defense": {
         "armor_name": "Броня Лайлы",

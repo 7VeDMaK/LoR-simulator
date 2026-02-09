@@ -123,9 +123,11 @@ def render_unit_stats(unit: Unit):
 
             if dly > 0: bg_color, border_color = "#1a1a2e", "#6c757d"
 
-            if name in ["bleed", "burn", "paralysis", "fragile", "vulnerability", "weakness", "bind", "tremor"]:
+            if name in ["bleed", "burn", "paralysis", "fragile", "vulnerability", "weakness", "bind", "tremor",
+                       "attack_power_down", "blunt_resist_down", "dmg_down", "pierce_resist_down", "slash_resist_down"]:
                 border_color = "#ef233c"
-            elif name in ["attack_power_up", "endurance", "haste", "protection", "barrier", "regen_hp"]:
+            elif name in ["attack_power_up", "endurance", "haste", "protection", "barrier", "regen_hp",
+                         "revenge_dmg_up", "mental_protection", "main_character_shell", "immune_paralysis", "dmg_up", "adaptation"]:
                 border_color = "#2ec4b6"
 
             value_text = f"<b>{amt}</b>"
