@@ -101,9 +101,9 @@
         "armor_type": "Medium",
         "armor_id": "none",
         "hp_resists": {
-            "slash": 1.5,
-            "pierce": 1.5,
-            "blunt": 1.5
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
         },
         "stagger_resists": {
             "slash": 1.0,
@@ -113,20 +113,20 @@
         "weapon_id": "lilith_scythe"
     },
     "attributes": {
-        "strength": 18,
-        "endurance": 16,
-        "agility": 18,
+        "strength": 21,
+        "endurance": 18,
+        "agility": 19,
         "wisdom": 0,
         "psych": 0
     },
     "skills": {
-        "strike_power": 7,
+        "strike_power": 13,
         "medicine": 0,
         "willpower": 0,
         "luck": 0,
         "acrobatics": 15,
         "shields": 0,
-        "tough_skin": 7,
+        "tough_skin": 13,
         "speed": 30,
         "light_weapon": 3,
         "medium_weapon": 15,
@@ -153,7 +153,9 @@
         "hiding_in_smoke",
         "smoke_universality",
         "aerial_foot",
-        "recycling"
+        "recycling",
+        "self_preservation",
+        "experienced_smoker"
     ],
     "augmentations": [
         "aug_blessing_of_wind",

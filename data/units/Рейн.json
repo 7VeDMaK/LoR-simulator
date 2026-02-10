@@ -1,7 +1,7 @@
 {
     "name": "Рейн",
     "level": 39,
-    "rank": 6,
+    "rank": 4,
     "avatar": "data/avatars\\Рейн.png",
     "base_intellect": 6,
     "total_xp": 277042954240,
@@ -95,9 +95,9 @@
         "weapon_id": "phantom_razors"
     },
     "attributes": {
-        "strength": 6,
+        "strength": 10,
         "endurance": 21,
-        "agility": 8,
+        "agility": 11,
         "wisdom": 0,
         "psych": 21
     },
@@ -105,12 +105,12 @@
         "strike_power": 0,
         "medicine": 15,
         "willpower": 3,
-        "luck": 55,
+        "luck": 62,
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,
-        "speed": 27,
-        "light_weapon": 0,
+        "speed": 30,
+        "light_weapon": 4,
         "medium_weapon": 0,
         "heavy_weapon": 0,
         "firearms": 0,
@@ -135,7 +135,10 @@
         "step_into_shadow",
         "cat_reflexes",
         "eye_for_danger",
-        "covering_tracks"
+        "covering_tracks",
+        "knife_in_back",
+        "vulnerability_point",
+        "extreme_measures"
     ],
     "augmentations": [],
     "level_rolls": {

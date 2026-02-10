@@ -70,5 +70,5 @@ def render_profile_page_v2():
         with tabs[1]: render_equipment_tab(unit, is_edit_mode)
         with tabs[2]: render_passives_tab(unit, is_edit_mode)
         with tabs[3]: render_talents_tab(unit, is_edit_mode)
-        with tabs[4]: render_stats_tab(unit, is_edit_mode)
+        with tabs[4]: render_stats_tab(unit, is_edit_mode, u_key)
         with tabs[5]: render_visuals_tab(unit, is_edit_mode)

@@ -107,16 +107,16 @@
         "weapon_id": "mace"
     },
     "attributes": {
-        "strength": 2,
-        "endurance": 14,
-        "agility": 9,
+        "strength": 30,
+        "endurance": 18,
+        "agility": 0,
         "wisdom": 0,
-        "psych": 0
+        "psych": 9
     },
     "skills": {
         "strike_power": 15,
         "medicine": 0,
-        "willpower": 4,
+        "willpower": 12,
         "luck": 0,
         "acrobatics": 0,
         "shields": 15,
@@ -144,7 +144,9 @@
         "adaptation_tireless",
         "tough_as_steel",
         "survivor",
-        "idol_oath"
+        "idol_oath",
+        "muscle_overstrain",
+        "surgeOfStrength"
     ],
     "augmentations": [],
     "level_rolls": {

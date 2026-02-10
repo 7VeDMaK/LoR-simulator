@@ -1,39 +1,40 @@
 import streamlit as st
-from core.unit.unit_library import UnitLibrary
 from core.enums import UnitType
+from core.ranks import RANK_THRESHOLDS
+from core.unit.unit_library import UnitLibrary
+
+
+_TIER_NAME = {tier: name for _, name, tier in RANK_THRESHOLDS}
 
 
 def _get_rank_info(grade):
     """
-    Возвращает (Название, Цвет) на основе Градации (Grade).
-    В Project Moon:
-    9 = Canard (Слабый)
-    1 = Grade 1 (Сильный)
-    0 = Color (Легенда)
+    Возвращает (Название, Цвет) на основе Grade.
+    Grade 9 = слабый, Grade 1 = сильный, Grade 0 = Color.
     """
-    # Чем МЕНЬШЕ число, тем КРУЧЕ ранг.
+    if grade is None:
+        grade = 9
 
-    if grade >= 9:
-        return "Canard (Grade 9)", "gray"
-    elif grade == 8:
-        return "Urban Myth (Grade 8)", "green"
-    elif grade == 7:
-        return "Urban Legend (Grade 7)", "green"
-    elif grade == 6:
-        return "Urban Plague (Grade 6)", "blue"
-    elif grade == 5:
-        return "Urban Nightmare (Grade 5)", "blue"
-    elif grade == 4:
-        return "Star of the City (Grade 4)", "orange"
-    elif grade == 3:
-        return "Impurity / Grade 3", "orange"
-    elif grade == 2:
-        return "Grade 2", "red"
-    elif grade == 1:
-        return "Grade 1", "red"
+    if grade < 0:
+        tier = 11
     else:
-        # 0 и отрицательные числа
-        return "Color Fixer", "red"
+        grade = max(0, min(9, int(grade)))
+        tier = 10 - grade
+
+    name = _TIER_NAME.get(tier, "Крысы (Rats)")
+
+    if tier <= 1:
+        color = "gray"
+    elif tier <= 3:
+        color = "green"
+    elif tier <= 5:
+        color = "blue"
+    elif tier <= 7:
+        color = "orange"
+    else:
+        color = "red"
+
+    return name, color
 
 
 def render_basic_info(unit, is_edit_mode: bool):

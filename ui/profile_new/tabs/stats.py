@@ -181,10 +181,11 @@ def _render_points_summary(unit):
 
 
 # === ГЛАВНАЯ ФУНКЦИЯ ===
-def render_stats_tab(unit, is_edit_mode: bool):
+def render_stats_tab(unit, is_edit_mode: bool, unit_key: str = ""):
     """
     Вкладка Параметры (Attributes & Skills).
     """
+    key_prefix = f"stats_{unit_key or unit.name}_"
 
     # 0. Панель расчетов (С правильными формулами)
     _render_points_summary(unit)
@@ -202,7 +203,7 @@ def render_stats_tab(unit, is_edit_mode: bool):
             if is_edit_mode:
                 st.caption(label)
                 # Max 999
-                new_val = st.number_input(f"Base {label}", 0, 999, base_val, key=f"attr_inp_{key}",
+                new_val = st.number_input(f"Base {label}", 0, 999, base_val, key=f"{key_prefix}attr_{key}",
                                           label_visibility="collapsed")
 
                 # Превью итога если отличается
@@ -230,7 +231,7 @@ def render_stats_tab(unit, is_edit_mode: bool):
     with c_luck1:
         if is_edit_mode:
             st.caption("Навык Удачи")
-            new_luck = st.number_input("Luck Skill", 0, 999, base_luck, key="luck_skill_inp")
+            new_luck = st.number_input("Luck Skill", 0, 999, base_luck, key=f"{key_prefix}luck_skill")
             if new_luck != base_luck:
                 unit.skills["luck"] = new_luck
                 unit.recalculate_stats()
@@ -244,7 +245,7 @@ def render_stats_tab(unit, is_edit_mode: bool):
     with c_luck2:
         if is_edit_mode:
             st.caption("Очки Удачи (Текущие)")
-            new_cur = st.number_input("Cur Luck", -10, 999, cur_luck, key="luck_res_inp")
+            new_cur = st.number_input("Cur Luck", -10, 999, cur_luck, key=f"{key_prefix}luck_res")
             if new_cur != cur_luck:
                 unit.resources["luck"] = new_cur
                 UnitLibrary.save_unit(unit)
@@ -271,7 +272,7 @@ def render_stats_tab(unit, is_edit_mode: bool):
             if is_edit_mode:
                 c1, c2 = st.columns([2, 1])
                 c1.markdown(f"**{label}**")
-                new_s = c2.number_input(label, 0, 999, base_val, key=f"skill_{key}", label_visibility="collapsed")
+                new_s = c2.number_input(label, 0, 999, base_val, key=f"{key_prefix}skill_{key}", label_visibility="collapsed")
 
                 if new_s != base_val:
                     unit.skills[key] = new_s
@@ -305,8 +306,8 @@ def render_stats_tab(unit, is_edit_mode: bool):
             # HP
             with c_aug1:
                 st.caption("HP Modifiers")
-                nhf = st.number_input("HP Flat", -999, 999, value=unit.implants_hp_flat, key="imp_hp_f")
-                nhp = st.number_input("HP %", -100, 999, value=unit.implants_hp_pct, key="imp_hp_p")
+                nhf = st.number_input("HP Flat", -999, 999, value=unit.implants_hp_flat, key=f"{key_prefix}imp_hp_f")
+                nhp = st.number_input("HP %", -100, 999, value=unit.implants_hp_pct, key=f"{key_prefix}imp_hp_p")
                 if nhf != unit.implants_hp_flat or nhp != unit.implants_hp_pct:
                     unit.implants_hp_flat = nhf
                     unit.implants_hp_pct = nhp
@@ -317,8 +318,8 @@ def render_stats_tab(unit, is_edit_mode: bool):
             # SP
             with c_aug2:
                 st.caption("SP Modifiers")
-                nsf = st.number_input("SP Flat", -999, 999, value=unit.implants_sp_flat, key="imp_sp_f")
-                nsp = st.number_input("SP %", -100, 999, value=unit.implants_sp_pct, key="imp_sp_p")
+                nsf = st.number_input("SP Flat", -999, 999, value=unit.implants_sp_flat, key=f"{key_prefix}imp_sp_f")
+                nsp = st.number_input("SP %", -100, 999, value=unit.implants_sp_pct, key=f"{key_prefix}imp_sp_p")
                 if nsf != unit.implants_sp_flat or nsp != unit.implants_sp_pct:
                     unit.implants_sp_flat = nsf
                     unit.implants_sp_pct = nsp
@@ -329,8 +330,8 @@ def render_stats_tab(unit, is_edit_mode: bool):
             # Stagger
             with c_aug3:
                 st.caption("Stagger Modifiers")
-                nstf = st.number_input("Stg Flat", -999, 999, value=unit.implants_stagger_flat, key="imp_stg_f")
-                nstp = st.number_input("Stg %", -100, 999, value=unit.implants_stagger_pct, key="imp_stg_p")
+                nstf = st.number_input("Stg Flat", -999, 999, value=unit.implants_stagger_flat, key=f"{key_prefix}imp_stg_f")
+                nstp = st.number_input("Stg %", -100, 999, value=unit.implants_stagger_pct, key=f"{key_prefix}imp_stg_p")
                 if nstf != unit.implants_stagger_flat or nstp != unit.implants_stagger_pct:
                     unit.implants_stagger_flat = nstf
                     unit.implants_stagger_pct = nstp

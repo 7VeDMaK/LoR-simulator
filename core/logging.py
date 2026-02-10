@@ -2,7 +2,15 @@ import os
 from datetime import datetime
 from enum import IntEnum
 
-import streamlit as st
+_memory_log_storage = []
+
+
+def _get_session_state():
+    try:
+        import streamlit as st
+    except Exception:
+        return None
+    return getattr(st, "session_state", None)
 
 # Путь к файлу полного лога
 LOG_FILE_PATH = "data/logs/full_battle_log.txt"
@@ -64,25 +72,34 @@ class BattleLogger:
             print(f"Logger File Error: {e}")
 
         # 2. Запись в память (Session State) для UI
-        if 'battle_log_storage' not in st.session_state:
-            st.session_state['battle_log_storage'] = []
+        session_state = _get_session_state()
+        if session_state is None:
+            storage = _memory_log_storage
+        else:
+            if 'battle_log_storage' not in session_state:
+                session_state['battle_log_storage'] = []
+            storage = session_state['battle_log_storage']
 
         # Сохраняем объект лога
         ui_entry = {
-            "id": len(st.session_state['battle_log_storage']),
+            "id": len(storage),
             "time": timestamp,
             "level": level,
             "category": category,
             "message": message
         }
 
-        st.session_state['battle_log_storage'].append(ui_entry)
+        storage.append(ui_entry)
 
     def clear(self):
         """
         Очищает логи в памяти и перезаписывает файл (например, при кнопке Reset Battle).
         """
-        st.session_state['battle_log_storage'] = []
+        session_state = _get_session_state()
+        if session_state is None:
+            _memory_log_storage.clear()
+        else:
+            session_state['battle_log_storage'] = []
 
         try:
             with open(LOG_FILE_PATH, "w", encoding="utf-8") as f:
@@ -95,22 +112,19 @@ class BattleLogger:
         Возвращает список логов для отображения, фильтруя по уровню.
         Пример: Если выбран NORMAL (2), покажет MINIMAL (1) и NORMAL (2).
         """
-        if 'battle_log_storage' not in st.session_state:
-            return []
+        session_state = _get_session_state()
+        storage = _memory_log_storage if session_state is None else session_state.get('battle_log_storage', [])
 
-        return [
-            entry for entry in st.session_state['battle_log_storage']
-            if entry['level'] <= filter_level
-        ]
+        return [entry for entry in storage if entry['level'] <= filter_level]
 
     def get_logs(self):
         """
         Возвращает простой список сообщений (строк) из текущей сессии.
         Используется в профиле для отображения лога расчета.
         """
-        if 'battle_log_storage' not in st.session_state:
-            return []
-        return [entry['message'] for entry in st.session_state['battle_log_storage']]
+        session_state = _get_session_state()
+        storage = _memory_log_storage if session_state is None else session_state.get('battle_log_storage', [])
+        return [entry['message'] for entry in storage]
 
 
 # Глобальный экземпляр логгера для импорта в других файлах
