@@ -19,6 +19,7 @@ def reset_editor_state(default_file=None):
     st.session_state["ed_tier"] = 1
     st.session_state["ed_type"] = "Melee"
     st.session_state["ed_num_dice"] = 1
+    st.session_state["ed_num_dice_input"] = 1
     st.session_state["ed_flags"] = []
 
     # [FIX] Логика выбора файла
@@ -84,6 +85,7 @@ def load_card_to_state(card):
         st.session_state["ed_type"] = ctype_title
 
     st.session_state["ed_num_dice"] = len(card.dice_list)
+    st.session_state["ed_num_dice_input"] = len(card.dice_list)
 
     # --- 2. Глобальные скрипты (On Use / On Play) ---
     # Новый редактор ожидает список словарей: [{'trigger': '...', 'data': {...}}, ...]

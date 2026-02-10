@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING
 
 from core.logging import logger, LogLevel
 from logic.scripts.utils import _check_conditions, _resolve_value, _get_targets
+from logic.statuses.status_constants import POSITIVE_BUFFS
 
 if TYPE_CHECKING:
     from logic.context import RollContext
@@ -124,14 +125,6 @@ def remove_all_positive(context: 'RollContext', params: dict):
     target_mode = params.get("target", "self")
     targets = _get_targets(context, target_mode)
 
-    # Список положительных статусов
-    POSITIVE_BUFFS = [
-        "attack_power_up", "endurance", "haste", "protection", "barrier",
-        "regen_hp", "regen_ganache", "mental_protection", "clarity",
-        "dmg_up", "power_up", "clash_power_up", "stagger_resist",
-        "bleed_resist", "ignore_satiety"
-    ]
-
     for u in targets:
         removed_list = []
         for buff in POSITIVE_BUFFS:
@@ -142,6 +135,50 @@ def remove_all_positive(context: 'RollContext', params: dict):
         if removed_list:
             context.log.append(f"🧹 **Вафли**: Снято {', '.join(removed_list)}")
             logger.log(f"🧹 Removed positive buffs from {u.name}: {removed_list}", LogLevel.NORMAL, "Scripts")
+
+
+def remove_best_positive(ctx: 'RollContext', params: dict):
+    """Снимает один положительный эффект с наибольшей длительностью (tie: большее количество)."""
+    if not _check_conditions(ctx.source, params):
+        return
+
+    target_mode = params.get("target", "target")
+    targets = _get_targets(ctx, target_mode)
+
+    for u in targets:
+        if not hasattr(u, "_status_effects"):
+            continue
+
+        best_status = None
+        best_duration = -1
+        best_amount = -1
+
+        for status_id in POSITIVE_BUFFS:
+            instances = u._status_effects.get(status_id)
+            if not instances:
+                continue
+
+            max_duration = max(i.get("duration", 0) for i in instances)
+            total_amount = sum(i.get("amount", 0) for i in instances)
+
+            if (max_duration > best_duration) or (
+                max_duration == best_duration and total_amount > best_amount
+            ):
+                best_status = status_id
+                best_duration = max_duration
+                best_amount = total_amount
+
+        if best_status:
+            u.remove_status(best_status)
+            if ctx.log is not None:
+                ctx.log.append(
+                    f"🧹 **{u.name}**: Снят {best_status} (Dur {best_duration}, Stack {best_amount})"
+                )
+            logger.log(
+                f"🧹 Best Positive Removed: {best_status} from {u.name} (Dur {best_duration}, Stack {best_amount})",
+                LogLevel.VERBOSE,
+                "Scripts"
+            )
 
 
 def apply_status_by_roll(ctx: 'RollContext', params: dict):

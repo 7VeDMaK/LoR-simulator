@@ -55,6 +55,25 @@ def nullify_hp_damage(ctx: 'RollContext', params: dict):
     logger.log(f"🚫 HP Damage Nullified for {ctx.source.name}", LogLevel.VERBOSE, "Scripts")
 
 
+def multiply_damage(ctx: 'RollContext', params: dict):
+    """Умножает итоговый урон (HP) без изменения броска."""
+    if not _check_conditions(ctx.source, params):
+        return
+
+    mult = float(params.get("multiplier", 2.0))
+    if mult <= 0:
+        return
+
+    ctx.damage_multiplier *= mult
+    if ctx.log is not None:
+        ctx.log.append(f"💥 Damage x{mult:.2f}")
+    logger.log(
+        f"💥 Damage multiplied x{mult:.2f} for {ctx.source.name}",
+        LogLevel.VERBOSE,
+        "Scripts"
+    )
+
+
 def self_harm_percent(ctx: 'RollContext', params: dict):
     """Наносит урон самому себе в % от Макс ХП."""
     if not _check_conditions(ctx.source, params): return

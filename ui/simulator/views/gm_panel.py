@@ -210,10 +210,10 @@ def render_gm_panel():
             with col1:
                 new_hp = st.number_input(
                     "Текущее HP:",
-                    min_value=0,
-                    max_value=selected_unit.max_hp,
-                    value=selected_unit.current_hp,
-                    step=1,
+                    min_value=int(0),
+                    max_value=int(selected_unit.max_hp),
+                    value=int(selected_unit.current_hp),
+                    step=int(1),
                     key=f"gm_hp_{selected_unit.name}"
                 )
             with col2:
@@ -229,10 +229,10 @@ def render_gm_panel():
             with col1:
                 new_sp = st.number_input(
                     "Текущий SP:",
-                    min_value=0,
-                    max_value=selected_unit.max_sp,
-                    value=selected_unit.current_sp,
-                    step=1,
+                    min_value=int(0),
+                    max_value=int(selected_unit.max_sp),
+                    value=int(selected_unit.current_sp),
+                    step=int(1),
                     key=f"gm_sp_{selected_unit.name}"
                 )
             with col2:
@@ -248,10 +248,10 @@ def render_gm_panel():
             with col1:
                 new_stagger = st.number_input(
                     "Текущая Выносливость:",
-                    min_value=0,
-                    max_value=selected_unit.max_stagger,
-                    value=selected_unit.current_stagger,
-                    step=1,
+                    min_value=int(0),
+                    max_value=int(selected_unit.max_stagger),
+                    value=int(selected_unit.current_stagger),
+                    step=int(1),
                     key=f"gm_stagger_{selected_unit.name}"
                 )
             with col2:

@@ -118,3 +118,88 @@ def set_memory_flag(ctx: 'RollContext', params: dict):
         ctx.source.memory[flag] = value
         # Для удобства отладки можно писать и в ctx.log, но сейчас пишем только в logger
         logger.log(f"🚩 Memory: Set {flag}={value} for {ctx.source.name}", LogLevel.VERBOSE, "Scripts")
+
+
+def _get_team_lists(source):
+    if 'team_left' in st.session_state and source in st.session_state['team_left']:
+        return st.session_state['team_left'], st.session_state['team_right']
+    if 'team_right' in st.session_state and source in st.session_state['team_right']:
+        return st.session_state['team_right'], st.session_state['team_left']
+    return None, None
+
+
+def apply_marked_flesh(ctx: 'RollContext', params: dict):
+    """Накладывает marked_flesh на цель с наименьшим HP среди врагов."""
+    source = ctx.source
+    if not source:
+        return
+
+    my_team, enemy_team = _get_team_lists(source)
+    if not enemy_team:
+        return
+
+    candidates = [u for u in enemy_team if not u.is_dead()]
+    if not candidates:
+        return
+
+    target = min(candidates, key=lambda u: u.current_hp)
+
+    # Снимаем старую метку
+    for u in enemy_team:
+        if u.get_status("marked_flesh") > 0:
+            u.remove_status("marked_flesh", 999)
+
+    duration = int(params.get("duration", 99))
+    target.add_status("marked_flesh", 1, duration=duration)
+    target.memory["marked_flesh_by"] = source.name
+    target.memory.pop("marked_flesh_transferred", None)
+    source.memory["marked_flesh_target_name"] = target.name
+
+    if ctx.log is not None:
+        ctx.log.append(f"🩸 **Marked Flesh**: {target.name} selected")
+    logger.log(
+        f"🩸 Marked Flesh applied: {source.name} -> {target.name}",
+        LogLevel.NORMAL,
+        "Scripts"
+    )
+
+
+def set_card_power_bonus(ctx: 'RollContext', params: dict):
+    """Запоминает бонус к мощности для текущей карты на этот ход."""
+    unit = ctx.source
+    card = unit.current_card if unit else None
+    if not unit or not card:
+        return
+
+    base = int(params.get("base", 1))
+    reason = params.get("reason", "Bonus")
+    condition = params.get("condition", "")
+    multiplier = int(params.get("multiplier", 2))
+    else_multiplier = int(params.get("else_multiplier", 1))
+
+    condition_met = False
+    if condition == "last_clash_win":
+        condition_met = bool(unit.memory.get("last_clash_win"))
+        if condition_met:
+            unit.memory["last_clash_win"] = False
+    elif condition == "only_card_this_turn":
+        active_cards = [s for s in unit.active_slots if s.get("card")]
+        condition_met = (len(active_cards) == 1)
+    elif condition == "always":
+        condition_met = True
+
+    mult = multiplier if condition_met else else_multiplier
+
+    unit.memory["card_power_bonus_card_id"] = card.id
+    unit.memory["card_power_bonus_base"] = base
+    unit.memory["card_power_bonus_mult"] = mult
+    unit.memory["card_power_bonus_reason"] = reason
+
+    if ctx.log is not None:
+        tag = "x" + str(mult)
+        ctx.log.append(f"⚔️ Power Bonus: {card.name} {tag}")
+    logger.log(
+        f"⚔️ Card Power Bonus: {unit.name} {card.id} base={base} mult={mult}",
+        LogLevel.VERBOSE,
+        "Scripts"
+    )

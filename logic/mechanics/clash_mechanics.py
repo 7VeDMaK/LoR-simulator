@@ -25,14 +25,20 @@ class ClashMechanicsMixin:
 
     def _handle_clash_win(self, ctx):
         logger.log(f"🏆 Clash Win Hook: {ctx.source.name}", LogLevel.VERBOSE, "Mechanics")
+        if ctx and ctx.source:
+            ctx.source.memory["last_clash_win"] = True
         return scripts.handle_clash_outcome("on_clash_win", ctx)
 
     def _handle_clash_lose(self, ctx):
         logger.log(f"🏳️ Clash Lose Hook: {ctx.source.name}", LogLevel.VERBOSE, "Mechanics")
+        if ctx and ctx.source:
+            ctx.source.memory["last_clash_lose"] = True
         return scripts.handle_clash_outcome("on_clash_lose", ctx)
 
     def _handle_clash_draw(self, ctx):
         logger.log(f"🤝 Clash Draw Hook: {ctx.source.name}", LogLevel.VERBOSE, "Mechanics")
+        if ctx and ctx.source:
+            ctx.source.memory["last_clash_draw"] = True
         return scripts.handle_clash_outcome("on_clash_draw", ctx)
 
     def _trigger_unit_event(self, event_name, unit, *args, **kwargs):

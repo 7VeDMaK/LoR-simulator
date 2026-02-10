@@ -214,6 +214,195 @@
           }
         }
       ]
+    },
+    {
+      "id": "good_coffee_img",
+      "name": "Хорошее кофе... Вдохновляет.",
+      "tier": 4,
+      "type": "Melee",
+      "description": "Пассивно: добавляет 10 Усиления атаки.",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "attack_power_up",
+              "base": 11,
+              "target": "self",
+              "min_roll": 0
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 6,
+          "base_max": 6,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 6,
+          "base_max": 6,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "blunt",
+          "base_min": 6,
+          "base_max": 6,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "blunt",
+          "base_min": 6,
+          "base_max": 6,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "pierce",
+          "base_min": 6,
+          "base_max": 6,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "изничтожение_img5",
+      "name": "Изничтожение",
+      "tier": 2,
+      "type": "Melee",
+      "description": "Пассивное: при использовании отнимается 40 HP, но все кубики получают +6 к мощи.",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "restore_resource",
+            "params": {
+              "type": "hp",
+              "base": -45,
+              "factor": 0.5,
+              "stat": "None",
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "attack_power_up",
+              "base": 7,
+              "duration": 2,
+              "target": "self",
+              "min_roll": 0
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 14,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "blunt",
+          "base_min": 7,
+          "base_max": 14,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "pierce",
+          "base_min": 4,
+          "base_max": 8,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "zaf_false_gesture",
+      "name": "Ложный жест",
+      "tier": 1,
+      "type": "Melee",
+      "description": "\"Они видят человека. Хорошо. Пусть видят.\"\nПри попадании снимает положительный статус с наибольшей длительностью (tie: большее количество).",
+      "flags": [
+        "offensive"
+      ],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "remove_best_positive",
+                "params": {
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "zaf_growing_fury",
+      "name": "Нарастающая свирепость",
+      "tier": 2,
+      "type": "Melee",
+      "description": "\"Один удар. Два. Зачем останавливаться?\" \nЕсли использована сразу после победы в столкновении, бонус к мощи удваивается.",
+      "flags": [
+        "offensive"
+      ],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 18,
+          "is_counter": false,
+          "scripts": {
+            "on_roll": [
+              {
+                "script_id": "multiply_roll_power",
+                "params": {
+                  "multiplier": 2.0,
+                  "reason": "Growing Fury"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 18,
+          "is_counter": false,
+          "scripts": {
+            "on_roll": [
+              {
+                "script_id": "multiply_roll_power",
+                "params": {
+                  "multiplier": 2.0,
+                  "reason": "Growing Fury"
+                }
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

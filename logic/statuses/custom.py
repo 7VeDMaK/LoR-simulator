@@ -678,3 +678,105 @@ class StaggerImmuneStatus(StatusEffect):
     def on_round_end(self, unit, log_func, **kwargs):
         """Статус постоянный, не спадает сам по себе"""
         return []
+
+
+class ExhaustionStatus(StatusEffect):
+    id = "exhaustion"
+    name = "Истощение"
+    description = "До 2 стаков не дает эффекта. На 3 стаках цель взрывается и получает 25% урона от максимального HP."
+    is_debuff = True
+
+    def on_round_end(self, unit, log_func, **kwargs):
+        stack = kwargs.get("stack")
+        if stack is None:
+            stack = unit.get_status(self.id)
+
+        if stack >= 3:
+            damage = int(unit.max_hp * 0.25)
+            if damage > 0:
+                unit.take_damage(damage)
+                if log_func:
+                    log_func(f"💥 **Истощение**: Взрыв! -{damage} HP")
+                logger.log(
+                    f"💥 Exhaustion: {unit.name} took {damage} HP ({stack} stacks)",
+                    LogLevel.NORMAL,
+                    "Status"
+                )
+            unit.remove_status(self.id, 999)
+        return []
+
+
+class MarkedFleshStatus(StatusEffect):
+    id = "marked_flesh"
+    name = "Помеченная плоть"
+    description = "Цель становится единственной целью Зафиэля и получает двойной урон от его атак."
+    is_debuff = True
+
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        if unit.current_hp > 0:
+            return
+
+        marked_by = unit.memory.get("marked_flesh_by")
+        if not marked_by:
+            return
+
+        if source and hasattr(source, "name") and source.name == marked_by:
+            heal = int(source.max_hp * 0.25)
+            if heal > 0:
+                source.heal_hp(heal)
+            source.remove_status("exhaustion", 2)
+
+            log_func = kwargs.get("log_func")
+            if log_func:
+                log_func(f"🩸 **Marked Flesh**: {source.name} healed +{heal} HP, -2 Exhaustion")
+
+            logger.log(
+                f"🩸 Marked Flesh kill: {source.name} healed {heal} HP and removed 2 Exhaustion",
+                LogLevel.NORMAL,
+                "Status"
+            )
+
+        if unit.memory.get("marked_flesh_transferred"):
+            return
+
+        unit.memory["marked_flesh_transferred"] = True
+        self._transfer_mark(unit)
+
+    def _transfer_mark(self, unit):
+        try:
+            import streamlit as st
+        except Exception:
+            return
+
+        team_left = st.session_state.get("team_left", [])
+        team_right = st.session_state.get("team_right", [])
+
+        if unit in team_left:
+            team = team_left
+        elif unit in team_right:
+            team = team_right
+        else:
+            return
+
+        candidates = [u for u in team if not u.is_dead() and u is not unit]
+        if not candidates:
+            return
+
+        new_target = min(candidates, key=lambda u: u.current_hp)
+
+        for u in team:
+            if u.get_status(self.id) > 0:
+                u.remove_status(self.id, 999)
+
+        new_target.add_status(self.id, 1, duration=99)
+        new_target.memory["marked_flesh_by"] = unit.memory.get("marked_flesh_by")
+        new_target.memory.pop("marked_flesh_transferred", None)
+
+        logger.log(
+            f"🩸 Marked Flesh transferred: {unit.name} -> {new_target.name}",
+            LogLevel.NORMAL,
+            "Status"
+        )
+
+    def on_round_end(self, unit, log_func, **kwargs):
+        return []
