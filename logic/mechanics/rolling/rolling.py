@@ -50,8 +50,6 @@ def create_roll_context(source, target, die, is_disadvantage=False) -> RollConte
     # Вынесено в rolling_calc.py
     apply_roll_modifiers(ctx, source, die)
 
-    # === [ОПТИМИЗАЦИЯ] 5. СОБЫТИЯ ON_ROLL ===
-    # Здесь срабатывают Статусы (Strength, Endurance и т.д.)
     if hasattr(source, "trigger_mechanics"):
         source.trigger_mechanics("on_roll", ctx)
 

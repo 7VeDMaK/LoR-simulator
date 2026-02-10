@@ -1,5 +1,6 @@
 import sys
 import os
+from unittest.mock import MagicMock
 
 # Чтобы видеть корень проекта
 sys.path.append(os.getcwd())
@@ -10,7 +11,7 @@ from core.enums import DiceType
 class MockUnit:
     """Имитация Юнита с поддержкой всех необходимых атрибутов для скриптов."""
 
-    def __init__(self, name="Test Dummy", level=1, max_hp=100):
+    def __init__(self, name="Test Dummy", level=1, max_hp=100, max_stagger=100):
         self.name = name
         self.level = level
 
@@ -19,8 +20,8 @@ class MockUnit:
         self.current_hp = max_hp
         self.max_sp = 100
         self.current_sp = 100
-        self.max_stagger = 100
-        self.current_stagger = 100
+        self.max_stagger = max_stagger
+        self.current_stagger = max_stagger
 
         # Словари данных
         self.resources = {}
@@ -43,6 +44,15 @@ class MockUnit:
         self.current_die = None
         self.scene = None
         self.team_id = 0
+
+        # === МАГИЯ MOCK (SPY) ===
+        # Мы оборачиваем реальные методы в MagicMock прямо при создании.
+        # Это позволяет методам работать как обычно, но при этом тесты могут проверять вызовы.
+
+        # Сохраняем ссылку на реальный метод
+        real_add_status = self.add_status
+        # Заменяем метод на Mock, который вызывает реальный метод (side_effect)
+        self.add_status = MagicMock(side_effect=real_add_status)
 
     def is_dead(self):
         return self.current_hp <= 0
@@ -102,12 +112,18 @@ class MockResists:
 
 
 class MockDice:
-    def __init__(self, dtype=DiceType.SLASH, min_val=1, max_val=10):
+    def __init__(self, dtype=DiceType.SLASH, min_val=1, max_val=10, flags=None):
         self.dtype = dtype
         self.min_val = min_val
         self.max_val = max_val
         self.final_value = 0
         self.is_broken = False
+        # Добавил поддержку флагов, так как она используется в тестах (talent_defense_die)
+        self.flags = flags if flags else []
+
+    def roll(self):
+        import random
+        return random.randint(self.min_val, self.max_val)
 
 
 class MockContext:

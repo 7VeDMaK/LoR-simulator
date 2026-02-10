@@ -38,7 +38,7 @@ from logic.character_changing.talents.branch_2_best import TalentInnateTalent, T
     TalentIdealStandard, TalentCopycatInsight, TalentVoidCleave, TalentGoldenReputation
 from logic.character_changing.talents.branch_3_tireless import (
     TalentBigGuy, TalentDefense, TalentCommendableConstitution, TalentBigHeart,
-    TalentRock, TalentDespiteAdversities, TalentHeatResistant,
+    TalentRock, TalentDespiteAdversities, TalentHardenedSkin,
     TalentAdaptationTireless, TalentToughAsSteel, TalentDefender,
     TalentSurvivor, TalentMuscleOverstrain, TalentIdolOath, TalentSurgeOfStrength
 )
@@ -125,7 +125,7 @@ TALENT_REGISTRY = {
     "big_heart": TalentBigHeart(),
     "rock": TalentRock(),
     "despiteAdversities": TalentDespiteAdversities(), # ID должен совпадать с тем, что в unit_mixins
-    "heat_resistant": TalentHeatResistant(),
+    "hardened_skin": TalentHardenedSkin(),
     "adaptation_tireless": TalentAdaptationTireless(),
     "tough_as_steel": TalentToughAsSteel(),
     "defender": TalentDefender(),

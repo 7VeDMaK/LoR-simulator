@@ -17,7 +17,7 @@ def restore_resource(ctx: 'RollContext', params: dict):
 
         if res_type == "hp":
             if amount >= 0:
-                healed = u.heal_hp(amount)
+                healed = u.heal_hp(amount, source=ctx.source)
                 ctx.log.append(f"💚 **{u.name}**: +{healed} HP")
                 logger.log(f"💚 Healed {u.name} for {healed} HP", LogLevel.VERBOSE, "Scripts")
             else:
@@ -27,7 +27,7 @@ def restore_resource(ctx: 'RollContext', params: dict):
 
         elif res_type == "sp":
             if amount >= 0:
-                recovered = u.restore_sp(amount)
+                recovered = u.restore_sp(amount, source=ctx.source)
                 ctx.log.append(f"🧠 **{u.name}**: +{recovered} SP")
                 logger.log(f"🧠 Restored {u.name} for {recovered} SP", LogLevel.VERBOSE, "Scripts")
             else:
@@ -59,7 +59,7 @@ def restore_resource_by_roll(ctx: 'RollContext', params: dict):
 
     for u in targets:
         if res_type == "hp":
-            healed = u.heal_hp(amount)
+            healed = u.heal_hp(amount, source=ctx.source)
             if ctx.log is not None:
                 ctx.log.append(f"💚 **Roll Heal**: {u.name} +{healed} HP")
         elif res_type == "sp":

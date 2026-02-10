@@ -2,21 +2,38 @@ from core.logging import logger, LogLevel
 
 
 class UnitLifecycleMixin:
-    def heal_hp(self, amount: int):
-        if self.get_status("deep_wound") > 0:
-            from logic.statuses.status_definitions import STATUS_REGISTRY
-            if "deep_wound" in STATUS_REGISTRY:
-                original_amount = amount
-                amount = STATUS_REGISTRY["deep_wound"].apply_heal_reduction(self, amount)
+    def heal_hp(self, amount: int, source=None, **kwargs):
+        """
+        Восстанавливает HP.
+        :param amount: Количество HP.
+        :param source: Источник лечения (Unit). Важен для талантов типа "Клятва идола".
+        """
+        # === [NEW] 1. Хуки механик (ТОЛЬКО ДЛЯ ЛЕЧЕНИЯ) ===
+        # Проверяем amount > 0, чтобы случайно не отфильтровать урон, приходящий через take_damage
+        if amount > 0:
+            if hasattr(self, "apply_mechanics_filter"):
+                amount = self.apply_mechanics_filter("modify_incoming_heal", amount, source=source, **kwargs)
 
-                # Логируем работу механики (NORMAL)
-                if amount != original_amount:
-                    logger.log(
-                        f"{self.name}: Healing reduced by Deep Wound ({original_amount} -> {amount})",
-                        LogLevel.NORMAL,
-                        "Status"
-                    )
+            # Если талант заблокировал лечение (вернул 0)
+            if amount <= 0:
+                return 0
 
+            # === 2. Логика Deep Wound (Глубокая рана) ===
+            if self.get_status("deep_wound") > 0:
+                from logic.statuses.status_definitions import STATUS_REGISTRY
+                if "deep_wound" in STATUS_REGISTRY:
+                    original_amount = amount
+                    amount = STATUS_REGISTRY["deep_wound"].apply_heal_reduction(self, amount)
+
+                    # Логируем работу механики (NORMAL)
+                    if amount != original_amount:
+                        logger.log(
+                            f"{self.name}: Healing reduced by Deep Wound ({original_amount} -> {amount})",
+                            LogLevel.NORMAL,
+                            "Status"
+                        )
+
+        # === 3. Применение изменений ===
         old_hp = self.current_hp
         self.current_hp = min(self.max_hp, self.current_hp + amount)
         actual_healed = self.current_hp - old_hp
