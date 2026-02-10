@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 2964,
-    "current_sp": 267,
-    "current_stagger": 1482,
+    "current_hp": 528,
+    "current_sp": 33,
+    "current_stagger": 256,
     "resources": {
         "luck": 439
     },
@@ -28,10 +28,10 @@
     "card_cooldowns": {},
     "active_buffs": {},
     "_status_effects": {
-        "azino_jackpot": [
+        "smoke": [
             {
-                "amount": 1,
-                "duration": 7
+                "amount": 18,
+                "duration": 98
             }
         ]
     },
@@ -39,13 +39,35 @@
     "deck": [],
     "active_slots": [],
     "stored_dice": [],
-    "counter_dice": [],
+    "counter_dice": [
+        {
+            "type": "evade",
+            "base_min": 35,
+            "base_max": 45,
+            "is_counter": true,
+            "scripts": {}
+        },
+        {
+            "type": "evade",
+            "base_min": 35,
+            "base_max": 45,
+            "is_counter": true,
+            "scripts": {}
+        },
+        {
+            "type": "evade",
+            "base_min": 35,
+            "base_max": 45,
+            "is_counter": true,
+            "scripts": {}
+        }
+    ],
     "memory": {
         "status_rank": "2321321",
         "start_of_battle_stats": {
-            "hp": 1674,
-            "sp": 267,
-            "stagger": 837
+            "hp": 231,
+            "sp": 15,
+            "stagger": 112
         },
         "golden_dice_current": 0,
         "azino_slots": [
@@ -53,15 +75,38 @@
             7,
             7
         ],
-        "lucky_coin_count": 0
+        "lucky_coin_count": 0,
+        "adaptation_stats": {
+            "slash": 0,
+            "pierce": 0,
+            "blunt": 0
+        },
+        "muscle_overstrain_uses": 0,
+        "surge_activated": true,
+        "axis_applied_bonus_str": 0,
+        "axis_applied_bonus_end": 0,
+        "axis_applied_bonus_haste": 0,
+        "axis_buff_triad_active": false,
+        "smoke_is_defensive": true,
+        "smoke_limit_bonus": 15,
+        "last_revive_attempt_round": 10,
+        "last_revive_log": {
+            "roll": 1,
+            "bonus": 0,
+            "penalty": 0,
+            "total": 1,
+            "dc": 6,
+            "success": false
+        },
+        "battle_initialized": true
     },
     "death_count": 0,
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 2964,
-        "current_sp": 267,
-        "current_stagger": 1482
+        "current_hp": 528,
+        "current_sp": 33,
+        "current_stagger": 256
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -104,22 +149,18 @@
         "engineering": 0,
         "programming": 0
     },
-    "passives": [
-        "axis_unity",
-        "hedonism"
-    ],
+    "passives": [],
     "talents": [
-        "celestial_eyes",
-        "deal_with_fortune",
-        "second_chance",
-        "sequential_luck",
-        "lucky_bastard",
-        "not_luck_just_skill",
-        "raise_stakes",
-        "azino_777",
-        "blessed_by_fate",
-        "ace_sleeve",
-        "impossible_possible"
+        "hiding_in_smoke",
+        "smoke_universality",
+        "aerial_foot",
+        "smoke_screen",
+        "recycling",
+        "self_preservation",
+        "cleansing",
+        "experienced_smoker",
+        "lung_processing",
+        "to_narnia"
     ],
     "augmentations": [],
     "level_rolls": {

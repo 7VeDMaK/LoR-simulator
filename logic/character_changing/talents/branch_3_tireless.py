@@ -166,14 +166,92 @@ class TalentCommendableConstitution(BasePassive):
 # ==========================================
 class TalentBigHeart(BasePassive):
     id = "big_heart"
-    name = "Большое сердце WIP"
+    name = "Большое сердце"
     description = (
-        "3.3 Опц: Реакцией можно защитить союзника, подставившись под удар (используя неиспользованные кости Блока).\n"
-        "Если используются кости Обороны, союзник получает эффекты навыка."
+        "«Твое сердце бьется не только для тебя. Когда ты полон сил, ты делишься своей стойкостью с теми, кто рядом.»\n\n"
+        "Активно (1 раз за 5 ходов): Требуется Stagger > 50%.\n"
+        "Эффект: Накладывает на всех союзников Барьер прочностью 10% от вашего Макс. HP."
     )
-    is_active_ability = False
+    is_active_ability = True
+    cooldown = 5 # 1 раз за бой
 
-#TODO опц 3.3
+    def _get_allies_safe(self, unit, kwargs_allies):
+        """
+        Вспомогательный метод для поиска союзников.
+        Приоритет:
+        1. Переданные аргументы (kwargs) - для тестов.
+        2. Глобальное состояние симулятора (get_teams) - для игры.
+        """
+        # 1. Если передали явно (например, в тесте)
+        if kwargs_allies:
+            return kwargs_allies
+
+        # 2. Пытаемся достать из движка
+        try:
+            from ui.simulator.logic.simulator_logic import get_teams
+            l_team, r_team = get_teams()
+
+            # Ищем, в какой команде наш юнит
+            if unit in (l_team or []):
+                return l_team
+            elif unit in (r_team or []):
+                return r_team
+        except ImportError:
+            pass  # Если запуск вне контекста UI и без аргументов
+
+        return []
+
+    def activate(self, unit, *args, **kwargs):
+        log_func = kwargs.get("log_func")
+
+        # 1. Проверка кулдауна
+        if unit.cooldowns.get(self.id, 0) > 0:
+            if log_func: log_func(f"❌ {self.name}: Способность уже использована.")
+            return False
+
+        # 2. Проверка условия (Stagger > 50%)
+        threshold = unit.max_stagger * 0.5
+        if unit.current_stagger <= threshold:
+            if log_func: log_func(f"❌ {self.name}: Недостаточно концентрации (нужно > 50% Stagger).")
+            return False
+
+        # 3. Поиск союзников (безопасный метод)
+        allies = self._get_allies_safe(unit, kwargs.get("allies"))
+
+        if not allies:
+            if log_func: log_func(f"⚠️ {self.name}: Не удалось найти союзников.")
+            # Технически это провал активации, но кулдаун тратить не будем
+            return False
+
+        # 4. Эффект
+        barrier_amount = int(unit.max_hp * 0.15)
+        applied_count = 0
+
+        for ally in allies:
+            # Не накладываем на себя (обычно "защитить союзников" подразумевает других,
+            # но если нужно и на себя - уберите проверку ally != unit)
+            # В описании "делишься с теми, кто рядом", обычно это other allies.
+            # Но если хотите на всех - закомментируйте следующую строку:
+            if ally == unit: continue
+
+            # Проверка на смерть
+            is_dead = False
+            if hasattr(ally, 'is_dead'):
+                is_dead = ally.is_dead() if callable(ally.is_dead) else ally.is_dead
+
+            if not is_dead:
+                ally.add_status("barrier", barrier_amount, duration=1)
+                applied_count += 1
+
+        # 5. Финализация
+        unit.cooldowns[self.id] = self.cooldown
+
+        if log_func:
+            log_func(f"❤️ **{self.name}**: Барьер {barrier_amount} наложен на {applied_count} союзников.")
+
+        logger.log(f"❤️ Big Heart: Applied {barrier_amount} barrier to {applied_count} allies", LogLevel.NORMAL,
+                   "Talent")
+        return True
 
 # ==========================================
 # 3.4 Скала
@@ -274,16 +352,66 @@ class TalentDespiteAdversities(BasePassive):
     #     return True
 
 
-#TODO опц 3.5
-
 # ==========================================
-# 3.5 (Опционально) Термостойкий
+# 3.5 Закаленная кожа
 # ==========================================
-class TalentHeatResistant(BasePassive):
-    id = "heat_resistant"
-    name = "Термостойкий WIP"
-    description = "3.5 Опц: Урон от Огня и Холода снижен на 33%."
+class TalentHardenedSkin(BasePassive):
+    id = "hardened_skin"
+    name = "Закаленная кожа"
+    description = (
+        "«Огонь, кислота, глубокие порезы... Со временем тело перестает различать источники боли, превращая их в белый шум.»\n\n"
+        "Пассивно: Ваша кожа грубеет, отвергая губительные воздействия.\n"
+        "Эффект: Получаемый урон от любых негативных эффектов (Кровотечение, Ожог, Яд и др.) снижен на 33%.\n"
+        "Адаптация: При получении урона от эффекта вы восстанавливаете 1% Max Stagger (Выдержки)."
+    )
     is_active_ability = False
+
+    def modify_incoming_damage(self, unit, amount: int, damage_type, **kwargs) -> int:
+        """
+        Снижает урон от статусных эффектов, проверяя damage_type.
+        """
+        # 1. Приводим damage_type к ключу (строка, lowercase)
+        # Это обрабатывает и строки ("Bleed"), и Enum (DiceType.BLEED -> "bleed")
+        dtype_key = getattr(damage_type, "name", str(damage_type)).lower()
+
+        # Список статусных уронов
+        dot_types = [
+            "bleed", "burn", "poison", "rot", "decay", "erosion",
+            "fairy", "hellfire"
+        ]
+        #TODO норм статусы прописать
+
+        # Проверяем напрямую damage_type (или флаг is_status_damage как fallback)
+        if dtype_key in dot_types or kwargs.get("is_status_damage", False):
+            # --- Эффект 1: Снижение урона ---
+            new_amount = int(amount * 0.67)
+
+            if new_amount < amount:
+                logger.log(
+                    f"🛡️ Hardened Skin: Reduced {dtype_key} damage ({amount} -> {new_amount})",
+                    LogLevel.VERBOSE,
+                    "Talent"
+                )
+
+            # --- Эффект 2: Адаптация (Восстановление Stagger) ---
+            if amount > 0:
+                old_stagger = unit.current_stagger
+                # Восстанавливаем 1% от Max Stagger (минимум 1)
+                regen_amt = max(1, int(unit.max_stagger * 0.01))
+
+                unit.current_stagger = min(unit.max_stagger, unit.current_stagger + regen_amt)
+
+                actual_recovered = unit.current_stagger - old_stagger
+                if actual_recovered > 0:
+                    logger.log(
+                        f"🧠 Hardened Skin: Recovered {actual_recovered} SP from {dtype_key}",
+                        LogLevel.VERBOSE,
+                        "Talent"
+                    )
+
+            return new_amount
+
+        return amount
 
 
 # ==========================================
@@ -395,16 +523,39 @@ class TalentToughAsSteel(BasePassive):
 # ==========================================
 class TalentDefender(BasePassive):
     id = "defender"
-    name = "Защитник WIP"
+    name = "Защитник"
     description = (
-        "3.7 Опц: Союзники получают 4 Защиты в первом раунде.\n"
-        "Можно перехватывать удары за союзников без костей блока (получая +1 Силу за каждый удар)."
+        "«Пусть их гнев обрушится на меня. Мой щит выдержит, а вы — бейте в ответ.»\n\n"
+        "Активно (КД: 5 сцен): Вы вызываете огонь на себя.\n"
+        "Эффект: Вы получаете статус 'Провокация' (Taunt) на 3 раунда.\n"
+        "Бонус выживания: При активации вы получаете 3 Защиты (Protection) на этот раунд."
     )
-    is_active_ability = False
+    is_active_ability = True
+    cooldown = 5
 
-    def on_combat_start(self, unit, log_func, **kwargs):
-        # В текущей версии сложно найти "союзников", наложим на себя как ауру
-        if log_func: log_func(f"🛡️ **{self.name}**: Аура защиты активирована.")
+    def activate(self, unit, *args, **kwargs):
+        log_func = kwargs.get("log_func")
+
+        # 1. Проверка кулдауна
+        if unit.cooldowns.get(self.id, 0) > 0:
+            if log_func: log_func(f"❌ {self.name}: Способность перезаряжается.")
+            return False
+
+        # 2. Наложение эффектов
+        # Провокация (Taunt): заставляет врагов с "One-Sided" атаками переключаться на этого юнита (если реализовано в targeting.py)
+        unit.add_status("taunt", 1, duration=3)
+
+        # Защита (Protection): снижает входящий урон, чтобы танк не умер
+        unit.add_status("protection", 3, duration=3)
+
+        # 3. Установка КД и лог
+        unit.cooldowns[self.id] = self.cooldown
+
+        if log_func:
+            log_func(f"🛡️ **{self.name}**: Щиты подняты! Внимание врагов приковано к вам (Taunt x3).")
+
+        logger.log(f"🛡️ Defender: Activated Taunt (3 turns) + Protection on {unit.name}", LogLevel.NORMAL, "Talent")
+        return True
 
 
 # ==========================================
@@ -541,45 +692,139 @@ class TalentMuscleOverstrain(BasePassive):
 # ==========================================
 class TalentIdolOath(BasePassive):
     id = "idol_oath"
-    name = "Клятва идола WIP"
+    name = "Клятва идола"
     description = (
-        "3.9 Опц: Вы отказываетесь от лечения других WIP.\n"
-        "Медицина +15.\n"
-        "HP < 25% -> +2 Мощь.\n"
-        "Крепкая кожа +15."
+        "«Я не приму помощи. Моя плоть затянется сама, либо я умру, как того заслуживаю.»\n\n"
+        "Пассивно: Вы не можете получать лечение от союзников (исцеление от карт или способностей других персонажей равно 0).\n"
+        "Характеристики: Медицина +15, Крепкая кожа +15.\n"
+        "Кризис: Если HP < 25%, вы получаете +2 к Силе Атаки, Блока и Уклонения."
     )
     is_active_ability = False
 
     def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
-        # Базовые бонусы
+        """Расчет статов."""
         mods = {"medicine": 15, "tough_skin": 15}
 
-        # Проверка HP < 25%
+        # Проверка HP < 25% для бонуса к силе
         if unit.max_hp > 0 and (unit.current_hp / unit.max_hp) < 0.25:
-            # Заменяем нерабочий "power_all" на три конкретных бонуса
-            mods["power_attack"] = 2  # Для Атаки (Slash/Pierce/Blunt)
-            mods["power_block"] = 2  # Для Блока
-            mods["power_evade"] = 2  # Для Уклонения
-
-            # Log this effect only once per recalc cycle ideally, or rely on stats diff
-            # logger.log(f"💪 Idol Oath: HP < 25% -> +2 Power activated for {unit.name}", LogLevel.VERBOSE, "Talent")
+            mods["power_attack"] = 2
+            mods["power_block"] = 2
+            mods["power_evade"] = 2
+            # Логгирование здесь лучше не делать, чтобы не спамить в консоль при каждом пересчете
 
         return mods
+
+    def modify_incoming_heal(self, unit, amount: int, **kwargs) -> int:
+        """
+        Перехватывает входящее лечение.
+        Если источник лечения (source) существует и это не сам юнит -> блокируем лечение.
+        """
+        source = kwargs.get("source")
+
+        # Если источник не указан, считаем это "системным" или "безопасным" хилом (на всякий случай пропускаем)
+        # Если source == unit (самолечение), тоже пропускаем.
+        if source is None or source == unit:
+            return amount
+
+        # Если мы здесь, значит source существует и это КТО-ТО ДРУГОЙ
+        if amount > 0:
+            logger.log(
+                f"🚫 Idol Oath: Refused healing ({amount}) from {getattr(source, 'name', 'Unknown')}",
+                LogLevel.VERBOSE,
+                "Talent"
+            )
+
+        return 0
 
 
 # ==========================================
 # 3.10 Прилив сил
 # ==========================================
 class TalentSurgeOfStrength(BasePassive):
-    id = "surgeOfStrength"  # Связь с Обороной
-    name = "Прилив сил WIP"
+    id = "surge_of_strength"  # ID должен совпадать с проверкой в TalentDefense
+    name = "Прилив сил"
     description = (
-        "3.10 HP < 25% -> Мгновенный выход из Оглушения и переброс инициативы.\n"
-        "До конца раунда: +4 Силы, Стойкости, Спешки, Защиты.\n"
-        "Далее до конца боя: +2 Спешки, Откаты -1."
+        "«В тот момент, когда смерть дышит в затылок, время замирает. Ты делаешь вдох, и тело взрывается энергией, которой не должно существовать.»\n\n"
+        "Кризис (HP < 25%, 1 раз за бой):\n"
+        "• Мгновенно восстанавливает Stagger до максимума.\n"
+        "• Снимает 1 ход со всех текущих перезарядок карт.\n"
+        "• До конца раунда: +4 Сила, Стойкость, Спешка, Защита.\n"
+        "• До конца боя: +2 Спешка."
     )
     is_active_ability = False
 
-    # Логика "HP < 25%" должна проверяться в on_take_damage или on_round_start
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        """
+        Проверка условия срабатывания при получении урона.
+        """
+        # 1. Проверка: уже срабатывало?
+        if unit.memory.get("surge_activated", False):
+            return
 
-#TODO 3.9 opc 3 10
+        # 2. Проверка порога HP < 25%
+        # Важно: current_hp уже обновлено после удара
+        threshold = unit.max_hp * 0.25
+        if unit.current_hp <= threshold:
+            self._activate_surge(unit, kwargs.get("log_func"))
+
+    def on_combat_start(self, unit, *args, **kwargs):
+        """
+        Страховка: если HP упало не от урона (например, от платы за карты),
+        проверяем в начале раунда.
+        """
+        if unit.memory.get("surge_activated", True):
+            unit.memory["surge_activated"] = False
+
+    def on_round_start(self, unit, *args, **kwargs):
+        """
+        Страховка: если HP упало не от урона (например, от платы за карты),
+        проверяем в начале раунда.
+        """
+        if unit.memory.get("surge_activated", False):
+            return
+
+        threshold = unit.max_hp * 0.25
+        if unit.current_hp <= threshold:
+            self._activate_surge(unit, kwargs.get("log_func"))
+
+    def _activate_surge(self, unit, log_func):
+        """
+        Логика активации эффекта.
+        """
+        # Флаг активации
+        unit.memory["surge_activated"] = True
+
+        # 1. Выход из Stagger (восстановление полной полоски)
+        old_stagger = unit.current_stagger
+        unit.current_stagger = unit.max_stagger
+        # Если есть статус оглушения, его бы тоже снять, но обычно это делается через восстановление полоски
+        # unit.remove_status("staggered")
+
+        # 3. Откаты -1 (Снижаем текущие кулдауны)
+        reduced_count = 0
+        if hasattr(unit, "card_cooldowns"):
+            for cid in unit.card_cooldowns:
+                # card_cooldowns[cid] это список int (может быть несколько копий)
+                current_cds = unit.card_cooldowns[cid]
+                if isinstance(current_cds, list):
+                    unit.card_cooldowns[cid] = [max(0, x - 1) for x in current_cds]
+                    if any(x > 0 for x in current_cds): reduced_count += 1
+                elif isinstance(current_cds, int):
+                    unit.card_cooldowns[cid] = max(0, current_cds - 1)
+                    if current_cds > 0: reduced_count += 1
+
+        # 4. Временные баффы (на этот раунд) - Сила, Стойкость, Спешка, Защита +4
+        duration_temp = 1
+        unit.add_status("attack_power_up", 4, duration=duration_temp)
+        unit.add_status("endurance", 4, duration=duration_temp)
+        unit.add_status("haste", 4, duration=duration_temp)
+        unit.add_status("protection", 4, duration=duration_temp)
+
+        # 5. Постоянный бафф (до конца боя) - Спешка +2
+        unit.add_status("haste", 2, duration=99)
+
+        # Логирование
+        if log_func:
+            log_func(f"⚡ **{self.name}**: КРИЗИС! Stagger восстановлен, Инициатива переброшена, Кулдауны -1.")
+
+        logger.log(f"⚡ Surge of Strength activated for {unit.name} (HP < 25%)", LogLevel.NORMAL, "Talent")

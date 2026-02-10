@@ -27,34 +27,88 @@ class SelfControlStatus(StatusEffect):
 
 class SmokeStatus(StatusEffect):
     id = "smoke"
+    name = "Дым"
 
     def _get_limit(self, unit):
+        # Базовый лимит 10, может быть увеличен талантами (например, Lung Processing)
+        base_limit = 10
+
+        # Проверяем талант 6.7 Lung Processing (Легкая броня)
+        if "lung_processing" in getattr(unit, "talents", []):
+            base_limit = 20
+
         bonus = unit.memory.get("smoke_limit_bonus", 0)
-        return 10 + bonus
+        return base_limit + bonus
 
-    def on_roll(self, ctx: RollContext, stack: int):
+    def on_roll(self, ctx: RollContext, **kwargs):
+        stack = kwargs.get('stack', 0)
+        # Если стаков >= 9, +1 к силе (базовая механика)
         if stack >= 9:
-            ctx.modify_power(1, "Smoke (Base)")
+            ctx.modify_power(1, "Smoke (9+)")
 
-    def get_damage_modifier(self, unit, stack) -> float:
-        eff_stack = min(10, stack)
+    def modify_incoming_damage(self, unit, amount, damage_type, stack=0, **kwargs):
+        """
+        Влияние дыма на входящий урон.
+        По умолчанию: +5% урона за стак (до 10).
+        С талантом 6.1 (Hiding in Smoke): -3% урона за стак.
+        С талантом 6.7 (Lung Processing): -50% если стаков >= 15.
+        """
+        if damage_type != "hp": return amount
+
+        eff_stack = min(10, stack)  # Базовый кап эффекта
+
+        # Талант 6.7 (Тяжелая артиллерия)
+        if "lung_processing" in getattr(unit, "talents", []) and stack >= 15:
+            # Снижение урона на 50%
+            logger.log(f"🚬 Lung Processing: 50% dmg reduction for {unit.name}", LogLevel.VERBOSE, "Status")
+            return int(amount * 0.5)
+
+        # Талант 6.1 (Дым как защита)
         if unit.memory.get("smoke_is_defensive"):
-            return -(eff_stack * 0.03)
+            # Снижаем урон на 3% за стак (макс 30%)
+            multiplier = 1.0 - (eff_stack * 0.03)
+            return int(amount * multiplier)
         else:
-            return eff_stack * 0.05
+            # Увеличиваем урон на 5% за стак (макс 50%)
+            multiplier = 1.0 + (eff_stack * 0.05)
+            return int(amount * multiplier)
 
     def on_round_end(self, unit, log_func, **kwargs):
         msgs = []
-        unit.remove_status("smoke", 1)
-        msgs.append("💨 Smoke decayed (-1)")
+        log_func = kwargs.get('log_func')
+
+        # 1. Естественное рассеивание (-1)
+        # Это НЕ считается тратой для талантов типа "Очищение", поэтому не вызываем триггер
         current = unit.get_status("smoke")
+        if current > 0:
+            unit.remove_status("smoke", 1)
+            msgs.append("💨 Smoke decayed (-1)")
+
+        # 2. Проверка лимита
+        current = unit.get_status("smoke")  # Обновляем после списания
         limit = self._get_limit(unit)
+
         if current > limit:
             loss = current - limit
             unit.remove_status("smoke", loss)
             msgs.append(f"💨 Smoke cap ({limit}) exceeded. Removed {loss}.")
             logger.log(f"💨 Smoke cap exceeded for {unit.name}: -{loss}", LogLevel.VERBOSE, "Status")
+
         return msgs
+
+    def trigger_spend_mechanics(self, unit, amount, log_func=None):
+        """
+        [NEW] Вызывать этот метод при АКТИВНОЙ трате дыма.
+        Запускает таланты (Очищение, Переработка и т.д.).
+        """
+        # Импортируем реестр талантов внутри метода, чтобы избежать циклов
+        from logic.character_changing.talents import TALENT_REGISTRY
+
+        if hasattr(unit, "talents"):
+            for tid in unit.talents:
+                talent = TALENT_REGISTRY.get(tid)
+                if talent and hasattr(talent, "on_smoke_spent"):
+                    talent.on_smoke_spent(unit, amount, log_func)
 
 
 class RedLycorisStatus(StatusEffect):

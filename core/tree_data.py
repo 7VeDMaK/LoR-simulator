@@ -39,7 +39,7 @@ SKILL_TREE = {
         {"code": "3.3опц", "id": "big_heart", "req": "defense"},
         {"code": "3.4", "id": "rock", "req": "commendable_constitution"},
         {"code": "3.5", "id": "despiteAdversities", "req": "rock"},
-        {"code": "3.5опц", "id": "heat_resistant", "req": "rock"},
+        {"code": "3.5опц", "id": "hardened_skin", "req": "rock"},
         {"code": "3.6", "id": "adaptation_tireless", "req": "despiteAdversities"},
         {"code": "3.7", "id": "tough_as_steel", "req": "adaptation_tireless"},
         {"code": "3.7опц", "id": "defender", "req": "adaptation_tireless"},

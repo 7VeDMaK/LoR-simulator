@@ -186,6 +186,24 @@ class BaseEffect:
         """
         pass
 
+    def on_status_applied_global(self, unit: object, target: object, status_id: object, amount: object, **kwargs: object) -> None:
+        """
+        Срабатывает, когда статус накладывается на ЛЮБОГО ДРУГОГО юнита (target).
+        """
+
+    def on_status_removed(self, unit, status_id, amount, **kwargs):
+        """
+        Вызывается, когда с юнита снимается статус (вручную, трата ресурса или истечение).
+
+        Args:
+            unit: Юнит, с которого снят статус.
+            status_id: ID статуса ("smoke", "charge").
+            amount: Количество снятых стаков.
+
+        Пример: Талант 'Очищение' (лечение при потере Дыма), механики разрядки Заряда.
+        """
+        pass
+
     def get_damage_modifier(self, unit, stack=0) -> float:
         """
         Возвращает множитель урона (%).

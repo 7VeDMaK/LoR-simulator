@@ -1341,6 +1341,51 @@
           "scripts": {}
         }
       ]
+    },
+    {
+      "id": "мегахилка_4f52",
+      "name": "мегахилка",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [
+        "friendly"
+      ],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 4,
+          "base_max": 8,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "restore_resource",
+                "params": {
+                  "type": "hp",
+                  "base": 100,
+                  "factor": 0.0,
+                  "stat": "None",
+                  "target": "target"
+                }
+              }
+            ],
+            "on_roll": [
+              {
+                "script_id": "restore_resource",
+                "params": {
+                  "type": "hp",
+                  "base": 100,
+                  "factor": 0.0,
+                  "stat": "None",
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

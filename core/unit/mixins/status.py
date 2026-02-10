@@ -145,3 +145,6 @@ class UnitStatusMixin:
         removed = current_val - self.get_status(name)
         if removed > 0:
             logger.log(f"🧹 {self.name}: Removed {removed} {name}", LogLevel.NORMAL, "Status")
+
+            if hasattr(self, "trigger_mechanics"):
+                self.trigger_mechanics("on_status_removed", self, name, removed)
