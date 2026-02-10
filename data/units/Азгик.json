@@ -1,10 +1,10 @@
 {
     "name": "Азгик",
-    "level": 30,
+    "level": 40,
     "rank": 6,
     "avatar": "data/avatars\\Азгик2.png",
     "base_intellect": 3,
-    "total_xp": 738197504,
+    "total_xp": 576280592896,
     "pct_mods": {
         "imp_hp": 40,
         "imp_sp": 20,

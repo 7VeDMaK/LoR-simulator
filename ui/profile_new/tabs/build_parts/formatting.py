@@ -72,15 +72,20 @@ def _translate_script_effect(script_obj):
 
         return f"Наложить&nbsp;{_hl(val_str + '&nbsp;' + status)}{tgt_str}{time_str}"
 
+
     elif s_id == "consume_status_apply":
-        # Логика Аксис: Снять X -> Наложить Y
+        # Логика Аксис: Снять X -> Наложить Y (поддержка списка статусов)
         con_stat = p.get("consume_status", "").replace("_", " ").title()
-        app_stat = p.get("apply_status", "").replace("_", " ").title()
+        raw_apply = p.get("apply_status", "")
         app_amt = p.get("apply_amount", 1)
         dur = int(p.get("duration", 0))
         dur_str = f"&nbsp;({dur}&nbsp;ход)" if dur > 1 else ""
-
-        return f"Поглотить&nbsp;{con_stat}&nbsp;➔&nbsp;Наложить&nbsp;{_hl(f'{app_amt} {app_stat}')}{tgt_str}{dur_str}"
+        # Если передан список статусов, объединяем их через запятую
+        if isinstance(raw_apply, list):
+            app_stat_str = ", ".join([s.replace("_", " ").title() for s in raw_apply])
+        else:
+            app_stat_str = raw_apply.replace("_", " ").title()
+        return f"Поглотить&nbsp;{con_stat}&nbsp;➔&nbsp;Наложить&nbsp;{_hl(f'{app_amt} {app_stat_str}')}{tgt_str}{dur_str}"
 
     elif s_id == "remove_status":
         status = p.get("status", "Status").replace("_", " ").title()

@@ -1,26 +1,26 @@
 {
     "name": "Экс Машинариум",
-    "level": 6,
+    "level": 11,
     "rank": 9,
-    "avatar": "data/avatars/Экс_Машинариум.jpg",
+    "avatar": "data/avatars\\Экс_Машинариум.jpg",
     "base_intellect": 6,
     "total_xp": 0,
     "pct_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
+        "imp_hp": 20,
+        "imp_sp": 20,
         "imp_stg": 0,
         "tal_hp": 0,
         "tal_sp": 0,
         "tal_stg": 0
     },
     "flat_mods": {
-        "imp_hp": 0,
-        "imp_sp": 0,
-        "imp_stg": 0
+        "imp_hp": 20,
+        "imp_sp": 20,
+        "imp_stg": 10
     },
-    "current_hp": 36,
-    "current_sp": 38,
-    "current_stagger": 18,
+    "current_hp": 67,
+    "current_sp": 69,
+    "current_stagger": 43,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
@@ -33,7 +33,10 @@
         "бросок_камешка_7f34",
         "бросок_камешка_7f34",
         "вдумчиво_посмотрел_53ea",
-        "вдумчиво_посмотрел_53ea"
+        "вдумчиво_посмотрел_53ea",
+        "бросок_камешка_7f34",
+        "вдумчиво_посмотрел_53ea",
+        "бросок_камешка_5cc2"
     ],
     "active_slots": [],
     "stored_dice": [],
@@ -50,18 +53,18 @@
         }
     ],
     "base_stats": {
-        "current_hp": 36,
-        "current_sp": 38,
-        "current_stagger": 18
+        "current_hp": 67,
+        "current_sp": 69,
+        "current_stagger": 43
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
-        "armor_id": "standard_fixer_suit",
         "armor_type": "Medium",
+        "armor_id": "standard_fixer_suit",
         "hp_resists": {
-            "slash": 2.000000000000001,
-            "pierce": 2.000000000000001,
-            "blunt": 2.000000000000001
+            "slash": 1.0,
+            "pierce": 1.0,
+            "blunt": 1.0
         },
         "stagger_resists": {
             "slash": 1.0,
@@ -71,21 +74,21 @@
         "weapon_id": "workshop_pistol"
     },
     "attributes": {
-        "strength": 18,
+        "strength": 27,
         "endurance": 0,
         "agility": 18,
         "wisdom": 0,
         "psych": 0
     },
     "skills": {
-        "strike_power": 12,
+        "strike_power": 20,
         "medicine": 0,
         "willpower": 0,
         "luck": 0,
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,
-        "speed": 12,
+        "speed": 20,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,

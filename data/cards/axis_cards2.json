@@ -172,7 +172,7 @@
       "flags": ["unity"],
       "scripts": {
         "on_use": [
-          { "script_id": "apply_status", "params": { "status": "paralysis", "base": 1, "duration": 1, "target": "target" } },
+          { "script_id": "apply_status", "params": { "status": "vulnerable", "base": 1, "duration": 1, "target": "target" } },
           { "script_id": "share_dice_with_hand", "params": { "flag": "unity" } }
         ]
       },
@@ -239,7 +239,34 @@
       "flags": ["unity"],
       "scripts": {
         "on_use": [
-          { "script_id": "share_dice_with_hand", "params": { "flag": "unity" } }
+          { "script_id": "share_dice_with_hand", "params": { "flag": "unity" } },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "attack_power_up",
+              "base": 3,
+              "duration": 3,
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "endurance",
+              "base": 3,
+              "duration": 3,
+              "target": "self"
+            }
+          },
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "haste",
+              "base": 3,
+              "duration": 3,
+              "target": "self"
+            }
+          }
         ]
       },
       "dice": [
@@ -308,18 +335,37 @@
       "tier": 3,
       "type": "Melee",
       "cost": 4,
-      "description": "III. Ближний. [On Clash] Снимает 1 WinCon -> Союзники получают бафф.",
-      "flags": ["unity"],
+      "description": "III. Ближний. [On Clash] Снимает 1 WinCon -> Союзники получают Силу, Ускорение и Стойкость.",
+      "flags": [
+        "unity"
+      ],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "summon_ally",
+            "params": {
+              "unit_name": "Экс Машинариум"
+            }
+          }
+        ]
+      },
       "dice": [
         {
-          "base_min": 4, "base_max": 10, "type": "evade",
+          "base_min": 4,
+          "base_max": 10,
+          "type": "evade",
           "scripts": {
             "on_clash": [
               {
                 "script_id": "consume_status_apply",
                 "params": {
                   "consume_status": "win_condition",
-                  "apply_status": "strength",
+                  "consume_amount": 1,
+                  "apply_status": [
+                    "strength",
+                    "haste",
+                    "endurance"
+                  ],
                   "apply_amount": 3,
                   "apply_target": "all_allies",
                   "duration": 2
@@ -329,14 +375,21 @@
           }
         },
         {
-          "base_min": 4, "base_max": 10, "type": "evade",
+          "base_min": 4,
+          "base_max": 10,
+          "type": "evade",
           "scripts": {
             "on_clash": [
               {
                 "script_id": "consume_status_apply",
                 "params": {
                   "consume_status": "win_condition",
-                  "apply_status": "strength",
+                  "consume_amount": 1,
+                  "apply_status": [
+                    "strength",
+                    "haste",
+                    "endurance"
+                  ],
                   "apply_amount": 3,
                   "apply_target": "all_allies",
                   "duration": 2
@@ -346,14 +399,21 @@
           }
         },
         {
-          "base_min": 4, "base_max": 10, "type": "evade",
+          "base_min": 4,
+          "base_max": 10,
+          "type": "evade",
           "scripts": {
             "on_clash": [
               {
                 "script_id": "consume_status_apply",
                 "params": {
                   "consume_status": "win_condition",
-                  "apply_status": "strength",
+                  "consume_amount": 1,
+                  "apply_status": [
+                    "strength",
+                    "haste",
+                    "endurance"
+                  ],
                   "apply_amount": 3,
                   "apply_target": "all_allies",
                   "duration": 2

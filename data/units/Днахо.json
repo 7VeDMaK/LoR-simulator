@@ -43,9 +43,9 @@
         "current_stagger": 10
     },
     "defense": {
-        "armor_name": "Unit_37",
-        "armor_id": "none",
+        "armor_name": "Без брони",
         "armor_type": "Medium",
+        "armor_id": "none",
         "hp_resists": {
             "slash": 1.0,
             "pierce": 1.0,
@@ -59,7 +59,7 @@
         "weapon_id": "none"
     },
     "attributes": {
-        "strength": 0,
+        "strength": 2,
         "endurance": 0,
         "agility": 0,
         "wisdom": 0,

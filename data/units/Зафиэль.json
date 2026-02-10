@@ -1,10 +1,10 @@
 {
     "name": "Зафиэль",
-    "level": 29,
+    "level": 33,
     "rank": 6,
     "avatar": "data/avatars\\Зафиэль.jpg",
     "base_intellect": 5,
-    "total_xp": 293601280,
+    "total_xp": 4588568576,
     "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -92,11 +92,11 @@
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
-        "armor_id": "standard_fixer_suit",
         "armor_type": "Medium",
+        "armor_id": "standard_fixer_suit",
         "hp_resists": {
-            "slash": 0.5,
-            "pierce": 2.0,
+            "slash": 1.0,
+            "pierce": 1.0,
             "blunt": 1.0
         },
         "stagger_resists": {
@@ -107,7 +107,7 @@
         "weapon_id": "mace"
     },
     "attributes": {
-        "strength": 30,
+        "strength": 2,
         "endurance": 14,
         "agility": 9,
         "wisdom": 0,

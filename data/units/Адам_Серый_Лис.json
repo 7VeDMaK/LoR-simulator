@@ -1,10 +1,10 @@
 {
     "name": "Адам Серый Лис",
-    "level": 40,
+    "level": 42,
     "rank": 9,
     "avatar": "data/avatars\\Адам_Дам.jpg",
     "base_intellect": 4,
-    "total_xp": 0,
+    "total_xp": 2748779069440,
     "pct_mods": {
         "imp_hp": 100,
         "imp_sp": 13,

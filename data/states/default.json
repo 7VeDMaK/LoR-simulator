@@ -594,8 +594,8 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Лайла",
-  "leveling_unit": " Дна'хо",
+  "profile_unit": "Зафиэль",
+  "leveling_unit": null,
   "tree_unit": "Лайла",
   "checks_unit": " Дна'хо",
   "undo_stack": []

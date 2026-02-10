@@ -1,10 +1,10 @@
 {
     "name": "Лилит",
-    "level": 28,
+    "level": 34,
     "rank": 7,
     "avatar": "data/avatars\\Лилит.png",
     "base_intellect": 3,
-    "total_xp": 152043520,
+    "total_xp": 8741978112,
     "pct_mods": {
         "imp_hp": 6,
         "imp_sp": 0,
