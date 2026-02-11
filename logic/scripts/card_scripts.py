@@ -5,10 +5,7 @@
 from logic.scripts.card_damage import deal_effect_damage, self_harm_percent, add_hp_damage, nullify_hp_damage, \
     deal_damage_by_roll, deal_damage_by_clash_diff
 from logic.scripts.card_damage import multiply_damage
-from logic.scripts.card_dice import (
-    consume_evade_for_haste, repeat_dice_by_status, adaptive_damage_type,
-    break_target_dice, add_preset_dice, share_dice_with_hand # <--- НОВЫЕ ИМПОРТЫ
-)
+from logic.scripts.card_dice import *
 from logic.scripts.card_power import modify_roll_power, convert_status_to_power, lima_ram_logic, apply_card_power_bonus, \
     multiply_roll_power, set_card_power_multiplier, apply_card_power_multiplier
 from logic.scripts.card_special import apply_axis_team_buff, summon_ally, set_memory_flag, apply_marked_flesh, \
@@ -64,7 +61,7 @@ SCRIPTS_REGISTRY = {
     "adaptive_damage_type": adaptive_damage_type,
     "break_target_dice": break_target_dice,
     "add_preset_dice": add_preset_dice,       # <--- НОВОЕ
-    "share_dice_with_hand": share_dice_with_hand, # <--- НОВОЕ
+    "unity_chain_reaction": unity_chain_reaction, # <--- НОВОЕ
 
     # Special & Summons
     "apply_axis_team_buff": apply_axis_team_buff,

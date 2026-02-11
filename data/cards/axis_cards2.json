@@ -6,7 +6,7 @@
       "tier": 1,
       "type": "Ranged",
       "cost": 1,
-      "description": "I. Дальний. Уклонение.\n[On Clash Win] Накладывает 1 'Win Condition' на врага (1 ход).",
+      "description": "I. Дальний. Уклонение.\n[Unity] Наследует кубики цепи. Добавляет свой кубик в цепь.\n[On Clash Win] Накладывает 1 'Win Condition' на врага (1 ход).",
       "dice": [
         {
           "type": "evade",
@@ -31,8 +31,7 @@
       "scripts": {
         "on_use": [
           {
-            "script_id": "share_dice_with_hand",
-            "params": { "flag": "unity" }
+            "script_id": "unity_chain_reaction"
           }
         ]
       }
@@ -42,29 +41,68 @@
       "name": "Мелкие неудачи",
       "tier": 1,
       "type": "Ranged",
-      "description": "I. Дальний бой. [Unity]\nOn Use: Создает 3 доп. кубика и раздает Блок картам Unity в руке.",
-      "flags": ["unity"],
+      "description": "I. Дальний бой. On Hit: на следующий ход накладывает статус.",
+      "flags": [],
+      "scripts": {},
       "dice": [
-        { "type": "block", "base_min": 3, "base_max": 6 }
-      ],
-      "scripts": {
-        "on_use": [
-          {
-            "script_id": "add_preset_dice",
-            "params": {
-              "dice": [
-                { "min": 4, "max": 8, "type": "Slash" },
-                { "min": 4, "max": 8, "type": "Pierce" },
-                { "min": 4, "max": 8, "type": "Blunt" }
-              ]
-            }
-          },
-          {
-            "script_id": "share_dice_with_hand",
-            "params": { "flag": "unity" }
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "weakness",
+                  "base": 1,
+                  "duration": 1,
+                  "delay": 1,
+                  "target": "target"
+                }
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "type": "pierce",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "paralysis",
+                  "base": 1,
+                  "duration": 1,
+                  "delay": 1,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 1,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bind",
+                  "base": 1,
+                  "duration": 1,
+                  "delay": 1,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "axis_min_effort",
@@ -104,12 +142,12 @@
       "name": "Меч славы",
       "tier": 2,
       "type": "Melee",
-      "description": "II. Ближний. [Unity]\nOn Use: Дает этот Slash кубик картам Unity.",
+      "description": "II. Ближний. [Unity]\nOn Use: Наследует кубики. Добавляет Slash в цепь.",
       "flags": ["unity"],
       "scripts": {
         "on_use": [
           { "script_id": "apply_status", "params": { "status": "weakness", "base": 1, "duration": 1, "target": "target" } },
-          { "script_id": "share_dice_with_hand", "params": { "flag": "unity" } }
+          { "script_id": "unity_chain_reaction" }
         ]
       },
       "dice": [
@@ -136,12 +174,12 @@
       "name": "Копьё решимости",
       "tier": 2,
       "type": "Ranged",
-      "description": "II. Дальний. [Unity]\nOn Use: Дает этот Pierce кубик картам Unity.",
+      "description": "II. Дальний. [Unity]\nOn Use: Наследует кубики. Добавляет Pierce в цепь.",
       "flags": ["unity"],
       "scripts": {
         "on_use": [
           { "script_id": "apply_status", "params": { "status": "bind", "base": 1, "duration": 1, "target": "target" } },
-          { "script_id": "share_dice_with_hand", "params": { "flag": "unity" } }
+          { "script_id": "unity_chain_reaction" }
         ]
       },
       "dice": [
@@ -168,12 +206,12 @@
       "name": "Кулак правосудия",
       "tier": 2,
       "type": "Melee",
-      "description": "II. Ближний. [Unity]\nOn Use: Дает этот Blunt кубик картам Unity.",
+      "description": "II. Ближний. [Unity]\nOn Use: Наследует кубики. Добавляет Blunt в цепь.",
       "flags": ["unity"],
       "scripts": {
         "on_use": [
           { "script_id": "apply_status", "params": { "status": "vulnerable", "base": 1, "duration": 1, "target": "target" } },
-          { "script_id": "share_dice_with_hand", "params": { "flag": "unity" } }
+          { "script_id": "unity_chain_reaction" }
         ]
       },
       "dice": [
@@ -235,11 +273,11 @@
       "tier": 3,
       "type": "Melee",
       "cost": 3,
-      "description": "III. Ближний. [On Clash] Снимает 1 WinCon -> Враг получает дебаффы (Fragile, Bind).",
+      "description": "III. Ближний. [Unity] Наследует кубики.\n[On Clash] Снимает 1 WinCon -> Враг получает дебаффы (Fragile, Bind).",
       "flags": ["unity"],
       "scripts": {
         "on_use": [
-          { "script_id": "share_dice_with_hand", "params": { "flag": "unity" } },
+          { "script_id": "unity_chain_reaction" },
           {
             "script_id": "apply_status",
             "params": {
