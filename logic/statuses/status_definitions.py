@@ -12,7 +12,7 @@ from logic.statuses.custom import (
     IgnoreSatietyStatus, RevengeDmgUpStatus, TauntStatus, FanatMarkStatus, ArrestedStatus,
     SlashResistDownStatus, PierceResistDownStatus, BluntResistDownStatus,
     MainCharacterShellStatus, AzinoBeastStatus, AzinoJackpotStatus, LuckyCoinStatus, StatusAntiCharge, UnderCrosshairsStatus,
-    AmmoStatus, StaggerImmuneStatus,  # НОВЫЕ ИМПОРТЫ
+    AmmoStatus, StaggerImmuneStatus, ExhaustionStatus, MarkedFleshStatus,  # НОВЫЕ ИМПОРТЫ
 )
 
 # === РЕГИСТРАЦИЯ ===
@@ -67,6 +67,8 @@ STATUS_REGISTRY = {
     # Иммунитеты
     "immune_paralysis": ImmuneParalysisStatus(),
     "stagger_immune": StaggerImmuneStatus(),
+    "exhaustion": ExhaustionStatus(),
+    "marked_flesh": MarkedFleshStatus(),
     
     # Talent statuses
     "main_character_shell": MainCharacterShellStatus(),

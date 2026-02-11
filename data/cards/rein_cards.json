@@ -4,13 +4,16 @@
       "id": "обычный_удар_img1",
       "name": "Обычный удар",
       "tier": 1,
-      "type": "melee",
+      "type": "Melee",
       "description": "",
+      "flags": [],
+      "scripts": {},
       "dice": [
         {
           "type": "slash",
-          "base_min": 7,
-          "base_max": 15,
+          "base_min": 9,
+          "base_max": 18,
+          "is_counter": false,
           "scripts": {}
         }
       ]
@@ -19,13 +22,16 @@
       "id": "удачное_стечение_img2",
       "name": "Удачное стечение обстоятельств",
       "tier": 1,
-      "type": "melee",
+      "type": "Melee",
       "description": "",
+      "flags": [],
+      "scripts": {},
       "dice": [
         {
           "type": "evade",
-          "base_min": 7,
-          "base_max": 15,
+          "base_min": 9,
+          "base_max": 18,
+          "is_counter": false,
           "scripts": {}
         }
       ]
@@ -43,23 +49,19 @@
             "script_id": "apply_status",
             "params": {
               "status": "attack_power_up",
-              "base": 5,
-              "stat": "None",
-              "scale_from_target": false,
-              "factor": 1.0,
+              "base": 7,
               "duration": 2,
-              "delay": 0,
-              "target": "self"
+              "target": "self",
+              "min_roll": 0
             }
           },
           {
             "script_id": "restore_resource",
             "params": {
               "type": "hp",
-              "base": -10,
-              "stat": "None",
-              "scale_from_target": false,
+              "base": -15,
               "factor": 0.5,
+              "stat": "None",
               "target": "self"
             }
           }
@@ -71,41 +73,46 @@
       "id": "тяжкое_бремя_img4",
       "name": "Тяжкое Бремя",
       "tier": 2,
-      "type": "melee",
-      "description": "При использовании накладывает 1 Защиты себе и 4 Защиты всем союзникам (включая себя) на 2 сцены.",
+      "type": "Melee",
+      "description": "При использовании накладывает 2 Защиты себе и 5 Защиты всем союзникам (включая себя) на 2 сцены.",
+      "flags": [],
       "scripts": {
         "on_use": [
           {
             "script_id": "apply_status",
             "params": {
               "status": "protection",
-              "base": 1,
+              "base": 2,
               "duration": 2,
-              "target": "self"
+              "target": "self",
+              "min_roll": 0
             }
           },
           {
             "script_id": "apply_status",
             "params": {
               "status": "protection",
-              "base": 4,
+              "base": 5,
               "duration": 2,
-              "target": "all_allies"
+              "target": "all_allies",
+              "min_roll": 0
             }
           }
         ]
       },
       "dice": [
         {
-          "type": "block",
-          "base_min": 5,
-          "base_max": 7,
+          "type": "evade",
+          "base_min": 6,
+          "base_max": 21,
+          "is_counter": false,
           "scripts": {}
         },
         {
           "type": "block",
-          "base_min": 4,
-          "base_max": 5,
+          "base_min": 12,
+          "base_max": 15,
+          "is_counter": false,
           "scripts": {}
         }
       ]
@@ -123,10 +130,9 @@
             "script_id": "restore_resource",
             "params": {
               "type": "hp",
-              "base": -40,
-              "stat": "None",
-              "scale_from_target": false,
+              "base": -45,
               "factor": 0.5,
+              "stat": "None",
               "target": "self"
             }
           },
@@ -134,36 +140,33 @@
             "script_id": "apply_status",
             "params": {
               "status": "attack_power_up",
-              "base": 6,
-              "stat": "None",
-              "scale_from_target": false,
-              "factor": 1.0,
+              "base": 7,
               "duration": 2,
-              "delay": 0,
-              "target": "self"
+              "target": "self",
+              "min_roll": 0
             }
           }
         ]
       },
       "dice": [
         {
-          "type": "blunt",
-          "base_min": 6,
-          "base_max": 10,
+          "type": "slash",
+          "base_min": 7,
+          "base_max": 14,
           "is_counter": false,
           "scripts": {}
         },
         {
           "type": "slash",
-          "base_min": 6,
-          "base_max": 10,
+          "base_min": 7,
+          "base_max": 14,
           "is_counter": false,
           "scripts": {}
         },
         {
-          "type": "pierce",
-          "base_min": 3,
-          "base_max": 5,
+          "type": "slash",
+          "base_min": 4,
+          "base_max": 8,
           "is_counter": false,
           "scripts": {}
         }
@@ -173,8 +176,9 @@
       "id": "tale_of_twilight_img",
       "name": "Повесть о Сумерках",
       "tier": 2,
-      "type": "melee",
+      "type": "Melee",
       "description": "Пассивное: при использовании, в следующей сцене персонаж получает Невидимость.",
+      "flags": [],
       "scripts": {
         "on_use": [
           {
@@ -192,20 +196,16 @@
       "dice": [
         {
           "type": "slash",
-          "base_min": 5,
-          "base_max": 7,
+          "base_min": 7,
+          "base_max": 16,
+          "is_counter": false,
           "scripts": {}
         },
         {
           "type": "evade",
-          "base_min": 4,
-          "base_max": 6,
-          "scripts": {}
-        },
-        {
-          "type": "slash",
-          "base_min": 4,
-          "base_max": 6,
+          "base_min": 9,
+          "base_max": 18,
+          "is_counter": false,
           "scripts": {}
         }
       ]
@@ -223,13 +223,10 @@
             "script_id": "apply_status",
             "params": {
               "status": "endurance",
-              "base": 10,
-              "stat": "None",
-              "scale_from_target": false,
-              "factor": 1.0,
+              "base": 12,
               "duration": 2,
-              "delay": 0,
-              "target": "self"
+              "target": "self",
+              "min_roll": 0
             }
           }
         ]
@@ -237,9 +234,16 @@
       "dice": [
         {
           "type": "block",
-          "base_min": 8,
-          "base_max": 12,
+          "base_min": 9,
+          "base_max": 18,
           "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 4,
+          "is_counter": false,
           "scripts": {}
         }
       ]
@@ -248,7 +252,7 @@
       "id": "series_normal_strikes_img",
       "name": "Серия обычных ударов",
       "tier": 3,
-      "type": "melee",
+      "type": "Melee",
       "description": "При использовании: Добавляет +1 атакующий кубик за каждые 10 Удачи (Макс 10).",
       "flags": [
         "unchangeable"
@@ -267,11 +271,10 @@
       "dice": [
         {
           "type": "slash",
-          "base_min": 7,
-          "base_max": 15,
-          "scripts": {
-            "on_roll": []
-          }
+          "base_min": 10,
+          "base_max": 20,
+          "is_counter": false,
+          "scripts": {}
         }
       ]
     },
@@ -279,13 +282,23 @@
       "id": "not_the_limit_img",
       "name": "Это не предел возможностей",
       "tier": 3,
-      "type": "melee",
+      "type": "Melee",
       "description": "",
+      "flags": [],
+      "scripts": {},
       "dice": [
         {
           "type": "slash",
-          "base_min": 12,
-          "base_max": 25,
+          "base_min": 20,
+          "base_max": 30,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 10,
+          "base_max": 16,
+          "is_counter": true,
           "scripts": {}
         }
       ]
@@ -295,7 +308,7 @@
       "name": "Плохое кофе... Нервирует.",
       "tier": 4,
       "type": "Melee",
-      "description": "Пассивно: При использовании отнимает 50 SP, добавляет 7 Усиления атаки.",
+      "description": "Пассивно: При использовании отнимает 50 SP, добавляет 8 Усиления атаки.",
       "flags": [],
       "scripts": {
         "on_use": [
@@ -311,13 +324,9 @@
             "script_id": "apply_status",
             "params": {
               "status": "attack_power_up",
-              "base": 7,
-              "stat": "None",
-              "scale_from_target": false,
-              "factor": 1.0,
-              "duration": 1,
-              "delay": 0,
-              "target": "self"
+              "base": 8,
+              "target": "self",
+              "min_roll": 0
             }
           }
         ]
@@ -325,15 +334,15 @@
       "dice": [
         {
           "type": "slash",
-          "base_min": 23,
-          "base_max": 33,
+          "base_min": 27,
+          "base_max": 42,
           "is_counter": false,
           "scripts": {}
         },
         {
           "type": "slash",
-          "base_min": 6,
-          "base_max": 12,
+          "base_min": 7,
+          "base_max": 13,
           "is_counter": true,
           "scripts": {}
         }
@@ -352,18 +361,21 @@
             "script_id": "apply_status",
             "params": {
               "status": "attack_power_up",
-              "base": 10,
-              "stat": "None",
-              "scale_from_target": false,
-              "factor": 1.0,
-              "duration": 1,
-              "delay": 0,
-              "target": "self"
+              "base": 11,
+              "target": "self",
+              "min_roll": 0
             }
           }
         ]
       },
       "dice": [
+        {
+          "type": "slash",
+          "base_min": 5,
+          "base_max": 5,
+          "is_counter": false,
+          "scripts": {}
+        },
         {
           "type": "slash",
           "base_min": 5,
@@ -406,16 +418,20 @@
           {
             "script_id": "restore_resource",
             "params": {
-              "type": "hp",
-              "base": -50,
+              "type": "stagger",
+              "base": 30,
+              "factor": 0.0,
+              "stat": "None",
               "target": "self"
             }
           },
           {
             "script_id": "restore_resource",
             "params": {
-              "type": "stagger",
-              "base": 25,
+              "type": "hp",
+              "base": -55,
+              "factor": 0.0,
+              "stat": "None",
               "target": "self"
             }
           }
@@ -424,17 +440,48 @@
       "dice": [
         {
           "type": "block",
-          "base_min": 33,
-          "base_max": 33,
+          "base_min": 37,
+          "base_max": 37,
           "is_counter": true,
           "scripts": {}
         },
         {
           "type": "evade",
-          "base_min": 11,
-          "base_max": 11,
+          "base_min": 13,
+          "base_max": 13,
           "is_counter": true,
           "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "веер_клинков_ec6b",
+      "name": "Веер Клинков",
+      "tier": 5,
+      "type": "Mass Individual",
+      "description": "Веер клинков\nМассовая атака которая накладывает на всех кого задела 20 кровотечения",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 34,
+          "base_max": 69,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bleed",
+                  "base": 20,
+                  "duration": 3,
+                  "target": "target",
+                  "min_roll": 0
+                }
+              }
+            ]
+          }
         }
       ]
     }

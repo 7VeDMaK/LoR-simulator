@@ -22,6 +22,24 @@ def _apply_card_cooldown(unit, card):
         logger.log(f"⏳ {unit.name}: Cooldown applied to '{card.name}' ({cd_val} turns)", LogLevel.NORMAL, "Cooldown")
 
 
+def _consume_one_time_card(unit, card):
+    if not unit or not card:
+        return
+    if "one_time" not in getattr(card, "flags", []):
+        return
+
+    if card.id in unit.deck:
+        unit.deck.remove(card.id)
+
+    cds = unit.card_cooldowns.get(card.id)
+    if isinstance(cds, list) and cds:
+        cds.pop()
+        if not cds:
+            unit.card_cooldowns.pop(card.id, None)
+
+    logger.log(f"🧨 {unit.name}: One-time card consumed ({card.name})", LogLevel.NORMAL, "Cooldown")
+
+
 def execute_single_action(engine, act, executed_slots):
     """
     Фаза 2 (Микро): Выполнение конкретного действия из очереди.
@@ -61,6 +79,7 @@ def execute_single_action(engine, act, executed_slots):
 
         # Кулдаун
         _apply_card_cooldown(source, source.current_card)
+        _consume_one_time_card(source, source.current_card)
 
         # [FIX] Передаем executed_slots, чтобы функция знала, какие слоты врагов уже пусты/использованы
         return process_mass_attack(engine, act, act['opposing_team'], p_label, executed_slots)
@@ -77,6 +96,7 @@ def execute_single_action(engine, act, executed_slots):
             details.extend(engine.logs)
 
         _apply_card_cooldown(source, source.current_card)
+        _consume_one_time_card(source, source.current_card)
         return [{"round": "On Play", "details": details}]
 
     # === 3. STANDARD COMBAT ===
@@ -102,6 +122,7 @@ def execute_single_action(engine, act, executed_slots):
             is_clash = True
 
     _apply_card_cooldown(source, source.current_card)
+    _consume_one_time_card(source, source.current_card)
     battle_logs = []
     spd_src = act['slot_data']['speed']
 

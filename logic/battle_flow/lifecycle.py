@@ -90,6 +90,28 @@ def prepare_turn(engine, team_left: list, team_right: list):
                                 slot['target_slot_idx'] = 0
 
                 # Добавляем действие в очередь, только если цель найдена (или авто-назначена)
+                if target_unit and not slot.get('is_ally_target') and unit.name == "Зафиэль":
+                    marked_target = next(
+                        (e for e in target_team if not e.is_dead() and e.get_status("marked_flesh") > 0),
+                        None
+                    )
+                    if marked_target:
+                        target_unit = marked_target
+                        slot['target_unit_idx'] = target_team.index(marked_target)
+                        slot_idx = 0
+                        if marked_target.active_slots:
+                            for i, t_slot in enumerate(marked_target.active_slots):
+                                if not t_slot.get('stunned'):
+                                    slot_idx = i
+                                    break
+                        slot['target_slot_idx'] = slot_idx
+                        slot['is_ally_target'] = False
+                        logger.log(
+                            f"🩸 Marked Flesh Target Override: {unit.name} -> {target_unit.name}",
+                            LogLevel.NORMAL,
+                            "Targeting"
+                        )
+
                 if target_unit:
                     actions.append({
                         'source': unit,
@@ -123,6 +145,18 @@ def finalize_turn(engine, all_units: list):
     logger.log("🏁 Finalizing Turn...", LogLevel.VERBOSE, "Phase")
     engine.logs = []
     report = []
+
+    for u in all_units:
+        u.memory.pop("last_clash_win", None)
+        u.memory.pop("last_clash_lose", None)
+        u.memory.pop("last_clash_draw", None)
+        u.memory.pop("card_power_bonus_card_id", None)
+        u.memory.pop("card_power_bonus_base", None)
+        u.memory.pop("card_power_bonus_mult", None)
+        u.memory.pop("card_power_bonus_reason", None)
+        u.memory.pop("card_power_mult_card_id", None)
+        u.memory.pop("card_power_mult", None)
+        u.memory.pop("card_power_mult_reason", None)
 
     if engine.logs:
         report.append({"round": "End", "rolls": "Events", "details": " | ".join(engine.logs)})

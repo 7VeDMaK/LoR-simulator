@@ -134,6 +134,17 @@ def apply_damage(attacker_ctx, defender_ctx, dmg_type="hp",
                 logger.log(f"🚫 {defender.name} Immune to Damage ({mech.id})", LogLevel.MINIMAL, "Damage")
                 return 0
 
+    if dmg_type == "hp" and attacker_ctx and defender.get_status("marked_flesh") > 0:
+        marked_by = defender.memory.get("marked_flesh_by")
+        if marked_by and attacker_ctx.source and attacker_ctx.source.name == marked_by:
+            attacker_ctx.damage_multiplier *= 2.0
+            attacker_ctx.log.append("🩸 Marked Flesh: Damage x2")
+            logger.log(
+                f"🩸 Marked Flesh: {attacker_ctx.source.name} deals double damage to {defender.name}",
+                LogLevel.NORMAL,
+                "Damage"
+            )
+
     if hasattr(attacker, "trigger_mechanics"):
         attacker.trigger_mechanics("on_hit", attacker_ctx)
     if script_runner_func:

@@ -14,6 +14,8 @@ NEGATIVE_STATUSES = [
     "bind", "weakness", "lethargy", "wither", "tremor", "rupture",
     "poison",       # Яд
     "deep_wound",   # Глубокая рана
+    "exhaustion",
+    "marked_flesh",
     "slot_lock",    # Блокировка слота
     "passive_lock"  # Блокировка пассивок (от Ганитара)
 ]

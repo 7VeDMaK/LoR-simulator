@@ -62,7 +62,7 @@ def render_editor_loader():
 
     # Формируем список опций
     # Format: "Имя Карты (ID)"
-    card_map = {f"{c.tier}. {c.name}": c for c in filtered_cards}
+    card_map = {f"{c.tier}. {c.name} ({c.id})": c for c in filtered_cards}
     options = ["(Создать новую карту)"] + list(card_map.keys())
 
     # Пытаемся восстановить выбор карты

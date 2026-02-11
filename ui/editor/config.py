@@ -36,6 +36,31 @@ SCRIPT_SCHEMAS = {
                       {"key": "reason", "label": "Название в логе", "type": "text", "default": "Bonus"}
                   ] + COMMON_CONDITIONS
     },
+    "Multiply Roll Power": {
+        "id": "multiply_roll_power",
+        "description": "Умножает итоговое значение броска кубика (мощность) на коэффициент.",
+        "params": [
+                      {"key": "multiplier", "label": "Множитель", "type": "float", "default": 2.0},
+                      {"key": "reason", "label": "Название в логе", "type": "text", "default": "Power x2"}
+                  ] + COMMON_CONDITIONS
+    },
+    "Set Card Power Multiplier": {
+        "id": "set_card_power_multiplier",
+        "description": "Ставит множитель мощности для этой карты (через память, on_use).",
+        "params": [
+                      {"key": "multiplier", "label": "Множитель", "type": "float", "default": 2.0},
+                      {"key": "condition", "label": "Условие", "type": "select",
+                       "opts": ["", "last_clash_win", "last_clash_lose", "last_clash_draw"], "default": ""},
+                      {"key": "reason", "label": "Название в логе", "type": "text", "default": "Power Mult"}
+                  ] + COMMON_CONDITIONS
+    },
+    "Apply Card Power Multiplier": {
+        "id": "apply_card_power_multiplier",
+        "description": "Применяет множитель мощности, установленный для этой карты (on_roll).",
+        "params": [
+                      {"key": "reason", "label": "Название в логе", "type": "text", "default": "Power Mult"}
+                  ] + COMMON_CONDITIONS
+    },
     "Deal Effect Damage": {
         "id": "deal_effect_damage",
         "description": "Наносит прямой урон (HP/SP/Stagger) эффектом (игнорирует резисты, если не указано иное в движке).",
@@ -61,6 +86,13 @@ SCRIPT_SCHEMAS = {
         "id": "nullify_hp_damage",
         "description": "Полностью обнуляет весь HP урон, который должен был нанести этот кубик (или по этому кубику).",
         "params": [] + COMMON_CONDITIONS
+    },
+    "Multiply Damage": {
+        "id": "multiply_damage",
+        "description": "Умножает итоговый урон (HP) без изменения броска.",
+        "params": [
+                      {"key": "multiplier", "label": "Множитель урона", "type": "float", "default": 2.0}
+                  ] + COMMON_CONDITIONS
     },
 
     # =========================================
@@ -98,6 +130,13 @@ SCRIPT_SCHEMAS = {
     "Remove All Positive": {
         "id": "remove_all_positive",
         "description": "Очищает цель от всех положительных эффектов (Strength, Haste и т.д.).",
+        "params": [
+                      {"key": "target", "label": "Цель", "type": "select", "opts": TARGET_OPTS, "default": "target"}
+                  ] + COMMON_CONDITIONS
+    },
+    "Remove Best Positive": {
+        "id": "remove_best_positive",
+        "description": "Снимает один положительный эффект с наибольшей длительностью (tie: большее количество).",
         "params": [
                       {"key": "target", "label": "Цель", "type": "select", "opts": TARGET_OPTS, "default": "target"}
                   ] + COMMON_CONDITIONS
@@ -212,6 +251,23 @@ SCRIPT_SCHEMAS = {
         "description": "Если это кубик уклонения и он не был использован, превращает его в Ускорение на след. ход.",
         "params": [] + COMMON_CONDITIONS
     },
+    "Repeat Dice by Luck": {
+        "id": "repeat_dice_by_luck",
+        "description": "Добавляет копии первого кубика в карту в зависимости от Удачи.",
+        "params": [
+                      {"key": "step", "label": "Шаг удачи", "type": "int", "default": 10},
+                      {"key": "limit", "label": "Лимит копий", "type": "int", "default": 10}
+                  ] + COMMON_CONDITIONS
+    },
+    "Repeat Dice by Status": {
+        "id": "repeat_dice_by_status",
+        "description": "Добавляет копии кубика в карту в зависимости от стаков статуса.",
+        "params": [
+                      {"key": "status", "label": "Статус", "type": "status_select", "default": "haste"},
+                      {"key": "max", "label": "Лимит копий", "type": "int", "default": 4},
+                      {"key": "die_index", "label": "Индекс кубика", "type": "int", "default": 0}
+                  ] + COMMON_CONDITIONS
+    },
 
     # =========================================
     # 6. УДАЧА И ПРОЧЕЕ
@@ -229,6 +285,13 @@ SCRIPT_SCHEMAS = {
         "description": "Призывает нового персонажа в команду из библиотеки.",
         "params": [
                       {"key": "unit_name", "label": "Имя (из Roster)", "type": "text", "default": "Minion"}
+                  ] + COMMON_CONDITIONS
+    },
+    "Apply Marked Flesh": {
+        "id": "apply_marked_flesh",
+        "description": "Помечает врага с наименьшим HP как единственную цель.",
+        "params": [
+                      {"key": "duration", "label": "Длительность", "type": "int", "default": 99}
                   ] + COMMON_CONDITIONS
     },
     "Set Memory Flag": {

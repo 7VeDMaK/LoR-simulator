@@ -94,6 +94,9 @@ def _translate_script_effect(script_obj):
     elif s_id == "remove_all_positive":
         return f"Снять&nbsp;{_hl('ВСЕ&nbsp;положительные')}{tgt_str}"
 
+    elif s_id == "remove_best_positive":
+        return f"Снять&nbsp;{_hl('лучший&nbsp;положительный')}{tgt_str}"
+
     # === РЕСУРСЫ И ЛЕЧЕНИЕ ===
     elif s_id == "restore_resource":
         rtype = p.get("type", "Resource").upper()
@@ -110,6 +113,10 @@ def _translate_script_effect(script_obj):
     elif s_id == "deal_effect_damage" or s_id == "deal_damage":
         dmg_type = p.get("type", "True").capitalize()
         return f"Нанести&nbsp;{_hl(val_str + '&nbsp;' + dmg_type + '&nbsp;урона')}{tgt_str}"
+
+    elif s_id == "multiply_damage":
+        mult = p.get("multiplier", 2.0)
+        return f"Урон&nbsp;x{_hl(mult)}"
 
     elif s_id == "self_harm_percent":
         pct = int(p.get("percent", 0.0) * 100)
@@ -130,6 +137,17 @@ def _translate_script_effect(script_obj):
         desc = ", ".join([d.get('type', 'Die').title() for d in dice_list])
         return f"Добавить&nbsp;кубики:&nbsp;{_hl(desc)}"
 
+    elif s_id == "repeat_dice_by_luck":
+        step = p.get("step", 10)
+        limit = p.get("limit", 10)
+        return f"Повторы&nbsp;кубика&nbsp;по&nbsp;Удаче&nbsp;(шаг&nbsp;{_hl(step)},&nbsp;лимит&nbsp;{_hl(limit)})"
+
+    elif s_id == "repeat_dice_by_status":
+        status = p.get("status", "status").replace("_", " ")
+        limit = p.get("max", 4)
+        die_index = p.get("die_index", 0)
+        return f"Повторить&nbsp;кубик&nbsp;#{die_index + 1}&nbsp;по&nbsp;{_hl(status)}&nbsp;(лимит&nbsp;{_hl(limit)})"
+
     elif s_id == "share_dice_with_hand":
         flag = p.get("flag", "unity")
         return f"Раздать&nbsp;кубик&nbsp;картам&nbsp;в&nbsp;руке&nbsp;({flag})"
@@ -137,6 +155,20 @@ def _translate_script_effect(script_obj):
     elif s_id == "modify_roll_power":
         reason = p.get("reason", "Bonus")
         return f"Сила&nbsp;+{_hl(val_str)}&nbsp;({reason})"
+
+    elif s_id == "multiply_roll_power":
+        mult = p.get("multiplier", 2.0)
+        reason = p.get("reason", "Power x2")
+        return f"Сила&nbsp;x{_hl(mult)}&nbsp;({reason})"
+
+    elif s_id == "set_card_power_multiplier":
+        mult = p.get("multiplier", 2.0)
+        condition = p.get("condition", "")
+        cond_str = f"&nbsp;({condition})" if condition else ""
+        return f"Множитель&nbsp;мощности&nbsp;x{_hl(mult)}{cond_str}"
+
+    elif s_id == "apply_card_power_multiplier":
+        return f"Применить&nbsp;множитель&nbsp;мощности"
 
     # === ПРИЗЫВ И ПРОЧЕЕ ===
     elif s_id == "summon_ally":
@@ -151,6 +183,11 @@ def _translate_script_effect(script_obj):
         flag = p.get("flag", "")
         val = p.get("value", True)
         return f"Флаг:&nbsp;{flag}={val}"
+
+    elif s_id == "apply_marked_flesh":
+        dur = int(p.get("duration", 0))
+        dur_str = f"&nbsp;({dur}&nbsp;ход)" if dur > 1 else ""
+        return f"Наложить&nbsp;{_hl('Помеченную&nbsp;Плоть')}{tgt_str}{dur_str}"
 
     # Fallback (для неизвестных скриптов)
     return f"<span style='color:#777; font-size:0.8em'>{s_id}: {val_str}</span>"
