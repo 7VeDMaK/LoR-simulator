@@ -126,6 +126,8 @@ ICON_FILES = {
 
     # --- Таланты ветки 10: Ахиллесова пята ---
     "achilles_heel": "achilles_heel.png",
+
+    "win_condition": "Win_Condition.webp",
 }
 
 # Эмодзи по умолчанию (если картинки нет или ошибка)

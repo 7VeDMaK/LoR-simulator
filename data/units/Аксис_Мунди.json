@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 117,
+    "current_hp": 168,
     "current_sp": 56,
-    "current_stagger": 64,
+    "current_stagger": 84,
     "resources": {
         "luck": 0
     },
@@ -50,7 +50,10 @@
         "axis_fist_justice",
         "axis_mcguffin",
         "axis_plot_armor",
-        "axis_ex_machina"
+        "axis_ex_machina",
+        "item_heal_5",
+        "item_heal_35",
+        "item_heal_65"
     ],
     "active_slots": [
         {
@@ -92,7 +95,7 @@
         "start_of_battle_stats": {
             "hp": 117,
             "sp": 56,
-            "stagger": 58
+            "stagger": 64
         },
         "last_revive_attempt_round": 1,
         "last_revive_log": {
@@ -134,9 +137,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 117,
+        "current_hp": 168,
         "current_sp": 56,
-        "current_stagger": 64
+        "current_stagger": 84
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
