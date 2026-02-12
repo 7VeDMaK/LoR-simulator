@@ -132,6 +132,11 @@ class RedLycorisStatus(StatusEffect):
     def prevents_damage(self, unit, attacker_ctx) -> bool:
         return True
 
+class BlueHyacinthStatus(StatusEffect):
+    id = "blue_hyacinth"
+    name = "Синий Гиацинт" # Добавил имя для красивого лога
+    prevents_stagger = True
+    prevents_death = True
 
 class SinisterAuraStatus(StatusEffect):
     id = "sinister_aura"

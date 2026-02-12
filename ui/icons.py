@@ -128,6 +128,7 @@ ICON_FILES = {
     "achilles_heel": "achilles_heel.png",
 
     "win_condition": "Win_Condition.webp",
+    "hyacinth_bloom" : "Blue_Hyacinth.png",
 }
 
 # Эмодзи по умолчанию (если картинки нет или ошибка)

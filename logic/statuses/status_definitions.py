@@ -11,8 +11,9 @@ from logic.statuses.custom import (
     SatietyStatus, MentalProtectionStatus, RegenGanacheStatus, BleedResistStatus,
     IgnoreSatietyStatus, RevengeDmgUpStatus, TauntStatus, FanatMarkStatus, ArrestedStatus,
     SlashResistDownStatus, PierceResistDownStatus, BluntResistDownStatus,
-    MainCharacterShellStatus, AzinoBeastStatus, AzinoJackpotStatus, LuckyCoinStatus, StatusAntiCharge, UnderCrosshairsStatus,
-    AmmoStatus, StaggerImmuneStatus, ExhaustionStatus, MarkedFleshStatus,  # НОВЫЕ ИМПОРТЫ
+    MainCharacterShellStatus, AzinoBeastStatus, AzinoJackpotStatus, LuckyCoinStatus, StatusAntiCharge,
+    UnderCrosshairsStatus,
+    AmmoStatus, StaggerImmuneStatus, ExhaustionStatus, MarkedFleshStatus, BlueHyacinthStatus,  # НОВЫЕ ИМПОРТЫ
 )
 
 # === РЕГИСТРАЦИЯ ===
@@ -85,4 +86,5 @@ STATUS_REGISTRY = {
     # Алиасы для обратной совместимости
     "strength": AttackPowerUpStatus(),  # Старое название -> attack_power_up
     "anti_charge": StatusAntiCharge(),
+    "blue_hyacinth": BlueHyacinthStatus()
 }

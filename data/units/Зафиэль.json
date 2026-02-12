@@ -136,7 +136,8 @@
     },
     "passives": [
         "severe_training",
-        "adaptation"
+        "adaptation",
+        "blue_hyacinth_passive"
     ],
     "talents": [
         "big_guy",
