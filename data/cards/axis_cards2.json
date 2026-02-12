@@ -363,7 +363,7 @@
               "consume_amount": 1,
               "apply_status": [
                 "attack_power_down",
-                "fragile",
+                "vulnerable",
                 "bind"
               ],
               "apply_amount": 2,
@@ -452,7 +452,7 @@
                   "consume_status": "win_condition",
                   "consume_amount": 1,
                   "apply_status": [
-                    "strength",
+                    "attack_power_up",
                     "haste",
                     "endurance"
                   ],
@@ -476,7 +476,7 @@
                   "consume_status": "win_condition",
                   "consume_amount": 1,
                   "apply_status": [
-                    "strength",
+                    "attack_power_up",
                     "haste",
                     "endurance"
                   ],
@@ -500,7 +500,8 @@
                   "consume_status": "win_condition",
                   "consume_amount": 1,
                   "apply_status": [
-                    "strength",
+                    "attack_power_up",
+                    "attack_power_up",
                     "haste",
                     "endurance"
                   ],

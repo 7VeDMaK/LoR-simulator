@@ -2,6 +2,7 @@
 Модуль для превращения JSON-скриптов в читаемый HTML для UI.
 Отвечает за генерацию красивых описаний карт и эффектов.
 """
+from ui.icons import get_icon_html
 
 def _translate_script_effect(script_obj):
     """
@@ -50,7 +51,11 @@ def _translate_script_effect(script_obj):
 
     # === СТАТУСЫ ===
     if s_id == "apply_status":
-        status = p.get("status", "Status").replace("_", " ").title()
+        status_key = p.get("status", "Status").lower()
+        status_label = status_key.replace("_", " ").title()
+
+        # [NEW] Получаем иконку
+        icon = get_icon_html(status_key)
 
         # Логика отображения времени
         dur = int(p.get("duration", 0))
@@ -70,26 +75,44 @@ def _translate_script_effect(script_obj):
 
         time_str = f"&nbsp;({', '.join(time_parts)})" if time_parts else ""
 
-        return f"Наложить&nbsp;{_hl(val_str + '&nbsp;' + status)}{tgt_str}{time_str}"
+        return f"Наложить&nbsp;{icon}&nbsp;{_hl(val_str + '&nbsp;' + status_label)}{tgt_str}{time_str}"
 
 
     elif s_id == "consume_status_apply":
         # Логика Аксис: Снять X -> Наложить Y (поддержка списка статусов)
-        con_stat = p.get("consume_status", "").replace("_", " ").title()
+        con_key = p.get("consume_status", "").lower()
+        con_label = con_key.replace("_", " ").title()
+        con_icon = get_icon_html(con_key)
+
         raw_apply = p.get("apply_status", "")
         app_amt = p.get("apply_amount", 1)
         dur = int(p.get("duration", 0))
         dur_str = f"&nbsp;({dur}&nbsp;ход)" if dur > 1 else ""
-        # Если передан список статусов, объединяем их через запятую
+
+        # Если передан список статусов, объединяем их через запятую с иконками
         if isinstance(raw_apply, list):
-            app_stat_str = ", ".join([s.replace("_", " ").title() for s in raw_apply])
+            app_parts = []
+            for s in raw_apply:
+                key = s.lower()
+                label = key.replace("_", " ").title()
+                ic = get_icon_html(key)
+                app_parts.append(f"{ic}&nbsp;{label}")
+            app_stat_str = ", ".join(app_parts)
         else:
-            app_stat_str = raw_apply.replace("_", " ").title()
-        return f"Поглотить&nbsp;{con_stat}&nbsp;➔&nbsp;Наложить&nbsp;{_hl(f'{app_amt} {app_stat_str}')}{tgt_str}{dur_str}"
+            key = raw_apply.lower()
+            label = key.replace("_", " ").title()
+            ic = get_icon_html(key)
+            app_stat_str = f"{ic}&nbsp;{label}"
+
+        return f"Поглотить&nbsp;{con_icon}&nbsp;{con_label}&nbsp;➔&nbsp;Наложить&nbsp;{_hl(f'{app_amt} {app_stat_str}')}{tgt_str}{dur_str}"
 
     elif s_id == "remove_status":
-        status = p.get("status", "Status").replace("_", " ").title()
-        return f"Снять&nbsp;{_hl(val_str + '&nbsp;' + status)}{tgt_str}"
+        status_key = p.get("status", "Status").lower()
+        status_label = status_key.replace("_", " ").title()
+        icon = get_icon_html(status_key)
+        val = p.get("amount", p.get("base"))
+        amt_str = f"&nbsp;{val}" if val else "&nbsp;Все"
+        return f"Снять&nbsp;{icon}&nbsp;{_hl(amt_str + '&nbsp;' + status_label)}{tgt_str}"
 
     elif s_id == "remove_all_positive":
         return f"Снять&nbsp;{_hl('ВСЕ&nbsp;положительные')}{tgt_str}"
@@ -102,8 +125,10 @@ def _translate_script_effect(script_obj):
         return f"Снять&nbsp;случайный&nbsp;{_hl(stype)}&nbsp;статус"
 
     elif s_id == "steal_status":
-        status = p.get("status", "???")
-        return f"Украсть&nbsp;{_hl(status)}"
+        status_key = p.get("status", "???").lower()
+        status_label = status_key.replace("_", " ").title()
+        icon = get_icon_html(status_key)
+        return f"✋ Украсть&nbsp;{icon}&nbsp;{_hl(status_label)}"
 
     elif s_id == "multiply_status":
         mult = p.get("multiplier", 1)
@@ -111,25 +136,34 @@ def _translate_script_effect(script_obj):
         return f"Умножить&nbsp;{_hl(stat)}&nbsp;на&nbsp;{_hl(mult)}"
 
     elif s_id == "apply_status_by_roll":
-        status = p.get("status", "")
-        return f"Наложить&nbsp;{_hl(status)}&nbsp;равное&nbsp;броску"
+        status_key = p.get("status", "").lower()
+        status_label = status_key.replace("_", " ").title()
+        icon = get_icon_html(status_key)
+        return f"🎲&nbsp;Наложить&nbsp;{icon}&nbsp;{_hl(status_label)}&nbsp;равное&nbsp;броску"
 
     # === РЕСУРСЫ И ЛЕЧЕНИЕ ===
     elif s_id == "restore_resource":
-        rtype = p.get("type", "Resource").upper()
-        return f"Восстановить&nbsp;{_hl(val_str + '&nbsp;' + rtype)}{tgt_str}"
+        rtype_key = p.get("type", "hp").lower()
+        rtype_label = rtype_key.upper()
+        icon = get_icon_html(rtype_key)
+        return f"Восстановить&nbsp;{icon}&nbsp;{_hl(val_str + '&nbsp;' + rtype_label)}{tgt_str}"
 
     elif s_id == "restore_resource_by_roll":
-        rtype = p.get("type", "hp").upper()
-        return f"Восст.&nbsp;{_hl(rtype)}&nbsp;равно&nbsp;значению&nbsp;броска"
+        rtype_key = p.get("type", "hp").lower()
+        rtype_label = rtype_key.upper()
+        icon = get_icon_html(rtype_key)
+        return f"Восст.&nbsp;{icon}&nbsp;{_hl(rtype_label)}&nbsp;равно&nbsp;значению&nbsp;броску"
 
     elif s_id == "heal_self_by_roll":
-        return f"Вампиризм:&nbsp;{_hl('Лечение&nbsp;от&nbsp;броска')}"
+        icon = get_icon_html("hp")
+        return f"Вампиризм:&nbsp;{icon}&nbsp;{_hl('Лечение&nbsp;от&nbsp;броска')}"
 
     # === УРОН ===
     elif s_id in ["deal_effect_damage", "deal_damage", "add_hp_damage"]:
-        dmg_type = p.get("type", "True").capitalize()
-        return f"Нанести&nbsp;{_hl(val_str + '&nbsp;' + dmg_type + '&nbsp;урона')}{tgt_str}"
+        dmg_type = p.get("type", "hp").lower() # обычно это тип ресурса, по которому бьем
+        dtype_label = dmg_type.replace("_", " ").title()
+        icon = get_icon_html(dmg_type)
+        return f"Нанести&nbsp;{icon}&nbsp;{_hl(val_str + '&nbsp;' + dtype_label + '&nbsp;урона')}{tgt_str}"
 
     elif s_id == "multiply_damage":
         mult = p.get("multiplier", 2.0)
@@ -137,10 +171,12 @@ def _translate_script_effect(script_obj):
 
     elif s_id == "self_harm_percent":
         pct = int(p.get("percent", 0.0) * 100)
-        return f"Потерять&nbsp;{_hl(f'{pct}%&nbsp;HP')}"
+        icon = get_icon_html("hp")
+        return f"Потерять&nbsp;{icon}&nbsp;{_hl(f'{pct}%&nbsp;HP')}"
 
     elif s_id == "nullify_hp_damage":
-        return f"{_hl('Игнорировать')}&nbsp;урон&nbsp;по&nbsp;HP"
+        icon = get_icon_html("hp")
+        return f"{_hl('Игнорировать')}&nbsp;урон&nbsp;по&nbsp;{icon}&nbsp;HP"
 
     elif s_id == "damage_self_by_roll" or s_id == "deal_damage_by_roll":
         return f"Получить&nbsp;урон&nbsp;равный&nbsp;{_hl('Броску')}"
@@ -149,30 +185,43 @@ def _translate_script_effect(script_obj):
         return f"Получить&nbsp;урон&nbsp;равный&nbsp;{_hl('Разнице&nbsp;Клэша')}"
 
     elif s_id == "break_target_dice":
-        return f"{_hl('СЛОМАТЬ')}&nbsp;кубик&nbsp;противника"
+        icon = get_icon_html("dice_break")
+        return f"{icon}&nbsp;{_hl('СЛОМАТЬ')}&nbsp;кубик&nbsp;противника"
 
     elif s_id == "adaptive_damage_type":
-        return f"{_hl('Адаптивный')}&nbsp;тип&nbsp;урона&nbsp;(по&nbsp;уязвимости)"
+        icon = get_icon_html("adaptation")
+        return f"{icon}&nbsp;{_hl('Адаптивный')}&nbsp;тип&nbsp;урона&nbsp;(по&nbsp;уязвимости)"
 
     elif s_id == "lima_ram_logic":
-        return f"{_hl('Таран')}:&nbsp;Урон&nbsp;зависит&nbsp;от&nbsp;Скорости"
+        icon = get_icon_html("speed")
+        return f"🐑&nbsp;{_hl('Таран')}:&nbsp;Урон&nbsp;зависит&nbsp;от&nbsp;{icon}&nbsp;Скорости"
 
     # === КУБИКИ И СИЛА ===
     elif s_id == "add_preset_dice":
         dice_list = p.get("dice", [])
-        desc = ", ".join([d.get('type', 'Die').title() for d in dice_list])
+        # Для каждого кубика можно было бы иконку, но их много.
+        # Просто перечислим типы.
+        desc_parts = []
+        for d in dice_list:
+            dt = d.get('type', 'Die').lower()
+            ic = get_icon_html(dt)
+            desc_parts.append(f"{ic} {dt.title()}")
+        desc = ", ".join(desc_parts)
         return f"Добавить&nbsp;кубики:&nbsp;{_hl(desc)}"
 
     elif s_id == "repeat_dice_by_luck":
         step = p.get("step", 10)
         limit = p.get("limit", 10)
-        return f"Повторы&nbsp;кубика&nbsp;по&nbsp;Удаче&nbsp;(шаг&nbsp;{_hl(step)},&nbsp;лимит&nbsp;{_hl(limit)})"
+        icon = get_icon_html("luck")
+        return f"Повторы&nbsp;кубика&nbsp;по&nbsp;{icon}&nbsp;Удаче&nbsp;(шаг&nbsp;{_hl(step)},&nbsp;лимит&nbsp;{_hl(limit)})"
 
     elif s_id == "repeat_dice_by_status":
-        status = p.get("status", "status").replace("_", " ")
+        status_key = p.get("status", "status").lower()
+        status_label = status_key.replace("_", " ").title()
+        icon = get_icon_html(status_key)
         limit = p.get("max", 4)
         die_index = p.get("die_index", 0)
-        return f"Повторить&nbsp;кубик&nbsp;#{die_index + 1}&nbsp;по&nbsp;{_hl(status)}&nbsp;(лимит&nbsp;{_hl(limit)})"
+        return f"Повторить&nbsp;кубик&nbsp;#{die_index + 1}&nbsp;по&nbsp;{icon}&nbsp;{_hl(status_label)}&nbsp;(лимит&nbsp;{_hl(limit)})"
 
     elif s_id == "share_dice_with_hand":
         flag = p.get("flag", "unity")
@@ -187,14 +236,11 @@ def _translate_script_effect(script_obj):
         reason = p.get("reason", "Power x2")
         return f"Сила&nbsp;x{_hl(mult)}&nbsp;({reason})"
 
-    elif s_id == "set_card_power_multiplier":
+    elif s_id == "set_card_power_multiplier" or s_id == "apply_card_power_multiplier":
         mult = p.get("multiplier", 2.0)
         condition = p.get("condition", "")
         cond_str = f"&nbsp;({condition})" if condition else ""
         return f"Множитель&nbsp;мощности&nbsp;x{_hl(mult)}{cond_str}"
-
-    elif s_id == "apply_card_power_multiplier":
-        return f"Применить&nbsp;множитель&nbsp;мощности"
 
     # === ПРИЗЫВ И ПРОЧЕЕ ===
     elif s_id == "summon_ally":
@@ -202,8 +248,10 @@ def _translate_script_effect(script_obj):
         return f"Призвать:&nbsp;{_hl(u_name)}"
 
     elif s_id == "apply_axis_team_buff":
-        status = p.get("status", "").title()
-        return f"Axis&nbsp;Buff:&nbsp;{_hl('+1&nbsp;' + status)}&nbsp;союзникам"
+        status_key = p.get("status", "").lower()
+        status_label = status_key.replace("_", " ").title()
+        icon = get_icon_html(status_key)
+        return f"Axis&nbsp;Buff:&nbsp;{_hl('+1&nbsp;' + icon + '&nbsp;' + status_label)}&nbsp;союзникам"
 
     elif s_id == "set_memory_flag":
         flag = p.get("flag", "")
@@ -211,19 +259,25 @@ def _translate_script_effect(script_obj):
         return f"Флаг:&nbsp;{flag}={val}"
 
     elif s_id == "unity_chain_reaction":
-        return f"{_hl('Unity Chain')}:&nbsp;Накопление&nbsp;и&nbsp;передача"
+        return f"🔗&nbsp;{_hl('Unity&nbsp;Chain')}:&nbsp;Накопление&nbsp;и&nbsp;передача"
 
     elif s_id == "apply_marked_flesh":
         dur = int(p.get("duration", 0))
         dur_str = f"&nbsp;({dur}&nbsp;ход)" if dur > 1 else ""
-        return f"Наложить&nbsp;{_hl('Помеченную&nbsp;Плоть')}{tgt_str}{dur_str}"
+        icon = get_icon_html("marked_flesh") # Убедитесь, что такая иконка есть в маппинге, иначе будет ?
+        # В icons.py нет "marked_flesh", но может быть "fanat_mark" или "target".
+        # Добавим фолбек на 'under_crosshairs' если нет
+        if "marked_flesh" not in icon: icon = get_icon_html("under_crosshairs")
+        return f"Наложить&nbsp;{icon}&nbsp;{_hl('Помеченную&nbsp;Плоть')}{tgt_str}{dur_str}"
 
     elif s_id == "apply_slot_debuff":
         debuff = p.get("debuff", "???")
         return f"Дебафф&nbsp;слота:&nbsp;{_hl(debuff)}"
 
     elif s_id == "consume_evade_for_haste":
-        return f"{_hl('Уклонение')}&nbsp;➔&nbsp;{_hl('Скорость')}"
+        ev = get_icon_html("evade")
+        hst = get_icon_html("haste")
+        return f"{ev}&nbsp;{_hl('Уклонение')}&nbsp;➔&nbsp;{hst}&nbsp;{_hl('Скорость')}"
 
     # Fallback (для неизвестных скриптов)
     return f"<span style='color:#777; font-size:0.8em'>{s_id}: {val_str}</span>"
@@ -271,11 +325,11 @@ def render_scripts_block(scripts_dict):
 def _get_dice_css(dtype):
     """Возвращает CSS класс и иконку для типа кубика."""
     dtype = str(dtype).lower()
-    if "slash" in dtype: return "dice-slash", "🗡️"
-    if "pierce" in dtype: return "dice-pierce", "🏹"
-    if "blunt" in dtype: return "dice-blunt", "🔨"
-    if "block" in dtype: return "dice-block-def", "🛡️"
-    if "evade" in dtype: return "dice-evade", "💨"
+    if "slash" in dtype: return "dice-slash", get_icon_html("slash")
+    if "pierce" in dtype: return "dice-pierce", get_icon_html("pierce")
+    if "blunt" in dtype: return "dice-blunt", get_icon_html("blunt")
+    if "block" in dtype: return "dice-block-def", get_icon_html("block")
+    if "evade" in dtype: return "dice-evade", get_icon_html("evade")
     return "dice-normal", "🎲"
 
 
@@ -305,10 +359,12 @@ def render_dice_full(dice_list):
         if not d_scripts and isinstance(die, dict):
             d_scripts = die.get('scripts', {})
 
-        css, icon = _get_dice_css(d_type)
+        # [UPDATE] Теперь _get_dice_css возвращает HTML-иконку
+        css, icon_html = _get_dice_css(d_type)
         script_html = render_scripts_block(d_scripts)
 
-        block = f"<div class='dice-block {css}'><div class='dice-header'><span style='margin-right:6px;'>{icon}</span><span>{d_min}-{d_max}</span></div>{script_html}</div>"
+        # Вставляем icon_html вместо жестко заданных эмодзи
+        block = f"<div class='dice-block {css}'><div class='dice-header'><span style='margin-right:6px;'>{icon_html}</span><span>{d_min}-{d_max}</span></div>{script_html}</div>"
         html.append(block)
 
     return "".join(html)
