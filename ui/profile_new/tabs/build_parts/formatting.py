@@ -97,6 +97,23 @@ def _translate_script_effect(script_obj):
     elif s_id == "remove_best_positive":
         return f"Снять&nbsp;{_hl('лучший&nbsp;положительный')}{tgt_str}"
 
+    elif s_id == "remove_random_status":
+        stype = p.get("type", "any")
+        return f"Снять&nbsp;случайный&nbsp;{_hl(stype)}&nbsp;статус"
+
+    elif s_id == "steal_status":
+        status = p.get("status", "???")
+        return f"Украсть&nbsp;{_hl(status)}"
+
+    elif s_id == "multiply_status":
+        mult = p.get("multiplier", 1)
+        stat = p.get("status", "")
+        return f"Умножить&nbsp;{_hl(stat)}&nbsp;на&nbsp;{_hl(mult)}"
+
+    elif s_id == "apply_status_by_roll":
+        status = p.get("status", "")
+        return f"Наложить&nbsp;{_hl(status)}&nbsp;равное&nbsp;броску"
+
     # === РЕСУРСЫ И ЛЕЧЕНИЕ ===
     elif s_id == "restore_resource":
         rtype = p.get("type", "Resource").upper()
@@ -110,7 +127,7 @@ def _translate_script_effect(script_obj):
         return f"Вампиризм:&nbsp;{_hl('Лечение&nbsp;от&nbsp;броска')}"
 
     # === УРОН ===
-    elif s_id == "deal_effect_damage" or s_id == "deal_damage":
+    elif s_id in ["deal_effect_damage", "deal_damage", "add_hp_damage"]:
         dmg_type = p.get("type", "True").capitalize()
         return f"Нанести&nbsp;{_hl(val_str + '&nbsp;' + dmg_type + '&nbsp;урона')}{tgt_str}"
 
@@ -122,6 +139,9 @@ def _translate_script_effect(script_obj):
         pct = int(p.get("percent", 0.0) * 100)
         return f"Потерять&nbsp;{_hl(f'{pct}%&nbsp;HP')}"
 
+    elif s_id == "nullify_hp_damage":
+        return f"{_hl('Игнорировать')}&nbsp;урон&nbsp;по&nbsp;HP"
+
     elif s_id == "damage_self_by_roll" or s_id == "deal_damage_by_roll":
         return f"Получить&nbsp;урон&nbsp;равный&nbsp;{_hl('Броску')}"
 
@@ -130,6 +150,12 @@ def _translate_script_effect(script_obj):
 
     elif s_id == "break_target_dice":
         return f"{_hl('СЛОМАТЬ')}&nbsp;кубик&nbsp;противника"
+
+    elif s_id == "adaptive_damage_type":
+        return f"{_hl('Адаптивный')}&nbsp;тип&nbsp;урона&nbsp;(по&nbsp;уязвимости)"
+
+    elif s_id == "lima_ram_logic":
+        return f"{_hl('Таран')}:&nbsp;Урон&nbsp;зависит&nbsp;от&nbsp;Скорости"
 
     # === КУБИКИ И СИЛА ===
     elif s_id == "add_preset_dice":
@@ -184,10 +210,20 @@ def _translate_script_effect(script_obj):
         val = p.get("value", True)
         return f"Флаг:&nbsp;{flag}={val}"
 
+    elif s_id == "unity_chain_reaction":
+        return f"{_hl('Unity Chain')}:&nbsp;Накопление&nbsp;и&nbsp;передача"
+
     elif s_id == "apply_marked_flesh":
         dur = int(p.get("duration", 0))
         dur_str = f"&nbsp;({dur}&nbsp;ход)" if dur > 1 else ""
         return f"Наложить&nbsp;{_hl('Помеченную&nbsp;Плоть')}{tgt_str}{dur_str}"
+
+    elif s_id == "apply_slot_debuff":
+        debuff = p.get("debuff", "???")
+        return f"Дебафф&nbsp;слота:&nbsp;{_hl(debuff)}"
+
+    elif s_id == "consume_evade_for_haste":
+        return f"{_hl('Уклонение')}&nbsp;➔&nbsp;{_hl('Скорость')}"
 
     # Fallback (для неизвестных скриптов)
     return f"<span style='color:#777; font-size:0.8em'>{s_id}: {val_str}</span>"

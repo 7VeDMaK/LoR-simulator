@@ -73,7 +73,7 @@
               {
                 "script_id": "apply_status",
                 "params": {
-                  "status": "paralysis",
+                  "status": "vulnerable",
                   "base": 1,
                   "duration": 1,
                   "delay": 1,
@@ -242,131 +242,183 @@
       "description": "III. Дальний. [On Hit] Накладывает 1 Перманентный Win Condition.",
       "dice": [
         {
-          "base_min": 3, "base_max": 7, "type": "slash",
+          "base_min": 3,
+          "base_max": 7,
+          "type": "slash",
           "scripts": {
+            "on_roll": [
+              {
+                "script_id": "adaptive_damage_type"
+              }
+            ],
             "on_hit": [
-              { "script_id": "apply_status", "params": { "status": "win_condition", "base": 1, "duration": 99, "target": "target" } }
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "win_condition",
+                  "base": 1,
+                  "duration": 99,
+                  "target": "target"
+                }
+              }
             ]
           }
         },
         {
-          "base_min": 3, "base_max": 7, "type": "slash",
+          "base_min": 3,
+          "base_max": 7,
+          "type": "slash",
           "scripts": {
+            "on_roll": [
+              {
+                "script_id": "adaptive_damage_type"
+              }
+            ],
             "on_hit": [
-              { "script_id": "apply_status", "params": { "status": "win_condition", "base": 1, "duration": 99, "target": "target" } }
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "win_condition",
+                  "base": 1,
+                  "duration": 99,
+                  "target": "target"
+                }
+              }
             ]
           }
         },
         {
-          "base_min": 3, "base_max": 7, "type": "slash",
+          "base_min": 3,
+          "base_max": 7,
+          "type": "slash",
           "scripts": {
+            "on_roll": [
+              {
+                "script_id": "adaptive_damage_type"
+              }
+            ],
             "on_hit": [
-              { "script_id": "apply_status", "params": { "status": "win_condition", "base": 1, "duration": 99, "target": "target" } }
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "win_condition",
+                  "base": 1,
+                  "duration": 99,
+                  "target": "target"
+                }
+              }
             ]
           }
         }
       ]
     },
     {
-      "id": "axis_plot_armor",
-      "name": "Прототип Сюжетной Брони",
-      "tier": 3,
-      "type": "Melee",
-      "cost": 3,
-      "description": "III. Ближний. [Unity] Наследует кубики.\n[On Clash] Снимает 1 WinCon -> Враг получает дебаффы (Fragile, Bind).",
-      "flags": ["unity"],
+  "id": "axis_plot_armor",
+  "name": "Прототип Сюжетной Брони",
+  "tier": 3,
+  "type": "Melee",
+  "cost": 3,
+  "description": "III. Ближний. [Unity] Наследует кубики.\nI куб: [Clash Win] Тратит 1 WinCon -> Враг получает 2 Слабости, Хрупкости и Связывания. [Clash Lose] Враг получает 2 Слабости.\nII-III кубы: [Clash Lose] Враг получает 2 Слабости.",
+  "flags": [],
+  "scripts": {
+    "on_use": [
+      {
+        "script_id": "apply_status",
+        "params": {
+          "status": "attack_power_up",
+          "base": 3,
+          "duration": 3,
+          "target": "self"
+        }
+      },
+      {
+        "script_id": "apply_status",
+        "params": {
+          "status": "endurance",
+          "base": 3,
+          "duration": 3,
+          "target": "self"
+        }
+      },
+      {
+        "script_id": "apply_status",
+        "params": {
+          "status": "haste",
+          "base": 3,
+          "duration": 3,
+          "target": "self"
+        }
+      }
+    ]
+  },
+  "dice": [
+    {
+      "base_min": 5, "base_max": 9, "type": "block",
       "scripts": {
-        "on_use": [
-          { "script_id": "unity_chain_reaction" },
+        "on_clash_win": [
           {
-            "script_id": "apply_status",
+            "script_id": "consume_status_apply",
             "params": {
-              "status": "attack_power_up",
-              "base": 3,
-              "duration": 3,
-              "target": "self"
+              "consume_status": "win_condition",
+              "consume_amount": 1,
+              "apply_status": [
+                "attack_power_down",
+                "fragile",
+                "bind"
+              ],
+              "apply_amount": 2,
+              "apply_target": "target",
+              "duration": 1
             }
-          },
+          }
+        ],
+        "on_clash_lose": [
           {
             "script_id": "apply_status",
             "params": {
-              "status": "endurance",
-              "base": 3,
-              "duration": 3,
-              "target": "self"
-            }
-          },
-          {
-            "script_id": "apply_status",
-            "params": {
-              "status": "haste",
-              "base": 3,
-              "duration": 3,
-              "target": "self"
+              "status": "attack_power_down",
+              "base": 2,
+              "duration": 1,
+              "target": "target"
             }
           }
         ]
-      },
-      "dice": [
-        {
-          "base_min": 5, "base_max": 9, "type": "block",
-          "scripts": {
-            "on_clash": [
-              {
-                "script_id": "consume_status_apply",
-                "params": {
-                  "consume_status": "win_condition",
-                  "apply_status": "fragile",
-                  "apply_amount": 2,
-                  "apply_target": "target"
-                }
-              },
-              {
-                "script_id": "consume_status_apply",
-                "params": {
-                  "consume_status": "win_condition",
-                  "apply_status": "bind",
-                  "apply_amount": 2,
-                  "apply_target": "target"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "base_min": 5, "base_max": 9, "type": "block",
-          "scripts": {
-            "on_clash": [
-              {
-                "script_id": "consume_status_apply",
-                "params": {
-                  "consume_status": "win_condition",
-                  "apply_status": "fragile",
-                  "apply_amount": 2,
-                  "apply_target": "target"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "base_min": 5, "base_max": 9, "type": "block",
-          "scripts": {
-            "on_clash": [
-              {
-                "script_id": "consume_status_apply",
-                "params": {
-                  "consume_status": "win_condition",
-                  "apply_status": "fragile",
-                  "apply_amount": 2,
-                  "apply_target": "target"
-                }
-              }
-            ]
-          }
-        }
-      ]
+      }
     },
+    {
+      "base_min": 5, "base_max": 9, "type": "block",
+      "scripts": {
+        "on_clash_lose": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "attack_power_down",
+              "base": 2,
+              "duration": 1,
+              "target": "target"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "base_min": 5, "base_max": 9, "type": "block",
+      "scripts": {
+        "on_clash_lose": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "attack_power_down",
+              "base": 2,
+              "duration": 1,
+              "target": "target"
+            }
+          }
+        ]
+      }
+    }
+  ]
+},
     {
       "id": "axis_ex_machina",
       "name": "Прототип Экс Махины",
