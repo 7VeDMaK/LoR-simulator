@@ -27,12 +27,38 @@
     "active_buffs": {},
     "_status_effects": {},
     "delayed_queue": [],
-    "deck": [],
-    "active_slots": [],
+    "deck": [
+        "test_unity_1",
+        "test_unity_2"
+    ],
+    "active_slots": [
+        {
+            "speed": 1,
+            "card": "test_unity_1",
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false,
+            "destroy_on_speed": true
+        }
+    ],
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
-        "status_rank": "МЕРТВА. Киборг Братства Высоких."
+        "status_rank": "МЕРТВА. Киборг Братства Высоких.",
+        "start_of_battle_stats": {
+            "hp": 20,
+            "sp": 20,
+            "stagger": 10
+        },
+        "battle_initialized": true
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -73,7 +99,7 @@
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,
-        "speed": 0,
+        "speed": 30,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,

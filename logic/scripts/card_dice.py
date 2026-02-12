@@ -129,29 +129,41 @@ def add_preset_dice(ctx: 'RollContext', params: dict):
         ctx.log.append(f"🎲 **Bonus**: Added {added_count} extra dice!")
 
 
-def share_dice_with_hand(ctx: 'RollContext', params: dict):
+def unity_chain_reaction(ctx: 'RollContext', params: dict):
     """
-    Unity: Раздает копию первого кубика этой карты всем картам в руке с указанным флагом.
-    Params:
-      - flag: "unity"
+    Unity: Реализует механику цепной реакции.
+    1. Добавляет в текущую карту все кубики, сохраненные в цепи ранее в этом ходу.
+    2. Сохраняет первый "родной" кубик этой карты в цепь для следующих карт.
     """
     unit = ctx.source
     card = unit.current_card
-    if not card or not card.dice_list: return
+    if not card or not card.dice_list:
+        return
 
-    target_flag = params.get("flag", "unity")
+    # Инициализация памяти цепи, если её нет
+    if "unity_chain" not in unit.memory:
+        unit.memory["unity_chain"] = []
 
-    # Берем первый кубик как образец
-    template_die = card.dice_list[0]
+    # 1. ЗАПОМИНАЕМ РОДНОЙ КУБИК (До модификаций)
+    # Берем первый кубик карты как "вклад" в общее дело.
+    # Важно сделать глубокую копию сейчас, пока мы не добавили в начало чужие кубики.
+    original_die = card.dice_list[0]
+    die_to_store = copy.deepcopy(original_die)
 
-    count = 0
-    if hasattr(unit, "hand"):
-        for hand_card in unit.hand:
-            # Не даем самой себе и проверяем флаг
-            if hand_card is not card and target_flag in getattr(hand_card, "flags", []):
-                new_die = copy.deepcopy(template_die)
-                hand_card.dice_list.append(new_die)
-                count += 1
+    # 2. ЗАБИРАЕМ КУБИКИ ИЗ ПАМЯТИ (Наследие)
+    chain_dice = unit.memory["unity_chain"]
 
-    if count > 0 and ctx.log:
-        ctx.log.append(f"🤝 **Unity**: Shared die with {count} cards in hand!")
+    if chain_dice:
+        # Создаем копии накопленных кубиков
+        inherited_dice = [copy.deepcopy(d) for d in chain_dice]
+
+        # Вставляем их в НАЧАЛО списка кубиков карты
+        # Теперь порядок: [Наследие А], [Наследие Б], [Родной куб], [Родной куб 2]...
+        card.dice_list[0:0] = inherited_dice
+
+        if ctx.log:
+            ctx.log.append(f"🔗 **Unity**: Активирована цепь! Добавлено {len(inherited_dice)} кубиков.")
+
+    # 3. ОБНОВЛЯЕМ ПАМЯТЬ (Для следующих карт)
+    # Добавляем наш родной кубик в конец цепи
+    unit.memory["unity_chain"].append(die_to_store)

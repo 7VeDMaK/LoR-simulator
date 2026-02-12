@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 150,
-    "current_sp": 65,
-    "current_stagger": 78,
+    "current_hp": 205,
+    "current_sp": 94,
+    "current_stagger": 114,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
@@ -37,7 +37,10 @@
         "zaf_shell_break",
         "zaf_shell_break",
         "zaf_shell_break",
-        "zaf_marked_flesh"
+        "zaf_marked_flesh",
+        "item_heal_5",
+        "item_heal_35",
+        "item_heal_65"
     ],
     "active_slots": [],
     "stored_dice": [],
@@ -86,9 +89,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 150,
-        "current_sp": 65,
-        "current_stagger": 78
+        "current_hp": 205,
+        "current_sp": 94,
+        "current_stagger": 114
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -133,7 +136,8 @@
     },
     "passives": [
         "severe_training",
-        "adaptation"
+        "adaptation",
+        "blue_hyacinth_passive"
     ],
     "talents": [
         "big_guy",

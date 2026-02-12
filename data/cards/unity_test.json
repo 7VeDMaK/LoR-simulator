@@ -1,0 +1,73 @@
+{
+  "cards": [
+    {
+      "id": "test_unity_1",
+      "name": "Юнити: Начало",
+      "tier": 1,
+      "type": "Melee",
+      "cost": 0,
+      "description": "[Unity] Первый удар. (Slash 4-8)\nДолжен начать цепочку.",
+      "flags": ["unity"],
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 4,
+          "base_max": 8,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bind",
+                  "base": 1,
+                  "duration": 1,
+                  "target": "target"
+                }
+              },
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "rupture",
+                  "base": 1,
+                  "duration": 3,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "unity_chain_reaction"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test_unity_2",
+      "name": "Юнити: Финал",
+      "tier": 1,
+      "type": "Melee",
+      "cost": 0,
+      "description": "[Unity] Второй удар. (Blunt 4-8)\nЕсли сыгран ПОСЛЕ первой карты, должен иметь 2 кубика (Slash + Blunt).",
+      "flags": ["unity"],
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 4,
+          "base_max": 8,
+          "scripts": {}
+        }
+      ],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "unity_chain_reaction"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -158,6 +158,11 @@ def finalize_turn(engine, all_units: list):
         u.memory.pop("card_power_mult", None)
         u.memory.pop("card_power_mult_reason", None)
 
+        if "unity_chain" in u.memory:
+            chain_len = len(u.memory["unity_chain"])
+            u.memory.pop("unity_chain", None)
+            logger.log(f"⛓️ Unity Chain reset for {u.name} ({chain_len} dice cleared)", LogLevel.VERBOSE, "Mechanic")
+
     if engine.logs:
         report.append({"round": "End", "rolls": "Events", "details": " | ".join(engine.logs)})
 
