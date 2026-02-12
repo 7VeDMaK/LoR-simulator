@@ -91,7 +91,7 @@ def render_calculator_tab():
             bonus_mult = 1.3 ** abs(standard_dice_capacity - dice_count)
             est_avg_die *= bonus_mult
 
-        max_var_dynamic = max(0, int((est_avg_die - 1) * 2))
+        max_var_dynamic = max(1, int((est_avg_die - 1) * 2))  # Минимум 1 для slider
         def_var = min(4, max_var_dynamic)
         variance = st.slider("Разброс (Variance)", 0, max_var_dynamic, def_var, help=f"Лимит: {max_var_dynamic}")
 

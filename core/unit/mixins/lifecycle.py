@@ -48,7 +48,12 @@ class UnitLifecycleMixin:
         self.heal_hp(-amount)
 
 
-    def restore_sp(self, amount: int) -> int:
+    def restore_sp(self, amount: int, source=None, **kwargs) -> int:
+        """
+        Восстанавливает SP (рассудок).
+        :param amount: Количество SP.
+        :param source: Источник восстановления (Unit). Для совместимости с heal_hp.
+        """
         if amount <= 0: return 0
 
         final_sp = min(self.max_sp, self.current_sp + amount)

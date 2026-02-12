@@ -5,6 +5,17 @@ from core.logging import logger, LogLevel
 
 def render_logs(current_log_level, log_mode_label):
     st.divider()
+    jackpot_url = st.session_state.get("azino_jackpot_url")
+    if jackpot_url:
+        st.markdown(
+            "<div style=\"margin-bottom:8px;\">🎶 Azino Jackpot Video</div>"
+            f"<iframe width=\"100%\" height=\"315\" "
+            f"src=\"https://www.youtube.com/embed/34Pl2DTuwoQ?si=0ojgA65awwY4dMEB\" "
+            "title=\"YouTube video player\" frameborder=\"0\" "
+            "allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" "
+            "allowfullscreen></iframe>",
+            unsafe_allow_html=True
+        )
     tab_visual, tab_system = st.tabs(["📜 Visual Report (Cards)", f"🛠️ System Log ({log_mode_label})"])
 
     # 1. VISUAL REPORT

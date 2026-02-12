@@ -91,7 +91,7 @@ class MockUnit:
         self.current_hp = min(self.max_hp, self.current_hp + amount)
         return self.current_hp - old_hp
 
-    def restore_sp(self, amount):
+    def restore_sp(self, amount, source=None, **kwargs):
         old_sp = self.current_sp
         self.current_sp = min(self.max_sp, self.current_sp + amount)
         return self.current_sp - old_sp

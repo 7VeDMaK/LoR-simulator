@@ -19,7 +19,7 @@ class MockUnitRestorable(MockUnit):
         self.max_stagger = 50
         self.current_stagger = 20
 
-    def restore_sp(self, amount):
+    def restore_sp(self, amount, source=None, **kwargs):
         old_sp = self.current_sp
         self.current_sp = min(self.max_sp, self.current_sp + amount)
         return self.current_sp - old_sp

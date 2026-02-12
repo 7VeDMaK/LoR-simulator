@@ -477,6 +477,26 @@ class AzinoJackpotStatus(StatusEffect):
             ctx.log.append("🎶 **JACKPOT**: Бессмертие и Бесконечная Удача!")
             ctx.source.memory["jackpot_msg"] = True
 
+    def on_status_applied(self, unit, status_id, amount, duration=1, **kwargs):
+        if status_id != self.id:
+            return
+        if unit.memory.get("azino_jackpot_link_opened"):
+            return
+
+        unit.memory["azino_jackpot_link_opened"] = True
+        url = "https://youtu.be/34Pl2DTuwoQ?si=0ojgA65awwY4dMEB"
+        try:
+            import streamlit as st
+            st.session_state["azino_jackpot_url"] = url
+        except Exception:
+            pass
+
+        logger.log(
+            f"🎶 Azino Jackpot: opened link for {unit.name}",
+            LogLevel.NORMAL,
+            "Status"
+        )
+
     def on_round_end(self, unit, log_func, **kwargs):
         unit.memory.pop("jackpot_msg", None)
         return ["🎶 Музыка продолжает играть..."]
