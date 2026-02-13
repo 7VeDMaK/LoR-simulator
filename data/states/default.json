@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "⚔️ Simulator",
+  "page": "👤 Profile",
   "team_left_data": [
     {
       "name": "Афелия Токс",
@@ -29,43 +29,17 @@
       "cooldowns": {},
       "card_cooldowns": {},
       "active_buffs": {},
-      "_status_effects": {},
+      "_status_effects": {
+        "haste": [
+          {
+            "amount": 5,
+            "duration": 1
+          }
+        ]
+      },
       "delayed_queue": [],
       "deck": [],
-      "active_slots": [
-        {
-          "speed": 9,
-          "card": "testslash1_a468",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 2,
-          "target_slot_idx": 3,
-          "force_clash": true,
-          "ui_status": {
-            "text": "✨ SPEED BREAK ->  Дна'хо 2 | Уничтожение (9 >> 1)",
-            "icon": "⚡",
-            "color": "green"
-          },
-          "is_ally_target": false,
-          "force_onesided": false,
-          "destroy_on_speed": true
-        },
-        {
-          "speed": 1,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        }
-      ],
+      "active_slots": [],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -172,23 +146,7 @@
       "_status_effects": {},
       "delayed_queue": [],
       "deck": [],
-      "active_slots": [
-        {
-          "speed": 2,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        }
-      ],
+      "active_slots": [],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -283,9 +241,9 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 20,
+      "current_hp": 12,
       "current_sp": 20,
-      "current_stagger": 10,
+      "current_stagger": 2,
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {},
@@ -296,68 +254,7 @@
         "test_unity_1",
         "test_unity_2"
       ],
-      "active_slots": [
-        {
-          "speed": 7,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 8,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 6,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 3,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        }
-      ],
+      "active_slots": [],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -373,9 +270,9 @@
       "overkill_damage": 0,
       "money_log": [],
       "base_stats": {
-        "current_hp": 20,
+        "current_hp": 12,
         "current_sp": 20,
-        "current_stagger": 10
+        "current_stagger": 2
       },
       "defense": {
         "armor_name": "Без брони",
@@ -465,68 +362,7 @@
         "test_unity_1",
         "test_unity_2"
       ],
-      "active_slots": [
-        {
-          "speed": 7,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 9,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 8,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 1,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "🚫 BROKEN vs Афелия Токс [S1] | Speed Gap 8",
-            "icon": "💥",
-            "color": "red"
-          },
-          "is_ally_target": false
-        }
-      ],
+      "active_slots": [],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -602,16 +438,65 @@
       "unit_type": "dead"
     }
   ],
-  "phase": "planning",
-  "round_number": 1,
-  "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-  "battle_logs": [],
+  "phase": "roll",
+  "round_number": 3,
+  "turn_message": "Round Complete.",
+  "battle_logs": [
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Афелия Токс",
+        "card": "TestSlash2",
+        "dice": "SLASH",
+        "val": 3,
+        "range": "-"
+      },
+      "right": {
+        "unit": " Дна'хо",
+        "card": "-",
+        "dice": "🚫 Broken",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Speed Break) 💥 **-4 HP**",
+      "details": [
+        "🎲 Roll [1-1]: 1 + 1 (Сила) + 1 (Легкое ор.) = **3**",
+        "👊 Atk Boost: +1",
+        "💥 ** Дна'хо**: [x1.0 Res] Hit 4 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Афелия Токс",
+        "card": "TestSlash2",
+        "dice": "SLASH",
+        "val": 3,
+        "range": "-"
+      },
+      "right": {
+        "unit": " Дна'хо",
+        "card": "-",
+        "dice": "🚫 Broken",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed (Speed Break) 💥 **-4 HP**",
+      "details": [
+        "🎲 Roll [1-1]: 1 + 1 (Сила) + 1 (Легкое ор.) = **3**",
+        "👊 Atk Boost: +1",
+        "💥 ** Дна'хо**: [x1.0 Res] Hit 4 HP"
+      ]
+    }
+  ],
   "script_logs": "",
   "turn_phase": "done",
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Аксис Мунди",
+  "profile_unit": "Акаги",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",

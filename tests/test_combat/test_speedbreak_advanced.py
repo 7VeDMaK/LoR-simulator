@@ -8,6 +8,7 @@ sys.path.append(os.getcwd())
 from core.enums import DiceType
 from tests.mocks import MockUnit, MockDice
 from logic.battle_flow.clash.clash import process_clash
+from logic.battle_flow.clash.clash_one_sided import handle_one_sided_exchange
 
 
 class TestSpeedbreakScenarios(unittest.TestCase):
@@ -41,8 +42,8 @@ class TestSpeedbreakScenarios(unittest.TestCase):
         with patch('logic.battle_flow.clash.clash.setup_clash_parameters',
                    return_value=(False, False, False, True, [])):
             with patch('logic.battle_flow.clash.clash.handle_one_sided_exchange',
-                       return_value="💥 Break Hit") as mock_exchange:
-                report = process_clash(self.engine, attacker, defender, "R1", True, 10, 2)
+                   wraps=handle_one_sided_exchange) as mock_exchange:
+            report = process_clash(self.engine, attacker, defender, "R1", True, 10, 2)
 
                 # Проверяем, что удар был нанесен
                 mock_exchange.assert_called_once()

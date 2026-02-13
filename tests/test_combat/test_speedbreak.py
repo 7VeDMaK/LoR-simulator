@@ -8,6 +8,7 @@ sys.path.append(os.getcwd())
 from core.enums import DiceType
 from tests.mocks import MockUnit, MockDice
 from logic.battle_flow.clash.clash import process_clash
+from logic.battle_flow.clash.clash_one_sided import handle_one_sided_exchange
 
 
 class TestSpeedbreak(unittest.TestCase):
@@ -43,8 +44,8 @@ class TestSpeedbreak(unittest.TestCase):
         with patch('logic.battle_flow.clash.clash.setup_clash_parameters',
                    return_value=(False, False, False, True, [])):
             # Мокаем обработку одностороннего удара внутри клэша
-            with patch('logic.battle_flow.clash.clash.handle_one_sided_exchange',
-                       return_value="💥 Speedbreak Hit") as mock_onesided:
+                 with patch('logic.battle_flow.clash.clash.handle_one_sided_exchange',
+                      wraps=handle_one_sided_exchange) as mock_onesided:
                 report = process_clash(self.engine, attacker, defender, "R1", True, 10, 1)
 
                 # 1. ПРОВЕРКА: Был ли вызван односторонний обмен вместо обычного резолва?

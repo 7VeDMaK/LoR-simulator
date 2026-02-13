@@ -1,4 +1,5 @@
 from core.logging import logger, LogLevel
+from core.library import Library
 from logic.battle_flow.mass_attack import process_mass_attack
 
 
@@ -60,8 +61,13 @@ def execute_single_action(engine, act, executed_slots):
         logger.log(f"🚫 {source.name} action skipped (Dead or Staggered)", LogLevel.VERBOSE, "Executor")
         return []
 
-    # Загружаем карту
-    source.current_card = act['slot_data'].get('card')
+    # Загружаем карту (берем свежую копию из библиотеки, если возможно)
+    raw_card = act['slot_data'].get('card')
+    if raw_card and hasattr(raw_card, 'id'):
+        lib_card = Library.get_card(raw_card.id)
+        source.current_card = lib_card if lib_card and lib_card.id != "unknown" else raw_card
+    else:
+        source.current_card = raw_card
     if not source.current_card:
         return []
 
@@ -130,7 +136,12 @@ def execute_single_action(engine, act, executed_slots):
         executed_slots.add(src_id)
         executed_slots.add(tgt_id)
 
-        target.current_card = target_slot.get('card')
+        raw_target_card = target_slot.get('card')
+        if raw_target_card and hasattr(raw_target_card, 'id'):
+            lib_target = Library.get_card(raw_target_card.id)
+            target.current_card = lib_target if lib_target and lib_target.id != "unknown" else raw_target_card
+        else:
+            target.current_card = raw_target_card
         spd_tgt = target_slot['speed']
         intent_tgt = target_slot.get('destroy_on_speed', True)
         _apply_card_cooldown(target, target.current_card)
@@ -155,7 +166,12 @@ def execute_single_action(engine, act, executed_slots):
         if target_slot:
             spd_def_val = target_slot['speed']
             if not is_target_busy and not target.is_staggered():
-                target.current_card = target_slot.get('card')
+                raw_target_card = target_slot.get('card')
+                if raw_target_card and hasattr(raw_target_card, 'id'):
+                    lib_target = Library.get_card(raw_target_card.id)
+                    target.current_card = lib_target if lib_target and lib_target.id != "unknown" else raw_target_card
+                else:
+                    target.current_card = raw_target_card
             else:
                 target.current_card = None
         else:
