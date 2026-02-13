@@ -1,5 +1,6 @@
 from core.logging import logger, LogLevel  # [NEW] Import
 from logic.character_changing.passives.base_passive import BasePassive
+from logic.context import RollContext
 
 
 class PassiveSevereTraining(BasePassive):
@@ -59,16 +60,26 @@ class PassiveBlueHyacinth(BasePassive):
         logger.log(f"💙 {unit.name}: Расцветает Синий Гиацинт!", LogLevel.NORMAL, "Talent")
         return f"Синий Гиацинт активирован на {self.duration} хода."
 
-    def on_hit(self, unit, attacker, damage_val, **kwargs):
-        """Реакция на получение урона (Пассивная часть, пока активен статус)."""
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        """
+        Вызывается ПОСЛЕ того, как юнит получил урон.
+        Сигнатура: (self, unit, amount, source, **kwargs)
+        """
+        # unit = Владелец пассивки (Зафиэль)
+        # source = Источник урона (Атакующий)
+
+        # Проверяем, активен ли статус
         if unit.get_status("hyacinth_bloom") > 0:
+            # 1. Восстанавливаем SP
             unit.restore_sp(5)
 
-            # 2. Наказываем врага
-            if attacker and attacker != unit:
-                attacker.add_status("weakness", 1, duration=5)  # Снижение атаки
+            # 2. Наказываем врага (source)
+            if source and source != unit:
+                source.add_status("weakness", 1, duration=5)
+
+                # Логирование
                 logger.log(
-                    f"🥀 Hyacinth: {attacker.name} ослаблен скорбью.",
+                    f"🥀 Hyacinth: {source.name} weakened by sorrow.",
                     LogLevel.VERBOSE,
                     "Passive"
                 )

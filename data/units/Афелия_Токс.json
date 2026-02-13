@@ -2,7 +2,7 @@
     "name": "Афелия Токс",
     "level": 1,
     "rank": 9,
-    "avatar": "data/avatars/Афелия_Токс.jpg",
+    "avatar": "data/avatars\\Афелия_Токс.jpg",
     "base_intellect": 1,
     "total_xp": 0,
     "pct_mods": {
@@ -18,9 +18,9 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 20,
+    "current_hp": 18,
     "current_sp": 20,
-    "current_stagger": 10,
+    "current_stagger": 8,
     "resources": {},
     "cooldowns": {},
     "card_cooldowns": {},
@@ -28,24 +28,61 @@
     "_status_effects": {},
     "delayed_queue": [],
     "deck": [],
-    "active_slots": [],
+    "active_slots": [
+        {
+            "speed": 10,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false
+        },
+        {
+            "speed": 2,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false
+        }
+    ],
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
-        "status_rank": "Адама работница"
+        "status_rank": "Адама работница",
+        "start_of_battle_stats": {
+            "hp": 18,
+            "sp": 20,
+            "stagger": 8
+        },
+        "battle_initialized": true
     },
     "death_count": 0,
     "overkill_damage": 0,
     "money_log": [],
     "base_stats": {
-        "current_hp": 20,
+        "current_hp": 18,
         "current_sp": 20,
-        "current_stagger": 10
+        "current_stagger": 8
     },
     "defense": {
-        "armor_name": "Unit_44",
-        "armor_id": "none",
+        "armor_name": "Без брони",
         "armor_type": "Medium",
+        "armor_id": "none",
         "hp_resists": {
             "slash": 1.0,
             "pierce": 1.0,
@@ -59,23 +96,23 @@
         "weapon_id": "none"
     },
     "attributes": {
-        "strength": 0,
-        "endurance": 0,
+        "strength": 5,
+        "endurance": 5,
         "agility": 0,
-        "wisdom": 0,
-        "psych": 0
+        "wisdom": 5,
+        "psych": 5
     },
     "skills": {
-        "strike_power": 0,
-        "medicine": 0,
+        "strike_power": 5,
+        "medicine": 5,
         "willpower": 0,
         "luck": 0,
-        "acrobatics": 0,
-        "shields": 0,
+        "acrobatics": 5,
+        "shields": 5,
         "tough_skin": 0,
-        "speed": 0,
-        "light_weapon": 0,
-        "medium_weapon": 0,
+        "speed": 10,
+        "light_weapon": 5,
+        "medium_weapon": 5,
         "heavy_weapon": 0,
         "firearms": 0,
         "eloquence": 0,
