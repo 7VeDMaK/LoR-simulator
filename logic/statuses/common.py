@@ -18,9 +18,16 @@ class AttackPowerUpStatus(StatusEffect):
             f"🔍 Attack Power Up on_roll: unit={ctx.source.name}, stack={stack}, dice_type={ctx.dice.dtype if ctx.dice else 'None'}",
             LogLevel.VERBOSE, "Status"
         )
+        logger.log(
+            f"🔍 DEBUG: ctx.dice={ctx.dice}, dtype={ctx.dice.dtype if ctx.dice else 'N/A'}, "
+            f"in list? {ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT] if ctx.dice else False}",
+            LogLevel.NORMAL, "Status"
+        )
         if ctx.dice and ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
             ctx.modify_power(stack, "Attack Power Up")
             logger.log(f"⚔️ Attack Power Up: +{stack} power to {ctx.source.name}", LogLevel.NORMAL, "Status")
+        else:
+            logger.log(f"🔍 DEBUG: Attack Power Up NOT applied! ctx.dice={ctx.dice is not None}", LogLevel.NORMAL, "Status")
 
 class EnduranceStatus(StatusEffect):
     id = "endurance"

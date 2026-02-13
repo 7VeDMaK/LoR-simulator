@@ -23,11 +23,7 @@
     "current_stagger": 17,
     "resources": {},
     "cooldowns": {},
-    "card_cooldowns": {
-        "time_cant_turn_back_blunt": 0,
-        "still_alive_blunt": 0,
-        "perfect_cut": 0
-    },
+    "card_cooldowns": {},
     "active_buffs": {},
     "_status_effects": {},
     "delayed_queue": [],
@@ -48,9 +44,9 @@
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 357,
-            "sp": 351,
-            "stagger": 478
+            "hp": 34,
+            "sp": 27,
+            "stagger": 17
         },
         "last_revive_attempt_round": 2,
         "last_revive_log": {
@@ -61,7 +57,6 @@
             "dc": 0,
             "success": true
         },
-        "battle_initialized": true,
         "borrowed_time_saved": [],
         "rapid_retreat_damage_taken": 0,
         "marked_target_Лайла_Рейн": true,
@@ -126,9 +121,7 @@
         "hardened_by_solitude",
         "stances"
     ],
-    "talents": [
-        "pain_points"
-    ],
+    "talents": [],
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
