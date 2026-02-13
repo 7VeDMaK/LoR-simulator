@@ -29,7 +29,7 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
         iteration += 1
         if attacker.is_dead() or defender.is_dead(): break
 
-        # Получаем кубики
+        # Получаем кубики (они извлекаются из очереди!)
         die_a = state_a.resolve_current_die()
         die_d = state_d.resolve_current_die()
 
@@ -56,7 +56,7 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
             ctx_a.opponent_ctx = ctx_d
             ctx_d.opponent_ctx = ctx_a
 
-        # [FIX] Предварительные логи (нужны для One-Sided ветки, которая требует их аргументом)
+        # Логи
         detail_logs = []
         if iteration == 1 and on_use_logs: detail_logs.extend(on_use_logs)
         if ctx_a: detail_logs.extend(ctx_a.log)
@@ -66,15 +66,25 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
 
         # === РЕЗОЛЮЦИЯ ===
 
-        # Случай 1: Атакующий сломан/пуст
+        # Случай 1: Атакующий сломан/пуст (А защитник есть)
         if not die_a and die_d:
-            outcome = handle_one_sided_exchange(engine, active_side=state_d, passive_side=state_a,
-                                                detail_logs=detail_logs)
+            if getattr(die_d, "is_counter", False):
+                logger.log(f"⏸️ Defender Counter Die preserved (No Target)", LogLevel.VERBOSE, "Clash")
+                # УДАЛЕНО: state_d.return_die(die_d)
+                break
+            else:
+                outcome = handle_one_sided_exchange(engine, active_side=state_d, passive_side=state_a,
+                                                    detail_logs=detail_logs)
 
-        # Случай 2: Защитник сломан/пуст
+        # Случай 2: Защитник сломан/пуст (А атакующий есть)
         elif die_a and not die_d:
-            outcome = handle_one_sided_exchange(engine, active_side=state_a, passive_side=state_d,
-                                                detail_logs=detail_logs)
+            if getattr(die_a, "is_counter", False):
+                logger.log(f"⏸️ Attacker Counter Die preserved (No Target)", LogLevel.VERBOSE, "Clash")
+                # УДАЛЕНО: state_a.return_die(die_a)
+                break
+            else:
+                outcome = handle_one_sided_exchange(engine, active_side=state_a, passive_side=state_d,
+                                                    detail_logs=detail_logs)
 
         # Случай 3: Оба защитные
         elif (die_a.dtype in [DiceType.EVADE, DiceType.BLOCK]) and (die_d.dtype in [DiceType.EVADE, DiceType.BLOCK]):
@@ -87,13 +97,11 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
             res = resolve_clash_round(engine, ctx_a, ctx_d, die_a, die_d)
             outcome = res["outcome"]
 
-            # [FIX] ВАЖНО: Пересобираем логи ПОСЛЕ резолва, чтобы захватить сообщения об уроне
-            # (так как resolve_clash_round -> apply_damage пишет в ctx_a.log, но detail_logs имеет старую копию)
+            # Пересобираем логи
             detail_logs = []
             if iteration == 1 and on_use_logs: detail_logs.extend(on_use_logs)
             if ctx_a: detail_logs.extend(ctx_a.log)
             if ctx_d: detail_logs.extend(ctx_d.log)
-
             detail_logs.extend(res["details"])
 
             if res["recycle_a"]:
@@ -129,6 +137,7 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
         })
 
     # 3. CLEANUP
+    # Все оставшиеся кубики (включая те, что мы вернули через return_die) сохраняются
     state_a.store_remaining(report)
     state_d.store_remaining(report)
 

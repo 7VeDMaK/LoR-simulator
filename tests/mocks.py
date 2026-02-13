@@ -57,6 +57,10 @@ class MockUnit:
     def is_dead(self):
         return self.current_hp <= 0
 
+    def is_staggered(self):
+        """[FIX] Добавлена проверка на оглушение."""
+        return self.current_stagger <= 0
+
     def add_status(self, status_id, amount, duration=None, delay=0):
         """
         Поддержка delay для statuses.py.

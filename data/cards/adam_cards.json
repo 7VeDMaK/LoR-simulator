@@ -403,6 +403,31 @@
           }
         }
       ]
+    },
+    {
+      "id": "atakablok_0136",
+      "name": "atakablok",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 1,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
     }
   ]
 }

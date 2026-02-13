@@ -36,6 +36,28 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_d, intent
         cur_iter += 1
         die = attacker_queue[att_idx]
 
+        # [FIX] Проверка на Recycled Counter Die в One-Sided
+        # Если кубик ресайклед (вернулся с контры) и мы в фазе One-Sided (где нет контр-кубиков противника, иначе бы мы попали в Clash),
+        # то контр-кубик не должен бить.
+        # Но подождите, fetch_next_counter ищет контр-кубики У ЦЕЛИ.
+        # Если у цели НЕТ контр-кубиков (активный=None), то мы идем в блок Passive/Unopposed.
+        # В этих блоках наш `die` (если он контр) не должен срабатывать.
+
+        # Проверяем:
+        is_counter_die = getattr(die, "is_counter", False) or getattr(die, "recycled", False)
+
+        # Если это контр-кубик и у врага нет активной контры (мы идем в Unopposed/Passive)
+        # То такой кубик сгорает.
+        # Исключение: Passive Defense (если враг защищается пассивно, можно ли бить контрой? Обычно нет, контра только на атаку).
+        # В LoR Counter Die бьет только в ответ на Offensive Die.
+
+        if is_counter_die and not active_counter_die:
+            # Проверяем, есть ли пассивная атака (нет, пассивная - это защита).
+            # Значит, кубику нечего перехватывать.
+            logger.log(f"One-Sided: Recycled Counter Die skipped ({die.dtype})", LogLevel.VERBOSE, "OneSided")
+            att_idx += 1
+            continue
+
         # Прерывание боя
         if source.is_dead() or target.is_dead() or source.is_staggered():
             logger.log("One-Sided flow interrupted (Death/Stagger)", LogLevel.VERBOSE, "OneSided")
@@ -58,13 +80,13 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_d, intent
             att_idx += 1
             continue
 
-        # B. ПОИСК ЗАЩИТЫ
+        # B. ПОИСК ЗАЩИТЫ (У врага)
         if not active_counter_die:
             active_counter_die = fetch_next_counter(target)
 
         # C. ВЕТВЛЕНИЕ ЛОГИКИ
 
-        # 1. Counter Clash (Есть активный контр-кубик)
+        # 1. Counter Clash (Есть активный контр-кубик У ВРАГА)
         if active_counter_die:
             res = resolve_counter_clash(engine, source, target, die, active_counter_die, adv_atk)
 
@@ -96,6 +118,12 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_d, intent
             if destroy_def: def_die = None  # Если сломан скоростью
 
             if def_die:
+                # [FIX] Если наш кубик - Counter, он не должен бить пассивную защиту (он реагирует на атаку).
+                if is_counter_die:
+                    logger.log("Counter Die skips Passive Defense", LogLevel.VERBOSE)
+                    att_idx += 1
+                    continue
+
                 res = resolve_passive_defense(engine, source, target, die, def_die, adv_atk, adv_def)
                 report.append({
                     "type": "clash",
@@ -109,6 +137,12 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_d, intent
 
             # 3. Unopposed (Чистый удар)
             else:
+                # [FIX] Контр-кубик не бьет по открытому
+                if is_counter_die:
+                    logger.log("Counter Die skips Unopposed Hit", LogLevel.VERBOSE)
+                    att_idx += 1
+                    continue
+
                 flags = {"is_redirected": is_redirected, "destroy_def": destroy_def}
                 res = resolve_unopposed_hit(engine, source, target, die, adv_atk, flags)
 

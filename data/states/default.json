@@ -32,7 +32,39 @@
       "_status_effects": {},
       "delayed_queue": [],
       "deck": [],
-      "active_slots": [],
+      "active_slots": [
+        {
+          "speed": 8,
+          "card": "testcounterslash3_48de",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 4,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        }
+      ],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -129,9 +161,9 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 17,
+      "current_hp": 20,
       "current_sp": 20,
-      "current_stagger": 7,
+      "current_stagger": 10,
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {},
@@ -139,7 +171,24 @@
       "_status_effects": {},
       "delayed_queue": [],
       "deck": [],
-      "active_slots": [],
+      "active_slots": [
+        {
+          "speed": 4,
+          "card": "testslash1_a468",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
+        }
+      ],
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
@@ -155,9 +204,9 @@
       "overkill_damage": 0,
       "money_log": [],
       "base_stats": {
-        "current_hp": 17,
+        "current_hp": 20,
         "current_sp": 20,
-        "current_stagger": 7
+        "current_stagger": 10
       },
       "defense": {
         "armor_name": "Без брони",
@@ -213,45 +262,360 @@
         }
       },
       "unit_type": "syndicate"
-    }
-  ],
-  "phase": "roll",
-  "round_number": 2,
-  "turn_message": "Round Complete.",
-  "battle_logs": [
+    },
     {
-      "type": "clash",
-      "round": "Clash (1)",
-      "left": {
-        "unit": "Афелия Токс",
-        "card": "TestSlash1",
-        "dice": "SLASH",
-        "val": 3,
-        "range": "1-1"
+      "name": " Дна'хо",
+      "level": 5,
+      "rank": 9,
+      "avatar": "data/avatars\\Днахо.jpg",
+      "base_intellect": 1,
+      "total_xp": 0,
+      "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
       },
-      "right": {
-        "unit": "Гачикута",
-        "card": "TestBlock1",
-        "dice": "BLOCK",
-        "val": 1,
-        "range": "1-1"
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
       },
-      "outcome": "🏆 Афелия Токс Win (Hit) 💥 **-3 HP**",
-      "details": [
-        "🎲 Roll [1-1]: 1 + 1 (Сила) + 1 (Легкое ор.) = **3**",
-        "👊 Atk Boost: +1",
-        "💥 **Гачикута**: [x1.0 Res] Hit 3 HP",
-        "🎲 Roll [1-1]: 1 = **1**",
-        "📉 **Помеха!** (1, 1) -> Base: 1"
-      ]
+      "current_hp": 20,
+      "current_sp": 20,
+      "current_stagger": 10,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {},
+      "active_buffs": {},
+      "_status_effects": {},
+      "delayed_queue": [],
+      "deck": [
+        "test_unity_1",
+        "test_unity_2"
+      ],
+      "active_slots": [
+        {
+          "speed": 6,
+          "card": "test_unity_1",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 7,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 7,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 2,
+          "card": "test_unity_2",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
+        }
+      ],
+      "stored_dice": [],
+      "counter_dice": [],
+      "memory": {
+        "status_rank": "МЕРТВА. Киборг Братства Высоких.",
+        "start_of_battle_stats": {
+          "hp": 20,
+          "sp": 20,
+          "stagger": 10
+        },
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [],
+      "base_stats": {
+        "current_hp": 20,
+        "current_sp": 20,
+        "current_stagger": 10
+      },
+      "defense": {
+        "armor_name": "Без брони",
+        "armor_type": "Medium",
+        "armor_id": "none",
+        "hp_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "none"
+      },
+      "attributes": {
+        "strength": 2,
+        "endurance": 0,
+        "agility": 0,
+        "wisdom": 0,
+        "psych": 0
+      },
+      "skills": {
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 0,
+        "speed": 30,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [],
+      "talents": [],
+      "augmentations": [],
+      "level_rolls": {},
+      "biography": "",
+      "relationships": {
+        "Азгик": {
+          "value": -100,
+          "status": "Nemesis",
+          "notes": "УБИТА ИМ"
+        }
+      },
+      "unit_type": "dead"
+    },
+    {
+      "name": " Дна'хо 2",
+      "level": 5,
+      "rank": 9,
+      "avatar": "data/avatars\\Днахо.jpg",
+      "base_intellect": 1,
+      "total_xp": 0,
+      "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+      },
+      "current_hp": 20,
+      "current_sp": 20,
+      "current_stagger": 10,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {},
+      "active_buffs": {},
+      "_status_effects": {},
+      "delayed_queue": [],
+      "deck": [
+        "test_unity_1",
+        "test_unity_2"
+      ],
+      "active_slots": [
+        {
+          "speed": 7,
+          "card": "test_unity_1",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 9,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 8,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 1,
+          "card": "test_unity_2",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false,
+          "destroy_on_speed": true
+        }
+      ],
+      "stored_dice": [],
+      "counter_dice": [],
+      "memory": {
+        "status_rank": "МЕРТВА. Киборг Братства Высоких.",
+        "start_of_battle_stats": {
+          "hp": 20,
+          "sp": 20,
+          "stagger": 10
+        },
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [],
+      "base_stats": {
+        "current_hp": 20,
+        "current_sp": 20,
+        "current_stagger": 10
+      },
+      "defense": {
+        "armor_name": "Без брони",
+        "armor_type": "Medium",
+        "armor_id": "none",
+        "hp_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "none"
+      },
+      "attributes": {
+        "strength": 2,
+        "endurance": 0,
+        "agility": 0,
+        "wisdom": 0,
+        "psych": 0
+      },
+      "skills": {
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 0,
+        "speed": 30,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [],
+      "talents": [],
+      "augmentations": [],
+      "level_rolls": {},
+      "biography": "",
+      "relationships": {
+        "Азгик": {
+          "value": -100,
+          "status": "Nemesis",
+          "notes": "УБИТА ИМ"
+        }
+      },
+      "unit_type": "dead"
     }
   ],
+  "phase": "planning",
+  "round_number": 1,
+  "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
+  "battle_logs": [],
   "script_logs": "",
   "turn_phase": "done",
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Афелия Токс",
+  "profile_unit": "Аксис Мунди",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",

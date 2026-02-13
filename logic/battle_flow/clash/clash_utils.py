@@ -71,28 +71,20 @@ def resolve_slot_die(unit, queue, idx, is_broken, active_counter_tuple):
 
 
 def store_remaining_dice(unit, queue, idx, active_cnt_tuple, log_list):
-    """Сохраняет неиспользованные кубики уклонения."""
-    if not hasattr(unit, 'stored_dice') or not isinstance(unit.stored_dice, list):
-        unit.stored_dice = []
+    if not hasattr(unit, 'stored_dice'): unit.stored_dice = []
 
-    # Если остался активный контр-кубик (ресайкнутый)
+    # 1. СИТУАЦИЯ: Контр-кубик отбился и "завис" в active_counter.
+    # В Library of Ruina такой кубик СГОРАЕТ, если у врага кончились цели.
     if active_cnt_tuple:
-        die, is_from_storage = active_cnt_tuple
-        if die.dtype == DiceType.EVADE:
-            if is_from_storage:
-                unit.stored_dice.append(die)
-                logger.log(f"{unit.name} kept counter evade", LogLevel.NORMAL, "Clash")
-                log_list.append({"type": "info", "outcome": f"🛡️ {unit.name} Kept Counter Evade", "details": []})
+        die, _ = active_cnt_tuple
+        logger.log(f"{unit.name}: Active Counter {die.dtype.name} burned out (No target)", LogLevel.NORMAL, "Clash")
 
-    # Проходим по оставшейся очереди
+    # 2. СИТУАЦИЯ: В карте остались кубики, до которых бой не дошел.
+    # Мы сохраняем их, если это контр-кубики.
     while idx < len(queue):
         die = queue[idx]
-        if die.dtype == DiceType.EVADE:
+        if getattr(die, "is_counter", False) or die.dtype == DiceType.EVADE:
             unit.stored_dice.append(die)
-            logger.log(f"{unit.name} stored unused evade", LogLevel.NORMAL, "Clash")
-            log_list.append({
-                "type": "info",
-                "outcome": f"🛡️ {unit.name} Stored Evade Die",
-                "details": [f"Die {die.min_val}-{die.max_val} saved."]
-            })
+            logger.log(f"{unit.name}: Saved Unused Counter {die.dtype.name}", LogLevel.NORMAL, "Clash")
+            log_list.append({"type": "info", "outcome": f"🛡️ Stored {die.dtype.name}"})
         idx += 1

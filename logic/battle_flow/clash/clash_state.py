@@ -35,18 +35,19 @@ class ClashParticipantState:
         return die
 
     def consume(self):
-        """Кубик потрачен (проиграл или сыграл эффект)."""
         if self.active_counter:
             self.active_counter = None
-        elif not self.current_src_is_counter:
+        else:
+            # [FIX] Индекс должен расти ВСЕГДА, когда мы берем новый кубик из очереди,
+            # независимо от того, контра это или атака.
             self.idx += 1
 
     def recycle(self):
-        """Кубик выиграл и возвращается (evade)."""
         if not self.active_counter:
+            # Сохраняем кубик как активный для следующего раунда
             self.active_counter = (self.current_die, self.current_src_is_counter)
-            if not self.current_src_is_counter:
-                self.idx += 1
+            # [FIX] Сдвигаем индекс в карте, так как этот кубик "вышел" из своего слота
+            self.idx += 1
             logger.log(f"{self.unit.name} recycled die", LogLevel.VERBOSE, "Clash")
 
     def has_dice_left(self):
@@ -56,3 +57,8 @@ class ClashParticipantState:
     def store_remaining(self, report_list):
         """Сохраняет остатки после боя."""
         store_remaining_dice(self.unit, self.queue, self.idx, self.active_counter, report_list)
+
+    def return_die(self, die):
+        """[FIX] Возвращает кубик обратно в начало очереди (для сохранения контр-кубиков)."""
+        if die:
+            self.queue.insert(0, die)
