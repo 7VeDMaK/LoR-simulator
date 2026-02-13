@@ -1174,3 +1174,160 @@
 [13:54:28.274] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
 [13:54:28.274] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
 [13:54:28.275] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[19:26:59.236] [NORMAL ] [Talent] 🌑 Distortion Entered: TestUnit
+[19:26:59.242] [NORMAL ] [Talent] 🛡️ Safe EGO: Activated for TestUnit
+[19:26:59.243] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[19:26:59.244] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[19:26:59.245] [VERBOSE] [Talent] 🛡️ Defense (Win): +1 Protection for Tester
+[19:26:59.247] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[19:26:59.248] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[19:26:59.250] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[19:26:59.251] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[19:26:59.254] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[19:26:59.255] [VERBOSE] [Talent] 🛡️ Defense: Added 4 counter blocks (3-5) to Tester
+[19:26:59.261] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[19:26:59.263] [NORMAL ] [Talent] 🛡️ Defender: Activated Taunt (3 turns) + Protection on Tester
+[19:26:59.265] [VERBOSE] [Talent] 🛡️ Hardened Skin: Reduced bleed damage (10 -> 6)
+[19:26:59.266] [VERBOSE] [Talent] 🧠 Hardened Skin: Recovered 1 SP from bleed
+[19:26:59.266] [VERBOSE] [Talent] 🛡️ Hardened Skin: Reduced burn damage (100 -> 67)
+[19:26:59.267] [VERBOSE] [Talent] 🧠 Hardened Skin: Recovered 1 SP from burn
+[19:26:59.269] [VERBOSE] [Talent] 🚫 Idol Oath: Refused healing (20) from Healer
+[19:26:59.273] [NORMAL ] [Talent] ❤️ Big Heart: Applied 45 barrier to 2 allies
+[19:26:59.279] [NORMAL ] [Talent] ⚡ Surge of Strength activated for Berseker (HP < 25%)
+[19:26:59.283] [NORMAL ] [Talent] ⚡ Surge of Strength activated for Berseker (HP < 25%)
+[19:26:59.285] [VERBOSE] [Talent] 🦶 Aerial Foot: Added 1 evade counters to SmokerAgent (Lvl 10)
+[19:26:59.285] [VERBOSE] [Talent] 🦶 Aerial Foot: Added 2 evade counters to SmokerAgent (Lvl 10)
+[19:26:59.285] [VERBOSE] [Talent] 🦶 Aerial Foot: Added 3 evade counters to SmokerAgent (Lvl 10)
+[19:26:59.286] [VERBOSE] [Talent] 🦶 Aerial Foot: Added 3 evade counters to SmokerAgent (Lvl 10)
+[19:26:59.289] [VERBOSE] [Talent] 🚬 Hiding in Smoke: SmokerAgent smoke is now defensive
+[19:26:59.292] [VERBOSE] [Talent] 🫁 Lung Processing: Boosted damage 100 -> 130 (+30%)
+[19:26:59.296] [VERBOSE] [Talent] ♻️ Recycling: Converted 3 unused dice to Smoke for SmokerAgent
+[19:26:59.300] [NORMAL ] [Talent] 💨 Smoke Screen: Applied 3 smoke to 2 enemies
+[19:26:59.304] [NORMAL ] [Talent] 💨 Smoke Screen: Applied 5 smoke to 1 enemies
+[19:26:59.308] [NORMAL ] [Talent] 🌫️ Smoke Universality: SmokerAgent converted 3 smoke to 5 self_control
+[19:26:59.310] [NORMAL ] [Talent] 🌫️ Smoke Universality: SmokerAgent converted 4 smoke to 1 attack_power_up
+[19:26:59.311] [NORMAL ] [Clash] ⚔️ Clash Start: Zafiel (Counter) vs Rat (Empty) (Spd: 5 vs 3)
+[19:26:59.313] [VERBOSE] [Clash] Clash 1: Zafiel (Counter)(10) vs Rat (Empty)(0)
+[19:26:59.314] [VERBOSE] [Clash] ⏸️ Attacker Counter Die preserved (No Target)
+[19:26:59.314] [NORMAL ] [Clash] Zafiel (Counter): Saved Unused Counter SLASH
+[19:26:59.315] [NORMAL ] [Clash] Attacker wins clash (15 vs 5)
+[19:26:59.315] [VERBOSE] [Interaction] 💥 Interaction: Attacker (Atk) catches Defender (Evade) -> Full Damage
+[19:26:59.316] [NORMAL ] [Clash] Attacker wins clash (10 vs 5)
+[19:26:59.316] [VERBOSE] [Interaction] ⚔️ Interaction: Attacker (Atk) wins vs Defender (Atk) -> Full Damage
+[19:26:59.317] [NORMAL ] [Clash] Attacker wins clash (10 vs 5)
+[19:26:59.319] [VERBOSE] [Interaction] 🛡️ Interaction: Attacker (Atk) hits Defender (Block) -> Reduced Damage (5)
+[19:26:59.320] [NORMAL ] [Clash] Defender wins clash (10 vs 5)
+[19:26:59.321] [VERBOSE] [Interaction] 🧱 Interaction: Defender (Block) counters Attacker (Atk) -> 5 Stagger Dmg
+[19:26:59.323] [NORMAL ] [Clash] Defender wins clash (12 vs 8)
+[19:26:59.325] [NORMAL ] [Clash] Roland wins clash (10 vs 5)
+[19:26:59.325] [VERBOSE] [Interaction] ⚔️ Interaction: Roland (Atk) wins vs Zafiel (Atk) -> Full Damage
+[19:26:59.327] [NORMAL ] [Clash] Zafiel wins clash (10 vs 5)
+[19:26:59.328] [VERBOSE] [Interaction] ⚔️ Interaction: Zafiel (Atk) wins vs Roland (Atk) -> Full Damage
+[19:26:59.329] [NORMAL ] [Clash] Roland wins clash (10 vs 5)
+[19:26:59.330] [VERBOSE] [Interaction] 🧱 Interaction: Roland (Block) counters Zafiel (Atk) -> 5 Stagger Dmg
+[19:26:59.331] [NORMAL ] [Clash] Zafiel wins clash (15 vs 10)
+[19:26:59.331] [VERBOSE] [Interaction] ⚔️ Interaction: Zafiel (Atk) wins vs Roland (Atk) -> Full Damage
+[19:26:59.334] [NORMAL ] [Clash] Zafiel wins clash (20 vs 15)
+[19:26:59.334] [VERBOSE] [Interaction] 🛡️ Interaction: Zafiel (Atk) hits Roland (Block) -> Reduced Damage (5)
+[19:26:59.335] [NORMAL ] [Clash] Clash Draw (10)
+[19:26:59.336] [NORMAL ] [Clash] Roland wins clash (15 vs 5)
+[19:26:59.337] [NORMAL ] [Clash] Roland wins clash (20 vs 5)
+[19:26:59.338] [VERBOSE] [Interaction] 🧱 Interaction: Roland (Block) counters Zafiel (Atk) -> 15 Stagger Dmg
+[19:26:59.339] [NORMAL ] [Clash] Zafiel wins clash (10 vs 5)
+[19:26:59.339] [VERBOSE] [Interaction] 🛡️ Interaction: Zafiel (Atk) hits Roland (Block) -> Reduced Damage (5)
+[19:26:59.341] [NORMAL ] [Clash] Zafiel wins clash (15 vs 8)
+[19:26:59.341] [VERBOSE] [Interaction] ⚔️ Interaction: Zafiel (Atk) wins vs Roland (Atk) -> Full Damage
+[19:26:59.343] [VERBOSE] [OneSided] One-Sided: Zafiel vs Rat (Spd: 5 vs 3, Redir=False)
+[19:26:59.344] [VERBOSE] [OneSided] One-Sided: Recycled Counter Die skipped (DiceType.SLASH)
+[19:26:59.347] [VERBOSE] [OneSided] One-Sided: Zafiel vs Rat (Spd: 5 vs 3, Redir=False)
+[19:26:59.347] [VERBOSE] [OneSided] One-Sided: Recycled Counter Die skipped (DiceType.EVADE)
+[19:26:59.348] [NORMAL ] [Clash] ⚔️ Clash Start: Afelia vs Enemy (Spd: 5 vs 5)
+[19:26:59.351] [VERBOSE] [Clash] Clash 1: Afelia(10) vs Enemy(5)
+[19:26:59.354] [NORMAL ] [Clash] <MagicMock name='mock.source.name' id='1412181848176'> wins clash (10 vs 5)
+[19:26:59.356] [VERBOSE] [Clash] Afelia recycled die
+[19:26:59.358] [VERBOSE] [Clash] Clash 2: Afelia(10) vs Enemy(5)
+[19:26:59.363] [NORMAL ] [Clash] <MagicMock name='mock.source.name' id='1412181952832'> wins clash (10 vs 5)
+[19:26:59.366] [VERBOSE] [Clash] Clash 3: Afelia(10) vs Enemy(0)
+[19:26:59.367] [VERBOSE] [Clash] ⏸️ Attacker Counter Die preserved (No Target)
+[19:26:59.367] [NORMAL ] [Clash] Afelia: Active Counter SLASH burned out (No target)
+[19:26:59.368] [NORMAL ] [Clash] Afelia: Saved Unused Counter SLASH
+[19:26:59.369] [NORMAL ] [Clash] Afelia: Saved Unused Counter SLASH
+[19:26:59.372] [NORMAL ] [Clash] Zafiel wins clash (10 vs 5)
+[19:26:59.372] [NORMAL ] [Clash] Zafiel wins clash (10 vs 5)
+[19:26:59.373] [NORMAL ] [Clash] Afelia: Active Counter PIERCE burned out (No target)
+[19:26:59.376] [NORMAL ] [Clash] Afelia: Saved Unused Counter SLASH
+[19:26:59.378] [NORMAL ] [Clash] Afelia: Saved Unused Counter BLOCK
+[19:26:59.380] [VERBOSE] [OneSided] Afelia retrieves Stored Die
+[19:26:59.380] [VERBOSE] [OneSided] Afelia retrieves Stored Die
+[19:26:59.383] [MINIMAL] [Scripts] 💔 Decay: Defender takes 40 HP
+[19:26:59.385] [MINIMAL] [Scripts] 💔 Effect Dmg: Defender takes 15 HP
+[19:26:59.387] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 20
+[19:26:59.388] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 10
+[19:26:59.390] [MINIMAL] [Scripts] 😵 Effect Stagger: Defender takes 7
+[19:26:59.393] [VERBOSE] [Scripts] 🚫 HP Damage Nullified for Attacker
+[19:26:59.397] [MINIMAL] [Scripts] 🩸 Self Harm: Attacker takes 10 HP
+[19:26:59.401] [VERBOSE] [Scripts] 🔋 Converted 10 smoke -> +5 Power
+[19:26:59.403] [VERBOSE] [Scripts] 🔋 Converted 5 charge -> +5 Power
+[19:26:59.405] [VERBOSE] [Scripts] 📉 Ram Logic: 2 Power, Haste Consumed
+[19:26:59.407] [VERBOSE] [Scripts] 📉 Ram Logic: 15 Power, Haste Consumed
+[19:26:59.408] [VERBOSE] [Scripts] 📉 Ram Logic: 0 Power, Haste Consumed
+[19:26:59.416] [VERBOSE] [Scripts] Modify Power: 5 (Test Bonus) for Striker
+[19:26:59.417] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[19:26:59.420] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[19:26:59.421] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[19:26:59.421] [VERBOSE] [Scripts] 🚩 Memory: Set combo_count=5 for Caster
+[19:26:59.422] [VERBOSE] [Scripts] 🚩 Memory: Set wethermon_failed=True for Caster
+[19:26:59.425] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[19:26:59.428] [NORMAL ] [Summon] 🤖 Summoned Minion (a278) for Caster
+[19:26:59.429] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 100)
+[19:26:59.430] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 55)
+[19:26:59.433] [VERBOSE] [Scripts] 🍀 Fortune Power: +5
+[19:26:59.434] [NORMAL ] [Scripts] 🍀 Luck Series: Added 2 dice to card Luck Card
+[19:26:59.435] [VERBOSE] [Scripts] 🍀 Luck Scaling: x3 (Total: +24)
+[19:26:59.441] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[19:26:59.513] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[19:26:59.515] [VERBOSE] [Scripts] 🛡️ Restored Healer for 0 Stagger
+[19:26:59.517] [VERBOSE] [Scripts] 🧪 Applied 5 burn to Target
+[19:26:59.520] [VERBOSE] [Scripts] 🎲 Applied 8 poise (Roll-based) to Caster
+[19:26:59.521] [VERBOSE] [Scripts] Apply Status haste failed: Roll 5 < 10
+[19:26:59.525] [VERBOSE] [Scripts] ✖️ Multiplied burn on Target by 2.0
+[19:26:59.527] [NORMAL ] [Scripts] 🧹 Removed positive buffs from Target: ['protection']
+[19:26:59.530] [VERBOSE] [Scripts] 🧪 Random Purge: Removed 2 burn from Target
+[19:26:59.532] [VERBOSE] [Scripts] 🧹 Removed 5 bind from Target
+[19:26:59.534] [VERBOSE] [Scripts] ✋ Caster stole 3 power_up from Target
+[19:26:59.537] [VERBOSE] [Scripts] 🎲 Script chance failed (0.5)
+[19:26:59.539] [VERBOSE] [Scripts] 🚫 Script requirement failed: strength 12 < 20
+[19:26:59.547] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[19:26:59.547] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[19:26:59.548] [VERBOSE] [Status] 🔍 Attack Power Up on_roll: unit=Tester, stack=3, dice_type=DiceType.SLASH
+[19:26:59.548] [NORMAL ] [Status] 🔍 DEBUG: ctx.dice=<tests.mocks.MockDice object at 0x00000148CB7DF610>, dtype=DiceType.SLASH, in list? True
+[19:26:59.550] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[19:26:59.551] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:26:59.552] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[19:26:59.553] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[19:26:59.554] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[19:26:59.556] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[19:26:59.557] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[19:26:59.560] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[19:26:59.563] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[19:26:59.564] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[19:26:59.567] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[19:26:59.570] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[19:26:59.571] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[19:26:59.571] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[19:26:59.572] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[19:26:59.573] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[19:26:59.573] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[19:26:59.574] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[19:26:59.575] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[19:26:59.575] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[19:26:59.576] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[19:26:59.579] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[19:26:59.580] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[19:26:59.581] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[19:26:59.583] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:26:59.584] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[19:26:59.585] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[19:26:59.587] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[19:26:59.591] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[19:26:59.592] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)

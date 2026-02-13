@@ -69,22 +69,25 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
         # Случай 1: Атакующий сломан/пуст (А защитник есть)
         if not die_a and die_d:
             if getattr(die_d, "is_counter", False):
-                logger.log(f"⏸️ Defender Counter Die preserved (No Target)", LogLevel.VERBOSE, "Clash")
-                # УДАЛЕНО: state_d.return_die(die_d)
+                # Контр-кубики сохраняются
                 break
-            else:
-                outcome = handle_one_sided_exchange(engine, active_side=state_d, passive_side=state_a,
-                                                    detail_logs=detail_logs)
+            outcome = handle_one_sided_exchange(engine, active_side=state_d, passive_side=state_a,
+                                                detail_logs=detail_logs)
+            state_d.consume()
+            # [FIX] Если атакующий кубик был сломан (а не просто отсутствовал), помечаем его как использованный
+            if not die_a and state_a.idx < len(state_a.queue):
+                state_a.idx += 1
 
         # Случай 2: Защитник сломан/пуст (А атакующий есть)
         elif die_a and not die_d:
             if getattr(die_a, "is_counter", False):
-                logger.log(f"⏸️ Attacker Counter Die preserved (No Target)", LogLevel.VERBOSE, "Clash")
-                # УДАЛЕНО: state_a.return_die(die_a)
                 break
-            else:
-                outcome = handle_one_sided_exchange(engine, active_side=state_a, passive_side=state_d,
-                                                    detail_logs=detail_logs)
+            outcome = handle_one_sided_exchange(engine, active_side=state_a, passive_side=state_d,
+                                                detail_logs=detail_logs)
+            state_a.consume()
+            # [FIX] Если защитный кубик был сломан (Speedbreak), он "поглощает" одну атаку
+            if not die_d and state_d.idx < len(state_d.queue):
+                state_d.idx += 1
 
         # Случай 3: Оба защитные
         elif (die_a.dtype in [DiceType.EVADE, DiceType.BLOCK]) and (die_d.dtype in [DiceType.EVADE, DiceType.BLOCK]):
@@ -114,11 +117,15 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
             else:
                 state_d.consume()
 
+        def get_dice_label(state, die):
+            if die:
+                lbl = die.dtype.name
+                if state.current_src_is_counter: lbl += " (C)"
+                return lbl
+            return "Broken" if state.idx < len(state.queue) else "-"
         # Формирование отчета UI
-        l_lbl = die_a.dtype.name if die_a else "Broken"
-        r_lbl = die_d.dtype.name if die_d else "Broken"
-        if state_a.current_src_is_counter: l_lbl += " (C)"
-        if state_d.current_src_is_counter: r_lbl += " (C)"
+        l_lbl = get_dice_label(state_a, die_a)
+        r_lbl = get_dice_label(state_d, die_d)
         l_rng = f"{die_a.min_val}-{die_a.max_val}" if die_a else "-"
         r_rng = f"{die_d.min_val}-{die_d.max_val}" if die_d else "-"
 
