@@ -100,6 +100,19 @@ class MockUnit:
         self.current_hp -= amount
         return amount
 
+    def restore_stagger(self, amount):
+        """Восстанавливает Stagger."""
+        if amount <= 0: return 0
+        old_stg = self.current_stagger
+        self.current_stagger = min(self.max_stagger, self.current_stagger + amount)
+        return self.current_stagger - old_stg
+
+    def take_stagger_damage(self, amount):
+        """Наносит урон по Stagger."""
+        if amount <= 0: return 0
+        self.current_stagger = max(0, self.current_stagger - amount)
+        return amount
+
     def apply_mechanics_filter(self, method_name, val, *args, **kwargs):
         return val
 
@@ -118,8 +131,8 @@ class MockDice:
         self.max_val = max_val
         self.final_value = 0
         self.is_broken = False
-        # Добавил поддержку флагов, так как она используется в тестах (talent_defense_die)
         self.flags = flags if flags else []
+        self.recycled = False
 
     def roll(self):
         import random

@@ -3,12 +3,21 @@
   "page": "⚔️ Simulator",
   "team_left_data": [
     {
+<<<<<<< HEAD
       "name": "Лайла",
       "level": 3,
       "rank": 9,
       "avatar": "data/avatars\\Лайла.jpg",
       "base_intellect": 8,
       "total_xp": 4,
+=======
+      "name": "Афелия Токс",
+      "level": 1,
+      "rank": 9,
+      "avatar": "data/avatars\\Афелия_Токс.jpg",
+      "base_intellect": 1,
+      "total_xp": 0,
+>>>>>>> 9e043b7ec8295b2828319a1e7f49dfb5fcc29240
       "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -22,6 +31,7 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
+<<<<<<< HEAD
       "current_hp": 34,
       "current_sp": 27,
       "current_stagger": 17,
@@ -121,11 +131,25 @@
           "is_ally_target": false
         }
       ],
+=======
+      "current_hp": 18,
+      "current_sp": 20,
+      "current_stagger": 8,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {},
+      "active_buffs": {},
+      "_status_effects": {},
+      "delayed_queue": [],
+      "deck": [],
+      "active_slots": [],
+>>>>>>> 9e043b7ec8295b2828319a1e7f49dfb5fcc29240
       "stored_dice": [],
       "counter_dice": [],
       "memory": {
-        "status_rank": "9 (Fixer)",
+        "status_rank": "Адама работница",
         "start_of_battle_stats": {
+<<<<<<< HEAD
           "hp": 34,
           "sp": 27,
           "stagger": 17
@@ -143,12 +167,19 @@
         "rapid_retreat_damage_taken": 0,
         "marked_target_Лайла_Рейн": true,
         "rapid_retreat_activated": false,
+=======
+          "hp": 18,
+          "sp": 20,
+          "stagger": 8
+        },
+>>>>>>> 9e043b7ec8295b2828319a1e7f49dfb5fcc29240
         "battle_initialized": true
       },
       "death_count": 0,
       "overkill_damage": 0,
       "money_log": [],
       "base_stats": {
+<<<<<<< HEAD
         "current_hp": 34,
         "current_sp": 27,
         "current_stagger": 17
@@ -157,6 +188,16 @@
         "armor_name": "Броня Лайлы",
         "armor_type": "Medium",
         "armor_id": "armor_leila",
+=======
+        "current_hp": 18,
+        "current_sp": 20,
+        "current_stagger": 8
+      },
+      "defense": {
+        "armor_name": "Без брони",
+        "armor_type": "Medium",
+        "armor_id": "none",
+>>>>>>> 9e043b7ec8295b2828319a1e7f49dfb5fcc29240
         "hp_resists": {
           "slash": 0.8,
           "pierce": 1.0,
@@ -167,6 +208,7 @@
           "pierce": 1.0,
           "blunt": 1.0
         },
+<<<<<<< HEAD
         "weapon_id": "zweihander_swite"
       },
       "attributes": {
@@ -175,18 +217,144 @@
         "agility": 8,
         "wisdom": 0,
         "psych": 4
+=======
+        "weapon_id": "none"
+      },
+      "attributes": {
+        "strength": 5,
+        "endurance": 5,
+        "agility": 0,
+        "wisdom": 5,
+        "psych": 5
+      },
+      "skills": {
+        "strike_power": 5,
+        "medicine": 5,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 5,
+        "shields": 5,
+        "tough_skin": 0,
+        "speed": 10,
+        "light_weapon": 5,
+        "medium_weapon": 5,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [],
+      "talents": [],
+      "augmentations": [],
+      "level_rolls": {},
+      "biography": "",
+      "relationships": {
+        "Адам Серый Лис": {
+          "value": 50,
+          "status": "Friend",
+          "notes": "Доверяет. Служит"
+        }
+      },
+      "unit_type": "syndicate"
+    }
+  ],
+  "team_right_data": [
+    {
+      "name": "Гачикута",
+      "level": 1,
+      "rank": 9,
+      "avatar": "data/avatars/Гачикута.png",
+      "base_intellect": 1,
+      "total_xp": 0,
+      "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+      },
+      "current_hp": 17,
+      "current_sp": 20,
+      "current_stagger": 7,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {},
+      "active_buffs": {},
+      "_status_effects": {},
+      "delayed_queue": [],
+      "deck": [],
+      "active_slots": [],
+      "stored_dice": [],
+      "counter_dice": [],
+      "memory": {
+        "status_rank": "Работает у стойки Волчьей Ямы",
+        "start_of_battle_stats": {
+          "hp": 20,
+          "sp": 20,
+          "stagger": 10
+        },
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [],
+      "base_stats": {
+        "current_hp": 17,
+        "current_sp": 20,
+        "current_stagger": 7
+      },
+      "defense": {
+        "armor_name": "Без брони",
+        "armor_type": "Medium",
+        "armor_id": "none",
+        "hp_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "none"
+      },
+      "attributes": {
+        "strength": 0,
+        "endurance": 0,
+        "agility": 0,
+        "wisdom": 0,
+        "psych": 0
+>>>>>>> 9e043b7ec8295b2828319a1e7f49dfb5fcc29240
       },
       "skills": {
         "strike_power": 0,
         "medicine": 0,
         "willpower": 0,
         "luck": 0,
+<<<<<<< HEAD
         "acrobatics": 6,
         "shields": 3,
         "tough_skin": 6,
         "speed": 11,
         "light_weapon": 0,
         "medium_weapon": 11,
+=======
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 0,
+        "speed": 0,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+>>>>>>> 9e043b7ec8295b2828319a1e7f49dfb5fcc29240
         "heavy_weapon": 0,
         "firearms": 0,
         "eloquence": 0,
@@ -194,6 +362,7 @@
         "engineering": 0,
         "programming": 0
       },
+<<<<<<< HEAD
       "passives": [
         "social_phobia",
         "not_economically_minded",
@@ -204,10 +373,14 @@
         "hardened_by_solitude",
         "stances"
       ],
+=======
+      "passives": [],
+>>>>>>> 9e043b7ec8295b2828319a1e7f49dfb5fcc29240
       "talents": [],
       "augmentations": [],
       "level_rolls": {},
       "biography": "",
+<<<<<<< HEAD
       "relationships": {},
       "unit_type": "player"
     }
@@ -437,6 +610,47 @@
       "round": "Skill",
       "rolls": "Activate",
       "details": "⚔️ **Боевые Стойки**: Активирована 🛡️ Защита стойка! (+1 мощность, колода сменена)"
+=======
+      "relationships": {
+        "Зафиэль": {
+          "value": 30,
+          "status": "Friend",
+          "notes": "Милый парень. Хочу почаще видеть его"
+        }
+      },
+      "unit_type": "syndicate"
+    }
+  ],
+  "phase": "roll",
+  "round_number": 2,
+  "turn_message": "Round Complete.",
+  "battle_logs": [
+    {
+      "type": "clash",
+      "round": "Clash (1)",
+      "left": {
+        "unit": "Афелия Токс",
+        "card": "TestSlash1",
+        "dice": "SLASH",
+        "val": 3,
+        "range": "1-1"
+      },
+      "right": {
+        "unit": "Гачикута",
+        "card": "TestBlock1",
+        "dice": "BLOCK",
+        "val": 1,
+        "range": "1-1"
+      },
+      "outcome": "🏆 Афелия Токс Win (Hit) 💥 **-3 HP**",
+      "details": [
+        "🎲 Roll [1-1]: 1 + 1 (Сила) + 1 (Легкое ор.) = **3**",
+        "👊 Atk Boost: +1",
+        "💥 **Гачикута**: [x1.0 Res] Hit 3 HP",
+        "🎲 Roll [1-1]: 1 = **1**",
+        "📉 **Помеха!** (1, 1) -> Base: 1"
+      ]
+>>>>>>> 9e043b7ec8295b2828319a1e7f49dfb5fcc29240
     }
   ],
   "script_logs": "",
@@ -444,7 +658,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Аксис Мунди",
+  "profile_unit": "Афелия Токс",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",
