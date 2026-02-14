@@ -577,12 +577,61 @@ class TalentOppression(BasePassive):
 # ==========================================
 class TalentVulnerabilityPoint(BasePassive):
     id = "vulnerability_point"
-    name = "Точка уязвимости WIP"
+    name = "Точка уязвимости"
     description = (
-        "9.9 Опц: (Требует броню < 0.5 резиста).\n"
-        "Ваши атаки не могут нанести меньше 50% от силы броска (Минимальный урон)."
+        "«Броня — это иллюзия защиты. Ты знаешь, где швы расходятся, где пластины слабее. "
+        "Даже самый крепкий панцирь не спасет от точного удара в нужное место.»\n\n"
+        "Пассивно: Обход низкой защиты.\n"
+        "Условие: Резист цели к вашему типу урона < 0.5.\n"
+        "Эффект: Ваши атаки гарантированно наносят минимум 50% от силы броска."
     )
     is_active_ability = False
+
+    def on_calculate_damage(self, ctx, **kwargs):
+        """
+        Гарантирует минимальный урон 50% от силы броска,
+        если резист цели к типу урона меньше 0.5.
+        """
+        target = ctx.target
+        if not target:
+            return
+        
+        # Проверяем, что это атакующий кубик
+        dice_type = ctx.dice.dtype
+        if dice_type not in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
+            return
+        
+        # Получаем резист цели к этому типу урона
+        resistance = 0.0
+        if hasattr(target, 'get_resistance'):
+            resistance = target.get_resistance(dice_type)
+        elif hasattr(target, 'resistances'):
+            # Fallback: прямой доступ к структуре резистов
+            resist_map = {
+                DiceType.SLASH: 'slash',
+                DiceType.PIERCE: 'pierce',
+                DiceType.BLUNT: 'blunt'
+            }
+            resist_key = resist_map.get(dice_type)
+            if resist_key:
+                resistance = getattr(target.resistances, resist_key, 0.0)
+        
+        # Проверяем условие активации: резист < 0.5
+        if resistance >= 0.5:
+            return
+        
+        # Рассчитываем минимальный урон (50% от силы броска)
+        min_damage = int(ctx.final_value * 0.5)
+        
+        # Если текущий урон меньше минимума - поднимаем до минимума
+        if ctx.damage < min_damage:
+            old_damage = ctx.damage
+            ctx.damage = min_damage
+            ctx.log.append(f"🎯 **Точка уязвимости**: Мин. урон {min_damage} (резист {resistance:.2f})")
+            logger.log(
+                f"🎯 Vulnerability Point: Raised damage from {old_damage} to {min_damage} on {target.name} (resist {resistance:.2f})",
+                LogLevel.VERBOSE, "Talent"
+            )
 
 
 # ==========================================
@@ -590,17 +639,180 @@ class TalentVulnerabilityPoint(BasePassive):
 # ==========================================
 class TalentExtremeMeasures(BasePassive):
     id = "extreme_measures"
-    name = "Крайние меры (А) WIP"
+    name = "Крайние меры (А)"
     description = (
         "9.10 А: Набор умений.\n"
-        "1. Кровяное облако (на трупе): Незаметность, но вы в крови (-25% HP).\n"
+        "1. Кровяное облако: Используйте труп врага (≤1% HP) или свою кровь (-25% HP) для создания облака.\n"
+        "   Эффект: Невидимость на 1 раунд.\n"
         "2. Веер клинков (Масс атака): 20 Bleed всем, 30 Bleed при попадании.\n"
-        "3. Визитная карточка: Понижает атрибуты цели на 6."
+        "3. Визитная карточка: Понижает атрибуты цели на 6. Время перезарядки 5 раундов."
     )
     is_active_ability = True
+    has_multiple_abilities = True  # Флаг для UI что есть несколько способностей
 
-    def activate(self, unit, log_func, **kwargs):
-        if log_func: log_func("🩸 Меню 'Крайних мер' (Заглушка).")
+
+    def _get_battle_targets(self):
+        """Возвращает всех участников боя (левая + правая команды)."""
+        try:
+            from ui.simulator.logic.simulator_logic import get_teams  # type: ignore
+            l_team, r_team = get_teams()
+            return (l_team or []) + (r_team or [])
+        except Exception:
+            return []
+
+    def _get_enemy_team(self, unit):
+        """Возвращает команду врагов для данного юнита."""
+        try:
+            from ui.simulator.logic.simulator_logic import get_teams  # type: ignore
+            l_team, r_team = get_teams()
+            if unit in (l_team or []):
+                return r_team or []
+            elif unit in (r_team or []):
+                return l_team or []
+        except Exception:
+            pass
+        return []
+
+    @property
+    def conversion_options(self):
+        """Строим меню выбора способности и целей."""
+        options = {
+            "blood_cloud": "🩸 Кровяное облако (Невидимость)",
+            "visiting_card": "🃏 Визитная карточка (Дебафф)"
+        }
+        
+        # Добавляем список целей для визитной карточки
+        for u in self._get_battle_targets():
+            if not u or not hasattr(u, "name"):
+                continue
+            suffix = " [уже с визиткой]" if u.get_status("visiting_card") > 0 else ""
+            options[f"card_{u.name}"] = f"  └─ {u.name}{suffix}"
+        
+        return options
+
+    def activate(self, unit, log_func, choice_key=None, **kwargs):
+        # === 1. КРОВЯНОЕ ОБЛАКО ===
+        if choice_key == "blood_cloud":
+            return self._activate_blood_cloud(unit, log_func)
+        
+        # === 2. ВИЗИТНАЯ КАРТОЧКА ===
+        elif choice_key and choice_key.startswith("card_"):
+            target_name = choice_key[5:]  # Обрезаем префикс "card_"
+            return self._activate_visiting_card(unit, log_func, target_name)
+        
+        # === 3. НЕТ ВЫБОРА ===
+        else:
+            if log_func:
+                log_func(f"⚠️ Выберите способность для {self.name}")
+            return False
+
+    def _activate_blood_cloud(self, unit, log_func):
+        """
+        Кровяное облако: использует труп врага (≤1% HP) или собственную кровь (-25% HP).
+        Эффект: Невидимость на 1 раунд.
+        """
+        enemy_team = self._get_enemy_team(unit)
+        
+        # Ищем врага с HP ≤ 1%
+        dying_enemy = None
+        for enemy in enemy_team:
+            if enemy.max_hp > 0:
+                hp_pct = (enemy.current_hp / enemy.max_hp) * 100
+                if hp_pct <= 1.0 and enemy.current_hp > 0:
+                    dying_enemy = enemy
+                    break
+        
+        # === ВАРИАНТ А: Используем труп врага ===
+        if dying_enemy:
+            # Добиваем врага (устанавливаем HP в -10%)
+            overkill_dmg = int(dying_enemy.max_hp * 0.10)
+            dying_enemy.current_hp = -overkill_dmg
+            dying_enemy.overkill_damage = overkill_dmg
+            
+            # Накладываем невидимость
+            unit.add_status("invisibility", 1, duration=1)
+            
+            logger.log(
+                f"🩸 Blood Cloud: {unit.name} used {dying_enemy.name}'s corpse for invisibility",
+                LogLevel.NORMAL, "Talent"
+            )
+            if log_func:
+                log_func(f"🩸 **Кровяное облако**: Труп {dying_enemy.name} превращен в облако! (Невидимость на 1х.)")
+            
+            return True
+        
+        # === ВАРИАНТ Б: Используем собственную кровь ===
+        else:
+            self_dmg = int(unit.max_hp * 0.25)
+            
+            # Проверка: не убьет ли это персонажа
+            if unit.current_hp <= self_dmg:
+                if log_func:
+                    log_func(f"⚠️ **{self.name}**: Недостаточно HP для самопожертвования (нужно >{self_dmg} HP)")
+                return False
+            
+            # Наносим урон себе
+            unit.current_hp -= self_dmg
+            
+            # Накладываем невидимость
+            unit.add_status("invisibility", 1, duration=1)
+            
+            logger.log(
+                f"🩸 Blood Cloud: {unit.name} sacrificed {self_dmg} HP for invisibility",
+                LogLevel.NORMAL, "Talent"
+            )
+            if log_func:
+                log_func(f"🩸 **Кровяное облако**: Пожертвовано {self_dmg} HP! (Невидимость на 1х.)")
+            
+            return True
+
+    def _activate_visiting_card(self, unit, log_func, target_name):
+        """
+        Визитная карточка: накладывает дебафф на цель.
+        Эффект: -6 ко всем атрибутам, длительность 99 раундов.
+        """
+        # Проверка кулдауна
+        if unit.cooldowns.get(self.id, 0) > 0:
+            if log_func:
+                log_func(f"⏳ **{self.name}**: На восстановлении ({unit.cooldowns[self.id]} раунд)")
+            return False
+        
+        # Поиск цели
+        target = None
+        for u in self._get_battle_targets():
+            if u and getattr(u, "name", None) == target_name:
+                target = u
+                break
+        
+        if not target:
+            if log_func:
+                log_func(f"⚠️ Цель не найдена: {target_name}")
+            return False
+        
+        # Нельзя выбрать самого себя
+        if target is unit:
+            if log_func:
+                log_func("⚠️ Нельзя выбрать самого себя")
+            return False
+        
+        # Проверка: уже есть визитка
+        if target.get_status("visiting_card") > 0:
+            if log_func:
+                log_func(f"⚠️ **{self.name}**: У {target.name} уже есть визитная карточка")
+            return False
+        
+        # Накладываем статус визитка
+        target.add_status("visiting_card", 1, duration=99)
+        
+ 
+        
+        logger.log(
+            f"🃏 Visiting Card: {unit.name} marked {target.name} (-6 to all attributes)",
+            LogLevel.NORMAL, "Talent"
+        )
+        if log_func:
+            log_func(f"🃏 **Визитная карточка**: {target.name} помечен! (-6 к атрибутам, длит. 99)")
+        
         return True
 
 

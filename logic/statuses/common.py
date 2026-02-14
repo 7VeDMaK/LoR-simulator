@@ -14,20 +14,33 @@ class AttackPowerUpStatus(StatusEffect):
     name = "Усиление атаки"
     def on_roll(self, ctx: RollContext, **kwargs):
         stack = kwargs.get('stack', 0)
-        logger.log(
-            f"🔍 Attack Power Up on_roll: unit={ctx.source.name}, stack={stack}, dice_type={ctx.dice.dtype if ctx.dice else 'None'}",
-            LogLevel.VERBOSE, "Status"
-        )
-        logger.log(
-            f"🔍 DEBUG: ctx.dice={ctx.dice}, dtype={ctx.dice.dtype if ctx.dice else 'N/A'}, "
-            f"in list? {ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT] if ctx.dice else False}",
-            LogLevel.NORMAL, "Status"
-        )
-        if ctx.dice and ctx.dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]:
-            ctx.modify_power(stack, "Attack Power Up")
-            logger.log(f"⚔️ Attack Power Up: +{stack} power to {ctx.source.name}", LogLevel.NORMAL, "Status")
+        if ctx.dice:
+            # Детальная диагностика
+            dtype_value = ctx.dice.dtype
+            dtype_type = type(dtype_value).__name__
+            dtype_str = str(dtype_value)
+            dtype_repr = repr(dtype_value)
+            
+            # Проверка на вхождение в список
+            is_slash = dtype_value == DiceType.SLASH
+            is_pierce = dtype_value == DiceType.PIERCE
+            is_blunt = dtype_value == DiceType.BLUNT
+            in_list = dtype_value in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]
+            
+            logger.log(
+                f"🔍 DEEP DEBUG: dtype_value={dtype_value}, type={dtype_type}, "
+                f"str={dtype_str}, repr={dtype_repr}, "
+                f"==SLASH:{is_slash}, ==PIERCE:{is_pierce}, ==BLUNT:{is_blunt}, in_list:{in_list}",
+                LogLevel.NORMAL, "Status"
+            )
+            
+            if in_list:
+                ctx.modify_power(stack, "Attack Power Up")
+                logger.log(f"⚔️ Attack Power Up: +{stack} power to {ctx.source.name}", LogLevel.NORMAL, "Status")
+            else:
+                logger.log(f"🔍 Attack Power Up SKIPPED: dtype not in attack list", LogLevel.NORMAL, "Status")
         else:
-            logger.log(f"🔍 DEBUG: Attack Power Up NOT applied! ctx.dice={ctx.dice is not None}", LogLevel.NORMAL, "Status")
+            logger.log(f"🔍 Attack Power Up SKIPPED: no dice in context", LogLevel.NORMAL, "Status")
 
 class EnduranceStatus(StatusEffect):
     id = "endurance"

@@ -9,8 +9,13 @@ def _build_target_options_cached(opposing_team, my_team, unit, selected_card, sh
     Кэшированное построение списка целей для минимизации пересчетов.
     Возвращает список опций для selectbox.
     """
-    # Создаем уникальный ключ для кэша на основе состояния команд
-    cache_key = f"targets_{id(opposing_team)}_{id(my_team)}_{unit.name}_{show_allies}_{show_enemies}"
+    # Создаем уникальный ключ для кэша на основе состояния команд и статусов
+    # Включаем invisibility и taunt всех юнитов, чтобы кэш инвалидировался при изменении статусов
+    targeting_state = tuple(
+        (u.name, u.get_status("invisibility") > 0, u.get_status("taunt") > 0) 
+        for u in opposing_team + my_team if not u.is_dead()
+    )
+    cache_key = f"targets_{unit.name}_{show_allies}_{show_enemies}_{hash(targeting_state)}"
     
     # Проверяем, есть ли кэш для текущего раунда
     current_round = st.session_state.get('round_number', 1)

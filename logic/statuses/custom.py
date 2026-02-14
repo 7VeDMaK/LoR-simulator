@@ -295,6 +295,38 @@ class ArrestedStatus(StatusEffect):
     def on_round_end(self, unit, log_func, **kwargs):
         # Статус длительный (99); не добавляем авто-логи здесь, чтобы не засорять.
         return []
+class VisitingCardStatus(StatusEffect):
+    id = "visiting_card"
+
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
+        """-20 ко всем основным атрибутам (strength, endurance, agility, wisdom, psych)."""
+        return {
+            "strength": -6,
+            "endurance": -6,
+            "agility": -6,
+            "wisdom": -6,
+            "psych": -6,
+            "strike_power": -6,
+            "medicine": -6,
+            "willpower": -6,
+            "luck": -6,
+            "acrobatics": -6,
+            "shields": -6,
+            "tough_skin": -6,
+            "speed": -6,
+            "light_weapon": -6,
+            "medium_weapon": -6,
+            "heavy_weapon": -6,
+            "firearms": -6,
+            "eloquence": -6,
+            "forging": -6,
+            "engineering": -6,
+            "programming": -6
+        }
+
+    def on_round_end(self, unit, log_func, **kwargs):
+        # Статус длительный (99); не добавляем авто-логи здесь, чтобы не засорять.
+        return []
 
 
 # ==========================================

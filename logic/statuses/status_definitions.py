@@ -12,7 +12,7 @@ from logic.statuses.custom import (
     IgnoreSatietyStatus, RevengeDmgUpStatus, TauntStatus, FanatMarkStatus, ArrestedStatus,
     SlashResistDownStatus, PierceResistDownStatus, BluntResistDownStatus,
     MainCharacterShellStatus, AzinoBeastStatus, AzinoJackpotStatus, LuckyCoinStatus, StatusAntiCharge,
-    UnderCrosshairsStatus,
+    UnderCrosshairsStatus, VisitingCardStatus,
     AmmoStatus, StaggerImmuneStatus, ExhaustionStatus, MarkedFleshStatus, BlueHyacinthStatus,  # НОВЫЕ ИМПОРТЫ
 )
 
@@ -55,6 +55,7 @@ STATUS_REGISTRY = {
     "blunt_resist_down": BluntResistDownStatus(),
 
     "arrested": ArrestedStatus(),
+    "visiting_card": VisitingCardStatus(),
 
     "bind": BindStatus(),
     "deep_wound": DeepWoundStatus(),

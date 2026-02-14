@@ -262,11 +262,11 @@ class PassiveFearOfHealing(BasePassive):
 
 class PassiveNotEconomicallyMinded(BasePassive):
     """
-    Не экономического склада ума.
+    Безотказность.
     Броски кубика на красноречие получают -2. Все покупки дороже на 30%.
     """
     id = "not_economically_minded"
-    name = "Не экономического склада ума"
+    name = "Безотказность"
     description = "Броски кубика на красноречие получают -2. Все покупки дороже на 30%."
     is_active_ability = False
 

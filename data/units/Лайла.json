@@ -121,7 +121,9 @@
         "hardened_by_solitude",
         "stances"
     ],
-    "talents": [],
+    "talents": [
+        "pain_points"
+    ],
     "augmentations": [],
     "level_rolls": {},
     "biography": "",
