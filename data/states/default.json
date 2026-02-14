@@ -27,43 +27,33 @@
       "current_stagger": 8,
       "resources": {},
       "cooldowns": {},
-      "card_cooldowns": {},
+      "card_cooldowns": {
+        "элементарный_удар_32369fc": [
+          2
+        ]
+      },
       "active_buffs": {},
       "_status_effects": {},
       "delayed_queue": [],
       "deck": [],
       "active_slots": [
         {
-          "speed": 6,
-          "card": "boom_6233",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": 2,
-          "target_slot_idx": 3,
-          "force_clash": true,
-          "ui_status": {
-            "text": "CLASH vs  Дна'хо 2 [S2] | Перехвачен (6 < 8)",
-            "icon": "⚠️",
-            "color": "orange"
-          },
-          "is_ally_target": false,
-          "destroy_on_speed": true,
-          "force_onesided": false
-        },
-        {
-          "speed": 2,
+          "speed": 9,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
+          "force_clash": false
+        },
+        {
+          "speed": 4,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
         }
       ],
       "stored_dice": [],
@@ -162,9 +152,9 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 20,
+      "current_hp": 0,
       "current_sp": 20,
-      "current_stagger": 10,
+      "current_stagger": 0,
       "resources": {},
       "cooldowns": {},
       "card_cooldowns": {},
@@ -174,19 +164,12 @@
       "deck": [],
       "active_slots": [
         {
-          "speed": 1,
+          "speed": 0,
           "card": null,
-          "target_slot": null,
-          "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
+          "stunned": true,
+          "is_aggro": false
         }
       ],
       "stored_dice": [],
@@ -201,12 +184,12 @@
         "battle_initialized": true
       },
       "death_count": 0,
-      "overkill_damage": 0,
+      "overkill_damage": 3,
       "money_log": [],
       "base_stats": {
-        "current_hp": 20,
+        "current_hp": 0,
         "current_sp": 20,
-        "current_stagger": 10
+        "current_stagger": 0
       },
       "defense": {
         "armor_name": "Без брони",
@@ -298,64 +281,40 @@
       ],
       "active_slots": [
         {
-          "speed": 6,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 6,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
           "speed": 9,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
+          "force_clash": false
         },
         {
-          "speed": 3,
+          "speed": 8,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
+          "force_clash": false
+        },
+        {
+          "speed": 7,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
+        },
+        {
+          "speed": 1,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
         }
       ],
       "stored_dice": [],
@@ -473,29 +432,16 @@
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
+          "force_clash": false
         },
         {
-          "speed": 8,
+          "speed": 6,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
-          "target_unit_idx": 0,
-          "target_slot_idx": 0,
-          "force_clash": true,
-          "ui_status": {
-            "text": "НЕТ КАРТЫ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "force_onesided": false
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false
         },
         {
           "speed": 8,
@@ -504,28 +450,16 @@
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
+          "force_clash": false
         },
         {
-          "speed": 4,
+          "speed": 2,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "CLASH vs Афелия Токс [S1] | Перехвачен (4 < 6)",
-            "icon": "⚠️",
-            "color": "orange"
-          },
-          "is_ally_target": false
+          "force_clash": false
         }
       ],
       "stored_dice": [],
@@ -604,9 +538,82 @@
     }
   ],
   "phase": "planning",
-  "round_number": 1,
+  "round_number": 2,
   "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-  "battle_logs": [],
+  "battle_logs": [
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Афелия Токс",
+        "card": "Тройное рассечение",
+        "dice": "SLASH",
+        "val": 5,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Гачикута",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed 💥 **-6 HP**",
+      "details": [
+        "🎲 Roll [1-10]: 3 + 1 (Сила) + 1 (Легкое ор.) = **5**",
+        "👊 Atk Boost: +1",
+        "💥 **Гачикута**: [x1.0 Res] Hit 6 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Афелия Токс",
+        "card": "Тройное рассечение",
+        "dice": "SLASH",
+        "val": 4,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Гачикута",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed 💥 **-5 HP**",
+      "details": [
+        "🎲 Roll [2-7]: 2 + 1 (Сила) + 1 (Легкое ор.) = **4**",
+        "👊 Atk Boost: +1",
+        "💥 **Гачикута**: [x1.0 Res] Hit 5 HP"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "L Hit (Hit)",
+      "left": {
+        "unit": "Афелия Токс",
+        "card": "Тройное рассечение",
+        "dice": "SLASH",
+        "val": 5,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Гачикута",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "Unopposed 💥 **-12 HP**",
+      "details": [
+        "🎲 Roll [3-5]: 3 + 1 (Сила) + 1 (Легкое ор.) = **5**",
+        "👊 Atk Boost: +1",
+        "💥 **Гачикута**: [x2.0 Res] Hit 12 HP (Staggered) (DEAD! Overkill: 3)"
+      ]
+    }
+  ],
   "script_logs": "",
   "turn_phase": "done",
   "action_idx": 0,
@@ -653,7 +660,7 @@
           "deck": [],
           "active_slots": [
             {
-              "speed": 6,
+              "speed": 9,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -779,7 +786,7 @@
           "deck": [],
           "active_slots": [
             {
-              "speed": 1,
+              "speed": 2,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -906,7 +913,7 @@
               "force_clash": false
             },
             {
-              "speed": 6,
+              "speed": 9,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -924,7 +931,7 @@
               "force_clash": false
             },
             {
-              "speed": 3,
+              "speed": 4,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -1042,7 +1049,7 @@
           ],
           "active_slots": [
             {
-              "speed": 6,
+              "speed": 7,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -1051,7 +1058,7 @@
               "force_clash": false
             },
             {
-              "speed": 8,
+              "speed": 9,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -1060,7 +1067,7 @@
               "force_clash": false
             },
             {
-              "speed": 8,
+              "speed": 9,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -1069,7 +1076,7 @@
               "force_clash": false
             },
             {
-              "speed": 4,
+              "speed": 1,
               "card": null,
               "target_slot": null,
               "is_aggro": false,
@@ -1166,6 +1173,314 @@
       "leveling_unit": " Дна'хо",
       "tree_unit": " Дна'хо",
       "checks_unit": " Дна'хо"
+    },
+    {
+      "type": "dynamic",
+      "team_left_dyn": [
+        {
+          "current_hp": 18,
+          "current_sp": 20,
+          "current_stagger": 8,
+          "resources": {},
+          "cooldowns": {},
+          "card_cooldowns": {
+            "элементарный_удар_32369fc": [
+              2
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {},
+          "delayed_queue": [],
+          "deck": [],
+          "active_slots": [
+            {
+              "speed": 9,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 4,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "Адама работница",
+            "start_of_battle_stats": {
+              "hp": 18,
+              "sp": 20,
+              "stagger": 8
+            },
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": []
+        }
+      ],
+      "team_right_dyn": [
+        {
+          "current_hp": 0,
+          "current_sp": 20,
+          "current_stagger": 0,
+          "resources": {},
+          "cooldowns": {},
+          "card_cooldowns": {},
+          "active_buffs": {},
+          "_status_effects": {},
+          "delayed_queue": [],
+          "deck": [],
+          "active_slots": [
+            {
+              "speed": 0,
+              "card": null,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "stunned": true,
+              "is_aggro": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "Работает у стойки Волчьей Ямы",
+            "start_of_battle_stats": {
+              "hp": 20,
+              "sp": 20,
+              "stagger": 10
+            },
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 3,
+          "money_log": []
+        },
+        {
+          "current_hp": 20,
+          "current_sp": 20,
+          "current_stagger": 10,
+          "resources": {},
+          "cooldowns": {},
+          "card_cooldowns": {},
+          "active_buffs": {},
+          "_status_effects": {},
+          "delayed_queue": [],
+          "deck": [
+            "test_unity_1",
+            "test_unity_2"
+          ],
+          "active_slots": [
+            {
+              "speed": 9,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 8,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 7,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 1,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "МЕРТВА. Киборг Братства Высоких.",
+            "start_of_battle_stats": {
+              "hp": 20,
+              "sp": 20,
+              "stagger": 10
+            },
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": []
+        },
+        {
+          "current_hp": 20,
+          "current_sp": 20,
+          "current_stagger": 10,
+          "resources": {},
+          "cooldowns": {},
+          "card_cooldowns": {},
+          "active_buffs": {},
+          "_status_effects": {},
+          "delayed_queue": [],
+          "deck": [
+            "test_unity_1",
+            "test_unity_2"
+          ],
+          "active_slots": [
+            {
+              "speed": 6,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 6,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 8,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 2,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [],
+          "memory": {
+            "status_rank": "МЕРТВА. Киборг Братства Высоких.",
+            "start_of_battle_stats": {
+              "hp": 20,
+              "sp": 20,
+              "stagger": 10
+            },
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": []
+        }
+      ],
+      "phase": "planning",
+      "round_number": 2,
+      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
+      "battle_logs": [
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Афелия Токс",
+            "card": "Тройное рассечение",
+            "dice": "SLASH",
+            "val": 5,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Гачикута",
+            "card": "-",
+            "dice": "None",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed 💥 **-6 HP**",
+          "details": [
+            "🎲 Roll [1-10]: 3 + 1 (Сила) + 1 (Легкое ор.) = **5**",
+            "👊 Atk Boost: +1",
+            "💥 **Гачикута**: [x1.0 Res] Hit 6 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Афелия Токс",
+            "card": "Тройное рассечение",
+            "dice": "SLASH",
+            "val": 4,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Гачикута",
+            "card": "-",
+            "dice": "None",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed 💥 **-5 HP**",
+          "details": [
+            "🎲 Roll [2-7]: 2 + 1 (Сила) + 1 (Легкое ор.) = **4**",
+            "👊 Atk Boost: +1",
+            "💥 **Гачикута**: [x1.0 Res] Hit 5 HP"
+          ]
+        },
+        {
+          "type": "onesided",
+          "round": "L Hit (Hit)",
+          "left": {
+            "unit": "Афелия Токс",
+            "card": "Тройное рассечение",
+            "dice": "SLASH",
+            "val": 5,
+            "range": "-"
+          },
+          "right": {
+            "unit": "Гачикута",
+            "card": "-",
+            "dice": "None",
+            "val": 0,
+            "range": "-"
+          },
+          "outcome": "Unopposed 💥 **-12 HP**",
+          "details": [
+            "🎲 Roll [3-5]: 3 + 1 (Сила) + 1 (Легкое ор.) = **5**",
+            "👊 Atk Boost: +1",
+            "💥 **Гачикута**: [x2.0 Res] Hit 12 HP (Staggered) (DEAD! Overkill: 3)"
+          ]
+        }
+      ],
+      "turn_actions": [],
+      "turn_phase": "done",
+      "action_idx": 0,
+      "executed_slots": []
     }
   ]
 }

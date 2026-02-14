@@ -33,7 +33,9 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
     # === ОСНОВНОЙ ЦИКЛ ===
     while (state_a.has_dice_left() or state_d.has_dice_left()) and iteration < max_iterations:
         iteration += 1
-        if attacker.is_dead() or defender.is_dead(): break
+
+        # [MODIFIED] Проверка смерти отключена для поддержки механики Overkill
+        # if attacker.is_dead() or defender.is_dead(): break
 
         # Получаем кубики (они извлекаются из очереди!)
         idx_before_a = state_a.idx
@@ -79,30 +81,27 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
 
         # Случай 1: Атакующий сломан/пуст (А защитник есть)
         if not die_a and die_d:
-            # [FIX] Если кубик защитный (Блок/Уворот) или Контр-кубик -> он не бьет в пустоту, а сохраняется
-            is_defensive_d = die_d.dtype in [DiceType.BLOCK, DiceType.EVADE]
-            if is_defensive_d or getattr(die_d, "is_counter", False):
-                logger.log(f"⏸️ Defender Die Preserved (No Target)", LogLevel.VERBOSE, "Clash")
+            if getattr(die_d, "is_counter", False):
+                # Контр-кубики сохраняются
                 break
 
             outcome = handle_one_sided_exchange(engine, active_side=state_d, passive_side=state_a,
                                                 detail_logs=detail_logs)
 
+            # Явно тратим кубик активной стороны и сдвигаем индекс пассивной
             state_d.consume()
             if not die_a and state_a.idx < len(state_a.queue):
                 state_a.idx += 1
 
         # Случай 2: Защитник сломан/пуст (А атакующий есть)
         elif die_a and not die_d:
-            # [FIX] То же самое для атакующего (если вдруг у него остались защитные кубики в конце)
-            is_defensive_a = die_a.dtype in [DiceType.BLOCK, DiceType.EVADE]
-            if is_defensive_a or getattr(die_a, "is_counter", False):
-                logger.log(f"⏸️ Attacker Die Preserved (No Target)", LogLevel.VERBOSE, "Clash")
+            if getattr(die_a, "is_counter", False):
                 break
 
             outcome = handle_one_sided_exchange(engine, active_side=state_a, passive_side=state_d,
                                                 detail_logs=detail_logs)
 
+            # Явно тратим кубик активной стороны и сдвигаем индекс пассивной
             state_a.consume()
             if not die_d and state_d.idx < len(state_d.queue):
                 state_d.idx += 1
@@ -168,3 +167,4 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
     state_d.store_remaining(report)
 
     return report
+

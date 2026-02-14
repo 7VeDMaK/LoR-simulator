@@ -42,7 +42,16 @@ def render_card_selector(container, unit, slot, slot_idx, key_prefix):
             raw_cards = Library.get_all_cards()
             for c in raw_cards:
                 if str(c.card_type).lower() != "item":
-                    if unit.card_cooldowns.get(c.id, 0) <= 0:
+                    # [FIX] Проверка кулдауна: если список пуст или None, карта доступна
+                    cds = unit.card_cooldowns.get(c.id)
+                    is_on_cooldown = False
+                    if cds:
+                        if isinstance(cds, list):
+                            is_on_cooldown = len(cds) > 0
+                        elif isinstance(cds, int):
+                            is_on_cooldown = cds > 0
+
+                    if not is_on_cooldown:
                         available_cards.append(c)
 
     available_cards.sort(key=lambda x: (x.tier, x.name))
@@ -68,7 +77,8 @@ def render_card_selector(container, unit, slot, slot_idx, key_prefix):
         return f"{emoji} [{x.tier}] {x.name}"
 
     if slot.get('locked'):
-        container.text_input("Page", value=selected_card.name if selected_card else "Locked", disabled=True, label_visibility="collapsed")
+        container.text_input("Page", value=selected_card.name if selected_card else "Locked", disabled=True,
+                             label_visibility="collapsed")
     else:
         new_card = container.selectbox(
             "Page", display_cards,

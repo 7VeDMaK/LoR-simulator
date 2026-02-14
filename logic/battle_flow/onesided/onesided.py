@@ -59,9 +59,9 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_d, intent
             continue
 
         # Прерывание боя
-        if source.is_dead() or target.is_dead() or source.is_staggered():
-            logger.log("One-Sided flow interrupted (Death/Stagger)", LogLevel.VERBOSE, "OneSided")
-            break
+        # if source.is_dead() or target.is_dead() or source.is_staggered():
+        #     logger.log("One-Sided flow interrupted (Death/Stagger)", LogLevel.VERBOSE, "OneSided")
+        #     break
 
         source.current_die = die
         detail_logs = []

@@ -1,6 +1,25 @@
 from core.logging import logger, LogLevel
 from core.library import Library
 from logic.battle_flow.mass_attack import process_mass_attack
+# [FIX] Импортируем process_clash для обработки перехватов контр-кубиками
+from logic.battle_flow.clash.clash import process_clash
+
+
+class CounterCard:
+    """Временная карта-обертка для контр-кубика."""
+
+    def __init__(self, die):
+        self.name = "Counter"
+        self.id = "counter_card"
+        self.dice_list = [die]
+        self.tier = 0
+        # Чтобы движок понимал тип карты (для логов и проверок)
+        self.card_type = "Counter"
+
+        # [FIX] Добавляем обязательные поля, которые ждет движок
+        self.scripts = {}  # Пустой словарь скриптов, чтобы process_card_self_scripts не падал
+        self.flags = []  # Флаги (например, exhaust, one_time) - пустой список
+        self.description = "Автоматическая защита"  # На случай, если UI попытается отрисовать описание
 
 
 def _apply_card_cooldown(unit, card):
@@ -162,30 +181,58 @@ def execute_single_action(engine, act, executed_slots):
         is_redirected = slot_data.get('force_onesided', False)
         is_target_busy = (tgt_id in executed_slots) or is_redirected
 
-        spd_def_val = 0
-        if target_slot:
-            spd_def_val = target_slot['speed']
-            if not is_target_busy and not target.is_staggered():
-                raw_target_card = target_slot.get('card')
-                if raw_target_card and hasattr(raw_target_card, 'id'):
-                    lib_target = Library.get_card(raw_target_card.id)
-                    target.current_card = lib_target if lib_target and lib_target.id != "unknown" else raw_target_card
+        # [FIX] ЛОГИКА ПЕРЕХВАТА КОНТР-КУБИКАМИ
+        # Если атака One-Sided, но у цели есть активные контр-кубики -> перехват в Clash
+        if not is_clash and hasattr(target, 'counter_dice') and target.counter_dice:
+            logger.log(f"🛡️ {target.name} intercepts with Counter Die! ({len(target.counter_dice)} left)",
+                       LogLevel.NORMAL, "Combat")
+
+            # 1. Извлекаем контр-кубик
+            counter_die = target.counter_dice.pop(0)
+
+            # 2. Создаем временную карту для защитника
+            temp_card = CounterCard(counter_die)
+            target.current_card = temp_card
+
+            # 3. Запускаем Clash напрямую
+            # Скорость защитника для контры берем либо 0, либо равную атакующему, чтобы не было штрафов
+            spd_def_val = spd_src
+
+            # Важно: Слот защитника НЕ помечается executed, так как он использует "свободный" кубик
+            # Атакующий слот уже помечен выше (add(src_id))
+
+            logs = process_clash(
+                engine, source, target, "Counter Clash", act['is_left'],
+                spd_src, spd_def_val, intent_a=intent_src, intent_d=True
+            )
+            battle_logs.extend(logs)
+
+        else:
+            # Стандартная One-Sided атака
+            spd_def_val = 0
+            if target_slot:
+                spd_def_val = target_slot['speed']
+                if not is_target_busy and not target.is_staggered():
+                    raw_target_card = target_slot.get('card')
+                    if raw_target_card and hasattr(raw_target_card, 'id'):
+                        lib_target = Library.get_card(raw_target_card.id)
+                        target.current_card = lib_target if lib_target and lib_target.id != "unknown" else raw_target_card
+                    else:
+                        target.current_card = raw_target_card
                 else:
-                    target.current_card = raw_target_card
+                    target.current_card = None
             else:
                 target.current_card = None
-        else:
-            target.current_card = None
 
-        logger.log(f"🏹 One-Sided: {source.name} -> {target.name} ({'Redirected' if is_redirected else 'Direct'})",
-                   LogLevel.NORMAL, "Combat")
+            logger.log(f"🏹 One-Sided: {source.name} -> {target.name} ({'Redirected' if is_redirected else 'Direct'})",
+                       LogLevel.NORMAL, "Combat")
 
-        logs = engine._resolve_one_sided(
-            source, target, f"{p_label} Hit",
-            spd_src, spd_def_val,
-            intent_atk=intent_src,
-            is_redirected=is_target_busy
-        )
-        battle_logs.extend(logs)
+            logs = engine._resolve_one_sided(
+                source, target, f"{p_label} Hit",
+                spd_src, spd_def_val,
+                intent_atk=intent_src,
+                is_redirected=is_target_busy
+            )
+            battle_logs.extend(logs)
 
     return battle_logs
