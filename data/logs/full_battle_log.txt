@@ -1,4 +1,333 @@
-=== BATTLE LOG CLEARED: 2026-02-13 18:54:45.993241 ===
-[18:54:45.993] [VERBOSE] [Stats] Recalculating stats for Акаги
-[18:54:45.993] [VERBOSE] [Stats] 🔄 Recalculating stats for Акаги
-[18:54:45.994] [VERBOSE] [Stats] ✅ Stats updated for Акаги. HP: 20, SP: 20, Speed: [(1, 4)]
+=== BATTLE LOG CLEARED: 2026-02-14 11:25:01.148743 ===
+[11:25:01.292] [VERBOSE] [Stats] Recalculating stats for Афелия Токс
+[11:25:01.292] [VERBOSE] [Stats] 🔄 Recalculating stats for Афелия Токс
+[11:25:01.293] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[11:25:01.294] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[11:25:01.295] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[11:25:01.295] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[11:25:01.296] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 1
+[11:25:01.296] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 1
+[11:25:01.298] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 1, эффективность лечения — 10%
+[11:25:01.298] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[11:25:01.298] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 1
+[11:25:01.299] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 10% от основного
+[11:25:01.299] [VERBOSE] [Stats] Персонаж получает дополнительные 5 ❤️ здоровья
+[11:25:01.301] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 10% от основного
+[11:25:01.301] [VERBOSE] [Stats] Персонаж получает дополнительные 5 🧠 рассудка
+[11:25:01.302] [VERBOSE] [Stats] ✅ Stats updated for Афелия Токс. HP: 27, SP: 27, Speed: [(6, 9), (1, 4)]
+[11:25:01.302] [VERBOSE] [Stats] Recalculating stats for Гачикута
+[11:25:01.302] [VERBOSE] [Stats] 🔄 Recalculating stats for Гачикута
+[11:25:01.303] [VERBOSE] [Stats] ✅ Stats updated for Гачикута. HP: 20, SP: 20, Speed: [(1, 4)]
+[11:25:01.303] [VERBOSE] [Stats] Recalculating stats for  Дна'хо
+[11:25:01.304] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо
+[11:25:01.305] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:01.305] [VERBOSE] [Stats] Recalculating stats for  Дна'хо 2
+[11:25:01.306] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо 2
+[11:25:01.307] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо 2. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:02.791] [VERBOSE] [Stats] Recalculating stats for Афелия Токс
+[11:25:02.792] [VERBOSE] [Stats] 🔄 Recalculating stats for Афелия Токс
+[11:25:02.793] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[11:25:02.794] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[11:25:02.795] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[11:25:02.796] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[11:25:02.796] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 1
+[11:25:02.797] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 1
+[11:25:02.798] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 1, эффективность лечения — 10%
+[11:25:02.798] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[11:25:02.800] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 1
+[11:25:02.801] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 10% от основного
+[11:25:02.802] [VERBOSE] [Stats] Персонаж получает дополнительные 5 ❤️ здоровья
+[11:25:02.803] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 10% от основного
+[11:25:02.804] [VERBOSE] [Stats] Персонаж получает дополнительные 5 🧠 рассудка
+[11:25:02.805] [VERBOSE] [Stats] ✅ Stats updated for Афелия Токс. HP: 27, SP: 27, Speed: [(6, 9), (1, 4)]
+[11:25:02.806] [VERBOSE] [Stats] Recalculating stats for Гачикута
+[11:25:02.807] [VERBOSE] [Stats] 🔄 Recalculating stats for Гачикута
+[11:25:02.809] [VERBOSE] [Stats] ✅ Stats updated for Гачикута. HP: 20, SP: 20, Speed: [(1, 4)]
+[11:25:02.810] [VERBOSE] [Stats] Recalculating stats for  Дна'хо
+[11:25:02.810] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо
+[11:25:02.811] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:02.812] [VERBOSE] [Stats] Recalculating stats for  Дна'хо 2
+[11:25:02.813] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо 2
+[11:25:02.814] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо 2. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:02.814] [VERBOSE] [Stats] Recalculating stats for Афелия Токс
+[11:25:02.815] [VERBOSE] [Stats] 🔄 Recalculating stats for Афелия Токс
+[11:25:02.816] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[11:25:02.816] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[11:25:02.818] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[11:25:02.819] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[11:25:02.819] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 1
+[11:25:02.819] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 1
+[11:25:02.820] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 1, эффективность лечения — 10%
+[11:25:02.820] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[11:25:02.821] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 1
+[11:25:02.822] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 10% от основного
+[11:25:02.822] [VERBOSE] [Stats] Персонаж получает дополнительные 5 ❤️ здоровья
+[11:25:02.822] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 10% от основного
+[11:25:02.824] [VERBOSE] [Stats] Персонаж получает дополнительные 5 🧠 рассудка
+[11:25:02.824] [VERBOSE] [Stats] ✅ Stats updated for Афелия Токс. HP: 27, SP: 27, Speed: [(6, 9), (1, 4)]
+[11:25:02.824] [VERBOSE] [Stats] Recalculating stats for Гачикута
+[11:25:02.825] [VERBOSE] [Stats] 🔄 Recalculating stats for Гачикута
+[11:25:02.826] [VERBOSE] [Stats] ✅ Stats updated for Гачикута. HP: 20, SP: 20, Speed: [(1, 4)]
+[11:25:02.826] [VERBOSE] [Stats] Recalculating stats for  Дна'хо
+[11:25:02.828] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо
+[11:25:02.828] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:02.829] [VERBOSE] [Stats] Recalculating stats for  Дна'хо 2
+[11:25:02.829] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо 2
+[11:25:02.830] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо 2. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:02.830] [VERBOSE] [Stats] Recalculating stats for Афелия Токс
+[11:25:02.831] [VERBOSE] [Stats] 🔄 Recalculating stats for Афелия Токс
+[11:25:02.831] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[11:25:02.833] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[11:25:02.833] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[11:25:02.834] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[11:25:02.834] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 1
+[11:25:02.835] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 1
+[11:25:02.836] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 1, эффективность лечения — 10%
+[11:25:02.836] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[11:25:02.837] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 1
+[11:25:02.837] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 10% от основного
+[11:25:02.838] [VERBOSE] [Stats] Персонаж получает дополнительные 5 ❤️ здоровья
+[11:25:02.838] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 10% от основного
+[11:25:02.839] [VERBOSE] [Stats] Персонаж получает дополнительные 5 🧠 рассудка
+[11:25:02.840] [VERBOSE] [Stats] ✅ Stats updated for Афелия Токс. HP: 27, SP: 27, Speed: [(6, 9), (1, 4)]
+[11:25:02.840] [VERBOSE] [System] 🎲 Rolling Speed Dice for Афелия Токс
+[11:25:02.841] [NORMAL ] [Speed] Афелия Токс speed rolls: [6, 2] (Mod: 0)
+[11:25:02.841] [VERBOSE] [Stats] Recalculating stats for Гачикута
+[11:25:02.842] [VERBOSE] [Stats] 🔄 Recalculating stats for Гачикута
+[11:25:02.842] [VERBOSE] [Stats] ✅ Stats updated for Гачикута. HP: 20, SP: 20, Speed: [(1, 4)]
+[11:25:02.844] [VERBOSE] [System] 🎲 Rolling Speed Dice for Гачикута
+[11:25:02.844] [NORMAL ] [Speed] Гачикута speed rolls: [1] (Mod: 0)
+[11:25:02.845] [VERBOSE] [Stats] Recalculating stats for  Дна'хо
+[11:25:02.845] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо
+[11:25:02.845] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:02.846] [VERBOSE] [System] 🎲 Rolling Speed Dice for  Дна'хо
+[11:25:02.846] [NORMAL ] [Speed]  Дна'хо speed rolls: [6, 6, 9, 3] (Mod: 0)
+[11:25:02.847] [VERBOSE] [Stats] Recalculating stats for  Дна'хо 2
+[11:25:02.848] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо 2
+[11:25:02.849] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо 2. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:02.849] [VERBOSE] [System] 🎲 Rolling Speed Dice for  Дна'хо 2
+[11:25:02.850] [NORMAL ] [Speed]  Дна'хо 2 speed rolls: [6, 8, 8, 4] (Mod: 0)
+[11:25:02.851] [VERBOSE] [Stats] Recalculating stats for Афелия Токс
+[11:25:02.852] [VERBOSE] [Stats] 🔄 Recalculating stats for Афелия Токс
+[11:25:02.853] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[11:25:02.853] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[11:25:02.853] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[11:25:02.854] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[11:25:02.854] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 1
+[11:25:02.855] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 1
+[11:25:02.856] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 1, эффективность лечения — 10%
+[11:25:02.856] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[11:25:02.858] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 1
+[11:25:02.858] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 10% от основного
+[11:25:02.859] [VERBOSE] [Stats] Персонаж получает дополнительные 5 ❤️ здоровья
+[11:25:02.860] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 10% от основного
+[11:25:02.860] [VERBOSE] [Stats] Персонаж получает дополнительные 5 🧠 рассудка
+[11:25:02.861] [VERBOSE] [Stats] ✅ Stats updated for Афелия Токс. HP: 27, SP: 27, Speed: [(6, 9), (1, 4)]
+[11:25:02.861] [VERBOSE] [Stats] Recalculating stats for Гачикута
+[11:25:02.861] [VERBOSE] [Stats] 🔄 Recalculating stats for Гачикута
+[11:25:02.863] [VERBOSE] [Stats] ✅ Stats updated for Гачикута. HP: 20, SP: 20, Speed: [(1, 4)]
+[11:25:02.863] [VERBOSE] [Stats] Recalculating stats for  Дна'хо
+[11:25:02.864] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо
+[11:25:02.864] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:02.865] [VERBOSE] [Stats] Recalculating stats for  Дна'хо 2
+[11:25:02.865] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо 2
+[11:25:02.866] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо 2. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:15.290] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Афелия Токс intercepts  Дна'хо 2 (Slot 3)
+[11:25:20.661] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Афелия Токс intercepts  Дна'хо 2 (Slot 3)
+[11:25:21.540] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Афелия Токс intercepts  Дна'хо 2 (Slot 3)
+[11:25:21.541] [VERBOSE] [Targeting] ⚔️ Clash Confirmed:  Дна'хо 2 intercepts Афелия Токс (Slot 0)
+[11:25:23.235] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Афелия Токс intercepts  Дна'хо 2 (Slot 3)
+[11:25:23.236] [VERBOSE] [Targeting] ⚔️ Clash Confirmed:  Дна'хо 2 intercepts Афелия Токс (Slot 0)
+[11:25:27.710] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Афелия Токс intercepts  Дна'хо 2 (Slot 3)
+[11:25:27.711] [VERBOSE] [Targeting] ⚔️ Clash Confirmed:  Дна'хо 2 intercepts Афелия Токс (Slot 0)
+[11:25:27.713] [VERBOSE] [Stats] Recalculating stats for Афелия Токс
+[11:25:27.714] [VERBOSE] [Stats] 🔄 Recalculating stats for Афелия Токс
+[11:25:27.714] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[11:25:27.715] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[11:25:27.716] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[11:25:27.718] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[11:25:27.719] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 1
+[11:25:27.720] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 1
+[11:25:27.721] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 1, эффективность лечения — 10%
+[11:25:27.721] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[11:25:27.722] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 1
+[11:25:27.723] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 10% от основного
+[11:25:27.724] [VERBOSE] [Stats] Персонаж получает дополнительные 5 ❤️ здоровья
+[11:25:27.725] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 10% от основного
+[11:25:27.725] [VERBOSE] [Stats] Персонаж получает дополнительные 5 🧠 рассудка
+[11:25:27.726] [VERBOSE] [Stats] ✅ Stats updated for Афелия Токс. HP: 27, SP: 27, Speed: [(6, 9), (1, 4)]
+[11:25:27.727] [VERBOSE] [Stats] Recalculating stats for Гачикута
+[11:25:27.728] [VERBOSE] [Stats] 🔄 Recalculating stats for Гачикута
+[11:25:27.728] [VERBOSE] [Stats] ✅ Stats updated for Гачикута. HP: 20, SP: 20, Speed: [(1, 4)]
+[11:25:27.729] [VERBOSE] [Stats] Recalculating stats for  Дна'хо
+[11:25:27.730] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо
+[11:25:27.730] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:27.731] [VERBOSE] [Stats] Recalculating stats for  Дна'хо 2
+[11:25:27.732] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо 2
+[11:25:27.733] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо 2. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:27.733] [NORMAL ] [System] >>> RESOLVE TURN START <<<
+[11:25:27.734] [NORMAL ] [Phase] 🔄 Preparing Turn: Collecting Actions...
+[11:25:27.736] [VERBOSE] [Targeting] ⚔️ Clash Confirmed: Афелия Токс intercepts  Дна'хо 2 (Slot 3)
+[11:25:27.736] [VERBOSE] [Targeting] ⚔️ Clash Confirmed:  Дна'хо 2 intercepts Афелия Токс (Slot 0)
+[11:25:27.737] [VERBOSE] [Flow] Redirections calculated.
+[11:25:27.737] [VERBOSE] [Flow] ➕ Action Queued: Афелия Токс ->  Дна'хо 2 (Boom, Spd: 6, Score: 3006)
+[11:25:27.738] [VERBOSE] [Flow] ➕ Action Queued:  Дна'хо 2 -> Афелия Токс (Юнити: Начало, Spd: 8, Score: 1008)
+[11:25:27.739] [NORMAL ] [Phase] ✅ Turn Prepared. Total Actions: 2
+[11:25:27.740] [NORMAL ] [Cooldown] ⏳ Афелия Токс: Cooldown applied to 'Boom' (1 turns)
+[11:25:27.740] [NORMAL ] [Combat] 🏹 One-Sided: Афелия Токс ->  Дна'хо 2 (Direct)
+[11:25:27.741] [VERBOSE] [Flow] Resolving One-Sided: Афелия Токс ->  Дна'хо 2 (Spd: 6/4)
+[11:25:27.742] [VERBOSE] [OneSided] One-Sided: Афелия Токс vs  Дна'хо 2 (Spd: 6 vs 4, Redir=False)
+[11:25:27.742] [VERBOSE] [Roll] 🎲 Афелия Токс: Rolled 1 [1-1]
+[11:25:27.743] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[11:25:27.743] [VERBOSE] [Roll] ⚔️ Weapon Bonus (light): +1
+[11:25:27.744] [VERBOSE] [Roll] 🎲 Final: 3 (🎲 Roll [1-1]: 1 + 1 (Сила) + 1 (Легкое ор.) = **3**)
+[11:25:27.744] [NORMAL ] [OneSided] ⚔️ Direct Hit! 3 Dmg
+[11:25:27.746] [VERBOSE] [Mechanics] Apply Damage Flow: Афелия Токс ->  Дна'хо 2
+[11:25:27.746] [MINIMAL] [Damage] 💥  Дна'хо 2 took 4 HP Damage
+[11:25:27.747] [MINIMAL] [Damage] 😵  Дна'хо 2 took 4 Stagger Side-Damage (Res: 1.00)
+[11:25:27.748] [VERBOSE] [Roll] 🎲 Афелия Токс: Rolled 5 [5-5]
+[11:25:27.749] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[11:25:27.750] [VERBOSE] [Roll] ⚔️ Weapon Bonus (light): +1
+[11:25:27.750] [VERBOSE] [Roll] 🎲 Final: 7 (🎲 Roll [5-5]: 5 + 1 (Сила) + 1 (Легкое ор.) = **7**)
+[11:25:27.751] [NORMAL ] [OneSided] ⚔️ Direct Hit! 7 Dmg
+[11:25:27.751] [VERBOSE] [Mechanics] Apply Damage Flow: Афелия Токс ->  Дна'хо 2
+[11:25:27.752] [VERBOSE] [Scripts] 📜 Dice Script Trigger (on_hit): apply_status
+[11:25:27.752] [NORMAL ] [Status] 🧪  Дна'хо 2: +10 dmg_down (1t)
+[11:25:27.753] [VERBOSE] [Scripts] 🧪 Applied 10 dmg_down to  Дна'хо 2
+[11:25:27.754] [MINIMAL] [Damage] 💥  Дна'хо 2 took 8 HP Damage
+[11:25:27.754] [MINIMAL] [Damage] 😵  Дна'хо 2 took 8 Stagger Side-Damage (Res: 1.00)
+[11:25:27.755] [VERBOSE] [Roll] 🎲 Афелия Токс: Rolled 5 [5-5]
+[11:25:27.755] [VERBOSE] [Roll] 💪 Power Atk Bonus: +1
+[11:25:27.756] [VERBOSE] [Roll] ⚔️ Weapon Bonus (light): +1
+[11:25:27.757] [VERBOSE] [Roll] 🎲 Final: 7 (🎲 Roll [5-5]: 5 + 1 (Сила) + 1 (Легкое ор.) = **7**)
+[11:25:27.757] [NORMAL ] [OneSided] ⚔️ Direct Hit! 7 Dmg
+[11:25:27.758] [VERBOSE] [Mechanics] Apply Damage Flow: Афелия Токс ->  Дна'хо 2
+[11:25:27.758] [VERBOSE] [Scripts] 📜 Dice Script Trigger (on_hit): apply_status
+[11:25:27.759] [NORMAL ] [Status] ⏰  Дна'хо 2: rupture delayed for 1 turns
+[11:25:27.759] [VERBOSE] [Scripts] ⏰ Status Delayed: rupture on  Дна'хо 2 for 1t
+[11:25:27.760] [MINIMAL] [Damage] 💥  Дна'хо 2 took 16 HP Damage
+[11:25:27.761] [VERBOSE] [Executor] 🚫  Дна'хо 2 action skipped (Dead or Staggered)
+[11:25:27.761] [VERBOSE] [Phase] 🏁 Finalizing Turn...
+[11:25:27.763] [NORMAL ] [System] >>> RESOLVE TURN END <<<
+[11:25:27.764] [VERBOSE] [System] Афелия Токс cooldowns ticked.
+[11:25:27.764] [VERBOSE] [System] Гачикута cooldowns ticked.
+[11:25:27.765] [VERBOSE] [System]  Дна'хо cooldowns ticked.
+[11:25:27.766] [VERBOSE] [Status] 📉 Status Expired: dmg_down on  Дна'хо 2
+[11:25:27.766] [NORMAL ] [Status] 🧪  Дна'хо 2: +10 rupture (99t)
+[11:25:27.767] [VERBOSE] [Status] ⏰ Delayed Status Activated: rupture on  Дна'хо 2
+[11:25:27.767] [NORMAL ] [System]  Дна'хо 2 died, Cooldowns/Buffs cleared.
+[11:25:27.768] [VERBOSE] [System]  Дна'хо 2 cooldowns ticked.
+[11:25:27.841] [VERBOSE] [Stats] Recalculating stats for Афелия Токс
+[11:25:27.842] [VERBOSE] [Stats] 🔄 Recalculating stats for Афелия Токс
+[11:25:27.842] [VERBOSE] [Stats] Повышает значение броска силы на 1
+[11:25:27.843] [VERBOSE] [Stats] Повышает значение куба ⚔️ атаки на 1
+[11:25:27.845] [VERBOSE] [Stats] Повышает значение куба 🛡️ блока на 1
+[11:25:27.845] [VERBOSE] [Stats] Повышает "интеллект" персонажа на основе его опыта
+[11:25:27.846] [VERBOSE] [Stats] Повышает значение бросков против необъяснимого на 1
+[11:25:27.846] [VERBOSE] [Stats] Ваш показатель 💥 урона при ударе повышается на 1
+[11:25:27.846] [VERBOSE] [Stats] Ваш бросок 💚 медицины повышается на 1, эффективность лечения — 10%
+[11:25:27.847] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами лёгкого оружия на 1
+[11:25:27.847] [VERBOSE] [Stats] Повышает значение куба ⚔️ удара атакующими картами среднего оружия на 1
+[11:25:27.848] [VERBOSE] [Stats] Повышает максимальный показатель ❤️ здоровья на 10% от основного
+[11:25:27.848] [VERBOSE] [Stats] Персонаж получает дополнительные 5 ❤️ здоровья
+[11:25:27.849] [VERBOSE] [Stats] Повышает максимальный показатель 🧠 рассудка на 10% от основного
+[11:25:27.849] [VERBOSE] [Stats] Персонаж получает дополнительные 5 🧠 рассудка
+[11:25:27.851] [VERBOSE] [Stats] ✅ Stats updated for Афелия Токс. HP: 27, SP: 27, Speed: [(6, 9), (1, 4)]
+[11:25:27.851] [VERBOSE] [Stats] Recalculating stats for Гачикута
+[11:25:27.852] [VERBOSE] [Stats] 🔄 Recalculating stats for Гачикута
+[11:25:27.852] [VERBOSE] [Stats] ✅ Stats updated for Гачикута. HP: 20, SP: 20, Speed: [(1, 4)]
+[11:25:27.853] [VERBOSE] [Stats] Recalculating stats for  Дна'хо
+[11:25:27.853] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо
+[11:25:27.854] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:25:27.854] [VERBOSE] [Stats] Recalculating stats for  Дна'хо 2
+[11:25:27.855] [VERBOSE] [Stats] 🔄 Recalculating stats for  Дна'хо 2
+[11:25:27.856] [VERBOSE] [Stats] ✅ Stats updated for  Дна'хо 2. HP: 20, SP: 20, Speed: [(6, 9), (6, 9), (6, 9), (1, 4)]
+[11:26:55.436] [NORMAL ] [Cooldown] ⏳ Ranged_Sniper: Cooldown applied to 'Snipe' (1 turns)
+[11:26:55.644] [NORMAL ] [Combat] 🏹 One-Sided: Ranged_Sniper -> Poor_Dummy (Direct)
+[11:26:55.649] [NORMAL ] [Cooldown] ⏳ Melee_Interceptor: Cooldown applied to 'Intercept_Attempt' (1 turns)
+[11:26:55.650] [NORMAL ] [Combat] 🏹 One-Sided: Melee_Interceptor -> Ranged_Sniper (Direct)
+[11:32:36.797] [NORMAL ] [Combat] 💥 Boss initiates Mass Attack: Giant_Laser
+[11:32:36.992] [NORMAL ] [Cooldown] ⏳ Boss: Cooldown applied to 'Giant_Laser' (3 turns)
+[11:34:16.814] [NORMAL ] [Combat] 💥 Boss initiates Mass Attack: Rain_of_Arrows
+[11:34:16.975] [NORMAL ] [Cooldown] ⏳ Boss: Cooldown applied to 'Rain_of_Arrows' (3 turns)
+[11:34:16.980] [NORMAL ] [Cooldown] ⏳ Hero: Cooldown applied to 'Attack_Next' (1 turns)
+[11:34:16.981] [NORMAL ] [Combat] 🏹 One-Sided: Hero -> Boss (Direct)
+[11:34:16.987] [NORMAL ] [Combat] 💥 Boss initiates Mass Attack: Giant_Laser
+[11:34:16.989] [NORMAL ] [Cooldown] ⏳ Boss: Cooldown applied to 'Giant_Laser' (3 turns)
+[11:37:50.332] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Summation)
+[11:37:50.502] [VERBOSE] [MassAtk] Targeting Hero (Auto: S2 <MagicMock name='Fresh.name' id='1824893360256'>)
+[11:37:50.508] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Individual)
+[11:37:50.509] [VERBOSE] [MassAtk] Targeting Hero (Auto: S1 Def_Card)
+[11:37:50.512] [VERBOSE] [MassAtk] Indiv Clash #1: 10 vs 5
+[11:37:50.513] [VERBOSE] [MassAtk] Indiv Clash #2: 2 vs 5
+[11:37:50.519] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Summation)
+[11:37:50.521] [VERBOSE] [MassAtk] Targeting Hero (Manual S2: Empty -> One-Sided)
+[11:37:50.522] [VERBOSE] [MassAtk] ∑ Clash: Boss(10) vs Hero(0)
+[11:37:50.527] [VERBOSE] [Executor] 🚫 Staggered_Boss action skipped (Dead or Staggered)
+[11:37:50.530] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Summation)
+[11:37:50.533] [VERBOSE] [MassAtk] Targeting Hero (Auto: S1 Def_Card)
+[11:37:50.535] [VERBOSE] [MassAtk] ∑ Clash: Boss(20) vs Hero(10)
+[11:37:50.536] [NORMAL ] [MassAtk] 🚫 Hero's page destroyed
+[11:40:16.873] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Summation)
+[11:40:17.056] [VERBOSE] [MassAtk] Targeting Hero (Auto: S2 <MagicMock name='Fresh.name' id='2049702615072'>)
+[11:40:17.063] [VERBOSE] [MassAtk] ∑ Clash: Boss(10) vs Hero(0)
+[11:40:17.064] [NORMAL ] [MassAtk] 🚫 Hero's page destroyed
+[11:40:17.066] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Individual)
+[11:40:17.078] [VERBOSE] [MassAtk] Targeting Hero (Auto: S1 Def_Card)
+[11:40:17.079] [VERBOSE] [MassAtk] Indiv Clash #1: 10 vs 5
+[11:40:17.080] [VERBOSE] [MassAtk] Indiv Clash #2: 2 vs 5
+[11:40:17.095] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Summation)
+[11:40:17.095] [VERBOSE] [MassAtk] Targeting Hero (Manual S2: Empty -> One-Sided)
+[11:40:17.097] [VERBOSE] [MassAtk] ∑ Clash: Boss(10) vs Hero(0)
+[11:40:17.110] [VERBOSE] [Executor] 🚫 Staggered_Boss action skipped (Dead or Staggered)
+[11:40:17.125] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Summation)
+[11:40:17.126] [VERBOSE] [MassAtk] Targeting Hero (Auto: S1 Def_Card)
+[11:40:17.128] [VERBOSE] [MassAtk] ∑ Clash: Boss(20) vs Hero(10)
+[11:40:17.128] [NORMAL ] [MassAtk] 🚫 Hero's page destroyed
+[11:44:15.567] [NORMAL ] [MassAtk] 💥 Attacker uses Mass Attack: Mass_Ind_10 (Individual)
+[11:44:15.762] [VERBOSE] [MassAtk] Targeting Defender (Auto: S1 Def_Card)
+[11:44:15.763] [VERBOSE] [MassAtk] Indiv Clash #1: 10 vs 5
+[11:44:15.764] [VERBOSE] [MassAtk] Indiv Clash #2: 2 vs 5
+[11:44:15.765] [VERBOSE] [MassAtk] Indiv Clash #3: 8 vs 0
+[11:44:15.767] [NORMAL ] [MassAtk] 💥 Attacker uses Mass Attack: Mass_Sum_10 (Summation)
+[11:44:15.768] [VERBOSE] [MassAtk] Targeting Defender (Auto: S1 Def_Card)
+[11:44:15.770] [VERBOSE] [MassAtk] ∑ Clash: Attacker(15) vs Defender(12)
+[11:44:15.774] [NORMAL ] [MassAtk] 🚫 Defender's page destroyed
+[11:44:15.778] [NORMAL ] [Cooldown] ⏳ Unit_A_Fast: Cooldown applied to 'Mass_Sum_10' (3 turns)
+[11:50:28.649] [NORMAL ] [MassAtk] 💥 Attacker uses Mass Attack: Mass_Ind_10 (Individual)
+[11:50:28.915] [VERBOSE] [MassAtk] Targeting Defender (Auto: S1 Def_Card)
+[11:50:28.925] [VERBOSE] [MassAtk] Indiv Clash #1: 10 vs 5
+[11:50:28.926] [VERBOSE] [MassAtk] Indiv Clash #2: 2 vs 5
+[11:50:28.928] [VERBOSE] [MassAtk] Indiv Clash #3: 8 vs 0
+[11:50:28.940] [NORMAL ] [MassAtk] 💥 Attacker uses Mass Attack: Mass_Sum_10 (Summation)
+[11:50:28.942] [VERBOSE] [MassAtk] Targeting Defender (Auto: S1 Def_Card)
+[11:50:28.945] [VERBOSE] [MassAtk] ∑ Clash: Attacker(15) vs Defender(12)
+[11:50:28.947] [NORMAL ] [MassAtk] 🚫 Defender's page destroyed
+[11:50:28.959] [NORMAL ] [Combat] 💥 Unit_A_Fast initiates Mass Attack: Mass_Sum_10
+[11:50:28.960] [NORMAL ] [Cooldown] ⏳ Unit_A_Fast: Cooldown applied to 'Mass_Sum_10' (3 turns)
+[11:50:28.971] [NORMAL ] [MassAtk] 💥 Unit_A_Fast uses Mass Attack: Mass_Sum_10 (Summation)
+[11:50:28.973] [VERBOSE] [MassAtk] Targeting Unit_B_Slow (Auto: S1 Mass_Sum_1)
+[11:50:28.975] [VERBOSE] [MassAtk] ∑ Clash: Unit_A_Fast(20) vs Unit_B_Slow(10)
+[11:50:28.985] [NORMAL ] [MassAtk] 🚫 Unit_B_Slow's page destroyed
+[11:52:12.909] [NORMAL ] [Combat] 💥 Hero_Individual initiates Mass Attack: Mass_Ind_20
+[11:52:13.083] [NORMAL ] [Cooldown] ⏳ Hero_Individual: Cooldown applied to 'Mass_Ind_20' (3 turns)
+[11:52:13.084] [NORMAL ] [MassAtk] 💥 Hero_Individual uses Mass Attack: Mass_Ind_20 (Individual)
+[11:52:13.085] [VERBOSE] [MassAtk] Targeting Boss_Summation (Auto: S1 Mass_Sum_1)
+[11:52:13.086] [VERBOSE] [MassAtk] Indiv Clash #1: 10 vs 8
+[11:52:13.087] [VERBOSE] [MassAtk] Indiv Clash #2: 5 vs 8
+[11:52:13.090] [NORMAL ] [Combat] 💥 Boss_Summation initiates Mass Attack: Mass_Sum_10
+[11:52:13.090] [NORMAL ] [Cooldown] ⏳ Boss_Summation: Cooldown applied to 'Mass_Sum_10' (3 turns)
+[11:52:13.091] [NORMAL ] [MassAtk] 💥 Boss_Summation uses Mass Attack: Mass_Sum_10 (Summation)
+[11:52:13.093] [VERBOSE] [MassAtk] Targeting Boss_Individual (Auto: S1 Mass_Ind_5)
+[11:52:13.097] [VERBOSE] [MassAtk] ∑ Clash: Boss_Summation(20) vs Boss_Individual(12)
+[11:52:13.098] [NORMAL ] [MassAtk] 🚫 Boss_Individual's page destroyed
+[11:57:07.416] [NORMAL ] [MassAtk] 💥 Unit_A uses Mass Attack: MassSum_10 (Summation)
+[11:57:07.608] [VERBOSE] [MassAtk] Targeting Unit_B (Auto: S1 MassSum_1)
+[11:57:07.609] [VERBOSE] [MassAtk] ∑ Clash: Unit_A(20) vs Unit_B(10)
+[11:57:07.610] [NORMAL ] [MassAtk] 🚫 Unit_B's page destroyed
+[11:59:36.045] [NORMAL ] [Combat] 💥 Unit_Individual initiates Mass Attack: Mass_Ind_20
+[11:59:36.222] [NORMAL ] [Cooldown] ⏳ Unit_Individual: Cooldown applied to 'Mass_Ind_20' (3 turns)
+[11:59:36.223] [NORMAL ] [MassAtk] 💥 Unit_Individual uses Mass Attack: Mass_Ind_20 (Individual)
+[11:59:36.224] [VERBOSE] [MassAtk] Targeting Unit_Summation (Auto: S1 Mass_Sum_1)
+[11:59:36.225] [VERBOSE] [MassAtk] Indiv Clash #1: 10 vs 15
+[11:59:36.226] [VERBOSE] [MassAtk] Indiv Clash #2: 10 vs 2
