@@ -43,7 +43,7 @@ class TestSpeedbreakScenarios(unittest.TestCase):
                    return_value=(False, False, False, True, [])):
             with patch('logic.battle_flow.clash.clash.handle_one_sided_exchange',
                    wraps=handle_one_sided_exchange) as mock_exchange:
-            report = process_clash(self.engine, attacker, defender, "R1", True, 10, 2)
+                report = process_clash(self.engine, attacker, defender, "R1", True, 10, 2)
 
                 # Проверяем, что удар был нанесен
                 mock_exchange.assert_called_once()

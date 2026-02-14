@@ -3,13 +3,14 @@ import sys
 import os
 from unittest.mock import MagicMock, patch
 
+from logic.scripts.card_dice import add_preset_dice
+
 sys.path.append(os.getcwd())
 
 from tests.mocks import MockUnit, MockContext, MockDice
 from core.enums import DiceType
 # Импортируем НОВЫЕ скрипты
 from logic.scripts.statuses import consume_status_apply
-from logic.scripts.card_dice import add_preset_dice, share_dice_with_hand
 
 
 class TestAxisRefactored(unittest.TestCase):
