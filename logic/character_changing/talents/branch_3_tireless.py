@@ -48,9 +48,9 @@ class TalentDefense(BasePassive):
         count = 1  # База (3.2)
 
         # Проверяем ID талантов (предполагаем snake_case для consistency)
-        if "despite_adversities" in unit.talents: count += 1  # 3.5
+        if "despiteAdversities" in unit.talents: count += 1  # 3.5
         if "survivor" in unit.talents: count += 1  # 3.8
-        if "surge_of_strength" in unit.talents: count += 1  # 3.10
+        if "surgeOfStrength" in unit.talents: count += 1  # 3.10
 
         # 2. Определяем силу кубика на основе уровня
         base_min, base_max = get_base_roll_by_level(unit.level)
