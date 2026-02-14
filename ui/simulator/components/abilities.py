@@ -124,10 +124,7 @@ def render_active_abilities(unit, unit_key):
 
             # === [NEW] ИНТЕГРАЦИЯ АЗИНО 777 ===
             if pid == "azino_777":
-                # Если у вас есть функция draw_azino_simulator_interface, импортируйте ее выше
-                # draw_azino_simulator_interface(unit, obj)
-                # Если функции нет, можно просто пропустить или написать заглушку
-                st.info("Azino 777 interface placeholder")
+                draw_azino_simulator_interface(unit, obj)
                 continue
             # ==================================
 
@@ -159,8 +156,7 @@ def render_active_abilities(unit, unit_key):
                 col_ctrl, col_desc = st.columns([0.45, 0.55])
 
                 with col_ctrl:
-                    # 1. Сначала рисуем селекторы, если они есть (над кнопкой или под ней - по вкусу)
-                    # Обычно логичнее НАД кнопкой, чтобы пользователь настроил действие перед нажатием.
+                    # 1. Сначала рисуем селекторы, если они есть
 
                     # Опции
                     if options:
@@ -293,5 +289,4 @@ def render_active_abilities(unit, unit_key):
             st.divider()  # Разделитель между способностями
 
     if has_actives:
-        # Можно убрать caption, так как теперь есть divider
         pass
