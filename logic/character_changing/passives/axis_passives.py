@@ -1,6 +1,10 @@
 from core.logging import logger, LogLevel
 from logic.character_changing.passives.base_passive import BasePassive
 
+import math
+from core.logging import logger, LogLevel
+from logic.character_changing.passives.base_passive import BasePassive
+
 
 class PassiveAxisUnity(BasePassive):
     id = "axis_unity"
@@ -9,8 +13,9 @@ class PassiveAxisUnity(BasePassive):
         "Пока Аксис на поле боя:\n"
         "- Если на персонаже есть Сила, Стойкость и Спешка (мин 1): +1 ко всем этим эффектам.\n"
         "  ДОПОЛНИТЕЛЬНО: Каждые 3 Силы дают +1 Спешку, каждые 3 Стойкости -> +1 Силу, каждые 3 Спешки -> +1 Стойкость.\n"
-        "- Если на персонаже есть Слабость, Паралич и Замедление (мин 1): +1 ко всем этим эффектам.\n"
-        "Бонус дается 1 раз за 'сборку' комбинации."
+        "- Если на персонаже есть Слабость, Уязвимость и Связывание (мин 1): +1 ко всем этим эффектам (с усилением).\n"
+        "  ДОПОЛНИТЕЛЬНО: Каждые 3 Слабости дают +1 Связывание, каждые 3 Уязвимости -> +1 Слабость, каждые 3 Связывания -> +1 Уязвимость.\n"
+        "Бонус дается 1 раз за 'сборку' комбинации и обновляется при изменении статусов."
     )
     is_active_ability = False
 
@@ -21,107 +26,174 @@ class PassiveAxisUnity(BasePassive):
         return max((eff.get('duration', 0) for eff in effects), default=0)
 
     def _evaluate_triad(self, target):
-        """Проверяет статусы цели и активирует/обновляет триаду с усилением."""
+        """
+        Проверяет статусы цели и активирует/обновляет триаду с усилением.
+        Использует цикл сходимости (до 3 итераций), чтобы бонусы обновляли друг друга мгновенно.
+        """
         if not target: return
 
-        # === 1. ПОЛОЖИТЕЛЬНАЯ ТРИАДА (Strength, Endurance, Haste) ===
-        cur_str = target.get_status("attack_power_up")
-        cur_end = target.get_status("endurance")
-        cur_haste = target.get_status("haste")
+        # [FIX] Цикл сходимости: прогоняем проверки несколько раз,
+        # чтобы рост Силы тут же вызывал рост Спешки в рамках одного события.
+        # 3 раза достаточно для замыкания круга (Str -> Haste -> End -> Str).
+        for _ in range(3):
+            changes_made = False
 
-        # Условия наличия (минимум 1 стак)
-        has_str = cur_str >= 1
-        has_end = cur_end >= 1
-        has_haste = cur_haste >= 1
+            # =========================================================
+            # 1. ПОЛОЖИТЕЛЬНАЯ ТРИАДА (Strength, Endurance, Haste)
+            # =========================================================
+            cur_str = target.get_status("attack_power_up")
+            cur_end = target.get_status("endurance")
+            cur_haste = target.get_status("haste")
 
-        # Ключи для памяти (чтобы знать, сколько мы уже дали)
-        mem_key_str = "axis_applied_bonus_str"
-        mem_key_end = "axis_applied_bonus_end"
-        mem_key_haste = "axis_applied_bonus_haste"
+            has_str = cur_str >= 1
+            has_end = cur_end >= 1
+            has_haste = cur_haste >= 1
 
-        if has_str and has_end and has_haste:
-            # --- РАСЧЕТ ЦЕЛЕВОГО БОНУСА ---
-            # База 1 + (Источник // 3)
-            # Str получает бонус от End
-            target_bonus_str = 1 + (cur_end // 3)
-            # End получает бонус от Haste
-            target_bonus_end = 1 + (cur_haste // 3)
-            # Haste получает бонус от Str
-            target_bonus_haste = 1 + (cur_str // 3)
+            # Ключи для памяти
+            mem_key_str = "axis_applied_bonus_str"
+            mem_key_end = "axis_applied_bonus_end"
+            mem_key_haste = "axis_applied_bonus_haste"
 
-            # --- ПОЛУЧЕНИЕ УЖЕ ВЫДАННОГО ---
-            applied_str = target.memory.get(mem_key_str, 0)
-            applied_end = target.memory.get(mem_key_end, 0)
-            applied_haste = target.memory.get(mem_key_haste, 0)
+            if has_str and has_end and has_haste:
+                # --- РАСЧЕТ ЦЕЛЕВОГО БОНУСА ---
+                target_bonus_str = 1 + (cur_end // 3)  # Str растет от End
+                target_bonus_end = 1 + (cur_haste // 3)  # End растет от Haste
+                target_bonus_haste = 1 + (cur_str // 3)  # Haste растет от Str
 
-            # --- РАСЧЕТ РАЗНИЦЫ (DELTA) ---
-            # Накладываем только если новый бонус больше старого
-            diff_str = max(0, target_bonus_str - applied_str)
-            diff_end = max(0, target_bonus_end - applied_end)
-            diff_haste = max(0, target_bonus_haste - applied_haste)
+                # --- ПОЛУЧЕНИЕ УЖЕ ВЫДАННОГО ---
+                applied_str = target.memory.get(mem_key_str, 0)
+                applied_end = target.memory.get(mem_key_end, 0)
+                applied_haste = target.memory.get(mem_key_haste, 0)
 
-            # Если есть что добавить хоть по одному пункту
-            if diff_str > 0 or diff_end > 0 or diff_haste > 0:
-                d_str = self._get_max_duration(target, "strength")
-                d_end = self._get_max_duration(target, "endurance")
-                d_haste = self._get_max_duration(target, "haste")
+                # [FIX] СИНХРОНИЗАЦИЯ ВНИЗ (если статы упали - забываем старый бонус)
+                if target_bonus_str < applied_str:
+                    applied_str = target_bonus_str
+                    target.memory[mem_key_str] = applied_str
 
-                # Накладываем разницу
-                if diff_str > 0:
-                    target.add_status("attack_power_up", diff_str, duration=d_str, trigger_events=False)
-                    target.memory[mem_key_str] = target_bonus_str
+                if target_bonus_end < applied_end:
+                    applied_end = target_bonus_end
+                    target.memory[mem_key_end] = applied_end
 
-                if diff_end > 0:
-                    target.add_status("endurance", diff_end, duration=d_end, trigger_events=False)
-                    target.memory[mem_key_end] = target_bonus_end
+                if target_bonus_haste < applied_haste:
+                    applied_haste = target_bonus_haste
+                    target.memory[mem_key_haste] = applied_haste
 
-                if diff_haste > 0:
-                    target.add_status("haste", diff_haste, duration=d_haste, trigger_events=False)
-                    target.memory[mem_key_haste] = target_bonus_haste
+                # --- РАСЧЕТ РАЗНИЦЫ (DELTA) ---
+                diff_str = max(0, target_bonus_str - applied_str)
+                diff_end = max(0, target_bonus_end - applied_end)
+                diff_haste = max(0, target_bonus_haste - applied_haste)
 
-                target.memory["axis_buff_triad_active"] = True
+                if diff_str > 0 or diff_end > 0 or diff_haste > 0:
+                    d_str = self._get_max_duration(target, "attack_power_up")
+                    d_end = self._get_max_duration(target, "endurance")
+                    d_haste = self._get_max_duration(target, "haste")
 
-                logger.log(
-                    f"✨ Axis Unity Update: Added delta (+{diff_str} Str, +{diff_end} End, +{diff_haste} Haste). "
-                    f"Total from Passive: ({target_bonus_str}/{target_bonus_end}/{target_bonus_haste})",
-                    LogLevel.NORMAL, "Passive"
-                )
+                    if diff_str > 0:
+                        target.add_status("attack_power_up", diff_str, duration=d_str, trigger_events=False)
+                        target.memory[mem_key_str] = target_bonus_str
 
-        else:
-            # Если условия нарушены - сбрасываем память, чтобы при повторной сборке бонус дался заново
-            if target.memory.get("axis_buff_triad_active", False):
-                target.memory["axis_buff_triad_active"] = False
-                target.memory[mem_key_str] = 0
-                target.memory[mem_key_end] = 0
-                target.memory[mem_key_haste] = 0
-                logger.log(f"📉 Axis Unity: Buff Triad broken on {target.name}. Reset counters.", LogLevel.VERBOSE,
-                           "Passive")
+                    if diff_end > 0:
+                        target.add_status("endurance", diff_end, duration=d_end, trigger_events=False)
+                        target.memory[mem_key_end] = target_bonus_end
 
-        # === 2. НЕГАТИВНАЯ ТРИАДА (Weakness, vulnerable, Bind) ===
-        # (Оставляем логику как есть, либо переделываем по аналогии, если для неё нужно такое же скалирование)
-        has_weak = target.get_status("weakness") >= 1
-        has_vuln = target.get_status("vulnerable") >= 1
-        has_bind = target.get_status("bind") >= 1
+                    if diff_haste > 0:
+                        target.add_status("haste", diff_haste, duration=d_haste, trigger_events=False)
+                        target.memory[mem_key_haste] = target_bonus_haste
 
-        is_active_debuff = target.memory.get("axis_debuff_triad_active", False)
+                    target.memory["axis_buff_triad_active"] = True
+                    changes_made = True  # [FLAG] Были изменения, нужен повторный проход
 
-        if has_weak and has_vuln and has_bind:
-            if not is_active_debuff:
-                d_weak = self._get_max_duration(target, "weakness")
-                d_para = self._get_max_duration(target, "vulnerable")
-                d_bind = self._get_max_duration(target, "bind")
+                    logger.log(
+                        f"✨ Axis Unity Update: Added delta (+{diff_str} Str, +{diff_end} End, +{diff_haste} Haste). "
+                        f"Total from Passive: ({target_bonus_str}/{target_bonus_end}/{target_bonus_haste})",
+                        LogLevel.NORMAL, "Passive"
+                    )
+            else:
+                # Сброс при разрыве триады
+                if target.memory.get("axis_buff_triad_active", False):
+                    target.memory["axis_buff_triad_active"] = False
+                    target.memory[mem_key_str] = 0
+                    target.memory[mem_key_end] = 0
+                    target.memory[mem_key_haste] = 0
+                    logger.log(f"📉 Axis Unity: Buff Triad broken on {target.name}. Reset counters.", LogLevel.VERBOSE,
+                               "Passive")
 
-                # Тут пока статично +1, как в оригинале.
-                # Если нужно усиление и здесь - напиши, добавлю.
-                target.add_status("weakness", 1, duration=d_weak, trigger_events=False)
-                target.add_status("vulnerable", 1, duration=d_para, trigger_events=False)
-                target.add_status("bind", 1, duration=d_bind, trigger_events=False)
+            # =========================================================
+            # 2. НЕГАТИВНАЯ ТРИАДА (attack_power_down, vulnerable, Bind)
+            # =========================================================
+            cur_weak = target.get_status("attack_power_down")
+            cur_vuln = target.get_status("vulnerable")
+            cur_bind = target.get_status("bind")
 
-                target.memory["axis_debuff_triad_active"] = True
-                logger.log(f"⛓️ Axis Unity: Debuff Triad activated on {target.name}", LogLevel.NORMAL, "Passive")
-        else:
-            if is_active_debuff:
-                target.memory["axis_debuff_triad_active"] = False
+            has_weak = cur_weak >= 1
+            has_vuln = cur_vuln >= 1
+            has_bind = cur_bind >= 1
+
+            mem_key_weak = "axis_applied_malus_weak"
+            mem_key_vuln = "axis_applied_malus_vuln"
+            mem_key_bind = "axis_applied_malus_bind"
+
+            if has_weak and has_vuln and has_bind:
+                target_malus_weak = 1 + (cur_vuln // 3)  # Weakness растет от Vuln
+                target_malus_vuln = 1 + (cur_bind // 3)  # Vuln растет от Bind
+                target_malus_bind = 1 + (cur_weak // 3)  # Bind растет от Weakness
+
+                applied_weak = target.memory.get(mem_key_weak, 0)
+                applied_vuln = target.memory.get(mem_key_vuln, 0)
+                applied_bind = target.memory.get(mem_key_bind, 0)
+
+                # [FIX] СИНХРОНИЗАЦИЯ ВНИЗ
+                if target_malus_weak < applied_weak:
+                    applied_weak = target_malus_weak
+                    target.memory[mem_key_weak] = applied_weak
+                if target_malus_vuln < applied_vuln:
+                    applied_vuln = target_malus_vuln
+                    target.memory[mem_key_vuln] = applied_vuln
+                if target_malus_bind < applied_bind:
+                    applied_bind = target_malus_bind
+                    target.memory[mem_key_bind] = applied_bind
+
+                diff_weak = max(0, target_malus_weak - applied_weak)
+                diff_vuln = max(0, target_malus_vuln - applied_vuln)
+                diff_bind = max(0, target_malus_bind - applied_bind)
+
+                if diff_weak > 0 or diff_vuln > 0 or diff_bind > 0:
+                    d_weak = self._get_max_duration(target, "attack_power_down")
+                    d_vuln = self._get_max_duration(target, "vulnerable")
+                    d_bind = self._get_max_duration(target, "bind")
+
+                    if diff_weak > 0:
+                        target.add_status("attack_power_down", diff_weak, duration=d_weak, trigger_events=False)
+                        target.memory[mem_key_weak] = target_malus_weak
+
+                    if diff_vuln > 0:
+                        target.add_status("vulnerable", diff_vuln, duration=d_vuln, trigger_events=False)
+                        target.memory[mem_key_vuln] = target_malus_vuln
+
+                    if diff_bind > 0:
+                        target.add_status("bind", diff_bind, duration=d_bind, trigger_events=False)
+                        target.memory[mem_key_bind] = target_malus_bind
+
+                    target.memory["axis_debuff_triad_active"] = True
+                    changes_made = True  # [FLAG] Были изменения, нужен повторный проход
+
+                    logger.log(
+                        f"⛓️ Axis Unity Update: Added Malus (+{diff_weak} Weak, +{diff_vuln} Vuln, +{diff_bind} Bind). "
+                        f"Total: ({target_malus_weak}/{target_malus_vuln}/{target_malus_bind})",
+                        LogLevel.NORMAL, "Passive"
+                    )
+            else:
+                if target.memory.get("axis_debuff_triad_active", False):
+                    target.memory["axis_debuff_triad_active"] = False
+                    target.memory[mem_key_weak] = 0
+                    target.memory[mem_key_vuln] = 0
+                    target.memory[mem_key_bind] = 0
+                    logger.log(f"⛓️ Axis Unity: Debuff Triad broken on {target.name}. Reset counters.",
+                               LogLevel.VERBOSE, "Passive")
+
+            # Если на этом проходе ничего не поменялось - система стабильна, выходим
+            if not changes_made:
+                break
 
     # --- ХУКИ ---
 
