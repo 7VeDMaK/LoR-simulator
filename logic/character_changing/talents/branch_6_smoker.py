@@ -47,13 +47,15 @@ class TalentSmokeUniversality(BasePassive):
         "• 3 Дыма -> +1 Защита"
     )
     is_active_ability = True
+    active_description = "Конвертация накопленного Дыма в усиления (Баффы на 3 раунда). CD 0"
+
 
     conversion_options = {
-        "str": {"label": "4 Smoke -> 1 Strength", "cost": 4, "stat": "attack_power_up", "amt": 1, "dur": 3},
-        "hst": {"label": "3 Smoke -> 1 Haste", "cost": 3, "stat": "haste", "amt": 1, "dur": 3},
-        "end": {"label": "4 Smoke -> 1 Endurance", "cost": 4, "stat": "endurance", "amt": 1, "dur": 3},
-        "self": {"label": "3 Smoke -> 5 Self-Control", "cost": 3, "stat": "self_control", "amt": 5, "dur": 99},
-        "prot": {"label": "3 Smoke -> 1 Protection", "cost": 3, "stat": "protection", "amt": 1, "dur": 3},
+        "4 Дыма -> +1 Сила": {"label": "4 Smoke -> 1 Strength", "cost": 4, "stat": "attack_power_up", "amt": 1, "dur": 3},
+        "3 Дыма -> +1 Скорость (Haste)": {"label": "3 Smoke -> 1 Haste", "cost": 3, "stat": "haste", "amt": 1, "dur": 3},
+        "4 Дыма -> +1 Стойкость": {"label": "4 Smoke -> 1 Endurance", "cost": 4, "stat": "endurance", "amt": 1, "dur": 3},
+        "3 Дыма -> +5 Самообладания": {"label": "3 Smoke -> 5 Self-Control", "cost": 3, "stat": "self_control", "amt": 5, "dur": 99},
+        "3 Дыма -> +1 Защита": {"label": "3 Smoke -> 1 Protection", "cost": 3, "stat": "protection", "amt": 1, "dur": 3},
     }
 
     def activate(self, unit, log_func, choice_key=None, **kwargs):
@@ -148,6 +150,7 @@ class TalentSmokeScreen(BasePassive):
         "• С талантом 6.7 (Обработка легких/Нарния): Перезарядка снижена на 1 (2 сцены)."
     )
     is_active_ability = True
+    active_description = "Накладывает 3 Дыма на врагов. CD 3. С 6.5 +2 дыма. С 6.7 CD 2"
     base_cooldown = 3
 
     def _has_upgrade_6_5(self, unit):
@@ -267,6 +270,7 @@ class TalentSelfPreservation(BasePassive):
         "• Если был снят хоть один эффект: +1 Спешка (Haste)."
     )
     is_active_ability = True
+    active_description = "2 Дыма за -5 к DoT-эффектам, -2 к дебаффам, +1 спешка при снятии"
     cooldown = 2
 
     # Списки того, что мы умеем чистить

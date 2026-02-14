@@ -62,7 +62,7 @@ class TalentPainShock(BasePassive):
 # ==========================================
 class TalentEmergencyProtection(BasePassive):
     id = "emergency_protection"
-    name = "Аварийная защита (А)"
+    name = "Аварийная защита (А) WIP"
     description = (
         "10.3 А: Активно: Конвертировать весь Заряд в Барьер (1 Заряд = 5 Барьера).\n"
         "Барьер имеет ваши резисты и работает как доп. здоровье на 1 раунд."

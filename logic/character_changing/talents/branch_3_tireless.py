@@ -117,6 +117,7 @@ class TalentCommendableConstitution(BasePassive):
         "Активно (1 раз за бой): Короткий отдых. Восстанавливает 20% HP (30% при улучшении)."
     )
     is_active_ability = True
+    active_description = "Восстанавливает 20% HP (30% при 3.7). CD 99"
     cooldown = 99  # Фактически 1 раз за бой
 
     def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
@@ -173,6 +174,7 @@ class TalentBigHeart(BasePassive):
         "Эффект: Накладывает на всех союзников Барьер прочностью 10% от вашего Макс. HP."
     )
     is_active_ability = True
+    active_description = "Накладывает на всех союзников Барьер 10% от Макс. HP. CD 5"
     cooldown = 5 # 1 раз за бой
 
     def _get_allies_safe(self, unit, kwargs_allies):
@@ -531,6 +533,7 @@ class TalentDefender(BasePassive):
         "Бонус выживания: При активации вы получаете 3 Защиты (Protection) на этот раунд."
     )
     is_active_ability = True
+    active_description = "Taunt на 3 раунда. 3 Protection на этот раунд. CD 5"
     cooldown = 5
 
     def activate(self, unit, *args, **kwargs):
@@ -630,6 +633,7 @@ class TalentMuscleOverstrain(BasePassive):
         "Эффект: +1 Мощь (Strength) на этот раунд."
     )
     is_active_ability = True
+    active_description = "+1 Мощь на этот раунд. Max 2. СD 1"
 
     # Опции для UI выбора
     conversion_options = {

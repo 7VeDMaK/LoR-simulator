@@ -9,6 +9,7 @@ class BaseEffect:
     id = "base"
     name = "Base Effect"
     description = ""
+    active_description = ""
 
     # === БАЗОВЫЕ СОБЫТИЯ (Lifecycle) ===
 

@@ -98,6 +98,7 @@ class TalentBerserkerRage(BasePassive):
         "Бонус (при наличии 'Буйствующая Ярость'): Дополнительно +2 Силы и +2 Урона."
     )
     is_active_ability = True
+    active_description = "+1 Слот Скорости, при 5.6А +2 Силы и +2 Урона. Dur 3. CD 5"
     cooldown = 5
     duration = 3
 
@@ -233,6 +234,7 @@ class TalentCatchBreath(BasePassive):
         "Эффект: Восстанавливает 20% от максимального HP."
     )
     is_active_ability = True
+    active_description = "Восстанавливает 20% от максимального HP."
 
     def activate(self, unit, log_func, **kwargs):
         heal = int(unit.max_hp * 0.2)

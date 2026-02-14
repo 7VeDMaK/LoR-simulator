@@ -124,133 +124,174 @@ def render_active_abilities(unit, unit_key):
 
             # === [NEW] ИНТЕГРАЦИЯ АЗИНО 777 ===
             if pid == "azino_777":
-                draw_azino_simulator_interface(unit, obj)
+                # Если у вас есть функция draw_azino_simulator_interface, импортируйте ее выше
+                # draw_azino_simulator_interface(unit, obj)
+                # Если функции нет, можно просто пропустить или написать заглушку
+                st.info("Azino 777 interface placeholder")
                 continue
             # ==================================
 
-            with st.container(border=True):
+            # [MODIFIED] Используем st.columns для макета "Кнопка | Описание"
+            # Основной контейнер способности
+            with st.container():
+
+                # Подготовка данных (цели, опции, кулдауны) - это нужно ДО отрисовки кнопки
                 cd = unit.cooldowns.get(pid, 0)
                 active_dur = unit.active_buffs.get(pid, 0)
                 options = getattr(obj, "conversion_options", None)
                 selected_opt = None
-
-                st.markdown(f"**{obj.name}**")
-
-                # 1. Опции
-                if options:
-                    def format_option(key):
-                        val = options.get(key, key)
-                        if isinstance(val, dict): return key
-                        return val
-
-                    selected_opt = st.selectbox(
-                        "Effect",
-                        options.keys(),
-                        format_func=format_option,
-                        key=f"sel_{unit_key}_{pid}",
-                        label_visibility="collapsed"
-                    )
-
-                # 2. Цель
-                selection_type = getattr(obj, "selection_type", None)
                 selected_target = None
-
-                if selection_type:
-                    targets = []
-                    if selection_type == "enemy":
-                        targets = enemies
-                    elif selection_type == "ally":
-                        targets = allies
-                    elif selection_type == "self":
-                        targets = [unit]
-                    elif selection_type == "all":
-                        targets = allies + enemies
-
-                    targets = [t for t in targets if not t.is_dead()]
-
-                    if targets:
-                        target_map = {f"{t.name} ({t.current_hp} HP)": t for t in targets}
-                        tgt_choice = st.selectbox(
-                            "Цель",
-                            options=target_map.keys(),
-                            key=f"tgt_{unit_key}_{pid}"
-                        )
-                        if tgt_choice:
-                            selected_target = target_map[tgt_choice]
-                    else:
-                        st.caption("Нет доступных целей")
-
-                # 2.5 Выбор карты
                 selected_card_id = None
-                if getattr(obj, "requires_card_selection", False):
-                    if selected_target:
-                        deck_ids = getattr(selected_target, "deck", [])
-                        cooldowns = getattr(selected_target, "card_cooldowns", {})
 
-                        card_options = {}
-                        for cid in deck_ids:
-                            is_on_cooldown = False
-                            if cid in cooldowns:
-                                current_cds = cooldowns[cid]
-                                if current_cds and min(current_cds) > 0:
-                                    is_on_cooldown = True
-
-                            if is_on_cooldown:
-                                continue
-
-                            c_obj = Library.get_card(cid)
-                            c_name = c_obj.name if c_obj else cid
-
-                            # Фильтр типов карт
-                            type_str = str(c_obj.card_type).upper() if c_obj else ""
-                            if c_obj and (c_obj.card_type in [CardType.MASS_SUMMATION, CardType.MASS_INDIVIDUAL,
-                                                              CardType.ITEM] or "MASS" in type_str or "ITEM" in type_str):
-                                continue
-
-                            label = f"{c_name}"
-                            card_options[label] = cid
-
-                        if card_options:
-                            sorted_labels = sorted(card_options.keys())
-                            choice_label = st.selectbox(
-                                "Выберите доступную карту",
-                                options=sorted_labels,
-                                key=f"card_sel_{unit_key}_{pid}"
-                            )
-                            selected_card_id = card_options[choice_label]
-                        else:
-                            st.caption("Нет доступных карт")
-                    else:
-                        st.caption("Сначала выберите цель")
-
-                # 3. Кнопка активации
-                btn_label = "Activate"
+                # Логика определения состояния кнопки
+                btn_label = obj.name
                 disabled = False
+                help_text = getattr(obj, "description", "")
+
                 if active_dur > 0:
-                    btn_label = f"Active ({active_dur})"
+                    btn_label = f"{obj.name} (Act: {active_dur})"
                     disabled = True
                 elif cd > 0:
-                    btn_label = f"Cooldown ({cd})"
-                    disabled = True
-                elif selection_type and not selected_target:
-                    btn_label = "Select Target"
-                    disabled = True
-                elif getattr(obj, "requires_card_selection", False) and not selected_card_id:
-                    btn_label = "Select Card"
+                    btn_label = f"{obj.name} (CD: {cd})"
                     disabled = True
 
-                if st.button(f"✨ {btn_label}", key=f"act_{unit_key}_{pid}", disabled=disabled, width='stretch'):
-                    def log_f(msg):
-                        st.session_state.get('battle_logs', []).append(
-                            {"round": "Skill", "rolls": "Activate", "details": msg})
+                # Разметка UI: Колонка 1 (Кнопка и селекторы), Колонка 2 (Описание)
+                col_ctrl, col_desc = st.columns([0.45, 0.55])
 
-                    kwargs = {}
-                    if selected_opt: kwargs['choice_key'] = selected_opt
-                    if selected_target: kwargs['target'] = selected_target
-                    if selected_card_id: kwargs['selected_card_id'] = selected_card_id
+                with col_ctrl:
+                    # 1. Сначала рисуем селекторы, если они есть (над кнопкой или под ней - по вкусу)
+                    # Обычно логичнее НАД кнопкой, чтобы пользователь настроил действие перед нажатием.
 
-                    if obj.activate(unit, log_f, **kwargs):
-                        st.rerun()
+                    # Опции
+                    if options:
+                        def format_option(key):
+                            val = options.get(key, key)
+                            if isinstance(val, dict): return key
+                            return val
+
+                        selected_opt = st.selectbox(
+                            "Effect",
+                            options.keys(),
+                            format_func=format_option,
+                            key=f"sel_{unit_key}_{pid}",
+                            label_visibility="collapsed"
+                        )
+
+                    # Цель
+                    selection_type = getattr(obj, "selection_type", None)
+                    if selection_type:
+                        targets = []
+                        if selection_type == "enemy":
+                            targets = enemies
+                        elif selection_type == "ally":
+                            targets = allies
+                        elif selection_type == "self":
+                            targets = [unit]
+                        elif selection_type == "all":
+                            targets = allies + enemies
+
+                        targets = [t for t in targets if not t.is_dead()]
+
+                        if targets:
+                            target_map = {f"{t.name} ({t.current_hp} HP)": t for t in targets}
+                            tgt_choice = st.selectbox(
+                                "Target",
+                                options=target_map.keys(),
+                                key=f"tgt_{unit_key}_{pid}",
+                                label_visibility="collapsed",
+                                placeholder="Select target..."
+                            )
+                            if tgt_choice:
+                                selected_target = target_map[tgt_choice]
+                        else:
+                            st.caption("No targets")
+                            disabled = True  # Блокируем, если нет целей
+
+                    # Карта
+                    if getattr(obj, "requires_card_selection", False):
+                        if selected_target:
+                            deck_ids = getattr(selected_target, "deck", [])
+                            cooldowns = getattr(selected_target, "card_cooldowns", {})
+                            card_options = {}
+                            for cid in deck_ids:
+                                is_on_cooldown = False
+                                if cid in cooldowns:
+                                    cds = cooldowns[cid]
+                                    if cds:
+                                        if isinstance(cds, list):
+                                            if min(cds) > 0: is_on_cooldown = True
+                                        elif isinstance(cds, int):
+                                            if cds > 0: is_on_cooldown = True
+
+                                if is_on_cooldown: continue
+
+                                c_obj = Library.get_card(cid)
+                                if not c_obj: continue
+
+                                # Фильтр
+                                type_str = str(c_obj.card_type).upper()
+                                if (c_obj.card_type in [CardType.MASS_SUMMATION, CardType.MASS_INDIVIDUAL,
+                                                        CardType.ITEM]
+                                        or "MASS" in type_str or "ITEM" in type_str):
+                                    continue
+
+                                card_options[f"{c_obj.name}"] = cid
+
+                            if card_options:
+                                choice_label = st.selectbox(
+                                    "Card",
+                                    options=sorted(card_options.keys()),
+                                    key=f"card_sel_{unit_key}_{pid}",
+                                    label_visibility="collapsed"
+                                )
+                                selected_card_id = card_options[choice_label]
+                            else:
+                                st.caption("No cards")
+                                disabled = True
+                        else:
+                            st.caption("Target first")
+                            disabled = True
+
+                    # Сама кнопка активации
+                    # Если нужны селекторы, но они не выбраны -> кнопка disabled
+                    if selection_type and not selected_target: disabled = True
+                    if getattr(obj, "requires_card_selection", False) and not selected_card_id: disabled = True
+
+                    clicked = st.button(
+                        f"✨ {btn_label}",
+                        key=f"act_{unit_key}_{pid}",
+                        disabled=disabled,
+                        use_container_width=True,
+                        help=help_text  # Полное описание в тултипе
+                    )
+
+                    if clicked:
+                        def log_f(msg):
+                            st.session_state.get('battle_logs', []).append(
+                                {"round": "Skill", "rolls": "Activate", "details": msg})
+
+                        kwargs = {}
+                        if selected_opt: kwargs['choice_key'] = selected_opt
+                        if selected_target: kwargs['target'] = selected_target
+                        if selected_card_id: kwargs['selected_card_id'] = selected_card_id
+
+                        if obj.activate(unit, log_f, **kwargs):
+                            st.rerun()
+
+                with col_desc:
+                    # Краткое описание справа от кнопки
+                    short_desc = getattr(obj, "active_description", None)
+                    if not short_desc:
+                        # Fallback: берем первое предложение из полного описания
+                        full = getattr(obj, "description", "")
+                        short_desc = full.split('.')[0] if full else "Active Ability"
+                        if len(short_desc) > 50: short_desc = short_desc[:47] + "..."
+
+                    st.markdown(f"<div style='font-size: 0.85em; color: #888; padding-top: 5px;'>{short_desc}</div>",
+                                unsafe_allow_html=True)
+
+            st.divider()  # Разделитель между способностями
 
     if has_actives:
-        st.caption("Active Abilities")
+        # Можно убрать caption, так как теперь есть divider
+        pass

@@ -290,6 +290,7 @@ class TalentStepIntoShadow(BasePassive):
         "• Множитель урона при внезапной атаке увеличен до x2.0."
     )
     is_active_ability = True
+    active_description = "Уйти в полную Невидимость на 3 раунда. CD 7"
     cooldown = 7
 
     def activate(self, unit, log_func, **kwargs):
@@ -496,6 +497,7 @@ class TalentCompetentAdrenaline(BasePassive):
         "Эффект: +3 Силы (Strength) и +3 Стойкости (Endurance) на 3 раунда."
     )
     is_active_ability = True
+    active_description = "Эффект: +3 Силы (Strength) и +3 Стойкости (Endurance) на 3 раунда. CD 20"
     cooldown = 20
 
     def activate(self, unit, log_func, **kwargs):

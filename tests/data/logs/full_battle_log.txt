@@ -2252,3 +2252,355 @@
 [12:18:03.364] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
 [12:18:03.365] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
 [12:18:03.366] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
+[18:32:32.466] [NORMAL ] [Talent] 🌑 Distortion Entered: TestUnit
+[18:32:32.472] [NORMAL ] [Talent] 🛡️ Safe EGO: Activated for TestUnit
+[18:32:32.473] [VERBOSE] [Talent] 🛡️ Despite Adversities: Stagger multiplier set to 1.5 for Tester
+[18:32:32.473] [VERBOSE] [Talent] 🛡️ Despite Adversities (Surge): Stagger multiplier set to 1.25 for Tester
+[18:32:32.474] [VERBOSE] [Talent] 🛡️ Defense (Win): +1 Protection for Tester
+[18:32:32.475] [NORMAL ] [Talent] 💤 Short Rest: Healed 20 HP for Tester
+[18:32:32.476] [NORMAL ] [Talent] 💤 Short Rest: Healed 30 HP for Tester
+[18:32:32.477] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +1 Protection for Tester
+[18:32:32.477] [VERBOSE] [Talent] 🛡️ Commendable Constitution: +2 Protection for Tester
+[18:32:32.478] [VERBOSE] [Talent] 🛡️ Defense: Added 1 counter blocks (3-5) to Tester
+[18:32:32.479] [VERBOSE] [Talent] 🛡️ Defense: Added 2 counter blocks (3-5) to Tester
+[18:32:32.481] [NORMAL ] [Talent] 🪨 Rock: Reflected 20 damage to Attacker
+[18:32:32.482] [NORMAL ] [Talent] 🛡️ Defender: Activated Taunt (3 turns) + Protection on Tester
+[18:32:32.483] [VERBOSE] [Talent] 🛡️ Hardened Skin: Reduced bleed damage (10 -> 6)
+[18:32:32.483] [VERBOSE] [Talent] 🧠 Hardened Skin: Recovered 1 SP from bleed
+[18:32:32.484] [VERBOSE] [Talent] 🛡️ Hardened Skin: Reduced burn damage (100 -> 67)
+[18:32:32.484] [VERBOSE] [Talent] 🧠 Hardened Skin: Recovered 1 SP from burn
+[18:32:32.485] [VERBOSE] [Talent] 🚫 Idol Oath: Refused healing (20) from Healer
+[18:32:32.487] [NORMAL ] [Talent] ❤️ Big Heart: Applied 45 barrier to 2 allies
+[18:32:32.491] [NORMAL ] [Talent] ⚡ Surge of Strength activated for Berseker (HP < 25%)
+[18:32:32.492] [NORMAL ] [Talent] ⚡ Surge of Strength activated for Berseker (HP < 25%)
+[18:32:32.493] [VERBOSE] [Talent] 🦶 Aerial Foot: Added 1 evade counters to SmokerAgent (Lvl 10)
+[18:32:32.493] [VERBOSE] [Talent] 🦶 Aerial Foot: Added 2 evade counters to SmokerAgent (Lvl 10)
+[18:32:32.494] [VERBOSE] [Talent] 🦶 Aerial Foot: Added 3 evade counters to SmokerAgent (Lvl 10)
+[18:32:32.494] [VERBOSE] [Talent] 🦶 Aerial Foot: Added 3 evade counters to SmokerAgent (Lvl 10)
+[18:32:32.495] [VERBOSE] [Talent] 🚬 Hiding in Smoke: SmokerAgent smoke is now defensive
+[18:32:32.496] [VERBOSE] [Talent] 🫁 Lung Processing: Boosted damage 100 -> 130 (+30%)
+[18:32:32.497] [VERBOSE] [Talent] ♻️ Recycling: Converted 3 unused dice to Smoke for SmokerAgent
+[18:32:32.500] [NORMAL ] [Talent] 💨 Smoke Screen: Applied 3 smoke to 2 enemies
+[18:32:32.501] [NORMAL ] [Talent] 💨 Smoke Screen: Applied 5 smoke to 1 enemies
+[18:32:32.504] [NORMAL ] [Talent] 🌫️ Smoke Universality: SmokerAgent converted 3 smoke to 5 self_control
+[18:32:32.505] [NORMAL ] [Talent] 🌫️ Smoke Universality: SmokerAgent converted 4 smoke to 1 attack_power_up
+[18:32:32.505] [NORMAL ] [Clash] Attacker wins clash (15 vs 5)
+[18:32:32.507] [VERBOSE] [Interaction] 💥 Interaction: Attacker (Atk) catches Defender (Evade) -> Full Damage
+[18:32:32.507] [NORMAL ] [Clash] Attacker wins clash (10 vs 5)
+[18:32:32.508] [VERBOSE] [Interaction] ⚔️ Interaction: Attacker (Atk) wins vs Defender (Atk) -> Full Damage
+[18:32:32.508] [NORMAL ] [Clash] Attacker wins clash (10 vs 5)
+[18:32:32.509] [VERBOSE] [Interaction] 🛡️ Interaction: Attacker (Atk) hits Defender (Block) -> Reduced Damage (5)
+[18:32:32.509] [NORMAL ] [Clash] Defender wins clash (10 vs 5)
+[18:32:32.510] [VERBOSE] [Interaction] 🧱 Interaction: Defender (Block) counters Attacker (Atk) -> 5 Stagger Dmg
+[18:32:32.510] [NORMAL ] [Clash] Defender wins clash (12 vs 8)
+[18:32:32.511] [NORMAL ] [Clash] Zafiel wins clash (20 vs 15)
+[18:32:32.512] [VERBOSE] [Interaction] 🛡️ Interaction: Zafiel (Atk) hits Roland (Block) -> Reduced Damage (5)
+[18:32:32.512] [NORMAL ] [Clash] Clash Draw (10)
+[18:32:32.513] [NORMAL ] [Clash] Roland wins clash (15 vs 5)
+[18:32:32.513] [NORMAL ] [Clash] Roland wins clash (20 vs 5)
+[18:32:32.514] [VERBOSE] [Interaction] 🧱 Interaction: Roland (Block) counters Zafiel (Atk) -> 15 Stagger Dmg
+[18:32:32.514] [NORMAL ] [Clash] Zafiel wins clash (10 vs 5)
+[18:32:32.515] [VERBOSE] [Interaction] 🛡️ Interaction: Zafiel (Atk) hits Roland (Block) -> Reduced Damage (5)
+[18:32:32.515] [NORMAL ] [Clash] Zafiel wins clash (15 vs 8)
+[18:32:32.515] [VERBOSE] [Interaction] ⚔️ Interaction: Zafiel (Atk) wins vs Roland (Atk) -> Full Damage
+[18:32:32.520] [NORMAL ] [Combat] 💥 Unit_Melee initiates Mass Attack: Mass
+[18:32:32.521] [NORMAL ] [Cooldown] ⏳ Unit_Melee: Cooldown applied to 'Mass' (1 turns)
+[18:32:32.522] [NORMAL ] [Cooldown] ⏳ Unit_Ranged: Cooldown applied to 'Fast_Ranged' (1 turns)
+[18:32:32.523] [NORMAL ] [Combat] 🛡️ Target_Dummy intercepts with Counter Die! (0 left)
+[18:32:32.523] [NORMAL ] [Clash] ⚔️ Clash Start: Unit_Ranged vs Target_Dummy (Spd: 9 vs 9)
+[18:32:32.524] [VERBOSE] [Clash] Clash Dice Init: Unit_Ranged dice=0 | Target_Dummy dice=1
+[18:32:32.525] [VERBOSE] [Clash] Unit_Ranged: Using Counter Dice
+[18:32:32.526] [VERBOSE] [Clash] Clash 1: Unit_Ranged(<MagicMock name='mock._create_roll_context().final_value' id='2759516678512'>) vs Target_Dummy(<MagicMock name='mock._create_roll_context().final_value' id='2759516678512'>)
+[18:32:32.533] [NORMAL ] [Cooldown] ⏳ Unit_Offensive: Cooldown applied to 'Slow_Offensive' (1 turns)
+[18:32:32.534] [NORMAL ] [Cooldown] ⏳ Target_Dummy: Cooldown applied to '<MagicMock name='DefCard.name' id='2759517314448'>' (1 turns)
+[18:32:32.534] [NORMAL ] [Combat] ⚔️ Clash: Unit_Offensive vs Target_Dummy
+[18:32:32.535] [NORMAL ] [Cooldown] ⏳ Unit_Melee: Cooldown applied to 'Fast_Melee' (1 turns)
+[18:32:32.535] [NORMAL ] [Combat] 🛡️ Target_Dummy intercepts with Counter Die! (0 left)
+[18:32:32.536] [NORMAL ] [Clash] ⚔️ Clash Start: Unit_Melee vs Target_Dummy (Spd: 10 vs 10)
+[18:32:32.537] [VERBOSE] [Clash] Clash Dice Init: Unit_Melee dice=0 | Target_Dummy dice=1
+[18:32:32.537] [VERBOSE] [Clash] Unit_Melee: Using Counter Dice
+[18:32:32.539] [VERBOSE] [Clash] Clash 1: Unit_Melee(<MagicMock name='mock._create_roll_context().final_value' id='2759517723040'>) vs Target_Dummy(<MagicMock name='mock._create_roll_context().final_value' id='2759517723040'>)
+[18:32:32.580] [NORMAL ] [Clash] ⚔️ Clash Start: Zafiel (Counter) vs Rat (Empty) (Spd: 5 vs 3)
+[18:32:32.580] [VERBOSE] [Clash] Clash Dice Init: Zafiel (Counter) dice=1 | Rat (Empty) dice=0
+[18:32:32.581] [VERBOSE] [Clash] Clash 1: Zafiel (Counter)(10) vs Rat (Empty)(0)
+[18:32:32.581] [NORMAL ] [Clash] Zafiel (Counter): Saved Unused Counter SLASH
+[18:32:32.582] [NORMAL ] [Clash] Roland wins clash (10 vs 5)
+[18:32:32.582] [VERBOSE] [Interaction] ⚔️ Interaction: Roland (Atk) wins vs Zafiel (Atk) -> Full Damage
+[18:32:32.583] [NORMAL ] [Clash] Zafiel wins clash (10 vs 5)
+[18:32:32.583] [VERBOSE] [Interaction] ⚔️ Interaction: Zafiel (Atk) wins vs Roland (Atk) -> Full Damage
+[18:32:32.584] [NORMAL ] [Clash] Roland wins clash (10 vs 5)
+[18:32:32.584] [VERBOSE] [Interaction] 🧱 Interaction: Roland (Block) counters Zafiel (Atk) -> 5 Stagger Dmg
+[18:32:32.585] [NORMAL ] [Clash] Zafiel wins clash (15 vs 10)
+[18:32:32.585] [VERBOSE] [Interaction] ⚔️ Interaction: Zafiel (Atk) wins vs Roland (Atk) -> Full Damage
+[18:32:32.587] [VERBOSE] [OneSided] One-Sided: Zafiel vs Rat (Spd: 5 vs 3, Redir=False)
+[18:32:32.587] [VERBOSE] [OneSided] One-Sided: Recycled Counter Die skipped (DiceType.SLASH)
+[18:32:32.590] [VERBOSE] [OneSided] One-Sided: Zafiel vs Rat (Spd: 5 vs 3, Redir=False)
+[18:32:32.590] [VERBOSE] [OneSided] One-Sided: Recycled Counter Die skipped (DiceType.EVADE)
+[18:32:32.591] [NORMAL ] [Clash] ⚔️ Clash Start: Afelia vs Enemy (Spd: 5 vs 5)
+[18:32:32.592] [VERBOSE] [Clash] Clash Dice Init: Afelia dice=3 | Enemy dice=2
+[18:32:32.593] [VERBOSE] [Clash] Clash 1: Afelia(10) vs Enemy(5)
+[18:32:32.594] [NORMAL ] [Clash] <MagicMock name='mock.source.name' id='2761646320704'> wins clash (10 vs 5)
+[18:32:32.595] [VERBOSE] [Clash] Afelia recycled die
+[18:32:32.595] [VERBOSE] [Clash] Clash 2: Afelia(10) vs Enemy(5)
+[18:32:32.596] [NORMAL ] [Clash] <MagicMock name='mock.source.name' id='2759518182944'> wins clash (10 vs 5)
+[18:32:32.597] [VERBOSE] [Clash] Clash 3: Afelia(10) vs Enemy(0)
+[18:32:32.597] [NORMAL ] [Clash] Afelia: Active Counter SLASH burned out (No target)
+[18:32:32.597] [NORMAL ] [Clash] Afelia: Saved Unused Counter SLASH
+[18:32:32.598] [NORMAL ] [Clash] Afelia: Saved Unused Counter SLASH
+[18:32:32.598] [NORMAL ] [Clash] Zafiel wins clash (10 vs 5)
+[18:32:32.599] [NORMAL ] [Clash] Zafiel wins clash (10 vs 5)
+[18:32:32.600] [NORMAL ] [Cooldown] ⏳ Enemy1: Cooldown applied to 'Test Card' (1 turns)
+[18:32:32.601] [NORMAL ] [Combat] 🛡️ Zafiel intercepts with Counter Die! (4 left)
+[18:32:32.602] [NORMAL ] [Cooldown] ⏳ Enemy2: Cooldown applied to 'Test Card' (1 turns)
+[18:32:32.602] [NORMAL ] [Combat] 🛡️ Zafiel intercepts with Counter Die! (3 left)
+[18:32:32.602] [NORMAL ] [Clash] Afelia: Active Counter PIERCE burned out (No target)
+[18:32:32.604] [NORMAL ] [Clash] Afelia: Saved Unused Counter SLASH
+[18:32:32.604] [NORMAL ] [Clash] Afelia: Saved Unused Counter BLOCK
+[18:32:32.604] [VERBOSE] [OneSided] Afelia retrieves Stored Die
+[18:32:32.605] [VERBOSE] [OneSided] Afelia retrieves Stored Die
+[18:32:32.606] [NORMAL ] [Cooldown] ⏳ Enemy_1: Cooldown applied to 'Enemy Attack 1' (1 turns)
+[18:32:32.606] [NORMAL ] [Combat] 🛡️ Zafiel intercepts with Counter Die! (4 left)
+[18:32:32.607] [NORMAL ] [Cooldown] ⏳ Enemy_2: Cooldown applied to 'Enemy Attack 2' (1 turns)
+[18:32:32.607] [NORMAL ] [Combat] 🛡️ Zafiel intercepts with Counter Die! (3 left)
+[18:32:32.608] [NORMAL ] [Cooldown] ⏳ Enemy_3: Cooldown applied to 'Enemy Attack 3' (1 turns)
+[18:32:32.608] [NORMAL ] [Combat] 🛡️ Zafiel intercepts with Counter Die! (2 left)
+[18:32:32.608] [NORMAL ] [Cooldown] ⏳ Enemy_4: Cooldown applied to 'Enemy Attack 4' (1 turns)
+[18:32:32.608] [NORMAL ] [Combat] 🛡️ Zafiel intercepts with Counter Die! (1 left)
+[18:32:32.608] [NORMAL ] [Cooldown] ⏳ Enemy_5: Cooldown applied to 'Enemy Attack 5' (1 turns)
+[18:32:32.610] [NORMAL ] [Combat] 🏹 One-Sided: Enemy_5 -> Zafiel (Direct)
+[18:32:32.611] [VERBOSE] [OneSided] One-Sided: Attacker vs Defender (Spd: 5 vs 5, Redir=False)
+[18:32:32.612] [VERBOSE] [OneSided] Defender retrieves Counter Die
+[18:32:32.613] [VERBOSE] [OneSided] One-Sided: Attacker vs Defender (Spd: 5 vs 5, Redir=False)
+[18:32:32.613] [VERBOSE] [OneSided] Defender retrieves Counter Die
+[18:32:32.614] [VERBOSE] [OneSided] One-Sided: Attacker vs Defender (Spd: 5 vs 5, Redir=False)
+[18:32:32.615] [VERBOSE] [OneSided] Defender retrieves Counter Die
+[18:32:32.616] [VERBOSE] [OneSided] One-Sided: Attacker vs Defender (Spd: 5 vs 5, Redir=False)
+[18:32:32.617] [VERBOSE] [OneSided] Defender retrieves Stored Die
+[18:32:32.617] [VERBOSE] [OneSided] Defender retrieves Counter Die
+[18:32:32.619] [NORMAL ] [Clash] ⚔️ Clash Start: Attacker vs Defender (Spd: 5 vs 5)
+[18:32:32.619] [VERBOSE] [Clash] Clash Dice Init: Attacker dice=2 | Defender dice=1
+[18:32:32.621] [VERBOSE] [Clash] Clash 1: Attacker(5) vs Defender(10)
+[18:32:32.621] [NORMAL ] [Clash] Defender wins clash (10 vs 5)
+[18:32:32.622] [VERBOSE] [Clash] Clash 2: Attacker(5) vs Defender(0)
+[18:32:32.624] [NORMAL ] [Clash] ⚔️ Clash Start: Attacker vs Defender (Spd: 5 vs 5)
+[18:32:32.624] [VERBOSE] [Clash] Clash Dice Init: Attacker dice=2 | Defender dice=1
+[18:32:32.625] [VERBOSE] [Clash] Clash 1: Attacker(5) vs Defender(10)
+[18:32:32.625] [NORMAL ] [Clash] Defender wins clash (10 vs 5)
+[18:32:32.626] [VERBOSE] [Clash] Defender recycled die
+[18:32:32.627] [VERBOSE] [Clash] Clash 2: Attacker(5) vs Defender(10)
+[18:32:32.627] [NORMAL ] [Clash] Defender wins clash (10 vs 5)
+[18:32:32.628] [VERBOSE] [Clash] Clash 3: Attacker(0) vs Defender(10)
+[18:32:32.628] [NORMAL ] [Clash] Defender: Active Counter BLOCK burned out (No target)
+[18:32:32.631] [NORMAL ] [Clash] ⚔️ Clash Start: Attacker vs Defender (Spd: 5 vs 5)
+[18:32:32.631] [VERBOSE] [Clash] Clash Dice Init: Attacker dice=2 | Defender dice=1
+[18:32:32.632] [VERBOSE] [Clash] Clash 1: Attacker(5) vs Defender(10)
+[18:32:32.633] [NORMAL ] [Clash] Defender wins clash (10 vs 5)
+[18:32:32.633] [VERBOSE] [Clash] Defender recycled die
+[18:32:32.634] [VERBOSE] [Clash] Clash 2: Attacker(5) vs Defender(10)
+[18:32:32.635] [NORMAL ] [Clash] Defender wins clash (10 vs 5)
+[18:32:32.635] [VERBOSE] [Clash] Clash 3: Attacker(0) vs Defender(10)
+[18:32:32.638] [NORMAL ] [Clash] ⚔️ Clash Start: Attacker vs Defender (Spd: 5 vs 5)
+[18:32:32.638] [VERBOSE] [Clash] Clash Dice Init: Attacker dice=1 | Defender dice=3
+[18:32:32.639] [VERBOSE] [Clash] Clash 1: Attacker(5) vs Defender(5)
+[18:32:32.639] [NORMAL ] [Clash] Clash Draw (5)
+[18:32:32.640] [VERBOSE] [Clash] Clash 2: Attacker(0) vs Defender(5)
+[18:32:32.640] [NORMAL ] [Clash] Defender stored evade die (auto-save)
+[18:32:32.643] [NORMAL ] [Cooldown] ⏳ Ranged_Sniper: Cooldown applied to 'Snipe' (1 turns)
+[18:32:32.644] [NORMAL ] [Combat] 🏹 One-Sided: Ranged_Sniper -> Poor_Dummy (Direct)
+[18:32:32.645] [NORMAL ] [Cooldown] ⏳ Melee_Interceptor: Cooldown applied to 'Intercept_Attempt' (1 turns)
+[18:32:32.646] [NORMAL ] [Combat] 🏹 One-Sided: Melee_Interceptor -> Ranged_Sniper (Direct)
+[18:32:32.648] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Summation)
+[18:32:32.648] [VERBOSE] [MassAtk] Targeting Hero (Auto: S2 <MagicMock name='Fresh.name' id='2759519364720'>)
+[18:32:32.650] [VERBOSE] [MassAtk] ∑ Clash: Boss(10) vs Hero(0)
+[18:32:32.650] [NORMAL ] [MassAtk] 🚫 Hero's page destroyed
+[18:32:32.653] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Individual)
+[18:32:32.653] [VERBOSE] [MassAtk] Targeting Hero (Auto: S1 Def_Card)
+[18:32:32.654] [VERBOSE] [MassAtk] Indiv Clash #1: 10 vs 5
+[18:32:32.655] [VERBOSE] [MassAtk] Indiv Clash #2: 2 vs 5
+[18:32:32.656] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Summation)
+[18:32:32.657] [VERBOSE] [MassAtk] Targeting Hero (Manual S2: Empty -> One-Sided)
+[18:32:32.657] [VERBOSE] [MassAtk] ∑ Clash: Boss(10) vs Hero(0)
+[18:32:32.658] [VERBOSE] [Executor] 🚫 Staggered_Boss action skipped (Dead or Staggered)
+[18:32:32.660] [NORMAL ] [MassAtk] 💥 Boss uses Mass Attack: Mass_Apocalypse (Summation)
+[18:32:32.660] [VERBOSE] [MassAtk] Targeting Hero (Auto: S1 Def_Card)
+[18:32:32.662] [VERBOSE] [MassAtk] ∑ Clash: Boss(20) vs Hero(10)
+[18:32:32.662] [NORMAL ] [MassAtk] 🚫 Hero's page destroyed
+[18:32:32.664] [NORMAL ] [MassAtk] 💥 Attacker uses Mass Attack: Mass_Ind_10 (Individual)
+[18:32:32.665] [VERBOSE] [MassAtk] Targeting Defender (Auto: S1 Def_Card)
+[18:32:32.666] [VERBOSE] [MassAtk] Indiv Clash #1: 10 vs 5
+[18:32:32.666] [VERBOSE] [MassAtk] Indiv Clash #2: 2 vs 5
+[18:32:32.667] [VERBOSE] [MassAtk] Indiv Clash #3: 8 vs 0
+[18:32:32.668] [NORMAL ] [MassAtk] 💥 Attacker uses Mass Attack: Mass_Sum_10 (Summation)
+[18:32:32.669] [VERBOSE] [MassAtk] Targeting Defender (Auto: S1 Def_Card)
+[18:32:32.670] [VERBOSE] [MassAtk] ∑ Clash: Attacker(15) vs Defender(12)
+[18:32:32.671] [NORMAL ] [MassAtk] 🚫 Defender's page destroyed
+[18:32:32.674] [NORMAL ] [Combat] 💥 Unit_A_Fast initiates Mass Attack: Mass_Sum_10
+[18:32:32.674] [NORMAL ] [Cooldown] ⏳ Unit_A_Fast: Cooldown applied to 'Mass_Sum_10' (3 turns)
+[18:32:32.675] [NORMAL ] [MassAtk] 💥 Unit_A_Fast uses Mass Attack: Mass_Sum_10 (Summation)
+[18:32:32.676] [VERBOSE] [MassAtk] Targeting Unit_B_Slow (Auto: S1 Mass_Sum_1)
+[18:32:32.676] [VERBOSE] [MassAtk] ∑ Clash: Unit_A_Fast(20) vs Unit_B_Slow(10)
+[18:32:32.677] [NORMAL ] [MassAtk] 🚫 Unit_B_Slow's page destroyed
+[18:32:32.683] [NORMAL ] [Combat] 💥 Boss initiates Mass Attack: Rain_of_Arrows
+[18:32:32.684] [NORMAL ] [Cooldown] ⏳ Boss: Cooldown applied to 'Rain_of_Arrows' (3 turns)
+[18:32:32.686] [NORMAL ] [Cooldown] ⏳ Hero: Cooldown applied to 'Attack_Next' (1 turns)
+[18:32:32.686] [NORMAL ] [Combat] 🏹 One-Sided: Hero -> Boss (Direct)
+[18:32:32.690] [NORMAL ] [Combat] 💥 Boss initiates Mass Attack: Giant_Laser
+[18:32:32.690] [NORMAL ] [Cooldown] ⏳ Boss: Cooldown applied to 'Giant_Laser' (3 turns)
+[18:32:32.694] [NORMAL ] [Combat] 💥 Unit_Individual initiates Mass Attack: Mass_Ind_20
+[18:32:32.694] [NORMAL ] [Cooldown] ⏳ Unit_Individual: Cooldown applied to 'Mass_Ind_20' (3 turns)
+[18:32:32.695] [NORMAL ] [MassAtk] 💥 Unit_Individual uses Mass Attack: Mass_Ind_20 (Individual)
+[18:32:32.696] [VERBOSE] [MassAtk] Targeting Unit_Summation (Auto: S1 Mass_Sum_1)
+[18:32:32.696] [VERBOSE] [MassAtk] Indiv Clash #1: 10 vs 15
+[18:32:32.697] [VERBOSE] [MassAtk] Indiv Clash #2: 10 vs 2
+[18:32:32.701] [NORMAL ] [Combat] 💥 Hero_Individual initiates Mass Attack: Mass_Ind_20
+[18:32:32.702] [NORMAL ] [Cooldown] ⏳ Hero_Individual: Cooldown applied to 'Mass_Ind_20' (3 turns)
+[18:32:32.703] [NORMAL ] [MassAtk] 💥 Hero_Individual uses Mass Attack: Mass_Ind_20 (Individual)
+[18:32:32.704] [VERBOSE] [MassAtk] Targeting Boss_Summation (Auto: S1 Mass_Sum_1)
+[18:32:32.704] [VERBOSE] [MassAtk] Indiv Clash #1: 10 vs 8
+[18:32:32.705] [VERBOSE] [MassAtk] Indiv Clash #2: 5 vs 8
+[18:32:32.708] [NORMAL ] [Combat] 💥 Boss_Summation initiates Mass Attack: Mass_Sum_10
+[18:32:32.708] [NORMAL ] [Cooldown] ⏳ Boss_Summation: Cooldown applied to 'Mass_Sum_10' (3 turns)
+[18:32:32.710] [NORMAL ] [MassAtk] 💥 Boss_Summation uses Mass Attack: Mass_Sum_10 (Summation)
+[18:32:32.710] [VERBOSE] [MassAtk] Targeting Boss_Individual (Auto: S1 Mass_Ind_5)
+[18:32:32.711] [VERBOSE] [MassAtk] ∑ Clash: Boss_Summation(20) vs Boss_Individual(12)
+[18:32:32.712] [NORMAL ] [MassAtk] 🚫 Boss_Individual's page destroyed
+[18:32:32.714] [NORMAL ] [MassAtk] 💥 Unit_A uses Mass Attack: MassSum_10 (Summation)
+[18:32:32.715] [VERBOSE] [MassAtk] Targeting Unit_B (Auto: S1 MassSum_1)
+[18:32:32.716] [VERBOSE] [MassAtk] ∑ Clash: Unit_A(20) vs Unit_B(10)
+[18:32:32.716] [NORMAL ] [MassAtk] 🚫 Unit_B's page destroyed
+[18:32:32.718] [NORMAL ] [Clash] ⚔️ Clash Start: Attacker vs Defender (Spd: 10 vs 5)
+[18:32:32.720] [VERBOSE] [Speed] Speed Calc: 10 vs 5 (Diff 5) -> Break(A:False, D:False), Adv(A:False, D:True)
+[18:32:32.720] [VERBOSE] [Clash] Clash Dice Init: Attacker dice=3 | Defender dice=1
+[18:32:32.721] [VERBOSE] [Clash] Clash 1: Attacker(20) vs Defender(5)
+[18:32:32.722] [NORMAL ] [Clash] Attacker wins clash (20 vs 5)
+[18:32:32.724] [VERBOSE] [Clash] Clash 2: Attacker(20) vs Defender(0)
+[18:32:32.725] [VERBOSE] [Clash] Clash 3: Attacker(20) vs Defender(0)
+[18:32:32.783] [NORMAL ] [Clash] ⚔️ Clash Start: Killer vs Victim (Spd: 10 vs 5)
+[18:32:32.784] [VERBOSE] [Speed] Speed Calc: 10 vs 5 (Diff 5) -> Break(A:False, D:False), Adv(A:False, D:True)
+[18:32:32.784] [VERBOSE] [Clash] Clash Dice Init: Killer dice=3 | Victim dice=1
+[18:32:32.785] [VERBOSE] [Clash] Clash 1: Killer(20) vs Victim(5)
+[18:32:32.787] [NORMAL ] [Clash] Killer wins clash (20 vs 5)
+[18:32:32.787] [VERBOSE] [Clash] Clash 2: Killer(20) vs Victim(0)
+[18:32:32.791] [NORMAL ] [Combat] 💥 Mass_User initiates Mass Attack: <MagicMock name='MassCard.name' id='2759518377344'>
+[18:32:32.793] [NORMAL ] [Cooldown] ⏳ Mass_User: Cooldown applied to '<MagicMock name='MassCard.name' id='2759518377344'>' (3 turns)
+[18:32:32.794] [NORMAL ] [Cooldown] ⏳ Ranged_C: Cooldown applied to 'Ranged_Card' (1 turns)
+[18:32:32.795] [NORMAL ] [Combat] 🛡️ Target_B intercepts with Counter Die! (0 left)
+[18:32:32.795] [NORMAL ] [Clash] ⚔️ Clash Start: Ranged_C vs Target_B (Spd: 9 vs 9)
+[18:32:32.797] [VERBOSE] [Clash] Clash Dice Init: Ranged_C dice=0 | Target_B dice=1
+[18:32:32.797] [VERBOSE] [Clash] Ranged_C: Using Counter Dice
+[18:32:32.798] [VERBOSE] [Clash] Clash 1: Ranged_C(<MagicMock name='mock._create_roll_context().final_value' id='2759520389200'>) vs Target_B(<MagicMock name='mock._create_roll_context().final_value' id='2759520389200'>)
+[18:32:32.805] [NORMAL ] [Cooldown] ⏳ Ranged_C: Cooldown applied to 'Ranged_Card' (1 turns)
+[18:32:32.806] [NORMAL ] [Combat] ⚔️ Clash: Ranged_C vs Target_B
+[18:32:32.807] [NORMAL ] [Cooldown] ⏳ Melee_A: Cooldown applied to 'Melee_Card' (1 turns)
+[18:32:32.808] [NORMAL ] [Combat] 🛡️ Target_B intercepts with Counter Die! (0 left)
+[18:32:32.808] [NORMAL ] [Clash] ⚔️ Clash Start: Melee_A vs Target_B (Spd: 8 vs 8)
+[18:32:32.809] [VERBOSE] [Clash] Clash Dice Init: Melee_A dice=0 | Target_B dice=1
+[18:32:32.810] [VERBOSE] [Clash] Melee_A: Using Counter Dice
+[18:32:32.811] [VERBOSE] [Clash] Clash 1: Melee_A(<MagicMock name='mock._create_roll_context().final_value' id='2759521201072'>) vs Target_B(<MagicMock name='mock._create_roll_context().final_value' id='2759521201072'>)
+[18:32:32.816] [NORMAL ] [Cooldown] ⏳ Berserker: Cooldown applied to 'Rush' (1 turns)
+[18:32:32.817] [NORMAL ] [Cooldown] ⏳ Knight: Cooldown applied to 'Guard' (1 turns)
+[18:32:32.817] [NORMAL ] [Combat] ⚔️ Clash: Berserker vs Knight
+[18:32:32.820] [NORMAL ] [Cooldown] ⏳ Ranger: Cooldown applied to 'Ranged' (1 turns)
+[18:32:32.821] [NORMAL ] [Cooldown] ⏳ DummyTarget: Cooldown applied to 'DefCard' (1 turns)
+[18:32:32.821] [NORMAL ] [Combat] ⚔️ Clash: Ranger vs DummyTarget
+[18:32:32.822] [NORMAL ] [Cooldown] ⏳ Berserker: Cooldown applied to 'Offensive' (1 turns)
+[18:32:32.823] [NORMAL ] [Combat] 🏹 One-Sided: Berserker -> DummyTarget (Direct)
+[18:32:32.823] [NORMAL ] [Cooldown] ⏳ Knight: Cooldown applied to 'Melee' (1 turns)
+[18:32:32.824] [NORMAL ] [Combat] 🏹 One-Sided: Knight -> DummyTarget (Direct)
+[18:32:32.826] [NORMAL ] [Cooldown] ⏳ Ranger: Cooldown applied to 'Snipe' (1 turns)
+[18:32:32.827] [NORMAL ] [Cooldown] ⏳ Knight: Cooldown applied to 'Slash' (1 turns)
+[18:32:32.827] [NORMAL ] [Combat] ⚔️ Clash: Ranger vs Knight
+[18:32:32.830] [NORMAL ] [Cooldown] ⏳ Ranger: Cooldown applied to 'Shot' (1 turns)
+[18:32:32.831] [NORMAL ] [Cooldown] ⏳ Berserker: Cooldown applied to 'Dash' (1 turns)
+[18:32:32.831] [NORMAL ] [Combat] ⚔️ Clash: Ranger vs Berserker
+[18:32:32.834] [NORMAL ] [Cooldown] ⏳ FastRanger: Cooldown applied to 'FastShot' (1 turns)
+[18:32:32.835] [NORMAL ] [Cooldown] ⏳ SlowRanger: Cooldown applied to 'SlowShot' (1 turns)
+[18:32:32.835] [NORMAL ] [Combat] ⚔️ Clash: FastRanger vs SlowRanger
+[18:32:32.837] [NORMAL ] [Clash] ⚔️ Clash Start: Striker vs Victim (Spd: 10 vs 1)
+[18:32:32.837] [VERBOSE] [Clash] Clash Dice Init: Striker dice=2 | Victim dice=1
+[18:32:32.838] [VERBOSE] [Clash] Clash 1: Striker(5) vs Victim(0)
+[18:32:32.840] [NORMAL ] [Clash] ⚔️ Clash Start: Striker vs Victim (Spd: 10 vs 1)
+[18:32:32.840] [VERBOSE] [Clash] Clash Dice Init: Striker dice=1 | Victim dice=1
+[18:32:32.841] [VERBOSE] [Clash] Clash 1: Striker(5) vs Victim(0)
+[18:32:32.845] [NORMAL ] [Clash] ⚔️ Clash Start: CounterUser vs Victim (Spd: 10 vs 2)
+[18:32:32.845] [VERBOSE] [Clash] Clash Dice Init: CounterUser dice=1 | Victim dice=1
+[18:32:32.846] [VERBOSE] [Clash] Clash 1: CounterUser(7) vs Victim(0)
+[18:32:32.846] [NORMAL ] [Clash] CounterUser: Saved Unused Counter SLASH
+[18:32:32.848] [NORMAL ] [Clash] ⚔️ Clash Start: Striker vs Victim (Spd: 10 vs 2)
+[18:32:32.848] [VERBOSE] [Clash] Clash Dice Init: Striker dice=2 | Victim dice=1
+[18:32:32.848] [VERBOSE] [Clash] Clash 1: Striker(7) vs Victim(0)
+[18:32:32.852] [NORMAL ] [Clash] ⚔️ Clash Start: Striker vs Victim (Spd: 10 vs 2)
+[18:32:32.853] [VERBOSE] [Clash] Clash Dice Init: Striker dice=1 | Victim dice=1
+[18:32:32.853] [VERBOSE] [Clash] Clash 1: Striker(7) vs Victim(0)
+[18:32:32.855] [VERBOSE] [Scripts] Conditional Effect: win_condition -> ['fragile']
+[18:32:32.858] [MINIMAL] [Scripts] 💔 Decay: Defender takes 40 HP
+[18:32:32.860] [MINIMAL] [Scripts] 💔 Effect Dmg: Defender takes 15 HP
+[18:32:32.860] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 20
+[18:32:32.861] [MINIMAL] [Scripts] 🤯 Effect SP: Defender takes 10
+[18:32:32.862] [MINIMAL] [Scripts] 😵 Effect Stagger: Defender takes 7
+[18:32:32.862] [VERBOSE] [Scripts] 🚫 HP Damage Nullified for Attacker
+[18:32:32.863] [MINIMAL] [Scripts] 🩸 Self Harm: Attacker takes 10 HP
+[18:32:32.864] [VERBOSE] [Scripts] 🔋 Converted 10 smoke -> +5 Power
+[18:32:32.864] [VERBOSE] [Scripts] 🔋 Converted 5 charge -> +5 Power
+[18:32:32.865] [VERBOSE] [Scripts] 📉 Ram Logic: 2 Power, Haste Consumed
+[18:32:32.866] [VERBOSE] [Scripts] 📉 Ram Logic: 15 Power, Haste Consumed
+[18:32:32.867] [VERBOSE] [Scripts] 📉 Ram Logic: 0 Power, Haste Consumed
+[18:32:32.869] [VERBOSE] [Scripts] Modify Power: 5 (Test Bonus) for Striker
+[18:32:32.869] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 haste to Caster
+[18:32:32.870] [VERBOSE] [Scripts] 👤 Axis Solo Buff: Applied 2 strength to Caster
+[18:32:32.870] [VERBOSE] [Scripts] 🙌 Axis Team Buff: Applied 1 endurance to allies of Caster
+[18:32:32.871] [VERBOSE] [Scripts] 🚩 Memory: Set combo_count=5 for Caster
+[18:32:32.871] [VERBOSE] [Scripts] 🚩 Memory: Set wethermon_failed=True for Caster
+[18:32:32.873] [NORMAL ] [Summon] 🚫 Summon failed for Caster: Team is full
+[18:32:32.874] [NORMAL ] [Summon] 🤖 Summoned Minion (6994) for Caster
+[18:32:32.874] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 100)
+[18:32:32.875] [VERBOSE] [Scripts] 🍀 Luck Bonus: +5 (Luck: 55)
+[18:32:32.876] [VERBOSE] [Scripts] 🍀 Fortune Power: +5
+[18:32:32.876] [NORMAL ] [Scripts] 🍀 Luck Series: Added 2 dice to card Luck Card
+[18:32:32.877] [VERBOSE] [Scripts] 🍀 Luck Scaling: x3 (Total: +24)
+[18:32:32.882] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[18:32:32.883] [VERBOSE] [Scripts] 🧠 Restored Healer for 0 SP
+[18:32:32.885] [VERBOSE] [Scripts] 🛡️ Restored Healer for 0 Stagger
+[18:32:32.886] [VERBOSE] [Scripts] 🧪 Applied 5 burn to Target
+[18:32:32.887] [VERBOSE] [Scripts] 🎲 Applied 8 poise (Roll-based) to Caster
+[18:32:32.888] [VERBOSE] [Scripts] Apply Status haste failed: Roll 5 < 10
+[18:32:32.890] [VERBOSE] [Scripts] ✖️ Multiplied burn on Target by 2.0
+[18:32:32.891] [NORMAL ] [Scripts] 🧹 Removed positive buffs from Target: ['protection']
+[18:32:32.892] [VERBOSE] [Scripts] 🧪 Random Purge: Removed 2 burn from Target
+[18:32:32.894] [VERBOSE] [Scripts] 🧹 Removed 5 bind from Target
+[18:32:32.895] [VERBOSE] [Scripts] ✋ Caster stole 3 power_up from Target
+[18:32:32.896] [VERBOSE] [Scripts] 🎲 Script chance failed (0.5)
+[18:32:32.897] [VERBOSE] [Scripts] 🚫 Script requirement failed: strength 12 < 20
+[18:32:32.906] [VERBOSE] [Status] 🔍 Attack Power Down on_roll: unit=Tester, stack=2, dice_type=DiceType.PIERCE
+[18:32:32.906] [NORMAL ] [Status] ⬇️ Attack Power Down: Tester attack power reduced by 2
+[18:32:32.907] [NORMAL ] [Status] 🔍 DEEP DEBUG: dtype_value=DiceType.SLASH, type=DiceType, str=DiceType.SLASH, repr=<DiceType.SLASH: 'Slash'>, ==SLASH:True, ==PIERCE:False, ==BLUNT:False, in_list:True
+[18:32:32.908] [NORMAL ] [Status] ⚔️ Attack Power Up: +3 power to Tester
+[18:32:32.909] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[18:32:32.909] [MINIMAL] [Status] 🩸 Bleed: Tester took 10 damage (Stack: 10->5)
+[18:32:32.911] [MINIMAL] [Status] 🔥 Burn: Tester took 8 damage
+[18:32:32.912] [MINIMAL] [Status] 💔 Deep Wound triggered on Tester: -4 HP
+[18:32:32.913] [VERBOSE] [Status] 🛡️ Endurance: +2 power to Tester
+[18:32:32.914] [VERBOSE] [Status] ⚡ Paralysis: Tester roll reduced by 3
+[18:32:32.916] [MINIMAL] [Status] ⚡ Rupture: Tester took 10 damage from Rupture explosion (Stack: 10->5)
+[18:32:32.917] [VERBOSE] [Status] ⬇️ Vulnerable: Tester defense power reduced by 4
+[18:32:32.918] [VERBOSE] [Status] 💢 Weak: Tester takes increased damage: 20 -> 25 (stack: 1, x1.25)
+[18:32:32.976] [VERBOSE] [Status] 🔫 Ammo consumed: Tester spent 1 ammo, gained +2 power
+[18:32:32.978] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Attack Nullified
+[18:32:32.979] [VERBOSE] [Status] 🕰️ Bullet Time: Tester Evade Max (20)
+[18:32:32.980] [VERBOSE] [Status] 😡 Enrage: Tester gain +10 Strength from damage
+[18:32:32.980] [NORMAL ] [Status] 👻 Invisibility broken (Attack) for Tester
+[18:32:32.980] [NORMAL ] [Status] 👻 Invisibility broken (Clash Lose) for Tester
+[18:32:32.981] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_heads: ОРЕЛ (Победа)
+[18:32:32.982] [NORMAL ] [Status] 🪙 Lucky Coin Flip for card_tails: РЕШКА (Провал)
+[18:32:32.983] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester HP protected! Damage 20 → 9
+[18:32:32.984] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester protection consumed and removed
+[18:32:32.985] [NORMAL ] [Status] 🛡️ Main Character Shell: Tester Stagger protected! Damage 20 → 9
+[18:32:32.987] [VERBOSE] [Status] 🍫 Ganache Regen: Tester +5 HP
+[18:32:32.987] [VERBOSE] [Status] 🩸 Revenge Triggered: Tester Damage x1.5
+[18:32:32.988] [MINIMAL] [Status] 🍗 Satiety Overload: Tester took 20 HP damage
+[18:32:32.991] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[18:32:32.991] [VERBOSE] [Status] 💨 SelfControl Crit: Tester (Chance 100%) -> x2 Dmg
+[18:32:32.992] [MINIMAL] [Status] 🌑 Sinister Aura: Tester took 5 SP dmg
+[18:32:32.993] [VERBOSE] [Status] 💨 Smoke cap exceeded for Tester: -4
+[18:32:32.995] [VERBOSE] [Status] 🛡️ Stagger Immune: Tester blocked 50 stagger damage
+[18:32:32.995] [VERBOSE] [Status] 🎯 Under Crosshairs: Tester takes increased damage: 20 -> 30 (stack: 2, x1.50)
