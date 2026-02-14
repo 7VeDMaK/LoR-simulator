@@ -97,24 +97,24 @@ class PassiveAxisUnity(BasePassive):
                 logger.log(f"📉 Axis Unity: Buff Triad broken on {target.name}. Reset counters.", LogLevel.VERBOSE,
                            "Passive")
 
-        # === 2. НЕГАТИВНАЯ ТРИАДА (Weakness, Paralysis, Bind) ===
+        # === 2. НЕГАТИВНАЯ ТРИАДА (Weakness, vulnerable, Bind) ===
         # (Оставляем логику как есть, либо переделываем по аналогии, если для неё нужно такое же скалирование)
         has_weak = target.get_status("weakness") >= 1
-        has_para = target.get_status("paralysis") >= 1
+        has_vuln = target.get_status("vulnerable") >= 1
         has_bind = target.get_status("bind") >= 1
 
         is_active_debuff = target.memory.get("axis_debuff_triad_active", False)
 
-        if has_weak and has_para and has_bind:
+        if has_weak and has_vuln and has_bind:
             if not is_active_debuff:
                 d_weak = self._get_max_duration(target, "weakness")
-                d_para = self._get_max_duration(target, "paralysis")
+                d_para = self._get_max_duration(target, "vulnerable")
                 d_bind = self._get_max_duration(target, "bind")
 
                 # Тут пока статично +1, как в оригинале.
                 # Если нужно усиление и здесь - напиши, добавлю.
                 target.add_status("weakness", 1, duration=d_weak, trigger_events=False)
-                target.add_status("paralysis", 1, duration=d_para, trigger_events=False)
+                target.add_status("vulnerable", 1, duration=d_para, trigger_events=False)
                 target.add_status("bind", 1, duration=d_bind, trigger_events=False)
 
                 target.memory["axis_debuff_triad_active"] = True
