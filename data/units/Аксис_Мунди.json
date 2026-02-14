@@ -18,29 +18,103 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 168,
-    "current_sp": 56,
-    "current_stagger": 84,
+    "current_hp": 113,
+    "current_sp": 41,
+    "current_stagger": 35,
     "resources": {
-        "luck": 0
+        "luck": 32
     },
-    "cooldowns": {},
+    "cooldowns": {
+        "raise_stakes": 3
+    },
     "card_cooldowns": {
-        "axis_plot_armor": 0,
-        "axis_mcguffin": 0,
-        "axis_ex_machina": 0,
-        "axis_sealing": 0
+        "item_heal_35": [
+            1
+        ],
+        "item_heal_65": [
+            2
+        ],
+        "axis_mcguffin": [
+            2
+        ],
+        "axis_ex_machina": [
+            2
+        ]
     },
     "active_buffs": {},
-    "_status_effects": {},
-    "delayed_queue": [
-        {
-            "name": "bleed",
-            "amount": 10,
-            "duration": 5,
-            "delay": 2
-        }
-    ],
+    "_status_effects": {
+        "dmg_up": [
+            {
+                "amount": 1,
+                "duration": 1
+            },
+            {
+                "amount": 1,
+                "duration": 2
+            },
+            {
+                "amount": 1,
+                "duration": 3
+            }
+        ],
+        "haste": [
+            {
+                "amount": 1,
+                "duration": 1
+            },
+            {
+                "amount": 1,
+                "duration": 1
+            }
+        ],
+        "fragile": [
+            {
+                "amount": 1,
+                "duration": 2
+            },
+            {
+                "amount": 1,
+                "duration": 2
+            },
+            {
+                "amount": 1,
+                "duration": 2
+            },
+            {
+                "amount": 1,
+                "duration": 2
+            },
+            {
+                "amount": 1,
+                "duration": 2
+            },
+            {
+                "amount": 1,
+                "duration": 2
+            }
+        ],
+        "attack_power_up": [
+            {
+                "amount": 1,
+                "duration": 3
+            },
+            {
+                "amount": 1,
+                "duration": 0
+            }
+        ],
+        "endurance": [
+            {
+                "amount": 1,
+                "duration": 3
+            },
+            {
+                "amount": 1,
+                "duration": 3
+            }
+        ]
+    },
+    "delayed_queue": [],
     "deck": [
         "axis_i_radiance",
         "axis_minor_setbacks",
@@ -55,39 +129,7 @@
         "item_heal_35",
         "item_heal_65"
     ],
-    "active_slots": [
-        {
-            "speed": 8,
-            "card": "axis_spear_determination",
-            "target_slot": null,
-            "is_aggro": false,
-            "target_unit_idx": -1,
-            "target_slot_idx": -1,
-            "force_clash": false,
-            "ui_status": {
-                "text": "НЕТ ЦЕЛИ",
-                "icon": "⛔",
-                "color": "gray"
-            },
-            "is_ally_target": false,
-            "destroy_on_speed": true
-        },
-        {
-            "speed": 4,
-            "card": null,
-            "target_slot": null,
-            "is_aggro": false,
-            "target_unit_idx": -1,
-            "target_slot_idx": -1,
-            "force_clash": false,
-            "ui_status": {
-                "text": "НЕТ ЦЕЛИ",
-                "icon": "⛔",
-                "color": "gray"
-            },
-            "is_ally_target": false
-        }
-    ],
+    "active_slots": [],
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
@@ -106,6 +148,15 @@
             "dc": 0,
             "success": true
         },
+        "azino_slots": [
+            6,
+            5,
+            2
+        ],
+        "axis_applied_bonus_str": 1,
+        "axis_applied_bonus_end": 1,
+        "axis_applied_bonus_haste": 1,
+        "axis_buff_triad_active": true,
         "battle_initialized": true
     },
     "death_count": 0,
@@ -137,9 +188,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 168,
-        "current_sp": 56,
-        "current_stagger": 84
+        "current_hp": 113,
+        "current_sp": 41,
+        "current_stagger": 35
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",

@@ -47,7 +47,8 @@ class TalentSecondChance(BasePassive):
         "Механически: Дает статус 'Преимущество' (Advantage) на следующий бросок."
     )
     is_active_ability = True
-    cooldown = 3  # Фактически одноразовое в рамках боя
+    active_description = "Дает статус Advantage на следующий бросок. CD 3"
+    cooldown = 3
 
     def activate(self, unit, *args, **kwargs):
         log_func = kwargs.get("log_func")
@@ -263,6 +264,7 @@ class TalentRaiseStakes(BasePassive):
         "🎲 **Остальное:** Случайный бафф (+1 Сила, Стойкость или Скорость)."
     )
     is_active_ability = True
+    active_description = "Бросок 1d21. 1-6 debuff. 7, 14, 21 - big buff. other - buff."
     cooldown = 7
 
     def activate(self, unit, log_func, **kwargs):
@@ -365,6 +367,7 @@ class TalentAzino777(BasePassive):
         "💀 **1-1-1:** Потеря всей удачи и 50% HP."
     )
     is_active_ability = True
+    active_description = "davai davai kruti"
 
     def calculate_cost(self, fixed_values: list) -> int:
         """Считает стоимость фиксации: 7 -> 49 -> 343."""
@@ -516,6 +519,7 @@ class TalentBlessedByFate(BasePassive):
     )
     is_active_ability = True
     cooldown = 3
+    active_description = "Coinflip. Break or be broken. CD 3"
 
     def on_scene_start(self, unit, log_func, **kwargs):
         """Начало дня/сцены - даем 1 монетку."""

@@ -57,6 +57,7 @@ class TalentCelestialEyes(BasePassive):
         "Эффект: Чем выше разница в броске, тем глубже анализ (от базового описания до скрытых пассивок и полной колоды)."
     )
     is_active_ability = True
+    active_description = "Просканировать цель (Бросок Мудрости vs Мудрость врага). CD 1"
     selection_type = "enemy"
     cooldown = 1
 
@@ -266,6 +267,7 @@ class TalentCopycatInsight(BasePassive):
         "Ограничение: Карта исчезает после использования или в конце раунда."
     )
     is_active_ability = True
+    active_description = "Вы создаете временную копию этой техники в своей руке. CD 3"
     selection_type = "all"
     requires_card_selection = True
     cooldown = 3
@@ -558,6 +560,7 @@ class TalentArrogantTaunt(BasePassive):
         "Эффект: Цель получает +2 Мощи (Power), но +4 Уязвимости (Vulnerable) на этот раунд."
     )
     is_active_ability = True
+    active_description = "Цель получает +2 Мощи, но +4 Уязвимости на этот раунд. CD 1"
     cooldown = 1
 
     def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
@@ -703,6 +706,7 @@ class TalentSilenceExecution(BasePassive):
         "Нельзя уничтожить кубики с картами 3+ уровня или массовыми атаками."
     )
     is_active_ability = True
+    active_description = "Выберите врага и кубик его скорости для уничтожения. CD 5"
     cooldown = 5
 
 

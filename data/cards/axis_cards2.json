@@ -5,7 +5,6 @@
       "name": "Сияние",
       "tier": 1,
       "type": "Ranged",
-      "cost": 1,
       "description": "I. Дальний. Уклонение.\n[Unity] Наследует кубики цепи. Добавляет свой кубик в цепь.\n[On Clash Win] Накладывает 1 'Win Condition' на врага (1 ход).",
       "dice": [
         {
@@ -238,7 +237,6 @@
       "name": "Прототип МакГаффина",
       "tier": 3,
       "type": "Ranged",
-      "cost": 3,
       "description": "III. Дальний. [On Hit] Накладывает 1 Перманентный Win Condition.",
       "dice": [
         {
@@ -317,7 +315,6 @@
   "name": "Прототип Сюжетной Брони",
   "tier": 3,
   "type": "Melee",
-  "cost": 3,
   "description": "III. Ближний. [Unity] Наследует кубики.\nI куб: [Clash Win] Тратит 1 WinCon -> Враг получает 2 Слабости, Хрупкости и Связывания. [Clash Lose] Враг получает 2 Слабости.\nII-III кубы: [Clash Lose] Враг получает 2 Слабости.",
   "flags": [],
   "scripts": {
@@ -424,7 +421,6 @@
       "name": "Прототип Экс Махины",
       "tier": 3,
       "type": "Melee",
-      "cost": 4,
       "description": "III. Ближний. [On Clash] Снимает 1 WinCon -> Союзники получают Силу, Ускорение и Стойкость.",
       "flags": [
         "unity"

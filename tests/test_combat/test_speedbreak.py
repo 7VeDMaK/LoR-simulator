@@ -44,7 +44,7 @@ class TestSpeedbreak(unittest.TestCase):
         with patch('logic.battle_flow.clash.clash.setup_clash_parameters',
                    return_value=(False, False, False, True, [])):
             # Мокаем обработку одностороннего удара внутри клэша
-                 with patch('logic.battle_flow.clash.clash.handle_one_sided_exchange',
+            with patch('logic.battle_flow.clash.clash.handle_one_sided_exchange',
                       wraps=handle_one_sided_exchange) as mock_onesided:
                 report = process_clash(self.engine, attacker, defender, "R1", True, 10, 1)
 

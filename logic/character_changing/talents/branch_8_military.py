@@ -137,10 +137,11 @@ class TalentAddiction(BasePassive):
     id = "addiction_is_a_bitch"
     name = "Addiction is a bitch"
     description = (
-        "Активно (Потребление вещества): Восст. 10% SP/раунд (3 раунда).\n"
+        "Активно: Восст. 10% SP/раунд (3 раунда).\n"
         "Баффы на 3 раунда: +1 Сила, +1 Скорость, Иммунитет к Параличу."
     )
     is_active_ability = True
+    active_description = "Восст. 10% SP/раунд (3 раунда). +1 Сила, +1 Скорость, Иммунитет к Параличу. CD 20"
     cooldown = 20  # Условно 2 часа
 
     def activate(self, unit, log_func, **kwargs):
@@ -352,6 +353,7 @@ class TalentIronFormation(BasePassive):
         "Вся команда получает Иммунитет к Стаггеру и +50 Защиты на 2 раунда."
     )
     is_active_ability = True
+    active_description = "Вся команда получает Иммунитет к Стаггеру и +50 Защиты на 2 раунда. CD 5"
     cooldown = 5
 
     def on_combat_start(self, unit, log_func, **kwargs):

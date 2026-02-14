@@ -33,7 +33,9 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
     # === ОСНОВНОЙ ЦИКЛ ===
     while (state_a.has_dice_left() or state_d.has_dice_left()) and iteration < max_iterations:
         iteration += 1
-        if attacker.is_dead() or defender.is_dead(): break
+
+        # [MODIFIED] Проверка смерти отключена для поддержки механики Overkill
+        # if attacker.is_dead() or defender.is_dead(): break
 
         # Получаем кубики (они извлекаются из очереди!)
         idx_before_a = state_a.idx
@@ -82,17 +84,27 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
             if getattr(die_d, "is_counter", False):
                 # Контр-кубики сохраняются
                 break
+
             outcome = handle_one_sided_exchange(engine, active_side=state_d, passive_side=state_a,
                                                 detail_logs=detail_logs)
-            # handle_one_sided_exchange already consumes both sides
+
+            # Явно тратим кубик активной стороны и сдвигаем индекс пассивной
+            state_d.consume()
+            if not die_a and state_a.idx < len(state_a.queue):
+                state_a.idx += 1
 
         # Случай 2: Защитник сломан/пуст (А атакующий есть)
         elif die_a and not die_d:
             if getattr(die_a, "is_counter", False):
                 break
+
             outcome = handle_one_sided_exchange(engine, active_side=state_a, passive_side=state_d,
                                                 detail_logs=detail_logs)
-            # handle_one_sided_exchange already consumes both sides
+
+            # Явно тратим кубик активной стороны и сдвигаем индекс пассивной
+            state_a.consume()
+            if not die_d and state_d.idx < len(state_d.queue):
+                state_d.idx += 1
 
         # Случай 3: Оба защитные
         elif (die_a.dtype in [DiceType.EVADE, DiceType.BLOCK]) and (die_d.dtype in [DiceType.EVADE, DiceType.BLOCK]):
@@ -128,6 +140,7 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
                 if state.current_src_is_counter: lbl += " (C)"
                 return lbl
             return "Broken" if was_broken else "-"
+
         # Формирование отчета UI
         l_lbl = get_dice_label(state_a, die_a, broken_a)
         r_lbl = get_dice_label(state_d, die_d, broken_d)
@@ -154,3 +167,4 @@ def process_clash(engine, attacker, defender, round_label, is_left, spd_a, spd_d
     state_d.store_remaining(report)
 
     return report
+

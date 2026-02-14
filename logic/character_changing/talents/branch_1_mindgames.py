@@ -116,6 +116,7 @@ class TalentMindPower(BasePassive):
         "Курс обмена: 10 SP → +1 Сила (на 1 раунд). Максимум +5 Силы."
     )
     is_active_ability = True
+    active_description = "10 SP → +1 Сила (на 1 раунд). Максимум +5 Силы в раунд."
     cooldown = 1
 
     conversion_options = {
