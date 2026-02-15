@@ -157,14 +157,14 @@
           "scripts": {}
         },
         {
-          "type": "slash",
+          "type": "blunt",
           "base_min": 7,
           "base_max": 14,
           "is_counter": false,
           "scripts": {}
         },
         {
-          "type": "slash",
+          "type": "pierce",
           "base_min": 4,
           "base_max": 8,
           "is_counter": false,
@@ -384,21 +384,21 @@
           "scripts": {}
         },
         {
-          "type": "slash",
+          "type": "blunt",
           "base_min": 5,
           "base_max": 5,
           "is_counter": false,
           "scripts": {}
         },
         {
-          "type": "slash",
+          "type": "blunt",
           "base_min": 5,
           "base_max": 5,
           "is_counter": false,
           "scripts": {}
         },
         {
-          "type": "slash",
+          "type": "pierce",
           "base_min": 5,
           "base_max": 5,
           "is_counter": false,
@@ -461,7 +461,20 @@
       "type": "Mass Individual",
       "description": "Веер клинков\nМассовая атака которая накладывает на всех кого задела 20 кровотечения",
       "flags": [],
-      "scripts": {},
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "bleed",
+              "base": 20,
+              "duration": 3,
+              "target": "all_enemies",
+              "min_roll": 0
+            }
+          }
+        ]
+      },
       "dice": [
         {
           "type": "pierce",
@@ -474,7 +487,7 @@
                 "script_id": "apply_status",
                 "params": {
                   "status": "bleed",
-                  "base": 20,
+                  "base": 30,
                   "duration": 3,
                   "target": "target",
                   "min_roll": 0

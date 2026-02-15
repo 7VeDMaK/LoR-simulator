@@ -25,20 +25,7 @@
         "luck": 138
     },
     "cooldowns": {},
-    "card_cooldowns": {
-        "bad_coffee_img": [
-            1
-        ],
-        "good_coffee_img": [
-            1
-        ],
-        "equivalent_exchange_img": [
-            1
-        ],
-        "веер_клинков_ec6b": [
-            2
-        ]
-    },
+    "card_cooldowns": {},
     "active_buffs": {},
     "_status_effects": {},
     "delayed_queue": [],
@@ -63,7 +50,7 @@
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 169,
+            "hp": 197,
             "sp": 202,
             "stagger": 32
         },
