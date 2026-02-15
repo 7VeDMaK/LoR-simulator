@@ -1,6 +1,10 @@
 {
   "type": "full",
+<<<<<<< HEAD
   "page": "👤 Profile",
+=======
+  "page": "⚔️ Simulator",
+>>>>>>> 12df80e74180637fa893a4b16ac64a7ca0fc54c2
   "team_left_data": [
     {
       "name": "Лайла",
@@ -140,11 +144,116 @@
       "unit_type": "player"
     }
   ],
+<<<<<<< HEAD
   "team_right_data": [],
   "phase": "roll",
   "round_number": 1,
   "turn_message": "",
   "battle_logs": [],
+=======
+  "phase": "planning",
+  "round_number": 4,
+  "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
+  "battle_logs": [
+    {
+      "type": "onesided",
+      "round": "R Hit (Hit)",
+      "left": {
+        "unit": "Аксис Мунди",
+        "card": "Прототип Сюжетной Брони",
+        "dice": "BLOCK",
+        "val": 20,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Афелия Токс",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🛡️ Block (Ignored)",
+      "details": [
+        "🧪 **Аксис Мунди**: +3 Attack_power_up",
+        "🧪 **Аксис Мунди**: +3 Endurance",
+        "🧪 **Аксис Мунди**: +3 Haste",
+        "🎲 Roll [5-9]: 9 + 11 (Luck (58//5)) = **20**"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "R Hit (Hit)",
+      "left": {
+        "unit": "Аксис Мунди",
+        "card": "Прототип Сюжетной Брони",
+        "dice": "BLOCK",
+        "val": 18,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Афелия Токс",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🛡️ Block (Ignored)",
+      "details": [
+        "🎲 Roll [5-9]: 7 + 11 (Luck (58//5)) = **18**"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "R Hit (Hit)",
+      "left": {
+        "unit": "Аксис Мунди",
+        "card": "Прототип Сюжетной Брони",
+        "dice": "BLOCK",
+        "val": 20,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Афелия Токс",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🛡️ Block (Ignored)",
+      "details": [
+        "🎲 Roll [5-9]: 9 + 11 (Luck (58//5)) = **20**"
+      ]
+    },
+    {
+      "round": "Item",
+      "rolls": "Consumable",
+      "details": [
+        "💊 **Аксис Мунди** uses **Лечилка 35**!",
+        "💚 **Аксис Мунди**: +35 HP",
+        "🧪 **Аксис Мунди**: +1 Satiety"
+      ]
+    },
+    {
+      "round": "Item",
+      "rolls": "Consumable",
+      "details": [
+        "💊 **Аксис Мунди** uses **Кофе Веспо**!",
+        "🧪 **Аксис Мунди**: +3 Satiety",
+        "🧪 **Аксис Мунди**: +3 Attack_power_up",
+        "🧪 **Аксис Мунди**: +3 Haste",
+        "🧪 **Аксис Мунди**: +3 Endurance"
+      ]
+    },
+    {
+      "round": "Item",
+      "rolls": "Consumable",
+      "details": [
+        "💊 **Аксис Мунди** uses **Лечилка 5**!",
+        "💚 **Аксис Мунди**: +5 HP"
+      ]
+    }
+  ],
+>>>>>>> 12df80e74180637fa893a4b16ac64a7ca0fc54c2
   "script_logs": "",
   "turn_phase": "planning",
   "action_idx": 0,
