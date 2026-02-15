@@ -10,6 +10,7 @@ from ui.leveling import render_leveling_page
 from ui.profile.main import render_profile_page
 from ui.profile_new.main import render_profile_page_v2
 from ui.relationships import render_relationships_page
+from ui.roulette import render_roulette_page
 # Страницы
 from ui.simulator.simulator import render_simulator_page
 from ui.styles import apply_styles
@@ -34,6 +35,7 @@ pages = [
     "🛠️ Card Editor",
     "🎲 Checks",
     "❤️ Relationships",  # <--- НОВЫЙ ПУНКТ
+    "🎰 Рулетка Рейна",
     "📚 Cheat Sheet"
 ]
 if "nav_page" in st.session_state and st.session_state["nav_page"] not in pages:
@@ -68,6 +70,9 @@ elif "Cheat Sheet" in page:
 
 elif "Relationships" in page:
     render_relationships_page()
+
+elif "Рулетка Рейна" in page:
+    render_roulette_page()
 
 else:
     render_editor_page()
