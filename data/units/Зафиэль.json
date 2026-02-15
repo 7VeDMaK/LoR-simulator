@@ -86,6 +86,10 @@
         {
             "amount": 14460000,
             "reason": ""
+        },
+        {
+            "amount": 2500000,
+            "reason": "дала аксис"
         }
     ],
     "base_stats": {

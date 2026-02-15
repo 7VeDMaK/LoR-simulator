@@ -20,29 +20,50 @@
     },
     "current_hp": 113,
     "current_sp": 41,
-    "current_stagger": 35,
+    "current_stagger": 0,
     "resources": {
         "luck": 32
     },
     "cooldowns": {
-        "raise_stakes": 3
+        "raise_stakes": 5,
+        "second_chance": 1
     },
     "card_cooldowns": {
+        "item_heal_5": 0,
         "item_heal_35": 0,
-        "item_heal_65": 0,
-        "axis_mcguffin": 0,
-        "axis_ex_machina": 0
+        "axis_spear_determination": 0,
+        "item_heal_65": 0
     },
     "active_buffs": {},
     "_status_effects": {
-        "dmg_up": [
+        "raise_stakes_fail": [
+            {
+                "amount": 1,
+                "duration": 1
+            }
+        ],
+        "fragile": [
             {
                 "amount": 1,
                 "duration": 1
             },
             {
                 "amount": 1,
+                "duration": 1
+            },
+            {
+                "amount": 1,
+                "duration": 1
+            }
+        ],
+        "dmg_up": [
+            {
+                "amount": 1,
                 "duration": 2
+            },
+            {
+                "amount": 1,
+                "duration": 3
             },
             {
                 "amount": 1,
@@ -52,57 +73,13 @@
         "haste": [
             {
                 "amount": 1,
-                "duration": 1
-            },
-            {
-                "amount": 1,
-                "duration": 1
+                "duration": 3
             }
         ],
-        "fragile": [
+        "satiety": [
             {
-                "amount": 1,
-                "duration": 2
-            },
-            {
-                "amount": 1,
-                "duration": 2
-            },
-            {
-                "amount": 1,
-                "duration": 2
-            },
-            {
-                "amount": 1,
-                "duration": 2
-            },
-            {
-                "amount": 1,
-                "duration": 2
-            },
-            {
-                "amount": 1,
-                "duration": 2
-            }
-        ],
-        "attack_power_up": [
-            {
-                "amount": 1,
-                "duration": 3
-            },
-            {
-                "amount": 1,
-                "duration": 0
-            }
-        ],
-        "endurance": [
-            {
-                "amount": 1,
-                "duration": 3
-            },
-            {
-                "amount": 1,
-                "duration": 3
+                "amount": 2,
+                "duration": 99
             }
         ]
     },
@@ -119,9 +96,24 @@
         "axis_ex_machina",
         "item_heal_5",
         "item_heal_35",
-        "item_heal_65"
+        "item_heal_65",
+        "tea_coffee_vespo"
     ],
-    "active_slots": [],
+    "active_slots": [
+        {
+            "speed": 0,
+            "card": null,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "stunned": true,
+            "is_aggro": false,
+            "ui_status": {
+                "text": "ОГЛУШЕН",
+                "icon": "❌",
+                "color": "gray"
+            }
+        }
+    ],
     "stored_dice": [],
     "counter_dice": [],
     "memory": {
@@ -142,13 +134,13 @@
         },
         "azino_slots": [
             6,
-            5,
-            2
+            4,
+            7
         ],
-        "axis_applied_bonus_str": 1,
-        "axis_applied_bonus_end": 1,
-        "axis_applied_bonus_haste": 1,
-        "axis_buff_triad_active": true,
+        "axis_applied_bonus_str": 0,
+        "axis_applied_bonus_end": 0,
+        "axis_applied_bonus_haste": 0,
+        "axis_buff_triad_active": false,
         "battle_initialized": true
     },
     "death_count": 0,
@@ -177,12 +169,20 @@
         {
             "amount": -5000000,
             "reason": "Ателье купила плохое "
+        },
+        {
+            "amount": -2500000,
+            "reason": "Зафу дали"
+        },
+        {
+            "amount": -4000000,
+            "reason": "9 стульев винтажных 3 стола и посуда"
         }
     ],
     "base_stats": {
         "current_hp": 113,
         "current_sp": 41,
-        "current_stagger": 35
+        "current_stagger": 0
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -260,16 +260,16 @@
             "sp": 4
         },
         "15": {
-            "hp": 5,
-            "sp": 2
+            "hp": 4,
+            "sp": 1
         },
         "18": {
-            "hp": 1,
+            "hp": 5,
             "sp": 4
         },
         "21": {
-            "hp": 5,
-            "sp": 2
+            "hp": 2,
+            "sp": 5
         }
     },
     "biography": "Очки (крутые)\nВеревка (неудачливая)\n3 карточки хилок и платье (5, 30, 65. 3 бинда 0 2 3 сытости)\nплатье 500к\nстарый лук, немного приколов и стрел Лимы, но не все, еë шампунь, сами волосы Л, а также взяла у неë карандаш, бумагу, и оставила Лиме записку",
