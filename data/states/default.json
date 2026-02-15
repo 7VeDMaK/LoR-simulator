@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "⚔️ Simulator",
+  "page": "👤 Profile",
   "team_left_data": [
     {
       "name": "Афелия Токс",
@@ -34,7 +34,7 @@
       "deck": [],
       "active_slots": [
         {
-          "speed": 7,
+          "speed": 9,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
@@ -165,16 +165,94 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 113,
+      "current_hp": 153,
       "current_sp": 41,
       "current_stagger": 84,
       "resources": {
         "luck": 32
       },
       "cooldowns": {},
-      "card_cooldowns": {},
+      "card_cooldowns": {
+        "axis_plot_armor": 0,
+        "item_heal_35": 0,
+        "tea_coffee_vespo": 0,
+        "item_heal_5": 0
+      },
       "active_buffs": {},
-      "_status_effects": {},
+      "_status_effects": {
+        "attack_power_up": [
+          {
+            "amount": 3,
+            "duration": 2
+          },
+          {
+            "amount": 2,
+            "duration": 2
+          },
+          {
+            "amount": 3,
+            "duration": 3
+          },
+          {
+            "amount": 1,
+            "duration": 3
+          },
+          {
+            "amount": 1,
+            "duration": 3
+          }
+        ],
+        "endurance": [
+          {
+            "amount": 3,
+            "duration": 2
+          },
+          {
+            "amount": 2,
+            "duration": 2
+          },
+          {
+            "amount": 1,
+            "duration": 2
+          },
+          {
+            "amount": 1,
+            "duration": 2
+          },
+          {
+            "amount": 3,
+            "duration": 3
+          }
+        ],
+        "haste": [
+          {
+            "amount": 3,
+            "duration": 2
+          },
+          {
+            "amount": 2,
+            "duration": 2
+          },
+          {
+            "amount": 1,
+            "duration": 2
+          },
+          {
+            "amount": 3,
+            "duration": 3
+          },
+          {
+            "amount": 1,
+            "duration": 3
+          }
+        ],
+        "satiety": [
+          {
+            "amount": 4,
+            "duration": 99
+          }
+        ]
+      },
       "delayed_queue": [],
       "deck": [
         "axis_i_radiance",
@@ -193,7 +271,7 @@
       ],
       "active_slots": [
         {
-          "speed": 7,
+          "speed": 18,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
@@ -208,7 +286,7 @@
           "is_ally_target": false
         },
         {
-          "speed": 8,
+          "speed": 17,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
@@ -223,7 +301,7 @@
           "is_ally_target": false
         },
         {
-          "speed": 2,
+          "speed": 13,
           "card": null,
           "target_slot": null,
           "is_aggro": false,
@@ -261,10 +339,10 @@
           4,
           7
         ],
-        "axis_applied_bonus_str": 0,
-        "axis_applied_bonus_end": 0,
-        "axis_applied_bonus_haste": 0,
-        "axis_buff_triad_active": false,
+        "axis_applied_bonus_str": 4,
+        "axis_applied_bonus_end": 4,
+        "axis_applied_bonus_haste": 4,
+        "axis_buff_triad_active": true,
         "battle_initialized": true
       },
       "death_count": 0,
@@ -304,7 +382,7 @@
         }
       ],
       "base_stats": {
-        "current_hp": 113,
+        "current_hp": 153,
         "current_sp": 41,
         "current_stagger": 84
       },
@@ -390,779 +468,115 @@
     }
   ],
   "phase": "planning",
-  "round_number": 3,
+  "round_number": 4,
   "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-  "battle_logs": [],
+  "battle_logs": [
+    {
+      "type": "onesided",
+      "round": "R Hit (Hit)",
+      "left": {
+        "unit": "Аксис Мунди",
+        "card": "Прототип Сюжетной Брони",
+        "dice": "BLOCK",
+        "val": 20,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Афелия Токс",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🛡️ Block (Ignored)",
+      "details": [
+        "🧪 **Аксис Мунди**: +3 Attack_power_up",
+        "🧪 **Аксис Мунди**: +3 Endurance",
+        "🧪 **Аксис Мунди**: +3 Haste",
+        "🎲 Roll [5-9]: 9 + 11 (Luck (58//5)) = **20**"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "R Hit (Hit)",
+      "left": {
+        "unit": "Аксис Мунди",
+        "card": "Прототип Сюжетной Брони",
+        "dice": "BLOCK",
+        "val": 18,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Афелия Токс",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🛡️ Block (Ignored)",
+      "details": [
+        "🎲 Roll [5-9]: 7 + 11 (Luck (58//5)) = **18**"
+      ]
+    },
+    {
+      "type": "onesided",
+      "round": "R Hit (Hit)",
+      "left": {
+        "unit": "Аксис Мунди",
+        "card": "Прототип Сюжетной Брони",
+        "dice": "BLOCK",
+        "val": 20,
+        "range": "-"
+      },
+      "right": {
+        "unit": "Афелия Токс",
+        "card": "-",
+        "dice": "None",
+        "val": 0,
+        "range": "-"
+      },
+      "outcome": "🛡️ Block (Ignored)",
+      "details": [
+        "🎲 Roll [5-9]: 9 + 11 (Luck (58//5)) = **20**"
+      ]
+    },
+    {
+      "round": "Item",
+      "rolls": "Consumable",
+      "details": [
+        "💊 **Аксис Мунди** uses **Лечилка 35**!",
+        "💚 **Аксис Мунди**: +35 HP",
+        "🧪 **Аксис Мунди**: +1 Satiety"
+      ]
+    },
+    {
+      "round": "Item",
+      "rolls": "Consumable",
+      "details": [
+        "💊 **Аксис Мунди** uses **Кофе Веспо**!",
+        "🧪 **Аксис Мунди**: +3 Satiety",
+        "🧪 **Аксис Мунди**: +3 Attack_power_up",
+        "🧪 **Аксис Мунди**: +3 Haste",
+        "🧪 **Аксис Мунди**: +3 Endurance"
+      ]
+    },
+    {
+      "round": "Item",
+      "rolls": "Consumable",
+      "details": [
+        "💊 **Аксис Мунди** uses **Лечилка 5**!",
+        "💚 **Аксис Мунди**: +5 HP"
+      ]
+    }
+  ],
   "script_logs": "",
   "turn_phase": "done",
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Аксис Мунди",
+  "profile_unit": "Лилит",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",
-  "undo_stack": [
-    {
-      "type": "full",
-      "page": "⚔️ Simulator",
-      "team_left_data": [
-        {
-          "name": "Афелия Токс",
-          "level": 1,
-          "rank": 9,
-          "avatar": "data/avatars\\Афелия_Токс.jpg",
-          "base_intellect": 1,
-          "total_xp": 0,
-          "pct_mods": {
-            "imp_hp": 0,
-            "imp_sp": 0,
-            "imp_stg": 0,
-            "tal_hp": 0,
-            "tal_sp": 0,
-            "tal_stg": 0
-          },
-          "flat_mods": {
-            "imp_hp": 0,
-            "imp_sp": 0,
-            "imp_stg": 0
-          },
-          "current_hp": 18,
-          "current_sp": 20,
-          "current_stagger": 8,
-          "resources": {},
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [],
-          "active_slots": [
-            {
-              "speed": 6,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 1,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "Адама работница",
-            "start_of_battle_stats": {
-              "hp": 18,
-              "sp": 20,
-              "stagger": 8
-            },
-            "axis_debuff_triad_active": false,
-            "axis_applied_bonus_str": 0,
-            "axis_applied_bonus_end": 0,
-            "axis_applied_bonus_haste": 0,
-            "axis_buff_triad_active": false,
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": [],
-          "base_stats": {
-            "current_hp": 18,
-            "current_sp": 20,
-            "current_stagger": 8
-          },
-          "defense": {
-            "armor_name": "Без брони",
-            "armor_type": "Medium",
-            "armor_id": "none",
-            "hp_resists": {
-              "slash": 1.0,
-              "pierce": 1.0,
-              "blunt": 1.0
-            },
-            "stagger_resists": {
-              "slash": 1.0,
-              "pierce": 1.0,
-              "blunt": 1.0
-            },
-            "weapon_id": "none"
-          },
-          "attributes": {
-            "strength": 5,
-            "endurance": 5,
-            "agility": 0,
-            "wisdom": 5,
-            "psych": 5
-          },
-          "skills": {
-            "strike_power": 5,
-            "medicine": 5,
-            "willpower": 0,
-            "luck": 0,
-            "acrobatics": 5,
-            "shields": 5,
-            "tough_skin": 0,
-            "speed": 10,
-            "light_weapon": 5,
-            "medium_weapon": 5,
-            "heavy_weapon": 0,
-            "firearms": 0,
-            "eloquence": 0,
-            "forging": 0,
-            "engineering": 0,
-            "programming": 0
-          },
-          "passives": [],
-          "talents": [],
-          "augmentations": [],
-          "level_rolls": {},
-          "biography": "",
-          "relationships": {
-            "Адам Серый Лис": {
-              "value": 50,
-              "status": "Friend",
-              "notes": "Доверяет. Служит"
-            }
-          },
-          "unit_type": "syndicate"
-        }
-      ],
-      "team_right_data": [
-        {
-          "name": "Аксис Мунди",
-          "level": 22,
-          "rank": 9,
-          "avatar": "data/avatars\\Аксис_Мунди.png",
-          "base_intellect": 8,
-          "total_xp": 666,
-          "pct_mods": {
-            "imp_hp": 0,
-            "imp_sp": 0,
-            "imp_stg": 0,
-            "tal_hp": 0,
-            "tal_sp": 0,
-            "tal_stg": 0
-          },
-          "flat_mods": {
-            "imp_hp": 0,
-            "imp_sp": 0,
-            "imp_stg": 0
-          },
-          "current_hp": 113,
-          "current_sp": 41,
-          "current_stagger": 0,
-          "resources": {
-            "luck": 32
-          },
-          "cooldowns": {},
-          "card_cooldowns": {
-            "axis_sword_glory": [
-              1
-            ],
-            "axis_spear_determination": [
-              1
-            ],
-            "axis_fist_justice": [
-              1
-            ],
-            "axis_mcguffin": [
-              2
-            ],
-            "axis_plot_armor": [
-              2
-            ],
-            "axis_ex_machina": [
-              2
-            ]
-          },
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [
-            "axis_i_radiance",
-            "axis_minor_setbacks",
-            "axis_min_effort",
-            "axis_sword_glory",
-            "axis_spear_determination",
-            "axis_fist_justice",
-            "axis_mcguffin",
-            "axis_plot_armor",
-            "axis_ex_machina",
-            "item_heal_5",
-            "item_heal_65",
-            "tea_coffee_vespo",
-            "item_heal_35"
-          ],
-          "active_slots": [
-            {
-              "speed": 0,
-              "card": null,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "stunned": true,
-              "is_aggro": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 113,
-              "sp": 41,
-              "stagger": 0
-            },
-            "last_revive_attempt_round": 1,
-            "last_revive_log": {
-              "roll": 6,
-              "bonus": 0,
-              "penalty": 0,
-              "total": 6,
-              "dc": 0,
-              "success": true
-            },
-            "azino_slots": [
-              6,
-              4,
-              7
-            ],
-            "axis_applied_bonus_str": 0,
-            "axis_applied_bonus_end": 0,
-            "axis_applied_bonus_haste": 0,
-            "axis_buff_triad_active": false,
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": [
-            {
-              "amount": 1500000,
-              "reason": "Первое задание Фемя"
-            },
-            {
-              "amount": -540000,
-              "reason": "Платье + ампулы "
-            },
-            {
-              "amount": 500000,
-              "reason": "У Лимы отобрала"
-            },
-            {
-              "amount": 24000000,
-              "reason": "Это за талоны на бензин"
-            },
-            {
-              "amount": 100000,
-              "reason": "Это за кейс"
-            },
-            {
-              "amount": -5000000,
-              "reason": "Ателье купила плохое "
-            },
-            {
-              "amount": -2500000,
-              "reason": "Зафу дали"
-            },
-            {
-              "amount": -4000000,
-              "reason": "9 стульев винтажных 3 стола и посуда"
-            }
-          ],
-          "base_stats": {
-            "current_hp": 113,
-            "current_sp": 41,
-            "current_stagger": 0
-          },
-          "defense": {
-            "armor_name": "Standard Fixer Suit",
-            "armor_type": "Medium",
-            "armor_id": "standard_fixer_suit",
-            "hp_resists": {
-              "slash": 1.0,
-              "pierce": 1.0,
-              "blunt": 1.0
-            },
-            "stagger_resists": {
-              "slash": 1.0,
-              "pierce": 1.0,
-              "blunt": 1.0
-            },
-            "weapon_id": "none"
-          },
-          "attributes": {
-            "strength": 0,
-            "endurance": 30,
-            "agility": 0,
-            "wisdom": 16,
-            "psych": 0
-          },
-          "skills": {
-            "strike_power": 0,
-            "medicine": 0,
-            "willpower": 0,
-            "luck": 58,
-            "acrobatics": 0,
-            "shields": 0,
-            "tough_skin": 0,
-            "speed": 22,
-            "light_weapon": 0,
-            "medium_weapon": 0,
-            "heavy_weapon": 0,
-            "firearms": 0,
-            "eloquence": 0,
-            "forging": 0,
-            "engineering": 0,
-            "programming": 0
-          },
-          "passives": [
-            "axis_unity",
-            "pseudo_protagonist",
-            "source_access",
-            "meta_awareness",
-            "chthonic_nature"
-          ],
-          "talents": [
-            "deal_with_fortune",
-            "second_chance",
-            "sequential_luck",
-            "lucky_bastard",
-            "not_luck_just_skill",
-            "raise_stakes",
-            "azino_777"
-          ],
-          "augmentations": [],
-          "level_rolls": {
-            "3": {
-              "hp": 3,
-              "sp": 4
-            },
-            "6": {
-              "hp": 2,
-              "sp": 4
-            },
-            "9": {
-              "hp": 5,
-              "sp": 4
-            },
-            "12": {
-              "hp": 5,
-              "sp": 4
-            }
-          },
-          "biography": "Очки (крутые)\nВеревка (неудачливая)\n3 карточки хилок и платье (5, 30, 65. 3 бинда 0 2 3 сытости)\nплатье 500к\nстарый лук, немного приколов и стрел Лимы, но не все, еë шампунь, сами волосы Л, а также взяла у неë карандаш, бумагу, и оставила Лиме записку",
-          "relationships": {},
-          "unit_type": "player"
-        }
-      ],
-      "phase": "planning",
-      "round_number": 1,
-      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-      "battle_logs": [],
-      "script_logs": "",
-      "turn_phase": "done",
-      "action_idx": 0,
-      "executed_slots": [],
-      "turn_actions": [],
-      "profile_unit": "Аксис Мунди",
-      "leveling_unit": " Дна'хо",
-      "tree_unit": " Дна'хо",
-      "checks_unit": " Дна'хо"
-    },
-    {
-      "type": "dynamic",
-      "team_left_dyn": [
-        {
-          "current_hp": 18,
-          "current_sp": 20,
-          "current_stagger": 8,
-          "resources": {},
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [],
-          "active_slots": [
-            {
-              "speed": 8,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 1,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "Адама работница",
-            "start_of_battle_stats": {
-              "hp": 18,
-              "sp": 20,
-              "stagger": 8
-            },
-            "axis_debuff_triad_active": false,
-            "axis_applied_bonus_str": 0,
-            "axis_applied_bonus_end": 0,
-            "axis_applied_bonus_haste": 0,
-            "axis_buff_triad_active": false,
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "team_right_dyn": [
-        {
-          "current_hp": 113,
-          "current_sp": 41,
-          "current_stagger": 84,
-          "resources": {
-            "luck": 32
-          },
-          "cooldowns": {},
-          "card_cooldowns": {
-            "axis_mcguffin": [
-              1
-            ],
-            "axis_plot_armor": [
-              1
-            ],
-            "axis_ex_machina": [
-              1
-            ]
-          },
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [
-            "axis_i_radiance",
-            "axis_minor_setbacks",
-            "axis_min_effort",
-            "axis_sword_glory",
-            "axis_spear_determination",
-            "axis_fist_justice",
-            "axis_mcguffin",
-            "axis_plot_armor",
-            "axis_ex_machina",
-            "item_heal_5",
-            "item_heal_65",
-            "tea_coffee_vespo",
-            "item_heal_35"
-          ],
-          "active_slots": [
-            {
-              "speed": 7,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 7,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 3,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 113,
-              "sp": 41,
-              "stagger": 0
-            },
-            "last_revive_attempt_round": 1,
-            "last_revive_log": {
-              "roll": 6,
-              "bonus": 0,
-              "penalty": 0,
-              "total": 6,
-              "dc": 0,
-              "success": true
-            },
-            "azino_slots": [
-              6,
-              4,
-              7
-            ],
-            "axis_applied_bonus_str": 0,
-            "axis_applied_bonus_end": 0,
-            "axis_applied_bonus_haste": 0,
-            "axis_buff_triad_active": false,
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": [
-            {
-              "amount": 1500000,
-              "reason": "Первое задание Фемя"
-            },
-            {
-              "amount": -540000,
-              "reason": "Платье + ампулы "
-            },
-            {
-              "amount": 500000,
-              "reason": "У Лимы отобрала"
-            },
-            {
-              "amount": 24000000,
-              "reason": "Это за талоны на бензин"
-            },
-            {
-              "amount": 100000,
-              "reason": "Это за кейс"
-            },
-            {
-              "amount": -5000000,
-              "reason": "Ателье купила плохое "
-            },
-            {
-              "amount": -2500000,
-              "reason": "Зафу дали"
-            },
-            {
-              "amount": -4000000,
-              "reason": "9 стульев винтажных 3 стола и посуда"
-            }
-          ]
-        }
-      ],
-      "phase": "planning",
-      "round_number": 2,
-      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-      "battle_logs": [],
-      "turn_actions": [],
-      "turn_phase": "done",
-      "action_idx": 0,
-      "executed_slots": []
-    },
-    {
-      "type": "dynamic",
-      "team_left_dyn": [
-        {
-          "current_hp": 18,
-          "current_sp": 20,
-          "current_stagger": 8,
-          "resources": {},
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [],
-          "active_slots": [
-            {
-              "speed": 7,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 2,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "Адама работница",
-            "start_of_battle_stats": {
-              "hp": 18,
-              "sp": 20,
-              "stagger": 8
-            },
-            "axis_debuff_triad_active": false,
-            "axis_applied_bonus_str": 0,
-            "axis_applied_bonus_end": 0,
-            "axis_applied_bonus_haste": 0,
-            "axis_buff_triad_active": false,
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": []
-        }
-      ],
-      "team_right_dyn": [
-        {
-          "current_hp": 113,
-          "current_sp": 41,
-          "current_stagger": 84,
-          "resources": {
-            "luck": 32
-          },
-          "cooldowns": {},
-          "card_cooldowns": {},
-          "active_buffs": {},
-          "_status_effects": {},
-          "delayed_queue": [],
-          "deck": [
-            "axis_i_radiance",
-            "axis_minor_setbacks",
-            "axis_min_effort",
-            "axis_sword_glory",
-            "axis_spear_determination",
-            "axis_fist_justice",
-            "axis_mcguffin",
-            "axis_plot_armor",
-            "axis_ex_machina",
-            "item_heal_5",
-            "item_heal_65",
-            "tea_coffee_vespo",
-            "item_heal_35"
-          ],
-          "active_slots": [
-            {
-              "speed": 7,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 8,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            },
-            {
-              "speed": 2,
-              "card": null,
-              "target_slot": null,
-              "is_aggro": false,
-              "target_unit_idx": -1,
-              "target_slot_idx": -1,
-              "force_clash": false
-            }
-          ],
-          "stored_dice": [],
-          "counter_dice": [],
-          "memory": {
-            "status_rank": "9 (Fixer)",
-            "start_of_battle_stats": {
-              "hp": 113,
-              "sp": 41,
-              "stagger": 0
-            },
-            "last_revive_attempt_round": 1,
-            "last_revive_log": {
-              "roll": 6,
-              "bonus": 0,
-              "penalty": 0,
-              "total": 6,
-              "dc": 0,
-              "success": true
-            },
-            "azino_slots": [
-              6,
-              4,
-              7
-            ],
-            "axis_applied_bonus_str": 0,
-            "axis_applied_bonus_end": 0,
-            "axis_applied_bonus_haste": 0,
-            "axis_buff_triad_active": false,
-            "battle_initialized": true
-          },
-          "death_count": 0,
-          "overkill_damage": 0,
-          "money_log": [
-            {
-              "amount": 1500000,
-              "reason": "Первое задание Фемя"
-            },
-            {
-              "amount": -540000,
-              "reason": "Платье + ампулы "
-            },
-            {
-              "amount": 500000,
-              "reason": "У Лимы отобрала"
-            },
-            {
-              "amount": 24000000,
-              "reason": "Это за талоны на бензин"
-            },
-            {
-              "amount": 100000,
-              "reason": "Это за кейс"
-            },
-            {
-              "amount": -5000000,
-              "reason": "Ателье купила плохое "
-            },
-            {
-              "amount": -2500000,
-              "reason": "Зафу дали"
-            },
-            {
-              "amount": -4000000,
-              "reason": "9 стульев винтажных 3 стола и посуда"
-            }
-          ]
-        }
-      ],
-      "phase": "planning",
-      "round_number": 3,
-      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-      "battle_logs": [],
-      "turn_actions": [],
-      "turn_phase": "done",
-      "action_idx": 0,
-      "executed_slots": []
-    }
-  ]
+  "undo_stack": []
 }
