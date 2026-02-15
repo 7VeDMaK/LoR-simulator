@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "👤 Profile",
+  "page": "⚔️ Simulator",
   "team_left_data": [
     {
       "name": "Афелия Токс",
@@ -574,7 +574,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Лилит",
+  "profile_unit": " Дна'хо",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",
