@@ -20,16 +20,12 @@
     },
     "current_hp": 197,
     "current_sp": 202,
-    "current_stagger": 100,
+    "current_stagger": 32,
     "resources": {
         "luck": 138
     },
     "cooldowns": {},
-    "card_cooldowns": {
-        "equivalent_exchange_img": 0,
-        "good_coffee_img": 0,
-        "bad_coffee_img": 0
-    },
+    "card_cooldowns": {},
     "active_buffs": {},
     "_status_effects": {},
     "delayed_queue": [],
@@ -54,13 +50,13 @@
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 200,
+            "hp": 197,
             "sp": 202,
-            "stagger": 103
+            "stagger": 32
         },
         "cat_reflexes_triggered": false,
-        "battle_initialized": true,
-        "smashing_blade_used": true
+        "smashing_blade_used": true,
+        "battle_initialized": true
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -77,7 +73,7 @@
     "base_stats": {
         "current_hp": 197,
         "current_sp": 202,
-        "current_stagger": 100
+        "current_stagger": 32
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -138,8 +134,8 @@
         "eye_for_danger",
         "covering_tracks",
         "knife_in_back",
-        "vulnerability_point",
-        "extreme_measures"
+        "extreme_measures",
+        "vulnerability_point"
     ],
     "augmentations": [],
     "level_rolls": {
@@ -182,6 +178,18 @@
         "30": {
             "hp": 5,
             "sp": 1
+        },
+        "33": {
+            "hp": 5,
+            "sp": 4
+        },
+        "36": {
+            "hp": 4,
+            "sp": 4
+        },
+        "39": {
+            "hp": 4,
+            "sp": 4
         }
     },
     "biography": "Буквально тесак, халат Свен",

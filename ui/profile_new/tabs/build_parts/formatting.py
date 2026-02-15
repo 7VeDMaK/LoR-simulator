@@ -322,14 +322,18 @@ def render_scripts_block(scripts_dict):
     return f"<div class='script-container'>{''.join(html_lines)}</div>"
 
 
-def _get_dice_css(dtype):
+def _get_dice_css(dtype, is_counter=False):
     """Возвращает CSS класс и иконку для типа кубика."""
     dtype = str(dtype).lower()
-    if "slash" in dtype: return "dice-slash", get_icon_html("slash")
-    if "pierce" in dtype: return "dice-pierce", get_icon_html("pierce")
-    if "blunt" in dtype: return "dice-blunt", get_icon_html("blunt")
-    if "block" in dtype: return "dice-block-def", get_icon_html("block")
-    if "evade" in dtype: return "dice-evade", get_icon_html("evade")
+    
+    # Если это контр-кубик, добавляем префикс
+    icon_key = f"counter_{dtype}" if is_counter else dtype
+    
+    if "slash" in dtype: return "dice-slash", get_icon_html(icon_key)
+    if "pierce" in dtype: return "dice-pierce", get_icon_html(icon_key)
+    if "blunt" in dtype: return "dice-blunt", get_icon_html(icon_key)
+    if "block" in dtype: return "dice-block-def", get_icon_html(icon_key)
+    if "evade" in dtype: return "dice-evade", get_icon_html(icon_key)
     return "dice-normal", "🎲"
 
 
@@ -354,13 +358,16 @@ def render_dice_full(dice_list):
         d_min = _get_val(die, 'base_min', 'min_val')
         d_max = _get_val(die, 'base_max', 'max_val')
 
+        # Проверяем, является ли это контр-кубиком
+        is_counter = getattr(die, 'is_counter', False) or (isinstance(die, dict) and die.get('is_counter', False))
+
         # Скрипты на самом кубике
         d_scripts = getattr(die, 'scripts', {}) or getattr(die, 'script', {})
         if not d_scripts and isinstance(die, dict):
             d_scripts = die.get('scripts', {})
 
-        # [UPDATE] Теперь _get_dice_css возвращает HTML-иконку
-        css, icon_html = _get_dice_css(d_type)
+        # [UPDATE] Передаем флаг is_counter в _get_dice_css
+        css, icon_html = _get_dice_css(d_type, is_counter=is_counter)
         script_html = render_scripts_block(d_scripts)
 
         # Вставляем icon_html вместо жестко заданных эмодзи

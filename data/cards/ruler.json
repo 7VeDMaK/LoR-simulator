@@ -1,0 +1,115 @@
+{
+  "cards": [
+    {
+      "id": "la_grondement_du_haine_ecee",
+      "name": "La Grondement Du Haine",
+      "tier": 5,
+      "type": "Mass Individual",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 20,
+          "base_max": 25,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "burn",
+                  "base": 20,
+                  "duration": 99,
+                  "target": "target",
+                  "min_roll": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "pierce",
+          "base_min": 20,
+          "base_max": 25,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "burn",
+                  "base": 20,
+                  "duration": 99,
+                  "target": "target",
+                  "min_roll": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "pierce",
+          "base_min": 20,
+          "base_max": 25,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "burn",
+                  "base": 20,
+                  "duration": 99,
+                  "target": "target",
+                  "min_roll": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "pierce",
+          "base_min": 20,
+          "base_max": 25,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "burn",
+                  "base": 20,
+                  "duration": 99,
+                  "target": "target",
+                  "min_roll": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "pierce",
+          "base_min": 20,
+          "base_max": 25,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "burn",
+                  "base": 20,
+                  "duration": 99,
+                  "target": "target",
+                  "min_roll": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -60,19 +60,51 @@ def render_status_bars(unit, u_key):
         c_pts2.metric("Навыки", f"{total_skill - spent_s}", help=f"Всего очков: {total_skill} (+{bonus_skill})")
         c_pts3.metric("Таланты (Slots)", f"{total_tal - spent_t}", help=f"Всего слотов: {total_tal}")
 
-        with st.expander("🎲 История Бросков HP/SP"):
-            missing = [i for i in range(3, unit.level + 1, 3) if str(i) not in unit.level_rolls]
-            if missing:
-                if st.button("Бросить кубики", key=f"roll_btn_{u_key}"):
-                    for l in missing:
+        # Проверяем наличие пассивки "Суровые тренировки"
+        has_severe_training = "severe_training" in unit.passives
+        
+        # Проверка непрокинутых уровней
+        missing = [i for i in range(3, unit.level + 1, 3) if str(i) not in unit.level_rolls]
+        if missing:
+            if has_severe_training:
+                st.info(f"🏋️ Суровые тренировки: Фиксированный прирост +10 HP / +5 SP за уровень")
+            st.warning(f"⚠️ Не прокинуты кубики HP/SP для уровней: {', '.join(map(str, missing))}")
+            btn_label = "📊 Установить фиксированные значения" if has_severe_training else "🎲 Бросить кубики для всех уровней"
+            if st.button(btn_label, key=f"roll_btn_{u_key}", type="primary"):
+                for l in missing:
+                    if has_severe_training:
+                        # Фиксированные значения для пассивки: +5+5=10 HP, +5+0=5 SP
+                        unit.level_rolls[str(l)] = {"hp": 5, "sp": 0}
+                    else:
+                        # Обычный случайный бросок
                         unit.level_rolls[str(l)] = {"hp": random.randint(1, 5), "sp": random.randint(1, 5)}
-                    UnitLibrary.save_unit(unit)
-                    st.rerun()
+                UnitLibrary.save_unit(unit)
+                st.rerun()
 
+        with st.expander("🎲 История Бросков HP/SP"):
             if unit.level_rolls:
                 total_hp_roll = sum(v.get("hp", 0) for v in unit.level_rolls.values())
                 total_sp_roll = sum(v.get("sp", 0) for v in unit.level_rolls.values())
                 st.info(f"📊 **Итого за уровни:** +{total_hp_roll} HP / +{total_sp_roll} SP")
+                
+                # Кнопки управления бросками
+                col1, col2 = st.columns(2)
+                with col1:
+                    reroll_label = "📊 Сбросить на фиксированные" if has_severe_training else "🔄 Перекинуть все кубики"
+                    if st.button(reroll_label, key=f"reroll_all_{u_key}"):
+                        for lvl in range(3, unit.level + 1, 3):
+                            if has_severe_training:
+                                unit.level_rolls[str(lvl)] = {"hp": 5, "sp": 0}
+                            else:
+                                unit.level_rolls[str(lvl)] = {"hp": random.randint(1, 5), "sp": random.randint(1, 5)}
+                        UnitLibrary.save_unit(unit)
+                        st.rerun()
+                with col2:
+                    if st.button("🗑️ Очистить все броски", key=f"clear_all_{u_key}"):
+                        unit.level_rolls = {}
+                        UnitLibrary.save_unit(unit)
+                        st.rerun()
+                
                 st.divider()
                 for lvl in sorted(map(int, unit.level_rolls.keys())):
                     r = unit.level_rolls[str(lvl)]

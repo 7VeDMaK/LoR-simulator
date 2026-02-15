@@ -1,4 +1,5 @@
 import streamlit as st
+import random
 from core.unit.unit_library import UnitLibrary
 
 # === КОНСТАНТЫ ===
@@ -180,6 +181,67 @@ def _render_points_summary(unit):
             st.caption(f"(Lvl {unit.level} // 3) + {bonus_talents}")
 
 
+def _render_level_rolls(unit, unit_key: str = ""):
+    """
+    Отображает экспандер с историей бросков HP/SP и кнопками управления.
+    """
+    key_prefix = f"rolls_{unit_key or unit.name}_"
+    
+    # Проверяем наличие пассивки "Суровые тренировки"
+    passive_ids = _get_passive_ids(unit)
+    has_severe_training = "severe_training" in passive_ids
+    
+    # Проверка непрокинутых уровней
+    missing = [i for i in range(3, unit.level + 1, 3) if str(i) not in unit.level_rolls]
+    
+    if missing:
+        if has_severe_training:
+            st.info(f"🏋️ Суровые тренировки: Фиксированный прирост +10 HP / +5 SP за уровень")
+        st.warning(f"⚠️ Не прокинуты кубики HP/SP для уровней: {', '.join(map(str, missing))}")
+        btn_label = "📊 Установить фиксированные значения" if has_severe_training else "🎲 Бросить кубики для всех уровней"
+        if st.button(btn_label, key=f"{key_prefix}roll_btn", type="primary"):
+            for l in missing:
+                if has_severe_training:
+                    # Фиксированные значения для пассивки: +5+5=10 HP, +5+0=5 SP
+                    unit.level_rolls[str(l)] = {"hp": 5, "sp": 0}
+                else:
+                    # Обычный случайный бросок
+                    unit.level_rolls[str(l)] = {"hp": random.randint(1, 5), "sp": random.randint(1, 5)}
+            UnitLibrary.save_unit(unit)
+            st.rerun()
+
+    with st.expander("🎲 История Бросков HP/SP"):
+        if unit.level_rolls:
+            total_hp_roll = sum(v.get("hp", 0) for v in unit.level_rolls.values())
+            total_sp_roll = sum(v.get("sp", 0) for v in unit.level_rolls.values())
+            st.info(f"📊 **Итого за уровни:** +{total_hp_roll} HP / +{total_sp_roll} SP")
+            
+            # Кнопки управления бросками
+            col1, col2 = st.columns(2)
+            with col1:
+                reroll_label = "📊 Сбросить на фиксированные" if has_severe_training else "🔄 Перекинуть все кубики"
+                if st.button(reroll_label, key=f"{key_prefix}reroll_all"):
+                    for lvl in range(3, unit.level + 1, 3):
+                        if has_severe_training:
+                            unit.level_rolls[str(lvl)] = {"hp": 5, "sp": 0}
+                        else:
+                            unit.level_rolls[str(lvl)] = {"hp": random.randint(1, 5), "sp": random.randint(1, 5)}
+                    UnitLibrary.save_unit(unit)
+                    st.rerun()
+            with col2:
+                if st.button("🗑️ Очистить все броски", key=f"{key_prefix}clear_all"):
+                    unit.level_rolls = {}
+                    UnitLibrary.save_unit(unit)
+                    st.rerun()
+            
+            st.divider()
+            for lvl in sorted(map(int, unit.level_rolls.keys())):
+                r = unit.level_rolls[str(lvl)]
+                st.caption(f"**Lvl {lvl}**: +{5 + r['hp']} HP, +{5 + r['sp']} SP (Roll: {r['hp']}/{r['sp']})")
+        else:
+            st.caption("Нет записей о бросках.")
+
+
 # === ГЛАВНАЯ ФУНКЦИЯ ===
 def render_stats_tab(unit, is_edit_mode: bool, unit_key: str = ""):
     """
@@ -189,6 +251,10 @@ def render_stats_tab(unit, is_edit_mode: bool, unit_key: str = ""):
 
     # 0. Панель расчетов (С правильными формулами)
     _render_points_summary(unit)
+    
+    # 0.5. История бросков HP/SP
+    _render_level_rolls(unit, unit_key)
+    
     st.divider()
 
     # --- 1. АТРИБУТЫ (5 колонок) ---
