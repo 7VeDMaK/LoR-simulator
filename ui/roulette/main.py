@@ -1,7 +1,7 @@
 import streamlit as st
 from core.unit.unit_library import UnitLibrary
 from .item_generator import ItemGenerator
-from .item_effects import RARITY_NAMES, ITEM_TIERS
+from .item_effects import RARITY_NAMES, ITEM_TIERS, POWER_MODIFIER_LABELS
 from .roulette_logic import RouletteRandomizer
 
 
@@ -77,6 +77,7 @@ def render_roulette_page():
                         col1, col2 = st.columns(2)
                         with col1:
                             st.write(f"**Тип:** {weapon.item_type}")
+                            st.write(f"**Класс:** {weapon.item_class}")
                             st.write(f"**Ранг:** {weapon.rank}")
                             st.write(f"**Редкость:** {RARITY_NAMES[weapon.rarity]}")
                         with col2:
@@ -84,6 +85,15 @@ def render_roulette_page():
                             st.write(f"**Множитель цены:** x{tier_info['price_multiplier']}")
                             st.write(f"**Репутация:** Ранг {'+' if tier_info['reputation_req'] > 0 else ''}{tier_info['reputation_req'] if tier_info['reputation_req'] is not None else 'Любая'}")
                         
+                        if weapon.power_modifiers:
+                            modifiers_text = ", ".join(
+                                f"{POWER_MODIFIER_LABELS.get(key, key)}: +{value}"
+                                for key, value in weapon.power_modifiers.items()
+                            )
+                            st.write(f"**Модификаторы:** {modifiers_text}")
+
+                        st.write(f"**Пассивно:** {weapon.passive_effect}")
+                        st.write(f"**Активно:** {weapon.active_effect}")
                         st.write(f"**Описание тира:** {tier_info['description']}")
                         st.write(f"**Эффекты:**")
                         for effect in weapon.effects:
@@ -99,6 +109,7 @@ def render_roulette_page():
                         col1, col2 = st.columns(2)
                         with col1:
                             st.write(f"**Тип:** {armor.item_type}")
+                            st.write(f"**Класс:** {armor.item_class}")
                             st.write(f"**Ранг:** {armor.rank}")
                             st.write(f"**Редкость:** {RARITY_NAMES[armor.rarity]}")
                         with col2:
@@ -106,6 +117,15 @@ def render_roulette_page():
                             st.write(f"**Множитель цены:** x{tier_info['price_multiplier']}")
                             st.write(f"**Репутация:** Ранг {'+' if tier_info['reputation_req'] > 0 else ''}{tier_info['reputation_req'] if tier_info['reputation_req'] is not None else 'Любая'}")
                         
+                        if armor.power_modifiers:
+                            modifiers_text = ", ".join(
+                                f"{POWER_MODIFIER_LABELS.get(key, key)}: +{value}"
+                                for key, value in armor.power_modifiers.items()
+                            )
+                            st.write(f"**Модификаторы:** {modifiers_text}")
+
+                        st.write(f"**Пассивно:** {armor.passive_effect}")
+                        st.write(f"**Активно:** {armor.active_effect}")
                         st.write(f"**Описание тира:** {tier_info['description']}")
                         st.write(f"**Эффекты:**")
                         for effect in armor.effects:
@@ -132,11 +152,21 @@ def render_roulette_page():
                     
                     col_a, col_b = st.columns(2)
                     with col_a:
+                        st.write(f"**Класс:** {result.item_class}")
                         st.write(f"**Ранг:** {result.rank}")
                         st.write(f"**Редкость:** {RARITY_NAMES[result.rarity]}")
                     with col_b:
                         st.write(f"**Тир:** {tier_label}")
                         st.write(f"**Множитель цены:** x{tier_info['price_multiplier']}")
                     
+                    if result.power_modifiers:
+                        modifiers_text = ", ".join(
+                            f"{POWER_MODIFIER_LABELS.get(key, key)}: +{value}"
+                            for key, value in result.power_modifiers.items()
+                        )
+                        st.write(f"**Модификаторы:** {modifiers_text}")
+
+                    st.write(f"**Пассивно:** {result.passive_effect}")
+                    st.write(f"**Активно:** {result.active_effect}")
                     st.info(f"**Описание тира:** {tier_info['description']}")
                     st.write(f"**Эффекты:** {', '.join(result.effects)}")

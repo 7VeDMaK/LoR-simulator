@@ -1,18 +1,14 @@
 {
   "type": "full",
-<<<<<<< HEAD
-  "page": "👤 Profile",
-=======
-  "page": "⚔️ Simulator",
->>>>>>> 12df80e74180637fa893a4b16ac64a7ca0fc54c2
+  "page": "🎰 Рулетка Рейна",
   "team_left_data": [
     {
       "name": "Лайла",
-      "level": 3,
+      "level": 4,
       "rank": 9,
       "avatar": "data/avatars\\Лайла.jpg",
       "base_intellect": 8,
-      "total_xp": 4,
+      "total_xp": 8,
       "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -33,7 +29,20 @@
       "cooldowns": {},
       "card_cooldowns": {},
       "active_buffs": {},
-      "_status_effects": {},
+      "_status_effects": {
+        "bind": [
+          {
+            "amount": 2,
+            "duration": 82
+          }
+        ],
+        "attack_power_down": [
+          {
+            "amount": 2,
+            "duration": 82
+          }
+        ]
+      },
       "delayed_queue": [],
       "deck": [
         "short_lunge_blunt",
@@ -68,7 +77,8 @@
         "borrowed_time_saved": [],
         "rapid_retreat_damage_taken": 0,
         "marked_target_Лайла_Рейн": true,
-        "rapid_retreat_activated": false
+        "rapid_retreat_activated": false,
+        "battle_initialized": true
       },
       "death_count": 0,
       "overkill_damage": 0,
@@ -95,7 +105,7 @@
         "weapon_id": "zweihander_swite"
       },
       "attributes": {
-        "strength": 8,
+        "strength": 9,
         "endurance": 7,
         "agility": 8,
         "wisdom": 0,
@@ -109,9 +119,9 @@
         "acrobatics": 6,
         "shields": 3,
         "tough_skin": 6,
-        "speed": 11,
+        "speed": 12,
         "light_weapon": 0,
-        "medium_weapon": 11,
+        "medium_weapon": 12,
         "heavy_weapon": 0,
         "firearms": 0,
         "eloquence": 0,
@@ -144,122 +154,169 @@
       "unit_type": "player"
     }
   ],
-<<<<<<< HEAD
-  "team_right_data": [],
-  "phase": "roll",
-  "round_number": 1,
-  "turn_message": "",
-  "battle_logs": [],
-=======
-  "phase": "planning",
-  "round_number": 4,
-  "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
-  "battle_logs": [
+  "team_right_data": [
     {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Аксис Мунди",
-        "card": "Прототип Сюжетной Брони",
-        "dice": "BLOCK",
-        "val": 20,
-        "range": "-"
+      "name": "Лайла 2",
+      "level": 4,
+      "rank": 9,
+      "avatar": "data/avatars\\Лайла.jpg",
+      "base_intellect": 8,
+      "total_xp": 8,
+      "pct_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
       },
-      "right": {
-        "unit": "Афелия Токс",
-        "card": "-",
-        "dice": "None",
-        "val": 0,
-        "range": "-"
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
       },
-      "outcome": "🛡️ Block (Ignored)",
-      "details": [
-        "🧪 **Аксис Мунди**: +3 Attack_power_up",
-        "🧪 **Аксис Мунди**: +3 Endurance",
-        "🧪 **Аксис Мунди**: +3 Haste",
-        "🎲 Roll [5-9]: 9 + 11 (Luck (58//5)) = **20**"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Аксис Мунди",
-        "card": "Прототип Сюжетной Брони",
-        "dice": "BLOCK",
-        "val": 18,
-        "range": "-"
+      "current_hp": 34,
+      "current_sp": 27,
+      "current_stagger": 17,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {},
+      "active_buffs": {},
+      "_status_effects": {
+        "bind": [
+          {
+            "amount": 2,
+            "duration": 82
+          }
+        ],
+        "attack_power_down": [
+          {
+            "amount": 2,
+            "duration": 82
+          }
+        ]
       },
-      "right": {
-        "unit": "Афелия Токс",
-        "card": "-",
-        "dice": "None",
-        "val": 0,
-        "range": "-"
+      "delayed_queue": [],
+      "deck": [
+        "short_lunge_blunt",
+        "long_lunge_blunt",
+        "draw_sword_blunt",
+        "long_edge_blunt",
+        "tale_of_rebirth_blunt",
+        "double_strike_blunt",
+        "time_cant_turn_back_blunt",
+        "still_alive_blunt",
+        "perfect_cut"
+      ],
+      "active_slots": [],
+      "stored_dice": [],
+      "counter_dice": [],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 34,
+          "sp": 27,
+          "stagger": 17
+        },
+        "last_revive_attempt_round": 2,
+        "last_revive_log": {
+          "roll": 3,
+          "bonus": 0,
+          "penalty": 0,
+          "total": 3,
+          "dc": 0,
+          "success": true
+        },
+        "borrowed_time_saved": [],
+        "rapid_retreat_damage_taken": 0,
+        "marked_target_Лайла_Рейн": true,
+        "rapid_retreat_activated": false,
+        "battle_initialized": true
       },
-      "outcome": "🛡️ Block (Ignored)",
-      "details": [
-        "🎲 Roll [5-9]: 7 + 11 (Luck (58//5)) = **18**"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Аксис Мунди",
-        "card": "Прототип Сюжетной Брони",
-        "dice": "BLOCK",
-        "val": 20,
-        "range": "-"
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [],
+      "base_stats": {
+        "current_hp": 34,
+        "current_sp": 27,
+        "current_stagger": 17
       },
-      "right": {
-        "unit": "Афелия Токс",
-        "card": "-",
-        "dice": "None",
-        "val": 0,
-        "range": "-"
+      "defense": {
+        "armor_name": "Броня Лайлы",
+        "armor_type": "Medium",
+        "armor_id": "armor_leila",
+        "hp_resists": {
+          "slash": 0.8,
+          "pierce": 1.0,
+          "blunt": 1.2
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "zweihander_swite"
       },
-      "outcome": "🛡️ Block (Ignored)",
-      "details": [
-        "🎲 Roll [5-9]: 9 + 11 (Luck (58//5)) = **20**"
-      ]
-    },
-    {
-      "round": "Item",
-      "rolls": "Consumable",
-      "details": [
-        "💊 **Аксис Мунди** uses **Лечилка 35**!",
-        "💚 **Аксис Мунди**: +35 HP",
-        "🧪 **Аксис Мунди**: +1 Satiety"
-      ]
-    },
-    {
-      "round": "Item",
-      "rolls": "Consumable",
-      "details": [
-        "💊 **Аксис Мунди** uses **Кофе Веспо**!",
-        "🧪 **Аксис Мунди**: +3 Satiety",
-        "🧪 **Аксис Мунди**: +3 Attack_power_up",
-        "🧪 **Аксис Мунди**: +3 Haste",
-        "🧪 **Аксис Мунди**: +3 Endurance"
-      ]
-    },
-    {
-      "round": "Item",
-      "rolls": "Consumable",
-      "details": [
-        "💊 **Аксис Мунди** uses **Лечилка 5**!",
-        "💚 **Аксис Мунди**: +5 HP"
-      ]
+      "attributes": {
+        "strength": 9,
+        "endurance": 7,
+        "agility": 8,
+        "wisdom": 0,
+        "psych": 4
+      },
+      "skills": {
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 0,
+        "acrobatics": 6,
+        "shields": 3,
+        "tough_skin": 6,
+        "speed": 12,
+        "light_weapon": 0,
+        "medium_weapon": 12,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 5,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [
+        "social_phobia",
+        "not_economically_minded",
+        "sharp_mind",
+        "low_endurance",
+        "topographic_cretinism",
+        "fear_of_healing",
+        "hardened_by_solitude",
+        "stances"
+      ],
+      "talents": [
+        "pain_points"
+      ],
+      "augmentations": [],
+      "level_rolls": {
+        "3": {
+          "hp": 5,
+          "sp": 5
+        }
+      },
+      "biography": "",
+      "relationships": {},
+      "unit_type": "player"
     }
   ],
->>>>>>> 12df80e74180637fa893a4b16ac64a7ca0fc54c2
+  "phase": "roll",
+  "round_number": 23,
+  "turn_message": "Round Complete.",
+  "battle_logs": [],
   "script_logs": "",
-  "turn_phase": "planning",
+  "turn_phase": "done",
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": " Дна'хо",
+  "profile_unit": "Рейн",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",
