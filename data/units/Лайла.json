@@ -87,7 +87,7 @@
         "weapon_id": "zweihander_swite"
     },
     "attributes": {
-        "strength": 8,
+        "strength": 9,
         "endurance": 7,
         "agility": 8,
         "wisdom": 0,
@@ -101,9 +101,9 @@
         "acrobatics": 6,
         "shields": 3,
         "tough_skin": 6,
-        "speed": 11,
+        "speed": 12,
         "light_weapon": 0,
-        "medium_weapon": 11,
+        "medium_weapon": 12,
         "heavy_weapon": 0,
         "firearms": 0,
         "eloquence": 0,
