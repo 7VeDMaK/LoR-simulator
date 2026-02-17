@@ -126,7 +126,7 @@ class AugmentationBoneShatter(BaseEffect):
         Движок прибавит эти значения к базовым статам юнита.
         """
         return {
-            "attack_power_up": 15,
+            "strength": 15,
             "endurance": 15
         }
 
