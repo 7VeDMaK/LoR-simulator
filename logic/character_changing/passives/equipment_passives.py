@@ -2,6 +2,7 @@
 from core.enums import DiceType
 from core.logging import logger, LogLevel  # [NEW] Import
 from logic.character_changing.passives.base_passive import BasePassive
+from logic.context import RollContext
 
 
 # === АННИГИЛЯТОРНАЯ ПУШКА ===
@@ -214,3 +215,97 @@ class PassiveMagneticPickaxe(BasePassive):
             logger.log(f"🧲 Magnetic Pickaxe activated by {unit.name}", LogLevel.NORMAL, "Passive")
 
         return True
+
+
+# logic/character_changing/passives/dragon_slab.py
+from logic.character_changing.passives.base_passive import BasePassive
+from logic.context import RollContext
+from core.enums import DiceType
+from core.logging import logger, LogLevel
+
+
+class PassiveDragonSlab(BasePassive):
+    def __init__(self):
+        super().__init__()
+        self.id = "mech_dragon_slab"
+        self.name = "Глыба Железа"
+        self.description = (
+            "«Глыба железа». Легендарный меч, чья тяжесть сопоставима с его мощью.\n\n"
+            "• [Тяжесть]: Каждая атака (куб) требует 20 Силы (либо 20 Стойкости). Если сил не хватает — взмах проваливается.\n"
+            "• [Адаптация]: Перед ударом выбирает наиболее эффективный тип урона (Рубящий или Дробящий).\n"
+            "• [Берсерк]: Дает до +8 к результату броска и до +50% к конечному урону в зависимости от потерянного здоровья."
+        )
+        self.swings_this_round = 0
+
+    def on_round_start(self, unit, *args, **kwargs):
+        """Сбрасываем счетчик ударов в начале раунда."""
+        self.swings_this_round = 0
+
+    def on_roll(self, ctx: RollContext, stack: int = 0):
+        """
+        Механика Тяжести и Берсерка.
+        Вызывается из RollContext.roll() -> _trigger_on_roll.
+        """
+        unit = ctx.source
+        dice = ctx.dice
+
+        if not dice:
+            return
+
+        # 1. Проверяем, является ли кубик атакующим
+        is_attack = dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]
+
+        if is_attack:
+            # Получаем Силу (ищем в атрибутах или статах)
+            strength = unit.attributes.get("strength", 0)
+            endurance = unit.attributes.get("endurance", 0)
+
+            # Лимит ударов: 20 силы = 1 удар, 40 = 2 удара и т.д.
+            allowed_swings = (strength + endurance) // 20
+
+            if self.swings_this_round < allowed_swings:
+                # --- УСПЕШНЫЙ ЗАМАХ ---
+                self.swings_this_round += 1
+
+                # Расчет бонуса Берсерка
+                hp_ratio = unit.current_hp / max(1, unit.max_hp)
+                missing_hp_percent = 1.0 - hp_ratio
+
+                # Баффы: База +3 Мощи (легендарка) + до +5 от Берсерка
+                berserk_power = int(missing_hp_percent * 5)
+                total_bonus = 3 + berserk_power
+
+                ctx.modify_power(total_bonus, "Dragon Slab (Power)")
+
+                # Увеличение множителя урона в контексте (до +50%)
+                ctx.damage_multiplier += (missing_hp_percent * 0.5)
+
+                logger.log(f"⚔️ {unit.name} взмахнул Глыбой (Удар {self.swings_this_round}/{allowed_swings} + {ctx.damage_multiplier*100}%)",
+                           LogLevel.NORMAL, "Passive")
+            else:
+                # --- ТЯЖЕСТЬ МЕЧА (Сил не хватило) ---
+                # Штраф -9999 гарантирует 0 в итоговом броске (как в calculate_power)
+                ctx.modify_power(-9999, "Too Heavy 🚫")
+                logger.log(f"🚫 {unit.name} не хватает силы для еще одного удара!", LogLevel.NORMAL, "Passive")
+
+    def on_hit(self, ctx: RollContext, **kwargs):
+        """
+        Механика Адаптации:
+        Смена типа урона на более выгодный перед расчетом урона.
+        """
+        target = ctx.target
+        if not target or not ctx.dice:
+            return
+
+        # Получаем значения сопротивлений цели
+        # (Предполагаем наличие метода get_resist_value или доступ к словарю)
+        res_slash = target.hp_resists.slash
+        res_blunt = target.hp_resists.blunt
+
+        # Выбираем лучший тип (где множитель урона выше)
+        if ctx.dice.dtype == DiceType.SLASH and res_blunt > res_slash:
+            ctx.dice.dtype = DiceType.BLUNT
+            ctx.log.append("Adaptation: Slashed -> Blunt")
+        elif ctx.dice.dtype == DiceType.BLUNT and res_slash > res_blunt:
+            ctx.dice.dtype = DiceType.SLASH
+            ctx.log.append("Adaptation: Blunt -> Slash")

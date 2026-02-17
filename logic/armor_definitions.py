@@ -33,6 +33,15 @@ ARMOR_REGISTRY = {
         hp_resists={"slash": 1.5, "pierce": 1.5, "blunt": 1.5},
         stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
     ),
+
+    "standard_xalat": Armor(
+        id="халат",
+        name="Халат Зинмана",
+        rank=7,
+        description="Лёгкая одежда, напоминая домашний халат.",
+        hp_resists={"slash": 0.8, "pierce": 0.8, "blunt": 0.8},
+        stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
+    ),
     
     "standard_fixer_suit": Armor(
         id="standard_fixer_suit",

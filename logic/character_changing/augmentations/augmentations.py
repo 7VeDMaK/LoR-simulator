@@ -1,5 +1,7 @@
 from core.enums import DiceType
+from core.logging import LogLevel
 from logic.character_changing.passives.base_passive import BasePassive
+from logic.context import RollContext
 
 
 class Augmentation(BasePassive):
@@ -101,6 +103,61 @@ class AugStealthModule(Augmentation):
             # Ставим флаг срабатывания
             unit.memory["aug_stealth_triggered"] = True
 
+from logic.base_effect import BaseEffect
+from logic.context import RollContext
+from core.enums import DiceType
+from core.logging import logger, LogLevel
+
+class AugmentationBoneShatter(BaseEffect):
+    def __init__(self):
+        super().__init__()
+        self.id = "aug_bone_shatter"
+        self.name = "Костяной Разлом"
+        self.description = (
+            "Укрепляет скелет ценой своей стабильности.\n\n"
+            "• [Бонусы]: 15 Силы и 15 Стойкости.\n"
+            "• [Хрупкий Разум]: Получаемый урон увеличивается в 1.5 раза.\n"
+            "• [Дробящий Удар]: Каждый успешный удар наносит дополнительные 2% от макс. HP цели."
+        )
+
+    def on_calculate_stats(self, unit, **kwargs) -> dict:
+        """
+        Правильно: возвращаем словарь с бонусами.
+        Движок прибавит эти значения к базовым статам юнита.
+        """
+        return {
+            "attack_power_up": 15,
+            "endurance": 15
+        }
+
+    def on_take_damage(self, unit, amount, source, **kwargs):
+        """Дебафф: Увеличение урона (x1.5)."""
+        new_amount = amount * 1.5
+        logger.log(f"🧠 {self.name}: Урон по рассудку {unit.name} удвоен! ({amount} -> {new_amount})",
+                   LogLevel.VERBOSE)
+        return new_amount
+
+    def on_hit(self, ctx: RollContext, **kwargs):
+        """Эффект: Нанесение урона СЕБЕ при каждом попадании."""
+        unit = ctx.source  # Владелец аугментации
+        if not unit:
+            return
+
+        # Рассчитываем 2% от макс. HP владельца
+        self_damage = int(unit.max_hp * 0.02)
+
+        if self_damage > 0:
+            # Наносим урон владельцу
+            unit.take_damage(self_damage)
+
+            # Добавляем запись в лог контекста
+            ctx.log.append(f"{self.name}: {self_damage} самоповреждения (3% HP)")
+
+            logger.log(
+                f"🦴 {self.name}: Кости {unit.name} трещат от удара! Получено {self_damage} урона.",
+                LogLevel.VERBOSE
+            )
+
 # === РЕЕСТР ===
 AUGMENTATION_REGISTRY = {
     "aug_back_speed": AugBackSpeed(),
@@ -108,4 +165,5 @@ AUGMENTATION_REGISTRY = {
     "aug_merchant_hysteria": AugMerchantHysteria(),
     "aug_strizh": StrizhAugmentation(),
     "aug_stealth_module": AugStealthModule(),
+    "aug_bone_shatter": AugmentationBoneShatter()
 }

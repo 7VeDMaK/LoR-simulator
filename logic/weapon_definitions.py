@@ -30,7 +30,27 @@ WEAPON_REGISTRY = {
         {"firearms": 3, "power_pierce": 1},
         weapon_type="ranged" # <---
     ),
-
+    "dragon_slayer": Weapon(
+        id="dragon_slayer",
+        name="Убийца Драконов",
+        rank=1,  # Ранг Цвета / Легендарный
+        description=(
+            "Тот самый меч. Глыба железа.\n"
+            "• [Адаптация]: Атаки бьют по слабейшему резисту (Рубящий/Дробящий).\n"
+            "• [Тяжесть]: Требует 20 Силы на каждую атаку (куб). Если Силы не хватает, куб проваливается.\n"
+            "• [Берсерк]: +Мощь и +Урон за потерянное HP."
+        ),
+        stats={
+            "heavy_weapon": 10,
+            "power_all": 5,
+            "power_slash": 5,
+            "power_blunt": 5,
+            "power_block": 5,
+            "damage_up": 10
+        },
+        passive_id="mech_dragon_slab",
+        weapon_type="heavy"
+    ),
     # === НОВЫЕ ПРЕДМЕТЫ ===
     "annihilator": Weapon(
         id="annihilator",
