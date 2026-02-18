@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "🎲 Checks",
+  "page": "👤 Profile",
   "team_left_data": [
     {
       "name": "Зафиэль",
@@ -865,9 +865,9 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": null,
+  "profile_unit": "Азгик",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
-  "checks_unit": "Азгик",
+  "checks_unit": "Аксис Мунди",
   "undo_stack": []
 }

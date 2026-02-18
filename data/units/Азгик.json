@@ -153,9 +153,9 @@
     "attributes": {
         "strength": 6,
         "endurance": 7,
-        "agility": 30,
+        "agility": 40,
         "wisdom": 3,
-        "psych": 6
+        "psych": 8
     },
     "skills": {
         "strike_power": 0,
@@ -165,12 +165,12 @@
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 7,
-        "speed": 30,
+        "speed": 37,
         "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,
         "firearms": 0,
-        "eloquence": 15,
+        "eloquence": 20,
         "forging": 0,
         "engineering": 0,
         "programming": 0
@@ -193,7 +193,11 @@
         "athleticism_shadow",
         "athletic",
         "cheese",
-        "confete"
+        "confete",
+        "innate_talent",
+        "celestial_eyes",
+        "void_cleave",
+        "golden_reputation"
     ],
     "augmentations": [
         "aug_back_speed"
