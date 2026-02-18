@@ -159,6 +159,17 @@ class TestOneSidedCounters(unittest.TestCase):
                 self.assertIs(used_die, stored_die)
                 print("✅ Stored Dice took priority over Passive Counter Dice.")
 
+    def test_missing_attacker_card_is_skipped(self):
+        """
+        Тест 5: Если у атакующего нет current_card, process_onesided должен безопасно завершиться.
+        """
+        self.attacker.current_card = None
+
+        report = process_onesided(self.engine, self.attacker, self.defender, "Test", 5, 5)
+
+        self.assertEqual(report, [])
+        self.engine._process_card_self_scripts.assert_not_called()
+
 
 if __name__ == '__main__':
     unittest.main()

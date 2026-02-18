@@ -12,6 +12,23 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_d, intent
     card = source.current_card
     def_card = target.current_card
 
+    if not card:
+        logger.log(
+            f"One-Sided skipped: {source.name} has no current card",
+            LogLevel.VERBOSE,
+            "OneSided"
+        )
+        return report
+
+    dice_list = getattr(card, "dice_list", None)
+    if dice_list is None:
+        logger.log(
+            f"One-Sided skipped: {source.name} card has no dice_list ({getattr(card, 'name', 'Unknown')})",
+            LogLevel.VERBOSE,
+            "OneSided"
+        )
+        return report
+
     logger.log(f"One-Sided: {source.name} vs {target.name} (Spd: {spd_atk} vs {spd_d}, Redir={is_redirected})",
                LogLevel.VERBOSE, "OneSided")
 
@@ -24,7 +41,7 @@ def process_onesided(engine, source, target, round_label, spd_atk, spd_d, intent
     defender_breaks_attacker = params["defender_breaks_attacker"]
     on_use_logs = params["on_use_logs"]
 
-    attacker_queue = list(card.dice_list)
+    attacker_queue = list(dice_list)
     att_idx = 0
     active_counter_die = None
 
