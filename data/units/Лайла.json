@@ -64,7 +64,20 @@
     },
     "death_count": 0,
     "overkill_damage": 0,
-    "money_log": [],
+    "money_log": [
+        {
+            "amount": 700000,
+            "reason": "с таверны"
+        },
+        {
+            "amount": -300000,
+            "reason": "за квартиру"
+        },
+        {
+            "amount": -10000,
+            "reason": "бюргер"
+        }
+    ],
     "base_stats": {
         "current_hp": 34,
         "current_sp": 27,
