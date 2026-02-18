@@ -6,7 +6,7 @@
     "base_intellect": 5,
     "total_xp": 4588568576,
     "pct_mods": {
-        "imp_hp": 0,
+        "imp_hp": 5,
         "imp_sp": 0,
         "imp_stg": 0,
         "tal_hp": 0,
@@ -14,18 +14,35 @@
         "tal_stg": 0
     },
     "flat_mods": {
-        "imp_hp": 0,
+        "imp_hp": 40,
         "imp_sp": 0,
-        "imp_stg": 0
+        "imp_stg": 10
     },
-    "current_hp": 78,
-    "current_sp": 41,
-    "current_stagger": 43,
+    "current_hp": 407,
+    "current_sp": 106,
+    "current_stagger": 238,
     "resources": {},
     "cooldowns": {},
-    "card_cooldowns": {},
+    "card_cooldowns": {
+        "zaf_growing_fury": 0,
+        "zaf_shell_break": 0,
+        "zaf_marked_flesh": 0
+    },
     "active_buffs": {},
-    "_status_effects": {},
+    "_status_effects": {
+        "adaptation": [
+            {
+                "amount": 1,
+                "duration": 99
+            }
+        ],
+        "protection": [
+            {
+                "amount": 2,
+                "duration": 1
+            }
+        ]
+    },
     "delayed_queue": [],
     "deck": [
         "zaf_false_gesture",
@@ -40,29 +57,99 @@
         "zaf_marked_flesh",
         "item_heal_5",
         "item_heal_35",
-        "item_heal_65"
+        "item_heal_65",
+        "неизбежный_шторм_f827",
+        "неизбежный_штор232м_f827"
     ],
-    "active_slots": [],
+    "active_slots": [
+        {
+            "speed": 8,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false
+        },
+        {
+            "speed": 6,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false
+        },
+        {
+            "speed": 8,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false
+        },
+        {
+            "speed": 1,
+            "card": null,
+            "target_slot": null,
+            "is_aggro": false,
+            "target_unit_idx": -1,
+            "target_slot_idx": -1,
+            "force_clash": false,
+            "ui_status": {
+                "text": "НЕТ ЦЕЛИ",
+                "icon": "⛔",
+                "color": "gray"
+            },
+            "is_ally_target": false
+        }
+    ],
     "stored_dice": [],
     "counter_dice": [
         {
             "type": "block",
-            "base_min": 7,
-            "base_max": 10,
+            "base_min": 9,
+            "base_max": 13,
             "is_counter": true,
             "scripts": {}
         },
         {
             "type": "block",
-            "base_min": 7,
-            "base_max": 10,
+            "base_min": 9,
+            "base_max": 13,
             "is_counter": true,
             "scripts": {}
         },
         {
             "type": "block",
-            "base_min": 7,
-            "base_max": 10,
+            "base_min": 9,
+            "base_max": 13,
+            "is_counter": true,
+            "scripts": {}
+        },
+        {
+            "type": "block",
+            "base_min": 9,
+            "base_max": 13,
             "is_counter": true,
             "scripts": {}
         }
@@ -70,15 +157,18 @@
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 150,
-            "sp": 65,
-            "stagger": 78
+            "hp": 407,
+            "sp": 106,
+            "stagger": 238
         },
         "adaptation_stats": {
             "slash": 0,
             "pierce": 0,
             "blunt": 0
-        }
+        },
+        "battle_initialized": true,
+        "surge_activated": false,
+        "muscle_overstrain_uses": 0
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -93,9 +183,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 78,
-        "current_sp": 41,
-        "current_stagger": 43
+        "current_hp": 407,
+        "current_sp": 106,
+        "current_stagger": 238
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",

@@ -2,7 +2,7 @@
     "name": "Габриэль",
     "level": 1,
     "rank": 9,
-    "avatar": "data/avatars/Габриэль.png",
+    "avatar": "data/avatars\\Габриэль.png",
     "base_intellect": 1,
     "total_xp": 0,
     "pct_mods": {
@@ -43,9 +43,9 @@
         "current_stagger": 10
     },
     "defense": {
-        "armor_name": "Unit_51",
-        "armor_id": "none",
+        "armor_name": "Без брони",
         "armor_type": "Medium",
+        "armor_id": "none",
         "hp_resists": {
             "slash": 1.0,
             "pierce": 1.0,

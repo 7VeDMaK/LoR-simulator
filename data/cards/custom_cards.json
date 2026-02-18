@@ -1386,6 +1386,99 @@
           }
         }
       ]
+    },
+    {
+      "id": "зацепил_когтем_0920",
+      "name": "Сомкнуть ладонь",
+      "tier": 2,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "blunt",
+          "base_min": 12,
+          "base_max": 16,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "зацепил_когтем_09203222",
+      "name": "Не Чувствую",
+      "tier": 2,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 12,
+          "base_max": 16,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "зацепил_когтем_092022",
+      "name": "Зацепил Когтем",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 4,
+          "base_max": 8,
+          "is_counter": false,
+          "scripts": {}
+        },
+                {
+          "type": "pierce",
+          "base_min": 4,
+          "base_max": 8,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "зацепил_когтем_0921232320",
+      "name": "Сломать Надежду",
+      "tier": 3,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "slash",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
     }
   ]
 }

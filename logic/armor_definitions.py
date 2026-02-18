@@ -34,6 +34,15 @@ ARMOR_REGISTRY = {
         stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
     ),
 
+    "standard_donel": Armor(
+        id="donel",
+        name="Прототип El",
+        rank=4,
+        description="Цельный сплав высококачественной стали.",
+        hp_resists={"slash": 0.4, "pierce": 0.4, "blunt": 0.7},
+        stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
+    ),
+
     "standard_xalat": Armor(
         id="халат",
         name="Халат Зинмана",

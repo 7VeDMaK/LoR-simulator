@@ -171,6 +171,103 @@
           "scripts": {}
         }
       ]
+    },
+    {
+      "id": "неизбежный_штор232м_f827",
+      "name": "За горой",
+      "tier": 1,
+      "type": "Melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": false,
+          "scripts": {
+            "on_clash": [
+              {
+                "script_id": "restore_resource",
+                "params": {
+                  "type": "hp",
+                  "base": 30,
+                  "factor": 0.05,
+                  "stat": "max_hp",
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "неизбежный_шторм_f827",
+      "name": "Неизбежный шторм",
+      "tier": 4,
+      "type": "Mass Summation",
+      "description": "Двойной взмах горы металла вокруг себя. Судьба настигнет ",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 10,
+          "base_max": 20,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "multiply_damage",
+                "params": {
+                  "multiplier": 2.0,
+                  "probability": 30.0
+                }
+              },
+              {
+                "script_id": "break_target_dice",
+                "params": {
+                  "probability": 0.2
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "slash",
+          "base_min": 10,
+          "base_max": 15,
+          "is_counter": false,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "add_hp_damage",
+                "params": {
+                  "percent": 0.3
+                }
+              },
+              {
+                "script_id": "restore_resource",
+                "params": {
+                  "type": "hp",
+                  "base": 30,
+                  "factor": 0.0,
+                  "stat": "None",
+                  "target": "self"
+                }
+              },
+              {
+                "script_id": "break_target_dice",
+                "params": {
+                  "probability": 0.3
+                }
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

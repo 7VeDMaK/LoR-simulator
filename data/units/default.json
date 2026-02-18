@@ -2,7 +2,7 @@
     "name": "default",
     "level": 1,
     "rank": 9,
-    "avatar": "data/avatars\\Ruler.png",
+    "avatar": "data/avatars\\default.png",
     "base_intellect": 1,
     "total_xp": 0,
     "pct_mods": {
@@ -31,9 +31,7 @@
     "active_slots": [],
     "stored_dice": [],
     "counter_dice": [],
-    "memory": {
-        "status_rank": "Ruler"
-    },
+    "memory": {},
     "death_count": 0,
     "overkill_damage": 0,
     "money_log": [],
@@ -43,7 +41,7 @@
         "current_stagger": 10
     },
     "defense": {
-        "armor_name": "Unit_57",
+        "armor_name": "Unit_58",
         "armor_type": "Medium",
         "armor_id": "standard_fixer_suit",
         "hp_resists": {

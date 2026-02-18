@@ -144,7 +144,7 @@ class AugmentationBoneShatter(BaseEffect):
             return
 
         # Рассчитываем 2% от макс. HP владельца
-        self_damage = int(unit.max_hp * 0.02)
+        self_damage = int(unit.max_hp * 0.04)
 
         if self_damage > 0:
             # Наносим урон владельцу

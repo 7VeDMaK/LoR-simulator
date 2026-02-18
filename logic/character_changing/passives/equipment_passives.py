@@ -256,10 +256,11 @@ class PassiveDragonSlab(BasePassive):
         is_attack = dice.dtype in [DiceType.SLASH, DiceType.PIERCE, DiceType.BLUNT]
 
         if is_attack:
+            unit.recalculate_stats()
             # Получаем Силу (ищем в атрибутах или статах)
-            strength = unit.attributes.get("strength", 0)
-            endurance = unit.attributes.get("endurance", 0)
-
+            strength = unit.modifiers["strength"]["flat"]
+            # Получаем итоговую Стойкость (Base + Bonus)
+            endurance = unit.modifiers["endurance"]["flat"]
             # Лимит ударов: 20 силы = 1 удар, 40 = 2 удара и т.д.
             allowed_swings = (strength + endurance) // 20
 

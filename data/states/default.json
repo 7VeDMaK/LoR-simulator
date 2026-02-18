@@ -1,20 +1,1262 @@
 {
   "type": "full",
-  "page": "👤 Profile",
-  "team_left_data": [],
-  "team_right_data": [],
-  "phase": "roll",
+  "page": "⚔️ Simulator",
+  "team_left_data": [
+    {
+      "name": "El Don",
+      "level": 35,
+      "rank": 5,
+      "avatar": "data/avatars\\default.png",
+      "base_intellect": 3,
+      "total_xp": 0,
+      "pct_mods": {
+        "imp_hp": 100,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 100,
+        "imp_sp": 50,
+        "imp_stg": 50
+      },
+      "current_hp": 583,
+      "current_sp": 159,
+      "current_stagger": 409,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {
+        "зацепил_когтем_0920": [
+          1,
+          1
+        ],
+        "зацепил_когтем_09203222": [
+          1,
+          1
+        ],
+        "зацепил_когтем_0921232320": [
+          2,
+          2,
+          2
+        ]
+      },
+      "active_buffs": {},
+      "_status_effects": {
+        "protection": [
+          {
+            "amount": 1,
+            "duration": 1
+          }
+        ]
+      },
+      "delayed_queue": [],
+      "deck": [
+        "зацепил_когтем_092022",
+        "зацепил_когтем_0920",
+        "зацепил_когтем_09203222",
+        "зацепил_когтем_0921232320",
+        "зацепил_когтем_092022",
+        "зацепил_когтем_092022",
+        "зацепил_когтем_0920",
+        "зацепил_когтем_0921232320",
+        "зацепил_когтем_0921232320",
+        "зацепил_когтем_09203222"
+      ],
+      "active_slots": [
+        {
+          "speed": 13,
+          "card": "зацепил_когтем_092022",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 3,
+          "force_clash": true,
+          "ui_status": {
+            "text": "✨ SPEED BREAK -> Зафиэль | Уничтожение (13 >> 1)",
+            "icon": "⚡",
+            "color": "green"
+          },
+          "is_ally_target": false,
+          "force_onesided": false,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 15,
+          "card": "зацепил_когтем_092022",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 1,
+          "force_clash": true,
+          "ui_status": {
+            "text": "CLASH vs Зафиэль [S2] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
+          },
+          "is_ally_target": false,
+          "force_onesided": false,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 13,
+          "card": "зацепил_когтем_092022",
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": 0,
+          "target_slot_idx": 0,
+          "force_clash": true,
+          "ui_status": {
+            "text": "CLASH vs Зафиэль [S1] | Перехват!",
+            "icon": "⚡",
+            "color": "red"
+          },
+          "is_ally_target": false,
+          "force_onesided": false,
+          "destroy_on_speed": true
+        },
+        {
+          "speed": 7,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        }
+      ],
+      "stored_dice": [],
+      "counter_dice": [
+        {
+          "type": "block",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ],
+      "memory": {
+        "start_of_battle_stats": {
+          "hp": 583,
+          "sp": 159,
+          "stagger": 409
+        },
+        "adaptation_stats": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0
+        },
+        "adaptation_active_type": "blunt",
+        "marked_flesh_by": "Зафиэль",
+        "marked_flesh_transferred": true,
+        "last_revive_attempt_round": 5,
+        "last_revive_log": {
+          "roll": 2,
+          "bonus": 6,
+          "penalty": 0,
+          "total": 8,
+          "dc": 2,
+          "success": true
+        },
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [],
+      "base_stats": {
+        "current_hp": 583,
+        "current_sp": 159,
+        "current_stagger": 409
+      },
+      "defense": {
+        "armor_name": "Прототип El",
+        "armor_type": "Medium",
+        "armor_id": "standard_donel",
+        "hp_resists": {
+          "slash": 0.4,
+          "pierce": 0.4,
+          "blunt": 0.7
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "none"
+      },
+      "attributes": {
+        "strength": 120,
+        "endurance": 20,
+        "agility": 20,
+        "wisdom": 0,
+        "psych": 0
+      },
+      "skills": {
+        "strike_power": 30,
+        "medicine": 0,
+        "willpower": 20,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 0,
+        "tough_skin": 30,
+        "speed": 30,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [
+        "meta_awareness",
+        "fanat_anti_defense",
+        "titanium_skin",
+        "sharp_mind",
+        "not_economically_minded",
+        "fanat_stagger_recovery",
+        "hedonism"
+      ],
+      "talents": [
+        "big_guy",
+        "defense",
+        "commendable_constitution",
+        "rock",
+        "despiteAdversities",
+        "adaptation_tireless",
+        "tough_as_steel",
+        "defender"
+      ],
+      "augmentations": [],
+      "level_rolls": {
+        "3": {
+          "hp": 4,
+          "sp": 2
+        },
+        "6": {
+          "hp": 3,
+          "sp": 1
+        },
+        "9": {
+          "hp": 3,
+          "sp": 3
+        },
+        "12": {
+          "hp": 4,
+          "sp": 2
+        },
+        "15": {
+          "hp": 3,
+          "sp": 2
+        },
+        "18": {
+          "hp": 3,
+          "sp": 2
+        },
+        "21": {
+          "hp": 2,
+          "sp": 5
+        },
+        "24": {
+          "hp": 1,
+          "sp": 5
+        },
+        "27": {
+          "hp": 1,
+          "sp": 4
+        },
+        "30": {
+          "hp": 2,
+          "sp": 3
+        },
+        "33": {
+          "hp": 1,
+          "sp": 5
+        }
+      },
+      "biography": "",
+      "relationships": {},
+      "unit_type": "syndicate"
+    }
+  ],
+  "team_right_data": [
+    {
+      "name": "Зафиэль",
+      "level": 33,
+      "rank": 6,
+      "avatar": "data/avatars\\Зафиэль.jpg",
+      "base_intellect": 5,
+      "total_xp": 4588568576,
+      "pct_mods": {
+        "imp_hp": 5,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 0,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 40,
+        "imp_sp": 0,
+        "imp_stg": 10
+      },
+      "current_hp": 397,
+      "current_sp": 106,
+      "current_stagger": 238,
+      "resources": {},
+      "cooldowns": {},
+      "card_cooldowns": {
+        "zaf_growing_fury": [
+          1,
+          1,
+          1
+        ],
+        "zaf_shell_break": [
+          2,
+          2,
+          2
+        ],
+        "zaf_marked_flesh": [
+          3
+        ],
+        "неизбежный_шторм_f827": [
+          3
+        ]
+      },
+      "active_buffs": {},
+      "_status_effects": {
+        "attack_power_up": [
+          {
+            "amount": 1,
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
+          }
+        ],
+        "adaptation": [
+          {
+            "amount": 1,
+            "duration": 99
+          }
+        ],
+        "protection": [
+          {
+            "amount": 2,
+            "duration": 1
+          }
+        ]
+      },
+      "delayed_queue": [],
+      "deck": [
+        "zaf_false_gesture",
+        "zaf_false_gesture",
+        "zaf_false_gesture",
+        "zaf_growing_fury",
+        "zaf_growing_fury",
+        "zaf_growing_fury",
+        "zaf_shell_break",
+        "zaf_shell_break",
+        "zaf_shell_break",
+        "zaf_marked_flesh",
+        "item_heal_5",
+        "item_heal_35",
+        "item_heal_65",
+        "неизбежный_шторм_f827",
+        "неизбежный_штор232м_f827"
+      ],
+      "active_slots": [
+        {
+          "speed": 9,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "CLASH vs El Don [S3] | Перехвачен (9 < 13)",
+            "icon": "⚠️",
+            "color": "orange"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 8,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "CLASH vs El Don [S2] | Перехвачен (8 < 15)",
+            "icon": "⚠️",
+            "color": "orange"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 6,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "НЕТ ЦЕЛИ",
+            "icon": "⛔",
+            "color": "gray"
+          },
+          "is_ally_target": false
+        },
+        {
+          "speed": 1,
+          "card": null,
+          "target_slot": null,
+          "is_aggro": false,
+          "target_unit_idx": -1,
+          "target_slot_idx": -1,
+          "force_clash": false,
+          "ui_status": {
+            "text": "🚫 BROKEN vs El Don [S1] | Speed Gap 12",
+            "icon": "💥",
+            "color": "red"
+          },
+          "is_ally_target": false
+        }
+      ],
+      "stored_dice": [],
+      "counter_dice": [
+        {
+          "type": "block",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "block",
+          "base_min": 9,
+          "base_max": 13,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ],
+      "memory": {
+        "status_rank": "9 (Fixer)",
+        "start_of_battle_stats": {
+          "hp": 407,
+          "sp": 106,
+          "stagger": 238
+        },
+        "adaptation_stats": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0
+        },
+        "surge_activated": false,
+        "muscle_overstrain_uses": 0,
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [
+        {
+          "amount": 14460000,
+          "reason": ""
+        },
+        {
+          "amount": 2500000,
+          "reason": "дала аксис"
+        }
+      ],
+      "base_stats": {
+        "current_hp": 397,
+        "current_sp": 106,
+        "current_stagger": 238
+      },
+      "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "armor_id": "standard_fixer_suit",
+        "hp_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "dragon_slayer"
+      },
+      "attributes": {
+        "strength": 30,
+        "endurance": 18,
+        "agility": 0,
+        "wisdom": 0,
+        "psych": 9
+      },
+      "skills": {
+        "strike_power": 15,
+        "medicine": 0,
+        "willpower": 12,
+        "luck": 0,
+        "acrobatics": 0,
+        "shields": 15,
+        "tough_skin": 15,
+        "speed": 30,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 15,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [
+        "severe_training",
+        "adaptation",
+        "blue_hyacinth_passive"
+      ],
+      "talents": [
+        "big_guy",
+        "defense",
+        "commendable_constitution",
+        "rock",
+        "despiteAdversities",
+        "adaptation_tireless",
+        "tough_as_steel",
+        "survivor",
+        "idol_oath",
+        "muscle_overstrain",
+        "surgeOfStrength"
+      ],
+      "augmentations": [
+        "aug_bone_shatter"
+      ],
+      "level_rolls": {
+        "3": {
+          "hp": 5,
+          "sp": 0
+        },
+        "6": {
+          "hp": 5,
+          "sp": 0
+        },
+        "9": {
+          "hp": 5,
+          "sp": 0
+        },
+        "12": {
+          "hp": 5,
+          "sp": 0
+        },
+        "15": {
+          "hp": 5,
+          "sp": 0
+        },
+        "18": {
+          "hp": 5,
+          "sp": 0
+        },
+        "21": {
+          "hp": 5,
+          "sp": 0
+        },
+        "24": {
+          "hp": 5,
+          "sp": 0
+        },
+        "27": {
+          "hp": 5,
+          "sp": 0
+        },
+        "30": {
+          "hp": 5,
+          "sp": 0
+        },
+        "33": {
+          "hp": 5,
+          "sp": 0
+        }
+      },
+      "biography": "",
+      "relationships": {},
+      "unit_type": "player"
+    }
+  ],
+  "phase": "planning",
   "round_number": 1,
-  "turn_message": "Game Reset to Pre-Battle State. Press 'Roll Initiative'.",
-  "battle_logs": [],
+  "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
+  "battle_logs": [
+    {
+      "round": "Skill",
+      "rolls": "Activate",
+      "details": "💪 **Перенапряжение мышц**: Жертва 5 HP -> +1 Сила (Использовано 1/2)."
+    },
+    {
+      "round": "Skill",
+      "rolls": "Activate",
+      "details": "💪 **Перенапряжение мышц**: Жертва 5 HP -> +1 Сила (Использовано 2/2)."
+    },
+    {
+      "round": "Round Start",
+      "rolls": "Event",
+      "details": "🔄 **El Don**: 🧬 **Адаптация**: Активна защита от Blunt (-25% урона)."
+    },
+    {
+      "round": "Round Start",
+      "rolls": "Event",
+      "details": "🔄 **Зафиэль**: 🧬 Адаптация: Рост -> Уровень 1"
+    }
+  ],
   "script_logs": "",
   "turn_phase": "done",
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Зафиэль",
+  "profile_unit": " Дна'хо",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": " Дна'хо",
-  "undo_stack": []
+  "undo_stack": [
+    {
+      "type": "full",
+      "page": "⚔️ Simulator",
+      "team_left_data": [
+        {
+          "name": "El Don",
+          "level": 35,
+          "rank": 5,
+          "avatar": "data/avatars\\default.png",
+          "base_intellect": 3,
+          "total_xp": 0,
+          "pct_mods": {
+            "imp_hp": 100,
+            "imp_sp": 0,
+            "imp_stg": 0,
+            "tal_hp": 0,
+            "tal_sp": 0,
+            "tal_stg": 0
+          },
+          "flat_mods": {
+            "imp_hp": 100,
+            "imp_sp": 50,
+            "imp_stg": 50
+          },
+          "current_hp": 583,
+          "current_sp": 159,
+          "current_stagger": 409,
+          "resources": {},
+          "cooldowns": {},
+          "card_cooldowns": {
+            "зацепил_когтем_0920": [
+              1,
+              1
+            ],
+            "зацепил_когтем_09203222": [
+              1,
+              1
+            ],
+            "зацепил_когтем_0921232320": [
+              2,
+              2,
+              2
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {
+            "protection": [
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "зацепил_когтем_092022",
+            "зацепил_когтем_0920",
+            "зацепил_когтем_09203222",
+            "зацепил_когтем_0921232320",
+            "зацепил_когтем_092022",
+            "зацепил_когтем_092022",
+            "зацепил_когтем_0920",
+            "зацепил_когтем_0921232320",
+            "зацепил_когтем_0921232320",
+            "зацепил_когтем_09203222"
+          ],
+          "active_slots": [
+            {
+              "speed": 13,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 15,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 13,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 7,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [
+            {
+              "type": "block",
+              "base_min": 9,
+              "base_max": 13,
+              "is_counter": true,
+              "scripts": {}
+            },
+            {
+              "type": "block",
+              "base_min": 9,
+              "base_max": 13,
+              "is_counter": true,
+              "scripts": {}
+            }
+          ],
+          "memory": {
+            "start_of_battle_stats": {
+              "hp": 583,
+              "sp": 159,
+              "stagger": 409
+            },
+            "adaptation_stats": {
+              "slash": 0,
+              "pierce": 0,
+              "blunt": 0
+            },
+            "adaptation_active_type": "blunt",
+            "marked_flesh_by": "Зафиэль",
+            "marked_flesh_transferred": true,
+            "last_revive_attempt_round": 5,
+            "last_revive_log": {
+              "roll": 2,
+              "bonus": 6,
+              "penalty": 0,
+              "total": 8,
+              "dc": 2,
+              "success": true
+            },
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": [],
+          "base_stats": {
+            "current_hp": 583,
+            "current_sp": 159,
+            "current_stagger": 409
+          },
+          "defense": {
+            "armor_name": "Прототип El",
+            "armor_type": "Medium",
+            "armor_id": "standard_donel",
+            "hp_resists": {
+              "slash": 0.4,
+              "pierce": 0.4,
+              "blunt": 0.7
+            },
+            "stagger_resists": {
+              "slash": 1.0,
+              "pierce": 1.0,
+              "blunt": 1.0
+            },
+            "weapon_id": "none"
+          },
+          "attributes": {
+            "strength": 120,
+            "endurance": 20,
+            "agility": 20,
+            "wisdom": 0,
+            "psych": 0
+          },
+          "skills": {
+            "strike_power": 30,
+            "medicine": 0,
+            "willpower": 20,
+            "luck": 0,
+            "acrobatics": 0,
+            "shields": 0,
+            "tough_skin": 30,
+            "speed": 30,
+            "light_weapon": 0,
+            "medium_weapon": 0,
+            "heavy_weapon": 0,
+            "firearms": 0,
+            "eloquence": 0,
+            "forging": 0,
+            "engineering": 0,
+            "programming": 0
+          },
+          "passives": [
+            "meta_awareness",
+            "fanat_anti_defense",
+            "titanium_skin",
+            "sharp_mind",
+            "not_economically_minded",
+            "fanat_stagger_recovery",
+            "hedonism"
+          ],
+          "talents": [
+            "big_guy",
+            "defense",
+            "commendable_constitution",
+            "rock",
+            "despiteAdversities",
+            "adaptation_tireless",
+            "tough_as_steel",
+            "defender"
+          ],
+          "augmentations": [],
+          "level_rolls": {
+            "3": {
+              "hp": 4,
+              "sp": 2
+            },
+            "6": {
+              "hp": 3,
+              "sp": 1
+            },
+            "9": {
+              "hp": 3,
+              "sp": 3
+            },
+            "12": {
+              "hp": 4,
+              "sp": 2
+            },
+            "15": {
+              "hp": 3,
+              "sp": 2
+            },
+            "18": {
+              "hp": 3,
+              "sp": 2
+            },
+            "21": {
+              "hp": 2,
+              "sp": 5
+            },
+            "24": {
+              "hp": 1,
+              "sp": 5
+            },
+            "27": {
+              "hp": 1,
+              "sp": 4
+            },
+            "30": {
+              "hp": 2,
+              "sp": 3
+            },
+            "33": {
+              "hp": 1,
+              "sp": 5
+            }
+          },
+          "biography": "",
+          "relationships": {},
+          "unit_type": "syndicate"
+        }
+      ],
+      "team_right_data": [
+        {
+          "name": "Зафиэль",
+          "level": 33,
+          "rank": 6,
+          "avatar": "data/avatars\\Зафиэль.jpg",
+          "base_intellect": 5,
+          "total_xp": 4588568576,
+          "pct_mods": {
+            "imp_hp": 5,
+            "imp_sp": 0,
+            "imp_stg": 0,
+            "tal_hp": 0,
+            "tal_sp": 0,
+            "tal_stg": 0
+          },
+          "flat_mods": {
+            "imp_hp": 40,
+            "imp_sp": 0,
+            "imp_stg": 10
+          },
+          "current_hp": 397,
+          "current_sp": 106,
+          "current_stagger": 238,
+          "resources": {},
+          "cooldowns": {},
+          "card_cooldowns": {
+            "zaf_growing_fury": [
+              1,
+              1,
+              1
+            ],
+            "zaf_shell_break": [
+              2,
+              2,
+              2
+            ],
+            "zaf_marked_flesh": [
+              3
+            ],
+            "неизбежный_шторм_f827": [
+              3
+            ]
+          },
+          "active_buffs": {},
+          "_status_effects": {
+            "attack_power_up": [
+              {
+                "amount": 1,
+                "duration": 1
+              },
+              {
+                "amount": 1,
+                "duration": 1
+              }
+            ],
+            "adaptation": [
+              {
+                "amount": 1,
+                "duration": 99
+              }
+            ],
+            "protection": [
+              {
+                "amount": 2,
+                "duration": 1
+              }
+            ]
+          },
+          "delayed_queue": [],
+          "deck": [
+            "zaf_false_gesture",
+            "zaf_false_gesture",
+            "zaf_false_gesture",
+            "zaf_growing_fury",
+            "zaf_growing_fury",
+            "zaf_growing_fury",
+            "zaf_shell_break",
+            "zaf_shell_break",
+            "zaf_shell_break",
+            "zaf_marked_flesh",
+            "item_heal_5",
+            "item_heal_35",
+            "item_heal_65",
+            "неизбежный_шторм_f827",
+            "неизбежный_штор232м_f827"
+          ],
+          "active_slots": [
+            {
+              "speed": 9,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 8,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 6,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            },
+            {
+              "speed": 1,
+              "card": null,
+              "target_slot": null,
+              "is_aggro": false,
+              "target_unit_idx": -1,
+              "target_slot_idx": -1,
+              "force_clash": false
+            }
+          ],
+          "stored_dice": [],
+          "counter_dice": [
+            {
+              "type": "block",
+              "base_min": 9,
+              "base_max": 13,
+              "is_counter": true,
+              "scripts": {}
+            },
+            {
+              "type": "block",
+              "base_min": 9,
+              "base_max": 13,
+              "is_counter": true,
+              "scripts": {}
+            },
+            {
+              "type": "block",
+              "base_min": 9,
+              "base_max": 13,
+              "is_counter": true,
+              "scripts": {}
+            },
+            {
+              "type": "block",
+              "base_min": 9,
+              "base_max": 13,
+              "is_counter": true,
+              "scripts": {}
+            }
+          ],
+          "memory": {
+            "status_rank": "9 (Fixer)",
+            "start_of_battle_stats": {
+              "hp": 407,
+              "sp": 106,
+              "stagger": 238
+            },
+            "adaptation_stats": {
+              "slash": 0,
+              "pierce": 0,
+              "blunt": 0
+            },
+            "surge_activated": false,
+            "muscle_overstrain_uses": 0,
+            "battle_initialized": true
+          },
+          "death_count": 0,
+          "overkill_damage": 0,
+          "money_log": [
+            {
+              "amount": 14460000,
+              "reason": ""
+            },
+            {
+              "amount": 2500000,
+              "reason": "дала аксис"
+            }
+          ],
+          "base_stats": {
+            "current_hp": 397,
+            "current_sp": 106,
+            "current_stagger": 238
+          },
+          "defense": {
+            "armor_name": "Standard Fixer Suit",
+            "armor_type": "Medium",
+            "armor_id": "standard_fixer_suit",
+            "hp_resists": {
+              "slash": 1.0,
+              "pierce": 1.0,
+              "blunt": 1.0
+            },
+            "stagger_resists": {
+              "slash": 1.0,
+              "pierce": 1.0,
+              "blunt": 1.0
+            },
+            "weapon_id": "dragon_slayer"
+          },
+          "attributes": {
+            "strength": 30,
+            "endurance": 18,
+            "agility": 0,
+            "wisdom": 0,
+            "psych": 9
+          },
+          "skills": {
+            "strike_power": 15,
+            "medicine": 0,
+            "willpower": 12,
+            "luck": 0,
+            "acrobatics": 0,
+            "shields": 15,
+            "tough_skin": 15,
+            "speed": 30,
+            "light_weapon": 0,
+            "medium_weapon": 0,
+            "heavy_weapon": 15,
+            "firearms": 0,
+            "eloquence": 0,
+            "forging": 0,
+            "engineering": 0,
+            "programming": 0
+          },
+          "passives": [
+            "severe_training",
+            "adaptation",
+            "blue_hyacinth_passive"
+          ],
+          "talents": [
+            "big_guy",
+            "defense",
+            "commendable_constitution",
+            "rock",
+            "despiteAdversities",
+            "adaptation_tireless",
+            "tough_as_steel",
+            "survivor",
+            "idol_oath",
+            "muscle_overstrain",
+            "surgeOfStrength"
+          ],
+          "augmentations": [
+            "aug_bone_shatter"
+          ],
+          "level_rolls": {
+            "3": {
+              "hp": 5,
+              "sp": 0
+            },
+            "6": {
+              "hp": 5,
+              "sp": 0
+            },
+            "9": {
+              "hp": 5,
+              "sp": 0
+            },
+            "12": {
+              "hp": 5,
+              "sp": 0
+            },
+            "15": {
+              "hp": 5,
+              "sp": 0
+            },
+            "18": {
+              "hp": 5,
+              "sp": 0
+            },
+            "21": {
+              "hp": 5,
+              "sp": 0
+            },
+            "24": {
+              "hp": 5,
+              "sp": 0
+            },
+            "27": {
+              "hp": 5,
+              "sp": 0
+            },
+            "30": {
+              "hp": 5,
+              "sp": 0
+            },
+            "33": {
+              "hp": 5,
+              "sp": 0
+            }
+          },
+          "biography": "",
+          "relationships": {},
+          "unit_type": "player"
+        }
+      ],
+      "phase": "planning",
+      "round_number": 1,
+      "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
+      "battle_logs": [
+        {
+          "round": "Skill",
+          "rolls": "Activate",
+          "details": "💪 **Перенапряжение мышц**: Жертва 5 HP -> +1 Сила (Использовано 1/2)."
+        },
+        {
+          "round": "Skill",
+          "rolls": "Activate",
+          "details": "💪 **Перенапряжение мышц**: Жертва 5 HP -> +1 Сила (Использовано 2/2)."
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **El Don**: 🧬 **Адаптация**: Активна защита от Blunt (-25% урона)."
+        },
+        {
+          "round": "Round Start",
+          "rolls": "Event",
+          "details": "🔄 **Зафиэль**: 🧬 Адаптация: Рост -> Уровень 1"
+        }
+      ],
+      "script_logs": "",
+      "turn_phase": "done",
+      "action_idx": 0,
+      "executed_slots": [],
+      "turn_actions": [],
+      "profile_unit": " Дна'хо",
+      "leveling_unit": " Дна'хо",
+      "tree_unit": " Дна'хо",
+      "checks_unit": " Дна'хо"
+    }
+  ]
 }
