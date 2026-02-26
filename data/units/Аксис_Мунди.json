@@ -18,11 +18,11 @@
         "imp_sp": 0,
         "imp_stg": 0
     },
-    "current_hp": 113,
+    "current_hp": 209,
     "current_sp": 41,
-    "current_stagger": 0,
+    "current_stagger": 104,
     "resources": {
-        "luck": 32
+        "luck": 719
     },
     "cooldowns": {
         "raise_stakes": 5,
@@ -81,6 +81,12 @@
                 "amount": 2,
                 "duration": 99
             }
+        ],
+        "azino_jackpot": [
+            {
+                "amount": 1,
+                "duration": 7
+            }
         ]
     },
     "delayed_queue": [],
@@ -119,9 +125,9 @@
     "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-            "hp": 117,
-            "sp": 56,
-            "stagger": 64
+            "hp": 113,
+            "sp": 41,
+            "stagger": 0
         },
         "last_revive_attempt_round": 1,
         "last_revive_log": {
@@ -133,15 +139,16 @@
             "success": true
         },
         "azino_slots": [
-            6,
-            4,
+            7,
+            7,
             7
         ],
         "axis_applied_bonus_str": 0,
         "axis_applied_bonus_end": 0,
         "axis_applied_bonus_haste": 0,
         "axis_buff_triad_active": false,
-        "battle_initialized": true
+        "battle_initialized": true,
+        "azino_jackpot_link_opened": true
     },
     "death_count": 0,
     "overkill_damage": 0,
@@ -180,9 +187,9 @@
         }
     ],
     "base_stats": {
-        "current_hp": 113,
+        "current_hp": 209,
         "current_sp": 41,
-        "current_stagger": 0
+        "current_stagger": 104
     },
     "defense": {
         "armor_name": "Standard Fixer Suit",

@@ -51,6 +51,16 @@ ARMOR_REGISTRY = {
         hp_resists={"slash": 0.8, "pierce": 0.8, "blunt": 0.8},
         stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
     ),
+
+    "standard_zaf_bron": Armor(
+        id="zaf_bron",
+        name="Костюм Зафиэля",
+        rank=5,
+        description="Лёгкая одежда, напоминая домашний халат.",
+        hp_resists={"slash": 1, "pierce": 1, "blunt": 1},
+        stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0},
+        passive_id="armor_zaf_bron"
+    ),
     
     "standard_fixer_suit": Armor(
         id="standard_fixer_suit",

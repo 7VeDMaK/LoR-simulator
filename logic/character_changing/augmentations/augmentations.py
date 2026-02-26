@@ -127,15 +127,54 @@ class AugmentationBoneShatter(BaseEffect):
         """
         return {
             "strength": 15,
-            "endurance": 15
+            "endurance": 15,
+            "psych": 15
         }
 
-    def on_take_damage(self, unit, amount, source, **kwargs):
-        """Дебафф: Увеличение урона (x1.5)."""
-        new_amount = amount * 1.5
-        logger.log(f"🧠 {self.name}: Урон по рассудку {unit.name} удвоен! ({amount} -> {new_amount})",
-                   LogLevel.VERBOSE)
-        return new_amount
+    # def on_take_damage(self, unit, amount, source, **kwargs):
+    #     """Дебафф: Увеличение урона (x1.5)."""
+    #     new_amount = amount * 1.5
+    #     logger.log(f"🧠 {self.name}: Урон по рассудку {unit.name} удвоен! ({amount} -> {new_amount})",
+    #                LogLevel.VERBOSE)
+    #     return new_amount
+
+    def on_clash_win(self, ctx: RollContext, **kwargs):
+        unit = ctx.source
+        if not unit:
+            return
+
+        self_heal = int(unit.max_sp * 0.05)
+
+        if self_heal > 0:
+            # Наносим урон владельцу
+            unit.restore_sp(self_heal)
+
+            # Добавляем запись в лог контекста
+            ctx.log.append(f"{self.name}: {self_heal} самолечение (5% SP) за победу")
+
+            logger.log(
+                f"🦴 {self.name}: Кости {unit.name} трещат от удара! Захилено {self_heal} менталки.",
+                LogLevel.VERBOSE
+            )
+
+    def on_clash_lose(self, ctx: RollContext, **kwargs):
+        unit = ctx.source
+        if not unit:
+            return
+
+        self_heal = -int(unit.max_sp * 0.05)
+
+        if self_heal > 0:
+            # Наносим урон владельцу
+            unit.restore_sp(self_heal)
+
+            # Добавляем запись в лог контекста
+            ctx.log.append(f"{self.name}: {self_heal} самолечение (5% SP) за поражение")
+
+            logger.log(
+                f"🦴 {self.name}: Кости {unit.name} трещат от удара! Атаковано {self_heal} менталки.",
+                LogLevel.VERBOSE
+            )
 
     def on_hit(self, ctx: RollContext, **kwargs):
         """Эффект: Нанесение урона СЕБЕ при каждом попадании."""
@@ -143,15 +182,14 @@ class AugmentationBoneShatter(BaseEffect):
         if not unit:
             return
 
-        # Рассчитываем 2% от макс. HP владельца
-        self_damage = int(unit.max_hp * 0.04)
+        self_damage = int(unit.max_hp * 0.02)
 
         if self_damage > 0:
             # Наносим урон владельцу
             unit.take_damage(self_damage)
 
             # Добавляем запись в лог контекста
-            ctx.log.append(f"{self.name}: {self_damage} самоповреждения (3% HP)")
+            ctx.log.append(f"{self.name}: {self_damage} самоповреждения (2% HP)")
 
             logger.log(
                 f"🦴 {self.name}: Кости {unit.name} трещат от удара! Получено {self_damage} урона.",

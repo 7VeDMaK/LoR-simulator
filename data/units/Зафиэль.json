@@ -1,10 +1,10 @@
 {
     "name": "Зафиэль",
-    "level": 33,
+    "level": 36,
     "rank": 6,
     "avatar": "data/avatars\\Зафиэль.jpg",
     "base_intellect": 5,
-    "total_xp": 4588568576,
+    "total_xp": 38948306944,
     "pct_mods": {
         "imp_hp": 5,
         "imp_sp": 0,
@@ -188,13 +188,13 @@
         "current_stagger": 238
     },
     "defense": {
-        "armor_name": "Standard Fixer Suit",
+        "armor_name": "Костюм Зафиэля",
         "armor_type": "Medium",
-        "armor_id": "standard_fixer_suit",
+        "armor_id": "standard_zaf_bron",
         "hp_resists": {
-            "slash": 1.0,
-            "pierce": 1.0,
-            "blunt": 1.0
+            "slash": 1,
+            "pierce": 1,
+            "blunt": 1
         },
         "stagger_resists": {
             "slash": 1.0,
@@ -205,23 +205,23 @@
     },
     "attributes": {
         "strength": 30,
-        "endurance": 18,
+        "endurance": 27,
         "agility": 0,
         "wisdom": 0,
-        "psych": 9
+        "psych": 3
     },
     "skills": {
         "strike_power": 15,
-        "medicine": 0,
-        "willpower": 12,
+        "medicine": 3,
+        "willpower": 25,
         "luck": 0,
         "acrobatics": 0,
-        "shields": 15,
+        "shields": 10,
         "tough_skin": 15,
         "speed": 30,
         "light_weapon": 0,
         "medium_weapon": 0,
-        "heavy_weapon": 15,
+        "heavy_weapon": 10,
         "firearms": 0,
         "eloquence": 0,
         "forging": 0,
@@ -244,7 +244,8 @@
         "survivor",
         "idol_oath",
         "muscle_overstrain",
-        "surgeOfStrength"
+        "surgeOfStrength",
+        "naked_defense"
     ],
     "augmentations": [
         "aug_bone_shatter"
@@ -291,6 +292,10 @@
             "sp": 0
         },
         "33": {
+            "hp": 5,
+            "sp": 0
+        },
+        "36": {
             "hp": 5,
             "sp": 0
         }

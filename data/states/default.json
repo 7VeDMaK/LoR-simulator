@@ -3,357 +3,12 @@
   "page": "👤 Profile",
   "team_left_data": [
     {
-      "name": "Зафиэль",
-      "level": 33,
-      "rank": 6,
-      "avatar": "data/avatars\\Зафиэль.jpg",
-      "base_intellect": 5,
-      "total_xp": 4588568576,
-      "pct_mods": {
-        "imp_hp": 5,
-        "imp_sp": 0,
-        "imp_stg": 0,
-        "tal_hp": 0,
-        "tal_sp": 0,
-        "tal_stg": 0
-      },
-      "flat_mods": {
-        "imp_hp": 40,
-        "imp_sp": 0,
-        "imp_stg": 10
-      },
-      "current_hp": 72,
-      "current_sp": 84,
-      "current_stagger": 56,
-      "resources": {},
-      "cooldowns": {
-        "commendable_constitution": 98
-      },
-      "card_cooldowns": {},
-      "active_buffs": {},
-      "_status_effects": {
-        "adaptation": [
-          {
-            "amount": 4,
-            "duration": 98
-          }
-        ],
-        "visiting_card": [
-          {
-            "amount": 1,
-            "duration": 95
-          }
-        ],
-        "bleed": [
-          {
-            "amount": 23,
-            "duration": 1
-          },
-          {
-            "amount": 39,
-            "duration": 2
-          }
-        ],
-        "haste": [
-          {
-            "amount": 2,
-            "duration": 97
-          }
-        ],
-        "satiety": [
-          {
-            "amount": 2,
-            "duration": 98
-          }
-        ],
-        "paralysis": [
-          {
-            "amount": 1,
-            "duration": 2
-          },
-          {
-            "amount": 1,
-            "duration": 2
-          },
-          {
-            "amount": 1,
-            "duration": 2
-          },
-          {
-            "amount": 1,
-            "duration": 2
-          }
-        ],
-        "protection": [
-          {
-            "amount": 2,
-            "duration": 1
-          }
-        ]
-      },
-      "delayed_queue": [],
-      "deck": [
-        "zaf_false_gesture",
-        "zaf_false_gesture",
-        "zaf_false_gesture",
-        "zaf_growing_fury",
-        "zaf_growing_fury",
-        "zaf_growing_fury",
-        "zaf_shell_break",
-        "zaf_shell_break",
-        "zaf_shell_break",
-        "item_heal_5",
-        "item_heal_35",
-        "item_heal_65",
-        "неизбежный_шторм_f827",
-        "неизбежный_штор232м_f827"
-      ],
-      "active_slots": [
-        {
-          "speed": 8,
-          "card": "неизбежный_шторм_f827",
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false,
-          "mass_defenses": {
-            "0": "S1"
-          }
-        },
-        {
-          "speed": 8,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 6,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        }
-      ],
-      "stored_dice": [],
-      "counter_dice": [
-        {
-          "type": "block",
-          "base_min": 9,
-          "base_max": 13,
-          "is_counter": true,
-          "scripts": {}
-        },
-        {
-          "type": "block",
-          "base_min": 9,
-          "base_max": 13,
-          "is_counter": true,
-          "scripts": {}
-        },
-        {
-          "type": "block",
-          "base_min": 9,
-          "base_max": 13,
-          "is_counter": true,
-          "scripts": {}
-        },
-        {
-          "type": "block",
-          "base_min": 9,
-          "base_max": 13,
-          "is_counter": true,
-          "scripts": {}
-        }
-      ],
-      "memory": {
-        "status_rank": "9 (Fixer)",
-        "start_of_battle_stats": {
-          "hp": 407,
-          "sp": 106,
-          "stagger": 238
-        },
-        "adaptation_stats": {
-          "slash": 0,
-          "pierce": 0,
-          "blunt": 0
-        },
-        "surge_activated": true,
-        "muscle_overstrain_uses": 0,
-        "adaptation_active_type": "slash",
-        "marked_flesh_target_name": "El Don",
-        "last_revive_attempt_round": 5,
-        "last_revive_log": {
-          "roll": 1,
-          "bonus": 4,
-          "penalty": 0,
-          "total": 5,
-          "dc": 5,
-          "success": true
-        },
-        "battle_initialized": true
-      },
-      "death_count": 1,
-      "overkill_damage": 0,
-      "money_log": [
-        {
-          "amount": 14460000,
-          "reason": ""
-        },
-        {
-          "amount": 2500000,
-          "reason": "дала аксис"
-        }
-      ],
-      "base_stats": {
-        "current_hp": 72,
-        "current_sp": 84,
-        "current_stagger": 56
-      },
-      "defense": {
-        "armor_name": "Standard Fixer Suit",
-        "armor_type": "Medium",
-        "armor_id": "standard_fixer_suit",
-        "hp_resists": {
-          "slash": 1.0,
-          "pierce": 1.0,
-          "blunt": 1.0
-        },
-        "stagger_resists": {
-          "slash": 1.0,
-          "pierce": 1.0,
-          "blunt": 1.0
-        },
-        "weapon_id": "dragon_slayer"
-      },
-      "attributes": {
-        "strength": 30,
-        "endurance": 18,
-        "agility": 0,
-        "wisdom": 0,
-        "psych": 9
-      },
-      "skills": {
-        "strike_power": 15,
-        "medicine": 0,
-        "willpower": 12,
-        "luck": 0,
-        "acrobatics": 0,
-        "shields": 15,
-        "tough_skin": 15,
-        "speed": 30,
-        "light_weapon": 0,
-        "medium_weapon": 0,
-        "heavy_weapon": 15,
-        "firearms": 0,
-        "eloquence": 0,
-        "forging": 0,
-        "engineering": 0,
-        "programming": 0
-      },
-      "passives": [
-        "severe_training",
-        "adaptation",
-        "blue_hyacinth_passive"
-      ],
-      "talents": [
-        "big_guy",
-        "defense",
-        "commendable_constitution",
-        "rock",
-        "despiteAdversities",
-        "adaptation_tireless",
-        "tough_as_steel",
-        "survivor",
-        "idol_oath",
-        "muscle_overstrain",
-        "surgeOfStrength"
-      ],
-      "augmentations": [
-        "aug_bone_shatter"
-      ],
-      "level_rolls": {
-        "3": {
-          "hp": 5,
-          "sp": 0
-        },
-        "6": {
-          "hp": 5,
-          "sp": 0
-        },
-        "9": {
-          "hp": 5,
-          "sp": 0
-        },
-        "12": {
-          "hp": 5,
-          "sp": 0
-        },
-        "15": {
-          "hp": 5,
-          "sp": 0
-        },
-        "18": {
-          "hp": 5,
-          "sp": 0
-        },
-        "21": {
-          "hp": 5,
-          "sp": 0
-        },
-        "24": {
-          "hp": 5,
-          "sp": 0
-        },
-        "27": {
-          "hp": 5,
-          "sp": 0
-        },
-        "30": {
-          "hp": 5,
-          "sp": 0
-        },
-        "33": {
-          "hp": 5,
-          "sp": 0
-        }
-      },
-      "biography": "",
-      "relationships": {},
-      "unit_type": "player"
-    }
-  ],
-  "team_right_data": [
-    {
-      "name": "Рейн",
-      "level": 39,
-      "rank": 4,
-      "avatar": "data/avatars\\Рейн.png",
-      "base_intellect": 6,
-      "total_xp": 277042954240,
+      "name": "Аксис Мунди",
+      "level": 22,
+      "rank": 9,
+      "avatar": "data/avatars\\Аксис_Мунди.png",
+      "base_intellect": 8,
+      "total_xp": 666,
       "pct_mods": {
         "imp_hp": 0,
         "imp_sp": 0,
@@ -367,103 +22,106 @@
         "imp_sp": 0,
         "imp_stg": 0
       },
-      "current_hp": 69,
-      "current_sp": 210,
-      "current_stagger": 39,
+      "current_hp": 209,
+      "current_sp": 41,
+      "current_stagger": 104,
       "resources": {
-        "luck": 138
+        "luck": 719
       },
       "cooldowns": {
-        "step_into_shadow": 6
+        "raise_stakes": 5,
+        "second_chance": 1
       },
       "card_cooldowns": {
-        "warp_img": 0,
-        "series_normal_strikes_img": 0,
-        "good_coffee_img": 0,
-        "bad_coffee_img": 0,
-        "not_the_limit_img": 0
+        "item_heal_5": 0,
+        "item_heal_35": 0,
+        "axis_spear_determination": 0,
+        "item_heal_65": 0
       },
       "active_buffs": {},
-      "_status_effects": {},
+      "_status_effects": {
+        "raise_stakes_fail": [
+          {
+            "amount": 1,
+            "duration": 1
+          }
+        ],
+        "fragile": [
+          {
+            "amount": 1,
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
+          },
+          {
+            "amount": 1,
+            "duration": 1
+          }
+        ],
+        "dmg_up": [
+          {
+            "amount": 1,
+            "duration": 2
+          },
+          {
+            "amount": 1,
+            "duration": 3
+          },
+          {
+            "amount": 1,
+            "duration": 3
+          }
+        ],
+        "haste": [
+          {
+            "amount": 1,
+            "duration": 3
+          }
+        ],
+        "satiety": [
+          {
+            "amount": 2,
+            "duration": 99
+          }
+        ],
+        "azino_jackpot": [
+          {
+            "amount": 1,
+            "duration": 7
+          }
+        ]
+      },
       "delayed_queue": [],
       "deck": [
-        "удачное_стечение_img2",
-        "не_беспокойство_img3",
-        "тяжкое_бремя_img4",
-        "изничтожение_img5",
-        "tale_of_twilight_img",
-        "warp_img",
-        "series_normal_strikes_img",
-        "not_the_limit_img",
-        "bad_coffee_img",
-        "good_coffee_img",
-        "equivalent_exchange_img",
-        "обычный_удар_img1",
-        "веер_клинков_ec6b"
+        "axis_i_radiance",
+        "axis_minor_setbacks",
+        "axis_min_effort",
+        "axis_sword_glory",
+        "axis_spear_determination",
+        "axis_fist_justice",
+        "axis_mcguffin",
+        "axis_plot_armor",
+        "axis_ex_machina",
+        "item_heal_5",
+        "item_heal_35",
+        "item_heal_65",
+        "tea_coffee_vespo"
       ],
       "active_slots": [
         {
-          "speed": 15,
-          "card": "веер_клинков_ec6b",
-          "target_slot": null,
-          "is_aggro": false,
+          "speed": 0,
+          "card": null,
           "target_unit_idx": -1,
           "target_slot_idx": -1,
-          "force_clash": false,
+          "stunned": true,
+          "is_aggro": false,
           "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
+            "text": "ОГЛУШЕН",
+            "icon": "❌",
             "color": "gray"
-          },
-          "is_ally_target": false,
-          "mass_defenses": {
-            "0": "Auto"
           }
-        },
-        {
-          "speed": 14,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 16,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
-        },
-        {
-          "speed": 9,
-          "card": null,
-          "target_slot": null,
-          "is_aggro": false,
-          "target_unit_idx": -1,
-          "target_slot_idx": -1,
-          "force_clash": false,
-          "ui_status": {
-            "text": "НЕТ ЦЕЛИ",
-            "icon": "⛔",
-            "color": "gray"
-          },
-          "is_ally_target": false
         }
       ],
       "stored_dice": [],
@@ -471,30 +129,71 @@
       "memory": {
         "status_rank": "9 (Fixer)",
         "start_of_battle_stats": {
-          "hp": 197,
-          "sp": 202,
-          "stagger": 32
+          "hp": 113,
+          "sp": 41,
+          "stagger": 0
         },
-        "cat_reflexes_triggered": false,
-        "smashing_blade_used": false,
-        "battle_initialized": true
+        "last_revive_attempt_round": 1,
+        "last_revive_log": {
+          "roll": 6,
+          "bonus": 0,
+          "penalty": 0,
+          "total": 6,
+          "dc": 0,
+          "success": true
+        },
+        "azino_slots": [
+          7,
+          7,
+          7
+        ],
+        "axis_applied_bonus_str": 0,
+        "axis_applied_bonus_end": 0,
+        "axis_applied_bonus_haste": 0,
+        "axis_buff_triad_active": false,
+        "battle_initialized": true,
+        "azino_jackpot_link_opened": true
       },
       "death_count": 0,
       "overkill_damage": 0,
       "money_log": [
         {
-          "amount": 7889000,
-          "reason": ""
+          "amount": 1500000,
+          "reason": "Первое задание Фемя"
         },
         {
-          "amount": 250000,
-          "reason": "Собачка Макимы"
+          "amount": -540000,
+          "reason": "Платье + ампулы "
+        },
+        {
+          "amount": 500000,
+          "reason": "У Лимы отобрала"
+        },
+        {
+          "amount": 24000000,
+          "reason": "Это за талоны на бензин"
+        },
+        {
+          "amount": 100000,
+          "reason": "Это за кейс"
+        },
+        {
+          "amount": -5000000,
+          "reason": "Ателье купила плохое "
+        },
+        {
+          "amount": -2500000,
+          "reason": "Зафу дали"
+        },
+        {
+          "amount": -4000000,
+          "reason": "9 стульев винтажных 3 стола и посуда"
         }
       ],
       "base_stats": {
-        "current_hp": 69,
-        "current_sp": 210,
-        "current_stagger": 39
+        "current_hp": 209,
+        "current_sp": 41,
+        "current_stagger": 104
       },
       "defense": {
         "armor_name": "Standard Fixer Suit",
@@ -510,25 +209,25 @@
           "pierce": 1.0,
           "blunt": 1.0
         },
-        "weapon_id": "phantom_razors"
+        "weapon_id": "none"
       },
       "attributes": {
-        "strength": 10,
-        "endurance": 21,
-        "agility": 11,
-        "wisdom": 0,
-        "psych": 21
+        "strength": 0,
+        "endurance": 30,
+        "agility": 0,
+        "wisdom": 16,
+        "psych": 0
       },
       "skills": {
         "strike_power": 0,
-        "medicine": 15,
-        "willpower": 3,
-        "luck": 62,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 58,
         "acrobatics": 0,
         "shields": 0,
         "tough_skin": 0,
-        "speed": 30,
-        "light_weapon": 4,
+        "speed": 22,
+        "light_weapon": 0,
         "medium_weapon": 0,
         "heavy_weapon": 0,
         "firearms": 0,
@@ -538,326 +237,368 @@
         "programming": 0
       },
       "passives": [
-        "new_discovery",
-        "s_cells",
-        "red_lycoris",
-        "shadow_majesty"
+        "axis_unity",
+        "pseudo_protagonist",
+        "source_access",
+        "meta_awareness",
+        "chthonic_nature"
       ],
       "talents": [
-        "keep_it_together",
-        "center_of_balance",
-        "athleticism_shadow",
-        "not_great_attention",
-        "smashing_blade",
-        "fast_and_silent",
-        "step_into_shadow",
-        "cat_reflexes",
-        "eye_for_danger",
-        "covering_tracks",
-        "knife_in_back",
-        "extreme_measures",
-        "vulnerability_point"
+        "deal_with_fortune",
+        "second_chance",
+        "sequential_luck",
+        "lucky_bastard",
+        "not_luck_just_skill",
+        "raise_stakes",
+        "azino_777"
       ],
       "augmentations": [],
       "level_rolls": {
         "3": {
-          "hp": 4,
-          "sp": 1
+          "hp": 3,
+          "sp": 4
         },
         "6": {
-          "hp": 5,
-          "sp": 3
+          "hp": 2,
+          "sp": 4
         },
         "9": {
-          "hp": 2,
-          "sp": 2
+          "hp": 5,
+          "sp": 4
         },
         "12": {
-          "hp": 2,
-          "sp": 2
+          "hp": 5,
+          "sp": 4
         },
         "15": {
-          "hp": 1,
-          "sp": 2
+          "hp": 4,
+          "sp": 1
         },
         "18": {
-          "hp": 4,
-          "sp": 2
+          "hp": 5,
+          "sp": 4
         },
         "21": {
-          "hp": 5,
-          "sp": 5
-        },
-        "24": {
           "hp": 2,
-          "sp": 1
-        },
-        "27": {
-          "hp": 4,
-          "sp": 1
-        },
-        "30": {
-          "hp": 5,
-          "sp": 1
-        },
-        "33": {
-          "hp": 5,
-          "sp": 4
-        },
-        "36": {
-          "hp": 4,
-          "sp": 4
-        },
-        "39": {
-          "hp": 4,
-          "sp": 4
+          "sp": 5
         }
       },
-      "biography": "Буквально тесак, халат Свен",
+      "biography": "Очки (крутые)\nВеревка (неудачливая)\n3 карточки хилок и платье (5, 30, 65. 3 бинда 0 2 3 сытости)\nплатье 500к\nстарый лук, немного приколов и стрел Лимы, но не все, еë шампунь, сами волосы Л, а также взяла у неë карандаш, бумагу, и оставила Лиме записку",
       "relationships": {},
       "unit_type": "player"
     }
   ],
-  "phase": "planning",
-  "round_number": 5,
-  "turn_message": "🎲 Speed Rolled (Targets Auto-Assigned)",
+  "team_right_data": [
+    {
+      "name": "Roland 2",
+      "level": 90,
+      "rank": 9,
+      "avatar": "data/avatars\\Roland.jpg",
+      "base_intellect": 1,
+      "total_xp": 618970019642690137449562112,
+      "pct_mods": {
+        "imp_hp": 200,
+        "imp_sp": 0,
+        "imp_stg": 0,
+        "tal_hp": 200,
+        "tal_sp": 0,
+        "tal_stg": 0
+      },
+      "flat_mods": {
+        "imp_hp": 0,
+        "imp_sp": 0,
+        "imp_stg": 0
+      },
+      "current_hp": 528,
+      "current_sp": 33,
+      "current_stagger": 256,
+      "resources": {
+        "luck": 999
+      },
+      "cooldowns": {},
+      "card_cooldowns": {},
+      "active_buffs": {},
+      "_status_effects": {
+        "smoke": [
+          {
+            "amount": 18,
+            "duration": 98
+          }
+        ]
+      },
+      "delayed_queue": [],
+      "deck": [],
+      "active_slots": [],
+      "stored_dice": [],
+      "counter_dice": [
+        {
+          "type": "evade",
+          "base_min": 35,
+          "base_max": 45,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 35,
+          "base_max": 45,
+          "is_counter": true,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 35,
+          "base_max": 45,
+          "is_counter": true,
+          "scripts": {}
+        }
+      ],
+      "memory": {
+        "status_rank": "2321321",
+        "start_of_battle_stats": {
+          "hp": 528,
+          "sp": 33,
+          "stagger": 256
+        },
+        "golden_dice_current": 0,
+        "azino_slots": [
+          7,
+          7,
+          7
+        ],
+        "lucky_coin_count": 0,
+        "adaptation_stats": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0
+        },
+        "muscle_overstrain_uses": 0,
+        "surge_activated": true,
+        "axis_applied_bonus_str": 0,
+        "axis_applied_bonus_end": 0,
+        "axis_applied_bonus_haste": 0,
+        "axis_buff_triad_active": false,
+        "smoke_is_defensive": true,
+        "smoke_limit_bonus": 15,
+        "last_revive_attempt_round": 10,
+        "last_revive_log": {
+          "roll": 1,
+          "bonus": 0,
+          "penalty": 0,
+          "total": 1,
+          "dc": 6,
+          "success": false
+        },
+        "battle_initialized": true
+      },
+      "death_count": 0,
+      "overkill_damage": 0,
+      "money_log": [],
+      "base_stats": {
+        "current_hp": 528,
+        "current_sp": 33,
+        "current_stagger": 256
+      },
+      "defense": {
+        "armor_name": "Standard Fixer Suit",
+        "armor_type": "Medium",
+        "armor_id": "standard_fixer_suit",
+        "hp_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "stagger_resists": {
+          "slash": 1.0,
+          "pierce": 1.0,
+          "blunt": 1.0
+        },
+        "weapon_id": "none"
+      },
+      "attributes": {
+        "strength": 10,
+        "endurance": 30,
+        "agility": 1,
+        "wisdom": 999,
+        "psych": 0
+      },
+      "skills": {
+        "strike_power": 0,
+        "medicine": 0,
+        "willpower": 0,
+        "luck": 500,
+        "acrobatics": 0,
+        "shields": 15,
+        "tough_skin": 30,
+        "speed": 15,
+        "light_weapon": 0,
+        "medium_weapon": 0,
+        "heavy_weapon": 0,
+        "firearms": 0,
+        "eloquence": 0,
+        "forging": 0,
+        "engineering": 0,
+        "programming": 0
+      },
+      "passives": [],
+      "talents": [
+        "hiding_in_smoke",
+        "smoke_universality",
+        "aerial_foot",
+        "smoke_screen",
+        "recycling",
+        "self_preservation",
+        "cleansing",
+        "experienced_smoker",
+        "lung_processing",
+        "to_narnia"
+      ],
+      "augmentations": [],
+      "level_rolls": {
+        "3": {
+          "hp": 3,
+          "sp": 5
+        },
+        "6": {
+          "hp": 4,
+          "sp": 4
+        },
+        "9": {
+          "hp": 1,
+          "sp": 2
+        },
+        "12": {
+          "hp": 1,
+          "sp": 1
+        },
+        "15": {
+          "hp": 2,
+          "sp": 2
+        },
+        "18": {
+          "hp": 3,
+          "sp": 5
+        },
+        "21": {
+          "hp": 3,
+          "sp": 4
+        },
+        "24": {
+          "hp": 5,
+          "sp": 3
+        },
+        "27": {
+          "hp": 3,
+          "sp": 1
+        },
+        "30": {
+          "hp": 5,
+          "sp": 4
+        },
+        "33": {
+          "hp": 2,
+          "sp": 5
+        },
+        "36": {
+          "hp": 1,
+          "sp": 3
+        },
+        "39": {
+          "hp": 5,
+          "sp": 3
+        },
+        "42": {
+          "hp": 4,
+          "sp": 5
+        },
+        "45": {
+          "hp": 1,
+          "sp": 4
+        },
+        "48": {
+          "hp": 2,
+          "sp": 5
+        },
+        "51": {
+          "hp": 1,
+          "sp": 2
+        },
+        "54": {
+          "hp": 4,
+          "sp": 1
+        },
+        "57": {
+          "hp": 3,
+          "sp": 5
+        },
+        "60": {
+          "hp": 1,
+          "sp": 2
+        },
+        "63": {
+          "hp": 3,
+          "sp": 1
+        },
+        "66": {
+          "hp": 2,
+          "sp": 5
+        },
+        "69": {
+          "hp": 1,
+          "sp": 1
+        },
+        "72": {
+          "hp": 2,
+          "sp": 3
+        },
+        "75": {
+          "hp": 2,
+          "sp": 2
+        },
+        "78": {
+          "hp": 2,
+          "sp": 4
+        },
+        "81": {
+          "hp": 2,
+          "sp": 3
+        },
+        "84": {
+          "hp": 5,
+          "sp": 4
+        },
+        "87": {
+          "hp": 4,
+          "sp": 4
+        },
+        "90": {
+          "hp": 2,
+          "sp": 4
+        }
+      },
+      "biography": "",
+      "relationships": {},
+      "unit_type": "fixer"
+    }
+  ],
+  "phase": "roll",
+  "round_number": 1,
+  "turn_message": "Game Reset to Pre-Battle State. Press 'Roll Initiative'.",
   "battle_logs": [
     {
-      "type": "clash",
-      "round": "Mass Atk (Mass)",
-      "left": {
-        "unit": "Зафиэль",
-        "card": "MASS SUM",
-        "dice": "Sum",
-        "val": 74.0,
-        "range": "Rolls: 37.0,37.0"
-      },
-      "right": {
-        "unit": "Рейн",
-        "card": "Defense",
-        "dice": "Sum",
-        "val": 50,
-        "range": "Rolls: 37,13"
-      },
-      "outcome": "🎯 Hit! (74.0 > 50)",
-      "details": [
-        "🚫 Рейн's page destroyed!",
-        "🎲 Roll [10-20]: 14 + 7 (Сила) + 6 (Тяжелое ор.) + 5 (Bonus SLASH) + 5.0 (Power All) - 4 (Paralysis (Min)) + 4 (Dragon Slab (Power)) = **37.0**",
-        "🩸 Bleed: Зафиэль takes 89 dmg",
-        "Костяной Разлом: 14 самоповреждения (3% HP)",
-        "💥 Damage x2.00",
-        "👊 Atk Boost: +3.0",
-        "💥 **Рейн**: [x1.0 Res] Hit 82 HP",
-        "🎲 Roll [10-15]: 10 + 7 (Сила) + 6 (Тяжелое ор.) + 5 (Bonus SLASH) + 5.0 (Power All) (DISABLED) = **-9966.0**",
-        "🩸 Bleed: Зафиэль takes 45 dmg",
-        "Костяной Разлом: 14 самоповреждения (3% HP)",
-        "💔 **Decay**: -71 HP (30.0%)",
-        "💚 **Зафиэль**: +30 HP",
-        "👊 Atk Boost: +3.0"
-      ]
+      "round": "Azino",
+      "rolls": "Spin",
+      "details": "🎰 **Вращение...** [7] | [7] | [7]"
     },
     {
-      "type": "clash",
-      "round": "Counter Clash (1)",
-      "left": {
-        "unit": "Зафиэль",
-        "card": "Counter",
-        "dice": "BLOCK",
-        "val": 27.0,
-        "range": "9-13"
-      },
-      "right": {
-        "unit": "Рейн",
-        "card": "Хорошее кофе... Вдохновляет.",
-        "dice": "SLASH",
-        "val": 35.0,
-        "range": "5-5"
-      },
-      "outcome": "🏆 Рейн Win (Hit) 💥 **-5 HP**",
-      "details": [
-        "🧪 **Рейн**: +11 Attack_power_up",
-        "🎲 Roll [5-5]: 5 + 2 (Сила) + 1 (Легкое ор.) + 2 (Bonus SLASH) + 2.0 (Power All) + 18 (Attack Power Up) + 5 (Fast & Silent (Invis)) = **35.0**",
-        "🗡️ **Sudden Attack**: x2 Dmg & 39 Bleed (Invisible) [1/Round]",
-        "👻 **Невидимость**: Раскрыт после удара!",
-        "💥 **Точка уязвимости**: Дополнительно 4 урона! (50% от 8)",
-        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
-        "💥 **Зафиэль**: [-9 Skin] [x1.0 Res] Hit 5 HP",
-        "🎲 Roll [9-13]: 11 + 13 (Стойкость) + 5.0 (Power All) - 2 (Paralysis (Min)) = **27.0**",
-        "💪 **Оборона**: Блок пробит! Ярость нарастает! (+1 Strength)"
-      ]
+      "round": "Azino",
+      "rolls": "Spin",
+      "details": "🎲 **Эффекты слотов**: [7] Luck +63"
     },
     {
-      "type": "clash",
-      "round": "Counter Clash (2)",
-      "left": {
-        "unit": "Зафиэль",
-        "card": "Counter",
-        "dice": "BLOCK (C)",
-        "val": 27.0,
-        "range": "9-13"
-      },
-      "right": {
-        "unit": "Рейн",
-        "card": "Хорошее кофе... Вдохновляет.",
-        "dice": "SLASH",
-        "val": 30.0,
-        "range": "5-5"
-      },
-      "outcome": "🏆 Рейн Win (Hit)",
-      "details": [
-        "🎲 Roll [5-5]: 5 + 2 (Сила) + 1 (Легкое ор.) + 2 (Bonus SLASH) + 2.0 (Power All) + 18 (Attack Power Up) = **30.0**",
-        "💥 **Точка уязвимости**: Дополнительно 1 урона! (50% от 3)",
-        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
-        "💥 **Зафиэль**: [-9 Skin] [x1.0 Res] Hit 0 HP",
-        "🎲 Roll [9-13]: 13 + 13 (Стойкость) + 5.0 (Power All) - 4 (Paralysis (Min)) = **27.0**",
-        "💪 **Оборона**: Блок пробит! Ярость нарастает! (+1 Strength)"
-      ]
-    },
-    {
-      "type": "clash",
-      "round": "Counter Clash (3)",
-      "left": {
-        "unit": "Зафиэль",
-        "card": "Counter",
-        "dice": "BLOCK (C)",
-        "val": 27.0,
-        "range": "9-13"
-      },
-      "right": {
-        "unit": "Рейн",
-        "card": "Хорошее кофе... Вдохновляет.",
-        "dice": "BLUNT",
-        "val": 28.0,
-        "range": "5-5"
-      },
-      "outcome": "🏆 Рейн Win (Hit)",
-      "details": [
-        "🎲 Roll [5-5]: 5 + 2 (Сила) + 1 (Легкое ор.) + 2.0 (Power All) + 18 (Attack Power Up) = **28.0**",
-        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
-        "🛡️ Damage mitigated to 0",
-        "🎲 Roll [9-13]: 10 + 13 (Стойкость) + 5.0 (Power All) - 1 (Paralysis (Min)) = **27.0**",
-        "💪 **Оборона**: Блок пробит! Ярость нарастает! (+1 Strength)"
-      ]
-    },
-    {
-      "type": "clash",
-      "round": "Counter Clash (4)",
-      "left": {
-        "unit": "Зафиэль",
-        "card": "Counter",
-        "dice": "BLOCK (C)",
-        "val": 27.0,
-        "range": "9-13"
-      },
-      "right": {
-        "unit": "Рейн",
-        "card": "Хорошее кофе... Вдохновляет.",
-        "dice": "BLUNT",
-        "val": 28.0,
-        "range": "5-5"
-      },
-      "outcome": "🏆 Рейн Win (Hit)",
-      "details": [
-        "🎲 Roll [5-5]: 5 + 2 (Сила) + 1 (Легкое ор.) + 2.0 (Power All) + 18 (Attack Power Up) = **28.0**",
-        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
-        "🛡️ Damage mitigated to 0",
-        "🎲 Roll [9-13]: 11 + 13 (Стойкость) + 5.0 (Power All) - 2 (Paralysis (Min)) = **27.0**",
-        "💪 **Оборона**: Блок пробит! Ярость нарастает! (+1 Strength)"
-      ]
-    },
-    {
-      "type": "clash",
-      "round": "Counter Clash (5)",
-      "left": {
-        "unit": "Зафиэль",
-        "card": "Counter",
-        "dice": "-",
-        "val": 0,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Рейн",
-        "card": "Хорошее кофе... Вдохновляет.",
-        "dice": "PIERCE",
-        "val": 28.0,
-        "range": "5-5"
-      },
-      "outcome": "🚫 Зафиэль Broken",
-      "details": [
-        "🎲 Roll [5-5]: 5 + 2 (Сила) + 1 (Легкое ор.) + 2.0 (Power All) + 18 (Attack Power Up) = **28.0**"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Рейн",
-        "card": "Плохое кофе... Нервирует.",
-        "dice": "SLASH",
-        "val": 60.0,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Зафиэль",
-        "card": "-",
-        "dice": "🚫 Broken",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed (Speed Break) 💥 **-49 HP**",
-      "details": [
-        "🤯 **Рейн**: -50 SP",
-        "🧪 **Рейн**: +8 Attack_power_up",
-        "🎲 Roll [27-42]: 27 + 2 (Сила) + 1 (Легкое ор.) + 2 (Bonus SLASH) + 2.0 (Power All) + 26 (Attack Power Up) = **60.0**",
-        "💥 **Точка уязвимости**: Дополнительно 30 урона! (50% от 60)",
-        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
-        "💥 **Зафиэль**: [-9 Skin] [x1.0 Res] Hit 49 HP"
-      ]
-    },
-    {
-      "type": "onesided",
-      "round": "R Hit (Hit)",
-      "left": {
-        "unit": "Рейн",
-        "card": "Это не предел возможностей",
-        "dice": "SLASH",
-        "val": 61.0,
-        "range": "-"
-      },
-      "right": {
-        "unit": "Зафиэль",
-        "card": "-",
-        "dice": "None",
-        "val": 0,
-        "range": "-"
-      },
-      "outcome": "Unopposed 💥 **-50 HP**",
-      "details": [
-        "🎲 Roll [20-30]: 28 + 2 (Сила) + 1 (Легкое ор.) + 2 (Bonus SLASH) + 2.0 (Power All) + 26 (Attack Power Up) = **61.0**",
-        "💥 **Точка уязвимости**: Дополнительно 30 урона! (50% от 61)",
-        "🧪 **Нейротоксин**: Паралич наложен (3 хода).",
-        "💥 **Зафиэль**: [-9 Skin] [x1.0 Res] Hit 50 HP (DEAD! Overkill: 59)"
-      ]
-    },
-    {
-      "round": "Round Start",
-      "rolls": "Event",
-      "details": "🔄 **Зафиэль**: 🧬 **Адаптация**: Активна защита от Slash (-25% урона)."
-    },
-    {
-      "round": "Round Start",
-      "rolls": "Event",
-      "details": "🔄 **Зафиэль**: ❤️ **Выживший**: Организм борется за жизнь! (+36 HP)."
-    },
-    {
-      "round": "Round Start",
-      "rolls": "Event",
-      "details": "🔄 **Рейн**: 🧠 Центр у равновесия: Восстановлено 14 SP (1 союзникам)."
-    },
-    {
-      "round": "Speed Roll",
-      "rolls": "Passive",
-      "details": "⚡ **Рейн**: 🧬 S-клетки: 4 слотов x 10 = Восстановлено 40 HP"
+      "round": "Azino",
+      "rolls": "Spin",
+      "details": "💰 **ДЖЕКПОТ!!!** МУЗЫКА НАЧАЛАСЬ! (Бессмертие 7 ходов, Full Restore)"
     }
   ],
   "script_logs": "",
@@ -865,7 +606,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Азгик",
+  "profile_unit": "Зафиэль",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": "Аксис Мунди",

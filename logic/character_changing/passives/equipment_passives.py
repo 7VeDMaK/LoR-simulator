@@ -310,3 +310,22 @@ class PassiveDragonSlab(BasePassive):
         elif ctx.dice.dtype == DiceType.BLUNT and res_slash > res_blunt:
             ctx.dice.dtype = DiceType.SLASH
             ctx.log.append("Adaptation: Blunt -> Slash")
+
+
+
+class ArmorZafBron(BasePassive):
+    id = "armor_zaf_bron"
+    name = "Костюм Зафиэля Passive"
+    description = (
+        "15 tough skin and 15 shields"
+    )
+    is_active_ability = True
+    cooldown = 5
+
+    def on_calculate_stats(self, unit, *args, **kwargs) -> dict:
+        # Теперь баффаем и Скорость, и Ловкость (Agility)
+        return {
+            "shields": 15,
+            "tough_skin": 15,
+            "strike_power": 15
+        }
