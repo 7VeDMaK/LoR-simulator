@@ -1,6 +1,6 @@
 {
   "type": "full",
-  "page": "👤 Profile",
+  "page": "⚔️ Simulator",
   "team_left_data": [
     {
       "name": "Аксис Мунди",
@@ -606,7 +606,7 @@
   "action_idx": 0,
   "executed_slots": [],
   "turn_actions": [],
-  "profile_unit": "Зафиэль",
+  "profile_unit": "Лайла",
   "leveling_unit": " Дна'хо",
   "tree_unit": " Дна'хо",
   "checks_unit": "Аксис Мунди",
