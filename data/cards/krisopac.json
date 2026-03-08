@@ -34,24 +34,24 @@
     },
     {
       "id": "элементарный_удар_69fc",
-      "name": "Бросок монетки",
+      "name": "Бросок нерфонетки",
       "tier": 2,
-      "type": "Offensive",
+      "type": "Melee",
       "description": "и бьём кулаком",
       "flags": [],
       "scripts": {},
       "dice": [
         {
-          "type": "pierce",
+          "type": "slash",
           "base_min": 3,
-          "base_max": 5,
+          "base_max": 4,
           "is_counter": false,
           "scripts": {}
         },
         {
-          "type": "blunt",
-          "base_min": 3,
-          "base_max": 5,
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 9,
           "is_counter": false,
           "scripts": {}
         }

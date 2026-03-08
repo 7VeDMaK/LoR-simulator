@@ -428,6 +428,31 @@
           "scripts": {}
         }
       ]
+    },
+    {
+      "id": "элементарный_удар_69fc",
+      "name": "Бросок нерфонетки",
+      "tier": 2,
+      "type": "Melee",
+      "description": "и бьём кулаком",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "pierce",
+          "base_min": 3,
+          "base_max": 4,
+          "is_counter": false,
+          "scripts": {}
+        },
+        {
+          "type": "blunt",
+          "base_min": 1,
+          "base_max": 9,
+          "is_counter": false,
+          "scripts": {}
+        }
+      ]
     }
   ]
 }
