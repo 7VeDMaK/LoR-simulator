@@ -211,3 +211,32 @@ ARMOR_ACTIVES = [
     "Ответный удар",
     "Стабилизация",
 ]
+
+# Шаблон ключей характеристик
+ATTRIBUTE_KEYS = [
+    "strength",
+    "endurance",
+    "agility",
+    "wisdom",
+    "psych",
+]
+
+# Шаблон ключей навыков
+SKILL_KEYS = [
+    "strike_power",
+    "medicine",
+    "willpower",
+    "luck",
+    "acrobatics",
+    "shields",
+    "tough_skin",
+    "speed",
+    "light_weapon",
+    "medium_weapon",
+    "heavy_weapon",
+    "firearms",
+    "eloquence",
+    "forging",
+    "engineering",
+    "programming",
+]
