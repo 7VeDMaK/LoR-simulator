@@ -13,7 +13,8 @@ from logic.statuses.custom import (
     SlashResistDownStatus, PierceResistDownStatus, BluntResistDownStatus,
     MainCharacterShellStatus, AzinoBeastStatus, AzinoJackpotStatus, LuckyCoinStatus, StatusAntiCharge,
     UnderCrosshairsStatus, VisitingCardStatus,
-    AmmoStatus, StaggerImmuneStatus, ExhaustionStatus, MarkedFleshStatus, BlueHyacinthStatus,  # НОВЫЕ ИМПОРТЫ
+    AmmoStatus, StaggerImmuneStatus, ExhaustionStatus, MarkedFleshStatus, BlueHyacinthStatus,
+    BreathStatus,  # НОВЫЕ ИМПОРТЫ
 )
 
 # === РЕГИСТРАЦИЯ ===
@@ -87,5 +88,7 @@ STATUS_REGISTRY = {
     # Алиасы для обратной совместимости
     "strength": AttackPowerUpStatus(),  # Старое название -> attack_power_up
     "anti_charge": StatusAntiCharge(),
-    "blue_hyacinth": BlueHyacinthStatus()
+    "blue_hyacinth": BlueHyacinthStatus(),
+
+    "breath": BreathStatus()
 }

@@ -1,0 +1,254 @@
+{
+  "cards": [
+    {
+      "id": "maneuver",
+      "name": "Манёвр[回]",
+      "tier": 1,
+      "type": "melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 3,
+          "scripts": {
+            "on_clash_win": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "self_control",
+                  "stack": 1,
+                  "duration": 99,
+                  "delay": 1,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "evade",
+          "base_min": 1,
+          "base_max": 3,
+          "scripts": {
+            "on_clash_win": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "breath",
+                  "stack": 1,
+                  "duration": 99,
+                  "delay": 1,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "blade_gleam",
+      "name": "Блеск лезвия",
+      "tier": 1,
+      "type": "melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 1,
+          "base_max": 7,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "bleed",
+                  "stack": 1,
+                  "duration": 99,
+                  "delay": 0,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "observation",
+      "name": "Наблюдение",
+      "tier": 1,
+      "type": "melee",
+      "description": "",
+      "flags": [],
+      "scripts": {
+        "on_use": [
+          {
+            "script_id": "apply_status",
+            "params": {
+              "status": "strength",
+              "stack": 1,
+              "duration": 1,
+              "delay": 1,
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "dice": [
+        {
+          "type": "block",
+          "base_min": 3,
+          "base_max": 5,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "lightning_dodge",
+      "name": "Молниеносный уворот",
+      "tier": 2,
+      "type": "melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "evade",
+          "base_min": 4,
+          "base_max": 6,
+          "scripts": {}
+        },
+        {
+          "type": "evade",
+          "base_min": 4,
+          "base_max": 6,
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "id": "double_strike228337",
+      "name": "Двойной удар[二擊]",
+      "tier": 2,
+      "type": "melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 3,
+          "base_max": 4,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "breath",
+                  "stack": 1,
+                  "duration": 99,
+                  "delay": 0,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 5,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "self_control",
+                  "stack": 2,
+                  "duration": 99,
+                  "delay": 0,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "triple_strike",
+      "name": "Тройной удар[三擊]",
+      "tier": 3,
+      "type": "melee",
+      "description": "",
+      "flags": [],
+      "scripts": {},
+      "dice": [
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 4,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "breath",
+                  "stack": 1,
+                  "duration": 99,
+                  "delay": 0,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 4,
+          "scripts": {
+            "on_hit": [
+              {
+                "script_id": "apply_status",
+                "params": {
+                  "status": "breath",
+                  "stack": 1,
+                  "duration": 99,
+                  "delay": 0,
+                  "target": "self"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "slash",
+          "base_min": 2,
+          "base_max": 4,
+          "scripts": {
+            "on_crit": [
+              {
+                "script_id": "deal_effect_damage",
+                "params": {
+                  "type": "stagger",
+                  "base": 4,
+                  "factor": 0.0,
+                  "stat": "roll",
+                  "scale_from_target": false,
+                  "target": "target"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

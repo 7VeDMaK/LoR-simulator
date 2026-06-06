@@ -126,6 +126,15 @@ ARMOR_REGISTRY = {
         stagger_resists={"slash": 1.0, "pierce": 1.0, "blunt": 1.0}
     ),
 
+    "armor_greengirl": Armor(
+        id="armor_grenni",
+        name="Hakama",
+        rank=9,
+        description="Старая броня Hakama... что получила от кого-то, всё ещё может держать удар.",
+        hp_resists={"slash": 1.3, "pierce": 1, "blunt": 0.7},
+        stagger_resists={"slash": 1.3, "pierce": 1.0, "blunt": 0.7}
+    ),
+
     "ghost_exoskeleton": Armor(
         id="ghost_exoskeleton",
         name="Экзо-костюм 'Призрак'",

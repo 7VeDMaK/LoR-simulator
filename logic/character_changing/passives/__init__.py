@@ -7,6 +7,8 @@ from logic.character_changing.passives.equipment_passives import PassiveAnnihila
     PassiveLimagun, PassivePhantomRazors, PassiveCoagulation, PassiveMagneticPickaxe, PassiveDragonSlab, ArmorZafBron
 from logic.character_changing.passives.fanat_passives import PassiveFanatReflect, PassiveFanatMarkHunter, \
     PassiveFanatAntiDefense, PassiveFanatStaggerRecovery, PassiveFanatUnwavering
+from logic.character_changing.passives.greengirl import WeaponHollowMoonPassive, PassiveSteelScaledStance, \
+    PassiveSpiralOfPride
 from logic.character_changing.passives.lilith_passives import PassiveHedonism, PassiveWagTail, PassiveBackstreetDemon, \
     PassiveDaughterOfBackstreets, PassiveLiveFastDieYoung
 from logic.character_changing.passives.lima_passives import PassiveAcceleratedLearning, TalentArtOfSelfDefense, \
@@ -88,5 +90,9 @@ PASSIVE_REGISTRY = {
 
 "blue_hyacinth_passive": PassiveBlueHyacinth(),
 "mech_dragon_slab": PassiveDragonSlab(),
-"armor_zaf_bron": ArmorZafBron()
+"armor_zaf_bron": ArmorZafBron(),
+
+"weapon_hollow_moon": WeaponHollowMoonPassive(),
+"steel_scaled_stance": PassiveSteelScaledStance(),
+"spiral_of_pride": PassiveSpiralOfPride()
 }

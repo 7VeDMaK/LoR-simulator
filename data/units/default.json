@@ -41,7 +41,7 @@
         "current_stagger": 10
     },
     "defense": {
-        "armor_name": "Unit_58",
+        "armor_name": "Unit_60",
         "armor_type": "Medium",
         "armor_id": "standard_fixer_suit",
         "hp_resists": {

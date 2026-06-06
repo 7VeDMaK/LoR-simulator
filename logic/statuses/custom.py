@@ -18,11 +18,23 @@ class SelfControlStatus(StatusEffect):
             ctx.log.append(f"💨 CRIT! ({chance}%) x2 DMG")
             logger.log(f"💨 SelfControl Crit: {ctx.source.name} (Chance {chance}%) -> x2 Dmg", LogLevel.VERBOSE,
                        "Status")
-            ctx.source.remove_status("self_control", 20)
+
+            breath_stacks = ctx.source.get_status("breath")
+            if breath_stacks > 0:
+                ctx.source.remove_status("breath", 1)
+                ctx.log.append("✨ Самообладание спасено благодаря Дыханию! (-1 Дыхание)")
+            else:
+                ctx.source.remove_status("self_control", 20)
+
 
     def on_round_end(self, unit, log_func, **kwargs):
-        unit.remove_status("self_control", 20)
-        return [f"💨 Self-Control decayed"]
+        breath_stacks = unit.get_status("breath")
+        if breath_stacks > 0:
+            unit.remove_status("breath", 1)
+            return [f"✨ Самообладание удержано (потрачено 1 Дыхание)"]
+        else:
+            unit.remove_status("self_control", 20)
+            return [f"💨 Self-Control decayed"]
 
 
 class SmokeStatus(StatusEffect):
@@ -891,3 +903,9 @@ class MarkedFleshStatus(StatusEffect):
 
     def on_round_end(self, unit, log_func, **kwargs):
         return []
+
+
+class BreathStatus(StatusEffect):
+    id = "breath"
+    name = "Дыхание"
+    description = "Когда должно использоваться самообладание, вместо этого тратится 1 дыхание."
