@@ -5,6 +5,11 @@ from .item_effects import RARITY_NAMES, ITEM_TIERS, POWER_MODIFIER_LABELS
 from .roulette_logic import RouletteRandomizer
 
 
+def _format_non_zero_stats(stats: dict) -> str:
+    parts = [f"{key}: {value:+d}" for key, value in stats.items() if value != 0]
+    return ", ".join(parts) if parts else "Нет"
+
+
 def render_roulette_page():
     """Рулетка Рейна - главная страница"""
     
@@ -94,6 +99,13 @@ def render_roulette_page():
 
                         st.write(f"**Пассивно:** {weapon.passive_effect}")
                         st.write(f"**Активно:** {weapon.active_effect}")
+                        st.write(f"**Attributes:** {_format_non_zero_stats(weapon.attributes)}")
+                        st.write(f"**Skills:** {_format_non_zero_stats(weapon.skills)}")
+
+                        with st.expander("📜 Полный потенциал предмета", expanded=False):
+                            for line in weapon.full_potential:
+                                st.write(f"• {line}")
+
                         st.write(f"**Описание тира:** {tier_info['description']}")
                         st.write(f"**Эффекты:**")
                         for effect in weapon.effects:
@@ -126,6 +138,13 @@ def render_roulette_page():
 
                         st.write(f"**Пассивно:** {armor.passive_effect}")
                         st.write(f"**Активно:** {armor.active_effect}")
+                        st.write(f"**Attributes:** {_format_non_zero_stats(armor.attributes)}")
+                        st.write(f"**Skills:** {_format_non_zero_stats(armor.skills)}")
+
+                        with st.expander("📜 Полный потенциал предмета", expanded=False):
+                            for line in armor.full_potential:
+                                st.write(f"• {line}")
+
                         st.write(f"**Описание тира:** {tier_info['description']}")
                         st.write(f"**Эффекты:**")
                         for effect in armor.effects:
@@ -168,5 +187,12 @@ def render_roulette_page():
 
                     st.write(f"**Пассивно:** {result.passive_effect}")
                     st.write(f"**Активно:** {result.active_effect}")
+                    st.write(f"**Attributes:** {_format_non_zero_stats(result.attributes)}")
+                    st.write(f"**Skills:** {_format_non_zero_stats(result.skills)}")
+
+                    with st.expander("📜 Полный потенциал предмета", expanded=False):
+                        for line in result.full_potential:
+                            st.write(f"• {line}")
+
                     st.info(f"**Описание тира:** {tier_info['description']}")
                     st.write(f"**Эффекты:** {', '.join(result.effects)}")

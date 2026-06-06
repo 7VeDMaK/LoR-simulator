@@ -20,6 +20,9 @@ from .item_effects import (
     WEAPON_ACTIVES,
     ARMOR_PASSIVES,
     ARMOR_ACTIVES,
+    ATTRIBUTE_KEYS,
+    SKILL_KEYS,
+    POWER_MODIFIER_LABELS,
 )
 
 
@@ -35,6 +38,9 @@ class Item:
     power_modifiers: Dict[str, int]
     passive_effect: str
     active_effect: str
+    attributes: Dict[str, int]
+    skills: Dict[str, int]
+    full_potential: List[str]
     effects: List[str]
     description: str
     price_multiplier: float  # Множитель цены от тира
@@ -69,6 +75,78 @@ class ItemGenerator:
         for key in chosen:
             modifiers[key] = min(4, base_value + random.randint(0, 1))
         return modifiers
+
+    def _roll_stat_bonuses(self, tier: int, item_rank: int) -> tuple[Dict[str, int], Dict[str, int]]:
+        attributes = {key: 0 for key in ATTRIBUTE_KEYS}
+        skills = {key: 0 for key in SKILL_KEYS}
+
+        tier_data = ITEM_TIERS[tier]
+        positive_count = max(1, tier_data["buffs"] + random.randint(0, 1))
+        negative_count = tier_data["debuffs"]
+
+        positive_pool = ["attributes", "skills"]
+        base_pos = 1 + max(0, (6 - item_rank) // 2)
+
+        for _ in range(positive_count):
+            target = random.choice(positive_pool)
+            if target == "attributes":
+                key = random.choice(ATTRIBUTE_KEYS)
+                attributes[key] += min(5, base_pos + random.randint(0, 1))
+            else:
+                key = random.choice(SKILL_KEYS)
+                skills[key] += min(6, base_pos + random.randint(0, 2))
+
+        for _ in range(negative_count):
+            target = random.choice(positive_pool)
+            if target == "attributes":
+                key = random.choice(ATTRIBUTE_KEYS)
+                attributes[key] -= 1
+            else:
+                key = random.choice(SKILL_KEYS)
+                skills[key] -= 1
+
+        return attributes, skills
+
+    def _main_power_label(self, power_modifiers: Dict[str, int]) -> str:
+        if not power_modifiers:
+            return "Все типы"
+        main_key = max(power_modifiers, key=power_modifiers.get)
+        return POWER_MODIFIER_LABELS.get(main_key, main_key)
+
+    def _build_full_potential(self, item_type: str, item_rank: int, power_modifiers: Dict[str, int], passive_effect: str, active_effect: str) -> List[str]:
+        main_label = self._main_power_label(power_modifiers)
+
+        if item_type == "weapon":
+            stage_map = {
+                9: f"+1 к {main_label}",
+                8: f"Пассивка: {passive_effect}",
+                7: f"+1 к {main_label}",
+                6: "Пассивка: +Урон по статусу",
+                5: "+1 к Защитным кубам",
+                4: f"Пассивка: {active_effect}",
+                3: "+1 ко всем броскам",
+                2: "Пассивка: Усиление урона",
+                1: "+1 к силе удара",
+                0: "Пассивка: Ульта предмета",
+            }
+        else:
+            stage_map = {
+                9: "+0.25 к базовому резисту",
+                8: f"Пассивка: {passive_effect}",
+                7: "+0.25 к резисту",
+                6: "Пассивка: Утилитарная защита",
+                5: "+1 к защитным кубам",
+                4: f"Пассивка: {active_effect}",
+                3: "+0.25 ко всем резистам",
+                2: "Пассивка: Контр-механика",
+                1: "+1 к блоку/уклонению",
+                0: "Пассивка: Иммунитет",
+            }
+
+        progression = []
+        for stage in range(9, item_rank - 1, -1):
+            progression.append(f"({stage}) {stage_map.get(stage, 'Скрытый потенциал')}")
+        return progression
     
     def generate_weapons(self, unit_rank: int, count: int = 3) -> List[Item]:
         """
@@ -102,6 +180,11 @@ class ItemGenerator:
             # Генерируем случайный тир качества (0-6)
             tier = random.randint(0, 6)
             tier_data = ITEM_TIERS[tier]
+            power_modifiers = self._roll_power_modifiers("weapon", item_rank)
+            passive_effect = random.choice(WEAPON_PASSIVES)
+            active_effect = random.choice(WEAPON_ACTIVES)
+            attributes, skills = self._roll_stat_bonuses(tier, item_rank)
+            full_potential = self._build_full_potential("weapon", item_rank, power_modifiers, passive_effect, active_effect)
             
             item = Item(
                 name=f"{weapon_name} (Ранг {item_rank})",
@@ -110,9 +193,12 @@ class ItemGenerator:
                 rank=item_rank,
                 rarity=rarity,
                 tier=tier,
-                power_modifiers=self._roll_power_modifiers("weapon", item_rank),
-                passive_effect=random.choice(WEAPON_PASSIVES),
-                active_effect=random.choice(WEAPON_ACTIVES),
+                power_modifiers=power_modifiers,
+                passive_effect=passive_effect,
+                active_effect=active_effect,
+                attributes=attributes,
+                skills=skills,
+                full_potential=full_potential,
                 effects=effects,
                 description=f"Оружие типа {weapon_type.capitalize()}",
                 price_multiplier=tier_data["price_multiplier"]
@@ -151,6 +237,11 @@ class ItemGenerator:
             # Генерируем случайный тир качества (0-6)
             tier = random.randint(0, 6)
             tier_data = ITEM_TIERS[tier]
+            power_modifiers = self._roll_power_modifiers("armor", item_rank)
+            passive_effect = random.choice(ARMOR_PASSIVES)
+            active_effect = random.choice(ARMOR_ACTIVES)
+            attributes, skills = self._roll_stat_bonuses(tier, item_rank)
+            full_potential = self._build_full_potential("armor", item_rank, power_modifiers, passive_effect, active_effect)
             
             item = Item(
                 name=f"{armor_name} (Ранг {item_rank})",
@@ -159,9 +250,12 @@ class ItemGenerator:
                 rank=item_rank,
                 rarity=rarity,
                 tier=tier,
-                power_modifiers=self._roll_power_modifiers("armor", item_rank),
-                passive_effect=random.choice(ARMOR_PASSIVES),
-                active_effect=random.choice(ARMOR_ACTIVES),
+                power_modifiers=power_modifiers,
+                passive_effect=passive_effect,
+                active_effect=active_effect,
+                attributes=attributes,
+                skills=skills,
+                full_potential=full_potential,
                 effects=effects,
                 description=f"Броня типа {armor_type.capitalize()}",
                 price_multiplier=tier_data["price_multiplier"]
